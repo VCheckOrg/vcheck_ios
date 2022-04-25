@@ -2,6 +2,8 @@ import ARKit
 import SceneKit
 import UIKit
 
+import Alamofire
+
 class ViewController: UIViewController, ARSessionDelegate {
         
     // MARK: Outlets
