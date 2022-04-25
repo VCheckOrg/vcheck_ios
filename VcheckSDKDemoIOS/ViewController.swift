@@ -2,8 +2,6 @@ import ARKit
 import SceneKit
 import UIKit
 
-import Alamofire
-
 class ViewController: UIViewController, ARSessionDelegate {
         
     // MARK: Outlets
@@ -19,6 +17,12 @@ class ViewController: UIViewController, ARSessionDelegate {
         sceneView.delegate = self
         sceneView.session.delegate = self
         sceneView.automaticallyUpdatesLighting = true
+        
+        if UIDevice.isSimulator {
+            DispatchQueue.main.async {
+                self.displayErrorMessage(title: "Cannot run on simulator", message: "Liveness session cannot run on simulator")
+            }
+        }
         
         // Set the initial face content.
 //        tabBar.selectedItem = tabBar.items!.first!
@@ -173,4 +177,14 @@ extension matrix_float4x4 {
             return SCNVector3(pitch, yaw, roll)
             }
     }
+}
+
+extension UIDevice {
+    static var isSimulator: Bool = {
+        #if targetEnvironment(simulator)
+        return true
+        #else
+        return false
+        #endif
+    }()
 }

@@ -15,6 +15,9 @@
 		DAB613342814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAB613322814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld */; };
 		DAB613362814767900234BB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB613352814767900234BB2 /* Assets.xcassets */; };
 		DAB613392814767900234BB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB613372814767900234BB2 /* LaunchScreen.storyboard */; };
+		DAE87E102816CC1F00ED6826 /* ChooseCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E0F2816CC1F00ED6826 /* ChooseCountryViewController.swift */; };
+		DAE87E122816CC2C00ED6826 /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E112816CC2C00ED6826 /* CountryListViewController.swift */; };
+		DAE87E152816CE6E00ED6826 /* DemoStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E142816CE6E00ED6826 /* DemoStartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,9 @@
 		DAB613352814767900234BB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAB613382814767900234BB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAB6133A2814767900234BB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAE87E0F2816CC1F00ED6826 /* ChooseCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCountryViewController.swift; sourceTree = "<group>"; };
+		DAE87E112816CC2C00ED6826 /* CountryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
+		DAE87E142816CE6E00ED6826 /* DemoStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoStartViewController.swift; sourceTree = "<group>"; };
 		EF05AA06C2A1732CF659E363 /* Pods-VcheckSDKDemoIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcheckSDKDemoIOS.release.xcconfig"; path = "Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,7 +64,6 @@
 				8A7C2B485A1BB89266CD15CB /* Pods-VcheckSDKDemoIOS.debug.xcconfig */,
 				EF05AA06C2A1732CF659E363 /* Pods-VcheckSDKDemoIOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,6 +88,7 @@
 		DAB613282814767700234BB2 /* VcheckSDKDemoIOS */ = {
 			isa = PBXGroup;
 			children = (
+				DAE87E132816CC3B00ED6826 /* choose_country_stage */,
 				DAB613292814767700234BB2 /* AppDelegate.swift */,
 				DAB6132B2814767700234BB2 /* SceneDelegate.swift */,
 				DAB6132D2814767700234BB2 /* ViewController.swift */,
@@ -91,8 +97,18 @@
 				DAB613372814767900234BB2 /* LaunchScreen.storyboard */,
 				DAB6133A2814767900234BB2 /* Info.plist */,
 				DAB613322814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld */,
+				DAE87E142816CE6E00ED6826 /* DemoStartViewController.swift */,
 			);
 			path = VcheckSDKDemoIOS;
+			sourceTree = "<group>";
+		};
+		DAE87E132816CC3B00ED6826 /* choose_country_stage */ = {
+			isa = PBXGroup;
+			children = (
+				DAE87E0F2816CC1F00ED6826 /* ChooseCountryViewController.swift */,
+				DAE87E112816CC2C00ED6826 /* CountryListViewController.swift */,
+			);
+			path = choose_country_stage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,8 +227,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAB6132E2814767700234BB2 /* ViewController.swift in Sources */,
+				DAE87E122816CC2C00ED6826 /* CountryListViewController.swift in Sources */,
+				DAE87E152816CE6E00ED6826 /* DemoStartViewController.swift in Sources */,
 				DAB6132A2814767700234BB2 /* AppDelegate.swift in Sources */,
 				DAB6132C2814767700234BB2 /* SceneDelegate.swift in Sources */,
+				DAE87E102816CC1F00ED6826 /* ChooseCountryViewController.swift in Sources */,
 				DAB613342814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

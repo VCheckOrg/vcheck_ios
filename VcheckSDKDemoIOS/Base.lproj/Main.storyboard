@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HjB-Fr-bFT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3HI-Lp-Qj3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="J1u-BW-rO3">
             <objects>
-                <viewController id="HjB-Fr-bFT" customClass="ViewController" customModule="ARKitFaceExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="HjB-Fr-bFT" customClass="ViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i8L-LC-oaW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -28,6 +29,7 @@
                             <constraint firstItem="nz3-Mc-QAQ" firstAttribute="trailing" secondItem="AWW-xM-ZoC" secondAttribute="trailing" id="tsa-cf-WF8"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Em8-h2-kHy"/>
                     <connections>
                         <outlet property="sceneView" destination="AWW-xM-ZoC" id="fKR-SJ-SWC"/>
                     </connections>
@@ -77,5 +79,76 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             </objects>
             <point key="canvasLocation" x="980" y="97.536945812807886"/>
         </scene>
+        <!--Demo Start View Controller-->
+        <scene sceneID="5BM-mo-2Xp">
+            <objects>
+                <viewController id="3HI-Lp-Qj3" customClass="DemoStartViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="A7h-UM-Lh9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXu-nD-622">
+                                <rect key="frame" x="99" y="204" width="217" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Start Demo Flow"/>
+                                <connections>
+                                    <segue destination="VHf-Vf-Dha" kind="show" id="3Fi-MH-sDr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DdH-Xd-pgi">
+                                <rect key="frame" x="91" y="686" width="232" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Start Liveness Session"/>
+                                <connections>
+                                    <segue destination="HjB-Fr-bFT" kind="show" id="3eL-Ye-4rp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="j8W-bb-Qhj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rSP-2F-feb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1055.072463768116" y="514.95535714285711"/>
+        </scene>
+        <!--Choose Country View Controller-->
+        <scene sceneID="QoB-W8-5k4">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="VHf-Vf-Dha" customClass="ChooseCountryViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qVF-Xu-QWL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="wRL-Yy-pwD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Kir-LD-vHt"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="djO-C6-qbE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="57" y="861"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="O7v-PE-izR">
+            <objects>
+                <viewController id="G2c-Yg-Bx4" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Gx-nu-ywK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="JUw-0d-Xgh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dpl-4N-OOI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980" y="860"/>
+        </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
