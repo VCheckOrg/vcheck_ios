@@ -7,6 +7,10 @@
 //import retrofit2.http.*
 //
 //interface ApiClient {
+
+//
+//    @GET("timestamp")
+//    fun getServiceTimestamp() : Call<String>
 //
 //    @POST("verifications")
 //    fun createVerificationRequest(@Body verificationRequestBody: CreateVerificationRequestBody)
@@ -64,9 +68,6 @@
 //    fun setDocumentAsPrimary(
 //        @Header("Authorization") verifToken: String,
 //        @Path("document") docId: Int) : Call<Response<Void>>
-//
-//    @GET("timestamp")
-//    fun getServiceTimestamp() : Call<String>
 //
 //    @Headers("multipart: true")
 //    @Multipart

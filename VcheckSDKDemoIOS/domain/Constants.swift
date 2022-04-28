@@ -11,7 +11,6 @@ import Foundation
 enum Constants {
     
     enum API {
-        
         static let serviceBaseURL = URL(string: "https://test-verification.vycheck.com/api/")!
     }
 }
