@@ -9,12 +9,12 @@ import Foundation
 
 struct CreateVerificationRequestBody: Codable {
 
-  var locale               : String? = nil
-  var partnerApplicationId : String? = nil
-  var partnerId            : Int?    = nil
-  var partnerUserId        : String? = nil
-  var sign                 : String? = nil
-  var timestamp            : Int?    = nil
+    var partnerId            : Int?    = 1
+    var partnerApplicationId : String? = currentTimeInMilliSecondsStr()
+    var partnerUserId        : String? = currentTimeInMilliSecondsStr()
+    var locale               : String? = nil
+    var timestamp            : Int?    = nil
+    var sign                 : String? = nil
 
   enum CodingKeys: String, CodingKey {
 
@@ -39,8 +39,25 @@ struct CreateVerificationRequestBody: Codable {
  
   }
 
-  init() {
+    init(timestamp: String) {
+        let testSecret = "DWBnN7LbeTaqG9vE"
+        let strToSign = "\(self.partnerApplicationId)\(self.partnerId)\(self.partnerUserId)\(self.timestamp)\(testSecret)"
+        self.sign = strToSign.sha256()
+        self.timestamp = Int(timestamp)
+    }
 
-  }
+}
 
+extension CreateVerificationRequestBody {
+    
+//    func generateForTest() {
+//        return CreateVerificationRequestBody()
+//
+//    }
+    
+    static func currentTimeInMilliSecondsStr() -> String {
+            let currentDate = Date()
+            let since1970 = currentDate.timeIntervalSince1970
+        return "\(Int(since1970 * 1000))"
+    }
 }

@@ -9,12 +9,16 @@ import Foundation
 
 class PhotoViewModel {
     
+    private var dataService: DataService?
+    
+    
     // MARK: - Properties
-    private var photo: Photo? {
+    private var timestamp: String? {
         didSet {
-            guard let p = photo else { return }
-            self.setupText(with: p)
-            self.didFinishFetch?()
+            guard let ts = timestamp else { return }
+            
+//            self.setupText(with: p)
+//            self.didFinishFetch?()
         }
     }
     var error: Error? {
@@ -28,7 +32,7 @@ class PhotoViewModel {
     var albumIdString: String?
     var photoUrl: URL?
     
-    private var dataService: DataService?
+    
     
     // MARK: - Closures for callback, since we are not using the ViewModel to the View.
     var showAlertClosure: (() -> ())?
