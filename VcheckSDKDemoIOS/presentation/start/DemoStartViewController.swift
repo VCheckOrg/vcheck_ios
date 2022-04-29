@@ -14,7 +14,6 @@ class DemoStartViewController : UIViewController {
     private let viewModel = DemoStartViewModel()
     
     @IBAction func startDemoFlowAction(_ sender: UIButton) {
-        print("BTN CLICKED")
         initVerification()
     }
     
@@ -37,7 +36,12 @@ class DemoStartViewController : UIViewController {
         viewModel.startVerifFlow()
         
         viewModel.gotCountries = {
-            self.goToCountriesScreen(data: self.viewModel.countries)
+            let countryTOArr: [CountryTO] = self.viewModel.countries!.map { (element) -> (CountryTO) in
+                let to: CountryTO = CountryTO.init(from: element)
+                return to
+            }
+            
+            self.goToCountriesScreen(data: countryTOArr)
         }
         
         viewModel.updateLoadingStatus = {
@@ -55,15 +59,22 @@ class DemoStartViewController : UIViewController {
     }
     
     //using a segue
-    func goToCountriesScreen(data: Codable) {
-      self.performSegue(withIdentifier: "StartToCountries", sender: data)//set the data from the segue to the controller
+    func goToCountriesScreen(data: [CountryTO]) {
+        
+        if let defaultSelectedCountry = self.viewModel.countries!.first(where: { $0.code == "ua" }) {
+            KeychainHelper.shared.saveSelectedCountryCode(code: defaultSelectedCountry.code)
+        } else {
+           print("CANNOT SAVE DEFAULT COUNTRY TO KEYCHAIN")
+        }
+        
+        self.performSegue(withIdentifier: "StartToCountries", sender: data)//set the data from the segue to the controller
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "StartToCountries") {
             print ("Navigating to Countries")
-            //let vc = segue.destination as! ChooseCountryViewController
-            //vc.verificationId = "Your Data" // TODO set countries data
+            let vc = segue.destination as! ChooseCountryViewController
+            vc.countries = sender as! [CountryTO]
         }
     }
     

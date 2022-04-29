@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B5107B038411776B43C74A38 /* Pods_VcheckSDKDemoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357E793382C533C73454B43D /* Pods_VcheckSDKDemoIOS.framework */; };
+		DA47CDA4281C3B59001226B9 /* AllowedCountryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47CDA3281C3B59001226B9 /* AllowedCountryViewCell.swift */; };
+		DA65CBB3281C527A006508A1 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65CBB2281C527A006508A1 /* RoundedView.swift */; };
 		DA73742B281ACC3700DBBDED /* DemoStartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73742A281ACC3700DBBDED /* DemoStartViewModel.swift */; };
 		DA73742E281ACC7E00DBBDED /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73742D281ACC7E00DBBDED /* DataService.swift */; };
 		DA737432281AD4CB00DBBDED /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA737431281AD4CB00DBBDED /* ApiError.swift */; };
@@ -44,6 +46,7 @@
 		DAB613342814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAB613322814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld */; };
 		DAB613362814767900234BB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB613352814767900234BB2 /* Assets.xcassets */; };
 		DAB613392814767900234BB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB613372814767900234BB2 /* LaunchScreen.storyboard */; };
+		DAC2325A281C3EF300D0CE16 /* BlockedCountryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC23259281C3EF300D0CE16 /* BlockedCountryViewCell.swift */; };
 		DAE87E102816CC1F00ED6826 /* ChooseCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E0F2816CC1F00ED6826 /* ChooseCountryViewController.swift */; };
 		DAE87E122816CC2C00ED6826 /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E112816CC2C00ED6826 /* CountryListViewController.swift */; };
 		DAE87E152816CE6E00ED6826 /* DemoStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E142816CE6E00ED6826 /* DemoStartViewController.swift */; };
@@ -52,6 +55,12 @@
 /* Begin PBXFileReference section */
 		357E793382C533C73454B43D /* Pods_VcheckSDKDemoIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VcheckSDKDemoIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A7C2B485A1BB89266CD15CB /* Pods-VcheckSDKDemoIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcheckSDKDemoIOS.debug.xcconfig"; path = "Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		DA47CDA3281C3B59001226B9 /* AllowedCountryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowedCountryViewCell.swift; sourceTree = "<group>"; };
+		DA65CBAE281C4759006508A1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
+		DA65CBAF281C4759006508A1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		DA65CBB0281C4766006508A1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		DA65CBB1281C4766006508A1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		DA65CBB2281C527A006508A1 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		DA73742A281ACC3700DBBDED /* DemoStartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoStartViewModel.swift; sourceTree = "<group>"; };
 		DA73742D281ACC7E00DBBDED /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		DA737431281AD4CB00DBBDED /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
@@ -90,6 +99,7 @@
 		DAB613352814767900234BB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAB613382814767900234BB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAB6133A2814767900234BB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAC23259281C3EF300D0CE16 /* BlockedCountryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedCountryViewCell.swift; sourceTree = "<group>"; };
 		DAE87E0F2816CC1F00ED6826 /* ChooseCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCountryViewController.swift; sourceTree = "<group>"; };
 		DAE87E112816CC2C00ED6826 /* CountryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
 		DAE87E142816CE6E00ED6826 /* DemoStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoStartViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +133,15 @@
 				EF05AA06C2A1732CF659E363 /* Pods-VcheckSDKDemoIOS.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DA19DCEC281C52DC00023B5A /* util */ = {
+			isa = PBXGroup;
+			children = (
+				DA737435281AF59400DBBDED /* Utils.swift */,
+				DA65CBB2281C527A006508A1 /* RoundedView.swift */,
+			);
+			path = util;
 			sourceTree = "<group>";
 		};
 		DA737428281ACAFD00DBBDED /* presentation */ = {
@@ -205,6 +224,7 @@
 		DAB613282814767700234BB2 /* VcheckSDKDemoIOS */ = {
 			isa = PBXGroup;
 			children = (
+				DA19DCEC281C52DC00023B5A /* util */,
 				DA73742C281ACC6E00DBBDED /* service */,
 				DA737428281ACAFD00DBBDED /* presentation */,
 				DAAF4DBE281AC6D80029F26C /* domain */,
@@ -216,7 +236,6 @@
 				DAB613372814767900234BB2 /* LaunchScreen.storyboard */,
 				DAB6133A2814767900234BB2 /* Info.plist */,
 				DAB613322814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld */,
-				DA737435281AF59400DBBDED /* Utils.swift */,
 			);
 			path = VcheckSDKDemoIOS;
 			sourceTree = "<group>";
@@ -226,6 +245,8 @@
 			children = (
 				DAE87E0F2816CC1F00ED6826 /* ChooseCountryViewController.swift */,
 				DAE87E112816CC2C00ED6826 /* CountryListViewController.swift */,
+				DA47CDA3281C3B59001226B9 /* AllowedCountryViewCell.swift */,
+				DAC23259281C3EF300D0CE16 /* BlockedCountryViewCell.swift */,
 			);
 			path = choose_country_stage;
 			sourceTree = "<group>";
@@ -274,6 +295,8 @@
 			knownRegions = (
 				en,
 				Base,
+				uk,
+				ru,
 			);
 			mainGroup = DAB6131D2814767700234BB2;
 			productRefGroup = DAB613272814767700234BB2 /* Products */;
@@ -359,6 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAB6132E2814767700234BB2 /* ViewController.swift in Sources */,
+				DA65CBB3281C527A006508A1 /* RoundedView.swift in Sources */,
 				DAAF4E1D281AC7A60029F26C /* Constants.swift in Sources */,
 				DAAF4E14281AC7A60029F26C /* VerificationRequestModels.swift in Sources */,
 				DA73742B281ACC3700DBBDED /* DemoStartViewModel.swift in Sources */,
@@ -369,6 +393,8 @@
 				DAAF4E20281AC7A60029F26C /* DocumentResponseModels.swift in Sources */,
 				DAAF4E1C281AC7A60029F26C /* CountryModels.swift in Sources */,
 				DA737432281AD4CB00DBBDED /* ApiError.swift in Sources */,
+				DAC2325A281C3EF300D0CE16 /* BlockedCountryViewCell.swift in Sources */,
+				DA47CDA4281C3B59001226B9 /* AllowedCountryViewCell.swift in Sources */,
 				DAB6132A2814767700234BB2 /* AppDelegate.swift in Sources */,
 				DAAF4E15281AC7A60029F26C /* ApiClient.swift in Sources */,
 				DAAF4E0E281AC7A60029F26C /* BaseClientResponseModel.swift in Sources */,
@@ -391,6 +417,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				DAB613302814767700234BB2 /* Base */,
+				DA65CBAE281C4759006508A1 /* uk */,
+				DA65CBB0281C4766006508A1 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -399,6 +427,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				DAB613382814767900234BB2 /* Base */,
+				DA65CBAF281C4759006508A1 /* uk */,
+				DA65CBB1281C4766006508A1 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -410,6 +440,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -471,6 +502,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -533,9 +565,11 @@
 				DEVELOPMENT_TEAM = 8X5XV4T3QP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VcheckSDKDemoIOS/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We require camera for document photos caching and liveness actions processing";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -547,7 +581,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -562,9 +596,11 @@
 				DEVELOPMENT_TEAM = 8X5XV4T3QP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VcheckSDKDemoIOS/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We require camera for document photos caching and liveness actions processing";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -576,7 +612,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

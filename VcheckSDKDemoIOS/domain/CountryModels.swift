@@ -59,3 +59,42 @@ struct Country: Codable {
   }
 
 }
+
+
+struct CountryTO {
+    
+    var name: String
+    var code: String
+    var flag: String
+    var isBlocked: Bool
+    
+    init(from country: Country) {
+        self.isBlocked = country.isBlocked
+        self.code = country.code
+        self.name = CountryTO.countryName(countryCode: country.code)
+        self.flag = CountryTO.strToFlagEmoji(from: country.code)
+    }
+    
+    static func countryName(countryCode: String) -> String {
+        let current = Locale(identifier: Locale.current.identifier)
+        return current.localizedString(forRegionCode: countryCode) ?? "Not Localized"
+    }
+    
+    static func strToFlagEmoji(from country:String) -> String {
+        let base : UInt32 = 127397
+        var s = ""
+        for v in country.uppercased().unicodeScalars {
+            s.unicodeScalars.append(UnicodeScalar(base + v.value)!)
+        }
+        return s
+    }
+    
+//    static func strToFlagEmoji(strCode: String) -> String {
+//        strCode
+//            .unicodeScalars
+//            .map({ 127397 + $0.value })
+//            .compactMap(UnicodeScalar.init)
+//            .map(String.init)
+//            .joined()
+//    }
+}

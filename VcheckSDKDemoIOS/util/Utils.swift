@@ -47,16 +47,6 @@ public extension String {
         let components = self.components(separatedBy: string)
         return components[0]
     }
-    
-    func toFlagEmoji() -> String {
-        self
-            .unicodeScalars
-            .map({ 127397 + $0.value })
-            .compactMap(UnicodeScalar.init)
-            .map(String.init)
-            .joined()
-    }
-
 }
 
 
