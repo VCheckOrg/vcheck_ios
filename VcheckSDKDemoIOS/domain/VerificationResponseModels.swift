@@ -33,9 +33,7 @@ struct VerificationCreateAttemptResponse: Codable {
  
   }
 
-  init() {
-
-  }
+  init() {}
 
 }
 
@@ -63,9 +61,7 @@ struct VerificationCreateAttemptResponseData: Codable {
  
   }
 
-  init() {
-
-  }
+  init() {}
 
 }
 

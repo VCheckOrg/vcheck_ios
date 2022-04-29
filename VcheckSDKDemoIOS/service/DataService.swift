@@ -20,7 +20,7 @@ struct DataService {
     // MARK: - Services
     
     func requestServerTimestamp(completion: @escaping (String?, ApiError?) -> ()) {
-        let url = "\(baseUrl)timestmap"
+        let url = "\(baseUrl)timestamp"
         
         AF.request(url, method: .get)
           .validate()  //response returned an HTTP status code in the range 200–299
@@ -35,11 +35,24 @@ struct DataService {
           })
     }
     
-    
-    func createVerificationRequest(completion: @escaping (VerificationCreateAttemptResponseData?, ApiError?) -> ()) {
+    // with pre-composed test request body
+    func createVerificationRequest(timestamp: String,
+                                   locale: String,
+                                   completion: @escaping (VerificationCreateAttemptResponseData?, ApiError?) -> ()) {
         let url = "\(baseUrl)verifications"
         
-        AF.request(url, method: .post)
+        let model = CreateVerificationRequestBody.init(ts: timestamp, locale: locale)
+        
+        var jsonData: Dictionary<String, Any>?
+        do {
+            jsonData = try model.toDictionary()
+            //print(jsonData ?? [:])
+        } catch {
+            completion(nil, ApiError(errorText: "Error: Failed to convert model!"))
+            return
+        }
+        
+        AF.request(url, method: .post, parameters: jsonData, encoding: JSONEncoding.default)
           .validate()  //response returned an HTTP status code in the range 200–299
           .responseDecodable(of: VerificationCreateAttemptResponse.self) { (response) in
             guard let response = response.value else {
@@ -61,8 +74,13 @@ struct DataService {
     
     func initVerification(completion: @escaping (VerificationInitResponseData?, ApiError?) -> ()) {
         let url = "\(baseUrl)verifications/init"
-
-        let headers: HTTPHeaders = ["Authorization" : "Bearer: \(KeychainHelper.shared.readAccessToken())"]
+        
+        let token = KeychainHelper.shared.readAccessToken()
+        if (token.isEmpty) {
+            completion(nil, ApiError(errorText: "Error: cannot find access token"))
+            return
+        }
+        let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
         
         AF.request(url, method: .put, headers: headers)
           .validate()  //response returned an HTTP status code in the range 200–299
@@ -88,7 +106,12 @@ struct DataService {
     func getCountries(completion: @escaping ([Country]?, ApiError?) -> ()) {
         let url = "\(baseUrl)countries"
 
-        let headers: HTTPHeaders = ["Authorization" : "Bearer: \(KeychainHelper.shared.readAccessToken())"]
+        let token = KeychainHelper.shared.readAccessToken()
+        if (token.isEmpty) {
+            completion(nil, ApiError(errorText: "Error: cannot find access token"))
+            return
+        }
+        let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
         
         AF.request(url, method: .get, headers: headers)
           .validate()  //response returned an HTTP status code in the range 200–299
@@ -115,7 +138,12 @@ struct DataService {
                                         completion: @escaping ([DocTypeData]?, ApiError?) -> ()) {
         let url = "\(baseUrl)countries/\(countryCode)/documents"
 
-        let headers: HTTPHeaders = ["Authorization" : "Bearer: \(KeychainHelper.shared.readAccessToken())"]
+        let token = KeychainHelper.shared.readAccessToken()
+        if (token.isEmpty) {
+            completion(nil, ApiError(errorText: "Error: cannot find access token"))
+            return
+        }
+        let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
         
         AF.request(url, method: .get, headers: headers)
           .validate()  //response returned an HTTP status code in the range 200–299
@@ -137,7 +165,7 @@ struct DataService {
     }
     
     
-    //https://stackoverflow.com/a/62407235/6405022  -- Alamofire + Multipart
+    //https://stackoverflow.com/a/62407235/6405022  -- Alamofire + Multipart :
     
     func uploadVerificationDocuments(
         photo1: UIImage,
@@ -148,7 +176,12 @@ struct DataService {
             
             let url = "\(baseUrl)documents"
 
-            let headers: HTTPHeaders = ["Authorization" : "Bearer: \(KeychainHelper.shared.readAccessToken())"]
+            let token = KeychainHelper.shared.readAccessToken()
+            if (token.isEmpty) {
+                completion(nil, ApiError(errorText: "Error: cannot find access token"))
+                return
+            }
+            let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
                 
             let multipartFormData = MultipartFormData.init()
                 
@@ -183,7 +216,12 @@ struct DataService {
                          completion: @escaping (PreProcessedDocData?, ApiError?) -> ()) {
         let url = "documents/\(documentId)"
 
-        let headers: HTTPHeaders = ["Authorization" : "Bearer: \(KeychainHelper.shared.readAccessToken())"]
+        let token = KeychainHelper.shared.readAccessToken()
+        if (token.isEmpty) {
+            completion(nil, ApiError(errorText: "Error: cannot find access token"))
+            return
+        }
+        let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
 
         AF.request(url, method: .get, headers: headers)
         .validate()  //response returned an HTTP status code in the range 200–299
@@ -210,7 +248,12 @@ struct DataService {
                                  completion: @escaping (Bool, ApiError?) -> ()) {
         let url = "documents/\(documentId)"
 
-        let headers: HTTPHeaders = ["Authorization" : "Bearer: \(KeychainHelper.shared.readAccessToken())"]
+        let token = KeychainHelper.shared.readAccessToken()
+        if (token.isEmpty) {
+            completion(false, ApiError(errorText: "Error: cannot find access token"))
+            return
+        }
+        let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
 
         AF.request(url, method: .put, parameters: parsedDocFieldsData, headers: headers)
         .validate()  //response returned an HTTP status code in the range 200–299
@@ -228,9 +271,14 @@ struct DataService {
     
     func setDocumentAsPrimary(documentId: Int,
                               completion: @escaping (Bool, ApiError?) -> ()) {
-         let url = "documents/\(documentId)/primary"
+        let url = "documents/\(documentId)/primary"
 
-         let headers: HTTPHeaders = ["Authorization" : "Bearer: \(KeychainHelper.shared.readAccessToken())"]
+        let token = KeychainHelper.shared.readAccessToken()
+        if (token.isEmpty) {
+            completion(false, ApiError(errorText: "Error: cannot find access token"))
+            return
+        }
+        let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
 
          AF.request(url, method: .put, headers: headers)
          .validate()  //response returned an HTTP status code in the range 200–299
@@ -251,7 +299,12 @@ struct DataService {
             
             let url = "\(baseUrl)liveness"
 
-            let headers: HTTPHeaders = ["Authorization" : "Bearer: \(KeychainHelper.shared.readAccessToken())"]
+            let token = KeychainHelper.shared.readAccessToken()
+            if (token.isEmpty) {
+                completion(false, ApiError(errorText: "Error: cannot find access token"))
+                return
+            }
+            let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
                 
             let multipartFormData = MultipartFormData.init()
                 
@@ -270,4 +323,19 @@ struct DataService {
                 })
     }
     
+}
+
+
+extension Encodable {
+
+    /// Converting object to postable dictionary
+    func toDictionary(_ encoder: JSONEncoder = JSONEncoder()) throws -> [String: Any] {
+        let data = try encoder.encode(self)
+        let object = try JSONSerialization.jsonObject(with: data)
+        guard let json = object as? [String: Any] else {
+            let context = DecodingError.Context(codingPath: [], debugDescription: "Deserialized object is not a dictionary")
+            throw DecodingError.typeMismatch(type(of: object), context)
+        }
+        return json
+    }
 }

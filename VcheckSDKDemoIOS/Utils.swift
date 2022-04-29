@@ -7,6 +7,7 @@
 
 import Foundation
 import CommonCrypto
+import UIKit
 
 extension Data {
     public func sha256() -> String{
@@ -41,3 +42,27 @@ public extension String {
         return ""
     }
 }
+
+public extension String {
+
+    mutating func substringBefore(_ string: String) -> String {
+        let components = self.components(separatedBy: string)
+        return components[0]
+    }
+
+}
+
+
+extension UIViewController {
+
+    func showToast(message : String, seconds: Double){
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alert.view.backgroundColor = .black
+        alert.view.alpha = 0.5
+        alert.view.layer.cornerRadius = 15
+        self.present(alert, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + seconds) {
+            alert.dismiss(animated: true)
+        }
+    }
+ }

@@ -88,37 +88,48 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXu-nD-622">
-                                <rect key="frame" x="99" y="204" width="217" height="31"/>
+                                <rect key="frame" x="99" y="204" width="216" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Start Demo Flow"/>
                                 <connections>
-                                    <segue destination="VHf-Vf-Dha" kind="show" id="3Fi-MH-sDr"/>
+                                    <action selector="startDemoFlowAction:" destination="3HI-Lp-Qj3" eventType="touchUpInside" id="lcF-j0-HUt"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DdH-Xd-pgi">
                                 <rect key="frame" x="91" y="686" width="232" height="31"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Start Liveness Session"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Liveness Demo"/>
                                 <connections>
                                     <segue destination="HjB-Fr-bFT" kind="show" id="3eL-Ye-4rp"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="eXt-L9-GpI">
+                                <rect key="frame" x="187" y="361" width="40" height="40"/>
+                                <color key="tintColor" name="AccentColor"/>
+                                <color key="color" name="DescriptionColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="j8W-bb-Qhj"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="uXu-nD-622" firstAttribute="centerX" secondItem="eXt-L9-GpI" secondAttribute="centerX" id="8NR-jV-Sv9"/>
                             <constraint firstItem="j8W-bb-Qhj" firstAttribute="bottom" secondItem="DdH-Xd-pgi" secondAttribute="bottom" constant="145" id="BHa-au-3WD"/>
+                            <constraint firstItem="eXt-L9-GpI" firstAttribute="centerY" secondItem="j8W-bb-Qhj" secondAttribute="centerY" constant="-72" id="RJi-c0-oAf"/>
                             <constraint firstItem="j8W-bb-Qhj" firstAttribute="trailing" secondItem="DdH-Xd-pgi" secondAttribute="trailing" constant="91" id="Whg-hH-Vvo"/>
                             <constraint firstItem="DdH-Xd-pgi" firstAttribute="leading" secondItem="j8W-bb-Qhj" secondAttribute="leading" constant="91" id="dyj-J9-PxF"/>
-                            <constraint firstItem="uXu-nD-622" firstAttribute="leading" secondItem="j8W-bb-Qhj" secondAttribute="leading" constant="99" id="sLX-Lj-4Jq"/>
-                            <constraint firstItem="j8W-bb-Qhj" firstAttribute="trailing" secondItem="uXu-nD-622" secondAttribute="trailing" constant="98" id="ugs-cd-fCR"/>
+                            <constraint firstItem="uXu-nD-622" firstAttribute="leading" secondItem="j8W-bb-Qhj" secondAttribute="leading" constant="99" id="gSZ-LX-6wZ"/>
+                            <constraint firstItem="eXt-L9-GpI" firstAttribute="centerX" secondItem="j8W-bb-Qhj" secondAttribute="centerX" id="gbB-br-SDM"/>
                             <constraint firstItem="uXu-nD-622" firstAttribute="top" secondItem="j8W-bb-Qhj" secondAttribute="top" constant="160" id="xmL-Lj-qE0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="spinner" destination="eXt-L9-GpI" id="oni-yL-zbX"/>
+                        <segue destination="VHf-Vf-Dha" kind="show" identifier="StartToCountries" id="Hnt-iA-CAy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rSP-2F-feb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1055.072463768116" y="514.95535714285711"/>
+            <point key="canvasLocation" x="-1101" y="508"/>
         </scene>
         <!--Choose Country View Controller-->
         <scene sceneID="QoB-W8-5k4">
@@ -1801,6 +1812,9 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
         <image name="os_not_support_image" width="480" height="480"/>
         <image name="success_image" width="480" height="480"/>
         <image name="wrong_move_image" width="480" height="480"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="BackgroundColor">
             <color red="0.16500000655651093" green="0.16500000655651093" blue="0.16500000655651093" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

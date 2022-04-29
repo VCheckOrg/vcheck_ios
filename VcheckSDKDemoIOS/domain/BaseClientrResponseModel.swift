@@ -7,11 +7,11 @@
 
 import Foundation
 
-
-struct BaseClientResponseModel {
-    
-    let data: Any?
-    let errorCode: Int = 0
-    let message: String = ""
-}
-    
+//
+//struct BaseClientResponseModel {
+//
+//    let data: Any?
+//    let errorCode: Int = 0
+//    let message: String = ""
+//}
+//

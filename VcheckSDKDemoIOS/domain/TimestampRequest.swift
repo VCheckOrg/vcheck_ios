@@ -7,14 +7,14 @@
 
 import Foundation
 
-
-struct TimestampRequest: APIRequest {
-    
-    let method: APIRequestMethod = .get
-    let path: String
-    
-    init() {
-        path = "timestamp"
-    }
-    
-}
+//
+//struct TimestampRequest: APIRequest {
+//
+//    let method: APIRequestMethod = .get
+//    let path: String
+//    
+//    init() {
+//        path = "timestamp"
+//    }
+//
+//}

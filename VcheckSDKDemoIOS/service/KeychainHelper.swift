@@ -78,7 +78,12 @@ final class KeychainHelper {
 extension KeychainHelper {
     
     func readAccessToken() -> String {
-       return String(data: read(service: "access-token", account: "vhcheck")!, encoding: .utf8)!
+        return String(data: read(service: "access-token", account: "vhcheck")!, encoding: .utf8) ?? ""
+    }
+    
+    func saveAccessToken(accessToken: String) {
+        let data = Data(accessToken.utf8)
+        save(data, service: "access-token", account: "vhcheck")
     }
 }
 

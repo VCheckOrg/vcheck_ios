@@ -9,12 +9,12 @@ import Foundation
 
 struct CreateVerificationRequestBody: Codable {
 
-    var partnerId            : Int?    = 1
-    var partnerApplicationId : String? = currentTimeInMilliSecondsStr()
-    var partnerUserId        : String? = currentTimeInMilliSecondsStr()
-    var locale               : String? = nil
-    var timestamp            : Int?    = nil
-    var sign                 : String? = nil
+    var partnerId            : Int    = 1
+    var partnerApplicationId : String = currentTimeInMilliSecondsStr()
+    var partnerUserId        : String = currentTimeInMilliSecondsStr()
+    var locale               : String = "ua"
+    var timestamp            : Int    = Int(Date().timeIntervalSince1970)
+    var sign                 : String = "-"
 
   enum CodingKeys: String, CodingKey {
 
@@ -30,30 +30,38 @@ struct CreateVerificationRequestBody: Codable {
   init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
 
-    locale               = try values.decodeIfPresent(String.self , forKey: .locale               )
-    partnerApplicationId = try values.decodeIfPresent(String.self , forKey: .partnerApplicationId )
-    partnerId            = try values.decodeIfPresent(Int.self    , forKey: .partnerId            )
-    partnerUserId        = try values.decodeIfPresent(String.self , forKey: .partnerUserId        )
-    sign                 = try values.decodeIfPresent(String.self , forKey: .sign                 )
-    timestamp            = try values.decodeIfPresent(Int.self    , forKey: .timestamp            )
- 
+    locale               = try values.decodeIfPresent(String.self , forKey: .locale               )!
+    partnerApplicationId = try values.decodeIfPresent(String.self , forKey: .partnerApplicationId )!
+    partnerId            = try values.decodeIfPresent(Int.self    , forKey: .partnerId            )!
+    partnerUserId        = try values.decodeIfPresent(String.self , forKey: .partnerUserId        )!
+    sign                 = try values.decodeIfPresent(String.self , forKey: .sign                 )!
+    timestamp            = try values.decodeIfPresent(Int.self    , forKey: .timestamp            )!
   }
 
-    init(timestamp: String) {
-        let testSecret = "DWBnN7LbeTaqG9vE"
-        let strToSign = "\(self.partnerApplicationId)\(self.partnerId)\(self.partnerUserId)\(self.timestamp)\(testSecret)"
-        self.sign = strToSign.sha256()
-        self.timestamp = Int(timestamp)
-    }
-
+  init(ts: String, locale: String) {
+      
+      //self.timestamp = Int(timestamp)
+      self.locale = locale
+      
+      print("TIMESTAMP : \(String(describing: ts))")
+      
+      //let i: Int = Int(ts)! as Int
+      
+      let secondPrecision = Int(Date().timeIntervalSince1970)
+      self.timestamp = secondPrecision
+      print("SELF TIMESTAMP : \(String(describing: self.timestamp))")
+      
+      let testSecret = Constants.API.testPartnerSecret
+      let strToSign = "\(self.partnerApplicationId)\(self.partnerId)\(self.partnerUserId)\(self.timestamp)\(testSecret)"
+      self.sign = strToSign.sha256()
+      
+//      let tss = Int64(ts)
+//      print("SELF TIMESTAMP : \(String(describing: tss))")
+      
+  }
 }
 
 extension CreateVerificationRequestBody {
-    
-//    func generateForTest() {
-//        return CreateVerificationRequestBody()
-//
-//    }
     
     static func currentTimeInMilliSecondsStr() -> String {
             let currentDate = Date()

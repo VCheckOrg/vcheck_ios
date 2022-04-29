@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+//TODO: cleanup domain directory!
+
 class ChooseCountryViewController : UIViewController {
     
     

@@ -12,5 +12,8 @@ enum Constants {
     
     enum API {
         static let serviceBaseURL = URL(string: "https://test-verification.vycheck.com/api/")!
+        
+        // FOR TEST
+        static let testPartnerSecret = "DWBnN7LbeTaqG9vE"
     }
 }

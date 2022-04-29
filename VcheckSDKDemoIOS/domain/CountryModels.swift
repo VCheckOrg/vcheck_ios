@@ -40,8 +40,8 @@ struct CountriesResponse: Codable {
 
 struct Country: Codable {
 
-  var code      : String? = nil
-  var isBlocked : Bool?   = nil
+  var code      : String
+  var isBlocked : Bool
 
   enum CodingKeys: String, CodingKey {
 
@@ -53,13 +53,9 @@ struct Country: Codable {
   init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
 
-    code      = try values.decodeIfPresent(String.self , forKey: .code      )
-    isBlocked = try values.decodeIfPresent(Bool.self   , forKey: .isBlocked )
+    code      = try values.decodeIfPresent(String.self , forKey: .code      )!
+    isBlocked = try values.decodeIfPresent(Bool.self   , forKey: .isBlocked )!
  
-  }
-
-  init() {
-
   }
 
 }
