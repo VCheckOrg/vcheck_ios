@@ -35,19 +35,26 @@ extension Data {
 }
 
 public extension String {
+    
     func sha256() -> String{
         if let stringData = self.data(using: String.Encoding.utf8) {
             return stringData.sha256()
         }
         return ""
     }
-}
-
-public extension String {
 
     mutating func substringBefore(_ string: String) -> String {
         let components = self.components(separatedBy: string)
         return components[0]
+    }
+    
+    func toFlagEmoji() -> String {
+        self
+            .unicodeScalars
+            .map({ 127397 + $0.value })
+            .compactMap(UnicodeScalar.init)
+            .map(String.init)
+            .joined()
     }
 
 }
