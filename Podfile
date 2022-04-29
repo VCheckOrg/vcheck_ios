@@ -6,6 +6,7 @@ target 'VcheckSDKDemoIOS' do
   use_frameworks!
 
   # Pods for VcheckSDKDemoIOS
-pod 'Alamofire'
+pod 'Alamofire', '~> 5.4.0'
+pod 'AlamofireNetworkActivityLogger', '~> 3.4'
 
 end
