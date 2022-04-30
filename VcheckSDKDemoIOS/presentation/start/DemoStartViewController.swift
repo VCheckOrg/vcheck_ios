@@ -33,8 +33,6 @@ class DemoStartViewController : UIViewController {
         
         self.activityIndicatorStart()
         
-        viewModel.startVerifFlow()
-        
         viewModel.gotCountries = {
             let countryTOArr: [CountryTO] = self.viewModel.countries!.map { (element) -> (CountryTO) in
                 let to: CountryTO = CountryTO.init(from: element)
@@ -56,6 +54,8 @@ class DemoStartViewController : UIViewController {
             let errText = self.viewModel.error?.errorText ?? "Error: No additional info"
             self.showToast(message: errText, seconds: 2.0)
         }
+        
+        viewModel.startVerifFlow()
     }
     
     //using a segue

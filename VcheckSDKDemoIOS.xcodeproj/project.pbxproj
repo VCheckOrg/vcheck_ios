@@ -39,6 +39,8 @@
 		DAAF4E20281AC7A60029F26C /* DocumentResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAF4E07281AC7A60029F26C /* DocumentResponseModels.swift */; };
 		DAAF4E21281AC7A60029F26C /* MainRepository.kt in Resources */ = {isa = PBXBuildFile; fileRef = DAAF4E08281AC7A60029F26C /* MainRepository.kt */; };
 		DAAF4E22281AC7A60029F26C /* BaseClientErrors.kt in Resources */ = {isa = PBXBuildFile; fileRef = DAAF4E09281AC7A60029F26C /* BaseClientErrors.kt */; };
+		DAB11437281D64DE001F82E4 /* ChooseDocTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB11436281D64DE001F82E4 /* ChooseDocTypeViewController.swift */; };
+		DAB11439281D6515001F82E4 /* ChooseDocTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB11438281D6515001F82E4 /* ChooseDocTypeViewModel.swift */; };
 		DAB6132A2814767700234BB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB613292814767700234BB2 /* AppDelegate.swift */; };
 		DAB6132C2814767700234BB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB6132B2814767700234BB2 /* SceneDelegate.swift */; };
 		DAB6132E2814767700234BB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB6132D2814767700234BB2 /* ViewController.swift */; };
@@ -47,6 +49,7 @@
 		DAB613362814767900234BB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB613352814767900234BB2 /* Assets.xcassets */; };
 		DAB613392814767900234BB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB613372814767900234BB2 /* LaunchScreen.storyboard */; };
 		DAC2325A281C3EF300D0CE16 /* BlockedCountryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC23259281C3EF300D0CE16 /* BlockedCountryViewCell.swift */; };
+		DADD31EF281D7A0200EB25ED /* DocumentTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD31EE281D7A0200EB25ED /* DocumentTypes.swift */; };
 		DAE87E102816CC1F00ED6826 /* ChooseCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E0F2816CC1F00ED6826 /* ChooseCountryViewController.swift */; };
 		DAE87E122816CC2C00ED6826 /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E112816CC2C00ED6826 /* CountryListViewController.swift */; };
 		DAE87E152816CE6E00ED6826 /* DemoStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E142816CE6E00ED6826 /* DemoStartViewController.swift */; };
@@ -90,6 +93,8 @@
 		DAAF4E07281AC7A60029F26C /* DocumentResponseModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentResponseModels.swift; sourceTree = "<group>"; };
 		DAAF4E08281AC7A60029F26C /* MainRepository.kt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MainRepository.kt; sourceTree = "<group>"; };
 		DAAF4E09281AC7A60029F26C /* BaseClientErrors.kt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BaseClientErrors.kt; sourceTree = "<group>"; };
+		DAB11436281D64DE001F82E4 /* ChooseDocTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDocTypeViewController.swift; sourceTree = "<group>"; };
+		DAB11438281D6515001F82E4 /* ChooseDocTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDocTypeViewModel.swift; sourceTree = "<group>"; };
 		DAB613262814767700234BB2 /* VcheckSDKDemoIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VcheckSDKDemoIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB613292814767700234BB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAB6132B2814767700234BB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +105,7 @@
 		DAB613382814767900234BB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAB6133A2814767900234BB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAC23259281C3EF300D0CE16 /* BlockedCountryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedCountryViewCell.swift; sourceTree = "<group>"; };
+		DADD31EE281D7A0200EB25ED /* DocumentTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTypes.swift; sourceTree = "<group>"; };
 		DAE87E0F2816CC1F00ED6826 /* ChooseCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCountryViewController.swift; sourceTree = "<group>"; };
 		DAE87E112816CC2C00ED6826 /* CountryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
 		DAE87E142816CE6E00ED6826 /* DemoStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoStartViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +153,7 @@
 		DA737428281ACAFD00DBBDED /* presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DAB11435281D6315001F82E4 /* doc_type_stage */,
 				DA737429281ACB4A00DBBDED /* start */,
 				DAE87E132816CC3B00ED6826 /* choose_country_stage */,
 			);
@@ -199,8 +206,18 @@
 				DAAF4DFB281AC7A50029F26C /* VerificationRequestModels.swift */,
 				DAAF4DF1281AC7A50029F26C /* VerificationResponseModels.swift */,
 				DA737431281AD4CB00DBBDED /* ApiError.swift */,
+				DADD31EE281D7A0200EB25ED /* DocumentTypes.swift */,
 			);
 			path = domain;
+			sourceTree = "<group>";
+		};
+		DAB11435281D6315001F82E4 /* doc_type_stage */ = {
+			isa = PBXGroup;
+			children = (
+				DAB11436281D64DE001F82E4 /* ChooseDocTypeViewController.swift */,
+				DAB11438281D6515001F82E4 /* ChooseDocTypeViewModel.swift */,
+			);
+			path = doc_type_stage;
 			sourceTree = "<group>";
 		};
 		DAB6131D2814767700234BB2 = {
@@ -393,9 +410,12 @@
 				DAAF4E20281AC7A60029F26C /* DocumentResponseModels.swift in Sources */,
 				DAAF4E1C281AC7A60029F26C /* CountryModels.swift in Sources */,
 				DA737432281AD4CB00DBBDED /* ApiError.swift in Sources */,
+				DAB11439281D6515001F82E4 /* ChooseDocTypeViewModel.swift in Sources */,
 				DAC2325A281C3EF300D0CE16 /* BlockedCountryViewCell.swift in Sources */,
 				DA47CDA4281C3B59001226B9 /* AllowedCountryViewCell.swift in Sources */,
+				DAB11437281D64DE001F82E4 /* ChooseDocTypeViewController.swift in Sources */,
 				DAB6132A2814767700234BB2 /* AppDelegate.swift in Sources */,
+				DADD31EF281D7A0200EB25ED /* DocumentTypes.swift in Sources */,
 				DAAF4E15281AC7A60029F26C /* ApiClient.swift in Sources */,
 				DAAF4E0E281AC7A60029F26C /* BaseClientResponseModel.swift in Sources */,
 				DAB6132C2814767700234BB2 /* SceneDelegate.swift in Sources */,

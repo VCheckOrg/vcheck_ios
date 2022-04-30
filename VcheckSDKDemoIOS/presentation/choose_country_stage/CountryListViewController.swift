@@ -12,6 +12,10 @@ class CountryListViewController : UIViewController {
     
     @IBOutlet var countryListTable: UITableView!
     
+    @IBAction func navBackFromCountryList(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet{
             if let searchTextfield = self.searchBar.value(forKey: "searchField") as? UITextField  {
@@ -58,7 +62,6 @@ extension CountryListViewController: UITableViewDelegate {
         KeychainHelper.shared.saveSelectedCountryCode(code: self.searchResultsList[indexPath.row].code)
 
         self.dismiss(animated: true, completion: nil)
-        //self.navigationController?.popViewController(animated: true)
     }
 }
 

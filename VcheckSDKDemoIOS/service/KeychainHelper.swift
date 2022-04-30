@@ -17,6 +17,12 @@ final class KeychainHelper {
     
     private init() {}
     
+    
+    //cached selected doc type with data
+    private var _selectedDocTypeWithData: DocTypeData? = nil
+    
+    
+    
     func save(_ data: Data, service: String, account: String) {
 
         let query = [
@@ -95,6 +101,14 @@ extension KeychainHelper {
     func saveSelectedCountryCode(code: String) {
         let data = Data(code.utf8)
         save(data, service: "country-code", account: Constants.UTIL.keychainAccountName)
+    }
+    
+    func setSelectedDocTypeWithData(data: DocTypeData) {
+        _selectedDocTypeWithData = data
+    }
+
+    func getSelectedDocTypeWithData() -> DocTypeData? {
+        return _selectedDocTypeWithData
     }
 }
 
