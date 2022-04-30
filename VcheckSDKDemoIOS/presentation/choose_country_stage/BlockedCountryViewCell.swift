@@ -10,11 +10,10 @@ import UIKit
 
 class BlockedCountryViewCell : UITableViewCell {
     
-    
     @IBOutlet weak var tvCountryFlag: UITextView!
     
     @IBOutlet weak var tvCountryName: UITextView!
-    
+        
     func setCountryName(name: String) {
         tvCountryName.text = name
     }

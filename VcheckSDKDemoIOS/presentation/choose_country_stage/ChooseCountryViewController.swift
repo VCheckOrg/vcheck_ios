@@ -22,6 +22,13 @@ class ChooseCountryViewController : UIViewController {
     
     override func viewDidLoad() {
         
+        reloadData()
+        
+        preSelectedCountryView.addGestureRecognizer(
+            UITapGestureRecognizer(target: self, action: #selector (self.navigateToList (_:))))
+    }
+    
+    func reloadData() {
         if let selectedCountry = countries.first(where: { $0.code == KeychainHelper.shared.readSelectedCountryCode() }) {
             tvSelectedCountryName.text = selectedCountry.name
             tvSelectedCountryFlag.text = selectedCountry.flag
@@ -30,11 +37,7 @@ class ChooseCountryViewController : UIViewController {
            tvSelectedCountryName.text = countries[0].name
            tvSelectedCountryFlag.text = countries[0].flag
         }
-        
-        preSelectedCountryView.addGestureRecognizer(
-            UITapGestureRecognizer(target: self, action: #selector (self.navigateToList (_:))))
     }
-    
     
     @objc func navigateToList(_ sender:UITapGestureRecognizer){
 
@@ -45,7 +48,7 @@ class ChooseCountryViewController : UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "CountryToList") {
             let vc = segue.destination as! CountryListViewController
-            vc.countries = self.countries
+            vc.countriesDataSourceArr = self.countries
         }
     }
 }

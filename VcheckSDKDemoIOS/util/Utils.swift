@@ -63,3 +63,28 @@ extension UIViewController {
         }
     }
  }
+
+
+extension UIView {
+    
+    private struct OnClickHolder {
+        static var _closure:()->() = {}
+    }
+
+    private var onClickClosure: () -> () {
+        get { return OnClickHolder._closure }
+        set { OnClickHolder._closure = newValue }
+    }
+
+    func onTap(closure: @escaping ()->()) {
+        self.onClickClosure = closure
+        
+        isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(onClickAction))
+        addGestureRecognizer(tap)
+    }
+
+    @objc private func onClickAction() {
+        onClickClosure()
+    }
+}

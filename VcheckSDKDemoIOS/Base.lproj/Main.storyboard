@@ -271,71 +271,73 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wM8-4G-pEK">
-                                <rect key="frame" x="12" y="12" width="76" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Отмена"/>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XZT-Se-5L6">
-                                <rect key="frame" x="0.0" y="43" width="390" height="713"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XZT-Se-5L6">
+                                <rect key="frame" x="0.0" y="100" width="390" height="656"/>
                                 <color key="backgroundColor" name="BackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="allowedCountryCell" rowHeight="70" id="onm-ZM-hCL" customClass="AllowedCountryViewCell" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="70"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="onm-ZM-hCL" id="xmW-dM-7uI">
+                                        <rect key="frame" x="0.0" y="45" width="390" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="onm-ZM-hCL" id="xmW-dM-7uI">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="70"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Country" translatesAutoresizingMaskIntoConstraints="NO" id="U6K-vN-zaz">
-                                                    <rect key="frame" x="86" y="14" width="328" height="39"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Country" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6K-vN-zaz">
+                                                    <rect key="frame" x="86" y="11" width="291" height="48"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
                                                     <color key="backgroundColor" name="BackgroundColor"/>
                                                     <color key="textColor" name="DescriptionColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="FLAG" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="irG-6P-v79">
-                                                    <rect key="frame" x="11" y="14" width="67" height="39"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="FLAG" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irG-6P-v79">
+                                                    <rect key="frame" x="11" y="11" width="67" height="69"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
                                                     <color key="backgroundColor" name="BackgroundColor"/>
                                                     <color key="textColor" name="DescriptionColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>
+                                            <color key="backgroundColor" name="BackgroundColor"/>
+                                            <color key="tintColor" name="BackgroundColor"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="BackgroundColor"/>
+                                        <color key="tintColor" name="BackgroundColor"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" none="YES"/>
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
                                         <connections>
                                             <outlet property="tvFlag" destination="irG-6P-v79" id="tIv-dE-Nn3"/>
                                             <outlet property="tvName" destination="U6K-vN-zaz" id="Of0-eQ-2Yd"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="blockedCountryCell" rowHeight="70" id="FYf-d5-FD0" customClass="BlockedCountryViewCell" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="114.66666603088379" width="390" height="70"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FYf-d5-FD0" id="tuM-nP-JaI">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="blockedCountryCell" rowHeight="70" id="FYf-d5-FD0" customClass="BlockedCountryViewCell" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="115" width="390" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FYf-d5-FD0" id="tuM-nP-JaI">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="70"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="FLAG" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RyQ-vN-b5X">
-                                                    <rect key="frame" x="11" y="11" width="67" height="39"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="FLAG" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RyQ-vN-b5X">
+                                                    <rect key="frame" x="11" y="11" width="67" height="58"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" name="BackgroundColor"/>
                                                     <color key="textColor" name="DescriptionColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Non available" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ci0-dm-ifp">
-                                                    <rect key="frame" x="86" y="28" width="247" height="27"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Non available" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ci0-dm-ifp">
+                                                    <rect key="frame" x="86" y="28" width="247" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" name="BackgroundColor"/>
                                                     <color key="textColor" systemColor="systemRedColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Country" translatesAutoresizingMaskIntoConstraints="NO" id="O84-jd-0oF">
-                                                    <rect key="frame" x="86" y="0.0" width="328" height="33"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Country" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O84-jd-0oF">
+                                                    <rect key="frame" x="86" y="0.0" width="284" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" name="BackgroundColor"/>
                                                     <color key="textColor" name="DescriptionColor"/>
@@ -352,6 +354,22 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" preservesSuperviewLayoutMargins="YES" placeholder="Search" id="fVU-YR-D7u">
+                                <rect key="frame" x="0.0" y="49" width="390" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="CardColor"/>
+                                <color key="barTintColor" name="BackgroundColor"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wM8-4G-pEK">
+                                <rect key="frame" x="0.0" y="6" width="76" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Отмена"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JUw-0d-Xgh"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
@@ -361,17 +379,18 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                             <constraint firstItem="wM8-4G-pEK" firstAttribute="leading" secondItem="JUw-0d-Xgh" secondAttribute="leading" constant="12" id="YwK-d7-c8d"/>
                             <constraint firstItem="wM8-4G-pEK" firstAttribute="top" secondItem="JUw-0d-Xgh" secondAttribute="top" constant="12" id="eYd-km-mSI"/>
                             <constraint firstItem="XZT-Se-5L6" firstAttribute="leading" secondItem="JUw-0d-Xgh" secondAttribute="leading" id="j5V-ye-exa"/>
-                            <constraint firstItem="XZT-Se-5L6" firstAttribute="top" secondItem="wM8-4G-pEK" secondAttribute="bottom" id="m7i-8x-dTP"/>
+                            <constraint firstItem="XZT-Se-5L6" firstAttribute="top" secondItem="wM8-4G-pEK" secondAttribute="bottom" constant="63" id="m7i-8x-dTP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XJG-NF-1Mm"/>
                     <connections>
                         <outlet property="countryListTable" destination="XZT-Se-5L6" id="s7r-qg-6pt"/>
+                        <outlet property="searchBar" destination="fVU-YR-D7u" id="Q3r-f6-h8Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpl-4N-OOI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="56.521739130434788" y="1655.3571428571429"/>
+            <point key="canvasLocation" x="55.38461538461538" y="1654.9763033175354"/>
         </scene>
         <!--No Time View Controller-->
         <scene sceneID="6ZM-lh-nBu">
