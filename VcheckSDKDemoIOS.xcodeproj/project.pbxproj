@@ -47,6 +47,7 @@
 		DAE87E102816CC1F00ED6826 /* ChooseCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E0F2816CC1F00ED6826 /* ChooseCountryViewController.swift */; };
 		DAE87E122816CC2C00ED6826 /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E112816CC2C00ED6826 /* CountryListViewController.swift */; };
 		DAE87E152816CE6E00ED6826 /* DemoStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E142816CE6E00ED6826 /* DemoStartViewController.swift */; };
+		E9DAE090281D638400EA73BA /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DAE08F281D638400EA73BA /* RoundedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 		DAE87E0F2816CC1F00ED6826 /* ChooseCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCountryViewController.swift; sourceTree = "<group>"; };
 		DAE87E112816CC2C00ED6826 /* CountryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
 		DAE87E142816CE6E00ED6826 /* DemoStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoStartViewController.swift; sourceTree = "<group>"; };
+		E9DAE08F281D638400EA73BA /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		EF05AA06C2A1732CF659E363 /* Pods-VcheckSDKDemoIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcheckSDKDemoIOS.release.xcconfig"; path = "Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -205,6 +207,7 @@
 		DAB613282814767700234BB2 /* VcheckSDKDemoIOS */ = {
 			isa = PBXGroup;
 			children = (
+				E9DAE091281D6DD500EA73BA /* util */,
 				DA73742C281ACC6E00DBBDED /* service */,
 				DA737428281ACAFD00DBBDED /* presentation */,
 				DAAF4DBE281AC6D80029F26C /* domain */,
@@ -216,7 +219,6 @@
 				DAB613372814767900234BB2 /* LaunchScreen.storyboard */,
 				DAB6133A2814767900234BB2 /* Info.plist */,
 				DAB613322814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld */,
-				DA737435281AF59400DBBDED /* Utils.swift */,
 			);
 			path = VcheckSDKDemoIOS;
 			sourceTree = "<group>";
@@ -228,6 +230,15 @@
 				DAE87E112816CC2C00ED6826 /* CountryListViewController.swift */,
 			);
 			path = choose_country_stage;
+			sourceTree = "<group>";
+		};
+		E9DAE091281D6DD500EA73BA /* util */ = {
+			isa = PBXGroup;
+			children = (
+				DA737435281AF59400DBBDED /* Utils.swift */,
+				E9DAE08F281D638400EA73BA /* RoundedView.swift */,
+			);
+			path = util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,6 +377,7 @@
 				DAAF4E0A281AC7A60029F26C /* VerificationResponseModels.swift in Sources */,
 				DAAF4E0C281AC7A60029F26C /* TimestampRequest.swift in Sources */,
 				DAE87E152816CE6E00ED6826 /* DemoStartViewController.swift in Sources */,
+				E9DAE090281D638400EA73BA /* RoundedView.swift in Sources */,
 				DAAF4E20281AC7A60029F26C /* DocumentResponseModels.swift in Sources */,
 				DAAF4E1C281AC7A60029F26C /* CountryModels.swift in Sources */,
 				DA737432281AD4CB00DBBDED /* ApiError.swift in Sources */,

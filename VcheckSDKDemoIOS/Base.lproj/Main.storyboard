@@ -115,6 +115,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                             <constraint firstItem="uXu-nD-622" firstAttribute="centerX" secondItem="eXt-L9-GpI" secondAttribute="centerX" id="8NR-jV-Sv9"/>
                             <constraint firstItem="j8W-bb-Qhj" firstAttribute="bottom" secondItem="DdH-Xd-pgi" secondAttribute="bottom" constant="145" id="BHa-au-3WD"/>
                             <constraint firstItem="eXt-L9-GpI" firstAttribute="centerY" secondItem="j8W-bb-Qhj" secondAttribute="centerY" constant="-72" id="RJi-c0-oAf"/>
+                            <constraint firstItem="j8W-bb-Qhj" firstAttribute="trailing" secondItem="uXu-nD-622" secondAttribute="trailing" constant="99" id="Ues-gf-MqE"/>
                             <constraint firstItem="j8W-bb-Qhj" firstAttribute="trailing" secondItem="DdH-Xd-pgi" secondAttribute="trailing" constant="91" id="Whg-hH-Vvo"/>
                             <constraint firstItem="DdH-Xd-pgi" firstAttribute="leading" secondItem="j8W-bb-Qhj" secondAttribute="leading" constant="91" id="dyj-J9-PxF"/>
                             <constraint firstItem="uXu-nD-622" firstAttribute="leading" secondItem="j8W-bb-Qhj" secondAttribute="leading" constant="99" id="gSZ-LX-6wZ"/>
@@ -175,9 +176,6 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Продолжить"/>
-                                        <connections>
-                                            <segue destination="8t3-A6-GAv" kind="show" id="W4q-DO-4Zf"/>
-                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jc-tS-jTS">
                                         <rect key="frame" x="16" y="178" width="358" height="56"/>
@@ -191,6 +189,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                         </subviews>
                                         <color key="backgroundColor" name="CountryCardColor"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cY3-cf-m9e" secondAttribute="trailing" constant="20" symbolic="YES" id="31J-As-w3l"/>
                                             <constraint firstAttribute="bottom" secondItem="cY3-cf-m9e" secondAttribute="bottom" constant="17" id="772-uu-xbn"/>
                                             <constraint firstItem="cY3-cf-m9e" firstAttribute="leading" secondItem="3jc-tS-jTS" secondAttribute="leading" constant="76" id="JBv-dn-fZQ"/>
                                             <constraint firstItem="cY3-cf-m9e" firstAttribute="top" secondItem="3jc-tS-jTS" secondAttribute="top" constant="17" id="TuZ-Ym-WZb"/>
@@ -215,9 +214,11 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                     <constraint firstItem="fFZ-MA-crE" firstAttribute="top" secondItem="j7h-cr-WsJ" secondAttribute="top" constant="24" id="Q0o-gE-eI4"/>
                                     <constraint firstAttribute="trailing" secondItem="W64-Ne-sgD" secondAttribute="trailing" constant="16" id="Qqw-uS-ODE"/>
                                     <constraint firstItem="fFZ-MA-crE" firstAttribute="leading" secondItem="j7h-cr-WsJ" secondAttribute="leading" constant="16" id="Qzj-TR-nCL"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tZV-5H-szz" secondAttribute="trailing" constant="20" symbolic="YES" id="Y81-ZI-gUf"/>
                                     <constraint firstItem="tZV-5H-szz" firstAttribute="top" secondItem="zMS-X5-1mQ" secondAttribute="bottom" constant="28" id="dm5-1e-Odn"/>
                                     <constraint firstItem="3jc-tS-jTS" firstAttribute="leading" secondItem="j7h-cr-WsJ" secondAttribute="leading" constant="16" id="kId-c3-luD"/>
                                     <constraint firstAttribute="trailing" secondItem="3jc-tS-jTS" secondAttribute="trailing" constant="16" id="nQX-mL-WaD"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fFZ-MA-crE" secondAttribute="trailing" constant="20" symbolic="YES" id="seh-o1-JTt"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -281,6 +282,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                             <constraint firstItem="wM8-4G-pEK" firstAttribute="top" secondItem="JUw-0d-Xgh" secondAttribute="top" constant="12" id="eYd-km-mSI"/>
                             <constraint firstItem="XZT-Se-5L6" firstAttribute="leading" secondItem="JUw-0d-Xgh" secondAttribute="leading" id="j5V-ye-exa"/>
                             <constraint firstItem="XZT-Se-5L6" firstAttribute="top" secondItem="wM8-4G-pEK" secondAttribute="bottom" id="m7i-8x-dTP"/>
+                            <constraint firstItem="JUw-0d-Xgh" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wM8-4G-pEK" secondAttribute="trailing" symbolic="YES" id="yf9-dX-F7l"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XJG-NF-1Mm"/>
@@ -1721,6 +1723,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                     <constraint firstItem="hfh-Nr-Lyd" firstAttribute="top" secondItem="EY3-6C-cJ9" secondAttribute="bottom" constant="13" id="ByB-fw-29H"/>
                                                     <constraint firstAttribute="trailing" secondItem="YYe-al-bEj" secondAttribute="trailing" constant="16" id="C3A-7n-pHi"/>
                                                     <constraint firstItem="MVi-yI-7fe" firstAttribute="leading" secondItem="Mdb-Ax-DBB" secondAttribute="leading" constant="23" id="C6a-Sc-nJx"/>
+                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hgH-RH-Doo" secondAttribute="trailing" constant="20" symbolic="YES" id="Dhj-E0-EQp"/>
                                                     <constraint firstAttribute="trailing" secondItem="EY3-6C-cJ9" secondAttribute="trailing" constant="20" id="EvJ-Sc-1uX"/>
                                                     <constraint firstItem="lZr-qg-h72" firstAttribute="top" secondItem="2W7-Jm-sUy" secondAttribute="bottom" constant="32" id="FKa-Sf-9Ov"/>
                                                     <constraint firstItem="EY3-6C-cJ9" firstAttribute="leading" secondItem="Q6s-EJ-AA9" secondAttribute="trailing" constant="11" id="Hz1-4W-l2Z"/>
@@ -1800,7 +1803,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Un7-D0-vQR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3892.753623188406" y="815.625"/>
+            <point key="canvasLocation" x="2994" y="860"/>
         </scene>
         <!--Choose Doc Method View Controller-->
         <scene sceneID="taE-BH-axR">
@@ -1953,6 +1956,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                     <constraint firstItem="73Y-G0-L4X" firstAttribute="top" secondItem="XJJ-7D-hfl" secondAttribute="bottom" constant="16" id="Uu4-dH-E5h"/>
                                                     <constraint firstItem="7Df-Ew-TxF" firstAttribute="leading" secondItem="1P2-W0-56G" secondAttribute="leading" constant="16" id="eyN-fL-Ivj"/>
                                                     <constraint firstAttribute="trailing" secondItem="7Df-Ew-TxF" secondAttribute="trailing" constant="16" id="gEV-dP-ldf"/>
+                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XJJ-7D-hfl" secondAttribute="trailing" constant="20" symbolic="YES" id="giZ-Zw-NcB"/>
                                                     <constraint firstItem="AcB-eO-u3b" firstAttribute="leading" secondItem="1P2-W0-56G" secondAttribute="leading" constant="16" id="kbI-fw-wFD"/>
                                                     <constraint firstItem="G3p-Gh-F6E" firstAttribute="leading" secondItem="1P2-W0-56G" secondAttribute="leading" constant="16" id="lPy-tb-m4s"/>
                                                     <constraint firstItem="7Df-Ew-TxF" firstAttribute="top" secondItem="G3p-Gh-F6E" secondAttribute="bottom" constant="16" id="mhe-Ot-ayK"/>
@@ -2006,7 +2010,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bXq-t7-eLH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4909" y="800"/>
+            <point key="canvasLocation" x="2257" y="860"/>
         </scene>
         <!--Check Doc Info View Controller-->
         <scene sceneID="ttg-DO-Ndf">
@@ -2020,10 +2024,10 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o59-PG-juB">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="878"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="888"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ner-NU-r5i">
-                                                <rect key="frame" x="12" y="84" width="390" height="729"/>
+                                                <rect key="frame" x="12" y="84" width="390" height="739"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Fp0-0g-ahL">
                                                         <rect key="frame" x="23" y="28" width="10" height="16"/>
@@ -2044,69 +2048,84 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_photo_1" translatesAutoresizingMaskIntoConstraints="NO" id="a31-fM-mzW">
-                                                        <rect key="frame" x="17" y="144" width="356" height="240"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPb-h4-wsc" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="143" width="358" height="250"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_photo_1" translatesAutoresizingMaskIntoConstraints="NO" id="HhG-pv-4kD">
+                                                                <rect key="frame" x="0.0" y="0.0" width="358" height="250"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" name="CardColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="240" id="77G-IM-Wsn"/>
+                                                            <constraint firstAttribute="height" constant="250" id="8xU-26-TUt"/>
+                                                            <constraint firstAttribute="trailing" secondItem="HhG-pv-4kD" secondAttribute="trailing" id="YUL-7B-tWG"/>
+                                                            <constraint firstItem="HhG-pv-4kD" firstAttribute="leading" secondItem="oPb-h4-wsc" secondAttribute="leading" id="b9M-z5-KK0"/>
+                                                            <constraint firstAttribute="bottom" secondItem="HhG-pv-4kD" secondAttribute="bottom" id="eyn-E9-1ER"/>
+                                                            <constraint firstItem="HhG-pv-4kD" firstAttribute="top" secondItem="oPb-h4-wsc" secondAttribute="top" id="k2c-By-hf8"/>
                                                         </constraints>
-                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
-                                                    </imageView>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="atg-4W-nlj">
-                                                        <rect key="frame" x="16" y="441" width="358" height="48"/>
-                                                        <color key="backgroundColor" name="CountryCardColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="borderColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="15Y-4Z-SyB" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="409" width="358" height="250"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_photo" translatesAutoresizingMaskIntoConstraints="NO" id="CWh-kb-6mb">
+                                                                <rect key="frame" x="0.0" y="0.0" width="358" height="250"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" name="CardColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="48" id="IgG-2z-knv"/>
+                                                            <constraint firstAttribute="bottom" secondItem="CWh-kb-6mb" secondAttribute="bottom" id="7i6-O7-v2E"/>
+                                                            <constraint firstItem="CWh-kb-6mb" firstAttribute="top" secondItem="15Y-4Z-SyB" secondAttribute="top" id="9GH-Ac-uPB"/>
+                                                            <constraint firstAttribute="trailing" secondItem="CWh-kb-6mb" secondAttribute="trailing" id="Sei-ce-TcU"/>
+                                                            <constraint firstAttribute="height" constant="250" id="Y4E-H0-Iph"/>
+                                                            <constraint firstItem="CWh-kb-6mb" firstAttribute="leading" secondItem="15Y-4Z-SyB" secondAttribute="leading" id="cDm-kA-f4A"/>
                                                         </constraints>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Фамилия на кириллице" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NUT-0V-GrR">
-                                                        <rect key="frame" x="16" y="422.5" width="148" height="14.5"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Lg-xF-vF9">
-                                                        <rect key="frame" x="16" y="537" width="358" height="48"/>
-                                                        <color key="backgroundColor" name="CountryCardColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="48" id="GUx-Hi-znZ"/>
-                                                        </constraints>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Фамилия на латинице" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4U-rI-rWD">
-                                                        <rect key="frame" x="16" y="518" width="139" height="15"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="borderColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" name="CardColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="atg-4W-nlj" firstAttribute="top" secondItem="a31-fM-mzW" secondAttribute="bottom" constant="57" id="0WT-tY-iOC"/>
-                                                    <constraint firstItem="7Lg-xF-vF9" firstAttribute="top" secondItem="atg-4W-nlj" secondAttribute="bottom" constant="48" id="4El-4S-i1g"/>
-                                                    <constraint firstItem="NUT-0V-GrR" firstAttribute="leading" secondItem="ner-NU-r5i" secondAttribute="leading" constant="16" id="6YM-xg-Bip"/>
                                                     <constraint firstItem="Fp0-0g-ahL" firstAttribute="top" secondItem="ner-NU-r5i" secondAttribute="top" constant="28" id="7dz-Cu-C7U"/>
-                                                    <constraint firstItem="a31-fM-mzW" firstAttribute="top" secondItem="EF3-JG-t4B" secondAttribute="bottom" constant="17" id="CtA-s7-fxu"/>
-                                                    <constraint firstAttribute="bottom" secondItem="7Lg-xF-vF9" secondAttribute="bottom" constant="144" id="FYW-QZ-wEu"/>
+                                                    <constraint firstItem="15Y-4Z-SyB" firstAttribute="leading" secondItem="ner-NU-r5i" secondAttribute="leading" constant="16" id="C1i-ZH-Yl0"/>
                                                     <constraint firstItem="m5j-J1-DLh" firstAttribute="leading" secondItem="ner-NU-r5i" secondAttribute="leading" constant="16" id="GIu-ka-eMl"/>
-                                                    <constraint firstItem="atg-4W-nlj" firstAttribute="leading" secondItem="ner-NU-r5i" secondAttribute="leading" constant="16" id="M0h-72-q7H"/>
-                                                    <constraint firstAttribute="trailing" secondItem="7Lg-xF-vF9" secondAttribute="trailing" constant="16" id="PpM-ag-27P"/>
+                                                    <constraint firstItem="oPb-h4-wsc" firstAttribute="leading" secondItem="ner-NU-r5i" secondAttribute="leading" constant="16" id="SH4-gS-Y2e"/>
                                                     <constraint firstItem="EF3-JG-t4B" firstAttribute="top" secondItem="m5j-J1-DLh" secondAttribute="bottom" constant="16" id="UDZ-k1-XZf"/>
                                                     <constraint firstItem="m5j-J1-DLh" firstAttribute="top" secondItem="Fp0-0g-ahL" secondAttribute="bottom" constant="12" id="UhJ-GO-gqp"/>
-                                                    <constraint firstItem="7Lg-xF-vF9" firstAttribute="top" secondItem="y4U-rI-rWD" secondAttribute="bottom" constant="4" id="bfj-BX-8eW"/>
-                                                    <constraint firstItem="a31-fM-mzW" firstAttribute="leading" secondItem="ner-NU-r5i" secondAttribute="leading" constant="17" id="cHv-5l-Q9Z"/>
-                                                    <constraint firstAttribute="trailing" secondItem="a31-fM-mzW" secondAttribute="trailing" constant="17" id="gbg-BY-k2v"/>
+                                                    <constraint firstAttribute="trailing" secondItem="oPb-h4-wsc" secondAttribute="trailing" constant="16" id="XzE-3T-bRL"/>
+                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="m5j-J1-DLh" secondAttribute="trailing" constant="20" symbolic="YES" id="bla-Yz-qE5"/>
                                                     <constraint firstAttribute="trailing" secondItem="EF3-JG-t4B" secondAttribute="trailing" constant="16" id="gcJ-Kk-dZm"/>
-                                                    <constraint firstAttribute="trailing" secondItem="atg-4W-nlj" secondAttribute="trailing" constant="16" id="go2-qi-fS6"/>
-                                                    <constraint firstItem="atg-4W-nlj" firstAttribute="top" secondItem="NUT-0V-GrR" secondAttribute="bottom" constant="4" id="nBd-7L-MTn"/>
+                                                    <constraint firstItem="15Y-4Z-SyB" firstAttribute="top" secondItem="oPb-h4-wsc" secondAttribute="bottom" constant="16" id="nab-Ky-DUa"/>
+                                                    <constraint firstItem="oPb-h4-wsc" firstAttribute="top" secondItem="EF3-JG-t4B" secondAttribute="bottom" constant="16" id="pSX-Z1-Rhj"/>
+                                                    <constraint firstAttribute="bottom" secondItem="15Y-4Z-SyB" secondAttribute="bottom" constant="80" id="qAX-bw-MsU"/>
                                                     <constraint firstItem="EF3-JG-t4B" firstAttribute="leading" secondItem="ner-NU-r5i" secondAttribute="leading" constant="16" id="r2o-Su-6cW"/>
-                                                    <constraint firstItem="y4U-rI-rWD" firstAttribute="leading" secondItem="ner-NU-r5i" secondAttribute="leading" constant="16" id="t1i-Bu-FMn"/>
                                                     <constraint firstItem="Fp0-0g-ahL" firstAttribute="leading" secondItem="ner-NU-r5i" secondAttribute="leading" constant="23" id="tcZ-LA-sfc"/>
-                                                    <constraint firstItem="7Lg-xF-vF9" firstAttribute="leading" secondItem="ner-NU-r5i" secondAttribute="leading" constant="16" id="v58-O6-Kk2"/>
+                                                    <constraint firstAttribute="trailing" secondItem="15Y-4Z-SyB" secondAttribute="trailing" constant="16" id="wWx-bm-LrA"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -2155,7 +2174,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="izZ-tb-5hu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3078" y="816"/>
+            <point key="canvasLocation" x="5242.0289855072469" y="859.82142857142856"/>
         </scene>
         <!--Photo Upload View Controller-->
         <scene sceneID="dWk-He-c90">
@@ -2182,7 +2201,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Продолжить"/>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Загрузите фото документа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woW-eZ-zcu">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Загрузите фото документа" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woW-eZ-zcu">
                                                         <rect key="frame" x="16" y="56" width="242.5" height="21.5"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2201,7 +2220,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8t-4v-BTf">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8t-4v-BTf" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="138.5" width="358" height="250"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_image" translatesAutoresizingMaskIntoConstraints="NO" id="ybn-pY-fXA">
@@ -2224,19 +2243,24 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <constraints>
                                                             <constraint firstItem="ybn-pY-fXA" firstAttribute="top" secondItem="g8t-4v-BTf" secondAttribute="top" constant="24" id="DCd-oR-Yi2"/>
                                                             <constraint firstItem="VLC-HL-vzJ" firstAttribute="leading" secondItem="ybn-pY-fXA" secondAttribute="trailing" constant="12" id="IMC-Ld-oqN"/>
-                                                            <constraint firstAttribute="bottom" secondItem="VLC-HL-vzJ" secondAttribute="bottom" constant="181" id="L3t-Nl-Py5"/>
                                                             <constraint firstItem="VLC-HL-vzJ" firstAttribute="top" secondItem="g8t-4v-BTf" secondAttribute="top" constant="40" id="Q2x-81-p4c"/>
                                                             <constraint firstItem="ybn-pY-fXA" firstAttribute="leading" secondItem="g8t-4v-BTf" secondAttribute="leading" constant="16" id="UIR-9k-Bcf"/>
                                                             <constraint firstAttribute="trailing" secondItem="VLC-HL-vzJ" secondAttribute="trailing" constant="16" id="pki-SE-Vu6"/>
                                                             <constraint firstAttribute="height" constant="250" id="vOf-u7-u7x"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="8"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="CountryCardColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="8"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Det-A8-YYb">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Det-A8-YYb" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="416.5" width="358" height="250"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_image" translatesAutoresizingMaskIntoConstraints="NO" id="a21-S1-lEe">
@@ -2284,6 +2308,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                     <constraint firstItem="woW-eZ-zcu" firstAttribute="top" secondItem="BgI-mC-pOi" secondAttribute="bottom" constant="12" id="b8q-Tp-T8S"/>
                                                     <constraint firstItem="g8t-4v-BTf" firstAttribute="leading" secondItem="DAC-Pn-WQN" secondAttribute="leading" constant="16" id="kJ1-VI-v8G"/>
                                                     <constraint firstItem="5PO-Q9-NPq" firstAttribute="top" secondItem="Det-A8-YYb" secondAttribute="bottom" constant="30" id="lCo-BU-kYD"/>
+                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="woW-eZ-zcu" secondAttribute="trailing" constant="20" symbolic="YES" id="lUv-hO-img"/>
                                                     <constraint firstAttribute="bottom" secondItem="5PO-Q9-NPq" secondAttribute="bottom" constant="24" id="nfO-f7-Zyq"/>
                                                     <constraint firstItem="Det-A8-YYb" firstAttribute="leading" secondItem="DAC-Pn-WQN" secondAttribute="leading" constant="16" id="qJe-LH-zQ4"/>
                                                     <constraint firstItem="BgI-mC-pOi" firstAttribute="leading" secondItem="DAC-Pn-WQN" secondAttribute="leading" constant="23" id="qlg-9B-MfD"/>
@@ -2336,7 +2361,232 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U9c-ca-pxQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1242.0289855072465" y="859.82142857142856"/>
+            <point key="canvasLocation" x="3732" y="860"/>
+        </scene>
+        <!--Check Photo View Controller-->
+        <scene sceneID="nEG-J8-xgS">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="tbj-H2-vh9" userLabel="Check Photo View Controller" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="m7c-nc-5hf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Xw-ol-ZsS">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zWp-XW-dxW">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1034"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PGm-XR-OYb">
+                                                <rect key="frame" x="12" y="84" width="390" height="885"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OwO-iS-0MY">
+                                                        <rect key="frame" x="16" y="805" width="358" height="56"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="56" id="udm-U1-lek"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Подтвердить"/>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проверьте свое фото" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5N-J8-5y0">
+                                                        <rect key="frame" x="16" y="56" width="191" height="21.5"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Y7N-3n-Eh2">
+                                                        <rect key="frame" x="23" y="28" width="10" height="16"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="10" id="9Em-ge-wH6"/>
+                                                            <constraint firstAttribute="height" constant="16" id="ii3-Sg-fzf"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проверьте читаемость информации на фото. Убедитесь, что на фото видны все 4 угла документа" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmF-5M-k6W">
+                                                        <rect key="frame" x="16" y="93.5" width="358" height="33.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" name="DescriptionColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WXE-Td-Ea4" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="155" width="358" height="250"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_photo_1" translatesAutoresizingMaskIntoConstraints="NO" id="MiJ-Mh-8Rn">
+                                                                <rect key="frame" x="0.0" y="0.0" width="358" height="250"/>
+                                                            </imageView>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zoom_icon" translatesAutoresizingMaskIntoConstraints="NO" id="gB4-EB-Jaj">
+                                                                <rect key="frame" x="319" y="8" width="36" height="36"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="36" id="9GD-YJ-l4W"/>
+                                                                    <constraint firstAttribute="height" constant="36" id="uzz-b0-4dO"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" name="CardColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="MiJ-Mh-8Rn" secondAttribute="bottom" id="3nd-WL-HY5"/>
+                                                            <constraint firstAttribute="height" constant="250" id="DPk-db-zel"/>
+                                                            <constraint firstAttribute="trailing" secondItem="gB4-EB-Jaj" secondAttribute="trailing" constant="3" id="Ekt-Rm-hGM"/>
+                                                            <constraint firstItem="gB4-EB-Jaj" firstAttribute="top" secondItem="WXE-Td-Ea4" secondAttribute="top" constant="8" id="Ggr-wp-Fzt"/>
+                                                            <constraint firstAttribute="trailing" secondItem="MiJ-Mh-8Rn" secondAttribute="trailing" id="WOZ-Vo-sy4"/>
+                                                            <constraint firstItem="MiJ-Mh-8Rn" firstAttribute="leading" secondItem="WXE-Td-Ea4" secondAttribute="leading" id="ZS1-Xq-4oS"/>
+                                                            <constraint firstItem="MiJ-Mh-8Rn" firstAttribute="top" secondItem="WXE-Td-Ea4" secondAttribute="top" id="rDb-6m-CKg"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="borderColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="COh-XN-c9F" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="433" width="358" height="250"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_photo" translatesAutoresizingMaskIntoConstraints="NO" id="hJC-sR-B9Y">
+                                                                <rect key="frame" x="0.0" y="0.0" width="358" height="250"/>
+                                                            </imageView>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zoom_icon" translatesAutoresizingMaskIntoConstraints="NO" id="lC3-Cy-bdh">
+                                                                <rect key="frame" x="319" y="8" width="36" height="36"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="36" id="bgr-g6-vCJ"/>
+                                                                    <constraint firstAttribute="height" constant="36" id="g5Z-Lw-t5l"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" name="CardColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="hJC-sR-B9Y" firstAttribute="leading" secondItem="COh-XN-c9F" secondAttribute="leading" id="3EA-Q8-4YU"/>
+                                                            <constraint firstItem="lC3-Cy-bdh" firstAttribute="top" secondItem="COh-XN-c9F" secondAttribute="top" constant="8" id="AbD-Cv-Nop"/>
+                                                            <constraint firstAttribute="trailing" secondItem="hJC-sR-B9Y" secondAttribute="trailing" id="D1O-aa-0EZ"/>
+                                                            <constraint firstAttribute="trailing" secondItem="lC3-Cy-bdh" secondAttribute="trailing" constant="3" id="U1n-Ry-9BW"/>
+                                                            <constraint firstAttribute="bottom" secondItem="hJC-sR-B9Y" secondAttribute="bottom" id="U8V-Bi-e2B"/>
+                                                            <constraint firstAttribute="height" constant="250" id="awx-5T-bEt"/>
+                                                            <constraint firstItem="hJC-sR-B9Y" firstAttribute="top" secondItem="COh-XN-c9F" secondAttribute="top" id="v5I-nU-XVN"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="borderColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YoC-Js-82k" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="727" width="358" height="58"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Заменить фото" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2S-SV-9xC">
+                                                                <rect key="frame" x="60" y="19" width="238" height="20"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" name="CardColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="S2S-SV-9xC" firstAttribute="top" secondItem="YoC-Js-82k" secondAttribute="top" constant="19" id="Mtk-kz-h4f"/>
+                                                            <constraint firstItem="S2S-SV-9xC" firstAttribute="leading" secondItem="YoC-Js-82k" secondAttribute="leading" constant="60" id="bxF-TQ-ukQ"/>
+                                                            <constraint firstAttribute="trailing" secondItem="S2S-SV-9xC" secondAttribute="trailing" constant="60" id="p8I-To-5NO"/>
+                                                            <constraint firstAttribute="bottom" secondItem="S2S-SV-9xC" secondAttribute="bottom" constant="19" id="wND-2A-zfE"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="4"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" name="CardColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="vmF-5M-k6W" firstAttribute="top" secondItem="Y5N-J8-5y0" secondAttribute="bottom" constant="16" id="1RD-zf-ksQ"/>
+                                                    <constraint firstItem="OwO-iS-0MY" firstAttribute="leading" secondItem="PGm-XR-OYb" secondAttribute="leading" constant="16" id="2BH-dd-EdL"/>
+                                                    <constraint firstItem="Y7N-3n-Eh2" firstAttribute="top" secondItem="PGm-XR-OYb" secondAttribute="top" constant="28" id="7dg-Tj-hdZ"/>
+                                                    <constraint firstItem="Y5N-J8-5y0" firstAttribute="leading" secondItem="PGm-XR-OYb" secondAttribute="leading" constant="16" id="EIZ-Sl-1y6"/>
+                                                    <constraint firstItem="COh-XN-c9F" firstAttribute="top" secondItem="WXE-Td-Ea4" secondAttribute="bottom" constant="28" id="GTi-V6-hlf"/>
+                                                    <constraint firstAttribute="trailing" secondItem="vmF-5M-k6W" secondAttribute="trailing" constant="16" id="Gq0-MI-4mS"/>
+                                                    <constraint firstItem="WXE-Td-Ea4" firstAttribute="leading" secondItem="PGm-XR-OYb" secondAttribute="leading" constant="16" id="ISy-b3-bcb"/>
+                                                    <constraint firstItem="Y5N-J8-5y0" firstAttribute="top" secondItem="Y7N-3n-Eh2" secondAttribute="bottom" constant="12" id="MGr-Mu-tlE"/>
+                                                    <constraint firstItem="COh-XN-c9F" firstAttribute="leading" secondItem="PGm-XR-OYb" secondAttribute="leading" constant="16" id="NEg-gd-n3z"/>
+                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Y5N-J8-5y0" secondAttribute="trailing" constant="20" symbolic="YES" id="OdD-fA-eKs"/>
+                                                    <constraint firstAttribute="trailing" secondItem="WXE-Td-Ea4" secondAttribute="trailing" constant="16" id="Qn1-P2-Aqe"/>
+                                                    <constraint firstItem="Y7N-3n-Eh2" firstAttribute="leading" secondItem="PGm-XR-OYb" secondAttribute="leading" constant="23" id="RRJ-3M-56u"/>
+                                                    <constraint firstItem="WXE-Td-Ea4" firstAttribute="top" secondItem="vmF-5M-k6W" secondAttribute="bottom" constant="28" id="SLf-gu-xYe"/>
+                                                    <constraint firstAttribute="trailing" secondItem="OwO-iS-0MY" secondAttribute="trailing" constant="16" id="UfV-RU-eCc"/>
+                                                    <constraint firstItem="YoC-Js-82k" firstAttribute="top" secondItem="COh-XN-c9F" secondAttribute="bottom" constant="44" id="YYm-2P-1HH"/>
+                                                    <constraint firstAttribute="trailing" secondItem="COh-XN-c9F" secondAttribute="trailing" constant="16" id="aS2-Mh-Nj7"/>
+                                                    <constraint firstItem="YoC-Js-82k" firstAttribute="leading" secondItem="PGm-XR-OYb" secondAttribute="leading" constant="16" id="by4-K5-TC6"/>
+                                                    <constraint firstItem="vmF-5M-k6W" firstAttribute="leading" secondItem="PGm-XR-OYb" secondAttribute="leading" constant="16" id="dfh-Jy-Alh"/>
+                                                    <constraint firstItem="OwO-iS-0MY" firstAttribute="top" secondItem="YoC-Js-82k" secondAttribute="bottom" constant="20" id="fhW-F0-5ZG"/>
+                                                    <constraint firstAttribute="bottom" secondItem="OwO-iS-0MY" secondAttribute="bottom" constant="24" id="kzT-gs-udP"/>
+                                                    <constraint firstAttribute="trailing" secondItem="YoC-Js-82k" secondAttribute="trailing" constant="16" id="xxW-8Z-BeU"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="6AY-Hk-bPs">
+                                                <rect key="frame" x="12" y="24" width="137" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="CRu-9J-G3o"/>
+                                                    <constraint firstAttribute="width" constant="137" id="zUO-ul-jKF"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" name="BackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="PGm-XR-OYb" secondAttribute="bottom" constant="65" id="FEb-eQ-IZU"/>
+                                            <constraint firstItem="PGm-XR-OYb" firstAttribute="leading" secondItem="zWp-XW-dxW" secondAttribute="leading" constant="12" id="MlR-Dx-Bdy"/>
+                                            <constraint firstItem="6AY-Hk-bPs" firstAttribute="leading" secondItem="zWp-XW-dxW" secondAttribute="leading" constant="12" id="OHi-eL-QCV"/>
+                                            <constraint firstItem="6AY-Hk-bPs" firstAttribute="top" secondItem="zWp-XW-dxW" secondAttribute="top" constant="24" id="Sdp-LI-SRC"/>
+                                            <constraint firstAttribute="trailing" secondItem="PGm-XR-OYb" secondAttribute="trailing" constant="12" id="ZpB-yd-Phf"/>
+                                            <constraint firstItem="PGm-XR-OYb" firstAttribute="top" secondItem="zWp-XW-dxW" secondAttribute="top" constant="84" id="yPe-sF-DZr"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="zWp-XW-dxW" firstAttribute="top" secondItem="3Xw-ol-ZsS" secondAttribute="top" id="4Ma-Ud-737"/>
+                                    <constraint firstItem="zWp-XW-dxW" firstAttribute="leading" secondItem="3Xw-ol-ZsS" secondAttribute="leading" id="cYn-4G-cOn"/>
+                                    <constraint firstAttribute="bottom" secondItem="zWp-XW-dxW" secondAttribute="bottom" id="g8a-aH-OHN"/>
+                                    <constraint firstAttribute="trailing" secondItem="zWp-XW-dxW" secondAttribute="trailing" id="hvt-Sm-51z"/>
+                                    <constraint firstItem="zWp-XW-dxW" firstAttribute="width" secondItem="3Xw-ol-ZsS" secondAttribute="width" id="vKf-nF-vzA"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Umf-uV-k8a"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3Xw-ol-ZsS" firstAttribute="leading" secondItem="Umf-uV-k8a" secondAttribute="leading" id="5NQ-uX-Xwx"/>
+                            <constraint firstItem="3Xw-ol-ZsS" firstAttribute="trailing" secondItem="Umf-uV-k8a" secondAttribute="trailing" id="dhI-GG-wnJ"/>
+                            <constraint firstItem="3Xw-ol-ZsS" firstAttribute="top" secondItem="Umf-uV-k8a" secondAttribute="top" id="ljf-Yd-Vek"/>
+                            <constraint firstItem="3Xw-ol-ZsS" firstAttribute="bottom" secondItem="Umf-uV-k8a" secondAttribute="bottom" id="v9h-ua-pD1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="OHN-jB-gfr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1mp-hW-IqS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4455" y="858.75"/>
         </scene>
     </scenes>
     <resources>
@@ -2358,12 +2608,14 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
         <image name="os_not_support_image" width="480" height="480"/>
         <image name="passport_icon" width="42" height="48"/>
         <image name="passport_image" width="124" height="160"/>
+        <image name="passport_photo" width="524" height="494"/>
         <image name="passport_photo_1" width="524" height="494"/>
         <image name="seen_all_icon" width="48" height="48"/>
         <image name="seen_four_corners_icon" width="48" height="48"/>
         <image name="success_image" width="480" height="480"/>
         <image name="valid_dispatch_icon" width="48" height="48"/>
         <image name="wrong_move_image" width="480" height="480"/>
+        <image name="zoom_icon" width="88" height="88"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -2378,6 +2630,9 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
         </namedColor>
         <namedColor name="DescriptionColor">
             <color red="0.9179999828338623" green="0.9179999828338623" blue="0.9179999828338623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="borderColor">
+            <color red="0.49803921568627452" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
