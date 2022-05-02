@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B5107B038411776B43C74A38 /* Pods_VcheckSDKDemoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357E793382C533C73454B43D /* Pods_VcheckSDKDemoIOS.framework */; };
+		965EE52CD21510989273D883 /* Pods_VcheckSDKDemoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F8848E7D3C92883B37CB56 /* Pods_VcheckSDKDemoIOS.framework */; };
 		DA47CDA4281C3B59001226B9 /* AllowedCountryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47CDA3281C3B59001226B9 /* AllowedCountryViewCell.swift */; };
 		DA65CBB3281C527A006508A1 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65CBB2281C527A006508A1 /* RoundedView.swift */; };
 		DA73742B281ACC3700DBBDED /* DemoStartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73742A281ACC3700DBBDED /* DemoStartViewModel.swift */; };
@@ -58,8 +58,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		357E793382C533C73454B43D /* Pods_VcheckSDKDemoIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VcheckSDKDemoIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A7C2B485A1BB89266CD15CB /* Pods-VcheckSDKDemoIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcheckSDKDemoIOS.debug.xcconfig"; path = "Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		B9F8848E7D3C92883B37CB56 /* Pods_VcheckSDKDemoIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VcheckSDKDemoIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA47CDA3281C3B59001226B9 /* AllowedCountryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowedCountryViewCell.swift; sourceTree = "<group>"; };
 		DA65CBAE281C4759006508A1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		DA65CBAF281C4759006508A1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -113,7 +112,8 @@
 		DAE87E0F2816CC1F00ED6826 /* ChooseCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCountryViewController.swift; sourceTree = "<group>"; };
 		DAE87E112816CC2C00ED6826 /* CountryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
 		DAE87E142816CE6E00ED6826 /* DemoStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoStartViewController.swift; sourceTree = "<group>"; };
-		EF05AA06C2A1732CF659E363 /* Pods-VcheckSDKDemoIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcheckSDKDemoIOS.release.xcconfig"; path = "Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS.release.xcconfig"; sourceTree = "<group>"; };
+		F42E8B6EDF5994EC8AD265F7 /* Pods-VcheckSDKDemoIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcheckSDKDemoIOS.debug.xcconfig"; path = "Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		FA32110021508F7D2D10BE42 /* Pods-VcheckSDKDemoIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcheckSDKDemoIOS.release.xcconfig"; path = "Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,17 +121,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5107B038411776B43C74A38 /* Pods_VcheckSDKDemoIOS.framework in Frameworks */,
+				965EE52CD21510989273D883 /* Pods_VcheckSDKDemoIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6CFEE720F001B264AA607BD9 /* Frameworks */ = {
+		81745F37DF6FA0BC5B20136E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				357E793382C533C73454B43D /* Pods_VcheckSDKDemoIOS.framework */,
+				B9F8848E7D3C92883B37CB56 /* Pods_VcheckSDKDemoIOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -139,8 +139,8 @@
 		C55ED8972A87D4D9813AA1B5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8A7C2B485A1BB89266CD15CB /* Pods-VcheckSDKDemoIOS.debug.xcconfig */,
-				EF05AA06C2A1732CF659E363 /* Pods-VcheckSDKDemoIOS.release.xcconfig */,
+				F42E8B6EDF5994EC8AD265F7 /* Pods-VcheckSDKDemoIOS.debug.xcconfig */,
+				FA32110021508F7D2D10BE42 /* Pods-VcheckSDKDemoIOS.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -231,7 +231,7 @@
 				DAB613282814767700234BB2 /* VcheckSDKDemoIOS */,
 				DAB613272814767700234BB2 /* Products */,
 				C55ED8972A87D4D9813AA1B5 /* Pods */,
-				6CFEE720F001B264AA607BD9 /* Frameworks */,
+				81745F37DF6FA0BC5B20136E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -289,12 +289,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DAB6133D2814767900234BB2 /* Build configuration list for PBXNativeTarget "VcheckSDKDemoIOS" */;
 			buildPhases = (
-				69ACF81690D54448CC4EF1F6 /* [CP] Check Pods Manifest.lock */,
+				E7F89868E2845B8066D9D926 /* [CP] Check Pods Manifest.lock */,
 				DAB613222814767700234BB2 /* Sources */,
 				DAB613232814767700234BB2 /* Frameworks */,
 				DAB613242814767700234BB2 /* Resources */,
-				17B16B1EAB8428630C7FFAFC /* [CP] Embed Pods Frameworks */,
-				49BA0DE1DC6A3DBE6A5EA44B /* [CP] Copy Pods Resources */,
+				11D2E5EB9EEB7B1920C4D85E /* [CP] Embed Pods Frameworks */,
+				5E28BDF2FFE7102C3A549F3A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -368,7 +368,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		17B16B1EAB8428630C7FFAFC /* [CP] Embed Pods Frameworks */ = {
+		11D2E5EB9EEB7B1920C4D85E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -385,7 +385,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		49BA0DE1DC6A3DBE6A5EA44B /* [CP] Copy Pods Resources */ = {
+		5E28BDF2FFE7102C3A549F3A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -402,7 +402,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		69ACF81690D54448CC4EF1F6 /* [CP] Check Pods Manifest.lock */ = {
+		E7F89868E2845B8066D9D926 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -610,7 +610,7 @@
 		};
 		DAB6133E2814767900234BB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8A7C2B485A1BB89266CD15CB /* Pods-VcheckSDKDemoIOS.debug.xcconfig */;
+			baseConfigurationReference = F42E8B6EDF5994EC8AD265F7 /* Pods-VcheckSDKDemoIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -641,7 +641,7 @@
 		};
 		DAB6133F2814767900234BB2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EF05AA06C2A1732CF659E363 /* Pods-VcheckSDKDemoIOS.release.xcconfig */;
+			baseConfigurationReference = FA32110021508F7D2D10BE42 /* Pods-VcheckSDKDemoIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

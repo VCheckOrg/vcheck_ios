@@ -9,7 +9,7 @@ import ARCore
 public final class LivenessScreenViewController: UIViewController {
     
     
-    @IBOutlet weak var testLivenessRealtimeInfo: UITextView!
+  @IBOutlet weak var testLivenessRealtimeInfo: UITextView!
     
   // MARK: - Member Variables
   private var needToShowFatalError = false
@@ -37,8 +37,6 @@ public final class LivenessScreenViewController: UIViewController {
   private var foreheadLeftNode: SCNNode?
   private var foreheadRightNode: SCNNode?
     
-  //private let faceMeshConverter: FaceMeshGeometryConverter = FaceMeshGeometryConverter()
-
   // MARK: - Implementation methods
   override public func viewDidLoad() {
     super.viewDidLoad()
@@ -78,8 +76,8 @@ public final class LivenessScreenViewController: UIViewController {
   /// https://developers.google.com/ar/develop/developer-guides/creating-assets-for-augmented-faces
   /// - Returns: true when the function has fatal error; false when not.
   private func setupScene() -> Bool {
-    guard //let faceImage = UIImage(named: "Face.scnassets/face_texture.png"),
-      let scene = SCNScene(named: "Face.scnassets/liveness_scene.scn"),
+      
+    guard let scene = SCNScene(named: "Face.scnassets/liveness_scene.scn"),
       let modelRoot = scene.rootNode.childNode(withName: "asset", recursively: false)
     else {
       alertWindowTitle = "A fatal error occurred."
@@ -281,7 +279,7 @@ extension LivenessScreenViewController: SCNSceneRendererDelegate {
     }
   }
     
-    func processFaceCalcForFrame(face: GARAugmentedFace) {
+  func processFaceCalcForFrame(face: GARAugmentedFace) {
         //SIMD3<Float>(0.044765785, 0.031215014, 0.037100613)
         
         let h1 = MouthCalcCoordsHolder.init(x1: face.mesh.vertices[37].x, x2: face.mesh.vertices[83].x, y1: face.mesh.vertices[37].y,
@@ -292,17 +290,14 @@ extension LivenessScreenViewController: SCNSceneRendererDelegate {
                                             y2: face.mesh.vertices[281].y, z1: face.mesh.vertices[61].z, z2: face.mesh.vertices[281].z)
         
         let mouthAngle = landmarksToMouthAspectRatio(h1: h1, h2: h2, h3: h3)
-        
-        let anglesHolder = face.centerTransform.eulerAngles
-        
-        //print("MOUTH: \(mouthAngle) | ANGLES: \(angles)")
+        let faceAnglesHolder = face.centerTransform.eulerAngles
         
         let mouthOpen: Bool = mouthAngle > 0.39
-        let turnedLeft: Bool = anglesHolder.pitch < -30
-        let turnedRight: Bool = anglesHolder.pitch > 30
+        let turnedLeft: Bool = faceAnglesHolder.pitch < -30
+        let turnedRight: Bool = faceAnglesHolder.pitch > 30
         
         DispatchQueue.main.async {
-            self.testLivenessRealtimeInfo.text = "MOUTH: \(mouthAngle)\nPITCH: \(anglesHolder.pitch)\nYAW: \(anglesHolder.yaw)"
+            self.testLivenessRealtimeInfo.text = "MOUTH: \(mouthAngle)\nPITCH: \(faceAnglesHolder.pitch)\nYAW: \(faceAnglesHolder.yaw)"
              + "\n\nMOUTH OPEN: \(mouthOpen)\n\nTURNED LEFT: \(turnedLeft)\n\nTURNED RIGHT: \(turnedRight)"
         }
     }
@@ -315,7 +310,7 @@ extension LivenessScreenViewController: SCNSceneRendererDelegate {
         
 //        let a = euclidean(p0: vertices[37], p1: vertices[83])  //1, 2
 //        let b = euclidean(p0: vertices[267], p1: vertices[314])  //3, 4
-//        let c = euclidean(p0: vertices[61], p1: vertices[281])  //
+//        let c = euclidean(p0: vertices[61], p1: vertices[281])  //5, 6
 
         return (a + b / (2.0 * c)) * 1.2  //! 1.2 is a factor for making result more precise!
     }
