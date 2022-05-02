@@ -48,8 +48,10 @@
 		DAB613342814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAB613322814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld */; };
 		DAB613362814767900234BB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB613352814767900234BB2 /* Assets.xcassets */; };
 		DAB613392814767900234BB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB613372814767900234BB2 /* LaunchScreen.storyboard */; };
+		DAB85363281FB475008F3E35 /* Face.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB85362281FB475008F3E35 /* Face.scnassets */; };
 		DAC2325A281C3EF300D0CE16 /* BlockedCountryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC23259281C3EF300D0CE16 /* BlockedCountryViewCell.swift */; };
 		DADD31EF281D7A0200EB25ED /* DocumentTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD31EE281D7A0200EB25ED /* DocumentTypes.swift */; };
+		DADD31F2281D93F800EB25ED /* LivenessScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD31F1281D93F800EB25ED /* LivenessScreenViewController.swift */; };
 		DAE87E102816CC1F00ED6826 /* ChooseCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E0F2816CC1F00ED6826 /* ChooseCountryViewController.swift */; };
 		DAE87E122816CC2C00ED6826 /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E112816CC2C00ED6826 /* CountryListViewController.swift */; };
 		DAE87E152816CE6E00ED6826 /* DemoStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E142816CE6E00ED6826 /* DemoStartViewController.swift */; };
@@ -104,8 +106,10 @@
 		DAB613352814767900234BB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAB613382814767900234BB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAB6133A2814767900234BB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAB85362281FB475008F3E35 /* Face.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Face.scnassets; sourceTree = "<group>"; };
 		DAC23259281C3EF300D0CE16 /* BlockedCountryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedCountryViewCell.swift; sourceTree = "<group>"; };
 		DADD31EE281D7A0200EB25ED /* DocumentTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTypes.swift; sourceTree = "<group>"; };
+		DADD31F1281D93F800EB25ED /* LivenessScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessScreenViewController.swift; sourceTree = "<group>"; };
 		DAE87E0F2816CC1F00ED6826 /* ChooseCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCountryViewController.swift; sourceTree = "<group>"; };
 		DAE87E112816CC2C00ED6826 /* CountryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
 		DAE87E142816CE6E00ED6826 /* DemoStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoStartViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 		DA737428281ACAFD00DBBDED /* presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DADD31F0281D93C600EB25ED /* liveness */,
 				DAB11435281D6315001F82E4 /* doc_type_stage */,
 				DA737429281ACB4A00DBBDED /* start */,
 				DAE87E132816CC3B00ED6826 /* choose_country_stage */,
@@ -241,6 +246,7 @@
 		DAB613282814767700234BB2 /* VcheckSDKDemoIOS */ = {
 			isa = PBXGroup;
 			children = (
+				DAB85362281FB475008F3E35 /* Face.scnassets */,
 				DA19DCEC281C52DC00023B5A /* util */,
 				DA73742C281ACC6E00DBBDED /* service */,
 				DA737428281ACAFD00DBBDED /* presentation */,
@@ -255,6 +261,14 @@
 				DAB613322814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld */,
 			);
 			path = VcheckSDKDemoIOS;
+			sourceTree = "<group>";
+		};
+		DADD31F0281D93C600EB25ED /* liveness */ = {
+			isa = PBXGroup;
+			children = (
+				DADD31F1281D93F800EB25ED /* LivenessScreenViewController.swift */,
+			);
+			path = liveness;
 			sourceTree = "<group>";
 		};
 		DAE87E132816CC3B00ED6826 /* choose_country_stage */ = {
@@ -280,6 +294,7 @@
 				DAB613232814767700234BB2 /* Frameworks */,
 				DAB613242814767700234BB2 /* Resources */,
 				17B16B1EAB8428630C7FFAFC /* [CP] Embed Pods Frameworks */,
+				49BA0DE1DC6A3DBE6A5EA44B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -339,6 +354,7 @@
 				DAAF4E13281AC7A60029F26C /* country_models.kt in Resources */,
 				DAAF4E18281AC7A60029F26C /* document_request_models.kt in Resources */,
 				DAB613362814767900234BB2 /* Assets.xcassets in Resources */,
+				DAB85363281FB475008F3E35 /* Face.scnassets in Resources */,
 				DAAF4E22281AC7A60029F26C /* BaseClientErrors.kt in Resources */,
 				DAAF4E1A281AC7A60029F26C /* verification_request_models.kt in Resources */,
 				DAAF4E1B281AC7A60029F26C /* document_response_models.kt in Resources */,
@@ -367,6 +383,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49BA0DE1DC6A3DBE6A5EA44B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		69ACF81690D54448CC4EF1F6 /* [CP] Check Pods Manifest.lock */ = {
@@ -427,6 +460,7 @@
 				DAB613342814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld in Sources */,
 				DA737434281ADCD600DBBDED /* KeychainHelper.swift in Sources */,
 				DA73742E281ACC7E00DBBDED /* DataService.swift in Sources */,
+				DADD31F2281D93F800EB25ED /* LivenessScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -37,7 +37,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="512-S9-Usq" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="56.799999999999997" y="98.275862068965523"/>
+            <point key="canvasLocation" x="-800" y="-655"/>
         </scene>
         <!--Unsupported View Controller-->
         <scene sceneID="25P-IB-Srk">
@@ -101,7 +101,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Liveness Demo"/>
                                 <connections>
-                                    <segue destination="HjB-Fr-bFT" kind="show" id="3eL-Ye-4rp"/>
+                                    <segue destination="2Ob-Di-bza" kind="show" id="enW-84-f1q"/>
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="eXt-L9-GpI">
@@ -2482,7 +2482,35 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U9c-ca-pxQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3728" y="860"/>
+            <point key="canvasLocation" x="3242" y="859"/>
+        </scene>
+        <!--Liveness Screen View Controller-->
+        <scene sceneID="cHE-UQ-Euf">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="2Ob-Di-bza" customClass="LivenessScreenViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dGJ-l1-WKs">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="TEST" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JP2-HL-BZO">
+                                <rect key="frame" x="16" y="138" width="238" height="393"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" name="DescriptionColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="q22-ug-4wk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nhO-sD-A6d"/>
+                    <connections>
+                        <outlet property="testLivenessRealtimeInfo" destination="JP2-HL-BZO" id="ciD-ga-71A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NfE-K9-vQd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53.846153846153847" y="85.308056872037909"/>
         </scene>
     </scenes>
     <resources>
@@ -2525,6 +2553,9 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
         <namedColor name="DescriptionColor">
             <color red="0.9179999828338623" green="0.9179999828338623" blue="0.9179999828338623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
