@@ -101,7 +101,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Liveness Demo"/>
                                 <connections>
-                                    <segue destination="2Ob-Di-bza" kind="show" id="enW-84-f1q"/>
+                                    <segue destination="2Ob-Di-bza" kind="show" identifier="StartToLiveness" id="enW-84-f1q"/>
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="eXt-L9-GpI">
@@ -191,7 +191,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="FLAG" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zr2-kK-wWI">
-                                                <rect key="frame" x="8" y="3" width="60" height="39"/>
+                                                <rect key="frame" x="7" y="3" width="60" height="39"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" name="CountryCardColor"/>
                                                 <color key="textColor" name="DescriptionColor"/>
@@ -1717,7 +1717,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Продолжить"/>
                                                         <connections>
-                                                            <segue destination="ZEj-uY-1Rn" kind="show" id="t3d-vg-bIt"/>
+                                                            <segue destination="ZEj-uY-1Rn" kind="show" identifier="PhotoInstructionsToUpload" id="t3d-vg-bIt"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Требования к фото" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgH-RH-Doo">
@@ -2353,7 +2353,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
         <!--Photo Upload View Controller-->
         <scene sceneID="TOh-Z3-wqv">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="ZEj-uY-1Rn" userLabel="Photo Upload View Controller" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="ZEj-uY-1Rn" userLabel="Photo Upload View Controller" customClass="TakeDocPhotoViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MMb-ku-R2l">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2628,6 +2628,12 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                     </view>
                     <navigationItem key="navigationItem" id="SZd-wG-nRA"/>
                     <connections>
+                        <outlet property="firstPhotoButton" destination="RAe-re-A91" id="3qn-fK-XLP"/>
+                        <outlet property="firstPhotoCard" destination="QAk-dG-hue" id="mFt-um-f9k"/>
+                        <outlet property="imgViewIconFirst" destination="dvC-xF-m5v" id="xEh-dd-x7X"/>
+                        <outlet property="imgViewIconSecond" destination="Q4M-96-N2h" id="DDa-Tg-TN6"/>
+                        <outlet property="secondPhotoButton" destination="OaU-0r-EKr" id="GUl-9Z-Kki"/>
+                        <outlet property="secondPhotoCard" destination="hWN-ru-b13" id="ZeT-qJ-yyx"/>
                         <segue destination="OYj-MX-icL" kind="show" id="KgJ-x7-YV2"/>
                     </connections>
                 </viewController>

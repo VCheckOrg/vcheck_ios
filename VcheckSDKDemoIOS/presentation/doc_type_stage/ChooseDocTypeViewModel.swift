@@ -32,18 +32,11 @@ class ChooseDocTypeViewModel  {
         self.dataService.getCountryAvailableDocTypeInfo(countryCode: countryCode, completion: { (data, error) in
             if let error = error {
                 self.error = error
-                //self.isLoading = false
                 return
             }
-            
-            //print("VERIF ::: GOT COUNTRIES - SUCCESS! DATA: \(String(describing: data))")
-            
+                        
             if (data!.count > 0) {
-                //self.isLoading = false
-                //self.countries = data
-                
                 self.docTypeDataArr = data!
-                
                 self.retrievedDocTypes!()
             }
         })
