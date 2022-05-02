@@ -35,21 +35,18 @@ extension Data {
 }
 
 public extension String {
+    
     func sha256() -> String{
         if let stringData = self.data(using: String.Encoding.utf8) {
             return stringData.sha256()
         }
         return ""
     }
-}
-
-public extension String {
 
     mutating func substringBefore(_ string: String) -> String {
         let components = self.components(separatedBy: string)
         return components[0]
     }
-
 }
 
 
@@ -66,3 +63,28 @@ extension UIViewController {
         }
     }
  }
+
+
+extension UIView {
+    
+    private struct OnClickHolder {
+        static var _closure:()->() = {}
+    }
+
+    private var onClickClosure: () -> () {
+        get { return OnClickHolder._closure }
+        set { OnClickHolder._closure = newValue }
+    }
+
+    func onTap(closure: @escaping ()->()) {
+        self.onClickClosure = closure
+        
+        isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(onClickAction))
+        addGestureRecognizer(tap)
+    }
+
+    @objc private func onClickAction() {
+        onClickClosure()
+    }
+}

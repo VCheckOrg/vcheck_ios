@@ -27,12 +27,6 @@ class DemoStartViewModel {
         didSet { self.updateLoadingStatus?() }
     }
     
-    var titleString: String?
-    var albumIdString: String?
-    var photoUrl: URL?
-    
-    
-    
     // MARK: - Closures for callback, since we are not using the ViewModel to the View.
     var showAlertClosure: (() -> ())?
     var updateLoadingStatus: (() -> ())?
@@ -40,7 +34,6 @@ class DemoStartViewModel {
     var didCreateVerif: (() -> ())?
     var didInitVerif: (() -> ())?
     var didFinishFetch: (() -> ())?
-    
     var gotCountries: (() -> ())?
     
     

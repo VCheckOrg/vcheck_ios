@@ -17,6 +17,12 @@ final class KeychainHelper {
     
     private init() {}
     
+    
+    //cached selected doc type with data
+    private var _selectedDocTypeWithData: DocTypeData? = nil
+    
+    
+    
     func save(_ data: Data, service: String, account: String) {
 
         let query = [
@@ -78,12 +84,31 @@ final class KeychainHelper {
 extension KeychainHelper {
     
     func readAccessToken() -> String {
-        return String(data: read(service: "access-token", account: "vhcheck")!, encoding: .utf8) ?? ""
+        return String(data: read(service: "access-token",
+                                 account: Constants.UTIL.keychainAccountName)!, encoding: .utf8) ?? ""
     }
     
     func saveAccessToken(accessToken: String) {
         let data = Data(accessToken.utf8)
-        save(data, service: "access-token", account: "vhcheck")
+        save(data, service: "access-token", account: Constants.UTIL.keychainAccountName)
+    }
+    
+    func readSelectedCountryCode() -> String {
+        return String(data: read(service: "country-code",
+                                 account: Constants.UTIL.keychainAccountName)!, encoding: .utf8) ?? ""
+    }
+    
+    func saveSelectedCountryCode(code: String) {
+        let data = Data(code.utf8)
+        save(data, service: "country-code", account: Constants.UTIL.keychainAccountName)
+    }
+    
+    func setSelectedDocTypeWithData(data: DocTypeData) {
+        _selectedDocTypeWithData = data
+    }
+
+    func getSelectedDocTypeWithData() -> DocTypeData? {
+        return _selectedDocTypeWithData
     }
 }
 

@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '11.0'
 
 target 'VcheckSDKDemoIOS' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -8,5 +8,6 @@ target 'VcheckSDKDemoIOS' do
   # Pods for VcheckSDKDemoIOS
 pod 'Alamofire', '~> 5.4.0'
 pod 'AlamofireNetworkActivityLogger', '~> 3.4'
+pod 'ARCore/AugmentedFaces', '~> 1.30.0'
 
 end

@@ -12,34 +12,115 @@ class CountryListViewController : UIViewController {
     
     @IBOutlet var countryListTable: UITableView!
     
-    let countries = [
-        "Украина", "Англия", "Франция", "Италия", "Германия", "Украина", "Англия", "Франция", "Италия", "Германия", "Англия", "Франция", "Италия", "Германия"]
+    @IBAction func navBackFromCountryList(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBOutlet weak var searchBar: UISearchBar! {
+        didSet{
+            if let searchTextfield = self.searchBar.value(forKey: "searchField") as? UITextField  {
+                searchTextfield.layer.borderColor = UIColor.lightGray.cgColor
+                searchTextfield.layer.borderWidth = 1
+                searchTextfield.layer.cornerRadius = 10
+                searchTextfield.textColor = .white
+                searchTextfield.leftView?.tintColor = .white
+            }
+        }
+    }
+    
+    var countriesDataSourceArr: [CountryTO] = []
+    
+    var searchResultsList: [CountryTO] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.searchResultsList = countriesDataSourceArr
+        
+        searchBar.delegate = self
         countryListTable.delegate = self
         countryListTable.dataSource = self
     }
-}
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
 
-extension CountryListViewController: UITableViewDelegate {
-    func tableView(_ countryListTable: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(countries[indexPath.row])
+        if let firstVC = presentingViewController as? ChooseCountryViewController {
+            DispatchQueue.main.async {
+                firstVC.reloadData()
+            }
+        }
     }
 }
 
+// MARK: - UITableViewDelegate
+extension CountryListViewController: UITableViewDelegate {
+    
+    func tableView(_ countryListTable: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        KeychainHelper.shared.saveSelectedCountryCode(code: self.searchResultsList[indexPath.row].code)
+
+        self.dismiss(animated: true, completion: nil)
+    }
+}
+
+// MARK: - UITableViewDataSource
 extension CountryListViewController: UITableViewDataSource {
+        
     func tableView(_ countryListTable: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return countries.count
+        return searchResultsList.count
     }
 
     func tableView(_ countryListTable: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = countryListTable.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = countries[indexPath.row]
-        cell.textLabel?.textColor = UIColor.white
+        var cell = UITableViewCell.init()
+        if (searchResultsList[indexPath.row]).isBlocked {
+            cell = countryListTable.dequeueReusableCell(
+                withIdentifier: "blockedCountryCell", for: indexPath) as! BlockedCountryViewCell
+        } else {
+            cell = countryListTable.dequeueReusableCell(
+                withIdentifier: "allowedCountryCell", for: indexPath) as! AllowedCountryViewCell
+        }
+        
+        if (cell is AllowedCountryViewCell) {
+            (cell as! AllowedCountryViewCell).setCountryName(name: self.searchResultsList[indexPath.row].name)
+            (cell as! AllowedCountryViewCell).setCountryFlag(flag: self.searchResultsList[indexPath.row].flag)
+        }
+        else {
+            (cell as! BlockedCountryViewCell).setCountryName(name: self.searchResultsList[indexPath.row].name)
+            (cell as! BlockedCountryViewCell).setCountryFlag(flag: self.searchResultsList[indexPath.row].flag)
+        }
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+}
+
+// MARK: - UISearchBarDelegate
+extension CountryListViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let countryName = searchBar.text else { return }
+        searchCountries(forFragment: countryName)
+        self.searchBar.resignFirstResponder()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchCountries(forFragment: searchText)
+    }
+    
+    func searchCountries(forFragment: String) {
+        
+        if (forFragment.isEmpty) {
+            self.searchResultsList = self.countriesDataSourceArr
+        } else {
+            self.searchResultsList = self.countriesDataSourceArr.filter { $0.name.lowercased().contains(forFragment.lowercased()) }
+        }
+        
+        self.countryListTable.reloadData()
     }
 }
 
