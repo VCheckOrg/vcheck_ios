@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  VcheckSDKDemoIOS
+
+  Created by Kirill Kaun on 03.05.2022.
+  
+*/
+
+
+"photo_upload_title_foreign" = "Full spread of the document with your photo";
+"photo_upload_title_id_card_forward" = "Front side of the ID card";
+"photo_upload_title_id_card_back" = "Back side of the ID card";
+"photo_upload_title_common_forward" = "Photo of the first page / side of the document (with your photo)";
+"photo_upload_title_common_back" = "Photo of the last page / side with your photo (if you have multiple photos in the document)";
+"error_make_at_least_one_photo" = "Please make at least one photo of the document";

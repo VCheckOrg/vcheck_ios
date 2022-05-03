@@ -191,7 +191,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="FLAG" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zr2-kK-wWI">
-                                                <rect key="frame" x="7" y="3" width="60" height="39"/>
+                                                <rect key="frame" x="6" y="3" width="60" height="39"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" name="CountryCardColor"/>
                                                 <color key="textColor" name="DescriptionColor"/>
@@ -2397,15 +2397,19 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QAk-dG-hue" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="138.66666666666669" width="334" height="250"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_image" translatesAutoresizingMaskIntoConstraints="NO" id="dvC-xF-m5v">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JoJ-Ks-g2F">
+                                                                <rect key="frame" x="8" y="-5.6843418860808015e-14" width="318" height="250"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            </imageView>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dvC-xF-m5v">
                                                                 <rect key="frame" x="16" y="24" width="62" height="80"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="62" id="bJS-Ai-30o"/>
                                                                     <constraint firstAttribute="height" constant="80" id="glD-aW-bLo"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6v6-eK-T1j">
-                                                                <rect key="frame" x="90" y="40" width="228" height="28.666666666666671"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6v6-eK-T1j">
+                                                                <rect key="frame" x="106" y="75" width="201" height="63"/>
                                                                 <string key="text">Загрузите фото лицевого разворота 
 (разворот с вашим фото).</string>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
@@ -2484,15 +2488,19 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hWN-ru-b13" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="416.66666666666663" width="334" height="250"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_image" translatesAutoresizingMaskIntoConstraints="NO" id="Q4M-96-N2h">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="shV-i7-dlB">
+                                                                <rect key="frame" x="8" y="0.0" width="318" height="250"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            </imageView>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q4M-96-N2h">
                                                                 <rect key="frame" x="16" y="24" width="62" height="80"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="62" id="KQv-ea-dnz"/>
                                                                     <constraint firstAttribute="height" constant="80" id="PeT-sJ-iAJ"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Загрузите фото обратного разворота." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0x-f9-qUL">
-                                                                <rect key="frame" x="90" y="40" width="228" height="28.666666666666671"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Загрузите фото обратного разворота." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0x-f9-qUL">
+                                                                <rect key="frame" x="106" y="75" width="203" height="36"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -2636,8 +2644,11 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                     </view>
                     <navigationItem key="navigationItem" id="SZd-wG-nRA"/>
                     <connections>
+                        <outlet property="btnContinueToPreview" destination="ZNG-ph-Cor" id="zFd-NG-4ul"/>
                         <outlet property="deleteFirstPhotoBtn" destination="a3h-nf-ex5" id="oO4-9F-T1y"/>
                         <outlet property="deleteSecondPhotoBtn" destination="Tee-xk-jrh" id="eNf-Hl-13F"/>
+                        <outlet property="docPhotoFirstImgHolder" destination="JoJ-Ks-g2F" id="t7f-p1-5qX"/>
+                        <outlet property="docPhotoSecondImgHolder" destination="shV-i7-dlB" id="4Ac-sZ-ss4"/>
                         <outlet property="firstPhotoButton" destination="RAe-re-A91" id="3qn-fK-XLP"/>
                         <outlet property="firstPhotoCard" destination="QAk-dG-hue" id="mFt-um-f9k"/>
                         <outlet property="imgViewIconFirst" destination="dvC-xF-m5v" id="xEh-dd-x7X"/>
@@ -3116,7 +3127,6 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
         <image name="original_doc_icon" width="48" height="48"/>
         <image name="os_not_support_image" width="480" height="480"/>
         <image name="passport_icon" width="42" height="48"/>
-        <image name="passport_image" width="124" height="160"/>
         <image name="passport_photo" width="524" height="494"/>
         <image name="passport_photo_1" width="524" height="494"/>
         <image name="requested_movements_icon" width="48" height="48"/>
