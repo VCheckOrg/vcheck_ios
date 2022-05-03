@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3HI-Lp-Qj3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3HI-Lp-Qj3">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -2452,6 +2452,10 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="delete_icon" translatesAutoresizingMaskIntoConstraints="NO" id="a3h-nf-ex5">
+                                                                <rect key="frame" x="284" y="8" width="42" height="42"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" name="CountryCardColor"/>
                                                         <constraints>
@@ -2533,6 +2537,10 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="delete_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Tee-xk-jrh">
+                                                                <rect key="frame" x="284" y="8" width="42" height="42"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" name="CountryCardColor"/>
                                                         <constraints>
@@ -2628,18 +2636,22 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                     </view>
                     <navigationItem key="navigationItem" id="SZd-wG-nRA"/>
                     <connections>
+                        <outlet property="deleteFirstPhotoBtn" destination="a3h-nf-ex5" id="oO4-9F-T1y"/>
+                        <outlet property="deleteSecondPhotoBtn" destination="Tee-xk-jrh" id="eNf-Hl-13F"/>
                         <outlet property="firstPhotoButton" destination="RAe-re-A91" id="3qn-fK-XLP"/>
                         <outlet property="firstPhotoCard" destination="QAk-dG-hue" id="mFt-um-f9k"/>
                         <outlet property="imgViewIconFirst" destination="dvC-xF-m5v" id="xEh-dd-x7X"/>
                         <outlet property="imgViewIconSecond" destination="Q4M-96-N2h" id="DDa-Tg-TN6"/>
                         <outlet property="secondPhotoButton" destination="OaU-0r-EKr" id="GUl-9Z-Kki"/>
                         <outlet property="secondPhotoCard" destination="hWN-ru-b13" id="ZeT-qJ-yyx"/>
+                        <outlet property="tvFirstCardTitle" destination="6v6-eK-T1j" id="Ctc-fK-dO3"/>
+                        <outlet property="tvSecondCardTitle" destination="k0x-f9-qUL" id="fUa-Mm-5ii"/>
                         <segue destination="OYj-MX-icL" kind="show" id="KgJ-x7-YV2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RWM-l4-bDf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3277" y="859"/>
+            <point key="canvasLocation" x="3276.9230769230767" y="858.76777251184831"/>
         </scene>
         <!--Check Photo View Controller-->
         <scene sceneID="zJy-By-c23">
@@ -2694,15 +2706,15 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_photo_1" translatesAutoresizingMaskIntoConstraints="NO" id="ZWJ-nl-6Jb">
                                                                 <rect key="frame" x="0.0" y="0.0" width="334" height="250"/>
                                                             </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zoom_icon" translatesAutoresizingMaskIntoConstraints="NO" id="4hs-UV-sBw">
-                                                                <rect key="frame" x="295" y="8" width="36" height="36"/>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="zoom_icon" translatesAutoresizingMaskIntoConstraints="NO" id="4hs-UV-sBw">
+                                                                <rect key="frame" x="284" y="8" width="42" height="42"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="36" id="EMR-c5-rva"/>
                                                                     <constraint firstAttribute="height" constant="36" id="PQz-ba-3tf"/>
                                                                 </constraints>
                                                             </imageView>
                                                         </subviews>
-                                                        <color key="backgroundColor" name="CardColor"/>
+                                                        <color key="tintColor" name="CardColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="ZWJ-nl-6Jb" secondAttribute="bottom" id="03S-lj-WkH"/>
                                                             <constraint firstAttribute="height" constant="250" id="9Bq-4I-9LB"/>
@@ -2732,9 +2744,10 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_photo" translatesAutoresizingMaskIntoConstraints="NO" id="4ET-0K-fh8">
                                                                 <rect key="frame" x="0.0" y="0.0" width="334" height="250"/>
+                                                                <color key="tintColor" name="CountryCardColor"/>
                                                             </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zoom_icon" translatesAutoresizingMaskIntoConstraints="NO" id="7UI-Fb-JTd">
-                                                                <rect key="frame" x="295" y="8" width="36" height="36"/>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="zoom_icon" translatesAutoresizingMaskIntoConstraints="NO" id="7UI-Fb-JTd">
+                                                                <rect key="frame" x="284" y="8" width="42" height="42"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="36" id="MHi-GC-CzA"/>
                                                                     <constraint firstAttribute="width" constant="36" id="MUs-Et-4SV"/>
@@ -3082,6 +3095,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
     <resources>
         <image name="back_arrow" width="20" height="32"/>
         <image name="bio_passport_icon" width="48" height="38"/>
+        <image name="delete_icon" width="88" height="88"/>
         <image name="error_image" width="480" height="480"/>
         <image name="face_example" width="517" height="448"/>
         <image name="fail_verification_image" width="480" height="480"/>
