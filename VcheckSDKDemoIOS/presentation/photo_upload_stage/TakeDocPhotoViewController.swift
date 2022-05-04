@@ -72,7 +72,7 @@ class TakeDocPhotoViewController : UIViewController,
             tvFirstCardTitle.text = NSLocalizedString("photo_upload_title_common_forward", comment: "")
             tvSecondCardTitle.text = NSLocalizedString("photo_upload_title_common_back", comment: "")
             
-            setClickListenerForFistPhotoBtn()
+            setClickListenerForFirstPhotoBtn()
             setClickListenerForSecondPhotoBtn()
         }
         if (self.selectedDocType == DocType.FOREIGN_PASSPORT) {
@@ -91,7 +91,7 @@ class TakeDocPhotoViewController : UIViewController,
                 imgViewIconFirst.isHidden = true
             }
 
-            setClickListenerForFistPhotoBtn()
+            setClickListenerForFirstPhotoBtn()
         }
         if (self.selectedDocType == DocType.ID_CARD) {
             
@@ -111,27 +111,40 @@ class TakeDocPhotoViewController : UIViewController,
             tvFirstCardTitle.text = NSLocalizedString("photo_upload_title_id_card_forward", comment: "")
             tvSecondCardTitle.text = NSLocalizedString("photo_upload_title_id_card_back", comment: "")
  
-            setClickListenerForFistPhotoBtn()
+            setClickListenerForFirstPhotoBtn()
             setClickListenerForSecondPhotoBtn()
         }
     }
     
-    func setClickListenerForFistPhotoBtn() {
-        let tapped1 = PhotoUploadTapGesture.init(target: self, action: #selector(handleTap))
+    func setClickListenerForFirstPhotoBtn() {
+        let tapped1 = PhotoUploadTapGesture.init(target: self, action: #selector(handlePhotoCameraTap))
         tapped1.photoTakeCase = PhotoTakeCase.FIRST
         tapped1.numberOfTapsRequired = 1
         self.firstPhotoButton.addGestureRecognizer(tapped1)
     }
     
     func setClickListenerForSecondPhotoBtn() {
-        let tapped2 = PhotoUploadTapGesture.init(target: self, action: #selector(handleTap))
+        let tapped2 = PhotoUploadTapGesture.init(target: self, action: #selector(handlePhotoCameraTap))
         tapped2.photoTakeCase = PhotoTakeCase.SECOND
         tapped2.numberOfTapsRequired = 1
         self.secondPhotoButton.addGestureRecognizer(tapped2)
     }
     
+    func setClickListenerForFistDeletionBtn() {
+        let tapped1 = PhotoDeleteTapGesture.init(target: self, action: #selector(handlePhotoDeleteTap))
+        tapped1.photoIdx = 1
+        tapped1.numberOfTapsRequired = 1
+        self.firstPhotoButton.addGestureRecognizer(tapped1)
+    }
     
-    @objc func handleTap(recognizer: PhotoUploadTapGesture) {
+    func setClickListenerForSecondDeletionBtn() {
+        let tapped2 = PhotoDeleteTapGesture.init(target: self, action: #selector(handlePhotoDeleteTap))
+        tapped2.photoIdx = 1
+        tapped2.numberOfTapsRequired = 2
+        self.firstPhotoButton.addGestureRecognizer(tapped2)
+    }
+    
+    @objc func handlePhotoCameraTap(recognizer: PhotoUploadTapGesture) {
         print(recognizer.photoTakeCase)
         self.currentPhotoTakeCase = recognizer.photoTakeCase
         switch(self.currentPhotoTakeCase) {
@@ -140,6 +153,35 @@ class TakeDocPhotoViewController : UIViewController,
             case PhotoTakeCase.SECOND:
                 takePhoto(recognizer)
             default: print("NO PHOTO TAKE CASE WAS SET!")
+        }
+    }
+    
+    @objc func handlePhotoDeleteTap(recognizer: PhotoDeleteTapGesture) {
+        print(recognizer.photoIdx)
+        switch(recognizer.photoIdx) {
+            case 1:
+                imgViewIconFirst.isHidden = false
+                tvFirstCardTitle.isHidden = false
+                deleteFirstPhotoBtn.isHidden = true
+                deleteFirstPhotoBtn.gestureRecognizers?.forEach(deleteFirstPhotoBtn.removeGestureRecognizer)
+                firstPhotoButton.isHidden = false
+                imgViewIconFirst.image = nil
+                firstPhoto = nil
+                setClickListenerForFirstPhotoBtn()
+                checkPhotoCompletenessAndSetProceedClickListener()
+                //?
+            case 2:
+                imgViewIconSecond.isHidden = false
+                tvSecondCardTitle.isHidden = false
+                deleteSecondPhotoBtn.isHidden = true
+                deleteSecondPhotoBtn.gestureRecognizers?.forEach(deleteSecondPhotoBtn.removeGestureRecognizer)
+                secondPhotoButton.isHidden = false
+                imgViewIconSecond.image = nil
+                secondPhoto = nil
+                setClickListenerForSecondPhotoBtn()
+                checkPhotoCompletenessAndSetProceedClickListener()
+                //?
+            default: print("NO CORRECT PHOTO DELETION INDEX FOUND!")
         }
     }
     
@@ -164,6 +206,7 @@ class TakeDocPhotoViewController : UIViewController,
             imgViewIconFirst.isHidden = true
             tvFirstCardTitle.isHidden = true
             deleteFirstPhotoBtn.isHidden = false
+            setClickListenerForFistDeletionBtn()
             firstPhotoButton.isHidden = true
             firstPhotoButton.gestureRecognizers?.forEach(firstPhotoButton.removeGestureRecognizer)
             firstPhoto = image
@@ -173,6 +216,7 @@ class TakeDocPhotoViewController : UIViewController,
             imgViewIconSecond.isHidden = true
             tvSecondCardTitle.isHidden = true
             deleteSecondPhotoBtn.isHidden = false
+            setClickListenerForSecondDeletionBtn()
             secondPhotoButton.isHidden = true
             secondPhotoButton.gestureRecognizers?.forEach(firstPhotoButton.removeGestureRecognizer)
             secondPhoto = image
@@ -191,7 +235,7 @@ class TakeDocPhotoViewController : UIViewController,
                 prepareForNavigation(conditionsSatisfied: false)
             } else {
                 let errText = NSLocalizedString("error_make_at_least_one_photo", comment: "")
-                self.showToast(message: errText, seconds: 2.0)
+                self.showToast(message: errText, seconds: 1.3)
             }
         } else if (selectedDocType == DocType.INNER_PASSPORT_OR_COMMON) {
             if (firstPhoto != nil) {
@@ -204,7 +248,7 @@ class TakeDocPhotoViewController : UIViewController,
                 prepareForNavigation(conditionsSatisfied: false)
             } else {
                 let errText = NSLocalizedString("error_make_at_least_one_photo", comment: "")
-                self.showToast(message: errText, seconds: 2.0)
+                self.showToast(message: errText, seconds: 1.3)
             }
         } else {
             if (firstPhoto != nil && secondPhoto != nil) {
@@ -226,7 +270,7 @@ class PhotoUploadTapGesture: UITapGestureRecognizer {
 
 //TODO: add photo (UImage) deletion logic
 class PhotoDeleteTapGesture: UITapGestureRecognizer {
-    let photoIdx: Int = 0
+    var photoIdx: Int = 0
 }
 
 enum PhotoTakeCase {

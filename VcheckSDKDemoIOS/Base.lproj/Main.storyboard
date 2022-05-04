@@ -191,7 +191,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="FLAG" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zr2-kK-wWI">
-                                                <rect key="frame" x="6" y="3" width="60" height="39"/>
+                                                <rect key="frame" x="7" y="3" width="60" height="39"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" name="CountryCardColor"/>
                                                 <color key="textColor" name="DescriptionColor"/>
@@ -2398,18 +2398,17 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <rect key="frame" x="16" y="138.66666666666669" width="334" height="250"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JoJ-Ks-g2F">
-                                                                <rect key="frame" x="8" y="-5.6843418860808015e-14" width="318" height="250"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <rect key="frame" x="8" y="0.0" width="318" height="250"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                             </imageView>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dvC-xF-m5v">
-                                                                <rect key="frame" x="16" y="24" width="62" height="80"/>
+                                                                <rect key="frame" x="16" y="18" width="62" height="80"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="62" id="bJS-Ai-30o"/>
-                                                                    <constraint firstAttribute="height" constant="80" id="glD-aW-bLo"/>
+                                                                    <constraint firstAttribute="width" constant="62" id="C0W-4q-yfq"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6v6-eK-T1j">
-                                                                <rect key="frame" x="106" y="75" width="201" height="63"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6v6-eK-T1j">
+                                                                <rect key="frame" x="51.666666666666686" y="110.66666666666663" width="231" height="28.666666666666657"/>
                                                                 <string key="text">Загрузите фото лицевого разворота 
 (разворот с вашим фото).</string>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
@@ -2456,22 +2455,26 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="delete_icon" translatesAutoresizingMaskIntoConstraints="NO" id="a3h-nf-ex5">
-                                                                <rect key="frame" x="284" y="8" width="42" height="42"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="delete_icon" translatesAutoresizingMaskIntoConstraints="NO" id="a3h-nf-ex5">
+                                                                <rect key="frame" x="284" y="12" width="42" height="42"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="42" id="Os5-ld-L2K"/>
+                                                                    <constraint firstAttribute="width" constant="42" id="ijS-Vi-hPh"/>
+                                                                </constraints>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" name="CountryCardColor"/>
                                                         <constraints>
-                                                            <constraint firstItem="6v6-eK-T1j" firstAttribute="top" secondItem="QAk-dG-hue" secondAttribute="top" constant="40" id="6dG-B1-LGj"/>
-                                                            <constraint firstAttribute="trailing" secondItem="6v6-eK-T1j" secondAttribute="trailing" constant="16" id="BlN-7A-cmV"/>
-                                                            <constraint firstItem="dvC-xF-m5v" firstAttribute="top" secondItem="QAk-dG-hue" secondAttribute="top" constant="24" id="EJj-Gh-AMI"/>
                                                             <constraint firstAttribute="height" constant="250" id="ETf-tp-wtU"/>
-                                                            <constraint firstItem="RAe-re-A91" firstAttribute="top" secondItem="dvC-xF-m5v" secondAttribute="bottom" constant="76" id="fez-cc-3uo"/>
-                                                            <constraint firstItem="dvC-xF-m5v" firstAttribute="leading" secondItem="QAk-dG-hue" secondAttribute="leading" constant="16" id="iA4-rM-b9F"/>
+                                                            <constraint firstAttribute="trailing" secondItem="a3h-nf-ex5" secondAttribute="trailing" constant="8" id="RaS-Uz-ass"/>
+                                                            <constraint firstItem="6v6-eK-T1j" firstAttribute="top" secondItem="dvC-xF-m5v" secondAttribute="bottom" constant="12.666666666666629" id="T0y-aS-n0x"/>
+                                                            <constraint firstItem="dvC-xF-m5v" firstAttribute="leading" secondItem="QAk-dG-hue" secondAttribute="leading" constant="16" id="Y37-BF-umo"/>
                                                             <constraint firstItem="RAe-re-A91" firstAttribute="centerX" secondItem="QAk-dG-hue" secondAttribute="centerX" id="igg-0n-cot"/>
                                                             <constraint firstAttribute="bottom" secondItem="RAe-re-A91" secondAttribute="bottom" constant="24" id="ilM-XG-ymY"/>
-                                                            <constraint firstItem="6v6-eK-T1j" firstAttribute="leading" secondItem="dvC-xF-m5v" secondAttribute="trailing" constant="12" id="sKC-fi-q2e"/>
+                                                            <constraint firstItem="6v6-eK-T1j" firstAttribute="centerX" secondItem="QAk-dG-hue" secondAttribute="centerX" id="ngc-CF-RT1"/>
+                                                            <constraint firstItem="a3h-nf-ex5" firstAttribute="top" secondItem="QAk-dG-hue" secondAttribute="top" constant="12" id="nlR-dz-Lov"/>
+                                                            <constraint firstItem="6v6-eK-T1j" firstAttribute="centerY" secondItem="QAk-dG-hue" secondAttribute="centerY" id="rct-O6-e7B"/>
+                                                            <constraint firstItem="dvC-xF-m5v" firstAttribute="top" secondItem="QAk-dG-hue" secondAttribute="top" constant="18" id="uo7-Ji-eGE"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -2490,7 +2493,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="shV-i7-dlB">
                                                                 <rect key="frame" x="8" y="0.0" width="318" height="250"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                             </imageView>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q4M-96-N2h">
                                                                 <rect key="frame" x="16" y="24" width="62" height="80"/>
@@ -2499,8 +2502,8 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                                     <constraint firstAttribute="height" constant="80" id="PeT-sJ-iAJ"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Загрузите фото обратного разворота." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0x-f9-qUL">
-                                                                <rect key="frame" x="106" y="75" width="203" height="36"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Загрузите фото обратного разворота." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0x-f9-qUL">
+                                                                <rect key="frame" x="47.666666666666671" y="118" width="238.66666666666663" height="14.333333333333343"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -2545,22 +2548,26 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="delete_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Tee-xk-jrh">
-                                                                <rect key="frame" x="284" y="8" width="42" height="42"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="247" verticalHuggingPriority="251" image="delete_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Tee-xk-jrh">
+                                                                <rect key="frame" x="284" y="12" width="42" height="42"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="42" id="7Hb-sO-BSr"/>
+                                                                    <constraint firstAttribute="width" constant="42" id="emx-Jk-ocE"/>
+                                                                </constraints>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" name="CountryCardColor"/>
                                                         <constraints>
                                                             <constraint firstItem="Q4M-96-N2h" firstAttribute="top" secondItem="hWN-ru-b13" secondAttribute="top" constant="24" id="4Ab-X0-17f"/>
+                                                            <constraint firstItem="k0x-f9-qUL" firstAttribute="centerY" secondItem="hWN-ru-b13" secondAttribute="centerY" id="5Cr-Sj-eis"/>
                                                             <constraint firstAttribute="height" constant="250" id="86W-Yb-dGf"/>
-                                                            <constraint firstItem="k0x-f9-qUL" firstAttribute="leading" secondItem="Q4M-96-N2h" secondAttribute="trailing" constant="12" id="Dd2-Nb-EuH"/>
                                                             <constraint firstAttribute="bottom" secondItem="OaU-0r-EKr" secondAttribute="bottom" constant="24" id="G3i-KT-Dei"/>
                                                             <constraint firstItem="OaU-0r-EKr" firstAttribute="centerX" secondItem="hWN-ru-b13" secondAttribute="centerX" id="SW0-7Q-blr"/>
                                                             <constraint firstItem="OaU-0r-EKr" firstAttribute="top" secondItem="Q4M-96-N2h" secondAttribute="bottom" constant="76" id="fck-p6-uJI"/>
-                                                            <constraint firstAttribute="trailing" secondItem="k0x-f9-qUL" secondAttribute="trailing" constant="16" id="iN9-Gj-jlZ"/>
+                                                            <constraint firstItem="k0x-f9-qUL" firstAttribute="centerX" secondItem="hWN-ru-b13" secondAttribute="centerX" id="hwE-8I-bcu"/>
+                                                            <constraint firstItem="Tee-xk-jrh" firstAttribute="top" secondItem="hWN-ru-b13" secondAttribute="top" constant="12" id="mGR-uO-Wck"/>
                                                             <constraint firstItem="Q4M-96-N2h" firstAttribute="leading" secondItem="hWN-ru-b13" secondAttribute="leading" constant="16" id="n5m-Q7-yU8"/>
-                                                            <constraint firstItem="k0x-f9-qUL" firstAttribute="top" secondItem="hWN-ru-b13" secondAttribute="top" constant="40" id="xAV-Gx-sUW"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Tee-xk-jrh" secondAttribute="trailing" constant="8" id="oCI-TF-AD3"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -2717,11 +2724,11 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_photo_1" translatesAutoresizingMaskIntoConstraints="NO" id="ZWJ-nl-6Jb">
                                                                 <rect key="frame" x="0.0" y="0.0" width="334" height="250"/>
                                                             </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="zoom_icon" translatesAutoresizingMaskIntoConstraints="NO" id="4hs-UV-sBw">
-                                                                <rect key="frame" x="284" y="8" width="42" height="42"/>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zoom_icon" translatesAutoresizingMaskIntoConstraints="NO" id="4hs-UV-sBw">
+                                                                <rect key="frame" x="284" y="12" width="42" height="42"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="36" id="EMR-c5-rva"/>
-                                                                    <constraint firstAttribute="height" constant="36" id="PQz-ba-3tf"/>
+                                                                    <constraint firstAttribute="width" constant="42" id="Alp-jE-J5R"/>
+                                                                    <constraint firstAttribute="height" constant="42" id="pSN-Vk-Xgu"/>
                                                                 </constraints>
                                                             </imageView>
                                                         </subviews>
@@ -2730,8 +2737,8 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                             <constraint firstAttribute="bottom" secondItem="ZWJ-nl-6Jb" secondAttribute="bottom" id="03S-lj-WkH"/>
                                                             <constraint firstAttribute="height" constant="250" id="9Bq-4I-9LB"/>
                                                             <constraint firstAttribute="trailing" secondItem="ZWJ-nl-6Jb" secondAttribute="trailing" id="JdK-pz-aKd"/>
-                                                            <constraint firstItem="4hs-UV-sBw" firstAttribute="top" secondItem="Crw-Dx-4qz" secondAttribute="top" constant="8" id="RB2-lg-LRl"/>
-                                                            <constraint firstAttribute="trailing" secondItem="4hs-UV-sBw" secondAttribute="trailing" constant="3" id="Rty-QX-tab"/>
+                                                            <constraint firstAttribute="trailing" secondItem="4hs-UV-sBw" secondAttribute="trailing" constant="8" id="hiL-bb-ZQ9"/>
+                                                            <constraint firstItem="4hs-UV-sBw" firstAttribute="top" secondItem="Crw-Dx-4qz" secondAttribute="top" constant="12" id="lgg-kf-hoD"/>
                                                             <constraint firstItem="ZWJ-nl-6Jb" firstAttribute="top" secondItem="Crw-Dx-4qz" secondAttribute="top" id="n0s-FC-o84"/>
                                                             <constraint firstItem="ZWJ-nl-6Jb" firstAttribute="leading" secondItem="Crw-Dx-4qz" secondAttribute="leading" id="oH9-bf-5Rl"/>
                                                         </constraints>
@@ -2757,23 +2764,23 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                                 <rect key="frame" x="0.0" y="0.0" width="334" height="250"/>
                                                                 <color key="tintColor" name="CountryCardColor"/>
                                                             </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="zoom_icon" translatesAutoresizingMaskIntoConstraints="NO" id="7UI-Fb-JTd">
-                                                                <rect key="frame" x="284" y="8" width="42" height="42"/>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zoom_icon" translatesAutoresizingMaskIntoConstraints="NO" id="7UI-Fb-JTd">
+                                                                <rect key="frame" x="284" y="12" width="42" height="42"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="36" id="MHi-GC-CzA"/>
-                                                                    <constraint firstAttribute="width" constant="36" id="MUs-Et-4SV"/>
+                                                                    <constraint firstAttribute="height" constant="42" id="4sS-m6-scT"/>
+                                                                    <constraint firstAttribute="width" constant="42" id="We4-hB-mEo"/>
                                                                 </constraints>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" name="CardColor"/>
                                                         <constraints>
                                                             <constraint firstItem="4ET-0K-fh8" firstAttribute="top" secondItem="Gtp-7i-H4k" secondAttribute="top" id="J9t-IJ-iEH"/>
-                                                            <constraint firstAttribute="trailing" secondItem="7UI-Fb-JTd" secondAttribute="trailing" constant="3" id="P0G-lV-9Cn"/>
+                                                            <constraint firstAttribute="trailing" secondItem="7UI-Fb-JTd" secondAttribute="trailing" constant="8" id="Lje-U6-6gD"/>
                                                             <constraint firstItem="4ET-0K-fh8" firstAttribute="leading" secondItem="Gtp-7i-H4k" secondAttribute="leading" id="S7m-Rc-Dsd"/>
+                                                            <constraint firstItem="7UI-Fb-JTd" firstAttribute="top" secondItem="Gtp-7i-H4k" secondAttribute="top" constant="12" id="SXd-6c-nuR"/>
                                                             <constraint firstAttribute="trailing" secondItem="4ET-0K-fh8" secondAttribute="trailing" id="lJa-R3-gZa"/>
                                                             <constraint firstAttribute="height" constant="250" id="lc0-qx-ATN"/>
                                                             <constraint firstAttribute="bottom" secondItem="4ET-0K-fh8" secondAttribute="bottom" id="s2N-CH-Q9c"/>
-                                                            <constraint firstItem="7UI-Fb-JTd" firstAttribute="top" secondItem="Gtp-7i-H4k" secondAttribute="top" constant="8" id="xHK-Ra-Mvs"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
