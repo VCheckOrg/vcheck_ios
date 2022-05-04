@@ -24,7 +24,7 @@
 "5PO-Q9-NPq.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "Не следует, однако забывать, что консультация с широким активом обеспечивает широкому кругу (специалистов) участие в формировании систем массового участия."; ObjectID = "73Y-G0-L4X"; */
-"73Y-G0-L4X.text" = "Не следует, однако забывать, что консультация с широким активом обеспечивает широкому кругу (специалистов) участие в формировании систем массового участия.";
+"73Y-G0-L4X.text" = "Для последующей обработки и валидации укажите какому из типов ниже соответствует ваш документ.";
 
 /* Class = "UILabel"; text = "Верификация неуспешна"; ObjectID = "8MH-tb-Ixh"; */
 "8MH-tb-Ixh.text" = "Верификация неуспешна";
@@ -42,10 +42,10 @@
 "Bn8-gv-ckR.text" = "Мы не нашли страницы с таким адресом :(";
 
 /* Class = "UITextView"; text = "Non available"; ObjectID = "Ci0-dm-ifp"; */
-"Ci0-dm-ifp.text" = "Non available";
+"Ci0-dm-ifp.text" = "Недоступно";
 
 /* Class = "UIButton"; configuration.title = "Liveness Demo"; ObjectID = "DdH-Xd-pgi"; */
-"DdH-Xd-pgi.configuration.title" = "Liveness Demo";
+"DdH-Xd-pgi.configuration.title" = "Liveness(Локально!)";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "DdH-Xd-pgi"; */
 "DdH-Xd-pgi.normalTitle" = "Button";
@@ -84,7 +84,7 @@
 "NUT-0V-GrR.text" = "Фамилия на кириллице";
 
 /* Class = "UITextView"; text = "Country"; ObjectID = "O84-jd-0oF"; */
-"O84-jd-0oF.text" = "Country";
+"O84-jd-0oF.text" = "Страна";
 
 /* Class = "UILabel"; text = "Вы не смотрели прямо"; ObjectID = "OPz-op-RyB"; */
 "OPz-op-RyB.text" = "Вы не смотрели прямо";
@@ -114,13 +114,13 @@
 "TdZ-WF-NIV.text" = "В кадре много помех";
 
 /* Class = "UITextView"; text = "Country"; ObjectID = "U6K-vN-zaz"; */
-"U6K-vN-zaz.text" = "Country";
+"U6K-vN-zaz.text" = "Страна";
 
 /* Class = "UILabel"; text = "Операционная система не поддерживаеться"; ObjectID = "UJr-ZK-4ZA"; */
 "UJr-ZK-4ZA.text" = "Операционная система не поддерживаеться";
 
 /* Class = "UILabel"; text = "Загрузите фото лицевого разворота \n(разворот с вашим фото)."; ObjectID = "VLC-HL-vzJ"; */
-"VLC-HL-vzJ.text" = "Загрузите фото лицевого разворота \n(разворот с вашим фото).";
+"VLC-HL-vzJ.text" = "Загрузите фото лицевого разворота (разворот с вашим фото).";
 
 /* Class = "UIButton"; configuration.title = "На главную"; ObjectID = "Vpj-sc-FAg"; */
 "Vpj-sc-FAg.configuration.title" = "На главную";
@@ -171,7 +171,7 @@
 "bVd-GC-ULM.text" = "Движение, которое запрашивалось не было выполнено корректно. Старайтесь делать именно те движения, которые запрашиваются. Движения должны быть плавными и своевременными.";
 
 /* Class = "UILabel"; text = "Україна"; ObjectID = "cY3-cf-m9e"; */
-"cY3-cf-m9e.text" = "Україна";
+"cY3-cf-m9e.text" = "Украина";
 
 /* Class = "UILabel"; text = "Выберите страну"; ObjectID = "fFZ-MA-crE"; */
 "fFZ-MA-crE.text" = "Выберите страну";
@@ -183,7 +183,7 @@
 "gCO-14-vPo.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности играет важную роль в формировании существенных финансовых и административных условий."; ObjectID = "hJ9-Ol-hHi"; */
-"hJ9-Ol-hHi.text" = "Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности играет важную роль в формировании существенных финансовых и административных условий.";
+"hJ9-Ol-hHi.text" = "Все необходимые данные по заявке на верификацию отправлены на наши сервисы и находятся на финальной стадии обработки. Вы можете вернуться к партнерскому сервису.";
 
 /* Class = "UILabel"; text = "сфотографированы или отсканированы с оригиналов"; ObjectID = "hfh-Nr-Lyd"; */
 "hfh-Nr-Lyd.text" = "сфотографированы или отсканированы с оригиналов";
@@ -234,7 +234,7 @@
 "osX-So-W2j.normalTitle" = "Button";
 
 /* Class = "UIButton"; configuration.title = "Обратиться в службу поддер..."; ObjectID = "rBN-xJ-7O7"; */
-"rBN-xJ-7O7.configuration.title" = "Обратиться в службу поддер...";
+"rBN-xJ-7O7.configuration.title" = "Обратиться в службу поддержки";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "rBN-xJ-7O7"; */
 "rBN-xJ-7O7.normalTitle" = "Button";
@@ -282,10 +282,10 @@
 "woW-eZ-zcu.text" = "Загрузите фото документа";
 
 /* Class = "UILabel"; text = "Unsupported Device"; ObjectID = "wtE-4q-cec"; */
-"wtE-4q-cec.text" = "Unsupported Device";
+"wtE-4q-cec.text" = "Неподдерживаемое устройство";
 
 /* Class = "UILabel"; text = "Фамилия на латинице"; ObjectID = "y4U-rI-rWD"; */
 "y4U-rI-rWD.text" = "Фамилия на латинице";
 
 /* Class = "UILabel"; text = "Значимость этих проблем настолько очевидна, что новая модель организационной деятельности требуют определения и уточнения направлений прогрессивного развития. "; ObjectID = "zMS-X5-1mQ"; */
-"zMS-X5-1mQ.text" = "Значимость этих проблем настолько очевидна, что новая модель организационной деятельности требуют определения и уточнения направлений прогрессивного развития. ";
+"zMS-X5-1mQ.text" = "Выберите страну регистрации вашего документа, который необходимо будет сфотографировать на следующем шаге.";
