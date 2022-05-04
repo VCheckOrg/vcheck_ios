@@ -8,10 +8,10 @@
 import Foundation
 import Alamofire
 
-struct DataService {
+struct RemoteDatasource {
     
     // MARK: - Singleton
-    static let shared = DataService()
+    static let shared = RemoteDatasource()
     
     // MARK: - URL
     private let baseUrl = Constants.API.serviceBaseURL
@@ -74,7 +74,7 @@ struct DataService {
     func initVerification(completion: @escaping (VerificationInitResponseData?, ApiError?) -> ()) {
         let url = "\(baseUrl)verifications/init"
         
-        let token = KeychainHelper.shared.readAccessToken()
+        let token = LocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
             completion(nil, ApiError(errorText: "Error: cannot find access token"))
             return
@@ -105,7 +105,7 @@ struct DataService {
     func getCountries(completion: @escaping ([Country]?, ApiError?) -> ()) {
         let url = "\(baseUrl)countries"
 
-        let token = KeychainHelper.shared.readAccessToken()
+        let token = LocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
             completion(nil, ApiError(errorText: "Error: cannot find access token"))
             return
@@ -137,7 +137,7 @@ struct DataService {
                                         completion: @escaping ([DocTypeData]?, ApiError?) -> ()) {
         let url = "\(baseUrl)countries/\(countryCode)/documents"
 
-        let token = KeychainHelper.shared.readAccessToken()
+        let token = LocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
             completion(nil, ApiError(errorText: "Error: cannot find access token"))
             return
@@ -175,7 +175,7 @@ struct DataService {
             
             let url = "\(baseUrl)documents"
 
-            let token = KeychainHelper.shared.readAccessToken()
+            let token = LocalDatasource.shared.readAccessToken()
             if (token.isEmpty) {
                 completion(nil, ApiError(errorText: "Error: cannot find access token"))
                 return
@@ -215,7 +215,7 @@ struct DataService {
                          completion: @escaping (PreProcessedDocData?, ApiError?) -> ()) {
         let url = "documents/\(documentId)"
 
-        let token = KeychainHelper.shared.readAccessToken()
+        let token = LocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
             completion(nil, ApiError(errorText: "Error: cannot find access token"))
             return
@@ -247,7 +247,7 @@ struct DataService {
                                  completion: @escaping (Bool, ApiError?) -> ()) {
         let url = "documents/\(documentId)"
 
-        let token = KeychainHelper.shared.readAccessToken()
+        let token = LocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
             completion(false, ApiError(errorText: "Error: cannot find access token"))
             return
@@ -272,7 +272,7 @@ struct DataService {
                               completion: @escaping (Bool, ApiError?) -> ()) {
         let url = "documents/\(documentId)/primary"
 
-        let token = KeychainHelper.shared.readAccessToken()
+        let token = LocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
             completion(false, ApiError(errorText: "Error: cannot find access token"))
             return
@@ -298,7 +298,7 @@ struct DataService {
             
             let url = "\(baseUrl)liveness"
 
-            let token = KeychainHelper.shared.readAccessToken()
+            let token = LocalDatasource.shared.readAccessToken()
             if (token.isEmpty) {
                 completion(false, ApiError(errorText: "Error: cannot find access token"))
                 return

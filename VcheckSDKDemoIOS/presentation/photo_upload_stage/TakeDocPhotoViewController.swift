@@ -45,7 +45,7 @@ class TakeDocPhotoViewController : UIViewController,
     
     override func viewDidLoad() {
         
-        let docTypeWithData: DocTypeData = KeychainHelper.shared.getSelectedDocTypeWithData()!
+        let docTypeWithData: DocTypeData = LocalDatasource.shared.getSelectedDocTypeWithData()!
         
         self.selectedDocType = DocType.docCategoryIdxToType(categoryIdx: docTypeWithData.category!)
         

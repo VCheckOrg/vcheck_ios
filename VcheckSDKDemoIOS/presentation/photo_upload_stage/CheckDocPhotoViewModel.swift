@@ -10,7 +10,7 @@ import UIKit
 
 class CheckDocPhotoViewModel {
     
-    private var dataService: DataService = DataService.shared
+    private var dataService: RemoteDatasource = RemoteDatasource.shared
     
     // MARK: - Constructor
     init() {}
@@ -37,9 +37,9 @@ class CheckDocPhotoViewModel {
         
         self.isLoading = true
         
-        let countryCode: String = KeychainHelper.shared.readSelectedCountryCode()
+        let countryCode: String = LocalDatasource.shared.readSelectedCountryCode()
         
-        let docTpeStr: String = "\(String(describing: KeychainHelper.shared.getSelectedDocTypeWithData()?.category))"
+        let docTpeStr: String = "\(String(describing: LocalDatasource.shared.getSelectedDocTypeWithData()?.category))"
     
         dataService.uploadVerificationDocuments(photo1: photo1,
                                                 photo2: photo2,

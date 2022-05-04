@@ -9,7 +9,7 @@ import Foundation
 
 class ChooseDocTypeViewModel  {
     
-    private var dataService: DataService = DataService.shared
+    private var dataService: RemoteDatasource = RemoteDatasource.shared
     
     // MARK: - Constructor
     init() {}
@@ -28,7 +28,7 @@ class ChooseDocTypeViewModel  {
     
     func getAvailableDocTypes() {
         
-        let countryCode = KeychainHelper.shared.readSelectedCountryCode()
+        let countryCode = LocalDatasource.shared.readSelectedCountryCode()
         
         self.dataService.getCountryAvailableDocTypeInfo(countryCode: countryCode, completion: { (data, error) in
             if let error = error {

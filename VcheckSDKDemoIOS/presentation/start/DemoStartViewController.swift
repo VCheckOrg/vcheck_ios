@@ -61,7 +61,7 @@ class DemoStartViewController : UIViewController {
     func goToCountriesScreen(data: [CountryTO]) {
         
         if let defaultSelectedCountry = self.viewModel.countries!.first(where: { $0.code == "ua" }) {
-            KeychainHelper.shared.saveSelectedCountryCode(code: defaultSelectedCountry.code)
+            LocalDatasource.shared.saveSelectedCountryCode(code: defaultSelectedCountry.code)
         } else {
            print("CANNOT SAVE DEFAULT COUNTRY TO KEYCHAIN")
         }

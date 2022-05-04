@@ -9,12 +9,12 @@ import Foundation
 
 
 //TODO: rename to LocalDatasource (or make repository)
-final class KeychainHelper {
+final class LocalDatasource {
     
     //https://swiftsenpai.com/development/persist-data-using-keychain/
     
     // MARK: - Singleton
-    static let shared = KeychainHelper()
+    static let shared = LocalDatasource()
     
     private init() {}
     
@@ -82,7 +82,7 @@ final class KeychainHelper {
 
     // MARK: - Local Datasource
 
-extension KeychainHelper {
+extension LocalDatasource {
     
     func readAccessToken() -> String {
         return String(data: read(service: "access-token",
@@ -117,7 +117,7 @@ extension KeychainHelper {
 
     // MARK: - Utils
 
-extension KeychainHelper {
+extension LocalDatasource {
     
     func save<T>(_ item: T, service: String, account: String) where T : Codable {
         

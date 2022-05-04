@@ -51,19 +51,19 @@ class ChooseDocTypeViewController : UIViewController {
     }
     
     @objc func navigateForwardOnInnerPassportSelected(_ sender:UITapGestureRecognizer){
-        KeychainHelper.shared.setSelectedDocTypeWithData(data:
+        LocalDatasource.shared.setSelectedDocTypeWithData(data:
                         viewModel.docTypeDataArr.first(where: { $0.category == 0 })!)
         performSegue(withIdentifier: "ChooseDocTypeToPhotoInfo", sender: self)
     }
     
     @objc func navigateForwardOnForeginPassportSelected(_ sender:UITapGestureRecognizer){
-        KeychainHelper.shared.setSelectedDocTypeWithData(data:
+        LocalDatasource.shared.setSelectedDocTypeWithData(data:
                         viewModel.docTypeDataArr.first(where: { $0.category == 1 })!)
         performSegue(withIdentifier: "ChooseDocTypeToPhotoInfo", sender: self)
     }
     
     @objc func navigateForwardOnIDCardSelected(_ sender:UITapGestureRecognizer){
-        KeychainHelper.shared.setSelectedDocTypeWithData(data:
+        LocalDatasource.shared.setSelectedDocTypeWithData(data:
                         viewModel.docTypeDataArr.first(where: { $0.category == 2 })!)
         performSegue(withIdentifier: "ChooseDocTypeToPhotoInfo", sender: self)
     }

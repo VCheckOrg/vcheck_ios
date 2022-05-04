@@ -9,7 +9,7 @@ import Foundation
 
 class DemoStartViewModel {
     
-    private var dataService: DataService = DataService.shared
+    private var dataService: RemoteDatasource = RemoteDatasource.shared
     
     // MARK: - Constructor
     init() {}
@@ -71,7 +71,7 @@ class DemoStartViewModel {
                 var urlBody = urlArr.last
                 let token = urlBody!.substringBefore("?id")
                 
-                KeychainHelper.shared.saveAccessToken(accessToken: token)
+                LocalDatasource.shared.saveAccessToken(accessToken: token)
                 
                 print("VERIF ::: CREATE ATTEMPT SUCCESS! DATA: \(String(describing: data))")
                 
