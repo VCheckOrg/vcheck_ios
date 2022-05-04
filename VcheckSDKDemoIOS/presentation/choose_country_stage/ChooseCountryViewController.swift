@@ -19,7 +19,7 @@ class ChooseCountryViewController : UIViewController {
     @IBOutlet weak var tvSelectedCountryFlag: UITextView!
     
     @IBAction func navToDocType(_ sender: Any) {
-        
+        //TODO: remove obsolete action?
     }
     
     var countries: [CountryTO] = []
@@ -47,10 +47,9 @@ class ChooseCountryViewController : UIViewController {
        performSegue(withIdentifier: "CountryToList", sender: self)
     }
     
-    @objc func navigateToChooDocType(_ sender:UITapGestureRecognizer){
-       performSegue(withIdentifier: "CountryToChooseDocType", sender: self)
-    }
-    
+//    @objc func navigateToChooDocType(_ sender:UITapGestureRecognizer){
+//       performSegue(withIdentifier: "CountryToChooseDocType", sender: self)
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "CountryToList") {

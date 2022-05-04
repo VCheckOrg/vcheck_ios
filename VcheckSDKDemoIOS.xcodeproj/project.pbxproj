@@ -53,6 +53,8 @@
 		DABCE22328219CE700937E84 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DABCE22528219CE700937E84 /* Localizable.strings */; };
 		DABCE2292822754300937E84 /* CheckDocPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCE2282822754300937E84 /* CheckDocPhotoViewController.swift */; };
 		DABCE22C28229ABD00937E84 /* CheckDocPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCE22B28229ABD00937E84 /* CheckDocPhotoViewModel.swift */; };
+		DABCE22E2822BBE800937E84 /* CheckDocInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCE22D2822BBE800937E84 /* CheckDocInfoViewController.swift */; };
+		DABCE2312822BCB900937E84 /* ZoomedDocPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCE2302822BCB900937E84 /* ZoomedDocPhotoViewController.swift */; };
 		DAC2325A281C3EF300D0CE16 /* BlockedCountryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC23259281C3EF300D0CE16 /* BlockedCountryViewCell.swift */; };
 		DADD31EF281D7A0200EB25ED /* DocumentTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD31EE281D7A0200EB25ED /* DocumentTypes.swift */; };
 		DADD31F2281D93F800EB25ED /* LivenessScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD31F1281D93F800EB25ED /* LivenessScreenViewController.swift */; };
@@ -117,6 +119,8 @@
 		DABCE22728219CEB00937E84 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DABCE2282822754300937E84 /* CheckDocPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckDocPhotoViewController.swift; sourceTree = "<group>"; };
 		DABCE22B28229ABD00937E84 /* CheckDocPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckDocPhotoViewModel.swift; sourceTree = "<group>"; };
+		DABCE22D2822BBE800937E84 /* CheckDocInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckDocInfoViewController.swift; sourceTree = "<group>"; };
+		DABCE2302822BCB900937E84 /* ZoomedDocPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomedDocPhotoViewController.swift; sourceTree = "<group>"; };
 		DAC23259281C3EF300D0CE16 /* BlockedCountryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedCountryViewCell.swift; sourceTree = "<group>"; };
 		DADD31EE281D7A0200EB25ED /* DocumentTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTypes.swift; sourceTree = "<group>"; };
 		DADD31F1281D93F800EB25ED /* LivenessScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessScreenViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 				DA34598028201D9600068E6D /* TakeDocPhotoViewController.swift */,
 				DABCE2282822754300937E84 /* CheckDocPhotoViewController.swift */,
 				DABCE22B28229ABD00937E84 /* CheckDocPhotoViewModel.swift */,
+				DABCE2302822BCB900937E84 /* ZoomedDocPhotoViewController.swift */,
 			);
 			path = photo_upload_stage;
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 		DA737428281ACAFD00DBBDED /* presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DABCE22F2822BBEE00937E84 /* check_doc_info_stage */,
 				DA34598228201D9B00068E6D /* photo_upload_stage */,
 				DADD31F0281D93C600EB25ED /* liveness */,
 				DAB11435281D6315001F82E4 /* doc_type_stage */,
@@ -284,6 +290,14 @@
 				DABCE22528219CE700937E84 /* Localizable.strings */,
 			);
 			path = VcheckSDKDemoIOS;
+			sourceTree = "<group>";
+		};
+		DABCE22F2822BBEE00937E84 /* check_doc_info_stage */ = {
+			isa = PBXGroup;
+			children = (
+				DABCE22D2822BBE800937E84 /* CheckDocInfoViewController.swift */,
+			);
+			path = check_doc_info_stage;
 			sourceTree = "<group>";
 		};
 		DADD31F0281D93C600EB25ED /* liveness */ = {
@@ -473,6 +487,7 @@
 				DAB11439281D6515001F82E4 /* ChooseDocTypeViewModel.swift in Sources */,
 				DAC2325A281C3EF300D0CE16 /* BlockedCountryViewCell.swift in Sources */,
 				DA47CDA4281C3B59001226B9 /* AllowedCountryViewCell.swift in Sources */,
+				DABCE22E2822BBE800937E84 /* CheckDocInfoViewController.swift in Sources */,
 				DAB11437281D64DE001F82E4 /* ChooseDocTypeViewController.swift in Sources */,
 				DAB6132A2814767700234BB2 /* AppDelegate.swift in Sources */,
 				DADD31EF281D7A0200EB25ED /* DocumentTypes.swift in Sources */,
@@ -480,6 +495,7 @@
 				DAAF4E0E281AC7A60029F26C /* BaseClientResponseModel.swift in Sources */,
 				DAB6132C2814767700234BB2 /* SceneDelegate.swift in Sources */,
 				DA737436281AF59400DBBDED /* Utils.swift in Sources */,
+				DABCE2312822BCB900937E84 /* ZoomedDocPhotoViewController.swift in Sources */,
 				DAE87E102816CC1F00ED6826 /* ChooseCountryViewController.swift in Sources */,
 				DAAF4E12281AC7A60029F26C /* BaseClientrResponseModel.swift in Sources */,
 				DAAF4E0F281AC7A60029F26C /* BaseRequestBody.swift in Sources */,

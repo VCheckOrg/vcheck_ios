@@ -17,26 +17,20 @@ class TakeDocPhotoViewController : UIViewController,
     @IBOutlet weak var firstPhotoCard: RoundedView!
     @IBOutlet weak var secondPhotoCard: RoundedView!
     
-    
     @IBOutlet weak var firstPhotoButton: RoundedView!
     @IBOutlet weak var secondPhotoButton: RoundedView!
-    
     
     @IBOutlet weak var docPhotoFirstImgHolder: UIImageView!
     @IBOutlet weak var docPhotoSecondImgHolder: UIImageView!
     
-    
     @IBOutlet weak var imgViewIconFirst: UIImageView!
     @IBOutlet weak var imgViewIconSecond: UIImageView!
-    
     
     @IBOutlet weak var deleteFirstPhotoBtn: UIImageView!
     @IBOutlet weak var deleteSecondPhotoBtn: UIImageView!
     
-    
     @IBOutlet weak var tvFirstCardTitle: UILabel!
     @IBOutlet weak var tvSecondCardTitle: UILabel!
-    
     
     @IBOutlet weak var btnContinueToPreview: UIButton!
     
