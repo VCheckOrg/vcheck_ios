@@ -12,6 +12,7 @@ class TakeDocPhotoViewController : UIViewController,
                                     UINavigationControllerDelegate,
                                     UIImagePickerControllerDelegate {
     
+    @IBOutlet weak var continueButtonTopConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var firstPhotoCard: RoundedView!
     @IBOutlet weak var secondPhotoCard: RoundedView!
@@ -90,6 +91,8 @@ class TakeDocPhotoViewController : UIViewController,
             } else {
                 imgViewIconFirst.isHidden = true
             }
+            
+            continueButtonTopConstraint.constant = 100
 
             setClickListenerForFirstPhotoBtn()
         }
