@@ -38,11 +38,19 @@ class CheckDocPhotoViewController : UIViewController {
     
     override func viewDidLoad() {
         
+        activityIndicatorStop()
+        
         imgViewPhotoFirst.image = firstPhoto
+        
+        let zoomFirstPhotoTap = UITapGestureRecognizer(target: self, action: #selector(zoomFirstPhoto(_:)))
+        zoomFirstPhotoBtn.addGestureRecognizer(zoomFirstPhotoTap)
         
         if (secondPhoto != nil) {
             secondPhotoCard.isHidden = false
             imgViewPhotoSecond.image = secondPhoto
+            
+            let zoomSecondPhotoTap = UITapGestureRecognizer(target: self, action: #selector(zoomSecondPhoto(_:)))
+            zoomSecondPhotoBtn.addGestureRecognizer(zoomSecondPhotoTap)
         } else {
             secondPhotoCard.isHidden = true
             
@@ -52,11 +60,13 @@ class CheckDocPhotoViewController : UIViewController {
             tvLoadingTopConstraint.constant = 100
             uplSpinnerTopConstraint.constant = 200
         }
-        
-        //self.activityIndicatorStart()
-        
+                
         viewModel.didReceiveDocUploadResponse = {
+            self.activityIndicatorStop()
+            
             //TODO: handle doc upload response w/codes
+            
+            //navigateToDocInfoScreen()
         }
         
         viewModel.updateLoadingStatus = {
@@ -115,11 +125,29 @@ class CheckDocPhotoViewController : UIViewController {
         self.navigationController?.popToViewController(destinationVC, animated: true)
     }
     
+    
+    @objc func zoomFirstPhoto(_ sender: NavGestureRecognizer) {
+        self.performSegue(withIdentifier: "CheckPhotoToZoom", sender: self.firstPhoto)
+    }
+    
+    @objc func zoomSecondPhoto(_ sender: NavGestureRecognizer) {
+        if (secondPhoto != nil) {
+            self.performSegue(withIdentifier: "CheckPhotoToZoom", sender: self.secondPhoto)
+        }
+    }
+    
+    
     private func activityIndicatorStart() {
-        //self.spinner.startAnimating()
+        remakeDocPhotosBtn.isHidden = true
+        confirmUploadPhotosBtn.isHidden = true
+        tvLoadingDescl.isHidden = false
+        photosUploadingSpinner.startAnimating()
     }
     
     private func activityIndicatorStop() {
-        //self.spinner.stopAnimating()
+        tvLoadingDescl.isHidden = true
+        photosUploadingSpinner.stopAnimating()
+        remakeDocPhotosBtn.isHidden = false
+        confirmUploadPhotosBtn.isHidden = false
     }
 }
