@@ -51,6 +51,7 @@
 		DAB613392814767900234BB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB613372814767900234BB2 /* LaunchScreen.storyboard */; };
 		DAB85363281FB475008F3E35 /* Face.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB85362281FB475008F3E35 /* Face.scnassets */; };
 		DABCE22328219CE700937E84 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DABCE22528219CE700937E84 /* Localizable.strings */; };
+		DABCE2292822754300937E84 /* CheckDocPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCE2282822754300937E84 /* CheckDocPhotoViewController.swift */; };
 		DAC2325A281C3EF300D0CE16 /* BlockedCountryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC23259281C3EF300D0CE16 /* BlockedCountryViewCell.swift */; };
 		DADD31EF281D7A0200EB25ED /* DocumentTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD31EE281D7A0200EB25ED /* DocumentTypes.swift */; };
 		DADD31F2281D93F800EB25ED /* LivenessScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD31F1281D93F800EB25ED /* LivenessScreenViewController.swift */; };
@@ -113,6 +114,7 @@
 		DABCE22428219CE700937E84 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DABCE22628219CEA00937E84 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DABCE22728219CEB00937E84 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DABCE2282822754300937E84 /* CheckDocPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckDocPhotoViewController.swift; sourceTree = "<group>"; };
 		DAC23259281C3EF300D0CE16 /* BlockedCountryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedCountryViewCell.swift; sourceTree = "<group>"; };
 		DADD31EE281D7A0200EB25ED /* DocumentTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTypes.swift; sourceTree = "<group>"; };
 		DADD31F1281D93F800EB25ED /* LivenessScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessScreenViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				DA34598028201D9600068E6D /* TakeDocPhotoViewController.swift */,
+				DABCE2282822754300937E84 /* CheckDocPhotoViewController.swift */,
 			);
 			path = photo_upload_stage;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				DAE87E152816CE6E00ED6826 /* DemoStartViewController.swift in Sources */,
 				DAAF4E20281AC7A60029F26C /* DocumentResponseModels.swift in Sources */,
 				DA34598128201D9600068E6D /* TakeDocPhotoViewController.swift in Sources */,
+				DABCE2292822754300937E84 /* CheckDocPhotoViewController.swift in Sources */,
 				DAAF4E1C281AC7A60029F26C /* CountryModels.swift in Sources */,
 				DA737432281AD4CB00DBBDED /* ApiError.swift in Sources */,
 				DAB11439281D6515001F82E4 /* ChooseDocTypeViewModel.swift in Sources */,
