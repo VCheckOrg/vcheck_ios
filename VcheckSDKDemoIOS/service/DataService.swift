@@ -27,7 +27,7 @@ struct DataService {
           .responseString(completionHandler: { (response) in
             guard let timestamp = response.value else {
               //showing error on non-200 response code (?)
-                completion(nil, ApiError(errorText: response.error!.localizedDescription)) //test
+                completion(nil, ApiError(errorText: response.error!.localizedDescription))
                 return
             }
               completion(timestamp, nil)
@@ -46,7 +46,6 @@ struct DataService {
         var jsonData: Dictionary<String, Any>?
         do {
             jsonData = try model.toDictionary()
-            //print(jsonData ?? [:])
         } catch {
             completion(nil, ApiError(errorText: "Error: Failed to convert model!"))
             return
@@ -56,8 +55,8 @@ struct DataService {
           .validate()  //response returned an HTTP status code in the range 200–299
           .responseDecodable(of: VerificationCreateAttemptResponse.self) { (response) in
             guard let response = response.value else {
-              //showing error on non-200 response code (?)
-                completion(nil, ApiError(errorText: response.error!.localizedDescription)) //test
+              //showing error on non-200 response code
+                completion(nil, ApiError(errorText: response.error!.localizedDescription))
                 return
             }
               if (response.data != nil && response.errorCode == 0) {
@@ -87,7 +86,7 @@ struct DataService {
           .responseDecodable(of: VerificationInitResponse.self) { (response) in
             guard let response = response.value else {
               //showing error on non-200 response code (?)
-                completion(nil, ApiError(errorText: response.error!.localizedDescription)) //test
+                completion(nil, ApiError(errorText: response.error!.localizedDescription))
                 return
             }
               if (response.data != nil && response.errorCode == 0) {
@@ -117,8 +116,8 @@ struct DataService {
           .validate()  //response returned an HTTP status code in the range 200–299
           .responseDecodable(of: CountriesResponse.self) { (response) in
             guard let response = response.value else {
-              //showing error on non-200 response code (?)
-                completion(nil, ApiError(errorText: response.error!.localizedDescription)) //test
+              //showing error on non-200 response code
+                completion(nil, ApiError(errorText: response.error!.localizedDescription))
                 return
             }
               if (response.data != nil && response.errorCode == 0) {
@@ -149,8 +148,8 @@ struct DataService {
           .validate()  //response returned an HTTP status code in the range 200–299
           .responseDecodable(of: DocumentTypesForCountryResponse.self) { (response) in
             guard let response = response.value else {
-              //showing error on non-200 response code (?)
-                completion(nil, ApiError(errorText: response.error!.localizedDescription)) //test
+              //showing error on non-200 response code
+                completion(nil, ApiError(errorText: response.error!.localizedDescription))
                 return
             }
               if (response.data != nil && response.errorCode == 0) {
@@ -172,7 +171,7 @@ struct DataService {
         photo2: UIImage?,
         countryCode: String,
         documentType: String,
-        completion: @escaping ([DocTypeData]?, ApiError?) -> ()) {
+        completion: @escaping (DocumentUploadResponseData?, ApiError?) -> ()) {
             
             let url = "\(baseUrl)documents"
 
@@ -187,17 +186,17 @@ struct DataService {
                 
             multipartFormData.append(documentType.data(using: .utf8, allowLossyConversion: false)!, withName: "document_type")
             multipartFormData.append(countryCode.data(using: .utf8, allowLossyConversion: false)!, withName: "country")
-            multipartFormData.append(photo1.jpegData(compressionQuality: 0.7)!, withName: "photo1")
+            multipartFormData.append(photo1.jpegData(compressionQuality: 0.7)!, withName: "photo1") //check compression quality!
             if (photo2 != nil) {
-                multipartFormData.append(photo2!.jpegData(compressionQuality: 0.7)!, withName: "photo2")
+                multipartFormData.append(photo2!.jpegData(compressionQuality: 0.7)!, withName: "photo2") //check compression quality!
             }
                 
             AF.upload(multipartFormData: multipartFormData, to: url, method: .post, headers: headers)
                 .validate()
                 .responseDecodable(of: DocumentUploadResponse.self) { (response) in
                     guard let response = response.value else {
-                      //showing error on non-200 response code (?)
-                        completion(nil, ApiError(errorText: response.error!.localizedDescription)) //test
+                      //showing error on non-200 response code
+                        completion(nil, ApiError(errorText: response.error!.localizedDescription))
                         return
                     }
                       if (response.data != nil && response.errorCode == 0) {
@@ -227,8 +226,8 @@ struct DataService {
         .validate()  //response returned an HTTP status code in the range 200–299
         .responseDecodable(of: PreProcessedDocumentResponse.self) { (response) in
             guard let response = response.value else {
-            //showing error on non-200 response code (?)
-             completion(nil, ApiError(errorText: response.error!.localizedDescription)) //test
+            //showing error on non-200 response code
+             completion(nil, ApiError(errorText: response.error!.localizedDescription))
              return
             }
             if (response.data != nil && response.errorCode == 0) {
@@ -259,8 +258,8 @@ struct DataService {
         .validate()  //response returned an HTTP status code in the range 200–299
         .response(completionHandler: { (response) in
             guard response.value != nil else {
-            //showing error on non-200 response code (?)
-             completion(false, ApiError(errorText: response.error!.localizedDescription)) //test
+            //showing error on non-200 response code
+             completion(false, ApiError(errorText: response.error!.localizedDescription))
              return
             }
             completion(true, nil)
@@ -285,7 +284,7 @@ struct DataService {
          .response(completionHandler: { (response) in
              guard response.value != nil else {
              //showing error on non-200 response code (?)
-              completion(false, ApiError(errorText: response.error!.localizedDescription)) //test
+              completion(false, ApiError(errorText: response.error!.localizedDescription))
               return
              }
              completion(true, nil)
@@ -314,8 +313,8 @@ struct DataService {
                 .validate()
                 .response(completionHandler: { (response) in
                     guard response.value != nil else {
-                    //showing error on non-200 response code (?)
-                     completion(false, ApiError(errorText: response.error!.localizedDescription)) //test
+                    //showing error on non-200 response code
+                     completion(false, ApiError(errorText: response.error!.localizedDescription))
                      return
                     }
                     completion(true, nil)

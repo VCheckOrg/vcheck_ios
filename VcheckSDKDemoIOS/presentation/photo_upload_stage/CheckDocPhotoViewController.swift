@@ -39,6 +39,10 @@ class CheckDocPhotoViewController : UIViewController {
             imgViewPhotoSecond.image = secondPhoto
         } else {
             secondPhotoCard.isHidden = true
+            confirmBtnVerticalConstraint.constant = 100
+            remakeBtnVerticalConstraint.constant = 100
         }
+        
+        
     }
 }

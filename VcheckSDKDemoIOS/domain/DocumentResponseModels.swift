@@ -10,7 +10,7 @@ import Foundation
 
 struct DocumentUploadResponse: Codable {
 
-  var data      : [DocTypeData]? = []
+  var data      : DocumentUploadResponseData? = nil
   var errorCode : Int?    = nil
   var message   : String? = nil
 
@@ -25,7 +25,7 @@ struct DocumentUploadResponse: Codable {
   init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
 
-    data      = try values.decodeIfPresent([DocTypeData].self , forKey: .data      )
+    data      = try values.decodeIfPresent(DocumentUploadResponseData.self , forKey: .data      )
     errorCode = try values.decodeIfPresent(Int.self    , forKey: .errorCode )
     message   = try values.decodeIfPresent(String.self , forKey: .message   )
  

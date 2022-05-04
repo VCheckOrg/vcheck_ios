@@ -14,6 +14,7 @@ class ChooseDocTypeViewModel  {
     // MARK: - Constructor
     init() {}
     
+    // MARK: - Properties
     var docTypeDataArr: [DocTypeData] = []
     
     var error: ApiError? {

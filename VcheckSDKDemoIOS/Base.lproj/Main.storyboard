@@ -191,7 +191,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="FLAG" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zr2-kK-wWI">
-                                                <rect key="frame" x="6" y="3" width="60" height="39"/>
+                                                <rect key="frame" x="7" y="3" width="60" height="39"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" name="CountryCardColor"/>
                                                 <color key="textColor" name="DescriptionColor"/>
@@ -2198,32 +2198,25 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                 <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBt-rb-JKa">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="888.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="858.33333333333337"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kzh-Vj-yGm" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="84" width="366" height="739.33333333333337"/>
+                                                <rect key="frame" x="12" y="84" width="366" height="709.33333333333337"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="ohK-pc-eoJ">
-                                                        <rect key="frame" x="23" y="28" width="10" height="16"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="16" id="foE-ay-BO6"/>
-                                                            <constraint firstAttribute="width" constant="10" id="sQk-8W-EVH"/>
-                                                        </constraints>
-                                                    </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проверьте, все ли данные по документу были распознаны корректно?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgk-ad-nWW">
-                                                        <rect key="frame" x="16" y="93.666666666666657" width="334" height="33.666666666666657"/>
+                                                        <rect key="frame" x="16" y="55.666666666666657" width="334" height="33.666666666666657"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сверка заполнение данных" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNT-ys-lqv">
-                                                        <rect key="frame" x="15.999999999999986" y="55.999999999999993" width="249.66666666666663" height="21.666666666666664"/>
+                                                        <rect key="frame" x="15.999999999999986" y="18" width="249.66666666666663" height="21.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3Y-Ya-7BQ" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="143.33333333333331" width="334" height="250"/>
+                                                        <rect key="frame" x="16" y="113.33333333333334" width="334" height="250.00000000000003"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_photo_1" translatesAutoresizingMaskIntoConstraints="NO" id="2NZ-jG-pb9">
                                                                 <rect key="frame" x="0.0" y="0.0" width="334" height="250"/>
@@ -2253,7 +2246,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Cf-tI-RPy" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="409.33333333333337" width="334" height="250"/>
+                                                        <rect key="frame" x="16" y="379.33333333333331" width="334" height="249.99999999999994"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_photo" translatesAutoresizingMaskIntoConstraints="NO" id="87H-j0-OXZ">
                                                                 <rect key="frame" x="0.0" y="0.0" width="334" height="250"/>
@@ -2288,16 +2281,14 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                     <constraint firstItem="4Cf-tI-RPy" firstAttribute="top" secondItem="q3Y-Ya-7BQ" secondAttribute="bottom" constant="16" id="0eF-r9-xQv"/>
                                                     <constraint firstAttribute="trailing" secondItem="Wgk-ad-nWW" secondAttribute="trailing" constant="16" id="6j9-Df-RId"/>
                                                     <constraint firstAttribute="trailing" secondItem="4Cf-tI-RPy" secondAttribute="trailing" constant="16" id="7dZ-FH-jSh"/>
+                                                    <constraint firstItem="FNT-ys-lqv" firstAttribute="top" secondItem="Kzh-Vj-yGm" secondAttribute="top" constant="18" id="9xp-iV-MrB"/>
                                                     <constraint firstItem="Wgk-ad-nWW" firstAttribute="leading" secondItem="Kzh-Vj-yGm" secondAttribute="leading" constant="16" id="EbS-CL-Wo1"/>
                                                     <constraint firstItem="4Cf-tI-RPy" firstAttribute="leading" secondItem="Kzh-Vj-yGm" secondAttribute="leading" constant="16" id="LCP-0g-7aT"/>
-                                                    <constraint firstItem="ohK-pc-eoJ" firstAttribute="top" secondItem="Kzh-Vj-yGm" secondAttribute="top" constant="28" id="LFf-E6-YXm"/>
-                                                    <constraint firstItem="FNT-ys-lqv" firstAttribute="top" secondItem="ohK-pc-eoJ" secondAttribute="bottom" constant="12" id="VNq-hI-ZWd"/>
                                                     <constraint firstAttribute="bottom" secondItem="4Cf-tI-RPy" secondAttribute="bottom" constant="80" id="k4l-og-qX7"/>
-                                                    <constraint firstItem="ohK-pc-eoJ" firstAttribute="leading" secondItem="Kzh-Vj-yGm" secondAttribute="leading" constant="23" id="l7i-71-NNP"/>
                                                     <constraint firstItem="FNT-ys-lqv" firstAttribute="leading" secondItem="Kzh-Vj-yGm" secondAttribute="leading" constant="16" id="scl-DI-NeP"/>
                                                     <constraint firstItem="q3Y-Ya-7BQ" firstAttribute="leading" secondItem="Kzh-Vj-yGm" secondAttribute="leading" constant="16" id="tnZ-1z-I6z"/>
                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FNT-ys-lqv" secondAttribute="trailing" constant="20" symbolic="YES" id="uEy-z2-H6s"/>
-                                                    <constraint firstItem="q3Y-Ya-7BQ" firstAttribute="top" secondItem="Wgk-ad-nWW" secondAttribute="bottom" constant="16" id="wcv-tB-SaN"/>
+                                                    <constraint firstItem="q3Y-Ya-7BQ" firstAttribute="top" secondItem="Wgk-ad-nWW" secondAttribute="bottom" constant="24" id="wcv-tB-SaN"/>
                                                     <constraint firstAttribute="trailing" secondItem="q3Y-Ya-7BQ" secondAttribute="trailing" constant="16" id="wrl-xU-f76"/>
                                                     <constraint firstItem="Wgk-ad-nWW" firstAttribute="top" secondItem="FNT-ys-lqv" secondAttribute="bottom" constant="16" id="zeD-Ng-K4c"/>
                                                 </constraints>
@@ -2689,13 +2680,13 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                 <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xJI-uw-YK5">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="1051"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="1013"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Cm-GH-i0e" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="84" width="366" height="902"/>
+                                                <rect key="frame" x="12" y="84" width="366" height="864"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8n-y7-cdZ">
-                                                        <rect key="frame" x="16" y="822" width="334" height="56"/>
+                                                        <rect key="frame" x="16" y="784" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="IHD-b3-YaB"/>
                                                         </constraints>
@@ -2703,26 +2694,19 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <buttonConfiguration key="configuration" style="filled" title="Подтвердить"/>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проверьте свое фото" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goj-ZF-231">
-                                                        <rect key="frame" x="16" y="55.999999999999993" width="191" height="21.666666666666664"/>
+                                                        <rect key="frame" x="16" y="18" width="191" height="21.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="iPG-wz-qJb">
-                                                        <rect key="frame" x="23" y="28" width="10" height="16"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="10" id="TaS-ac-OCe"/>
-                                                            <constraint firstAttribute="height" constant="16" id="XfG-DO-RK3"/>
-                                                        </constraints>
-                                                    </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проверьте читаемость информации на фото. Убедитесь, что на фото видны все 4 угла документа" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQx-HL-SS1">
-                                                        <rect key="frame" x="16" y="93.666666666666657" width="334" height="50.333333333333343"/>
+                                                        <rect key="frame" x="16" y="55.666666666666657" width="334" height="50.333333333333343"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Crw-Dx-4qz" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="172" width="334" height="250"/>
+                                                        <rect key="frame" x="16" y="134" width="334" height="250"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_photo_1" translatesAutoresizingMaskIntoConstraints="NO" id="ZWJ-nl-6Jb">
                                                                 <rect key="frame" x="0.0" y="0.0" width="334" height="250"/>
@@ -2761,7 +2745,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gtp-7i-H4k" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="450" width="334" height="250"/>
+                                                        <rect key="frame" x="16" y="412" width="334" height="250"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_photo" translatesAutoresizingMaskIntoConstraints="NO" id="4ET-0K-fh8">
                                                                 <rect key="frame" x="0.0" y="0.0" width="334" height="250"/>
@@ -2801,7 +2785,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQv-f5-Kf7" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="744" width="334" height="58"/>
+                                                        <rect key="frame" x="16" y="706" width="334" height="58"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Заменить фото" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgy-0K-AbA">
                                                                 <rect key="frame" x="60" y="19" width="214" height="20"/>
@@ -2842,15 +2826,13 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                     <constraint firstItem="YQv-f5-Kf7" firstAttribute="top" secondItem="ZWJ-nl-6Jb" secondAttribute="bottom" constant="322" id="KhX-ev-3Hx"/>
                                                     <constraint firstAttribute="trailing" secondItem="VQx-HL-SS1" secondAttribute="trailing" constant="16" id="LqT-Rm-jfB"/>
                                                     <constraint firstItem="YQv-f5-Kf7" firstAttribute="leading" secondItem="5Cm-GH-i0e" secondAttribute="leading" constant="16" id="RSj-xj-fXC"/>
+                                                    <constraint firstItem="goj-ZF-231" firstAttribute="top" secondItem="5Cm-GH-i0e" secondAttribute="top" constant="18" id="VOU-QJ-OGM"/>
                                                     <constraint firstItem="YQv-f5-Kf7" firstAttribute="top" secondItem="Gtp-7i-H4k" secondAttribute="bottom" constant="44" id="Vja-7j-qdc"/>
                                                     <constraint firstAttribute="bottom" secondItem="t8n-y7-cdZ" secondAttribute="bottom" constant="24" id="WDN-Ic-6ir"/>
-                                                    <constraint firstItem="iPG-wz-qJb" firstAttribute="leading" secondItem="5Cm-GH-i0e" secondAttribute="leading" constant="23" id="ad4-me-b3J"/>
                                                     <constraint firstItem="Gtp-7i-H4k" firstAttribute="top" secondItem="Crw-Dx-4qz" secondAttribute="bottom" constant="28" id="i54-U5-Qcu"/>
                                                     <constraint firstItem="t8n-y7-cdZ" firstAttribute="top" secondItem="YQv-f5-Kf7" secondAttribute="bottom" constant="20" id="i6V-Ju-uDf"/>
                                                     <constraint firstItem="VQx-HL-SS1" firstAttribute="top" secondItem="goj-ZF-231" secondAttribute="bottom" constant="16" id="ih1-2K-nJI"/>
                                                     <constraint firstAttribute="trailing" secondItem="Gtp-7i-H4k" secondAttribute="trailing" constant="16" id="jOX-hy-5KH"/>
-                                                    <constraint firstItem="iPG-wz-qJb" firstAttribute="top" secondItem="5Cm-GH-i0e" secondAttribute="top" constant="28" id="je0-r4-9SD"/>
-                                                    <constraint firstItem="goj-ZF-231" firstAttribute="top" secondItem="iPG-wz-qJb" secondAttribute="bottom" constant="12" id="sAP-HH-237"/>
                                                     <constraint firstItem="Crw-Dx-4qz" firstAttribute="leading" secondItem="5Cm-GH-i0e" secondAttribute="leading" constant="16" id="sKM-F3-Qeu"/>
                                                     <constraint firstItem="goj-ZF-231" firstAttribute="leading" secondItem="5Cm-GH-i0e" secondAttribute="leading" constant="16" id="umM-x8-NAh"/>
                                                     <constraint firstItem="t8n-y7-cdZ" firstAttribute="leading" secondItem="5Cm-GH-i0e" secondAttribute="leading" constant="16" id="w6b-0a-LGK"/>
