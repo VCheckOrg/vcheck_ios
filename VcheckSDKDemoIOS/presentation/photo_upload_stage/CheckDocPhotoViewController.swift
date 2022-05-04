@@ -54,15 +54,17 @@ class CheckDocPhotoViewController : UIViewController {
         } else {
             secondPhotoCard.isHidden = true
             
-            remakeBtnVerticalConstraint.constant = 100
-            confirmBtnVerticalConstraint.constant = 200
+            remakeBtnVerticalConstraint.constant = 86
+            confirmBtnVerticalConstraint.constant = 160
             
-            tvLoadingTopConstraint.constant = 100
-            uplSpinnerTopConstraint.constant = 200
+            tvLoadingTopConstraint.constant = 80
+            uplSpinnerTopConstraint.constant = 160
         }
                 
         viewModel.didReceiveDocUploadResponse = {
             self.activityIndicatorStop()
+            
+            print("RECEIVED PHOTO UPLOAD RESPONSE! ::: \(String(describing: self.viewModel.uploadResponse))")
             
             //TODO: handle doc upload response w/codes
             
@@ -92,9 +94,6 @@ class CheckDocPhotoViewController : UIViewController {
     
     
     @objc func replacePhotoClicked(_ sender: NavGestureRecognizer) {
-        firstPhoto = nil
-        secondPhoto = nil
-        
         moveToChooseDocTypeViewController()
     }
     
@@ -117,12 +116,20 @@ class CheckDocPhotoViewController : UIViewController {
                 vc.secondPhoto = self.secondPhoto
             }
         }
+        if (segue.identifier == "CheckPhotoToZoom") {
+            let vc = segue.destination as! ZoomedDocPhotoViewController
+            vc.photoToZoom = sender as! UIImage?
+        }
     }
     
     func moveToChooseDocTypeViewController() {
-        let viewController = self.navigationController?.viewControllers.first { $0 is ChooseDocTypeViewController }
-        guard let destinationVC = viewController else { return }
-        self.navigationController?.popToViewController(destinationVC, animated: true)
+        print("PRESSED REPLACE PHOTOS!")
+//        let viewController = self.navigationController?.viewControllers.first { $0 is ChooseDocTypeViewController }
+//        guard let destinationVC = viewController else { return }
+//        self.navigationController?.popToViewController(destinationVC, animated: true)
+            if let firstViewController = self.navigationController?.viewControllers[2] {
+                self.navigationController?.popToViewController(firstViewController, animated: true)
+            }
     }
     
     
@@ -141,12 +148,14 @@ class CheckDocPhotoViewController : UIViewController {
         remakeDocPhotosBtn.isHidden = true
         confirmUploadPhotosBtn.isHidden = true
         tvLoadingDescl.isHidden = false
+        photosUploadingSpinner.isHidden = false
         photosUploadingSpinner.startAnimating()
     }
     
     private func activityIndicatorStop() {
         tvLoadingDescl.isHidden = true
         photosUploadingSpinner.stopAnimating()
+        photosUploadingSpinner.isHidden = true
         remakeDocPhotosBtn.isHidden = false
         confirmUploadPhotosBtn.isHidden = false
     }

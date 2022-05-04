@@ -186,9 +186,11 @@ struct RemoteDatasource {
                 
             multipartFormData.append(documentType.data(using: .utf8, allowLossyConversion: false)!, withName: "document_type")
             multipartFormData.append(countryCode.data(using: .utf8, allowLossyConversion: false)!, withName: "country")
-            multipartFormData.append(photo1.jpegData(compressionQuality: 0.7)!, withName: "photo1") //check compression quality!
+            multipartFormData.append(photo1.jpegData(compressionQuality: 0.9)!, withName: "jpeg",
+                                     fileName: "1.jpg", mimeType: "image/jpeg") //check compression quality!
             if (photo2 != nil) {
-                multipartFormData.append(photo2!.jpegData(compressionQuality: 0.7)!, withName: "photo2") //check compression quality!
+                multipartFormData.append(photo2!.jpegData(compressionQuality: 0.9)!, withName: "jpeg",
+                                         fileName: "2.jpg", mimeType: "image/jpeg") //check compression quality!
             }
                 
             AF.upload(multipartFormData: multipartFormData, to: url, method: .post, headers: headers)

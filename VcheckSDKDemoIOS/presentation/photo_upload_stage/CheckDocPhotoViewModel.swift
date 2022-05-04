@@ -39,7 +39,11 @@ class CheckDocPhotoViewModel {
         
         let countryCode: String = LocalDatasource.shared.readSelectedCountryCode()
         
-        let docTpeStr: String = "\(String(describing: LocalDatasource.shared.getSelectedDocTypeWithData()?.category))"
+        let docType: Int = LocalDatasource.shared.getSelectedDocTypeWithData()!.category!
+        
+        let docTpeStr: String = "\(docType)"
+        
+        print("DOC TYPE: \(docTpeStr)")
     
         dataService.uploadVerificationDocuments(photo1: photo1,
                                                 photo2: photo2,
