@@ -50,8 +50,19 @@ class CheckDocInfoViewModel {
         })
     }
     
-    func updateAndConfirmDocument(docId: Int) {
+    func updateAndConfirmDocument(docId: Int, parsedDocFieldsData: ParsedDocFieldsData) {
         
-        //dataService.updateAndConfirmDocInfo(documentId: docId, parsedDocFieldsData: <#T##ParsedData#>, completion: <#T##(Bool, ApiError?) -> ()#>)
+        dataService.updateAndConfirmDocInfo(documentId: docId,
+                                            parsedDocFieldsData: parsedDocFieldsData, completion: { (data, error) in
+            if let error = error {
+                self.isLoading = false
+                self.error = error
+                return
+            }
+            self.isLoading = false
+            
+            self.confirmedDocResponse = data
+            self.didReceiveConfirmedResponse!()
+        })
     }
 }

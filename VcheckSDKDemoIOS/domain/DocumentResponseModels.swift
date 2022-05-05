@@ -8,6 +8,16 @@
 import Foundation
 
 
+
+struct DocFieldWitOptPreFilledData {
+    let name: String
+    let title: DocTitle
+    let type: String
+    let regex: String?
+    var autoParsedValue: String = ""
+}
+
+
 struct DocumentUploadResponse: Codable {
 
   var data      : DocumentUploadResponseData? = nil
@@ -213,7 +223,7 @@ struct PreProcessedDocData: Codable {
   var id         : Int?        = nil
   var images     : [String]?   = []
   var isPrimary  : Bool?       = nil
-  var parsedData : ParsedData? = ParsedData()
+  var parsedData : ParsedDocFieldsData? = ParsedDocFieldsData()
   var status     : Int?        = nil
   var type       : DocTypeData? = DocTypeData()
 
@@ -234,7 +244,7 @@ struct PreProcessedDocData: Codable {
     id         = try values.decodeIfPresent(Int.self        , forKey: .id         )
     images     = try values.decodeIfPresent([String].self   , forKey: .images     )
     isPrimary  = try values.decodeIfPresent(Bool.self       , forKey: .isPrimary  )
-    parsedData = try values.decodeIfPresent(ParsedData.self , forKey: .parsedData )
+    parsedData = try values.decodeIfPresent(ParsedDocFieldsData.self , forKey: .parsedData )
     status     = try values.decodeIfPresent(Int.self        , forKey: .status     )
     type       = try values.decodeIfPresent(DocTypeData.self       , forKey: .type       )
  
@@ -245,7 +255,7 @@ struct PreProcessedDocData: Codable {
 }
 
 
-struct ParsedData: Codable {
+struct ParsedDocFieldsData: Codable {
 
   var dateOfBirth  : String? = nil
   var dateOfExpiry : String? = nil

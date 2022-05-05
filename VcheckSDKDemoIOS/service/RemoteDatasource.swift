@@ -245,7 +245,7 @@ struct RemoteDatasource {
     
     
     func updateAndConfirmDocInfo(documentId: Int,
-                                 parsedDocFieldsData: ParsedData,
+                                 parsedDocFieldsData: ParsedDocFieldsData,
                                  completion: @escaping (Bool, ApiError?) -> ()) {
         let url = "documents/\(documentId)"
 

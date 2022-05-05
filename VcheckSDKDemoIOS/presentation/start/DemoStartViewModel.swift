@@ -54,8 +54,9 @@ class DemoStartViewModel {
     }
     
     func createVerifAttempt() {
-        let languagePrefix = Locale.current.languageCode! //Locale.preferredLanguages[0] // test! getting default device locale code
-        print(languagePrefix)
+        let languagePrefix = Locale.current.languageCode!
+        //Locale.preferredLanguages[0] // test! getting default device locale code
+        //print(languagePrefix)
         
         if let timestamp = self.timestamp {
             self.dataService.createVerificationRequest(timestamp: timestamp,
