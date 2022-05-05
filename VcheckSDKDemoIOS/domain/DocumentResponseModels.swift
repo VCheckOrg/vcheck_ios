@@ -15,6 +15,10 @@ struct DocFieldWitOptPreFilledData {
     let type: String
     let regex: String?
     var autoParsedValue: String = ""
+    
+    func modifyAutoParsedValue(with: String) -> DocFieldWitOptPreFilledData {
+        return DocFieldWitOptPreFilledData(name: name, title: title, type: type, regex: regex, autoParsedValue: with)
+    }
 }
 
 

@@ -11,6 +11,7 @@
 		DA34598128201D9600068E6D /* TakeDocPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34598028201D9600068E6D /* TakeDocPhotoViewController.swift */; };
 		DA47CDA4281C3B59001226B9 /* AllowedCountryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47CDA3281C3B59001226B9 /* AllowedCountryViewCell.swift */; };
 		DA63D7952823B683005EE4C0 /* CheckDocInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA63D7942823B683005EE4C0 /* CheckDocInfoViewModel.swift */; };
+		DA63D79928240644005EE4C0 /* DocInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA63D79828240644005EE4C0 /* DocInfoViewCell.swift */; };
 		DA65CBB3281C527A006508A1 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65CBB2281C527A006508A1 /* RoundedView.swift */; };
 		DA73742B281ACC3700DBBDED /* DemoStartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73742A281ACC3700DBBDED /* DemoStartViewModel.swift */; };
 		DA73742E281ACC7E00DBBDED /* RemoteDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73742D281ACC7E00DBBDED /* RemoteDatasource.swift */; };
@@ -64,6 +65,7 @@
 		DA34598028201D9600068E6D /* TakeDocPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeDocPhotoViewController.swift; sourceTree = "<group>"; };
 		DA47CDA3281C3B59001226B9 /* AllowedCountryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowedCountryViewCell.swift; sourceTree = "<group>"; };
 		DA63D7942823B683005EE4C0 /* CheckDocInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckDocInfoViewModel.swift; sourceTree = "<group>"; };
+		DA63D79828240644005EE4C0 /* DocInfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocInfoViewCell.swift; sourceTree = "<group>"; };
 		DA65CBAE281C4759006508A1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		DA65CBAF281C4759006508A1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		DA65CBB0281C4766006508A1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 			children = (
 				DABCE22D2822BBE800937E84 /* CheckDocInfoViewController.swift */,
 				DA63D7942823B683005EE4C0 /* CheckDocInfoViewModel.swift */,
+				DA63D79828240644005EE4C0 /* DocInfoViewCell.swift */,
 			);
 			path = check_doc_info_stage;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				DAAF4E1D281AC7A60029F26C /* Constants.swift in Sources */,
 				DAAF4E14281AC7A60029F26C /* VerificationRequestModels.swift in Sources */,
 				DABCE22C28229ABD00937E84 /* CheckDocPhotoViewModel.swift in Sources */,
+				DA63D79928240644005EE4C0 /* DocInfoViewCell.swift in Sources */,
 				DA73742B281ACC3700DBBDED /* DemoStartViewModel.swift in Sources */,
 				DAE87E122816CC2C00ED6826 /* CountryListViewController.swift in Sources */,
 				DAAF4E0A281AC7A60029F26C /* VerificationResponseModels.swift in Sources */,

@@ -191,7 +191,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="FLAG" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zr2-kK-wWI">
-                                                <rect key="frame" x="7" y="3" width="60" height="39"/>
+                                                <rect key="frame" x="6" y="3" width="60" height="39"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" name="CountryCardColor"/>
                                                 <color key="textColor" name="DescriptionColor"/>
@@ -2191,7 +2191,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
         <!--Check Doc Info View Controller-->
         <scene sceneID="ljs-xk-7FC">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="dcp-4c-bus" userLabel="Check Doc Info View Controller" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="dcp-4c-bus" userLabel="Check Doc Info View Controller" customClass="CheckDocInfoViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SNh-eB-9EL">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2283,7 +2283,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <color key="sectionIndexBackgroundColor" name="CardColor"/>
                                                         <color key="sectionIndexTrackingBackgroundColor" name="CardColor"/>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="76" id="Jcf-Ms-xcs">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="docFieldCell" rowHeight="76" id="Jcf-Ms-xcs" customClass="DocInfoViewCell" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="44.666666030883789" width="334" height="76"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jcf-Ms-xcs" id="dqy-io-axa">
@@ -2343,6 +2343,10 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                                     </constraints>
                                                                 </tableViewCellContentView>
                                                                 <color key="backgroundColor" name="CardColor"/>
+                                                                <connections>
+                                                                    <outlet property="docFieldTitle" destination="zVf-o1-mBp" id="Sdi-cg-oOf"/>
+                                                                    <outlet property="docTextField" destination="u3Q-g0-NzA" id="w25-0u-Ugh"/>
+                                                                </connections>
                                                             </tableViewCell>
                                                         </prototypes>
                                                     </tableView>
@@ -2422,6 +2426,11 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rH8-hJ-t2h"/>
+                    <connections>
+                        <outlet property="docFieldsTableView" destination="Zhd-T3-QWa" id="upf-gP-u7v"/>
+                        <outlet property="firlsPhotoImageView" destination="2NZ-jG-pb9" id="vAO-ys-mTc"/>
+                        <outlet property="secondPhotoImageView" destination="87H-j0-OXZ" id="blw-es-Ov1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJX-PN-ae8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

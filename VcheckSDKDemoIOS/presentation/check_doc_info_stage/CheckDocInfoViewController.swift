@@ -10,6 +10,14 @@ import UIKit
 
 class CheckDocInfoViewController : UIViewController {
     
+    
+    @IBOutlet weak var docFieldsTableView: UITableView!
+    
+    @IBOutlet weak var firlsPhotoImageView: UIImageView!
+    
+    @IBOutlet weak var secondPhotoImageView: UIImageView!
+    
+    
     private let viewModel = CheckDocInfoViewModel()
     
     var firstPhoto: UIImage? = nil
@@ -17,19 +25,18 @@ class CheckDocInfoViewController : UIViewController {
     
     var docId: Int? = nil
     
-    var dataList: [DocFieldWitOptPreFilledData] = []
+    var fieldsList: [DocFieldWitOptPreFilledData] = []
+    
+    let currLocaleCode = Locale.current.languageCode!
     
     
     override func viewDidLoad() {
         
-        let currLocaleCode = Locale.current.languageCode!
-        
         viewModel.didReceiveDocInfoResponse = {
-            
             
             if (self.viewModel.docInfoResponse != nil) {
                 self.populateDocFields(preProcessedDocData: self.viewModel.docInfoResponse!,
-                                  currentLocaleCode: currLocaleCode)
+                                       currentLocaleCode: self.currLocaleCode)
             }
         }
         
@@ -51,13 +58,11 @@ class CheckDocInfoViewController : UIViewController {
     private func populateDocFields(preProcessedDocData: PreProcessedDocData, currentLocaleCode: String) {
         if ((preProcessedDocData.type?.fields?.count)! > 0) {
             print("GOT AUTO-PARSED FIELDS: \(String(describing: preProcessedDocData.type?.fields))")
-            dataList = preProcessedDocData.type?.fields!.map { (element) -> (DocFieldWitOptPreFilledData) in
+            fieldsList = preProcessedDocData.type?.fields!.map { (element) -> (DocFieldWitOptPreFilledData) in
                     return convertDocFieldToOptParsedData(docField: element,
                                                           parsedDocFieldsData: preProcessedDocData.parsedData)
                 } ?? []
-//                let updatedAdapter = CheckDocInfoAdapter(ArrayList(dataList),
-//                    this@CheckDocInfoFragment, currentLocaleCode)
-//                binding.docInfoList.adapter = updatedAdapter
+            docFieldsTableView.reloadData()
             } else {
                 print("__NO__ AVAILABLE AUTO-PARSED FIELDS!")
             }
@@ -65,57 +70,55 @@ class CheckDocInfoViewController : UIViewController {
     
 }
 
-//// MARK: - UITableViewDelegate
-//extension CheckDocInfoViewController: UITableViewDelegate {
-//
-//    func tableView(_ countryListTable: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//        LocalDatasource.shared.saveSelectedCountryCode(code: self.searchResultsList[indexPath.row].code)
-//
-//        self.dismiss(animated: true, completion: nil)
-//    }
-//}
-//
-//// MARK: - UITableViewDataSource
-//extension CheckDocInfoViewController: UITableViewDataSource {
-//
-//    func tableView(_ countryListTable: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return searchResultsList.count
-//    }
-//
-//    func tableView(_ countryListTable: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        var cell = UITableViewCell.init()
-//        if (searchResultsList[indexPath.row]).isBlocked {
-//            cell = countryListTable.dequeueReusableCell(
-//                withIdentifier: "blockedCountryCell", for: indexPath) as! BlockedCountryViewCell
-//        } else {
-//            cell = countryListTable.dequeueReusableCell(
-//                withIdentifier: "allowedCountryCell", for: indexPath) as! AllowedCountryViewCell
-//        }
-//
-//        if (cell is AllowedCountryViewCell) {
-//            (cell as! AllowedCountryViewCell).setCountryName(name: self.searchResultsList[indexPath.row].name)
-//            (cell as! AllowedCountryViewCell).setCountryFlag(flag: self.searchResultsList[indexPath.row].flag)
-//        }
-//        else {
-//            (cell as! BlockedCountryViewCell).setCountryName(name: self.searchResultsList[indexPath.row].name)
-//            (cell as! BlockedCountryViewCell).setCountryFlag(flag: self.searchResultsList[indexPath.row].flag)
-//        }
-//
-//        return cell
-//    }
-//
+// MARK: - UITableViewDataSource
+extension CheckDocInfoViewController: UITableViewDataSource {
+
+    func tableView(_ countryListTable: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return fieldsList.count
+    }
+
+    func tableView(_ countryListTable: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = docFieldsTableView.dequeueReusableCell(withIdentifier: "docFieldCell") as! DocInfoViewCell
+        
+        let field: DocFieldWitOptPreFilledData = fieldsList[indexPath.row]
+        
+        var title = ""
+        switch(currLocaleCode) {
+            case "uk": title = field.title.uk!
+            case "ru": title = field.title.ru!
+            default: title = field.title.en!
+        }
+        
+        cell.docFieldTitle.text = title
+        
+        let fieldName = fieldsList[indexPath.row].name
+
+        let editingChanged = UIAction { _ in
+            
+            self.fieldsList = self.fieldsList.map {
+                $0.name == fieldName ? $0.modifyAutoParsedValue(with: cell.docTextField.text!) : $0 }
+        }
+        
+        cell.docTextField.addAction(editingChanged, for: .editingChanged)
+
+        return cell
+    }
+
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return 70
 //    }
-//}
+    
+    @objc final private func onDocCellTextChanged(textField: UITextField) {
+
+    }
+}
 
 
 extension CheckDocInfoViewController {
     
     func composeConfirmedDocFieldsData() -> ParsedDocFieldsData {
         var data = ParsedDocFieldsData()
-        dataList.forEach {
+        fieldsList.forEach {
             if ($0.name == "date_of_birth") {
                 data.dateOfBirth = $0.autoParsedValue
             }
@@ -177,3 +180,13 @@ extension CheckDocInfoViewController {
         }
     }
 }
+
+
+//// MARK: - UITableViewDelegate
+//extension CheckDocInfoViewController: UITableViewDelegate {
+//
+//    func tableView(_ countryListTable: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//        self.dismiss(animated: true, completion: nil)
+//    }
+//}
