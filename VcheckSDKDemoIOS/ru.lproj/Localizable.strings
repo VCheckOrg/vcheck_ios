@@ -1,3 +1,12 @@
+/* No comment provided by engineer. */
+"error_make_at_least_one_photo" = "Пожалуйста, сделайте как минимум одно фото документа";
+
+/* No comment provided by engineer. */
+"photo_upload_title_common_back" = "Фотография последней страницы/стороны с вашей фотографией (если у вас несколько фотографий в документе).";
+
+/* No comment provided by engineer. */
+"photo_upload_title_common_forward" = "Фотография первой страницы/стороны документа (с вашим фото).";
+
 /* 
   Localizable.strings
   VcheckSDKDemoIOS
@@ -5,11 +14,13 @@
   Created by Kirill Kaun on 03.05.2022.
   
 */
-
-
 "photo_upload_title_foreign" = "Полный разворот документа с вашим фото";
-"photo_upload_title_id_card_forward" = "Передняя сторона ID-карты";
+
+/* No comment provided by engineer. */
 "photo_upload_title_id_card_back" = "Задняя сторона ID-карты";
-"photo_upload_title_common_forward" = "Фотография первой страницы/стороны документа (с вашим фото).";
-"photo_upload_title_common_back" = "Фотография последней страницы/стороны с вашей фотографией (если у вас несколько фотографий в документе).";
-"error_make_at_least_one_photo" = "Пожалуйста, сделайте как минимум одно фото документа";
+
+/* No comment provided by engineer. */
+"photo_upload_title_id_card_forward" = "Передняя сторона ID-карты";
+
+/* Default action */
+"OK" = "";
