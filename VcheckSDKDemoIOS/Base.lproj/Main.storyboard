@@ -2200,10 +2200,10 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                 <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBt-rb-JKa">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="858.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="1258.3333333333333"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kzh-Vj-yGm" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="84" width="366" height="709.33333333333337"/>
+                                                <rect key="frame" x="12" y="84.000000000000057" width="366" height="909.33333333333348"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проверьте, все ли данные по документу были распознаны корректно?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgk-ad-nWW">
                                                         <rect key="frame" x="16" y="55.666666666666657" width="334" height="33.666666666666657"/>
@@ -2277,21 +2277,105 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Zhd-T3-QWa">
+                                                        <rect key="frame" x="16" y="637" width="334" height="172"/>
+                                                        <color key="backgroundColor" name="CardColor"/>
+                                                        <color key="sectionIndexBackgroundColor" name="CardColor"/>
+                                                        <color key="sectionIndexTrackingBackgroundColor" name="CardColor"/>
+                                                        <prototypes>
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="76" id="Jcf-Ms-xcs">
+                                                                <rect key="frame" x="0.0" y="44.666666030883789" width="334" height="76"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jcf-Ms-xcs" id="dqy-io-axa">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="334" height="76"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GLw-Ck-Zxn" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
+                                                                            <rect key="frame" x="0.0" y="26" width="334" height="50"/>
+                                                                            <subviews>
+                                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u3Q-g0-NzA">
+                                                                                    <rect key="frame" x="8" y="8" width="318" height="34"/>
+                                                                                    <color key="backgroundColor" name="CountryCardColor"/>
+                                                                                    <color key="textColor" name="DescriptionColor"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                    <textInputTraits key="textInputTraits"/>
+                                                                                </textField>
+                                                                            </subviews>
+                                                                            <color key="backgroundColor" name="CountryCardColor"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="trailing" secondItem="u3Q-g0-NzA" secondAttribute="trailing" constant="8" id="Sq4-7G-yJm"/>
+                                                                                <constraint firstItem="u3Q-g0-NzA" firstAttribute="top" secondItem="GLw-Ck-Zxn" secondAttribute="top" constant="8" id="sto-Nr-6SD"/>
+                                                                                <constraint firstItem="u3Q-g0-NzA" firstAttribute="leading" secondItem="GLw-Ck-Zxn" secondAttribute="leading" constant="8" id="z4c-lg-EYV"/>
+                                                                            </constraints>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                                    <real key="value" value="1"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                                    <color key="value" name="borderColor"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                    <real key="value" value="12"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                            </userDefinedRuntimeAttributes>
+                                                                        </view>
+                                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Field name" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zVf-o1-mBp">
+                                                                            <rect key="frame" x="0.0" y="-3" width="181" height="21"/>
+                                                                            <color key="backgroundColor" name="CardColor"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" constant="181" id="jbM-g1-Kfn"/>
+                                                                            </constraints>
+                                                                            <color key="textColor" name="DescriptionColor"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                        </textView>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" name="CardColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="GLw-Ck-Zxn" firstAttribute="leading" secondItem="dqy-io-axa" secondAttribute="leading" id="0b7-q9-8T1"/>
+                                                                        <constraint firstItem="GLw-Ck-Zxn" firstAttribute="top" secondItem="zVf-o1-mBp" secondAttribute="bottom" constant="8" id="0mL-YD-Si8"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="GLw-Ck-Zxn" secondAttribute="trailing" id="MYK-O1-TNf"/>
+                                                                        <constraint firstItem="GLw-Ck-Zxn" firstAttribute="leading" secondItem="zVf-o1-mBp" secondAttribute="leading" id="Prz-xg-cNS"/>
+                                                                        <constraint firstItem="zVf-o1-mBp" firstAttribute="top" secondItem="dqy-io-axa" secondAttribute="topMargin" constant="-14" id="hJI-E3-Gt3"/>
+                                                                        <constraint firstItem="GLw-Ck-Zxn" firstAttribute="top" secondItem="zVf-o1-mBp" secondAttribute="bottom" constant="8" symbolic="YES" id="jGG-n8-lwP"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="GLw-Ck-Zxn" secondAttribute="bottom" id="kcM-0B-cEf"/>
+                                                                        <constraint firstItem="GLw-Ck-Zxn" firstAttribute="top" secondItem="dqy-io-axa" secondAttribute="top" constant="26" id="omS-fP-WMs"/>
+                                                                    </constraints>
+                                                                </tableViewCellContentView>
+                                                                <color key="backgroundColor" name="CardColor"/>
+                                                            </tableViewCell>
+                                                        </prototypes>
+                                                    </tableView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMH-sQ-S0l">
+                                                        <rect key="frame" x="16" y="829.33333333333337" width="334" height="56"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="56" id="ltI-nt-TDt"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Все верно! Продолжить"/>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" name="CardColor"/>
                                                 <constraints>
                                                     <constraint firstItem="4Cf-tI-RPy" firstAttribute="top" secondItem="q3Y-Ya-7BQ" secondAttribute="bottom" constant="16" id="0eF-r9-xQv"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Zhd-T3-QWa" secondAttribute="trailing" constant="16" id="4E2-0E-LTl"/>
                                                     <constraint firstAttribute="trailing" secondItem="Wgk-ad-nWW" secondAttribute="trailing" constant="16" id="6j9-Df-RId"/>
                                                     <constraint firstAttribute="trailing" secondItem="4Cf-tI-RPy" secondAttribute="trailing" constant="16" id="7dZ-FH-jSh"/>
                                                     <constraint firstItem="FNT-ys-lqv" firstAttribute="top" secondItem="Kzh-Vj-yGm" secondAttribute="top" constant="18" id="9xp-iV-MrB"/>
                                                     <constraint firstItem="Wgk-ad-nWW" firstAttribute="leading" secondItem="Kzh-Vj-yGm" secondAttribute="leading" constant="16" id="EbS-CL-Wo1"/>
+                                                    <constraint firstItem="oMH-sQ-S0l" firstAttribute="top" secondItem="Zhd-T3-QWa" secondAttribute="bottom" constant="20.329999999999998" id="FbK-qp-CXe"/>
                                                     <constraint firstItem="4Cf-tI-RPy" firstAttribute="leading" secondItem="Kzh-Vj-yGm" secondAttribute="leading" constant="16" id="LCP-0g-7aT"/>
-                                                    <constraint firstAttribute="bottom" secondItem="4Cf-tI-RPy" secondAttribute="bottom" constant="80" id="k4l-og-qX7"/>
+                                                    <constraint firstAttribute="trailing" secondItem="oMH-sQ-S0l" secondAttribute="trailing" constant="16" id="h7X-jJ-JxI"/>
+                                                    <constraint firstItem="oMH-sQ-S0l" firstAttribute="leading" secondItem="Kzh-Vj-yGm" secondAttribute="leading" constant="16" id="iMi-Im-PIc"/>
+                                                    <constraint firstAttribute="bottom" secondItem="4Cf-tI-RPy" secondAttribute="bottom" constant="280" id="k4l-og-qX7"/>
                                                     <constraint firstItem="FNT-ys-lqv" firstAttribute="leading" secondItem="Kzh-Vj-yGm" secondAttribute="leading" constant="16" id="scl-DI-NeP"/>
                                                     <constraint firstItem="q3Y-Ya-7BQ" firstAttribute="leading" secondItem="Kzh-Vj-yGm" secondAttribute="leading" constant="16" id="tnZ-1z-I6z"/>
                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FNT-ys-lqv" secondAttribute="trailing" constant="20" symbolic="YES" id="uEy-z2-H6s"/>
                                                     <constraint firstItem="q3Y-Ya-7BQ" firstAttribute="top" secondItem="Wgk-ad-nWW" secondAttribute="bottom" constant="24" id="wcv-tB-SaN"/>
                                                     <constraint firstAttribute="trailing" secondItem="q3Y-Ya-7BQ" secondAttribute="trailing" constant="16" id="wrl-xU-f76"/>
+                                                    <constraint firstItem="Zhd-T3-QWa" firstAttribute="leading" secondItem="Kzh-Vj-yGm" secondAttribute="leading" constant="16" id="xju-wm-3v0"/>
+                                                    <constraint firstItem="Zhd-T3-QWa" firstAttribute="top" secondItem="2NZ-jG-pb9" secondAttribute="bottom" constant="273.66666666666663" id="xoJ-qv-VDB"/>
+                                                    <constraint firstAttribute="bottom" secondItem="oMH-sQ-S0l" secondAttribute="bottom" constant="24" id="xuY-wd-Kj5"/>
                                                     <constraint firstItem="Wgk-ad-nWW" firstAttribute="top" secondItem="FNT-ys-lqv" secondAttribute="bottom" constant="16" id="zeD-Ng-K4c"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -2315,7 +2399,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                             <constraint firstItem="Kzh-Vj-yGm" firstAttribute="leading" secondItem="BBt-rb-JKa" secondAttribute="leading" constant="12" id="TWd-9c-0jy"/>
                                             <constraint firstAttribute="trailing" secondItem="Kzh-Vj-yGm" secondAttribute="trailing" constant="12" id="aTu-ta-Jdm"/>
                                             <constraint firstItem="ICt-XE-Wbr" firstAttribute="top" secondItem="BBt-rb-JKa" secondAttribute="top" constant="24" id="sDZ-EF-Ju6"/>
-                                            <constraint firstAttribute="bottom" secondItem="Kzh-Vj-yGm" secondAttribute="bottom" constant="65" id="wHU-CE-OhY"/>
+                                            <constraint firstAttribute="bottom" secondItem="Kzh-Vj-yGm" secondAttribute="bottom" constant="265" id="wHU-CE-OhY"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -2341,7 +2425,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJX-PN-ae8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5257" y="859"/>
+            <point key="canvasLocation" x="5255.6074766355141" y="858.53131749460044"/>
         </scene>
         <!--Photo Upload View Controller-->
         <scene sceneID="TOh-Z3-wqv">

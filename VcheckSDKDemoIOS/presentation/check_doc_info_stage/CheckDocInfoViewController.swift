@@ -13,5 +13,7 @@ class CheckDocInfoViewController : UIViewController {
     var firstPhoto: UIImage? = nil
     var secondPhoto: UIImage? = nil
     
+    var docId: Int? = nil
+    
     
 }
