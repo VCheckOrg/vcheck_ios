@@ -1824,6 +1824,9 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="backToDocType:" destination="btG-18-IMq" eventType="touchUpInside" id="YWD-EV-fDv"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" name="CardColor"/>

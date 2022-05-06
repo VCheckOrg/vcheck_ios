@@ -158,6 +158,7 @@ class TakeDocPhotoViewController : UIViewController,
         }
     }
     
+    //TODO: if simulator, add gallery picker instead of image picker!
     @objc func takePhoto(_ sender:UITapGestureRecognizer) {
         let vc = UIImagePickerController()
         vc.sourceType = .camera

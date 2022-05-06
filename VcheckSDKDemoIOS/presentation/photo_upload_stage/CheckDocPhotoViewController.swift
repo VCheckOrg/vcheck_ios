@@ -135,12 +135,15 @@ class CheckDocPhotoViewController : UIViewController {
     
     func moveToChooseDocTypeViewController() {
         print("PRESSED REPLACE PHOTOS!")
+        
+        self.dismiss(animated: true) //!
+                        
 //        let viewController = self.navigationController?.viewControllers.first { $0 is ChooseDocTypeViewController }
 //        guard let destinationVC = viewController else { return }
 //        self.navigationController?.popToViewController(destinationVC, animated: true)
-            if let firstViewController = self.navigationController?.viewControllers[2] {
-                self.navigationController?.popToViewController(firstViewController, animated: true)
-            }
+//            if let firstViewController = self.navigationController?.viewControllers[2] {
+//                self.navigationController?.popToViewController(firstViewController, animated: true)
+//            }
     }
     
     

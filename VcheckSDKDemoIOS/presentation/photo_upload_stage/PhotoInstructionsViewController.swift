@@ -11,6 +11,9 @@ import UIKit
 class PhotoInstructionsViewController : UIViewController {
     
     
+    @IBAction func backToDocType(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
     
     override func viewDidLoad() {
         
