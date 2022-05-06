@@ -4,12 +4,14 @@ import CoreMotion
 import SceneKit
 import UIKit
 import ARCore
+import Lottie
 
 /// Demonstrates how to use ARCore Augmented Faces with SceneKit.
 public final class LivenessScreenViewController: UIViewController {
     
+    @IBOutlet weak var faceGestureAnimView: AnimationView!
     
-  @IBOutlet weak var testLivenessRealtimeInfo: UITextView!
+  //@IBOutlet weak var testLivenessRealtimeInfo: UITextView!
     
   // MARK: - Member Variables
   private var needToShowFatalError = false
@@ -40,6 +42,14 @@ public final class LivenessScreenViewController: UIViewController {
   // MARK: - Implementation methods
   override public func viewDidLoad() {
     super.viewDidLoad()
+      
+      let anim = Animation.named("right")
+      faceGestureAnimView.animation = anim
+      faceGestureAnimView.loopMode = .loop
+//      faceGestureAnimView.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
+//      faceGestureAnimView.contentMode = .scaleAspectFill
+      //!!
+      faceGestureAnimView.play()
 
     if !setupScene() {
       return
@@ -58,6 +68,13 @@ public final class LivenessScreenViewController: UIViewController {
       alertMessage = "Failed to create session. Error description: \(error)"
       popupAlertWindowOnError(alertWindowTitle: alertWindowTitle, alertMessage: alertMessage)
     }
+      
+      //----------------------------------------
+      //let view = AnimationView()
+//      let path = Bundle.main.path(forResource: "left",
+//                                      ofType: "json", inDirectory: "animations") ?? ""
+//      faceGestureAnimView.animation = Animation.filepath(path)
+
   }
 
   override public func viewDidAppear(_ animated: Bool) {
@@ -296,10 +313,11 @@ extension LivenessScreenViewController: SCNSceneRendererDelegate {
         let turnedLeft: Bool = faceAnglesHolder.pitch < -30
         let turnedRight: Bool = faceAnglesHolder.pitch > 30
         
-        DispatchQueue.main.async {
-            self.testLivenessRealtimeInfo.text = "MOUTH: \(mouthAngle)\nPITCH: \(faceAnglesHolder.pitch)\nYAW: \(faceAnglesHolder.yaw)"
-             + "\n\nMOUTH OPEN: \(mouthOpen)\n\nTURNED LEFT: \(turnedLeft)\n\nTURNED RIGHT: \(turnedRight)"
-        }
+      //TODO: make simple logs instead
+//        DispatchQueue.main.async {
+//            self.testLivenessRealtimeInfo.text = "MOUTH: \(mouthAngle)\nPITCH: \(faceAnglesHolder.pitch)\nYAW: \(faceAnglesHolder.yaw)"
+//             + "\n\nMOUTH OPEN: \(mouthOpen)\n\nTURNED LEFT: \(turnedLeft)\n\nTURNED RIGHT: \(turnedRight)"
+//        }
     }
     
     func landmarksToMouthAspectRatio(h1: MouthCalcCoordsHolder, h2: MouthCalcCoordsHolder, h3: MouthCalcCoordsHolder) -> Float {

@@ -9,5 +9,6 @@ target 'VcheckSDKDemoIOS' do
 pod 'Alamofire', '~> 5.4.0'
 pod 'AlamofireNetworkActivityLogger', '~> 3.4'
 pod 'ARCore/AugmentedFaces', '~> 1.30.0'
+pod 'lottie-ios'
 
 end
