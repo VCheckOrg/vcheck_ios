@@ -29,22 +29,16 @@ class CheckDocInfoViewController : UIViewController {
     
     @IBOutlet weak var secondPhotoImgCard: RoundedView!
     
-    @IBAction func submitDocAction(_ sender: UIButton) {
-        
-    }
-    
     @IBOutlet weak var parentCardHeightConstraint: NSLayoutConstraint!
-    
-    //@IBOutlet weak var tableTopConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var tableTopConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
-        
+    
+    @IBAction func submitDocAction(_ sender: UIButton) {
+        self.checkDocFieldsAndPerformConfirmation()
+    }
     
     override func viewDidLoad() {
         
-        //docFieldsTableView.delegate = self
         docFieldsTableView.dataSource = self
         
         firstPhotoImageView.image = firstPhoto
@@ -58,10 +52,15 @@ class CheckDocInfoViewController : UIViewController {
         }
         
         viewModel.didReceiveDocInfoResponse = {
-            //!
             if (self.viewModel.docInfoResponse != nil) {
                 self.populateDocFields(preProcessedDocData: self.viewModel.docInfoResponse!,
                                        currentLocaleCode: self.currLocaleCode)
+            }
+        }
+        
+        viewModel.didReceiveConfirmedResponse = {
+            if (self.viewModel.confirmedDocResponse == true) {
+                self.performSegue(withIdentifier: "CheckInfoToLivenessInstr", sender: nil)
             }
         }
         
@@ -95,7 +94,7 @@ class CheckDocInfoViewController : UIViewController {
             
             if (secondPhoto == nil) {
                 parentCardHeightConstraint.constant = parentCardHeightConstraint.constant + additionalHeight
-                    - tableViewHeightConstraint.constant - 250 // *minus 2nd (missing) card height
+                    - tableViewHeightConstraint.constant - 250 // * - 2nd (missing) card height - 20
             } else {
                 parentCardHeightConstraint.constant = parentCardHeightConstraint.constant + additionalHeight
                     - tableViewHeightConstraint.constant
@@ -115,6 +114,24 @@ class CheckDocInfoViewController : UIViewController {
                 print("__NO__ AVAILABLE AUTO-PARSED FIELDS!")
             }
         }
+    
+    func checkDocFieldsAndPerformConfirmation() {
+        var noEmptyFields: Bool = true
+        
+        fieldsList.forEach {
+            if ($0.autoParsedValue.isEmpty) {
+                noEmptyFields = false
+            }
+        }
+        
+        if (noEmptyFields == true) {
+            let composedFieldsData = self.composeConfirmedDocFieldsData()
+            self.viewModel.updateAndConfirmDocument(docId: self.docId!,
+                                                    parsedDocFieldsData: composedFieldsData)
+        } else {
+            self.showToast(message: NSLocalizedString("error_some_fields_are_empty", comment: ""), seconds: 2.0)
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -238,33 +255,3 @@ extension UIViewController: UITextFieldDelegate{
         return true;
     }
 }
-
-
-//// MARK: - UITableViewDelegate
-//extension CheckDocInfoViewController: UITableViewDelegate {
-//
-//    func tableView(_ countryListTable: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//        self.dismiss(animated: true, completion: nil)
-//    }
-//}
-
-//    func adjustTableViewHeight(height: CGFloat) {
-//
-//        var frame: CGRect = self.docFieldsTableView.frame
-//        frame.size.height = height
-//        self.docFieldsTableView.frame = frame
-//
-//
-//
-////            var height = docFieldsTableView.contentSize.height
-////            let maxHeight = (docFieldsTableView.superview?.frame.size.height)! - self.docFieldsTableView.frame.origin.y
-////
-////           if height > maxHeight {
-////               height = maxHeight
-////           }
-//
-////                var frame = self.docFieldsTableView.frame
-////                frame.size.height = height
-////                self.tableView.frame = frame
-//        }

@@ -252,6 +252,14 @@ struct RemoteDatasource {
                                  parsedDocFieldsData: ParsedDocFieldsData,
                                  completion: @escaping (Bool, ApiError?) -> ()) {
         let url = "\(baseUrl)documents/\(documentId)"
+        
+        var jsonData: Dictionary<String, Any>?
+        do {
+            jsonData = try parsedDocFieldsData.toDictionary()
+        } catch {
+            completion(false, ApiError(errorText: "Error: Failed to convert model!"))
+            return
+        }
 
         let token = LocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
@@ -260,7 +268,7 @@ struct RemoteDatasource {
         }
         let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
 
-        AF.request(url, method: .put, parameters: parsedDocFieldsData, headers: headers)
+        AF.request(url, method: .put, parameters: jsonData, encoding: JSONEncoding.default, headers: headers)
         .validate()  //response returned an HTTP status code in the range 200–299
         .response(completionHandler: { (response) in
             guard response.value != nil else {

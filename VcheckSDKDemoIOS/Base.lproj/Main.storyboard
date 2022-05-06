@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3HI-Lp-Qj3">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -14,11 +14,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="HjB-Fr-bFT" customClass="ViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i8L-LC-oaW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AWW-xM-ZoC" customClass="ARSCNView">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                             </sceneKitView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nz3-Mc-QAQ"/>
@@ -44,17 +44,17 @@
             <objects>
                 <viewController storyboardIdentifier="unsupportedDeviceMessage" id="dt4-j1-ABg" userLabel="Unsupported View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vaL-Ny-9rg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unsupported Device" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtE-4q-cec">
-                                <rect key="frame" x="29.5" y="354" width="355.5" height="30"/>
+                                <rect key="frame" x="23.333333333333343" y="328" width="343.33333333333326" height="30"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jV6-F7-Bgl">
-                                <rect key="frame" x="29.5" y="392" width="355.5" height="112"/>
+                                <rect key="frame" x="23.333333333333343" y="366" width="343.33333333333326" height="112"/>
                                 <string key="text">ARKit face tracking requires a device with a TrueDepth front-facing camera.
 
 Shipping apps must support devices without face tracking. In your app, offer UI to launch face tracking features only if the current device is supported.</string>
@@ -85,11 +85,11 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController id="3HI-Lp-Qj3" customClass="DemoStartViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A7h-UM-Lh9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXu-nD-622">
-                                <rect key="frame" x="99" y="204" width="216" height="31"/>
+                                <rect key="frame" x="99" y="204" width="192" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Start Demo Flow"/>
                                 <connections>
@@ -97,7 +97,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DdH-Xd-pgi">
-                                <rect key="frame" x="91" y="686" width="232" height="31"/>
+                                <rect key="frame" x="91" y="634" width="208" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Liveness Demo"/>
                                 <connections>
@@ -137,7 +137,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="VHf-Vf-Dha" customClass="ChooseCountryViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qVF-Xu-QWL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="k3m-1t-Loc">
@@ -148,7 +148,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7h-cr-WsJ" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                <rect key="frame" x="12" y="129" width="390" height="665"/>
+                                <rect key="frame" x="12" y="129" width="366" height="613"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите страну" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFZ-MA-crE">
                                         <rect key="frame" x="16" y="24" width="157" height="22"/>
@@ -157,7 +157,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMS-X5-1mQ">
-                                        <rect key="frame" x="16" y="62" width="358" height="67"/>
+                                        <rect key="frame" x="16" y="62" width="334" height="67"/>
                                         <string key="text">Значимость этих проблем настолько очевидна, что новая модель организационной деятельности требуют определения и уточнения направлений прогрессивного развития. </string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" name="DescriptionColor"/>
@@ -170,7 +170,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W64-Ne-sgD">
-                                        <rect key="frame" x="16" y="585" width="358" height="56"/>
+                                        <rect key="frame" x="16" y="533" width="334" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="CPw-3f-yOn"/>
                                         </constraints>
@@ -182,7 +182,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jc-tS-jTS" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="178" width="358" height="56"/>
+                                        <rect key="frame" x="16" y="178" width="334" height="56"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Україна" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cY3-cf-m9e">
                                                 <rect key="frame" x="76" y="17" width="61" height="22"/>
@@ -191,7 +191,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="FLAG" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zr2-kK-wWI">
-                                                <rect key="frame" x="7" y="3" width="60" height="39"/>
+                                                <rect key="frame" x="6" y="3" width="60" height="39"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" name="CountryCardColor"/>
                                                 <color key="textColor" name="DescriptionColor"/>
@@ -271,18 +271,18 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController id="G2c-Yg-Bx4" userLabel="Country List View Controller" customClass="CountryListViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Gx-nu-ywK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XZT-Se-5L6">
-                                <rect key="frame" x="0.0" y="100" width="414" height="742"/>
+                                <rect key="frame" x="0.0" y="100" width="390" height="690"/>
                                 <color key="backgroundColor" name="BackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="allowedCountryCell" rowHeight="70" id="onm-ZM-hCL" customClass="AllowedCountryViewCell" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="45" width="414" height="70"/>
+                                        <rect key="frame" x="0.0" y="45" width="390" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="onm-ZM-hCL" id="xmW-dM-7uI">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="70"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Country" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6K-vN-zaz">
@@ -317,10 +317,10 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="blockedCountryCell" rowHeight="70" id="FYf-d5-FD0" customClass="BlockedCountryViewCell" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="115" width="414" height="70"/>
+                                        <rect key="frame" x="0.0" y="115" width="390" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FYf-d5-FD0" id="tuM-nP-JaI">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="70"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="FLAG" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RyQ-vN-b5X">
@@ -358,7 +358,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                 </prototypes>
                             </tableView>
                             <searchBar contentMode="redraw" preservesSuperviewLayoutMargins="YES" placeholder="Search" id="fVU-YR-D7u">
-                                <rect key="frame" x="12" y="49" width="390" height="51"/>
+                                <rect key="frame" x="0.0" y="49" width="390" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="CardColor"/>
                                 <color key="barTintColor" name="BackgroundColor"/>
@@ -405,38 +405,38 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="q0J-YZ-DjP" userLabel="No Time View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZyN-xs-PfW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m0Q-96-Yyt">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fzN-Vs-aSf">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="749"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="749"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6B9-Ep-e0R">
-                                                <rect key="frame" x="12" y="84" width="390" height="600"/>
+                                                <rect key="frame" x="12" y="84" width="366" height="600"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_time_image" translatesAutoresizingMaskIntoConstraints="NO" id="xY2-LW-0G9">
-                                                        <rect key="frame" x="28" y="24" width="334" height="240"/>
+                                                        <rect key="frame" x="28" y="24" width="310" height="240"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="240" id="ipg-2m-RJo"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Время на выполнение движения истекло" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="939-B9-Kfj">
-                                                        <rect key="frame" x="16" y="276" width="358" height="43"/>
+                                                        <rect key="frame" x="16" y="276" width="334" height="43"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы не успели выполнить корректное движение. Старайтесь четко придерживаться инструкций в момент прохождения проверки" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLu-gA-21w">
-                                                        <rect key="frame" x="16" y="335" width="358" height="50.5"/>
+                                                        <rect key="frame" x="16" y="335" width="334" height="50.333333333333314"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QxK-2h-Je3">
-                                                        <rect key="frame" x="16" y="429.5" width="358" height="56"/>
+                                                        <rect key="frame" x="16" y="429.33333333333337" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="gfU-MC-cAK"/>
                                                         </constraints>
@@ -444,7 +444,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <buttonConfiguration key="configuration" style="filled" title="Попробовать снова"/>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Все было пройдено корректно, отправить на проверку" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5Y-Jp-D3x">
-                                                        <rect key="frame" x="16" y="505.5" width="358" height="33.5"/>
+                                                        <rect key="frame" x="16" y="505.33333333333343" width="334" height="33.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -523,38 +523,38 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="cnD-L5-BuD" userLabel="Error View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Flg-BI-YSQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cc7-bg-eLX">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbU-iz-0Pd">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="637"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="637"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0aw-qs-CO4">
-                                                <rect key="frame" x="12" y="84" width="390" height="488"/>
+                                                <rect key="frame" x="12" y="84" width="366" height="488"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error_image" translatesAutoresizingMaskIntoConstraints="NO" id="YS2-WY-Ywq">
-                                                        <rect key="frame" x="28" y="24" width="334" height="240"/>
+                                                        <rect key="frame" x="28" y="24" width="310" height="240"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="240" id="DkI-Ho-nZW"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Что-то пошло не так :(" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIo-1V-hp0">
-                                                        <rect key="frame" x="16" y="276" width="358" height="21.5"/>
+                                                        <rect key="frame" x="16" y="276" width="334" height="21.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="По какой-то причине мы не смогли загрузить контент данной страницы. Попробуйте перезагрузить страницу" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhV-l1-ZoU">
-                                                        <rect key="frame" x="16" y="313.5" width="358" height="50.5"/>
+                                                        <rect key="frame" x="16" y="313.66666666666669" width="334" height="50.333333333333314"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v87-W5-vbC">
-                                                        <rect key="frame" x="16" y="408" width="358" height="56"/>
+                                                        <rect key="frame" x="16" y="408" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="m9t-gS-c6G"/>
                                                         </constraints>
@@ -632,39 +632,39 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="Gk4-E0-G28" userLabel="Wrong Movement View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fgq-Xq-dWc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6VX-2e-eOs">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVD-jQ-X6f">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="690.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="690.66666666666663"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9J1-LU-ygA">
-                                                <rect key="frame" x="12" y="84" width="390" height="541.5"/>
+                                                <rect key="frame" x="12" y="84" width="366" height="541.66666666666663"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrong_move_image" translatesAutoresizingMaskIntoConstraints="NO" id="U5R-dz-wwO">
-                                                        <rect key="frame" x="28" y="24" width="334" height="240"/>
+                                                        <rect key="frame" x="28" y="24" width="310" height="240"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="240" id="CyK-dn-i20"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Неверное движение" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uol-az-Qka">
-                                                        <rect key="frame" x="16" y="276" width="358" height="21.5"/>
+                                                        <rect key="frame" x="16" y="276" width="334" height="21.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVd-GC-ULM">
-                                                        <rect key="frame" x="16" y="313.5" width="358" height="50.5"/>
+                                                        <rect key="frame" x="16" y="313.66666666666669" width="334" height="50.333333333333314"/>
                                                         <string key="text">Движение, которое запрашивалось не было выполнено корректно. Старайтесь делать именно те движения, которые запрашиваются. Движения должны быть плавными и своевременными.</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fM-Ho-q55">
-                                                        <rect key="frame" x="16" y="408" width="358" height="56"/>
+                                                        <rect key="frame" x="16" y="408" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="nZX-TF-KWN"/>
                                                         </constraints>
@@ -672,7 +672,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <buttonConfiguration key="configuration" style="filled" title="Попробовать снова"/>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Все было пройдено корректно, отправить на проверку" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Xc-7L-HF3">
-                                                        <rect key="frame" x="16" y="484" width="358" height="33.5"/>
+                                                        <rect key="frame" x="16" y="484" width="334" height="33.666666666666629"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -751,39 +751,39 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="K4l-kg-dQj" userLabel="Frame Interference View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A4u-iE-GYT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IzY-vQ-XSx">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ukX-sd-Tsb">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="690.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="690.66666666666663"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3fp-M1-0nX">
-                                                <rect key="frame" x="12" y="84" width="390" height="541.5"/>
+                                                <rect key="frame" x="12" y="84" width="366" height="541.66666666666663"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frame_interference_image" translatesAutoresizingMaskIntoConstraints="NO" id="gnh-nc-jqj">
-                                                        <rect key="frame" x="28" y="24" width="334" height="240"/>
+                                                        <rect key="frame" x="28" y="24" width="310" height="240"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="240" id="Cu2-rR-Ihb"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="В кадре много помех" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdZ-WF-NIV">
-                                                        <rect key="frame" x="16" y="276" width="358" height="21.5"/>
+                                                        <rect key="frame" x="16" y="276" width="334" height="21.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNj-4j-beg">
-                                                        <rect key="frame" x="16" y="313.5" width="358" height="50.5"/>
+                                                        <rect key="frame" x="16" y="313.66666666666669" width="334" height="50.333333333333314"/>
                                                         <string key="text">В кадре могло быть несколько людей, либо посторонние предметы. При повторной проверке постарайтесь, что бы в кадре было только ваше лицо и его было видно как можно четче.</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCO-14-vPo">
-                                                        <rect key="frame" x="16" y="408" width="358" height="56"/>
+                                                        <rect key="frame" x="16" y="408" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="Zco-j0-AFB"/>
                                                         </constraints>
@@ -791,7 +791,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <buttonConfiguration key="configuration" style="filled" title="Попробовать снова"/>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Все было пройдено корректно, отправить на проверку" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zj7-hg-UKx">
-                                                        <rect key="frame" x="16" y="484" width="358" height="33.5"/>
+                                                        <rect key="frame" x="16" y="484" width="334" height="33.666666666666629"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -870,39 +870,39 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="YIZ-ih-eAP" userLabel="Look Stratight Error View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gxe-ll-VhG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aFq-Qd-30Y">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rM6-bw-Dy6">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="690.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="690.66666666666663"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s5b-A1-M5a">
-                                                <rect key="frame" x="12" y="84" width="390" height="541.5"/>
+                                                <rect key="frame" x="12" y="84" width="366" height="541.66666666666663"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="look_stratight_error_image" translatesAutoresizingMaskIntoConstraints="NO" id="BzG-9H-pji">
-                                                        <rect key="frame" x="28" y="24" width="334" height="240"/>
+                                                        <rect key="frame" x="28" y="24" width="310" height="240"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="240" id="lDw-lS-7JZ"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы не смотрели прямо" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPz-op-RyB">
-                                                        <rect key="frame" x="16" y="276" width="358" height="21.5"/>
+                                                        <rect key="frame" x="16" y="276" width="334" height="21.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQC-lw-w5d">
-                                                        <rect key="frame" x="16" y="313.5" width="358" height="50.5"/>
+                                                        <rect key="frame" x="16" y="313.66666666666669" width="334" height="50.333333333333314"/>
                                                         <string key="text">Лицо не было зафиксировано прямо в кадре в необходимый для этого момент. Старайтесь четко придерживаться инструкций в момент прохождения проверки. Попробуйте снова. </string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LeA-wx-gAE">
-                                                        <rect key="frame" x="16" y="408" width="358" height="56"/>
+                                                        <rect key="frame" x="16" y="408" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="LK8-JH-Lpd"/>
                                                         </constraints>
@@ -910,7 +910,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <buttonConfiguration key="configuration" style="filled" title="Попробовать снова"/>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Все было пройдено корректно, отправить на проверку" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqi-ej-qUg">
-                                                        <rect key="frame" x="16" y="484" width="358" height="33.5"/>
+                                                        <rect key="frame" x="16" y="484" width="334" height="33.666666666666629"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -989,39 +989,39 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="Drf-gg-cCY" userLabel="Fail Verification View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lcl-Oh-GBb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E14-XS-PWS">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qpX-jZ-Jb0">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="729.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="729.66666666666663"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UL1-KP-CLj">
-                                                <rect key="frame" x="12" y="84" width="390" height="580.5"/>
+                                                <rect key="frame" x="12" y="84" width="366" height="580.66666666666663"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fail_verification_image" translatesAutoresizingMaskIntoConstraints="NO" id="UVD-3C-SnY">
-                                                        <rect key="frame" x="28" y="24" width="334" height="240"/>
+                                                        <rect key="frame" x="28" y="24" width="310" height="240"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="240" id="BOW-mP-HLp"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Верификация неуспешна" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8MH-tb-Ixh">
-                                                        <rect key="frame" x="16" y="276" width="358" height="21.5"/>
+                                                        <rect key="frame" x="16" y="276" width="334" height="21.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ip-f7-uZ5">
-                                                        <rect key="frame" x="16" y="313.5" width="358" height="67"/>
+                                                        <rect key="frame" x="16" y="313.66666666666669" width="334" height="67"/>
                                                         <string key="text">К сожалению, нам не удалось верифицировать вашу заявку. Если вы не согласны с данным решением, просьба обратиться в службу поддержки</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXG-eJ-qvn">
-                                                        <rect key="frame" x="16" y="500.5" width="358" height="56"/>
+                                                        <rect key="frame" x="16" y="500.66666666666663" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="b0n-rK-u1K"/>
                                                         </constraints>
@@ -1029,7 +1029,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <buttonConfiguration key="configuration" style="filled" title="Закрыть"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBN-xJ-7O7">
-                                                        <rect key="frame" x="16" y="424.5" width="358" height="56"/>
+                                                        <rect key="frame" x="16" y="424.66666666666663" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="rgT-P8-2qa"/>
                                                         </constraints>
@@ -1119,39 +1119,39 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="cCh-W4-UZx" userLabel="OS Not Supported View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="27o-fB-i1E">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NQr-Jo-vhb">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OXC-vo-RQN">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="734.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="734.33333333333337"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fr1-nL-QZj">
-                                                <rect key="frame" x="12" y="84" width="390" height="585.5"/>
+                                                <rect key="frame" x="12" y="84" width="366" height="585.33333333333337"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="os_not_support_image" translatesAutoresizingMaskIntoConstraints="NO" id="oNP-ag-RoD">
-                                                        <rect key="frame" x="28" y="24" width="334" height="240"/>
+                                                        <rect key="frame" x="28" y="24" width="310" height="240"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="240" id="Qub-56-l4g"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Операционная система не поддерживаеться" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJr-ZK-4ZA">
-                                                        <rect key="frame" x="16" y="276" width="358" height="43"/>
+                                                        <rect key="frame" x="16" y="276" width="334" height="43"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2I-Vr-HHn">
-                                                        <rect key="frame" x="16" y="335" width="358" height="50.5"/>
+                                                        <rect key="frame" x="16" y="335" width="334" height="50.333333333333314"/>
                                                         <string key="text">К сожалению, данная мобильная ОС не поддерживаеться. Для успешного прохождения процедуры верификации рекомендуем вам скопировать ссылку ниже и продолжить на персональном компьютере</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jks-Ld-fXF">
-                                                        <rect key="frame" x="16" y="429.5" width="358" height="56"/>
+                                                        <rect key="frame" x="16" y="429.33333333333337" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="rU5-B2-l92"/>
                                                         </constraints>
@@ -1159,7 +1159,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <buttonConfiguration key="configuration" style="filled" title="Попробовать снова"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCf-7P-AoR">
-                                                        <rect key="frame" x="16" y="505.5" width="358" height="56"/>
+                                                        <rect key="frame" x="16" y="505.33333333333337" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="FLO-Ld-fBh"/>
                                                         </constraints>
@@ -1249,39 +1249,39 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="xvI-UV-t8X" userLabel="No Camera View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xwA-5b-kjQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ocY-z2-RIZ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zf9-HC-E9M">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="763"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="779.66666666666663"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XsW-wP-QAE">
-                                                <rect key="frame" x="12" y="84" width="390" height="614"/>
+                                                <rect key="frame" x="12" y="84" width="366" height="630.66666666666663"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_camera_image" translatesAutoresizingMaskIntoConstraints="NO" id="2I0-Zf-OH4">
-                                                        <rect key="frame" x="28" y="24" width="334" height="240"/>
+                                                        <rect key="frame" x="28" y="24" width="310" height="240"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="240" id="aro-Wj-yoh"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Камера не доступна" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPj-wU-k0I">
-                                                        <rect key="frame" x="16" y="276" width="358" height="21.5"/>
+                                                        <rect key="frame" x="16" y="276" width="334" height="21.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMc-Ag-ZwR">
-                                                        <rect key="frame" x="16" y="313.5" width="358" height="100.5"/>
+                                                        <rect key="frame" x="16" y="313.66666666666669" width="334" height="117"/>
                                                         <string key="text">Камера не найдена, либо вы отказали в доступе к ней. Если камера работает исправно - нажмите на кнопку ниже и в появившемся окне дайте доступ на ее использование. Если проблема не решилась попробуйте скопировать ссылку на верефикацию продолжить на другом устройстве</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKB-FU-zba">
-                                                        <rect key="frame" x="16" y="458" width="358" height="56"/>
+                                                        <rect key="frame" x="16" y="474.66666666666663" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="m0i-ea-sfP"/>
                                                         </constraints>
@@ -1289,7 +1289,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <buttonConfiguration key="configuration" style="filled" title="Дать доступ к камере"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Fe-fP-c8z">
-                                                        <rect key="frame" x="16" y="534" width="358" height="56"/>
+                                                        <rect key="frame" x="16" y="550.66666666666663" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="eJ0-33-Vjh"/>
                                                         </constraints>
@@ -1379,32 +1379,32 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="NuA-3X-Mhz" userLabel="Not Found View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="phk-u4-k2h">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MlN-Qo-aJ1">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aWk-uq-Y5y">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="649"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="649"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MUn-T6-9LL">
-                                                <rect key="frame" x="12" y="84" width="390" height="500"/>
+                                                <rect key="frame" x="12" y="84" width="366" height="500"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="not_found_image" translatesAutoresizingMaskIntoConstraints="NO" id="Dg7-AE-LEx">
-                                                        <rect key="frame" x="28" y="24" width="334" height="240"/>
+                                                        <rect key="frame" x="28" y="24" width="310" height="240"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="240" id="3wp-Vs-bKW"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Мы не нашли страницы с таким адресом :(" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bn8-gv-ckR">
-                                                        <rect key="frame" x="16" y="276" width="358" height="100"/>
+                                                        <rect key="frame" x="16" y="276" width="334" height="100"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vpj-sc-FAg">
-                                                        <rect key="frame" x="16" y="420" width="358" height="56"/>
+                                                        <rect key="frame" x="16" y="420" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="ZHS-bo-6v1"/>
                                                         </constraints>
@@ -1480,39 +1480,39 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="uMO-hA-gT0" userLabel="Success Verification View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T2T-B0-7L4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCf-BA-49I">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uTw-Hh-0V4">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="670.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="670.33333333333337"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsj-iY-EIl">
-                                                <rect key="frame" x="12" y="84" width="390" height="521.5"/>
+                                                <rect key="frame" x="12" y="84" width="366" height="521.33333333333337"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success_image" translatesAutoresizingMaskIntoConstraints="NO" id="bR3-j2-q56">
-                                                        <rect key="frame" x="28" y="24" width="334" height="240"/>
+                                                        <rect key="frame" x="28" y="24" width="310" height="240"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="240" id="xMR-fP-VbB"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Верификация успешна" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dtj-8M-eb8">
-                                                        <rect key="frame" x="16" y="276" width="358" height="21.5"/>
+                                                        <rect key="frame" x="16" y="276" width="334" height="21.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJ9-Ol-hHi">
-                                                        <rect key="frame" x="16" y="313.5" width="358" height="84"/>
+                                                        <rect key="frame" x="16" y="313.66666666666669" width="334" height="83.666666666666686"/>
                                                         <string key="text">Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности играет важную роль в формировании существенных финансовых и административных условий.</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kfa-tK-cWU">
-                                                        <rect key="frame" x="16" y="441.5" width="358" height="56"/>
+                                                        <rect key="frame" x="16" y="441.33333333333337" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="VDO-mp-Y64"/>
                                                         </constraints>
@@ -1590,38 +1590,38 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="IiJ-Ck-Dhz" userLabel="In Process View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A97-HY-J1Q">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z9q-rn-yU5">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIj-7X-oeY">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="649"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="649"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fk7-0l-cCW">
-                                                <rect key="frame" x="12" y="84" width="390" height="500"/>
+                                                <rect key="frame" x="12" y="84" width="366" height="500"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="in_process" translatesAutoresizingMaskIntoConstraints="NO" id="g2g-gf-gml">
-                                                        <rect key="frame" x="28" y="24" width="334" height="240"/>
+                                                        <rect key="frame" x="28" y="24" width="310" height="240"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="240" id="bzH-zE-nsQ"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Заявка отправлена  на проверку" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iad-2I-iin">
-                                                        <rect key="frame" x="16" y="276" width="358" height="21.5"/>
+                                                        <rect key="frame" x="16" y="276" width="334" height="21.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Заявка на верификацию отправлена на проверку. Очень скоро Вас уведомят о результате." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oov-Zo-rlv">
-                                                        <rect key="frame" x="16" y="313.5" width="358" height="33.5"/>
+                                                        <rect key="frame" x="16" y="313.66666666666669" width="334" height="50.333333333333314"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osX-So-W2j">
-                                                        <rect key="frame" x="16" y="391" width="358" height="56"/>
+                                                        <rect key="frame" x="16" y="408" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="nbp-Zj-fsc"/>
                                                         </constraints>
@@ -1699,20 +1699,20 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="btG-18-IMq" userLabel="Photo Instructions View Controller" customClass="PhotoInstructionsViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="URt-vI-atd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yz5-ex-IJd">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YxH-7y-FzT">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="638"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="638.33333333333337"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mdb-Ax-DBB" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="84" width="390" height="489"/>
+                                                <rect key="frame" x="12" y="83.999999999999972" width="366" height="489.33333333333326"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YYe-al-bEj">
-                                                        <rect key="frame" x="16" y="409" width="358" height="56"/>
+                                                        <rect key="frame" x="16" y="409.33333333333337" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="jdY-ee-IYm"/>
                                                         </constraints>
@@ -1723,7 +1723,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Требования к фото" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgH-RH-Doo">
-                                                        <rect key="frame" x="16" y="56" width="170.5" height="21.5"/>
+                                                        <rect key="frame" x="16" y="55.999999999999993" width="170.66666666666666" height="21.666666666666664"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -1736,85 +1736,85 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Фото вашего документа должно отвечать следующим требованиям:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2W7-Jm-sUy">
-                                                        <rect key="frame" x="16" y="93.5" width="358" height="33.5"/>
+                                                        <rect key="frame" x="16" y="93.666666666666657" width="334" height="33.666666666666657"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_color_icon" translatesAutoresizingMaskIntoConstraints="NO" id="NWF-SG-8uJ">
-                                                        <rect key="frame" x="16" y="157" width="20" height="19"/>
+                                                        <rect key="frame" x="16" y="157.33333333333331" width="20" height="19"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="19" id="00X-TT-AgI"/>
                                                             <constraint firstAttribute="width" constant="20" id="6XF-8L-7hX"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="изображение должно быть цветным" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZr-qg-h72">
-                                                        <rect key="frame" x="46" y="159" width="308" height="14.5"/>
+                                                        <rect key="frame" x="46" y="159.33333333333331" width="284" height="14.333333333333343"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seen_all_icon" translatesAutoresizingMaskIntoConstraints="NO" id="z6X-ds-J81">
-                                                        <rect key="frame" x="16" y="191" width="18" height="22"/>
+                                                        <rect key="frame" x="16" y="191.33333333333331" width="18" height="22"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="18" id="97T-VZ-P4o"/>
                                                             <constraint firstAttribute="height" constant="22" id="WFz-U6-8Qs"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="видны все защитные элементы" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqU-VZ-pLL">
-                                                        <rect key="frame" x="45" y="193.5" width="278" height="15"/>
+                                                        <rect key="frame" x="45" y="193.66666666666669" width="254" height="15"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="полностью видны все 4 угла документа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUd-yM-LbS">
-                                                        <rect key="frame" x="45" y="228.5" width="329" height="15"/>
+                                                        <rect key="frame" x="45" y="228.66666666666669" width="305" height="15"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="действительны на момент отправки" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3O-6X-MdF">
-                                                        <rect key="frame" x="45" y="263.5" width="309" height="15"/>
+                                                        <rect key="frame" x="45" y="263.66666666666669" width="285" height="15"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="нет посторонних объектов: обложки, пальцев, скрепок и т.п." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EY3-6C-cJ9">
-                                                        <rect key="frame" x="45" y="298.5" width="325" height="29"/>
+                                                        <rect key="frame" x="45" y="298.66666666666669" width="301" height="28.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seen_four_corners_icon" translatesAutoresizingMaskIntoConstraints="NO" id="exS-3e-TaC">
-                                                        <rect key="frame" x="16" y="229" width="18" height="18"/>
+                                                        <rect key="frame" x="16" y="229.33333333333331" width="18" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="18" id="K41-8D-cYR"/>
                                                             <constraint firstAttribute="height" constant="18" id="ZzL-tm-fKG"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valid_dispatch_icon" translatesAutoresizingMaskIntoConstraints="NO" id="F2m-Px-5Fn">
-                                                        <rect key="frame" x="16" y="264" width="18" height="20"/>
+                                                        <rect key="frame" x="16" y="264.33333333333331" width="18" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="18" id="I2D-QG-1cv"/>
                                                             <constraint firstAttribute="height" constant="20" id="IKE-rs-Fmi"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_foreign_objects_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Q6s-EJ-AA9">
-                                                        <rect key="frame" x="16" y="302" width="18" height="22"/>
+                                                        <rect key="frame" x="16" y="302.33333333333331" width="18" height="22"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="ejZ-7M-FSm"/>
                                                             <constraint firstAttribute="width" constant="18" id="gqP-8j-CNw"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="original_doc_icon" translatesAutoresizingMaskIntoConstraints="NO" id="moB-IA-dmd">
-                                                        <rect key="frame" x="16" y="344" width="22" height="21"/>
+                                                        <rect key="frame" x="16" y="344.33333333333331" width="22" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="3Lv-EN-dTv"/>
                                                             <constraint firstAttribute="width" constant="22" id="wFv-qV-olb"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="сфотографированы или отсканированы с оригиналов" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfh-Nr-Lyd">
-                                                        <rect key="frame" x="48" y="345.5" width="314" height="29"/>
+                                                        <rect key="frame" x="48" y="345.33333333333331" width="290" height="28.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -1931,17 +1931,17 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="EIw-6d-l49" userLabel="Choose Doc Method View Controller" customClass="ChooseDocTypeViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cZa-Gb-1mn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D9J-fv-ygv">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RpV-lq-24o">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="615.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="615.66666666666663"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1P2-W0-56G" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="84" width="390" height="466.5"/>
+                                                <rect key="frame" x="12" y="84.000000000000028" width="366" height="466.66666666666674"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="XKg-SM-GGZ">
                                                         <rect key="frame" x="23" y="28" width="10" height="16"/>
@@ -1951,17 +1951,17 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73Y-G0-L4X">
-                                                        <rect key="frame" x="16" y="93.5" width="358" height="67"/>
+                                                        <rect key="frame" x="16" y="93.666666666666657" width="334" height="67"/>
                                                         <string key="text">Не следует, однако забывать, что консультация с широким активом обеспечивает широкому кругу (специалистов) участие в формировании систем массового участия.</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G3p-Gh-F6E" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="188.5" width="358" height="74"/>
+                                                        <rect key="frame" x="16" y="188.66666666666669" width="334" height="74"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Внутренний гражданский паспорт" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPH-Ay-ydn">
-                                                                <rect key="frame" x="59" y="13" width="283" height="48"/>
+                                                                <rect key="frame" x="59" y="13" width="259" height="48"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -2000,16 +2000,16 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите тип документа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJJ-7D-hfl">
-                                                        <rect key="frame" x="16" y="56" width="227.5" height="21.5"/>
+                                                        <rect key="frame" x="15.999999999999986" y="55.999999999999993" width="227.66666666666663" height="21.666666666666664"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Df-Ew-TxF" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="278.5" width="358" height="74"/>
+                                                        <rect key="frame" x="16" y="278.66666666666669" width="334" height="74"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Загранпаспорт" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gZ-MQ-puZ">
-                                                                <rect key="frame" x="59" y="13" width="283" height="48"/>
+                                                                <rect key="frame" x="59" y="13" width="259" height="48"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -2048,16 +2048,16 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AcB-eO-u3b" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="368.5" width="358" height="74"/>
+                                                        <rect key="frame" x="16" y="368.66666666666669" width="334" height="74"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Биометрический паспорт (ID-карта)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5B-Kh-Vep">
-                                                                <rect key="frame" x="59" y="13" width="283" height="48"/>
+                                                                <rect key="frame" x="59" y="13" width="259" height="48"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bio_passport_icon" translatesAutoresizingMaskIntoConstraints="NO" id="bp1-Gp-Wm1">
-                                                                <rect key="frame" x="16" y="23" width="28" height="28"/>
+                                                                <rect key="frame" x="16" y="22.999999999999943" width="28" height="28"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="28" id="2kZ-y7-140"/>
                                                                     <constraint firstAttribute="height" constant="28" id="RxO-jT-Pn2"/>
@@ -2183,7 +2183,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="2Ob-Di-bza" customClass="LivenessScreenViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dGJ-l1-WKs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="TEST" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JP2-HL-BZO">
@@ -2211,35 +2211,35 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="dcp-4c-bus" userLabel="Check Doc Info View Controller" customClass="CheckDocInfoViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SNh-eB-9EL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZq-tw-zcH">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBt-rb-JKa">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1328"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="1328"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kzh-Vj-yGm" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="84" width="390" height="909"/>
+                                                <rect key="frame" x="12" y="84" width="366" height="909"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проверьте, все ли данные по документу были распознаны корректно?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgk-ad-nWW">
-                                                        <rect key="frame" x="16" y="55.5" width="358" height="33.5"/>
+                                                        <rect key="frame" x="16" y="55.666666666666657" width="334" height="33.333333333333343"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Сверка заполнение данных" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNT-ys-lqv">
-                                                        <rect key="frame" x="16" y="18" width="249.5" height="21.5"/>
+                                                        <rect key="frame" x="15.999999999999986" y="18" width="249.66666666666663" height="21.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3Y-Ya-7BQ" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="113" width="358" height="250"/>
+                                                        <rect key="frame" x="16" y="113" width="334" height="250"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_photo_1" translatesAutoresizingMaskIntoConstraints="NO" id="2NZ-jG-pb9">
-                                                                <rect key="frame" x="18" y="0.0" width="322" height="250"/>
+                                                                <rect key="frame" x="18" y="0.0" width="298" height="250"/>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" name="CardColor"/>
@@ -2267,10 +2267,10 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Cf-tI-RPy" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="379" width="358" height="250"/>
+                                                        <rect key="frame" x="16" y="379" width="334" height="250"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_photo" translatesAutoresizingMaskIntoConstraints="NO" id="87H-j0-OXZ">
-                                                                <rect key="frame" x="18" y="0.0" width="322" height="250"/>
+                                                                <rect key="frame" x="18" y="0.0" width="298" height="250"/>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" name="CardColor"/>
@@ -2297,7 +2297,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Zhd-T3-QWa">
-                                                        <rect key="frame" x="16" y="636.5" width="358" height="175.5"/>
+                                                        <rect key="frame" x="16" y="636.66666666666663" width="334" height="175.33333333333337"/>
                                                         <color key="backgroundColor" name="CardColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="175.5" id="HJe-os-lcS"/>
@@ -2306,16 +2306,16 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <color key="sectionIndexTrackingBackgroundColor" name="CardColor"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="docFieldCell" rowHeight="82" id="Jcf-Ms-xcs" customClass="DocInfoViewCell" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="44.5" width="358" height="82"/>
+                                                                <rect key="frame" x="0.0" y="44.666666030883789" width="334" height="82"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jcf-Ms-xcs" id="dqy-io-axa">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="358" height="82"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="334" height="82"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GLw-Ck-Zxn" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="26" width="358" height="53"/>
+                                                                            <rect key="frame" x="0.0" y="26" width="334" height="53"/>
                                                                             <subviews>
-                                                                                <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Test" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u3Q-g0-NzA">
+                                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Test" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u3Q-g0-NzA">
                                                                                     <rect key="frame" x="8" y="8" width="318" height="37"/>
                                                                                     <color key="backgroundColor" name="CountryCardColor"/>
                                                                                     <color key="textColor" name="DescriptionColor"/>
@@ -2376,7 +2376,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         </prototypes>
                                                     </tableView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMH-sQ-S0l">
-                                                        <rect key="frame" x="16" y="833" width="358" height="56"/>
+                                                        <rect key="frame" x="16" y="833" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="ltI-nt-TDt"/>
                                                         </constraints>
@@ -2468,7 +2468,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                         <outlet property="secondPhotoImgCard" destination="4Cf-tI-RPy" id="iDg-bI-bqT"/>
                         <outlet property="tableTopConstraint" destination="KAZ-qg-0Iu" id="Zpc-E9-dKZ"/>
                         <outlet property="tableViewHeightConstraint" destination="HJe-os-lcS" id="r0x-97-9dg"/>
-                        <segue destination="vMJ-Fv-l4l" kind="show" id="mdJ-XX-Wrm"/>
+                        <segue destination="vMJ-Fv-l4l" kind="show" identifier="CheckInfoToLivenessInstr" id="mdJ-XX-Wrm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJX-PN-ae8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2480,20 +2480,20 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="ZEj-uY-1Rn" userLabel="Photo Upload View Controller" customClass="TakeDocPhotoViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MMb-ku-R2l">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KJu-a3-gx9">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VT8-7V-8px">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="884.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="884.66666666666663"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hhc-oa-FC6" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="84" width="390" height="735.5"/>
+                                                <rect key="frame" x="12" y="84" width="366" height="735.66666666666663"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNG-ph-Cor">
-                                                        <rect key="frame" x="16" y="655.5" width="358" height="56"/>
+                                                        <rect key="frame" x="16" y="655.66666666666663" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="j5v-Wb-Ipl"/>
                                                         </constraints>
@@ -2501,7 +2501,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <buttonConfiguration key="configuration" style="filled" title="Продолжить"/>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Загрузите фото документа" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCm-VK-XhF">
-                                                        <rect key="frame" x="16" y="56" width="242.5" height="21.5"/>
+                                                        <rect key="frame" x="16.000000000000014" y="55.999999999999993" width="242.33333333333337" height="21.666666666666664"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -2514,10 +2514,10 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         </constraints>
                                                     </imageView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QAk-dG-hue" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="97.5" width="358" height="250"/>
+                                                        <rect key="frame" x="16" y="97.666666666666657" width="334" height="249.99999999999997"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JoJ-Ks-g2F">
-                                                                <rect key="frame" x="20" y="0.0" width="318" height="250"/>
+                                                                <rect key="frame" x="8" y="0.0" width="318" height="250"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                             </imageView>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dvC-xF-m5v">
@@ -2527,7 +2527,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6v6-eK-T1j">
-                                                                <rect key="frame" x="51" y="110.5" width="256" height="29"/>
+                                                                <rect key="frame" x="51" y="110.66666666666666" width="232" height="28.666666666666657"/>
                                                                 <string key="text">Загрузите фото лицевого разворота 
 (разворот с вашим фото).</string>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
@@ -2535,14 +2535,14 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="delete_icon" translatesAutoresizingMaskIntoConstraints="NO" id="a3h-nf-ex5">
-                                                                <rect key="frame" x="308" y="12" width="42" height="42"/>
+                                                                <rect key="frame" x="284" y="12" width="42" height="42"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="42" id="Os5-ld-L2K"/>
                                                                     <constraint firstAttribute="width" constant="42" id="ijS-Vi-hPh"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAe-re-A91" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                                <rect key="frame" x="55" y="180" width="248" height="46"/>
+                                                                <rect key="frame" x="43" y="180.00000000000003" width="248" height="46"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сделать фото" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGK-zu-Dsf">
                                                                         <rect key="frame" x="82" y="11" width="115" height="24"/>
@@ -2610,21 +2610,21 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hWN-ru-b13" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="375.5" width="358" height="250"/>
+                                                        <rect key="frame" x="16" y="375.66666666666669" width="334" height="250.00000000000006"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="shV-i7-dlB">
-                                                                <rect key="frame" x="20" y="0.0" width="318" height="250"/>
+                                                                <rect key="frame" x="8" y="0.0" width="318" height="250"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                             </imageView>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q4M-96-N2h">
-                                                                <rect key="frame" x="16" y="24" width="62" height="80"/>
+                                                                <rect key="frame" x="16" y="23.999999999999943" width="62" height="80"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="62" id="KQv-ea-dnz"/>
                                                                     <constraint firstAttribute="height" constant="80" id="PeT-sJ-iAJ"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Загрузите фото обратного разворота." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0x-f9-qUL">
-                                                                <rect key="frame" x="51" y="118" width="256" height="14.5"/>
+                                                                <rect key="frame" x="51" y="110.66666666666669" width="232" height="28.666666666666657"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -2670,7 +2670,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="247" verticalHuggingPriority="251" image="delete_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Tee-xk-jrh">
-                                                                <rect key="frame" x="308" y="12" width="42" height="42"/>
+                                                                <rect key="frame" x="284" y="11.999999999999943" width="42" height="42"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="42" id="7Hb-sO-BSr"/>
                                                                     <constraint firstAttribute="width" constant="42" id="emx-Jk-ocE"/>
@@ -2807,20 +2807,20 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="OYj-MX-icL" userLabel="Check Photo View Controller" customClass="CheckDocPhotoViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ncW-VQ-0Po">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DXO-ku-gkK">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xJI-uw-YK5">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="996"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="1013"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Cm-GH-i0e" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="84" width="390" height="847"/>
+                                                <rect key="frame" x="12" y="84" width="366" height="864"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8n-y7-cdZ">
-                                                        <rect key="frame" x="16" y="767" width="358" height="56"/>
+                                                        <rect key="frame" x="16" y="784" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="IHD-b3-YaB"/>
                                                         </constraints>
@@ -2828,25 +2828,25 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <buttonConfiguration key="configuration" style="filled" title="Подтвердить"/>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проверьте свое фото" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goj-ZF-231">
-                                                        <rect key="frame" x="16" y="18" width="191" height="21.5"/>
+                                                        <rect key="frame" x="16" y="18" width="191" height="21.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проверьте читаемость информации на фото. Убедитесь, что на фото видны все 4 угла документа" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQx-HL-SS1">
-                                                        <rect key="frame" x="16" y="55.5" width="358" height="33.5"/>
+                                                        <rect key="frame" x="16" y="55.666666666666657" width="334" height="50.333333333333343"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Crw-Dx-4qz" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="117" width="358" height="250"/>
+                                                        <rect key="frame" x="16" y="134" width="334" height="250"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_photo_1" translatesAutoresizingMaskIntoConstraints="NO" id="ZWJ-nl-6Jb">
-                                                                <rect key="frame" x="18" y="0.0" width="322" height="250"/>
+                                                                <rect key="frame" x="18" y="0.0" width="298" height="250"/>
                                                             </imageView>
                                                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zoom_icon" translatesAutoresizingMaskIntoConstraints="NO" id="4hs-UV-sBw">
-                                                                <rect key="frame" x="308" y="12" width="42" height="42"/>
+                                                                <rect key="frame" x="284" y="12" width="42" height="42"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="42" id="Alp-jE-J5R"/>
                                                                     <constraint firstAttribute="height" constant="42" id="pSN-Vk-Xgu"/>
@@ -2881,14 +2881,14 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gtp-7i-H4k" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="395" width="358" height="250"/>
+                                                        <rect key="frame" x="16" y="412" width="334" height="250"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_photo" translatesAutoresizingMaskIntoConstraints="NO" id="4ET-0K-fh8">
-                                                                <rect key="frame" x="18" y="0.0" width="322" height="250"/>
+                                                                <rect key="frame" x="18" y="0.0" width="298" height="250"/>
                                                                 <color key="tintColor" name="CountryCardColor"/>
                                                             </imageView>
                                                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zoom_icon" translatesAutoresizingMaskIntoConstraints="NO" id="7UI-Fb-JTd">
-                                                                <rect key="frame" x="308" y="12" width="42" height="42"/>
+                                                                <rect key="frame" x="284" y="12" width="42" height="42"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="42" id="4sS-m6-scT"/>
                                                                     <constraint firstAttribute="width" constant="42" id="We4-hB-mEo"/>
@@ -2923,10 +2923,10 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQv-f5-Kf7" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="689" width="358" height="58"/>
+                                                        <rect key="frame" x="16" y="706" width="334" height="58"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Заменить фото" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgy-0K-AbA">
-                                                                <rect key="frame" x="60" y="19" width="238" height="20"/>
+                                                                <rect key="frame" x="60" y="19" width="214" height="20"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -2956,7 +2956,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <color key="color" name="borderColor"/>
                                                     </activityIndicatorView>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Please, wait. The photo of your document is being loaded and processed. This may take from a few seconds to a minute." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8ou-Zr-Oj3">
-                                                        <rect key="frame" x="30" y="668" width="330" height="83"/>
+                                                        <rect key="frame" x="30" y="685" width="306" height="83"/>
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -3064,20 +3064,20 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="vMJ-Fv-l4l" userLabel="Liveness Instructions View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mSN-jW-hCq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRx-Bb-ohi">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qjd-Rt-rZ6">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="878"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="891.33333333333337"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDm-lD-KGj" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="84" width="390" height="729"/>
+                                                <rect key="frame" x="12" y="84" width="366" height="742.33333333333337"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7D-Nn-4Ql">
-                                                        <rect key="frame" x="16" y="649" width="358" height="56"/>
+                                                        <rect key="frame" x="16" y="662.33333333333337" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="Nmd-OM-gYB"/>
                                                         </constraints>
@@ -3085,7 +3085,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <buttonConfiguration key="configuration" style="filled" title="Все понятно. Начать проверку"/>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проверка лица" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1c6-jq-Hxi">
-                                                        <rect key="frame" x="16" y="56" width="136.5" height="21.5"/>
+                                                        <rect key="frame" x="16" y="55.999999999999993" width="136.66666666666666" height="21.666666666666664"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -3098,79 +3098,79 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ato-ly-woq">
-                                                        <rect key="frame" x="16" y="93.5" width="358" height="67"/>
+                                                        <rect key="frame" x="16" y="93.666666666666657" width="334" height="67"/>
                                                         <string key="text">Сначала разместите лицо по центру кадра, затем двигайте головой в заданом направлении, как на примере ниже, чтобы показать свое лицо со всех углов.</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="выполнятей только запрашиваемые движения" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOe-mg-i3J">
-                                                        <rect key="frame" x="46" y="410.5" width="308" height="14.5"/>
+                                                        <rect key="frame" x="46" y="410.66666666666663" width="284" height="28.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="движения должны быть четкими и плавными" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilv-19-slf">
-                                                        <rect key="frame" x="45" y="445" width="278" height="29"/>
+                                                        <rect key="frame" x="45" y="459.33333333333337" width="254" height="28.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="в кадре не должно быть помех" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAt-oD-4Mb">
-                                                        <rect key="frame" x="45" y="494" width="329" height="15"/>
+                                                        <rect key="frame" x="45" y="508" width="305" height="15"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="найдите место с хорошим освещением (светло, но без ярких засветов)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8c-XH-tNZ">
-                                                        <rect key="frame" x="45" y="529" width="309" height="29"/>
+                                                        <rect key="frame" x="45" y="543" width="285" height="28.666666666666629"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="зафиксированная камера (старайтесь не двигать камерой)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATp-gm-vMv">
-                                                        <rect key="frame" x="45" y="576" width="325" height="29"/>
+                                                        <rect key="frame" x="45" y="589.66666666666663" width="301" height="28.666666666666629"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="face_example" translatesAutoresizingMaskIntoConstraints="NO" id="zH1-p7-eII">
-                                                        <rect key="frame" x="76" y="176.5" width="218" height="218"/>
+                                                        <rect key="frame" x="64" y="176.66666666666669" width="218" height="218"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="218" id="nsW-ga-PTL"/>
                                                             <constraint firstAttribute="width" constant="218" id="xOh-yC-LHs"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="requested_movements_icon" translatesAutoresizingMaskIntoConstraints="NO" id="bCY-XI-wsl">
-                                                        <rect key="frame" x="16" y="410" width="20" height="19"/>
+                                                        <rect key="frame" x="16" y="410.33333333333337" width="20" height="19"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="BpG-pX-vd1"/>
                                                             <constraint firstAttribute="height" constant="19" id="coK-Me-YXd"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smooth_movements_icon" translatesAutoresizingMaskIntoConstraints="NO" id="fIc-s3-Bdh">
-                                                        <rect key="frame" x="16" y="448" width="18" height="22"/>
+                                                        <rect key="frame" x="16" y="448.33333333333337" width="18" height="22"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="AHU-ga-0qe"/>
                                                             <constraint firstAttribute="width" constant="18" id="DCp-s9-nsj"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_interference_icon" translatesAutoresizingMaskIntoConstraints="NO" id="FAq-ZT-TYG">
-                                                        <rect key="frame" x="16" y="494" width="18" height="18"/>
+                                                        <rect key="frame" x="16" y="494.33333333333337" width="18" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="18" id="95c-Ij-YCI"/>
                                                             <constraint firstAttribute="width" constant="18" id="rnj-px-VPn"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="good_light_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Rkf-kC-tcK">
-                                                        <rect key="frame" x="16" y="533" width="18" height="20"/>
+                                                        <rect key="frame" x="16" y="533.33333333333337" width="18" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="18" id="Ox1-5Z-Cbf"/>
                                                             <constraint firstAttribute="height" constant="20" id="XWH-Dv-COU"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fixed_camera_icon" translatesAutoresizingMaskIntoConstraints="NO" id="KiT-vF-PGZ">
-                                                        <rect key="frame" x="16" y="579" width="18" height="22"/>
+                                                        <rect key="frame" x="16" y="579.33333333333337" width="18" height="22"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="BiP-DI-pK4"/>
                                                             <constraint firstAttribute="width" constant="18" id="tbU-cr-StF"/>
@@ -3273,14 +3273,14 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController id="WJ2-QY-Hl3" customClass="ZoomedDocPhotoViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="44V-am-ckB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aBI-ct-SYg">
-                                <rect key="frame" x="0.0" y="94" width="414" height="698"/>
+                                <rect key="frame" x="0.0" y="144" width="390" height="596"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmI-2b-PrY">
-                                <rect key="frame" x="337" y="20" width="61" height="31"/>
+                                <rect key="frame" x="311" y="24" width="61" height="80"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Close"/>
@@ -3293,11 +3293,12 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="kfu-Eb-raD" firstAttribute="bottom" secondItem="aBI-ct-SYg" secondAttribute="bottom" constant="50" id="3y8-j2-rib"/>
-                            <constraint firstItem="kfu-Eb-raD" firstAttribute="top" secondItem="pmI-2b-PrY" secondAttribute="top" constant="24" id="9Ad-Qt-azb"/>
+                            <constraint firstItem="pmI-2b-PrY" firstAttribute="top" secondItem="44V-am-ckB" secondAttribute="top" constant="24" id="7kP-2L-X6R"/>
                             <constraint firstItem="kfu-Eb-raD" firstAttribute="trailing" secondItem="aBI-ct-SYg" secondAttribute="trailing" id="9MY-ew-IUa"/>
                             <constraint firstItem="aBI-ct-SYg" firstAttribute="leading" secondItem="kfu-Eb-raD" secondAttribute="leading" id="LYm-Oc-6rD"/>
-                            <constraint firstItem="aBI-ct-SYg" firstAttribute="top" secondItem="kfu-Eb-raD" secondAttribute="top" constant="50" id="irh-Ez-ZnC"/>
-                            <constraint firstItem="kfu-Eb-raD" firstAttribute="trailing" secondItem="pmI-2b-PrY" secondAttribute="trailing" constant="16" id="uId-fF-fEz"/>
+                            <constraint firstItem="aBI-ct-SYg" firstAttribute="top" secondItem="kfu-Eb-raD" secondAttribute="top" constant="100" id="irh-Ez-ZnC"/>
+                            <constraint firstItem="aBI-ct-SYg" firstAttribute="top" secondItem="pmI-2b-PrY" secondAttribute="bottom" constant="40" id="j3E-Kw-ywM"/>
+                            <constraint firstItem="kfu-Eb-raD" firstAttribute="trailing" secondItem="pmI-2b-PrY" secondAttribute="trailing" constant="18" id="zGU-9m-zQQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zt2-Cm-TbT"/>

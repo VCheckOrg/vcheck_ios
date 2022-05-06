@@ -19,3 +19,7 @@
 "OK" = "";
 
 "photo_loaing_wait_discl" = "Please, wait. The photo of your document is being loaded and processed. This may take from a few seconds to a minute.";
+
+"thats_allright_continue" = "That's allright! Continue";
+
+"error_some_fields_are_empty" = "Please fill all empty document fields";
