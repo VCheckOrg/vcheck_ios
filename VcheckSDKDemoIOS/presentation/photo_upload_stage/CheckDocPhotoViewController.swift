@@ -14,7 +14,7 @@ class CheckDocPhotoViewController : UIViewController {
     
     var firstPhoto: UIImage? = nil
     var secondPhoto: UIImage? = nil
-    
+        
     @IBOutlet weak var secondPhotoCard: RoundedView!
     
     @IBOutlet weak var imgViewPhotoFirst: UIImageView!
@@ -68,7 +68,13 @@ class CheckDocPhotoViewController : UIViewController {
             
             //TODO: handle doc upload response w/codes
             
-            //navigateToDocInfoScreen()
+            if (self.viewModel.uploadResponse?.status != nil && self.viewModel.uploadResponse?.status != 0) {
+                let errText = "\(codeIdxToVerificationCode(codeIdx: (self.viewModel.uploadResponse?.status)!))"
+                self.showToast(message: errText, seconds: 2.0)
+            } else {
+                
+                self.navigateToDocInfoScreen()
+            }
         }
         
         viewModel.updateLoadingStatus = {
@@ -92,7 +98,6 @@ class CheckDocPhotoViewController : UIViewController {
     }
     
     
-    
     @objc func replacePhotoClicked(_ sender: NavGestureRecognizer) {
         moveToChooseDocTypeViewController()
     }
@@ -114,6 +119,12 @@ class CheckDocPhotoViewController : UIViewController {
             vc.firstPhoto = self.firstPhoto
             if (self.secondPhoto != nil) {
                 vc.secondPhoto = self.secondPhoto
+            }
+            if (self.viewModel.uploadResponse?.document == nil) {
+                let errText = "Error: Cannot find document id for navigation!"
+                self.showToast(message: errText, seconds: 2.0)
+            } else {
+                vc.docId = self.viewModel.uploadResponse?.document
             }
         }
         if (segue.identifier == "CheckPhotoToZoom") {
@@ -145,6 +156,7 @@ class CheckDocPhotoViewController : UIViewController {
     
     
     private func activityIndicatorStart() {
+        tvLoadingDescl.text = NSLocalizedString("photo_loaing_wait_discl", comment: "")
         remakeDocPhotosBtn.isHidden = true
         confirmUploadPhotosBtn.isHidden = true
         tvLoadingDescl.isHidden = false

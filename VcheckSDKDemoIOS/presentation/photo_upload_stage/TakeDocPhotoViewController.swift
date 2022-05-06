@@ -156,7 +156,7 @@ class TakeDocPhotoViewController : UIViewController,
     @objc func takePhoto(_ sender:UITapGestureRecognizer) {
         let vc = UIImagePickerController()
         vc.sourceType = .camera
-        vc.allowsEditing = true
+        vc.allowsEditing = false
         vc.delegate = self
         present(vc, animated: true)
     }
@@ -165,7 +165,7 @@ class TakeDocPhotoViewController : UIViewController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true)
 
-        guard let image = info[.editedImage] as? UIImage else {
+        guard let image = info[.originalImage] as? UIImage else {
             print("No image found")
             return
         }

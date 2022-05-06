@@ -18,6 +18,7 @@
 		DA737432281AD4CB00DBBDED /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA737431281AD4CB00DBBDED /* ApiError.swift */; };
 		DA737434281ADCD600DBBDED /* LocalDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA737433281ADCD600DBBDED /* LocalDatasource.swift */; };
 		DA737436281AF59400DBBDED /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA737435281AF59400DBBDED /* Utils.swift */; };
+		DAA1A60C2824F752005B5B8A /* DocumentVerificationCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA1A60B2824F752005B5B8A /* DocumentVerificationCodes.swift */; };
 		DAAF4E0A281AC7A60029F26C /* VerificationResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAF4DF1281AC7A50029F26C /* VerificationResponseModels.swift */; };
 		DAAF4E0B281AC7A60029F26C /* document_verification_codes.kt in Resources */ = {isa = PBXBuildFile; fileRef = DAAF4DF2281AC7A50029F26C /* document_verification_codes.kt */; };
 		DAAF4E0C281AC7A60029F26C /* TimestampRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAF4DF3281AC7A50029F26C /* TimestampRequest.swift */; };
@@ -29,7 +30,6 @@
 		DAAF4E14281AC7A60029F26C /* VerificationRequestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAF4DFB281AC7A50029F26C /* VerificationRequestModels.swift */; };
 		DAAF4E15281AC7A60029F26C /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAF4DFC281AC7A50029F26C /* ApiClient.swift */; };
 		DAAF4E18281AC7A60029F26C /* document_request_models.kt in Resources */ = {isa = PBXBuildFile; fileRef = DAAF4DFF281AC7A50029F26C /* document_request_models.kt */; };
-		DAAF4E19281AC7A60029F26C /* document_types.kt in Resources */ = {isa = PBXBuildFile; fileRef = DAAF4E00281AC7A60029F26C /* document_types.kt */; };
 		DAAF4E1A281AC7A60029F26C /* verification_request_models.kt in Resources */ = {isa = PBXBuildFile; fileRef = DAAF4E01281AC7A60029F26C /* verification_request_models.kt */; };
 		DAAF4E1B281AC7A60029F26C /* document_response_models.kt in Resources */ = {isa = PBXBuildFile; fileRef = DAAF4E02281AC7A60029F26C /* document_response_models.kt */; };
 		DAAF4E1C281AC7A60029F26C /* CountryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAF4E03281AC7A60029F26C /* CountryModels.swift */; };
@@ -76,6 +76,7 @@
 		DA737431281AD4CB00DBBDED /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		DA737433281ADCD600DBBDED /* LocalDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatasource.swift; sourceTree = "<group>"; };
 		DA737435281AF59400DBBDED /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		DAA1A60B2824F752005B5B8A /* DocumentVerificationCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerificationCodes.swift; sourceTree = "<group>"; };
 		DAAF4DF1281AC7A50029F26C /* VerificationResponseModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationResponseModels.swift; sourceTree = "<group>"; };
 		DAAF4DF2281AC7A50029F26C /* document_verification_codes.kt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = document_verification_codes.kt; sourceTree = "<group>"; };
 		DAAF4DF3281AC7A50029F26C /* TimestampRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimestampRequest.swift; sourceTree = "<group>"; };
@@ -87,7 +88,6 @@
 		DAAF4DFB281AC7A50029F26C /* VerificationRequestModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationRequestModels.swift; sourceTree = "<group>"; };
 		DAAF4DFC281AC7A50029F26C /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		DAAF4DFF281AC7A50029F26C /* document_request_models.kt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = document_request_models.kt; sourceTree = "<group>"; };
-		DAAF4E00281AC7A60029F26C /* document_types.kt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = document_types.kt; sourceTree = "<group>"; };
 		DAAF4E01281AC7A60029F26C /* verification_request_models.kt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = verification_request_models.kt; sourceTree = "<group>"; };
 		DAAF4E02281AC7A60029F26C /* document_response_models.kt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = document_response_models.kt; sourceTree = "<group>"; };
 		DAAF4E03281AC7A60029F26C /* CountryModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryModels.swift; sourceTree = "<group>"; };
@@ -218,7 +218,6 @@
 				DAAF4DF8281AC7A50029F26C /* doc_image_parsing_statuses.kt */,
 				DAAF4DFF281AC7A50029F26C /* document_request_models.kt */,
 				DAAF4E02281AC7A60029F26C /* document_response_models.kt */,
-				DAAF4E00281AC7A60029F26C /* document_types.kt */,
 				DAAF4DF2281AC7A50029F26C /* document_verification_codes.kt */,
 				DAAF4E07281AC7A60029F26C /* DocumentResponseModels.swift */,
 				DAAF4E08281AC7A60029F26C /* MainRepository.kt */,
@@ -229,6 +228,7 @@
 				DAAF4DF1281AC7A50029F26C /* VerificationResponseModels.swift */,
 				DA737431281AD4CB00DBBDED /* ApiError.swift */,
 				DADD31EE281D7A0200EB25ED /* DocumentTypes.swift */,
+				DAA1A60B2824F752005B5B8A /* DocumentVerificationCodes.swift */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -385,7 +385,6 @@
 				DAAF4E1B281AC7A60029F26C /* document_response_models.kt in Resources */,
 				DABCE22328219CE700937E84 /* Localizable.strings in Resources */,
 				DAAF4E1F281AC7A60029F26C /* verification_response_models.kt in Resources */,
-				DAAF4E19281AC7A60029F26C /* document_types.kt in Resources */,
 				DAB613312814767700234BB2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,6 +482,7 @@
 				DAAF4E15281AC7A60029F26C /* ApiClient.swift in Sources */,
 				DAAF4E0E281AC7A60029F26C /* BaseClientResponseModel.swift in Sources */,
 				DAB6132C2814767700234BB2 /* SceneDelegate.swift in Sources */,
+				DAA1A60C2824F752005B5B8A /* DocumentVerificationCodes.swift in Sources */,
 				DA737436281AF59400DBBDED /* Utils.swift in Sources */,
 				DABCE2312822BCB900937E84 /* ZoomedDocPhotoViewController.swift in Sources */,
 				DAE87E102816CC1F00ED6826 /* ChooseCountryViewController.swift in Sources */,

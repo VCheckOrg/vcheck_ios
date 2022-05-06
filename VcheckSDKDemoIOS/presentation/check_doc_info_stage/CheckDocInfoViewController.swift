@@ -10,14 +10,6 @@ import UIKit
 
 class CheckDocInfoViewController : UIViewController {
     
-    
-    @IBOutlet weak var docFieldsTableView: UITableView!
-    
-    @IBOutlet weak var firlsPhotoImageView: UIImageView!
-    
-    @IBOutlet weak var secondPhotoImageView: UIImageView!
-    
-    
     private let viewModel = CheckDocInfoViewModel()
     
     var firstPhoto: UIImage? = nil
@@ -29,11 +21,38 @@ class CheckDocInfoViewController : UIViewController {
     
     let currLocaleCode = Locale.current.languageCode!
     
+    //TODO: stretch parent on table view size change (actual doc fields count)!
+    @IBOutlet weak var docFieldsTableView: UITableView!
+    
+    @IBOutlet weak var tableTopConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var firstPhotoImageView: UIImageView!
+    @IBOutlet weak var secondPhotoImageView: UIImageView!
+    
+    @IBOutlet weak var secondPhotoImgCard: RoundedView!
+    
+    @IBAction func submitDocAction(_ sender: UIButton) {
+        
+    }
+    
     
     override func viewDidLoad() {
         
+        //docFieldsTableView.delegate = self
+        docFieldsTableView.dataSource = self
+        
+        firstPhotoImageView.image = firstPhoto
+        
+        if (secondPhoto != nil) {
+            secondPhotoImageView.isHidden = false
+            secondPhotoImageView.image = secondPhoto
+        } else {
+            secondPhotoImgCard.isHidden = true
+            tableTopConstraint.constant = 30
+        }
+        
         viewModel.didReceiveDocInfoResponse = {
-            
+            //!
             if (self.viewModel.docInfoResponse != nil) {
                 self.populateDocFields(preProcessedDocData: self.viewModel.docInfoResponse!,
                                        currentLocaleCode: self.currLocaleCode)
@@ -52,22 +71,33 @@ class CheckDocInfoViewController : UIViewController {
             let errText = self.viewModel.error?.errorText ?? "Error: No additional info"
             self.showToast(message: errText, seconds: 2.0)
         }
+        
+        if (self.docId == nil) {
+            let errText = "Error: Cannot find document id for navigation!"
+            self.showToast(message: errText, seconds: 2.0)
+        } else {
+            viewModel.getDocumentInfo(docId: self.docId!)
+        }
+        
     }
     
     
     private func populateDocFields(preProcessedDocData: PreProcessedDocData, currentLocaleCode: String) {
         if ((preProcessedDocData.type?.fields?.count)! > 0) {
+            
+            //adjustTableViewHeight(height: CGFloat((preProcessedDocData.type?.fields?.count)! * 82))
+            
             print("GOT AUTO-PARSED FIELDS: \(String(describing: preProcessedDocData.type?.fields))")
             fieldsList = preProcessedDocData.type?.fields!.map { (element) -> (DocFieldWitOptPreFilledData) in
                     return convertDocFieldToOptParsedData(docField: element,
                                                           parsedDocFieldsData: preProcessedDocData.parsedData)
                 } ?? []
+            print("GOT FIELDS LIST: \(fieldsList)")
             docFieldsTableView.reloadData()
             } else {
                 print("__NO__ AVAILABLE AUTO-PARSED FIELDS!")
             }
         }
-    
 }
 
 // MARK: - UITableViewDataSource
@@ -79,7 +109,7 @@ extension CheckDocInfoViewController: UITableViewDataSource {
 
     func tableView(_ countryListTable: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = docFieldsTableView.dequeueReusableCell(withIdentifier: "docFieldCell") as! DocInfoViewCell
-        
+                
         let field: DocFieldWitOptPreFilledData = fieldsList[indexPath.row]
         
         var title = ""
@@ -90,6 +120,9 @@ extension CheckDocInfoViewController: UITableViewDataSource {
         }
         
         cell.docFieldTitle.text = title
+        
+        cell.docTextField.text = field.autoParsedValue
+        cell.docTextField.returnKeyType = UIReturnKeyType.done
         
         let fieldName = fieldsList[indexPath.row].name
 
@@ -104,9 +137,9 @@ extension CheckDocInfoViewController: UITableViewDataSource {
         return cell
     }
 
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 70
-//    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 82
+    }
     
     @objc final private func onDocCellTextChanged(textField: UITextField) {
 
@@ -190,3 +223,23 @@ extension CheckDocInfoViewController {
 //        self.dismiss(animated: true, completion: nil)
 //    }
 //}
+
+//    func adjustTableViewHeight(height: CGFloat) {
+//
+//        var frame: CGRect = self.docFieldsTableView.frame
+//        frame.size.height = height
+//        self.docFieldsTableView.frame = frame
+//
+//
+//
+////            var height = docFieldsTableView.contentSize.height
+////            let maxHeight = (docFieldsTableView.superview?.frame.size.height)! - self.docFieldsTableView.frame.origin.y
+////
+////           if height > maxHeight {
+////               height = maxHeight
+////           }
+//
+////                var frame = self.docFieldsTableView.frame
+////                frame.size.height = height
+////                self.tableView.frame = frame
+//        }

@@ -215,7 +215,7 @@ struct RemoteDatasource {
     
     func getDocumentInfo(documentId: Int,
                          completion: @escaping (PreProcessedDocData?, ApiError?) -> ()) {
-        let url = "documents/\(documentId)"
+        let url = "\(baseUrl)documents/\(documentId)"
 
         let token = LocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
@@ -247,7 +247,7 @@ struct RemoteDatasource {
     func updateAndConfirmDocInfo(documentId: Int,
                                  parsedDocFieldsData: ParsedDocFieldsData,
                                  completion: @escaping (Bool, ApiError?) -> ()) {
-        let url = "documents/\(documentId)"
+        let url = "\(baseUrl)documents/\(documentId)"
 
         let token = LocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
@@ -272,7 +272,7 @@ struct RemoteDatasource {
     
     func setDocumentAsPrimary(documentId: Int,
                               completion: @escaping (Bool, ApiError?) -> ()) {
-        let url = "documents/\(documentId)/primary"
+        let url = "\(baseUrl)documents/\(documentId)/primary"
 
         let token = LocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
