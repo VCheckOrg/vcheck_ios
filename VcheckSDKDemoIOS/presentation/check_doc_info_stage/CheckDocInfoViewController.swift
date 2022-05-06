@@ -24,8 +24,6 @@ class CheckDocInfoViewController : UIViewController {
     //TODO: stretch parent on table view size change (actual doc fields count)!
     @IBOutlet weak var docFieldsTableView: UITableView!
     
-    @IBOutlet weak var tableTopConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var firstPhotoImageView: UIImageView!
     @IBOutlet weak var secondPhotoImageView: UIImageView!
     
@@ -35,6 +33,14 @@ class CheckDocInfoViewController : UIViewController {
         
     }
     
+    @IBOutlet weak var parentCardHeightConstraint: NSLayoutConstraint!
+    
+    //@IBOutlet weak var tableTopConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var tableTopConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
+        
     
     override func viewDidLoad() {
         
@@ -84,8 +90,19 @@ class CheckDocInfoViewController : UIViewController {
     
     private func populateDocFields(preProcessedDocData: PreProcessedDocData, currentLocaleCode: String) {
         if ((preProcessedDocData.type?.fields?.count)! > 0) {
+                        
+            let additionalHeight = CGFloat((preProcessedDocData.type?.fields?.count)! * 82)
             
-            //adjustTableViewHeight(height: CGFloat((preProcessedDocData.type?.fields?.count)! * 82))
+            if (secondPhoto == nil) {
+                parentCardHeightConstraint.constant = parentCardHeightConstraint.constant + additionalHeight
+                    - tableViewHeightConstraint.constant - 250 // *minus 2nd (missing) card height
+            } else {
+                parentCardHeightConstraint.constant = parentCardHeightConstraint.constant + additionalHeight
+                    - tableViewHeightConstraint.constant
+            }
+            
+            tableViewHeightConstraint.constant = additionalHeight
+            
             
             print("GOT AUTO-PARSED FIELDS: \(String(describing: preProcessedDocData.type?.fields))")
             fieldsList = preProcessedDocData.type?.fields!.map { (element) -> (DocFieldWitOptPreFilledData) in
@@ -123,6 +140,7 @@ extension CheckDocInfoViewController: UITableViewDataSource {
         
         cell.docTextField.text = field.autoParsedValue
         cell.docTextField.returnKeyType = UIReturnKeyType.done
+        cell.docTextField.delegate = self
         
         let fieldName = fieldsList[indexPath.row].name
 
@@ -211,6 +229,13 @@ extension CheckDocInfoViewController {
                 name: docField.name!, title: docField.title!, type: docField.type!,
                 regex: docField.regex, autoParsedValue: optParsedData)
         }
+    }
+}
+
+extension UIViewController: UITextFieldDelegate{
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
     }
 }
 
