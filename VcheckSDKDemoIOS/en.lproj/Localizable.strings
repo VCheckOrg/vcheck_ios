@@ -2,11 +2,18 @@
 "error_make_at_least_one_photo" = "Please make at least one photo of the document";
 
 /* No comment provided by engineer. */
+"error_some_fields_are_empty" = "Please fill all empty document fields";
+
+/* No comment provided by engineer. */
+"photo_loaing_wait_discl" = "Please, wait. The photo of your document is being loaded and processed. This may take from a few seconds to a minute.";
+
+/* No comment provided by engineer. */
 "photo_upload_title_common_back" = "Photo of the last page / side with your photo (if you have multiple photos in the document)";
 
 /* No comment provided by engineer. */
 "photo_upload_title_common_forward" = "Photo of the first page / side of the document (with your photo)";
 
+/* No comment provided by engineer. */
 "photo_upload_title_foreign" = "Full spread of the document with your photo";
 
 /* No comment provided by engineer. */
@@ -17,9 +24,3 @@
 
 /* Default action */
 "OK" = "";
-
-"photo_loaing_wait_discl" = "Please, wait. The photo of your document is being loaded and processed. This may take from a few seconds to a minute.";
-
-"thats_allright_continue" = "That's allright! Continue";
-
-"error_some_fields_are_empty" = "Please fill all empty document fields";

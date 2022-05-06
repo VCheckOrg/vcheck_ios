@@ -130,9 +130,6 @@
 /* Class = "UITextView"; text = "FLAG"; ObjectID = "irG-6P-v79"; */
 "irG-6P-v79.text" = "FLAG";
 
-/* Class = "UILabel"; text = "Допустимый формат изображения: JPG, JPEG"; ObjectID = "izr-Q9-DV5"; */
-"izr-Q9-DV5.text" = "Acceptable image format: JPG, JPEG";
-
 /* Class = "UIButton"; configuration.title = "Попробовать снова"; ObjectID = "jks-Ld-fXF"; */
 "jks-Ld-fXF.configuration.title" = "Try again";
 
@@ -186,6 +183,9 @@
 
 /* Class = "UITextView"; text = "Country"; ObjectID = "O84-jd-0oF"; */
 "O84-jd-0oF.text" = "Country";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "oMH-sQ-S0l"; */
+"oMH-sQ-S0l.normalTitle" = "That's allright! Continue";
 
 /* Class = "UILabel"; text = "Заявка на верификацию отправлена на проверку. Очень скоро Вас уведомят о результате."; ObjectID = "Oov-Zo-rlv"; */
 "Oov-Zo-rlv.text" = "The verification request has been sent for review. You will be notified of the result very soon.";
@@ -349,10 +349,26 @@
 /* Class = "UITextView"; text = "FLAG"; ObjectID = "zr2-kK-wWI"; */
 "zr2-kK-wWI.text" = "FLAG";
 
+/* Class = "UIButton"; configuration.title = "Все верно! Продолжить"; ObjectID = "oMH-sQ-S0l"; */
+"oMH-sQ-S0l.configuration.title" = "That's allright! Continue";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Pgp-l7-9ju"; */
+"Pgp-l7-9ju.normalTitle" = "";
+
 /* Class = "UIButton"; configuration.title = "Close"; ObjectID = "pmI-2b-PrY"; */
 "pmI-2b-PrY.configuration.title" = "";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "pmI-2b-PrY"; */
 "pmI-2b-PrY.normalTitle" = "";
 
-"oMH-sQ-S0l.normalTitle" = "That's allright! Continue";
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "R50-oF-lGI"; */
+"R50-oF-lGI.normalTitle" = "";
+
+/* Class = "UITextField"; text = "Test"; ObjectID = "u3Q-g0-NzA"; */
+"u3Q-g0-NzA.text" = "";
+
+/* Class = "UITextView"; text = "Field name"; ObjectID = "zVf-o1-mBp"; */
+"zVf-o1-mBp.text" = "";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ZYK-Zq-SfN"; */
+"ZYK-Zq-SfN.normalTitle" = "";

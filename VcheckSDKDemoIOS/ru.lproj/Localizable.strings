@@ -2,6 +2,12 @@
 "error_make_at_least_one_photo" = "Пожалуйста, сделайте как минимум одно фото документа";
 
 /* No comment provided by engineer. */
+"error_some_fields_are_empty" = "Пожалуйста, заполните все поля документа";
+
+/* No comment provided by engineer. */
+"photo_loaing_wait_discl" = "Пожалуйста, подождите. Идет загрузка и обработка фото вашего документа. Это может занять от нескольких секунд до минуты.";
+
+/* No comment provided by engineer. */
 "photo_upload_title_common_back" = "Фотография последней страницы/стороны с вашей фотографией (если у вас несколько фотографий в документе).";
 
 /* No comment provided by engineer. */
@@ -24,9 +30,3 @@
 
 /* Default action */
 "OK" = "";
-
-"photo_loaing_wait_discl" = "Пожалуйста, подождите. Идет загрузка и обработка фото вашего документа. Это может занять от нескольких секунд до минуты.";
-
-"thats_allright_continue" = "Все верно! Продолжить";
-
-"error_some_fields_are_empty" = "Пожалуйста, заполните все поля документа";
