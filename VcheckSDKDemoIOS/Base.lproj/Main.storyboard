@@ -1697,7 +1697,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
         <!--Photo Instructions View Controller-->
         <scene sceneID="HTG-Kf-TQP">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="btG-18-IMq" userLabel="Photo Instructions View Controller" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="btG-18-IMq" userLabel="Photo Instructions View Controller" customClass="PhotoInstructionsViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="URt-vI-atd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1819,6 +1819,12 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYK-Zq-SfN">
+                                                        <rect key="frame" x="8" y="8" width="76" height="40"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" name="CardColor"/>
                                                 <constraints>
@@ -1915,7 +1921,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Un7-D0-vQR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2218" y="859"/>
+            <point key="canvasLocation" x="2217.3913043478265" y="858.48214285714278"/>
         </scene>
         <!--Choose Doc Method View Controller-->
         <scene sceneID="taE-BH-axR">
@@ -1934,7 +1940,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1P2-W0-56G" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="84" width="390" height="466.5"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="XKg-SM-GGZ">
+                                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="XKg-SM-GGZ">
                                                         <rect key="frame" x="23" y="28" width="10" height="16"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="16" id="3pp-EF-5WZ"/>
@@ -2080,6 +2086,15 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgp-l7-9ju">
+                                                        <rect key="frame" x="8" y="8" width="71" height="40"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="backToCountriesAction:" destination="EIw-6d-l49" eventType="touchUpInside" id="HeC-SB-7uv"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" name="CardColor"/>
                                                 <constraints>
@@ -2158,7 +2173,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bXq-t7-eLH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1169" y="859"/>
+            <point key="canvasLocation" x="1166.6666666666667" y="858.48214285714278"/>
         </scene>
         <!--Liveness Screen View Controller-->
         <scene sceneID="cHE-UQ-Euf">
@@ -2689,6 +2704,15 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R50-oF-lGI">
+                                                        <rect key="frame" x="8" y="13" width="76" height="41"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="backToInstr:" destination="ZEj-uY-1Rn" eventType="touchUpInside" id="dUV-kC-4Ua"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" name="CardColor"/>
                                                 <constraints>
@@ -2773,7 +2797,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RWM-l4-bDf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3276.9230769230767" y="858.76777251184831"/>
+            <point key="canvasLocation" x="3276.811594202899" y="858.48214285714278"/>
         </scene>
         <!--Check Photo View Controller-->
         <scene sceneID="zJy-By-c23">

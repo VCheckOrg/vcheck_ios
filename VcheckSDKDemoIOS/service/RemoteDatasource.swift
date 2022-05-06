@@ -180,20 +180,24 @@ struct RemoteDatasource {
                 completion(nil, ApiError(errorText: "Error: cannot find access token"))
                 return
             }
-            let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
+            let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))",
+                                        "Content-Type" : "multipart/form-data"]
                 
             let multipartFormData = MultipartFormData.init()
                 
-            multipartFormData.append(documentType.data(using: .utf8, allowLossyConversion: false)!, withName: "document_type")
-            multipartFormData.append(countryCode.data(using: .utf8, allowLossyConversion: false)!, withName: "country")
             multipartFormData.append(photo1.jpegData(compressionQuality: 0.9)!, withName: "jpeg",
-                                     fileName: "1.jpg", mimeType: "image/jpeg") //check compression quality!
+                                     fileName: "1.jpg", mimeType: "image/jpeg")
             if (photo2 != nil) {
                 multipartFormData.append(photo2!.jpegData(compressionQuality: 0.9)!, withName: "jpeg",
-                                         fileName: "2.jpg", mimeType: "image/jpeg") //check compression quality!
+                                         fileName: "2.jpg", mimeType: "image/jpeg")
+            } else {
+                print("CLIENT: PHOTO 2 IS NIL!")
             }
+            multipartFormData.append(documentType.data(using: .utf8, allowLossyConversion: false)!, withName: "document_type")
+            multipartFormData.append(countryCode.data(using: .utf8, allowLossyConversion: false)!, withName: "country")
                 
-            AF.upload(multipartFormData: multipartFormData, to: url, method: .post, headers: headers)
+            AF.upload(multipartFormData: multipartFormData, to: url, method: .post, headers: headers,
+                      requestModifier: { $0.timeoutInterval = .infinity })
                 .validate()
                 .responseDecodable(of: DocumentUploadResponse.self) { (response) in
                     guard let response = response.value else {

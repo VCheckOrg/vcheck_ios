@@ -19,7 +19,10 @@ class ChooseDocTypeViewController : UIViewController {
     @IBOutlet weak var sectionForeignPasspot: RoundedView!
     
     @IBOutlet weak var sectionIDCard: RoundedView!
-    
+        
+    @IBAction func backToCountriesAction(_ sender: UIButton) {
+        self.dismiss(animated: true)
+    }
     
     override func viewDidLoad() {
         

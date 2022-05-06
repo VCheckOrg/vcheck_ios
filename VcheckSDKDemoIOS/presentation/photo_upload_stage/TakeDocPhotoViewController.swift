@@ -35,6 +35,11 @@ class TakeDocPhotoViewController : UIViewController,
     @IBOutlet weak var btnContinueToPreview: UIButton!
     
     
+    @IBAction func backToInstr(_ sender: UIButton) {
+        self.dismiss(animated: true)
+    }
+    
+    
     var selectedDocType: DocType? = nil
     
     var firstPhoto: UIImage? = nil
