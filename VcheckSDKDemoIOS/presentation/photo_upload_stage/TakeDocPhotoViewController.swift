@@ -235,11 +235,15 @@ class TakeDocPhotoViewController : UIViewController,
         }
     }
 
+    //TODO: check - proceed btn still active and lets navigation even if single photo is deleted!
     func checkPhotoCompletenessAndSetProceedClickListener() {
         if (selectedDocType == DocType.FOREIGN_PASSPORT) {
             if (firstPhoto != nil) {
                 prepareForNavigation(resetSecondPhoto: false)
             } else {
+                btnContinueToPreview.tintColor = UIColor(named: "borderColor")
+                btnContinueToPreview.titleLabel?.textColor = UIColor.gray
+                btnContinueToPreview.gestureRecognizers?.forEach(btnContinueToPreview.removeGestureRecognizer)
                 let errText = NSLocalizedString("error_make_at_least_one_photo", comment: "")
                 self.showToast(message: errText, seconds: 1.3)
             }
@@ -253,6 +257,9 @@ class TakeDocPhotoViewController : UIViewController,
             } else if (secondPhoto != nil && firstPhoto != nil) {
                 prepareForNavigation(resetSecondPhoto: false)
             } else {
+                btnContinueToPreview.tintColor = UIColor(named: "borderColor")
+                btnContinueToPreview.titleLabel?.textColor = UIColor.gray
+                btnContinueToPreview.gestureRecognizers?.forEach(btnContinueToPreview.removeGestureRecognizer)
                 let errText = NSLocalizedString("error_make_at_least_one_photo", comment: "")
                 self.showToast(message: errText, seconds: 1.3)
             }
