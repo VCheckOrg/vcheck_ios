@@ -290,7 +290,7 @@
 "fVU-YR-D7u.scopeButtonTitles[1]" = "";
 
 /* Class = "UILabel"; text = "Загрузите фото документа"; ObjectID = "GCm-VK-XhF"; */
-"GCm-VK-XhF.text" = "Завантажте фото документа";
+"GCm-VK-XhF.text" = "Зробіть фото документа";
 
 /* Class = "UILabel"; text = "Сделать фото"; ObjectID = "gGK-zu-Dsf"; */
 "gGK-zu-Dsf.text" = "Зробити фото";

@@ -156,10 +156,10 @@ class CheckDocPhotoViewController : UIViewController {
     
     
     private func activityIndicatorStart() {
-        tvLoadingDescl.text = NSLocalizedString("photo_loaing_wait_discl", comment: "")
         remakeDocPhotosBtn.isHidden = true
         confirmUploadPhotosBtn.isHidden = true
         tvLoadingDescl.isHidden = false
+        tvLoadingDescl.text = NSLocalizedString("photo_loaing_wait_discl", comment: "")
         photosUploadingSpinner.isHidden = false
         photosUploadingSpinner.startAnimating()
     }

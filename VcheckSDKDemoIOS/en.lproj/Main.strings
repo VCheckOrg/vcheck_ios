@@ -98,7 +98,7 @@
 "G5Y-Jp-D3x.text" = "Everything was completed correctly, send for verification";
 
 /* Class = "UILabel"; text = "Загрузите фото документа"; ObjectID = "GCm-VK-XhF"; */
-"GCm-VK-XhF.text" = "Upload a photo of the document";
+"GCm-VK-XhF.text" = "Take a photo of the document";
 
 /* Class = "UIButton"; configuration.title = "Попробовать снова"; ObjectID = "gCO-14-vPo"; */
 "gCO-14-vPo.configuration.title" = "Try again";
