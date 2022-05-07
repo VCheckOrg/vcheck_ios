@@ -19,6 +19,10 @@ public final class LivenessScreenViewController: UIViewController {
     
     @IBOutlet weak var tvLivenessInfo: UILabel!
     
+    @IBOutlet weak var imgMilestoneChecked: UIImageView!
+    @IBOutlet weak var indicationFrame: RoundedView!
+    
+    
     // MARK: - Anim properties
     var faceAnimationView: AnimationView = AnimationView()
     var arrowAnimationView: AnimationView = AnimationView()
@@ -46,7 +50,8 @@ public final class LivenessScreenViewController: UIViewController {
     private var milestoneFlow = StandardMilestoneFlow()
     
     static let LIVENESS_TIME_LIMIT_MILLIS = 14000 //max is 15000
-    static let BLOCK_PIPELINE_TIME_MILLIS = 1200 //may reduce a bit
+    static let BLOCK_PIPELINE_ON_OBSTACLE_TIME_MILLIS = 1200 //may reduce a bit
+    static let BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS = 2000 //may reduce a bit
     static let MAX_FRAMES_WITH_FATAL_OBSTACLES = 50
     //static let MIN_FRAMES_FOR_MINOR_OBSTACLES = 8
     
@@ -57,7 +62,7 @@ public final class LivenessScreenViewController: UIViewController {
     private var isLivenessSessionFinished: Bool = false
     private var hasEnoughTimeForNextGesture: Bool = true
     private var livenessSessionTimeoutTimer : DispatchSourceTimer?
-    //private var blockIndicationByUI: Bool = false
+    private var blockStageIndicationByUI: Bool = false
 
     
     // MARK: - Implementation & Lifecycle methods
@@ -68,6 +73,9 @@ public final class LivenessScreenViewController: UIViewController {
         if !setupScene() { return }
         if !setupCamera() { return }
         if !setupMotion() { return }
+        
+        imgMilestoneChecked.isHidden = true
+        indicationFrame.isHidden = true
         
         do {
             faceSession = try GARAugmentedFaceSession(fieldOfView: videoFieldOfView)
@@ -106,8 +114,10 @@ extension LivenessScreenViewController: SCNSceneRendererDelegate {
         }
         
         if (isLivenessSessionFinished == false) {
-            updateFaceAnimation()
-            updateArrowAnimation()
+            if (blockStageIndicationByUI == false) {
+                updateFaceAnimation()
+                updateArrowAnimation()
+            }
             processFaceFrame(frame: frame)
         } else {
             if (self.livenessSessionTimeoutTimer != nil) {
@@ -127,18 +137,8 @@ extension LivenessScreenViewController {
             if (!isLivenessSessionFinished) {
                 processFaceCalcForFrame(face: face)
             }
-            
-            // Update the camera image layer's transform to the display transform for this frame. //?
-            CATransaction.begin()
-            CATransaction.setAnimationDuration(0)
-            cameraImageLayer.contents = frame.capturedImage as CVPixelBuffer
-            cameraImageLayer.setAffineTransform(
-                frame.displayTransform(
-                    forViewportSize: cameraImageLayer.bounds.size,
-                    presentationOrientation: .portrait,
-                    mirrored: true)
-            )
-            CATransaction.commit()
+            //try move to if (!isLivenessSessionFinished) for resources optimization
+            updateCameraFrame(frame: frame)
             
             // Only show AR content when a face is detected. //!
             sceneView.scene?.rootNode.isHidden = frame.face == nil
@@ -165,9 +165,13 @@ extension LivenessScreenViewController {
                         if (milestoneType != GestureMilestoneType.CheckHeadPositionMilestone) {
                             self.majorObstacleFrameCounter = -15
                             self.hapticFeedbackGenerator.notificationOccurred(.success)
+                            //!
+                            self.delayedStageIndicationRenew()
                         }
-                        self.setupOrUpdateFaceAnimation(forMilestoneType: milestoneType)
-                        self.setupOrUpdateArrowAnimation(forMilestoneType: milestoneType)
+                        if (self.blockStageIndicationByUI == false) {
+                            self.setupOrUpdateFaceAnimation(forMilestoneType: milestoneType)
+                            self.setupOrUpdateArrowAnimation(forMilestoneType: milestoneType)
+                        }
                         self.updateLivenessInfoText(forMilestoneType: milestoneType)
                     }
                 }
@@ -189,7 +193,7 @@ extension LivenessScreenViewController {
                 self.tvLivenessInfo.textColor = .red
                 self.tvLivenessInfo.text = NSLocalizedString("line_face_obstacle", comment: "")
                 DispatchQueue.main.asyncAfter(deadline:
-                        .now() + .milliseconds(LivenessScreenViewController.BLOCK_PIPELINE_TIME_MILLIS) ) {
+                        .now() + .milliseconds(LivenessScreenViewController.BLOCK_PIPELINE_ON_OBSTACLE_TIME_MILLIS) ) {
                     self.updateLivenessInfoText(forMilestoneType:
                     self.milestoneFlow.getCurrentStage().gestureMilestoneType)
                 }
@@ -234,6 +238,26 @@ extension LivenessScreenViewController {
 
 extension LivenessScreenViewController {
     
+    func delayedStageIndicationRenew() {
+        DispatchQueue.main.async {
+            self.blockStageIndicationByUI = true
+            
+            self.imgMilestoneChecked.isHidden = false
+            self.indicationFrame.isHidden = false
+            
+            self.fadeViewInThenOut(view: self.indicationFrame, delay: 0.0)
+            
+            DispatchQueue.main.asyncAfter(deadline:
+                    .now() + .milliseconds(LivenessScreenViewController.BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS) ) {
+                        
+                        self.imgMilestoneChecked.isHidden = true
+                        self.indicationFrame.isHidden = true
+                        
+                        self.blockStageIndicationByUI = false
+            }
+        }
+    }
+    
     func updateLivenessInfoText(forMilestoneType: GestureMilestoneType) {
         self.tvLivenessInfo.textColor = .white
         if (forMilestoneType == GestureMilestoneType.CheckHeadPositionMilestone) {
@@ -248,7 +272,7 @@ extension LivenessScreenViewController {
     }
     
     func setupOrUpdateFaceAnimation(forMilestoneType: GestureMilestoneType) {
-        
+            
         if (forMilestoneType == GestureMilestoneType.CheckHeadPositionMilestone) {
             faceAnimationView = AnimationView(name: "left")
         } else if (forMilestoneType == GestureMilestoneType.OuterLeftHeadPitchMilestone) {
@@ -269,10 +293,11 @@ extension LivenessScreenViewController {
         
         faceAnimationView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         faceAnimationView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+    
     }
     
     func setupOrUpdateArrowAnimation(forMilestoneType: GestureMilestoneType) {
-        
+
         if (forMilestoneType == GestureMilestoneType.CheckHeadPositionMilestone) {
             arrowAnimationView = AnimationView(name: "arrow")
             
@@ -317,30 +342,60 @@ extension LivenessScreenViewController {
     }
     
     func updateFaceAnimation() {
-        DispatchQueue.main.async {
-            let toProgress = self.faceAnimationView.realtimeAnimationProgress
-            if (toProgress >= 0.99) {
-                self.faceAnimationView.play(toProgress: toProgress - 0.99)
-            }
-            if (toProgress <= 0.01) {
-                self.faceAnimationView.play(toProgress: toProgress + 1)
+        if (self.blockStageIndicationByUI == false) {
+            DispatchQueue.main.async {
+                let toProgress = self.faceAnimationView.realtimeAnimationProgress
+                if (toProgress >= 0.99) {
+                    self.faceAnimationView.play(toProgress: toProgress - 0.99)
+                }
+                if (toProgress <= 0.01) {
+                    self.faceAnimationView.play(toProgress: toProgress + 1)
+                }
             }
         }
     }
     
     func updateArrowAnimation() {
-        DispatchQueue.main.async {
-            let toProgress = self.arrowAnimationView.realtimeAnimationProgress
-            if (toProgress <= 0.01) {
-                self.arrowAnimationView.play(toProgress: toProgress + 1)
+        if (self.blockStageIndicationByUI == false) {
+            DispatchQueue.main.async {
+                let toProgress = self.arrowAnimationView.realtimeAnimationProgress
+                if (toProgress <= 0.01) {
+                    self.arrowAnimationView.play(toProgress: toProgress + 1)
+                }
             }
         }
+    }
+    
+    func fadeViewInThenOut(view : UIView, delay: TimeInterval) {
+
+        let animationDuration = Double(LivenessScreenViewController.BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS) / 1000.0
+
+        UIView.animate(withDuration: animationDuration, delay: delay,
+                       options: [UIView.AnimationOptions.autoreverse,
+                                 UIView.AnimationOptions.repeat], animations: {
+            view.alpha = 0
+        }, completion: nil)
+
     }
 }
 
 // MARK: - Camera optput capturing delegate
 
 extension LivenessScreenViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+    
+    public func updateCameraFrame(frame: GARAugmentedFaceFrame) {
+        // Update the camera image layer's transform to the display transform for this frame. //?
+        CATransaction.begin()
+        CATransaction.setAnimationDuration(0)
+        cameraImageLayer.contents = frame.capturedImage as CVPixelBuffer
+        cameraImageLayer.setAffineTransform(
+            frame.displayTransform(
+                forViewportSize: cameraImageLayer.bounds.size,
+                presentationOrientation: .portrait,
+                mirrored: true)
+        )
+        CATransaction.commit()
+    }
     
     public func captureOutput(
         _ output: AVCaptureOutput,
