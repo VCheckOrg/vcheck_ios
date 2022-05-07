@@ -51,7 +51,7 @@ public final class LivenessScreenViewController: UIViewController {
     
     static let LIVENESS_TIME_LIMIT_MILLIS = 14000 //max is 15000
     static let BLOCK_PIPELINE_ON_OBSTACLE_TIME_MILLIS = 1200 //may reduce a bit
-    static let BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS = 2000 //may reduce a bit
+    static let BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS = 1600 //may reduce a bit
     static let MAX_FRAMES_WITH_FATAL_OBSTACLES = 50
     //static let MIN_FRAMES_FOR_MINOR_OBSTACLES = 8
     
@@ -194,8 +194,7 @@ extension LivenessScreenViewController {
                 self.tvLivenessInfo.text = NSLocalizedString("line_face_obstacle", comment: "")
                 DispatchQueue.main.asyncAfter(deadline:
                         .now() + .milliseconds(LivenessScreenViewController.BLOCK_PIPELINE_ON_OBSTACLE_TIME_MILLIS) ) {
-                    self.updateLivenessInfoText(forMilestoneType:
-                    self.milestoneFlow.getCurrentStage().gestureMilestoneType)
+                    self.updateLivenessInfoText(forMilestoneType: self.milestoneFlow.getUndoneStage().gestureMilestoneType)
                 }
             }
         }

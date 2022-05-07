@@ -2204,14 +2204,14 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="190"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="T6s-6o-hPe">
-                                        <rect key="frame" x="8" y="28" width="137" height="20"/>
+                                        <rect key="frame" x="20" y="52" width="137" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="137" id="jEM-rG-yCq"/>
                                             <constraint firstAttribute="height" constant="20" id="nGj-xc-9gQ"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLEASE WAIT..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3n-0Y-qsf">
-                                        <rect key="frame" x="50" y="125.66666666666667" width="290" height="20.333333333333329"/>
+                                        <rect key="frame" x="50" y="119.66666666666667" width="290" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" name="DescriptionColor"/>
                                         <nil key="highlightedColor"/>
@@ -2221,9 +2221,9 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                 <constraints>
                                     <constraint firstItem="f3n-0Y-qsf" firstAttribute="leading" secondItem="57V-29-Is4" secondAttribute="leading" constant="50" id="71p-A3-pdb"/>
                                     <constraint firstAttribute="trailing" secondItem="f3n-0Y-qsf" secondAttribute="trailing" constant="50" id="C3n-GQ-JmI"/>
-                                    <constraint firstItem="T6s-6o-hPe" firstAttribute="top" secondItem="57V-29-Is4" secondAttribute="topMargin" constant="20" id="NgR-MS-i5C"/>
-                                    <constraint firstItem="T6s-6o-hPe" firstAttribute="leading" secondItem="57V-29-Is4" secondAttribute="leadingMargin" id="PZy-Xd-UKO"/>
-                                    <constraint firstAttribute="bottom" secondItem="f3n-0Y-qsf" secondAttribute="bottom" constant="44" id="T8c-OY-L52"/>
+                                    <constraint firstItem="T6s-6o-hPe" firstAttribute="top" secondItem="57V-29-Is4" secondAttribute="topMargin" constant="44" id="NgR-MS-i5C"/>
+                                    <constraint firstItem="T6s-6o-hPe" firstAttribute="leading" secondItem="57V-29-Is4" secondAttribute="leadingMargin" constant="12" id="PZy-Xd-UKO"/>
+                                    <constraint firstAttribute="bottom" secondItem="f3n-0Y-qsf" secondAttribute="bottom" constant="50" id="T8c-OY-L52"/>
                                     <constraint firstAttribute="height" constant="190" id="cKF-Yy-54c"/>
                                 </constraints>
                             </view>
@@ -2284,7 +2284,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                             <constraint firstItem="q22-ug-4wk" firstAttribute="bottom" secondItem="Q3r-w3-pWa" secondAttribute="bottom" id="eyR-FX-atm"/>
                             <constraint firstItem="q22-ug-4wk" firstAttribute="trailing" secondItem="Fwi-Pr-m0O" secondAttribute="trailing" constant="20" id="i9I-qJ-OhK"/>
                             <constraint firstItem="57V-29-Is4" firstAttribute="top" secondItem="dGJ-l1-WKs" secondAttribute="top" id="kcv-W6-YuQ"/>
-                            <constraint firstItem="b3f-18-ypv" firstAttribute="top" secondItem="f3n-0Y-qsf" secondAttribute="bottom" constant="30" id="wP4-kB-lsP"/>
+                            <constraint firstItem="b3f-18-ypv" firstAttribute="top" secondItem="f3n-0Y-qsf" secondAttribute="bottom" constant="36" id="wP4-kB-lsP"/>
                             <constraint firstItem="q22-ug-4wk" firstAttribute="bottom" secondItem="8GZ-br-CdT" secondAttribute="bottom" constant="300" id="yen-e5-w2U"/>
                             <constraint firstItem="57V-29-Is4" firstAttribute="leading" secondItem="q22-ug-4wk" secondAttribute="leading" id="zg0-KW-TQJ"/>
                         </constraints>
@@ -3240,35 +3240,35 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="requested_movements_icon" translatesAutoresizingMaskIntoConstraints="NO" id="bCY-XI-wsl">
-                                                        <rect key="frame" x="16" y="376.33333333333331" width="20" height="19"/>
+                                                        <rect key="frame" x="16" y="376" width="20" height="19"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="BpG-pX-vd1"/>
                                                             <constraint firstAttribute="height" constant="19" id="coK-Me-YXd"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smooth_movements_icon" translatesAutoresizingMaskIntoConstraints="NO" id="fIc-s3-Bdh">
-                                                        <rect key="frame" x="16" y="435.33333333333337" width="18" height="22"/>
+                                                        <rect key="frame" x="16" y="435" width="18" height="22"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="AHU-ga-0qe"/>
                                                             <constraint firstAttribute="width" constant="18" id="DCp-s9-nsj"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_interference_icon" translatesAutoresizingMaskIntoConstraints="NO" id="FAq-ZT-TYG">
-                                                        <rect key="frame" x="16" y="497.33333333333337" width="18" height="18"/>
+                                                        <rect key="frame" x="16" y="497" width="18" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="18" id="95c-Ij-YCI"/>
                                                             <constraint firstAttribute="width" constant="18" id="rnj-px-VPn"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="good_light_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Rkf-kC-tcK">
-                                                        <rect key="frame" x="16" y="555.33333333333337" width="18" height="20"/>
+                                                        <rect key="frame" x="16" y="555" width="18" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="18" id="Ox1-5Z-Cbf"/>
                                                             <constraint firstAttribute="height" constant="20" id="XWH-Dv-COU"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fixed_camera_icon" translatesAutoresizingMaskIntoConstraints="NO" id="KiT-vF-PGZ">
-                                                        <rect key="frame" x="16" y="615.33333333333337" width="18" height="22"/>
+                                                        <rect key="frame" x="16" y="615" width="18" height="22"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="BiP-DI-pK4"/>
                                                             <constraint firstAttribute="width" constant="18" id="tbU-cr-StF"/>

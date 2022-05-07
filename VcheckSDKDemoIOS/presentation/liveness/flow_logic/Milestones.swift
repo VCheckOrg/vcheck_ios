@@ -139,6 +139,10 @@ class StandardMilestoneFlow {
     func getCurrentStage() -> GestureMilestone {
         return stagesList[currentStageIdx]
     }
+    
+    func getUndoneStage() -> GestureMilestone {
+        return stagesList[currentStageIdx - 1]
+    }
 
     func checkCurrentStage(pitchAngle: Float, mouthFactor: Float, yawAbsAngle: Float,
                            onMilestoneResult: (GestureMilestoneType) -> Void,
