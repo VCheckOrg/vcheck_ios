@@ -46,13 +46,18 @@ public final class LivenessScreenViewController: UIViewController {
     private var milestoneFlow = StandardMilestoneFlow()
     
     static let LIVENESS_TIME_LIMIT_MILLIS = 14000 //max is 15000
-    static let BLOCK_PIPELINE_TIME_MILLIS = 1400 //may reduce a bit
-    static let MAX_FRAMES_W_O_FATAL_OBSTACLES = 12
-    static let MIN_FRAMES_FOR_MINOR_OBSTACLES = 4
+    static let BLOCK_PIPELINE_TIME_MILLIS = 1200 //may reduce a bit
+    static let MAX_FRAMES_WITH_FATAL_OBSTACLES = 50
+    //static let MIN_FRAMES_FOR_MINOR_OBSTACLES = 8
+    
+    private var multiFaceFrameCounter: Int = 0
+    private var noFaceFrameCounter: Int = 0
+    private var majorObstacleFrameCounter: Int = 0
     
     private var isLivenessSessionFinished: Bool = false
     private var hasEnoughTimeForNextGesture: Bool = true
     private var livenessSessionTimeoutTimer : DispatchSourceTimer?
+    //private var blockIndicationByUI: Bool = false
 
     
     // MARK: - Implementation & Lifecycle methods
@@ -119,7 +124,9 @@ extension LivenessScreenViewController {
     func processFaceFrame(frame: GARAugmentedFaceFrame) {
         if let face = frame.face {
             
-            processFaceCalcForFrame(face: face)
+            if (!isLivenessSessionFinished) {
+                processFaceCalcForFrame(face: face)
+            }
             
             // Update the camera image layer's transform to the display transform for this frame. //?
             CATransaction.begin()
@@ -150,11 +157,13 @@ extension LivenessScreenViewController {
             print("------- PASSED MILESTONE: \(milestoneType)")
             DispatchQueue.main.async {
                 if (milestoneType == GestureMilestoneType.MouthOpenMilestone) {
+                    self.hapticFeedbackGenerator.notificationOccurred(.success)
                     self.isLivenessSessionFinished = true
                     self.performSegue(withIdentifier: "LivenessToLocalSuccess", sender: nil)
                 } else {
                     if (self.hasEnoughTimeForNextGesture) {
                         if (milestoneType != GestureMilestoneType.CheckHeadPositionMilestone) {
+                            self.majorObstacleFrameCounter = -15
                             self.hapticFeedbackGenerator.notificationOccurred(.success)
                         }
                         self.setupOrUpdateFaceAnimation(forMilestoneType: milestoneType)
@@ -164,12 +173,40 @@ extension LivenessScreenViewController {
                 }
             }
         },
-                                        onObstacleMet: { obstacleType in
-            //print("------- MET OBSTACLE: \(obstacleType)")
+        onObstacleMet: { obstacleType in
+            onObstableTypeMet(obstacleType: obstacleType)
         })
         
         //      print("MOUTH: \(mouthAngle)\nPITCH: \(faceAnglesHolder.pitch)\nYAW: \(faceAnglesHolder.yaw)"
         //              + "\n\nMOUTH OPEN: \(mouthOpen)\n\nTURNED LEFT: \(turnedLeft)\n\nTURNED RIGHT: \(turnedRight)")
+    }
+    
+    func onObstableTypeMet(obstacleType: ObstacleType) {
+        //print("------- MET OBSTACLE: \(obstacleType)")
+        if (obstacleType == ObstacleType.YAW_ANGLE) {
+            DispatchQueue.main.async {
+                self.hapticFeedbackGenerator.notificationOccurred(.warning) //?
+                self.tvLivenessInfo.textColor = .red
+                self.tvLivenessInfo.text = NSLocalizedString("line_face_obstacle", comment: "")
+                DispatchQueue.main.asyncAfter(deadline:
+                        .now() + .milliseconds(LivenessScreenViewController.BLOCK_PIPELINE_TIME_MILLIS) ) {
+                    self.updateLivenessInfoText(forMilestoneType:
+                    self.milestoneFlow.getCurrentStage().gestureMilestoneType)
+                }
+            }
+        }
+        if (obstacleType == ObstacleType.WRONG_GESTURE) {
+            DispatchQueue.main.async {
+                self.majorObstacleFrameCounter += 1
+                //print("WRONG GESTURE FRAME COUNT: \(self.majorObstacleFrameCounter)")
+                if (self.majorObstacleFrameCounter >= LivenessScreenViewController.MAX_FRAMES_WITH_FATAL_OBSTACLES) {
+                    self.hapticFeedbackGenerator.notificationOccurred(.warning) //?
+                    self.majorObstacleFrameCounter = 0
+                    self.isLivenessSessionFinished = true
+                    self.performSegue(withIdentifier: "LivenessToWrongGesture", sender: nil)
+                }
+            }
+        }
     }
     
     func startLivenessSessionTimeoutTimer() {
@@ -198,6 +235,7 @@ extension LivenessScreenViewController {
 extension LivenessScreenViewController {
     
     func updateLivenessInfoText(forMilestoneType: GestureMilestoneType) {
+        self.tvLivenessInfo.textColor = .white
         if (forMilestoneType == GestureMilestoneType.CheckHeadPositionMilestone) {
             self.tvLivenessInfo.text = NSLocalizedString("liveness_stage_face_left", comment: "")
         } else if (forMilestoneType == GestureMilestoneType.OuterLeftHeadPitchMilestone) {

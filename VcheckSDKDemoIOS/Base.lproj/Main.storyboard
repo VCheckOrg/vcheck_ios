@@ -2200,8 +2200,8 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLEASE WAIT..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3n-0Y-qsf">
-                                        <rect key="frame" x="50" y="128" width="290" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <rect key="frame" x="50" y="125.66666666666667" width="290" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" name="DescriptionColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -2272,7 +2272,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                         <outlet property="tvLivenessInfo" destination="f3n-0Y-qsf" id="KfW-rw-Zoc"/>
                         <segue destination="IiJ-Ck-Dhz" kind="show" identifier="LivenessToLocalSuccess" id="ZdL-1s-Zh3"/>
                         <segue destination="q0J-YZ-DjP" kind="show" identifier="LivenessToNoTime" id="E2k-TB-gTE"/>
-                        <segue destination="Gk4-E0-G28" kind="show" id="HKh-3c-Vf4"/>
+                        <segue destination="Gk4-E0-G28" kind="show" identifier="LivenessToWrongGesture" id="HKh-3c-Vf4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NfE-K9-vQd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

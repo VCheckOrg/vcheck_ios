@@ -29,3 +29,4 @@
 "liveness_stage_face_left" = "Turn face to the left";
 "liveness_stage_face_right" = "Turn face to the right";
 "liveness_stage_open_mouth" = "Open mouth";
+"line_face_obstacle" = "Don't look up or down";
