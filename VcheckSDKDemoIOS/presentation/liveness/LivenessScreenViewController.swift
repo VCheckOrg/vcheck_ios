@@ -140,8 +140,12 @@ extension LivenessScreenViewController {
             //try move to if (!isLivenessSessionFinished) for resources optimization
             updateCameraFrame(frame: frame)
             
+            noFaceFrameCounter = 0
             // Only show AR content when a face is detected. //!
             sceneView.scene?.rootNode.isHidden = frame.face == nil
+
+        } else {
+            onObstableTypeMet(obstacleType: ObstacleType.NO_STRAIGHT_FACE_DETECTED)
         }
     }
     
@@ -207,6 +211,18 @@ extension LivenessScreenViewController {
                     self.majorObstacleFrameCounter = 0
                     self.isLivenessSessionFinished = true
                     self.performSegue(withIdentifier: "LivenessToWrongGesture", sender: nil)
+                }
+            }
+        }
+        if (obstacleType == ObstacleType.NO_STRAIGHT_FACE_DETECTED) {
+            DispatchQueue.main.async {
+                self.noFaceFrameCounter += 1
+                print("NO STRAIGHT FACE FRAME COUNT: \(self.noFaceFrameCounter)")
+                if (self.noFaceFrameCounter >= LivenessScreenViewController.MAX_FRAMES_WITH_FATAL_OBSTACLES) {
+                    self.hapticFeedbackGenerator.notificationOccurred(.warning) //?
+                    self.majorObstacleFrameCounter = 0
+                    self.isLivenessSessionFinished = true
+                    self.performSegue(withIdentifier: "LivenessToNoFaceDetected", sender: nil)
                 }
             }
         }

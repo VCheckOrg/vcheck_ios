@@ -982,7 +982,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ykM-VE-rLX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4797" y="-1683"/>
+            <point key="canvasLocation" x="1843" y="-1420"/>
         </scene>
         <!--Fail Verification View Controller-->
         <scene sceneID="ARG-lg-EGv">
@@ -1242,7 +1242,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ot-po-KGK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5760" y="-1683"/>
+            <point key="canvasLocation" x="6668" y="-1269"/>
         </scene>
         <!--No Camera View Controller-->
         <scene sceneID="wi6-la-w4P">
@@ -1372,7 +1372,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SSE-JD-3Sp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3020" y="-1682"/>
+            <point key="canvasLocation" x="5715" y="-1269"/>
         </scene>
         <!--Not Found View Controller-->
         <scene sceneID="eTh-NG-ulS">
@@ -1473,7 +1473,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sGW-Oa-s3n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3900" y="-1682"/>
+            <point key="canvasLocation" x="4808" y="-1268"/>
         </scene>
         <!--Success Verification View Controller-->
         <scene sceneID="ft6-tC-Pf5">
@@ -2300,6 +2300,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                         <segue destination="IiJ-Ck-Dhz" kind="show" identifier="LivenessToLocalSuccess" id="ZdL-1s-Zh3"/>
                         <segue destination="q0J-YZ-DjP" kind="show" identifier="LivenessToNoTime" id="E2k-TB-gTE"/>
                         <segue destination="Gk4-E0-G28" kind="show" identifier="LivenessToWrongGesture" id="HKh-3c-Vf4"/>
+                        <segue destination="YIZ-ih-eAP" kind="show" identifier="LivenessToNoFaceDetected" id="dMs-gB-ZC7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NfE-K9-vQd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3240,35 +3241,35 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="requested_movements_icon" translatesAutoresizingMaskIntoConstraints="NO" id="bCY-XI-wsl">
-                                                        <rect key="frame" x="16" y="376" width="20" height="19"/>
+                                                        <rect key="frame" x="16" y="376.33333333333331" width="20" height="19"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="BpG-pX-vd1"/>
                                                             <constraint firstAttribute="height" constant="19" id="coK-Me-YXd"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smooth_movements_icon" translatesAutoresizingMaskIntoConstraints="NO" id="fIc-s3-Bdh">
-                                                        <rect key="frame" x="16" y="435" width="18" height="22"/>
+                                                        <rect key="frame" x="16" y="435.33333333333337" width="18" height="22"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="AHU-ga-0qe"/>
                                                             <constraint firstAttribute="width" constant="18" id="DCp-s9-nsj"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_interference_icon" translatesAutoresizingMaskIntoConstraints="NO" id="FAq-ZT-TYG">
-                                                        <rect key="frame" x="16" y="497" width="18" height="18"/>
+                                                        <rect key="frame" x="16" y="497.33333333333337" width="18" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="18" id="95c-Ij-YCI"/>
                                                             <constraint firstAttribute="width" constant="18" id="rnj-px-VPn"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="good_light_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Rkf-kC-tcK">
-                                                        <rect key="frame" x="16" y="555" width="18" height="20"/>
+                                                        <rect key="frame" x="16" y="555.33333333333337" width="18" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="18" id="Ox1-5Z-Cbf"/>
                                                             <constraint firstAttribute="height" constant="20" id="XWH-Dv-COU"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fixed_camera_icon" translatesAutoresizingMaskIntoConstraints="NO" id="KiT-vF-PGZ">
-                                                        <rect key="frame" x="16" y="615" width="18" height="22"/>
+                                                        <rect key="frame" x="16" y="615.33333333333337" width="18" height="22"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="BiP-DI-pK4"/>
                                                             <constraint firstAttribute="width" constant="18" id="tbU-cr-StF"/>
