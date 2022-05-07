@@ -12,6 +12,8 @@ public final class LivenessScreenViewController: UIViewController {
     
   @IBOutlet weak var roundedView: RoundedView!
     
+    
+    
   //@IBOutlet weak var testLivenessRealtimeInfo: UITextView!
     
   // MARK: - Member Variables
@@ -31,16 +33,10 @@ public final class LivenessScreenViewController: UIViewController {
 
   // MARK: - Face properties
   private var faceSession: GARAugmentedFaceSession?
-  private lazy var faceNode = SCNNode()
-  private lazy var faceTextureNode = SCNNode()
-  private lazy var faceOccluderNode = SCNNode()
-  private var faceTextureMaterial = SCNMaterial()
-  private var faceOccluderMaterial = SCNMaterial()
-  private var noseTipNode: SCNNode?
-  private var foreheadLeftNode: SCNNode?
-  private var foreheadRightNode: SCNNode?
     
+  // MARK: - Anim properties
   var faceAnimationView: AnimationView = AnimationView(name: "right")
+  //var arrowAnimationView: AnimationView = AnimationView(name: "")
     
   // MARK: - Implementation methods
   override public func viewDidLoad() {
@@ -85,24 +81,13 @@ public final class LivenessScreenViewController: UIViewController {
   /// - Returns: true when the function has fatal error; false when not.
   private func setupScene() -> Bool {
       
-    guard let scene = SCNScene(named: "Face.scnassets/liveness_scene.scn"),
-      let modelRoot = scene.rootNode.childNode(withName: "asset", recursively: false)
+    guard let scene = SCNScene(named: "Face.scnassets/liveness_scene.scn")
     else {
       alertWindowTitle = "A fatal error occurred."
       alertMessage = "Failed to load face scene!"
       popupAlertWindowOnError(alertWindowTitle: alertWindowTitle, alertMessage: alertMessage)
       return false
     }
-
-    // SceneKit uses meters for units, while the canonical face mesh asset uses centimeters.
-    modelRoot.simdScale = simd_float3(1, 1, 1) * 0.01
-    foreheadLeftNode = modelRoot.childNode(withName: "FOREHEAD_LEFT", recursively: true)
-    foreheadRightNode = modelRoot.childNode(withName: "FOREHEAD_RIGHT", recursively: true)
-    noseTipNode = modelRoot.childNode(withName: "NOSE_TIP", recursively: true)
-
-    faceNode.addChildNode(faceTextureNode)
-    faceNode.addChildNode(faceOccluderNode)
-    scene.rootNode.addChildNode(faceNode)
 
     let cameraNode = SCNNode()
     cameraNode.camera = sceneCamera
@@ -117,7 +102,6 @@ public final class LivenessScreenViewController: UIViewController {
     // Flip 'x' to mirror content to mimic 'selfie' mode
     sceneView.layer.transform = CATransform3DMakeScale(-1, 1, 1)
     view.addSubview(sceneView)
-    faceOccluderMaterial.colorBufferWriteMask = []
 
     return true
   }
@@ -316,6 +300,9 @@ extension LivenessScreenViewController {
           let turnedLeft: Bool = faceAnglesHolder.pitch < -30
           let turnedRight: Bool = faceAnglesHolder.pitch > 30
           
+        print("MOUTH: \(mouthAngle)\nPITCH: \(faceAnglesHolder.pitch)\nYAW: \(faceAnglesHolder.yaw)"
+              + "\n\nMOUTH OPEN: \(mouthOpen)\n\nTURNED LEFT: \(turnedLeft)\n\nTURNED RIGHT: \(turnedRight)")
+        
         //TODO: make simple logs instead
   //        DispatchQueue.main.async {
   //            self.testLivenessRealtimeInfo.text = "MOUTH: \(mouthAngle)\nPITCH: \(faceAnglesHolder.pitch)\nYAW: \(faceAnglesHolder.yaw)"
