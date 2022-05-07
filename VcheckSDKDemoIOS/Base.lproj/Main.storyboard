@@ -2219,19 +2219,10 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NrB-hx-Tlh" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
                                 <rect key="frame" x="223" y="130" width="128" height="128"/>
-                                <subviews>
-                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l1e-Pt-BBK" customClass="AnimationView" customModule="Lottie">
-                                        <rect key="frame" x="20" y="20" width="88" height="88"/>
-                                    </view>
-                                </subviews>
                                 <color key="backgroundColor" name="CardColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="l1e-Pt-BBK" secondAttribute="bottom" constant="20" id="Do3-7z-QCW"/>
-                                    <constraint firstItem="l1e-Pt-BBK" firstAttribute="top" secondItem="NrB-hx-Tlh" secondAttribute="top" constant="20" id="ahN-wU-BKY"/>
-                                    <constraint firstAttribute="height" constant="128" id="cKK-qN-vsX"/>
-                                    <constraint firstAttribute="width" constant="128" id="fxT-YW-m7B"/>
-                                    <constraint firstItem="l1e-Pt-BBK" firstAttribute="leading" secondItem="NrB-hx-Tlh" secondAttribute="leading" constant="20" id="hit-QS-J9W"/>
-                                    <constraint firstAttribute="trailing" secondItem="l1e-Pt-BBK" secondAttribute="trailing" constant="20" id="jrV-vf-Be7"/>
+                                    <constraint firstAttribute="height" constant="128" id="4d8-Vj-YqM"/>
+                                    <constraint firstAttribute="width" constant="128" id="ME4-E3-kjf"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -2249,16 +2240,16 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                         <viewLayoutGuide key="safeArea" id="q22-ug-4wk"/>
                         <color key="backgroundColor" name="DescriptionColor"/>
                         <constraints>
-                            <constraint firstItem="q22-ug-4wk" firstAttribute="trailing" secondItem="NrB-hx-Tlh" secondAttribute="trailing" constant="24" id="DoB-mp-vDo"/>
                             <constraint firstItem="57V-29-Is4" firstAttribute="trailing" secondItem="q22-ug-4wk" secondAttribute="trailing" id="GEB-fC-PWe"/>
-                            <constraint firstItem="NrB-hx-Tlh" firstAttribute="top" secondItem="57V-29-Is4" secondAttribute="bottom" constant="-50" id="fII-bA-TSj"/>
+                            <constraint firstItem="NrB-hx-Tlh" firstAttribute="top" secondItem="q22-ug-4wk" secondAttribute="top" constant="130" id="JJg-ZO-bY8"/>
+                            <constraint firstItem="q22-ug-4wk" firstAttribute="trailing" secondItem="NrB-hx-Tlh" secondAttribute="trailing" constant="24" id="PkS-jT-GG4"/>
                             <constraint firstItem="57V-29-Is4" firstAttribute="top" secondItem="dGJ-l1-WKs" secondAttribute="top" id="kcv-W6-YuQ"/>
                             <constraint firstItem="57V-29-Is4" firstAttribute="leading" secondItem="q22-ug-4wk" secondAttribute="leading" id="zg0-KW-TQJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nhO-sD-A6d"/>
                     <connections>
-                        <outlet property="faceGestureAnimView" destination="l1e-Pt-BBK" id="pUB-uH-g6P"/>
+                        <outlet property="roundedView" destination="NrB-hx-Tlh" id="KuT-j5-CUh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NfE-K9-vQd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3370,9 +3361,6 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <point key="canvasLocation" x="4282" y="1642"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="l1e-Pt-BBK"/>
-    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="mdJ-XX-Wrm"/>
     </inferredMetricsTieBreakers>

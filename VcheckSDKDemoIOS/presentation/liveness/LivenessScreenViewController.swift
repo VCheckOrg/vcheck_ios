@@ -9,7 +9,8 @@ import Lottie
 /// Demonstrates how to use ARCore Augmented Faces with SceneKit.
 public final class LivenessScreenViewController: UIViewController {
     
-    @IBOutlet weak var faceGestureAnimView: AnimationView!
+    
+  @IBOutlet weak var roundedView: RoundedView!
     
   //@IBOutlet weak var testLivenessRealtimeInfo: UITextView!
     
@@ -39,17 +40,11 @@ public final class LivenessScreenViewController: UIViewController {
   private var foreheadLeftNode: SCNNode?
   private var foreheadRightNode: SCNNode?
     
+  var faceAnimationView: AnimationView = AnimationView(name: "right")
+    
   // MARK: - Implementation methods
   override public func viewDidLoad() {
     super.viewDidLoad()
-      
-      let anim = Animation.named("right")
-      faceGestureAnimView.animation = anim
-      faceGestureAnimView.loopMode = .loop
-//      faceGestureAnimView.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
-//      faceGestureAnimView.contentMode = .scaleAspectFill
-      //!!
-      faceGestureAnimView.play()
 
     if !setupScene() {
       return
@@ -63,28 +58,24 @@ public final class LivenessScreenViewController: UIViewController {
 
     do {
       faceSession = try GARAugmentedFaceSession(fieldOfView: videoFieldOfView)
+        
     } catch {
       alertWindowTitle = "A fatal error occurred."
       alertMessage = "Failed to create session. Error description: \(error)"
       popupAlertWindowOnError(alertWindowTitle: alertWindowTitle, alertMessage: alertMessage)
     }
-      
-      //----------------------------------------
-      //let view = AnimationView()
-//      let path = Bundle.main.path(forResource: "left",
-//                                      ofType: "json", inDirectory: "animations") ?? ""
-//      faceGestureAnimView.animation = Animation.filepath(path)
-
   }
 
   override public func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
 
     viewDidAppearReached = true
-
+      
     if needToShowFatalError {
       popupAlertWindowOnError(alertWindowTitle: alertWindowTitle, alertMessage: alertMessage)
     }
+      
+    setupFaceAnimation()
   }
 
   /// Create the scene view from a scene and supporting nodes, and add to the view.
@@ -238,6 +229,7 @@ public final class LivenessScreenViewController: UIViewController {
 }
 
 // MARK: - Camera delegate
+
 extension LivenessScreenViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
 
   public func captureOutput(
@@ -274,72 +266,123 @@ extension LivenessScreenViewController: SCNSceneRendererDelegate {
       NSLog("In renderer, currentFrame is nil.")
       return
     }
+      
+    updateFaceAnimation()
 
-    if let face = frame.face {
-        
-        processFaceCalcForFrame(face: face)
-        
-        // Update the camera image layer's transform to the display transform for this frame.
-        CATransaction.begin()
-        CATransaction.setAnimationDuration(0)
-        cameraImageLayer.contents = frame.capturedImage as CVPixelBuffer
-        cameraImageLayer.setAffineTransform(
-          frame.displayTransform(
-            forViewportSize: cameraImageLayer.bounds.size,
-            presentationOrientation: .portrait,
-            mirrored: true)
-        )
-        CATransaction.commit()
-
-        // Only show AR content when a face is detected.
-        sceneView.scene?.rootNode.isHidden = frame.face == nil
-    }
+    processFaceFrame(frame: frame)
   }
-    
-  func processFaceCalcForFrame(face: GARAugmentedFace) {
-        //SIMD3<Float>(0.044765785, 0.031215014, 0.037100613)
-        
-        let h1 = MouthCalcCoordsHolder.init(x1: face.mesh.vertices[37].x, x2: face.mesh.vertices[83].x, y1: face.mesh.vertices[37].y,
-                                            y2: face.mesh.vertices[83].y, z1: face.mesh.vertices[37].z, z2: face.mesh.vertices[83].z)
-        let h2 = MouthCalcCoordsHolder.init(x1: face.mesh.vertices[267].x, x2: face.mesh.vertices[314].x, y1: face.mesh.vertices[267].y,
-                                            y2: face.mesh.vertices[314].y, z1: face.mesh.vertices[267].z, z2: face.mesh.vertices[314].z)
-        let h3 = MouthCalcCoordsHolder.init(x1: face.mesh.vertices[61].x, x2: face.mesh.vertices[281].x, y1: face.mesh.vertices[61].y,
-                                            y2: face.mesh.vertices[281].y, z1: face.mesh.vertices[61].z, z2: face.mesh.vertices[281].z)
-        
-        let mouthAngle = landmarksToMouthAspectRatio(h1: h1, h2: h2, h3: h3)
-        let faceAnglesHolder = face.centerTransform.eulerAngles
-        
-        let mouthOpen: Bool = mouthAngle > 0.39
-        let turnedLeft: Bool = faceAnglesHolder.pitch < -30
-        let turnedRight: Bool = faceAnglesHolder.pitch > 30
-        
-      //TODO: make simple logs instead
-//        DispatchQueue.main.async {
-//            self.testLivenessRealtimeInfo.text = "MOUTH: \(mouthAngle)\nPITCH: \(faceAnglesHolder.pitch)\nYAW: \(faceAnglesHolder.yaw)"
-//             + "\n\nMOUTH OPEN: \(mouthOpen)\n\nTURNED LEFT: \(turnedLeft)\n\nTURNED RIGHT: \(turnedRight)"
-//        }
-    }
-    
-    func landmarksToMouthAspectRatio(h1: MouthCalcCoordsHolder, h2: MouthCalcCoordsHolder, h3: MouthCalcCoordsHolder) -> Float {
-        
-        let a = euclidean(coordsHolder: h1)
-        let b = euclidean(coordsHolder: h2)
-        let c = euclidean(coordsHolder: h3)
-        
-//        let a = euclidean(p0: vertices[37], p1: vertices[83])  //1, 2
-//        let b = euclidean(p0: vertices[267], p1: vertices[314])  //3, 4
-//        let c = euclidean(p0: vertices[61], p1: vertices[281])  //5, 6
-
-        return (a + b / (2.0 * c)) * 1.2  //! 1.2 is a factor for making result more precise!
-    }
-
-    func euclidean(coordsHolder: MouthCalcCoordsHolder) -> Float {
-         //return sqrt((p0[0] - p1[0]).pow(2) + (p0[1] - p1[1]).pow(2) + (p0[2] - p1[2]).pow(2))
-        let calc = pow((coordsHolder.x1 - coordsHolder.x2), 2) + pow((coordsHolder.y1 - coordsHolder.y2), 2) + pow((coordsHolder.z1 - coordsHolder.z2), 2)
-        return sqrt(calc)
-     }
 }
 
+// MARK: - Frame processing upper-level ext.
+
+extension LivenessScreenViewController {
+    
+    func processFaceFrame(frame: GARAugmentedFaceFrame) {
+        if let face = frame.face {
+            
+           processFaceCalcForFrame(face: face)
+        
+            // Update the camera image layer's transform to the display transform for this frame.
+            CATransaction.begin()
+            CATransaction.setAnimationDuration(0)
+            cameraImageLayer.contents = frame.capturedImage as CVPixelBuffer
+            cameraImageLayer.setAffineTransform(
+              frame.displayTransform(
+                forViewportSize: cameraImageLayer.bounds.size,
+                presentationOrientation: .portrait,
+                mirrored: true)
+            )
+            CATransaction.commit()
+
+            // Only show AR content when a face is detected.
+            sceneView.scene?.rootNode.isHidden = frame.face == nil
+        }
+    }
+    
+    func processFaceCalcForFrame(face: GARAugmentedFace) {
+          //SIMD3<Float>(0.044765785, 0.031215014, 0.037100613)
+          
+          let h1 = MouthCalcCoordsHolder.init(x1: face.mesh.vertices[37].x, x2: face.mesh.vertices[83].x, y1: face.mesh.vertices[37].y,
+                                              y2: face.mesh.vertices[83].y, z1: face.mesh.vertices[37].z, z2: face.mesh.vertices[83].z)
+          let h2 = MouthCalcCoordsHolder.init(x1: face.mesh.vertices[267].x, x2: face.mesh.vertices[314].x, y1: face.mesh.vertices[267].y,
+                                              y2: face.mesh.vertices[314].y, z1: face.mesh.vertices[267].z, z2: face.mesh.vertices[314].z)
+          let h3 = MouthCalcCoordsHolder.init(x1: face.mesh.vertices[61].x, x2: face.mesh.vertices[281].x, y1: face.mesh.vertices[61].y,
+                                              y2: face.mesh.vertices[281].y, z1: face.mesh.vertices[61].z, z2: face.mesh.vertices[281].z)
+          
+          let mouthAngle = landmarksToMouthAspectRatio(h1: h1, h2: h2, h3: h3)
+          let faceAnglesHolder = face.centerTransform.eulerAngles
+          
+          let mouthOpen: Bool = mouthAngle > 0.39
+          let turnedLeft: Bool = faceAnglesHolder.pitch < -30
+          let turnedRight: Bool = faceAnglesHolder.pitch > 30
+          
+        //TODO: make simple logs instead
+  //        DispatchQueue.main.async {
+  //            self.testLivenessRealtimeInfo.text = "MOUTH: \(mouthAngle)\nPITCH: \(faceAnglesHolder.pitch)\nYAW: \(faceAnglesHolder.yaw)"
+  //             + "\n\nMOUTH OPEN: \(mouthOpen)\n\nTURNED LEFT: \(turnedLeft)\n\nTURNED RIGHT: \(turnedRight)"
+  //        }
+      }
+      
+      func landmarksToMouthAspectRatio(h1: MouthCalcCoordsHolder, h2: MouthCalcCoordsHolder, h3: MouthCalcCoordsHolder) -> Float {
+          
+          let a = euclidean(coordsHolder: h1)
+          let b = euclidean(coordsHolder: h2)
+          let c = euclidean(coordsHolder: h3)
+          
+  //        let a = euclidean(p0: vertices[37], p1: vertices[83])  //1, 2
+  //        let b = euclidean(p0: vertices[267], p1: vertices[314])  //3, 4
+  //        let c = euclidean(p0: vertices[61], p1: vertices[281])  //5, 6
+
+          return (a + b / (2.0 * c)) * 1.2  //! 1.2 is a factor for making result more precise!
+      }
+
+      func euclidean(coordsHolder: MouthCalcCoordsHolder) -> Float {
+           //return sqrt((p0[0] - p1[0]).pow(2) + (p0[1] - p1[1]).pow(2) + (p0[2] - p1[2]).pow(2))
+          let calc = pow((coordsHolder.x1 - coordsHolder.x2), 2) + pow((coordsHolder.y1 - coordsHolder.y2), 2) + pow((coordsHolder.z1 - coordsHolder.z2), 2)
+          return sqrt(calc)
+       }
+}
+
+
+    // MARK: - Animation extensions
+
+extension LivenessScreenViewController {
+    
+    func setupFaceAnimation() {
+        faceAnimationView = AnimationView(name: "right")
+        faceAnimationView.contentMode = .scaleAspectFit
+        faceAnimationView.translatesAutoresizingMaskIntoConstraints = false
+        self.roundedView.addSubview(faceAnimationView)
+
+        faceAnimationView.centerXAnchor.constraint(equalTo: self.roundedView.centerXAnchor, constant: 4).isActive = true
+        faceAnimationView.centerYAnchor.constraint(equalTo: self.roundedView.centerYAnchor).isActive = true
+        
+        faceAnimationView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        faceAnimationView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        
+        //faceAnimationView.transform = CGAffineTransform(rotationAngle: CGFloat.pi) //rotate by 180 deg.
+        
+        //faceAnimationView.loopMode = .autoReverse
+        //faceAnimationView.play()
+    }
+    
+    func updateFaceAnimation() {
+        DispatchQueue.main.async {
+            let toProgress = self.faceAnimationView.realtimeAnimationProgress
+            //print(toProgress)
+            if (toProgress >= 0.99) {
+                self.faceAnimationView.play(toProgress: toProgress - 0.99)
+            }
+            if (toProgress <= 0.01) {
+                self.faceAnimationView.play(toProgress: toProgress + 1)
+            }
+        }
+    }
+    
+}
+
+
+// MARK: - Coords' util structs
 
 struct MouthCalcCoordsHolder {
     
@@ -358,6 +401,7 @@ struct FaceAnglesHolder {
     let roll: Float
 }
 
+// MARK: - Matrix extensions
 
 extension simd_float4x4 {
     
@@ -407,6 +451,7 @@ extension simd_float4x4 {
     }
 }
 
+
 //extension UIDevice {
 //    static var isSimulator: Bool = {
 //        #if targetEnvironment(simulator)
@@ -415,3 +460,11 @@ extension simd_float4x4 {
 //        return false
 //        #endif
 //    }()
+
+//DispatchQueue.global(qos: .userInitiated).async {
+//    print("This is run on a background queue")
+//
+//    DispatchQueue.main.async {
+//        print("This is run on the main queue, after the previous code in outer block")
+//    }
+//}
