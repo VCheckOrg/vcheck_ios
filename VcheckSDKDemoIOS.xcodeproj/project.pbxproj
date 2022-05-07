@@ -60,6 +60,8 @@
 		DAD01E4928266CDA007DA004 /* down.json in Resources */ = {isa = PBXBuildFile; fileRef = DAD01E4328266CDA007DA004 /* down.json */; };
 		DAD01E4A28266CDA007DA004 /* left.json in Resources */ = {isa = PBXBuildFile; fileRef = DAD01E4428266CDA007DA004 /* left.json */; };
 		DAD01E4B28266CDA007DA004 /* right.json in Resources */ = {isa = PBXBuildFile; fileRef = DAD01E4528266CDA007DA004 /* right.json */; };
+		DAD01E4E2826792D007DA004 /* milestones.kt in Resources */ = {isa = PBXBuildFile; fileRef = DAD01E4D2826792D007DA004 /* milestones.kt */; };
+		DAD01E502826793C007DA004 /* Milestones.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD01E4F2826793C007DA004 /* Milestones.swift */; };
 		DADD31EF281D7A0200EB25ED /* DocumentTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD31EE281D7A0200EB25ED /* DocumentTypes.swift */; };
 		DADD31F2281D93F800EB25ED /* LivenessScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD31F1281D93F800EB25ED /* LivenessScreenViewController.swift */; };
 		DAE87E102816CC1F00ED6826 /* ChooseCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E0F2816CC1F00ED6826 /* ChooseCountryViewController.swift */; };
@@ -130,6 +132,8 @@
 		DAD01E4328266CDA007DA004 /* down.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = down.json; sourceTree = "<group>"; };
 		DAD01E4428266CDA007DA004 /* left.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = left.json; sourceTree = "<group>"; };
 		DAD01E4528266CDA007DA004 /* right.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = right.json; sourceTree = "<group>"; };
+		DAD01E4D2826792D007DA004 /* milestones.kt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = milestones.kt; sourceTree = "<group>"; };
+		DAD01E4F2826793C007DA004 /* Milestones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milestones.swift; sourceTree = "<group>"; };
 		DADD31EE281D7A0200EB25ED /* DocumentTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTypes.swift; sourceTree = "<group>"; };
 		DADD31F1281D93F800EB25ED /* LivenessScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessScreenViewController.swift; sourceTree = "<group>"; };
 		DAE87E0F2816CC1F00ED6826 /* ChooseCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCountryViewController.swift; sourceTree = "<group>"; };
@@ -321,9 +325,19 @@
 			path = ../../../../../.Trash/animations;
 			sourceTree = "<group>";
 		};
+		DAD01E4C282678E8007DA004 /* flow_logic */ = {
+			isa = PBXGroup;
+			children = (
+				DAD01E4D2826792D007DA004 /* milestones.kt */,
+				DAD01E4F2826793C007DA004 /* Milestones.swift */,
+			);
+			path = flow_logic;
+			sourceTree = "<group>";
+		};
 		DADD31F0281D93C600EB25ED /* liveness */ = {
 			isa = PBXGroup;
 			children = (
+				DAD01E4C282678E8007DA004 /* flow_logic */,
 				DADD31F1281D93F800EB25ED /* LivenessScreenViewController.swift */,
 			);
 			path = liveness;
@@ -404,6 +418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAB613392814767900234BB2 /* LaunchScreen.storyboard in Resources */,
+				DAD01E4E2826792D007DA004 /* milestones.kt in Resources */,
 				DAAF4E0B281AC7A60029F26C /* document_verification_codes.kt in Resources */,
 				DAD01E4A28266CDA007DA004 /* left.json in Resources */,
 				DAD01E4628266CDA007DA004 /* up.json in Resources */,
@@ -507,6 +522,7 @@
 				DA63D7952823B683005EE4C0 /* CheckDocInfoViewModel.swift in Sources */,
 				DABCE2292822754300937E84 /* CheckDocPhotoViewController.swift in Sources */,
 				DAAF4E1C281AC7A60029F26C /* CountryModels.swift in Sources */,
+				DAD01E502826793C007DA004 /* Milestones.swift in Sources */,
 				DA737432281AD4CB00DBBDED /* ApiError.swift in Sources */,
 				DAB11439281D6515001F82E4 /* ChooseDocTypeViewModel.swift in Sources */,
 				DAC2325A281C3EF300D0CE16 /* BlockedCountryViewCell.swift in Sources */,

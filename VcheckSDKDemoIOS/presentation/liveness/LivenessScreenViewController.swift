@@ -357,7 +357,6 @@ extension LivenessScreenViewController {
         faceAnimationView.widthAnchor.constraint(equalToConstant: 200).isActive = true
         
         //faceAnimationView.transform = CGAffineTransform(rotationAngle: CGFloat.pi) //rotate by 180 deg.
-        
         //faceAnimationView.loopMode = .autoReverse
         //faceAnimationView.play()
     }
@@ -394,10 +393,6 @@ extension LivenessScreenViewController {
     func updateArrowAnimation() {
         DispatchQueue.main.async {
             let toProgress = self.arrowAnimationView.realtimeAnimationProgress
-            //print(toProgress)
-//            if (toProgress >= 0.99) {
-//                self.arrowAnimationView.play(toProgress: toProgress - 0.99)
-//            }
             if (toProgress <= 0.01) {
                 self.arrowAnimationView.play(toProgress: toProgress + 1)
             }
