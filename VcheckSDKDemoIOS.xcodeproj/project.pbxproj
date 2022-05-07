@@ -62,6 +62,7 @@
 		DAD01E4B28266CDA007DA004 /* right.json in Resources */ = {isa = PBXBuildFile; fileRef = DAD01E4528266CDA007DA004 /* right.json */; };
 		DAD01E4E2826792D007DA004 /* milestones.kt in Resources */ = {isa = PBXBuildFile; fileRef = DAD01E4D2826792D007DA004 /* milestones.kt */; };
 		DAD01E502826793C007DA004 /* Milestones.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD01E4F2826793C007DA004 /* Milestones.swift */; };
+		DAD01E5228268E0B007DA004 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD01E5128268E0B007DA004 /* Debouncer.swift */; };
 		DADD31EF281D7A0200EB25ED /* DocumentTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD31EE281D7A0200EB25ED /* DocumentTypes.swift */; };
 		DADD31F2281D93F800EB25ED /* LivenessScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD31F1281D93F800EB25ED /* LivenessScreenViewController.swift */; };
 		DAE87E102816CC1F00ED6826 /* ChooseCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E0F2816CC1F00ED6826 /* ChooseCountryViewController.swift */; };
@@ -134,6 +135,7 @@
 		DAD01E4528266CDA007DA004 /* right.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = right.json; sourceTree = "<group>"; };
 		DAD01E4D2826792D007DA004 /* milestones.kt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = milestones.kt; sourceTree = "<group>"; };
 		DAD01E4F2826793C007DA004 /* Milestones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milestones.swift; sourceTree = "<group>"; };
+		DAD01E5128268E0B007DA004 /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		DADD31EE281D7A0200EB25ED /* DocumentTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTypes.swift; sourceTree = "<group>"; };
 		DADD31F1281D93F800EB25ED /* LivenessScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessScreenViewController.swift; sourceTree = "<group>"; };
 		DAE87E0F2816CC1F00ED6826 /* ChooseCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCountryViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			children = (
 				DA737435281AF59400DBBDED /* Utils.swift */,
 				DA65CBB2281C527A006508A1 /* RoundedView.swift */,
+				DAD01E5128268E0B007DA004 /* Debouncer.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				DA737436281AF59400DBBDED /* Utils.swift in Sources */,
 				DABCE2312822BCB900937E84 /* ZoomedDocPhotoViewController.swift in Sources */,
 				DAE87E102816CC1F00ED6826 /* ChooseCountryViewController.swift in Sources */,
+				DAD01E5228268E0B007DA004 /* Debouncer.swift in Sources */,
 				DAAF4E12281AC7A60029F26C /* BaseClientrResponseModel.swift in Sources */,
 				DAAF4E0F281AC7A60029F26C /* BaseRequestBody.swift in Sources */,
 				DAB613342814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld in Sources */,

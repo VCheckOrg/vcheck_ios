@@ -24,10 +24,10 @@ enum ObstacleType {
 }
 
 class MilestoneConstraints {
-    static let YAW_PASS_ANGLE_ABS = 20.0
-    static let LEFT_PITCH_PASS_ANGLE = -30.0
-    static let RIGHT_PITCH_PASS_ANGLE = 30.0
-    static let MOUTH_OPEN_PASS_FACTOR = 0.39  //reduced from 0.55 !
+    static let YAW_PASS_ANGLE_ABS: Float = 20.0
+    static let LEFT_PITCH_PASS_ANGLE: Float = -30.0
+    static let RIGHT_PITCH_PASS_ANGLE: Float = 30.0
+    static let MOUTH_OPEN_PASS_FACTOR: Float = 0.39  //reduced from 0.55 !
 }
 
 
@@ -39,7 +39,7 @@ open class GestureMilestone {
         self.gestureMilestoneType = milestoneType
     }
 
-    open func isMet(pitchAngle: Double, mouthFactor: Double, yawAbsAngle: Double) -> Bool {
+    open func isMet(pitchAngle: Float, mouthFactor: Float, yawAbsAngle: Float) -> Bool {
         return false
     }
 }
@@ -56,7 +56,7 @@ class HeadPitchGestureMilestone : GestureMilestone {
         }
     }
 
-    override func isMet(pitchAngle: Double, mouthFactor: Double, yawAbsAngle: Double) -> Bool {
+    override func isMet(pitchAngle: Float, mouthFactor: Float, yawAbsAngle: Float) -> Bool {
         switch(gestureMilestoneType) {
             case GestureMilestoneType.InnerHeadPitchMilestone:
             return (pitchAngle < MilestoneConstraints.RIGHT_PITCH_PASS_ANGLE
@@ -83,7 +83,7 @@ class MouthGestureMilestone : GestureMilestone {
         }
     }
 
-    override func isMet(pitchAngle: Double, mouthFactor: Double, yawAbsAngle: Double) -> Bool {
+    override func isMet(pitchAngle: Float, mouthFactor: Float, yawAbsAngle: Float) -> Bool {
         switch (gestureMilestoneType) {
             case GestureMilestoneType.MouthOpenMilestone:
                 return (mouthFactor >= MilestoneConstraints.MOUTH_OPEN_PASS_FACTOR
@@ -115,7 +115,7 @@ class CheckOverallHeadPositionMilestone : GestureMilestone {
             && mouthClosedMilestone.gestureMilestoneType == GestureMilestoneType.MouthClosedMilestone)
     }
 
-    override func isMet(pitchAngle: Double, mouthFactor: Double, yawAbsAngle: Double) -> Bool {
+    override func isMet(pitchAngle: Float, mouthFactor: Float, yawAbsAngle: Float) -> Bool {
         if (!areMilestoneTypesMet()) {
             return false
         } else {
@@ -140,11 +140,11 @@ class StandardMilestoneFlow {
         return stagesList[currentStageIdx]
     }
 
-    func checkCurrentStage(pitchAngle: Double, mouthFactor: Double, yawAbsAngle: Double,
+    func checkCurrentStage(pitchAngle: Float, mouthFactor: Float, yawAbsAngle: Float,
                            onMilestoneResult: (GestureMilestoneType) -> Void,
                            onObstacleMet: (ObstacleType) -> Void) {
         if (currentStageIdx > (stagesList.count - 1)) {
-            print("ERROR: Index out of bound in milestones list!")
+            //print("ERROR: Index out of bounds in milestones list!")
             return
         }
         if (yawAbsAngle > MilestoneConstraints.YAW_PASS_ANGLE_ABS) {
