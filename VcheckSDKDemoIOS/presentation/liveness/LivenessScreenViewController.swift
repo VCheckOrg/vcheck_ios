@@ -13,10 +13,9 @@ public final class LivenessScreenViewController: UIViewController {
   @IBOutlet weak var roundedView: RoundedView!
     
   @IBOutlet weak var leftArrowAnimHolderView: UIView!
-
-  @IBOutlet weak var rightAnimHolderView: UIView!
+  @IBOutlet weak var rightArrowAnimHolderView: UIView!
     
-  @IBOutlet weak var tvLivenessInfo: UITextView!
+  @IBOutlet weak var tvLivenessInfo: UILabel!
     
   // MARK: - Anim properties
   var faceAnimationView: AnimationView = AnimationView()
@@ -49,19 +48,12 @@ public final class LivenessScreenViewController: UIViewController {
   override public func viewDidLoad() {
     super.viewDidLoad()
 
-    if !setupScene() {
-      return
-    }
-    if !setupCamera() {
-      return
-    }
-    if !setupMotion() {
-      return
-    }
+    if !setupScene() { return }
+    if !setupCamera() { return }
+    if !setupMotion() { return }
 
     do {
       faceSession = try GARAugmentedFaceSession(fieldOfView: videoFieldOfView)
-        
     } catch {
       alertWindowTitle = "A fatal error occurred."
       alertMessage = "Failed to create session. Error description: \(error)"
@@ -78,8 +70,8 @@ public final class LivenessScreenViewController: UIViewController {
       popupAlertWindowOnError(alertWindowTitle: alertWindowTitle, alertMessage: alertMessage)
     }
       
-      setupFaceAnimation(forMilestoneType: GestureMilestoneType.CheckHeadPositionMilestone)
-      setupArrowAnimation(forMilestoneType: GestureMilestoneType.CheckHeadPositionMilestone)
+      setupOrUpdateFaceAnimation(forMilestoneType: GestureMilestoneType.CheckHeadPositionMilestone)
+      setupOrUpdateArrowAnimation(forMilestoneType: GestureMilestoneType.CheckHeadPositionMilestone)
   }
 }
 
@@ -129,14 +121,12 @@ extension LivenessScreenViewController {
     }
     
     func processFaceCalcForFrame(face: GARAugmentedFace) {
+        
+      self.updateFaceAnimation()
+      self.updateArrowAnimation()
 
-      let mouthAngle = calculatemouthFactor(face: face)
+      let mouthAngle = calculateMouthFactor(face: face)
       let faceAnglesHolder = face.centerTransform.eulerAngles
-          
-      DispatchQueue.main.async {
-          self.updateFaceAnimation()
-          self.updateArrowAnimation()
-      }
         
       milestoneFlow.checkCurrentStage(pitchAngle: faceAnglesHolder.pitch,
                                         mouthFactor: mouthAngle,
@@ -147,12 +137,13 @@ extension LivenessScreenViewController {
               if (milestoneType != GestureMilestoneType.CheckHeadPositionMilestone) {
                   self.hapticFeedbackGenerator.notificationOccurred(.success)
               }
-              self.setupFaceAnimation(forMilestoneType: milestoneType)
-              self.setupArrowAnimation(forMilestoneType: milestoneType)
+              self.setupOrUpdateFaceAnimation(forMilestoneType: milestoneType)
+              self.setupOrUpdateArrowAnimation(forMilestoneType: milestoneType)
+              self.updateLivenessInfoText(forMilestoneType: milestoneType)
           }
         },
                                         onObstacleMet: { obstacleType in
-            print("------- MET OBSTACLE: \(obstacleType)")
+            //print("------- MET OBSTACLE: \(obstacleType)")
         })
         
 //      let mouthOpen: Bool = mouthAngle > 0.39
@@ -169,7 +160,19 @@ extension LivenessScreenViewController {
 
 extension LivenessScreenViewController {
     
-    func setupFaceAnimation(forMilestoneType: GestureMilestoneType) {
+    func updateLivenessInfoText(forMilestoneType: GestureMilestoneType) {
+        if (forMilestoneType == GestureMilestoneType.CheckHeadPositionMilestone) {
+            self.tvLivenessInfo.text = NSLocalizedString("liveness_stage_face_left", comment: "")
+        } else if (forMilestoneType == GestureMilestoneType.OuterLeftHeadPitchMilestone) {
+            self.tvLivenessInfo.text = NSLocalizedString("liveness_stage_face_right", comment: "")
+        } else if (forMilestoneType == GestureMilestoneType.OuterRightHeadPitchMilestone) {
+            self.tvLivenessInfo.text = NSLocalizedString("liveness_stage_open_mouth", comment: "")
+        } else {
+            self.tvLivenessInfo.text = NSLocalizedString("liveness_stage_check_face_pos", comment: "")
+        }
+    }
+    
+    func setupOrUpdateFaceAnimation(forMilestoneType: GestureMilestoneType) {
         
         if (forMilestoneType == GestureMilestoneType.CheckHeadPositionMilestone) {
             faceAnimationView = AnimationView(name: "left")
@@ -197,7 +200,7 @@ extension LivenessScreenViewController {
         //faceAnimationView.play()
     }
     
-    func setupArrowAnimation(forMilestoneType: GestureMilestoneType) {
+    func setupOrUpdateArrowAnimation(forMilestoneType: GestureMilestoneType) {
         
         if (forMilestoneType == GestureMilestoneType.CheckHeadPositionMilestone) {
             arrowAnimationView = AnimationView(name: "arrow")
@@ -222,10 +225,10 @@ extension LivenessScreenViewController {
             
             arrowAnimationView.contentMode = .center
             arrowAnimationView.translatesAutoresizingMaskIntoConstraints = false
-            rightAnimHolderView.addSubview(arrowAnimationView)
+            rightArrowAnimHolderView.addSubview(arrowAnimationView)
 
-            arrowAnimationView.centerXAnchor.constraint(equalTo: rightAnimHolderView.centerXAnchor).isActive = true
-            arrowAnimationView.centerYAnchor.constraint(equalTo: rightAnimHolderView.centerYAnchor, constant: 25).isActive = true
+            arrowAnimationView.centerXAnchor.constraint(equalTo: rightArrowAnimHolderView.centerXAnchor).isActive = true
+            arrowAnimationView.centerYAnchor.constraint(equalTo: rightArrowAnimHolderView.centerYAnchor, constant: 25).isActive = true
             
             arrowAnimationView.heightAnchor.constraint(equalToConstant: 250).isActive = true
             arrowAnimationView.widthAnchor.constraint(equalToConstant: 250).isActive = true
@@ -237,7 +240,7 @@ extension LivenessScreenViewController {
         } else {
             arrowAnimationView = AnimationView()
             arrowAnimationView.stop()
-            rightAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
+            rightArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
             leftArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
         }
     }
@@ -245,7 +248,6 @@ extension LivenessScreenViewController {
     func updateFaceAnimation() {
         DispatchQueue.main.async {
             let toProgress = self.faceAnimationView.realtimeAnimationProgress
-            //print(toProgress)
             if (toProgress >= 0.99) {
                 self.faceAnimationView.play(toProgress: toProgress - 0.99)
             }
@@ -442,7 +444,7 @@ extension LivenessScreenViewController {
 // MARK: - Mouth calc extensions
 extension LivenessScreenViewController {
     
-    func calculatemouthFactor(face: GARAugmentedFace) -> Float {
+    func calculateMouthFactor(face: GARAugmentedFace) -> Float {
         let h1 = MouthCalcCoordsHolder.init(x1: face.mesh.vertices[37].x, x2: face.mesh.vertices[83].x, y1: face.mesh.vertices[37].y,
                                             y2: face.mesh.vertices[83].y, z1: face.mesh.vertices[37].z, z2: face.mesh.vertices[83].z)
         let h2 = MouthCalcCoordsHolder.init(x1: face.mesh.vertices[267].x, x2: face.mesh.vertices[314].x, y1: face.mesh.vertices[267].y,

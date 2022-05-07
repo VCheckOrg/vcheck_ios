@@ -60,7 +60,6 @@
 		DAD01E4928266CDA007DA004 /* down.json in Resources */ = {isa = PBXBuildFile; fileRef = DAD01E4328266CDA007DA004 /* down.json */; };
 		DAD01E4A28266CDA007DA004 /* left.json in Resources */ = {isa = PBXBuildFile; fileRef = DAD01E4428266CDA007DA004 /* left.json */; };
 		DAD01E4B28266CDA007DA004 /* right.json in Resources */ = {isa = PBXBuildFile; fileRef = DAD01E4528266CDA007DA004 /* right.json */; };
-		DAD01E4E2826792D007DA004 /* milestones.kt in Resources */ = {isa = PBXBuildFile; fileRef = DAD01E4D2826792D007DA004 /* milestones.kt */; };
 		DAD01E502826793C007DA004 /* Milestones.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD01E4F2826793C007DA004 /* Milestones.swift */; };
 		DAD01E5228268E0B007DA004 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD01E5128268E0B007DA004 /* Debouncer.swift */; };
 		DADD31EF281D7A0200EB25ED /* DocumentTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD31EE281D7A0200EB25ED /* DocumentTypes.swift */; };
@@ -133,7 +132,6 @@
 		DAD01E4328266CDA007DA004 /* down.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = down.json; sourceTree = "<group>"; };
 		DAD01E4428266CDA007DA004 /* left.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = left.json; sourceTree = "<group>"; };
 		DAD01E4528266CDA007DA004 /* right.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = right.json; sourceTree = "<group>"; };
-		DAD01E4D2826792D007DA004 /* milestones.kt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = milestones.kt; sourceTree = "<group>"; };
 		DAD01E4F2826793C007DA004 /* Milestones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milestones.swift; sourceTree = "<group>"; };
 		DAD01E5128268E0B007DA004 /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		DADD31EE281D7A0200EB25ED /* DocumentTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTypes.swift; sourceTree = "<group>"; };
@@ -331,7 +329,6 @@
 		DAD01E4C282678E8007DA004 /* flow_logic */ = {
 			isa = PBXGroup;
 			children = (
-				DAD01E4D2826792D007DA004 /* milestones.kt */,
 				DAD01E4F2826793C007DA004 /* Milestones.swift */,
 			);
 			path = flow_logic;
@@ -421,7 +418,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAB613392814767900234BB2 /* LaunchScreen.storyboard in Resources */,
-				DAD01E4E2826792D007DA004 /* milestones.kt in Resources */,
 				DAAF4E0B281AC7A60029F26C /* document_verification_codes.kt in Resources */,
 				DAD01E4A28266CDA007DA004 /* left.json in Resources */,
 				DAD01E4628266CDA007DA004 /* up.json in Resources */,

@@ -13,13 +13,6 @@
 /* No comment provided by engineer. */
 "photo_upload_title_common_forward" = "Фотография первой страницы/стороны документа (с вашим фото).";
 
-/* 
-  Localizable.strings
-  VcheckSDKDemoIOS
-
-  Created by Kirill Kaun on 03.05.2022.
-  
-*/
 "photo_upload_title_foreign" = "Полный разворот документа с вашим фото";
 
 /* No comment provided by engineer. */
@@ -30,3 +23,9 @@
 
 /* Default action */
 "OK" = "";
+
+
+"liveness_stage_check_face_pos" = "Выровняйте лицо и закройте рот";
+"liveness_stage_face_left" = "Поверните лицо влево";
+"liveness_stage_face_right" = "Поверните лицо вправо";
+"liveness_stage_open_mouth" = "Откройте рот";
