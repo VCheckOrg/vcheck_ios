@@ -21,6 +21,8 @@ enum ObstacleType {
     case WRONG_GESTURE
     case MULTIPLE_FACES_DETECTED
     case NO_STRAIGHT_FACE_DETECTED
+    case BRIGHTNESS_LEVEL_IS_LOW
+    case MOTIONS_ARE_TOO_SHARP
 }
 
 class MilestoneConstraints {

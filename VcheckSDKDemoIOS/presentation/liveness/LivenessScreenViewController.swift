@@ -6,6 +6,8 @@ import UIKit
 import ARCore
 import Lottie
 
+import Vision
+
 /// Demonstrates how to use ARCore Augmented Faces with SceneKit.
 public final class LivenessScreenViewController: UIViewController {
     
@@ -207,9 +209,7 @@ extension LivenessScreenViewController {
                 self.majorObstacleFrameCounter += 1
                 //print("WRONG GESTURE FRAME COUNT: \(self.majorObstacleFrameCounter)")
                 if (self.majorObstacleFrameCounter >= LivenessScreenViewController.MAX_FRAMES_WITH_FATAL_OBSTACLES) {
-                    self.hapticFeedbackGenerator.notificationOccurred(.warning) //?
-                    self.majorObstacleFrameCounter = 0
-                    self.isLivenessSessionFinished = true
+                    self.endSessionPrematurely()
                     self.performSegue(withIdentifier: "LivenessToWrongGesture", sender: nil)
                 }
             }
@@ -219,13 +219,24 @@ extension LivenessScreenViewController {
                 self.noFaceFrameCounter += 1
                 print("NO STRAIGHT FACE FRAME COUNT: \(self.noFaceFrameCounter)")
                 if (self.noFaceFrameCounter >= LivenessScreenViewController.MAX_FRAMES_WITH_FATAL_OBSTACLES) {
-                    self.hapticFeedbackGenerator.notificationOccurred(.warning) //?
-                    self.majorObstacleFrameCounter = 0
-                    self.isLivenessSessionFinished = true
+                    self.endSessionPrematurely()
                     self.performSegue(withIdentifier: "LivenessToNoFaceDetected", sender: nil)
                 }
             }
         }
+        if (obstacleType == ObstacleType.BRIGHTNESS_LEVEL_IS_LOW) {
+//            DispatchQueue.main.async {
+//                self.endSessionPrematurely()
+//
+//            }
+            //TODO: add view controllers for error screens and UI for brightness obstacle!
+        }
+    }
+    
+    func endSessionPrematurely() {
+        self.hapticFeedbackGenerator.notificationOccurred(.warning) //?
+        self.majorObstacleFrameCounter = 0
+        self.isLivenessSessionFinished = true
     }
     
     func startLivenessSessionTimeoutTimer() {
@@ -407,8 +418,7 @@ extension LivenessScreenViewController: AVCaptureVideoDataOutputSampleBufferDele
             frame.displayTransform(
                 forViewportSize: cameraImageLayer.bounds.size,
                 presentationOrientation: .portrait,
-                mirrored: true)
-        )
+                mirrored: true))
         CATransaction.commit()
     }
     
@@ -417,6 +427,12 @@ extension LivenessScreenViewController: AVCaptureVideoDataOutputSampleBufferDele
         didOutput sampleBuffer: CMSampleBuffer,
         from connection: AVCaptureConnection
     ) {
+        let brightness = getBrightness(sampleBuffer: sampleBuffer)
+        //print("CURRENT BRIGHTNESS: \(brightness)")
+        if (brightness < -1.0) {
+            onObstableTypeMet(obstacleType: ObstacleType.BRIGHTNESS_LEVEL_IS_LOW)
+        }
+        
         guard let imgBuffer = CMSampleBufferGetImageBuffer(sampleBuffer),
               let deviceMotion = motionManager.deviceMotion
         else {
@@ -440,6 +456,14 @@ extension LivenessScreenViewController: AVCaptureVideoDataOutputSampleBufferDele
 // MARK: - camera & scene setup
 
 extension LivenessScreenViewController {
+    
+    func getBrightness(sampleBuffer: CMSampleBuffer) -> Double {
+        let rawMetadata = CMCopyDictionaryOfAttachments(allocator: nil, target: sampleBuffer, attachmentMode: CMAttachmentMode(kCMAttachmentMode_ShouldPropagate))
+        let metadata = CFDictionaryCreateMutableCopy(nil, 0, rawMetadata) as NSMutableDictionary
+        let exifData = metadata.value(forKey: "{Exif}") as? NSMutableDictionary
+        let brightnessValue : Double = exifData?[kCGImagePropertyExifBrightnessValue as String] as! Double
+        return brightnessValue
+    }
     
     /// Setup a camera capture session from the front camera to receive captures.
     /// - Returns: true when the function has fatal error; false when not.
