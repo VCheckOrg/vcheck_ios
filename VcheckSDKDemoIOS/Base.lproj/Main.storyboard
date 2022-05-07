@@ -37,7 +37,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="512-S9-Usq" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-800" y="-655"/>
+            <point key="canvasLocation" x="-1160" y="-1137"/>
         </scene>
         <!--Unsupported View Controller-->
         <scene sceneID="25P-IB-Srk">
@@ -78,7 +78,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pib-AZ-YMA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="57" y="-655"/>
+            <point key="canvasLocation" x="-303" y="-1137"/>
         </scene>
         <!--Demo Start View Controller-->
         <scene sceneID="5BM-mo-2Xp">
@@ -516,7 +516,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qfn-YN-ja4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1307" y="-866"/>
+            <point key="canvasLocation" x="2217" y="92"/>
         </scene>
         <!--Error View Controller-->
         <scene sceneID="944-w0-g7d">
@@ -625,7 +625,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p6F-W9-KOM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1307" y="-1682"/>
+            <point key="canvasLocation" x="5263" y="95"/>
         </scene>
         <!--Wrong Movement View Controller-->
         <scene sceneID="SBe-W2-Czb">
@@ -744,7 +744,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zHf-q0-bDL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2169" y="-866"/>
+            <point key="canvasLocation" x="2217" y="-670"/>
         </scene>
         <!--Frame Interference View Controller-->
         <scene sceneID="fXR-d2-LtU">
@@ -863,7 +863,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8gM-ZB-E9W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3021" y="-851"/>
+            <point key="canvasLocation" x="3274" y="-863"/>
         </scene>
         <!--Look Stratight Error View Controller-->
         <scene sceneID="3my-jL-PW1">
@@ -982,7 +982,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ykM-VE-rLX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3900" y="-851"/>
+            <point key="canvasLocation" x="4797" y="-1683"/>
         </scene>
         <!--Fail Verification View Controller-->
         <scene sceneID="ARG-lg-EGv">
@@ -1112,7 +1112,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xp3-NL-myv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2167" y="-1682"/>
+            <point key="canvasLocation" x="6366" y="95"/>
         </scene>
         <!--OS Not Supported View Controller-->
         <scene sceneID="eyy-0l-iIB">
@@ -1242,7 +1242,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ot-po-KGK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4786" y="-851"/>
+            <point key="canvasLocation" x="5760" y="-1683"/>
         </scene>
         <!--No Camera View Controller-->
         <scene sceneID="wi6-la-w4P">
@@ -1583,7 +1583,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m8B-LW-HPd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4786" y="-1682"/>
+            <point key="canvasLocation" x="4280" y="-282"/>
         </scene>
         <!--In Process View Controller-->
         <scene sceneID="Y29-ti-guP">
@@ -1689,10 +1689,13 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vFh-so-BRF"/>
+                    <connections>
+                        <segue destination="uMO-hA-gT0" kind="show" id="d7I-Pw-cvc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YT1-AJ-w3Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5689" y="-866"/>
+            <point key="canvasLocation" x="3275" y="92"/>
         </scene>
         <!--Photo Instructions View Controller-->
         <scene sceneID="HTG-Kf-TQP">
@@ -2267,11 +2270,14 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                         <outlet property="rightArrowAnimHolderView" destination="Fwi-Pr-m0O" id="emE-aR-yDQ"/>
                         <outlet property="roundedView" destination="NrB-hx-Tlh" id="KuT-j5-CUh"/>
                         <outlet property="tvLivenessInfo" destination="f3n-0Y-qsf" id="KfW-rw-Zoc"/>
+                        <segue destination="IiJ-Ck-Dhz" kind="show" id="ZdL-1s-Zh3"/>
+                        <segue destination="q0J-YZ-DjP" kind="show" identifier="LivenessToNoTime" id="E2k-TB-gTE"/>
+                        <segue destination="Gk4-E0-G28" kind="show" id="HKh-3c-Vf4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NfE-K9-vQd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1162.4000000000001" y="93.103448275862078"/>
+            <point key="canvasLocation" x="1166" y="-259"/>
         </scene>
         <!--Check Doc Info View Controller-->
         <scene sceneID="ljs-xk-7FC">
