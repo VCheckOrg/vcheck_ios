@@ -334,9 +334,17 @@
 			path = flow_logic;
 			sourceTree = "<group>";
 		};
+		DAD01E532826AE08007DA004 /* error_ui */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = error_ui;
+			sourceTree = "<group>";
+		};
 		DADD31F0281D93C600EB25ED /* liveness */ = {
 			isa = PBXGroup;
 			children = (
+				DAD01E532826AE08007DA004 /* error_ui */,
 				DAD01E4C282678E8007DA004 /* flow_logic */,
 				DADD31F1281D93F800EB25ED /* LivenessScreenViewController.swift */,
 			);
