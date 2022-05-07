@@ -141,16 +141,11 @@ extension LivenessScreenViewController {
             
             if (!isLivenessSessionFinished) {
                 processFaceCalcForFrame(face: face)
+                updateCameraFrame(frame: frame)
             }
-            //try move to if (!isLivenessSessionFinished) for resources optimization
-            updateCameraFrame(frame: frame)
             
-            noFaceFrameCounter = 0
             // Only show AR content when a face is detected. //!
             sceneView.scene?.rootNode.isHidden = frame.face == nil
-
-        } else {
-            onObstableTypeMet(obstacleType: ObstacleType.NO_STRAIGHT_FACE_DETECTED)
         }
     }
     
@@ -195,7 +190,6 @@ extension LivenessScreenViewController {
     }
     
     func onObstableTypeMet(obstacleType: ObstacleType) {
-        //print("------- MET OBSTACLE: \(obstacleType)")
         if (obstacleType == ObstacleType.YAW_ANGLE) {
             DispatchQueue.main.async {
                 self.hapticFeedbackGenerator.notificationOccurred(.warning) //?
@@ -220,10 +214,20 @@ extension LivenessScreenViewController {
         if (obstacleType == ObstacleType.NO_STRAIGHT_FACE_DETECTED) {
             DispatchQueue.main.async {
                 self.noFaceFrameCounter += 1
-                print("NO STRAIGHT FACE FRAME COUNT: \(self.noFaceFrameCounter)")
+                print("NO STRAIGHT FACE DETECTED - FRAME COUNT: \(self.noFaceFrameCounter)")
                 if (self.noFaceFrameCounter >= LivenessScreenViewController.MAX_FRAMES_WITH_FATAL_OBSTACLES) {
                     self.endSessionPrematurely()
                     self.performSegue(withIdentifier: "LivenessToNoFaceDetected", sender: nil)
+                }
+            }
+        }
+        if (obstacleType == ObstacleType.MULTIPLE_FACES_DETECTED) {
+            DispatchQueue.main.async {
+                self.multiFaceFrameCounter += 1
+                print("MULTIPLE FACES DETECTION - FRAME COUNT: \(self.multiFaceFrameCounter)")
+                if (self.multiFaceFrameCounter >= LivenessScreenViewController.MAX_FRAMES_WITH_FATAL_OBSTACLES) {
+                    self.endSessionPrematurely()
+                    self.performSegue(withIdentifier: "LivenessToMultipleFaces", sender: nil)
                 }
             }
         }
@@ -239,6 +243,8 @@ extension LivenessScreenViewController {
     func endSessionPrematurely() {
         self.hapticFeedbackGenerator.notificationOccurred(.warning) //?
         self.majorObstacleFrameCounter = 0
+        self.noFaceFrameCounter = 0
+        self.multiFaceFrameCounter = 0
         self.isLivenessSessionFinished = true
     }
     
@@ -741,20 +747,26 @@ extension LivenessScreenViewController {
         return
       }
         
-      //TODO: add screen + nav for multiple faces detection
+      //TODO: add screen + nav for multiple faces detection! + fix arrow
 
-      DispatchQueue.main.async {
-        CATransaction.begin()
-          print("DETECTED FACES: \(results.count)")
+        if (results.count < 1) {
+            onObstableTypeMet(obstacleType: ObstacleType.NO_STRAIGHT_FACE_DETECTED)
+        }
+        if (results.count > 1) {
+            onObstableTypeMet(obstacleType: ObstacleType.MULTIPLE_FACES_DETECTED)
+        }
+    }
+}
+
+
+//DispatchQueue.main.async {
+//CATransaction.begin()
+//print("DETECTED FACES: \(results.count)")
 //        for result in results {
 //          //print(result.boundingBox)
 //          // self.drawFace(in: result.boundingBox)
 //        }
-        CATransaction.commit()
-      }
-    }
-}
-
+//CATransaction.commit()
 
 //extension UIDevice {
 //    static var isSimulator: Bool = {

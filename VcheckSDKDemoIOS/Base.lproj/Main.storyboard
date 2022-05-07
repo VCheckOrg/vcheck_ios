@@ -744,7 +744,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zHf-q0-bDL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2217" y="-670"/>
+            <point key="canvasLocation" x="2552" y="-1068"/>
         </scene>
         <!--Frame Interference View Controller-->
         <scene sceneID="fXR-d2-LtU">
@@ -863,7 +863,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8gM-ZB-E9W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3274" y="-863"/>
+            <point key="canvasLocation" x="3275" y="-724"/>
         </scene>
         <!--Look Stratight Error View Controller-->
         <scene sceneID="3my-jL-PW1">
@@ -2301,6 +2301,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                         <segue destination="q0J-YZ-DjP" kind="show" identifier="LivenessToNoTime" id="E2k-TB-gTE"/>
                         <segue destination="Gk4-E0-G28" kind="show" identifier="LivenessToWrongGesture" id="HKh-3c-Vf4"/>
                         <segue destination="YIZ-ih-eAP" kind="show" identifier="LivenessToNoFaceDetected" id="dMs-gB-ZC7"/>
+                        <segue destination="K4l-kg-dQj" kind="show" identifier="LivenessToMultipleFaces" id="zJe-KO-wvN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NfE-K9-vQd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
