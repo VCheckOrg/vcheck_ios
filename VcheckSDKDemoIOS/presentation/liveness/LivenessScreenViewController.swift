@@ -13,6 +13,11 @@ public final class LivenessScreenViewController: UIViewController {
   @IBOutlet weak var roundedView: RoundedView!
     
     
+    @IBOutlet weak var leftArrowAnimHolderView: UIView!
+    
+    @IBOutlet weak var rightAnimHolderView: UIView!
+    
+  //@IBOutlet weak var arrowAnimHolderView: UIView!
     
   //@IBOutlet weak var testLivenessRealtimeInfo: UITextView!
     
@@ -36,7 +41,7 @@ public final class LivenessScreenViewController: UIViewController {
     
   // MARK: - Anim properties
     var faceAnimationView: AnimationView = AnimationView()
-  //var arrowAnimationView: AnimationView = AnimationView(name: "")
+    var arrowAnimationView: AnimationView = AnimationView()
     
   // MARK: - Implementation methods
   override public func viewDidLoad() {
@@ -71,7 +76,8 @@ public final class LivenessScreenViewController: UIViewController {
       popupAlertWindowOnError(alertWindowTitle: alertWindowTitle, alertMessage: alertMessage)
     }
       
-    setupFaceAnimation()
+      setupFaceAnimation()
+      setupArrowAnimation()
   }
 
   /// Create the scene view from a scene and supporting nodes, and add to the view.
@@ -252,6 +258,8 @@ extension LivenessScreenViewController: SCNSceneRendererDelegate {
     }
       
     updateFaceAnimation()
+      
+    updateArrowAnimation()
 
     processFaceFrame(frame: frame)
   }
@@ -340,10 +348,10 @@ extension LivenessScreenViewController {
         
         faceAnimationView.contentMode = .scaleAspectFit
         faceAnimationView.translatesAutoresizingMaskIntoConstraints = false
-        self.roundedView.addSubview(faceAnimationView)
+        roundedView.addSubview(faceAnimationView)
 
-        faceAnimationView.centerXAnchor.constraint(equalTo: self.roundedView.centerXAnchor, constant: 4).isActive = true
-        faceAnimationView.centerYAnchor.constraint(equalTo: self.roundedView.centerYAnchor).isActive = true
+        faceAnimationView.centerXAnchor.constraint(equalTo: roundedView.centerXAnchor, constant: 4).isActive = true
+        faceAnimationView.centerYAnchor.constraint(equalTo: roundedView.centerYAnchor).isActive = true
         
         faceAnimationView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         faceAnimationView.widthAnchor.constraint(equalToConstant: 200).isActive = true
@@ -352,6 +360,22 @@ extension LivenessScreenViewController {
         
         //faceAnimationView.loopMode = .autoReverse
         //faceAnimationView.play()
+    }
+    
+    func setupArrowAnimation() {
+        arrowAnimationView = AnimationView(name: "arrow")
+        
+        arrowAnimationView.contentMode = .center
+        arrowAnimationView.translatesAutoresizingMaskIntoConstraints = false
+        leftArrowAnimHolderView.addSubview(arrowAnimationView)
+
+        arrowAnimationView.centerXAnchor.constraint(equalTo: leftArrowAnimHolderView.centerXAnchor).isActive = true
+        arrowAnimationView.centerYAnchor.constraint(equalTo: leftArrowAnimHolderView.centerYAnchor).isActive = true
+        
+        arrowAnimationView.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        arrowAnimationView.widthAnchor.constraint(equalToConstant: 250).isActive = true
+        
+        arrowAnimationView.loopMode = .loop
     }
     
     func updateFaceAnimation() {
@@ -363,6 +387,19 @@ extension LivenessScreenViewController {
             }
             if (toProgress <= 0.01) {
                 self.faceAnimationView.play(toProgress: toProgress + 1)
+            }
+        }
+    }
+    
+    func updateArrowAnimation() {
+        DispatchQueue.main.async {
+            let toProgress = self.arrowAnimationView.realtimeAnimationProgress
+            //print(toProgress)
+//            if (toProgress >= 0.99) {
+//                self.arrowAnimationView.play(toProgress: toProgress - 0.99)
+//            }
+            if (toProgress <= 0.01) {
+                self.arrowAnimationView.play(toProgress: toProgress + 1)
             }
         }
     }
