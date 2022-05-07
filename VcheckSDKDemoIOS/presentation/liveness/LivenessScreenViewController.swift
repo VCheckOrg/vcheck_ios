@@ -35,7 +35,7 @@ public final class LivenessScreenViewController: UIViewController {
   private var faceSession: GARAugmentedFaceSession?
     
   // MARK: - Anim properties
-  var faceAnimationView: AnimationView = AnimationView(name: "right")
+    var faceAnimationView: AnimationView = AnimationView()
   //var arrowAnimationView: AnimationView = AnimationView(name: "")
     
   // MARK: - Implementation methods
@@ -300,8 +300,8 @@ extension LivenessScreenViewController {
           let turnedLeft: Bool = faceAnglesHolder.pitch < -30
           let turnedRight: Bool = faceAnglesHolder.pitch > 30
           
-        print("MOUTH: \(mouthAngle)\nPITCH: \(faceAnglesHolder.pitch)\nYAW: \(faceAnglesHolder.yaw)"
-              + "\n\nMOUTH OPEN: \(mouthOpen)\n\nTURNED LEFT: \(turnedLeft)\n\nTURNED RIGHT: \(turnedRight)")
+//        print("MOUTH: \(mouthAngle)\nPITCH: \(faceAnglesHolder.pitch)\nYAW: \(faceAnglesHolder.yaw)"
+//              + "\n\nMOUTH OPEN: \(mouthOpen)\n\nTURNED LEFT: \(turnedLeft)\n\nTURNED RIGHT: \(turnedRight)")
         
         //TODO: make simple logs instead
   //        DispatchQueue.main.async {
@@ -337,6 +337,7 @@ extension LivenessScreenViewController {
     
     func setupFaceAnimation() {
         faceAnimationView = AnimationView(name: "right")
+        
         faceAnimationView.contentMode = .scaleAspectFit
         faceAnimationView.translatesAutoresizingMaskIntoConstraints = false
         self.roundedView.addSubview(faceAnimationView)
@@ -365,7 +366,6 @@ extension LivenessScreenViewController {
             }
         }
     }
-    
 }
 
 
