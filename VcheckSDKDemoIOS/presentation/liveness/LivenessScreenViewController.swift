@@ -5,7 +5,6 @@ import SceneKit
 import UIKit
 import ARCore
 import Lottie
-
 import Vision
 
 /// Demonstrates how to use ARCore Augmented Faces with SceneKit.
@@ -65,6 +64,10 @@ public final class LivenessScreenViewController: UIViewController {
     private var hasEnoughTimeForNextGesture: Bool = true
     private var livenessSessionTimeoutTimer : DispatchSourceTimer?
     private var blockStageIndicationByUI: Bool = false
+    
+    
+    // MARK: multiple faces detection test
+    lazy var faceDetectionRequest = VNDetectFaceLandmarksRequest(completionHandler: self.onFacesDetected)
 
     
     // MARK: - Implementation & Lifecycle methods
@@ -319,7 +322,6 @@ extension LivenessScreenViewController {
         
         faceAnimationView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         faceAnimationView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-    
     }
     
     func setupOrUpdateArrowAnimation(forMilestoneType: GestureMilestoneType) {
@@ -439,6 +441,9 @@ extension LivenessScreenViewController: AVCaptureVideoDataOutputSampleBufferDele
             NSLog("In captureOutput, imgBuffer or deviceMotion is nil.")
             return
         }
+        
+        //!
+        detectFacesOnFrameOutput(buffer: imgBuffer)
         
         let frameTime = CMTimeGetSeconds(CMSampleBufferGetPresentationTimeStamp(sampleBuffer))
         
@@ -702,6 +707,52 @@ struct FaceAnglesHolder {
     let pitch: Float
     let yaw: Float
     let roll: Float
+}
+
+// MARK: - Multiple faces detection
+
+extension LivenessScreenViewController {
+    
+    func detectFacesOnFrameOutput(buffer: CVImageBuffer) {
+        detectFaces(on: convertCVImageBufferToUIImage(buffer: buffer))
+    }
+    
+    func convertCVImageBufferToUIImage(buffer: CVImageBuffer) -> UIImage {
+        let ciImage: CIImage = CIImage(cvPixelBuffer: buffer)
+        return ciImage.orientationCorrectedImage()!
+    }
+    
+    func detectFaces(on image: UIImage) {
+      let handler = VNImageRequestHandler(
+        cgImage: image.cgImage!,
+        options: [:])
+      
+      DispatchQueue.global(qos: .userInitiated).async {
+        do {
+          try handler.perform([self.faceDetectionRequest])
+        } catch {
+          print(error)
+        }
+      }
+    }
+    
+    func onFacesDetected(request: VNRequest, error: Error?) {
+      guard let results = request.results as? [VNFaceObservation] else {
+        return
+      }
+        
+      //TODO: add screen + nav for multiple faces detection
+
+      DispatchQueue.main.async {
+        CATransaction.begin()
+          print("DETECTED FACES: \(results.count)")
+//        for result in results {
+//          //print(result.boundingBox)
+//          // self.drawFace(in: result.boundingBox)
+//        }
+        CATransaction.commit()
+      }
+    }
 }
 
 

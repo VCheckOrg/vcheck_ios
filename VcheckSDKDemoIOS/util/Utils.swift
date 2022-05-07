@@ -89,3 +89,36 @@ extension UIView {
         onClickClosure()
     }
 }
+
+
+extension CIImage {
+    func orientationCorrectedImage() -> UIImage? {
+        var imageOrientation = UIImage.Orientation.up
+        switch UIDevice.current.orientation {
+        case UIDeviceOrientation.portrait:
+            imageOrientation = UIImage.Orientation.right
+        case UIDeviceOrientation.landscapeLeft:
+            imageOrientation = UIImage.Orientation.down
+        case UIDeviceOrientation.landscapeRight:
+            imageOrientation = UIImage.Orientation.up
+        case UIDeviceOrientation.portraitUpsideDown:
+            imageOrientation = UIImage.Orientation.left
+        default:
+            break;
+        }
+
+        var w = self.extent.size.width
+        var h = self.extent.size.height
+
+        if imageOrientation == .left || imageOrientation == .right || imageOrientation == .leftMirrored || imageOrientation == .rightMirrored {
+            swap(&w, &h)
+        }
+
+        UIGraphicsBeginImageContext(CGSize(width: w, height: h));
+        UIImage.init(ciImage: self, scale: 1.0, orientation: imageOrientation).draw(in: CGRect(x: 0, y: 0, width: w, height: h))
+        let uiImage:UIImage? = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext();
+
+        return uiImage
+    }
+}
