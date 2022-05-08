@@ -7,9 +7,10 @@ import ARCore
 import Lottie
 import Vision
 
-/// Demonstrates how to use ARCore Augmented Faces with SceneKit.
+//TODO: Add all possible camera resource close actions after navigating to next screen!
+//TODO: Also add debouncer for Vision's multiple faces detection
+
 public final class LivenessScreenViewController: UIViewController {
-    
     
     // MARK: Outlets/Actions
     
@@ -25,36 +26,35 @@ public final class LivenessScreenViewController: UIViewController {
     
     
     // MARK: - Anim properties
-    var faceAnimationView: AnimationView = AnimationView()
-    var arrowAnimationView: AnimationView = AnimationView()
-    let hapticFeedbackGenerator = UINotificationFeedbackGenerator()
+    private var faceAnimationView: AnimationView = AnimationView()
+    private var arrowAnimationView: AnimationView = AnimationView()
+    private let hapticFeedbackGenerator = UINotificationFeedbackGenerator()
     
-    // MARK: - Member Variables
-    private var needToShowFatalError = false
-    private var alertWindowTitle = "Nothing"
-    private var alertMessage = "Nothing"
-    private var viewDidAppearReached = false
+    // MARK: - Member Variables (open for ext.)
+    var needToShowFatalError = false
+    var alertWindowTitle = "Nothing"
+    var alertMessage = "Nothing"
+    var viewDidAppearReached = false
     
-    // MARK: - Camera / Scene properties
-    private var captureDevice: AVCaptureDevice?
-    private var captureSession: AVCaptureSession?
-    private var videoFieldOfView = Float(0)
-    private lazy var cameraImageLayer = CALayer()
-    private lazy var sceneView = SCNView()
-    private lazy var sceneCamera = SCNCamera()
-    private lazy var motionManager = CMMotionManager()
+    // MARK: - Camera / Scene properties (open for ext.)
+    var captureDevice: AVCaptureDevice?
+    var captureSession: AVCaptureSession?
+    var videoFieldOfView = Float(0)
+    lazy var cameraImageLayer = CALayer()
+    lazy var sceneView = SCNView()
+    lazy var sceneCamera = SCNCamera()
+    lazy var motionManager = CMMotionManager()
     
-    // MARK: - Face properties
+    // MARK: - AR Face properties
     private var faceSession: GARAugmentedFaceSession?
     
-    // MARK: - Milestone flow & logic
+    // MARK: - Milestone flow & logic properties
     private var milestoneFlow = StandardMilestoneFlow()
     
     static let LIVENESS_TIME_LIMIT_MILLIS = 14000 //max is 15000
-    static let BLOCK_PIPELINE_ON_OBSTACLE_TIME_MILLIS = 1200 //may reduce a bit
-    static let BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS = 1600 //may reduce a bit
+    static let BLOCK_PIPELINE_ON_OBSTACLE_TIME_MILLIS = 1100 //may reduce a bit
+    static let BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS = 1200 //may reduce a bit
     static let MAX_FRAMES_WITH_FATAL_OBSTACLES = 50
-    //static let MIN_FRAMES_FOR_MINOR_OBSTACLES = 8
     
     private var multiFaceFrameCounter: Int = 0
     private var noFaceFrameCounter: Int = 0
@@ -409,7 +409,6 @@ extension LivenessScreenViewController {
                                  UIView.AnimationOptions.repeat], animations: {
             view.alpha = 0
         }, completion: nil)
-
     }
 }
 
@@ -448,7 +447,7 @@ extension LivenessScreenViewController: AVCaptureVideoDataOutputSampleBufferDele
             return
         }
         
-        //!
+        //TODO: test
         detectFacesOnFrameOutput(buffer: imgBuffer)
         
         let frameTime = CMTimeGetSeconds(CMSampleBufferGetPresentationTimeStamp(sampleBuffer))
@@ -457,343 +456,8 @@ extension LivenessScreenViewController: AVCaptureVideoDataOutputSampleBufferDele
         // positive counter-clockwise rotation of the device relative to landscape left orientation.
         let rotation = 2 * .pi - atan2(deviceMotion.gravity.x, deviceMotion.gravity.y) + .pi / 2
         let rotationDegrees = (UInt)(rotation * 180 / .pi) % 360
-        
         //print("DEVICE(?) ROTATION DEGREES: \(rotationDegrees)")
         
         faceSession?.update(with: imgBuffer, timestamp: frameTime, recognitionRotation: rotationDegrees)
     }
 }
-
-// MARK: - camera & scene setup
-
-extension LivenessScreenViewController {
-    
-    func getBrightness(sampleBuffer: CMSampleBuffer) -> Double {
-        let rawMetadata = CMCopyDictionaryOfAttachments(allocator: nil, target: sampleBuffer, attachmentMode: CMAttachmentMode(kCMAttachmentMode_ShouldPropagate))
-        let metadata = CFDictionaryCreateMutableCopy(nil, 0, rawMetadata) as NSMutableDictionary
-        let exifData = metadata.value(forKey: "{Exif}") as? NSMutableDictionary
-        let brightnessValue : Double = exifData?[kCGImagePropertyExifBrightnessValue as String] as! Double
-        return brightnessValue
-    }
-    
-    /// Setup a camera capture session from the front camera to receive captures.
-    /// - Returns: true when the function has fatal error; false when not.
-    private func setupCamera() -> Bool {
-        guard
-            let device =
-                AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front)
-        else {
-            alertWindowTitle = "A fatal error occurred."
-            alertMessage = "Failed to get device from AVCaptureDevice."
-            popupAlertWindowOnError(alertWindowTitle: alertWindowTitle, alertMessage: alertMessage)
-            return false
-        }
-        
-        guard
-            let input = try? AVCaptureDeviceInput(device: device)
-        else {
-            alertWindowTitle = "A fatal error occurred."
-            alertMessage = "Failed to get device input from AVCaptureDeviceInput."
-            popupAlertWindowOnError(alertWindowTitle: alertWindowTitle, alertMessage: alertMessage)
-            return false
-        }
-        
-        let output = AVCaptureVideoDataOutput()
-        output.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA]
-        output.setSampleBufferDelegate(self, queue: DispatchQueue.global(qos: .userInteractive))
-        
-        let session = AVCaptureSession()
-        session.sessionPreset = .high
-        session.addInput(input)
-        session.addOutput(output)
-        captureSession = session
-        captureDevice = device
-        
-        videoFieldOfView = captureDevice?.activeFormat.videoFieldOfView ?? 0
-        
-        cameraImageLayer.contentsGravity = .center
-        cameraImageLayer.frame = self.view.bounds
-        view.layer.insertSublayer(cameraImageLayer, at: 0)
-        
-        // Start capturing images from the capture session once permission is granted.
-        getVideoPermission(permissionHandler: { granted in
-            guard granted else {
-                NSLog("Permission not granted to use camera.")
-                self.alertWindowTitle = "Alert"
-                self.alertMessage = "Permission not granted to use camera."
-                self.popupAlertWindowOnError(
-                    alertWindowTitle: self.alertWindowTitle, alertMessage: self.alertMessage)
-                return
-            }
-            self.captureSession?.startRunning()
-        })
-        
-        return true
-    }
-    
-    /// Create the scene view from a scene and supporting nodes, and add to the view.
-    /// The scene is loaded from 'fox_face.scn' which was created from 'canonical_face_mesh.fbx', the
-    /// canonical face mesh asset.
-    /// https://developers.google.com/ar/develop/developer-guides/creating-assets-for-augmented-faces
-    /// - Returns: true when the function has fatal error; false when not.
-    private func setupScene() -> Bool {
-        
-        guard let scene = SCNScene(named: "Face.scnassets/liveness_scene.scn")
-        else {
-            alertWindowTitle = "A fatal error occurred."
-            alertMessage = "Failed to load face scene!"
-            popupAlertWindowOnError(alertWindowTitle: alertWindowTitle, alertMessage: alertMessage)
-            return false
-        }
-        
-        let cameraNode = SCNNode()
-        cameraNode.camera = sceneCamera
-        scene.rootNode.addChildNode(cameraNode)
-        
-        sceneView.scene = scene
-        sceneView.frame = view.bounds
-        sceneView.delegate = self
-        sceneView.rendersContinuously = true
-        sceneView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        sceneView.backgroundColor = .clear
-        // Flip 'x' to mirror content to mimic 'selfie' mode
-        sceneView.layer.transform = CATransform3DMakeScale(-1, 1, 1)
-        view.addSubview(sceneView)
-        
-        return true
-    }
-    
-    /// Start receiving motion updates to determine device orientation for use in the face session.
-    /// - Returns: true when the function has fatal error; false when not.
-    private func setupMotion() -> Bool {
-        guard motionManager.isDeviceMotionAvailable else {
-            alertWindowTitle = "Alert"
-            alertMessage = "Device does not have motion sensors."
-            popupAlertWindowOnError(alertWindowTitle: alertWindowTitle, alertMessage: alertMessage)
-            return false
-        }
-        motionManager.deviceMotionUpdateInterval = 0.01
-        motionManager.startDeviceMotionUpdates()
-        
-        return true
-    }
-}
-
-// MARK: - Permission and alert util
-
-extension LivenessScreenViewController {
-    /// Get permission to use device camera.
-    ///
-    /// - Parameters:
-    ///   - permissionHandler: The closure to call with whether permission was granted when
-    ///     permission is determined.
-    private func getVideoPermission(permissionHandler: @escaping (Bool) -> Void) {
-        switch AVCaptureDevice.authorizationStatus(for: .video) {
-        case .authorized:
-            permissionHandler(true)
-        case .notDetermined:
-            AVCaptureDevice.requestAccess(for: .video, completionHandler: permissionHandler)
-        default:
-            permissionHandler(false)
-        }
-    }
-    
-    private func popupAlertWindowOnError(alertWindowTitle: String, alertMessage: String) {
-        if !self.viewDidAppearReached {
-            self.needToShowFatalError = true
-            // Then the process will proceed to viewDidAppear, which will popup an alert window when needToShowFatalError is true.
-            return
-        }
-        // viewDidAppearReached is true, so we can pop up window now.
-        let alertController = UIAlertController(
-            title: alertWindowTitle, message: alertMessage, preferredStyle: .alert)
-        alertController.addAction(
-            UIAlertAction(
-                title: NSLocalizedString("OK", comment: "Default action"), style: .default,
-                handler: { _ in
-                    self.needToShowFatalError = false
-                }))
-        self.present(alertController, animated: true, completion: nil)
-    }
-}
-
-// MARK: - Mouth calc extensions
-extension LivenessScreenViewController {
-    
-    func calculateMouthFactor(face: GARAugmentedFace) -> Float {
-        let h1 = MouthCalcCoordsHolder.init(x1: face.mesh.vertices[37].x, x2: face.mesh.vertices[83].x, y1: face.mesh.vertices[37].y,
-                                            y2: face.mesh.vertices[83].y, z1: face.mesh.vertices[37].z, z2: face.mesh.vertices[83].z)
-        let h2 = MouthCalcCoordsHolder.init(x1: face.mesh.vertices[267].x, x2: face.mesh.vertices[314].x, y1: face.mesh.vertices[267].y,
-                                            y2: face.mesh.vertices[314].y, z1: face.mesh.vertices[267].z, z2: face.mesh.vertices[314].z)
-        let h3 = MouthCalcCoordsHolder.init(x1: face.mesh.vertices[61].x, x2: face.mesh.vertices[281].x, y1: face.mesh.vertices[61].y,
-                                            y2: face.mesh.vertices[281].y, z1: face.mesh.vertices[61].z, z2: face.mesh.vertices[281].z)
-        
-        return landmarksToMouthAspectRatio(h1: h1, h2: h2, h3: h3)
-    }
-    
-    func landmarksToMouthAspectRatio(h1: MouthCalcCoordsHolder, h2: MouthCalcCoordsHolder, h3: MouthCalcCoordsHolder) -> Float {
-        
-        let a = euclidean(coordsHolder: h1)
-        let b = euclidean(coordsHolder: h2)
-        let c = euclidean(coordsHolder: h3)
-        
-        return (a + b / (2.0 * c)) * 1.2  //! 1.2 is a factor for making result more precise!
-    }
-    
-    func euclidean(coordsHolder: MouthCalcCoordsHolder) -> Float {
-        let calc = pow((coordsHolder.x1 - coordsHolder.x2), 2) + pow((coordsHolder.y1 - coordsHolder.y2), 2) + pow((coordsHolder.z1 - coordsHolder.z2), 2)
-        return sqrt(calc)
-    }
-}
-
-// MARK: - Matrix (face coords calc) extensions
-
-extension simd_float4x4 {
-    
-    // Function to convert rad to deg
-    func radiansToDegress(radians: Float32) -> Float32 {
-        return radians * 180 / (Float32.pi)
-    }
-    
-    //Obsolete(?)
-    var translation: SCNVector3 {
-        get {
-            return SCNVector3Make(columns.3.x, columns.3.y, columns.3.z)
-        }
-    }
-    
-    // Retrieve euler angles from a quaternion matrix
-    var eulerAngles: FaceAnglesHolder {
-        get {
-            // Get quaternions
-            let qw = sqrt(1 + self.columns.0.x + self.columns.1.y + self.columns.2.z) / 2.0
-            let qx = (self.columns.2.y - self.columns.1.z) / (qw * 4.0)
-            let qy = (self.columns.0.z - self.columns.2.x) / (qw * 4.0)
-            let qz = (self.columns.1.x - self.columns.0.y) / (qw * 4.0)
-            
-            // Deduce euler angles
-            /// yaw (z-axis rotation)
-            let siny = +2.0 * (qw * qz + qx * qy)
-            let cosy = +1.0 - 2.0 * (qy * qy + qz * qz)
-            let actualRoll = radiansToDegress(radians:atan2(siny, cosy))
-            // pitch (y-axis rotation)
-            let sinp = +2.0 * (qw * qy - qz * qx)
-            var actualYaw: Float
-            if abs(sinp) >= 1 {
-                actualYaw = radiansToDegress(radians:copysign(Float.pi / 2, sinp))
-            } else {
-                actualYaw = radiansToDegress(radians:asin(sinp))
-            }
-            /// roll (x-axis rotation)
-            let sinr = +2.0 * (qw * qx + qy * qz)
-            let cosr = +1.0 - 2.0 * (qx * qx + qy * qy)
-            let actualPitch = -radiansToDegress(radians:atan2(sinr, cosr))
-            
-            /// return array containing ypr values
-            return FaceAnglesHolder(pitch: actualPitch, yaw: abs(actualYaw), roll: actualRoll)
-            //! actualPitch was roll; ! actualYaw was pitch; ! actualRoll was yaw
-        }
-    }
-}
-
-// MARK: - Coords' util structs
-
-struct MouthCalcCoordsHolder {
-    
-    let x1: Float
-    let x2: Float
-    let y1: Float
-    let y2: Float
-    let z1: Float
-    let z2: Float
-}
-
-struct FaceAnglesHolder {
-    
-    let pitch: Float
-    let yaw: Float
-    let roll: Float
-}
-
-// MARK: - Multiple faces detection
-
-extension LivenessScreenViewController {
-    
-    func detectFacesOnFrameOutput(buffer: CVImageBuffer) {
-        detectFaces(on: convertCVImageBufferToUIImage(buffer: buffer))
-    }
-    
-    func convertCVImageBufferToUIImage(buffer: CVImageBuffer) -> UIImage {
-        let ciImage: CIImage = CIImage(cvPixelBuffer: buffer)
-        return ciImage.orientationCorrectedImage()!
-    }
-    
-    func detectFaces(on image: UIImage) {
-      let handler = VNImageRequestHandler(
-        cgImage: image.cgImage!,
-        options: [:])
-      
-      DispatchQueue.global(qos: .userInitiated).async {
-        do {
-          try handler.perform([self.faceDetectionRequest])
-        } catch {
-          print(error)
-        }
-      }
-    }
-    
-    func onFacesDetected(request: VNRequest, error: Error?) {
-      guard let results = request.results as? [VNFaceObservation] else {
-        return
-      }
-        
-      //TODO: add screen + nav for multiple faces detection! + fix arrow
-
-        if (results.count < 1) {
-            onObstableTypeMet(obstacleType: ObstacleType.NO_STRAIGHT_FACE_DETECTED)
-        }
-        if (results.count > 1) {
-            onObstableTypeMet(obstacleType: ObstacleType.MULTIPLE_FACES_DETECTED)
-        }
-    }
-}
-
-
-//DispatchQueue.main.async {
-//CATransaction.begin()
-//print("DETECTED FACES: \(results.count)")
-//        for result in results {
-//          //print(result.boundingBox)
-//          // self.drawFace(in: result.boundingBox)
-//        }
-//CATransaction.commit()
-
-//extension UIDevice {
-//    static var isSimulator: Bool = {
-//        #if targetEnvironment(simulator)
-//        return true
-//        #else
-//        return false
-//        #endif
-//    }()
-
-//DispatchQueue.global(qos: .userInitiated).async {
-//    print("This is run on a background queue")
-//
-//    DispatchQueue.main.async {
-//        print("This is run on the main queue, after the previous code in outer block")
-//    }
-//}
-
-//    func delay(_ delay:Double, closure:@escaping ()->()) {
-//        let when = DispatchTime.now() + delay
-//        DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
-//    }
-
-//      let mouthOpen: Bool = mouthAngle > 0.39
-//      let turnedLeft: Bool = faceAnglesHolder.pitch < -30
-//      let turnedRight: Bool = faceAnglesHolder.pitch > 30
-
-//faceAnimationView.transform = CGAffineTransform(rotationAngle: CGFloat.pi) //rotate by 180 deg.
-//faceAnimationView.loopMode = .autoReverse
-//faceAnimationView.play()

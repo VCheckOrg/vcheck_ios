@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		965EE52CD21510989273D883 /* Pods_VcheckSDKDemoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F8848E7D3C92883B37CB56 /* Pods_VcheckSDKDemoIOS.framework */; };
+		DA1235712827A5D80008A46E /* FaceCalcExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1235702827A5D80008A46E /* FaceCalcExtensions.swift */; };
+		DA1235732827A7F90008A46E /* LivenessVCExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1235722827A7F90008A46E /* LivenessVCExtensions.swift */; };
+		DA1235752827B1B00008A46E /* NoTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1235742827B1B00008A46E /* NoTimeViewController.swift */; };
+		DA1235772827B1D60008A46E /* NoFaceDetectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1235762827B1D60008A46E /* NoFaceDetectedViewController.swift */; };
+		DA1235792827B1F30008A46E /* MultipleFacesDetectedViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1235782827B1F30008A46E /* MultipleFacesDetectedViewContoller.swift */; };
+		DA12357B2827B21F0008A46E /* NoBrightnessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12357A2827B21F0008A46E /* NoBrightnessViewController.swift */; };
+		DA12357D2827B2640008A46E /* WrongGestureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12357C2827B2640008A46E /* WrongGestureViewController.swift */; };
+		DA12357F2827B2740008A46E /* SharpMovementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12357E2827B2740008A46E /* SharpMovementsViewController.swift */; };
 		DA34598128201D9600068E6D /* TakeDocPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34598028201D9600068E6D /* TakeDocPhotoViewController.swift */; };
 		DA47CDA4281C3B59001226B9 /* AllowedCountryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47CDA3281C3B59001226B9 /* AllowedCountryViewCell.swift */; };
 		DA63D7952823B683005EE4C0 /* CheckDocInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA63D7942823B683005EE4C0 /* CheckDocInfoViewModel.swift */; };
@@ -72,6 +80,14 @@
 
 /* Begin PBXFileReference section */
 		B9F8848E7D3C92883B37CB56 /* Pods_VcheckSDKDemoIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VcheckSDKDemoIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA1235702827A5D80008A46E /* FaceCalcExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCalcExtensions.swift; sourceTree = "<group>"; };
+		DA1235722827A7F90008A46E /* LivenessVCExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessVCExtensions.swift; sourceTree = "<group>"; };
+		DA1235742827B1B00008A46E /* NoTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoTimeViewController.swift; sourceTree = "<group>"; };
+		DA1235762827B1D60008A46E /* NoFaceDetectedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoFaceDetectedViewController.swift; sourceTree = "<group>"; };
+		DA1235782827B1F30008A46E /* MultipleFacesDetectedViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleFacesDetectedViewContoller.swift; sourceTree = "<group>"; };
+		DA12357A2827B21F0008A46E /* NoBrightnessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoBrightnessViewController.swift; sourceTree = "<group>"; };
+		DA12357C2827B2640008A46E /* WrongGestureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongGestureViewController.swift; sourceTree = "<group>"; };
+		DA12357E2827B2740008A46E /* SharpMovementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharpMovementsViewController.swift; sourceTree = "<group>"; };
 		DA34598028201D9600068E6D /* TakeDocPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeDocPhotoViewController.swift; sourceTree = "<group>"; };
 		DA47CDA3281C3B59001226B9 /* AllowedCountryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowedCountryViewCell.swift; sourceTree = "<group>"; };
 		DA63D7942823B683005EE4C0 /* CheckDocInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckDocInfoViewModel.swift; sourceTree = "<group>"; };
@@ -333,6 +349,8 @@
 			isa = PBXGroup;
 			children = (
 				DAD01E4F2826793C007DA004 /* Milestones.swift */,
+				DA1235702827A5D80008A46E /* FaceCalcExtensions.swift */,
+				DA1235722827A7F90008A46E /* LivenessVCExtensions.swift */,
 			);
 			path = flow_logic;
 			sourceTree = "<group>";
@@ -340,6 +358,12 @@
 		DAD01E532826AE08007DA004 /* error_ui */ = {
 			isa = PBXGroup;
 			children = (
+				DA1235742827B1B00008A46E /* NoTimeViewController.swift */,
+				DA1235762827B1D60008A46E /* NoFaceDetectedViewController.swift */,
+				DA1235782827B1F30008A46E /* MultipleFacesDetectedViewContoller.swift */,
+				DA12357A2827B21F0008A46E /* NoBrightnessViewController.swift */,
+				DA12357C2827B2640008A46E /* WrongGestureViewController.swift */,
+				DA12357E2827B2740008A46E /* SharpMovementsViewController.swift */,
 			);
 			path = error_ui;
 			sourceTree = "<group>";
@@ -527,23 +551,28 @@
 				DAE87E122816CC2C00ED6826 /* CountryListViewController.swift in Sources */,
 				DAAF4E0A281AC7A60029F26C /* VerificationResponseModels.swift in Sources */,
 				DAAF4E0C281AC7A60029F26C /* TimestampRequest.swift in Sources */,
+				DA1235772827B1D60008A46E /* NoFaceDetectedViewController.swift in Sources */,
 				DAE87E152816CE6E00ED6826 /* DemoStartViewController.swift in Sources */,
 				DAAF4E20281AC7A60029F26C /* DocumentResponseModels.swift in Sources */,
 				DA34598128201D9600068E6D /* TakeDocPhotoViewController.swift in Sources */,
 				DA63D7952823B683005EE4C0 /* CheckDocInfoViewModel.swift in Sources */,
 				DABCE2292822754300937E84 /* CheckDocPhotoViewController.swift in Sources */,
+				DA12357B2827B21F0008A46E /* NoBrightnessViewController.swift in Sources */,
 				DAAF4E1C281AC7A60029F26C /* CountryModels.swift in Sources */,
 				DAD01E502826793C007DA004 /* Milestones.swift in Sources */,
 				DA737432281AD4CB00DBBDED /* ApiError.swift in Sources */,
 				DAB11439281D6515001F82E4 /* ChooseDocTypeViewModel.swift in Sources */,
 				DAC2325A281C3EF300D0CE16 /* BlockedCountryViewCell.swift in Sources */,
 				DA47CDA4281C3B59001226B9 /* AllowedCountryViewCell.swift in Sources */,
+				DA12357D2827B2640008A46E /* WrongGestureViewController.swift in Sources */,
+				DA12357F2827B2740008A46E /* SharpMovementsViewController.swift in Sources */,
 				DABCE22E2822BBE800937E84 /* CheckDocInfoViewController.swift in Sources */,
 				DAB11437281D64DE001F82E4 /* ChooseDocTypeViewController.swift in Sources */,
 				DAB6132A2814767700234BB2 /* AppDelegate.swift in Sources */,
 				DADD31EF281D7A0200EB25ED /* DocumentTypes.swift in Sources */,
 				DAAF4E15281AC7A60029F26C /* ApiClient.swift in Sources */,
 				DAAF4E0E281AC7A60029F26C /* BaseClientResponseModel.swift in Sources */,
+				DA1235752827B1B00008A46E /* NoTimeViewController.swift in Sources */,
 				DAC26DBE2825378800EFCDB1 /* PhotoInstructionsViewController.swift in Sources */,
 				DAB6132C2814767700234BB2 /* SceneDelegate.swift in Sources */,
 				DAA1A60C2824F752005B5B8A /* DocumentVerificationCodes.swift in Sources */,
@@ -552,8 +581,11 @@
 				DAE87E102816CC1F00ED6826 /* ChooseCountryViewController.swift in Sources */,
 				DAD01E5228268E0B007DA004 /* Debouncer.swift in Sources */,
 				DAAF4E12281AC7A60029F26C /* BaseClientrResponseModel.swift in Sources */,
+				DA1235712827A5D80008A46E /* FaceCalcExtensions.swift in Sources */,
 				DAAF4E0F281AC7A60029F26C /* BaseRequestBody.swift in Sources */,
+				DA1235732827A7F90008A46E /* LivenessVCExtensions.swift in Sources */,
 				DAB613342814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld in Sources */,
+				DA1235792827B1F30008A46E /* MultipleFacesDetectedViewContoller.swift in Sources */,
 				DA737434281ADCD600DBBDED /* LocalDatasource.swift in Sources */,
 				DA73742E281ACC7E00DBBDED /* RemoteDatasource.swift in Sources */,
 				DADD31F2281D93F800EB25ED /* LivenessScreenViewController.swift in Sources */,
@@ -724,7 +756,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 3CT5FANCSN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VcheckSDKDemoIOS/Info.plist;
@@ -741,7 +773,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vcheck.demo.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = VCheckDev;
@@ -760,7 +792,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 3CT5FANCSN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VcheckSDKDemoIOS/Info.plist;
@@ -777,7 +809,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vcheck.demo.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = VCheckDevDistr;
