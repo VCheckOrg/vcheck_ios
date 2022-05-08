@@ -54,7 +54,9 @@ extension simd_float4x4 {
     }
 }
 
+
 // MARK: - Mouth calc extensions
+
 extension LivenessScreenViewController {
     
     func calculateMouthFactor(face: GARAugmentedFace) -> Float {
