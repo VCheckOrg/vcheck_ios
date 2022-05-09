@@ -45,30 +45,28 @@ public final class LivenessScreenViewController: UIViewController {
     lazy var sceneCamera = SCNCamera()
     lazy var motionManager = CMMotionManager()
     
-    // MARK: - AR Face properties
+    // MARK: - AR and Face Detection properties
+    
     private var faceSession: GARAugmentedFaceSession?
     
+    lazy var faceDetectionRequest = VNDetectFaceLandmarksRequest(completionHandler: self.onFacesDetected)
+    
     // MARK: - Milestone flow & logic properties
+    
     private var milestoneFlow = StandardMilestoneFlow()
+    
+    private var majorObstacleFrameCounterHolder = MajorObstacleFrameCounterHolder()
     
     static let LIVENESS_TIME_LIMIT_MILLIS = 14000 //max is 15000
     static let BLOCK_PIPELINE_ON_OBSTACLE_TIME_MILLIS = 1100 //may reduce a bit
     static let BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS = 1200 //may reduce a bit
     static let MAX_FRAMES_WITH_FATAL_OBSTACLES = 50
-    
-    private var multiFaceFrameCounter: Int = 0
-    private var noFaceFrameCounter: Int = 0
-    private var majorObstacleFrameCounter: Int = 0
-    
+ 
     private var isLivenessSessionFinished: Bool = false
     private var hasEnoughTimeForNextGesture: Bool = true
     private var livenessSessionTimeoutTimer : DispatchSourceTimer?
     private var blockStageIndicationByUI: Bool = false
     
-    
-    // MARK: multiple faces detection test
-    lazy var faceDetectionRequest = VNDetectFaceLandmarksRequest(completionHandler: self.onFacesDetected)
-
     
     // MARK: - Implementation & Lifecycle methods
     
@@ -91,6 +89,10 @@ public final class LivenessScreenViewController: UIViewController {
         }
     }
     
+//    public override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(false)
+//    }
+    
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -104,6 +106,24 @@ public final class LivenessScreenViewController: UIViewController {
         
         setupOrUpdateFaceAnimation(forMilestoneType: GestureMilestoneType.CheckHeadPositionMilestone)
         setupOrUpdateArrowAnimation(forMilestoneType: GestureMilestoneType.CheckHeadPositionMilestone)
+    }
+    
+    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "LivenessToNoFaceDetected") {
+            let vc = segue.destination as! NoFaceDetectedViewController
+            vc.onRepeatBlock = { result in
+                print("========================== BACK TO LIVENESS!")
+                self.renewLivenessSessionOnRetry()
+            }
+        }
+    }
+    
+    func renewLivenessSessionOnRetry() {
+        self.milestoneFlow = StandardMilestoneFlow()
+        self.majorObstacleFrameCounterHolder = MajorObstacleFrameCounterHolder()
+        self.isLivenessSessionFinished = false
+        self.hasEnoughTimeForNextGesture = true
+        self.blockStageIndicationByUI = false
     }
 }
 
@@ -167,7 +187,9 @@ extension LivenessScreenViewController {
                 } else {
                     if (self.hasEnoughTimeForNextGesture) {
                         if (milestoneType != GestureMilestoneType.CheckHeadPositionMilestone) {
-                            self.majorObstacleFrameCounter = -15
+                            
+                            self.majorObstacleFrameCounterHolder.resetFrameCountersOnStageSuccess()
+                            
                             self.hapticFeedbackGenerator.notificationOccurred(.success)
                             //!
                             self.delayedStageIndicationRenew()
@@ -203,9 +225,8 @@ extension LivenessScreenViewController {
         }
         if (obstacleType == ObstacleType.WRONG_GESTURE) {
             DispatchQueue.main.async {
-                self.majorObstacleFrameCounter += 1
-                //print("WRONG GESTURE FRAME COUNT: \(self.majorObstacleFrameCounter)")
-                if (self.majorObstacleFrameCounter >= LivenessScreenViewController.MAX_FRAMES_WITH_FATAL_OBSTACLES) {
+                self.majorObstacleFrameCounterHolder.incrementWrongGestureFrameCounter()
+                if (self.majorObstacleFrameCounterHolder.getWrongGestureFrameCounter() >= LivenessScreenViewController.MAX_FRAMES_WITH_FATAL_OBSTACLES) {
                     self.endSessionPrematurely()
                     self.performSegue(withIdentifier: "LivenessToWrongGesture", sender: nil)
                 }
@@ -213,9 +234,9 @@ extension LivenessScreenViewController {
         }
         if (obstacleType == ObstacleType.NO_STRAIGHT_FACE_DETECTED) {
             DispatchQueue.main.async {
-                self.noFaceFrameCounter += 1
-                print("NO STRAIGHT FACE DETECTED - FRAME COUNT: \(self.noFaceFrameCounter)")
-                if (self.noFaceFrameCounter >= LivenessScreenViewController.MAX_FRAMES_WITH_FATAL_OBSTACLES) {
+                self.majorObstacleFrameCounterHolder.incrementNoFaceFrameCounter()
+                if (self.majorObstacleFrameCounterHolder.getNoFaceFrameCounter() >=
+                    LivenessScreenViewController.MAX_FRAMES_WITH_FATAL_OBSTACLES) {
                     self.endSessionPrematurely()
                     self.performSegue(withIdentifier: "LivenessToNoFaceDetected", sender: nil)
                 }
@@ -223,28 +244,30 @@ extension LivenessScreenViewController {
         }
         if (obstacleType == ObstacleType.MULTIPLE_FACES_DETECTED) {
             DispatchQueue.main.async {
-                self.multiFaceFrameCounter += 1
-                print("MULTIPLE FACES DETECTION - FRAME COUNT: \(self.multiFaceFrameCounter)")
-                if (self.multiFaceFrameCounter >= LivenessScreenViewController.MAX_FRAMES_WITH_FATAL_OBSTACLES) {
+                self.majorObstacleFrameCounterHolder.incrementMultiFaceFrameCounter()
+                if (self.majorObstacleFrameCounterHolder.getMultiFaceFrameCounter() >=
+                    LivenessScreenViewController.MAX_FRAMES_WITH_FATAL_OBSTACLES) {
                     self.endSessionPrematurely()
                     self.performSegue(withIdentifier: "LivenessToMultipleFaces", sender: nil)
                 }
             }
         }
         if (obstacleType == ObstacleType.BRIGHTNESS_LEVEL_IS_LOW) {
-//            DispatchQueue.main.async {
-//                self.endSessionPrematurely()
-//
-//            }
-            //TODO: add view controllers for error screens and UI for brightness obstacle!
+            DispatchQueue.main.async {
+                self.majorObstacleFrameCounterHolder.incrementNoBrightnessFrameCounter()
+                if (self.majorObstacleFrameCounterHolder.getNoBrightnessFrameCounter() >=
+                    LivenessScreenViewController.MAX_FRAMES_WITH_FATAL_OBSTACLES) {
+                    self.endSessionPrematurely()
+                    self.performSegue(withIdentifier: "LivenessToTooDark", sender: nil)
+                }
+            }
         }
+        //TODO: also add sharp movements
     }
     
     func endSessionPrematurely() {
-        self.hapticFeedbackGenerator.notificationOccurred(.warning) //?
-        self.majorObstacleFrameCounter = 0
-        self.noFaceFrameCounter = 0
-        self.multiFaceFrameCounter = 0
+        self.hapticFeedbackGenerator.notificationOccurred(.warning)
+        self.majorObstacleFrameCounterHolder.resetFrameCountersOnSessionPrematureEnd()
         self.isLivenessSessionFinished = true
     }
     
@@ -401,9 +424,7 @@ extension LivenessScreenViewController {
     }
     
     func fadeViewInThenOut(view : UIView, delay: TimeInterval) {
-
         let animationDuration = Double(LivenessScreenViewController.BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS) / 1000.0
-
         UIView.animate(withDuration: animationDuration, delay: delay,
                        options: [UIView.AnimationOptions.autoreverse,
                                  UIView.AnimationOptions.repeat], animations: {

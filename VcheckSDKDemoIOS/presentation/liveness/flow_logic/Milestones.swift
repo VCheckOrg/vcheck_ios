@@ -171,3 +171,63 @@ class StandardMilestoneFlow {
         }
     }
 }
+
+
+class MajorObstacleFrameCounterHolder {
+    
+    private var multiFaceFrameCounter: Int = 0
+    private var noFaceFrameCounter: Int = 0
+    private var wrongGestureFrameCounter: Int = 0
+    private var noBrightnessFrameCounter: Int = 0
+    //also add counter for sharp movements
+    
+    func resetFrameCountersOnSessionPrematureEnd() {
+        self.multiFaceFrameCounter = 0
+        self.noFaceFrameCounter = 0
+        self.wrongGestureFrameCounter = 0
+        self.noBrightnessFrameCounter = 0
+    }
+    
+    func resetFrameCountersOnStageSuccess() {
+        self.multiFaceFrameCounter = -15
+        self.noFaceFrameCounter = -15
+        self.wrongGestureFrameCounter = -15
+        self.noBrightnessFrameCounter = -15
+    }
+    
+    func incrementMultiFaceFrameCounter() {
+        self.multiFaceFrameCounter += 1
+        print("MULTIPLE FACES DETECTED - FRAME COUNT: \(self.multiFaceFrameCounter)")
+    }
+    
+    func incrementNoFaceFrameCounter() {
+        self.noFaceFrameCounter += 1
+        print("NO STRAIGHT FACE DETECTED - FRAME COUNT: \(self.noFaceFrameCounter)")
+    }
+    
+    func incrementWrongGestureFrameCounter() {
+        self.wrongGestureFrameCounter += 1
+        print("WRONG GESTURE - FRAME COUNT: \(self.multiFaceFrameCounter)")
+    }
+    
+    func incrementNoBrightnessFrameCounter() {
+        self.noBrightnessFrameCounter += 1
+        print("NOT ENOUGH BRIGHTNESS DETECTED - FRAME COUNT: \(self.multiFaceFrameCounter)")
+    }
+    
+    func getMultiFaceFrameCounter() -> Int {
+        return self.multiFaceFrameCounter
+    }
+    
+    func getNoFaceFrameCounter() -> Int {
+        return self.noFaceFrameCounter
+    }
+    
+    func getWrongGestureFrameCounter() -> Int {
+        return self.wrongGestureFrameCounter
+    }
+    
+    func getNoBrightnessFrameCounter() -> Int {
+        return self.noBrightnessFrameCounter
+    }
+}

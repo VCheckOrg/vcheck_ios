@@ -403,7 +403,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
         <!--No Time View Controller-->
         <scene sceneID="6ZM-lh-nBu">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="q0J-YZ-DjP" userLabel="No Time View Controller" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="q0J-YZ-DjP" userLabel="No Time View Controller" customClass="NoTimeViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZyN-xs-PfW">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -412,10 +412,10 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                 <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fzN-Vs-aSf">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="724"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="674"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6B9-Ep-e0R" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="84" width="366" height="575"/>
+                                                <rect key="frame" x="12" y="84" width="366" height="490"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_time_image" translatesAutoresizingMaskIntoConstraints="NO" id="xY2-LW-0G9">
                                                         <rect key="frame" x="28" y="24" width="310" height="240"/>
@@ -443,30 +443,21 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Попробовать снова"/>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Все было пройдено корректно, отправить на проверку" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5Y-Jp-D3x">
-                                                        <rect key="frame" x="16" y="505.33333333333343" width="334" height="33.666666666666686"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" name="CardColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="G5Y-Jp-D3x" firstAttribute="top" secondItem="QxK-2h-Je3" secondAttribute="bottom" constant="20" id="13Q-Qx-x1w"/>
                                                     <constraint firstAttribute="trailing" secondItem="xY2-LW-0G9" secondAttribute="trailing" constant="28" id="2e8-Mr-V6T"/>
                                                     <constraint firstItem="uLu-gA-21w" firstAttribute="top" secondItem="939-B9-Kfj" secondAttribute="bottom" constant="16" id="2er-OI-k4H"/>
                                                     <constraint firstItem="939-B9-Kfj" firstAttribute="top" secondItem="xY2-LW-0G9" secondAttribute="bottom" constant="12" id="7T3-U8-hiI"/>
                                                     <constraint firstAttribute="trailing" secondItem="uLu-gA-21w" secondAttribute="trailing" constant="16" id="I6t-Nk-IYO"/>
-                                                    <constraint firstAttribute="height" constant="575" id="MfR-Df-R4i"/>
+                                                    <constraint firstAttribute="height" constant="490" id="MfR-Df-R4i"/>
                                                     <constraint firstItem="xY2-LW-0G9" firstAttribute="top" secondItem="6B9-Ep-e0R" secondAttribute="top" constant="24" id="O74-RR-Ycj"/>
                                                     <constraint firstItem="939-B9-Kfj" firstAttribute="leading" secondItem="6B9-Ep-e0R" secondAttribute="leading" constant="16" id="Qvb-rV-j6M"/>
                                                     <constraint firstAttribute="trailing" secondItem="QxK-2h-Je3" secondAttribute="trailing" constant="16" id="YJA-3G-LzH"/>
                                                     <constraint firstItem="uLu-gA-21w" firstAttribute="leading" secondItem="6B9-Ep-e0R" secondAttribute="leading" constant="16" id="co6-PF-HF7"/>
-                                                    <constraint firstItem="G5Y-Jp-D3x" firstAttribute="leading" secondItem="6B9-Ep-e0R" secondAttribute="leading" constant="16" id="dJq-Jd-dmm"/>
                                                     <constraint firstItem="QxK-2h-Je3" firstAttribute="leading" secondItem="6B9-Ep-e0R" secondAttribute="leading" constant="16" id="l54-yU-qOO"/>
                                                     <constraint firstAttribute="trailing" secondItem="939-B9-Kfj" secondAttribute="trailing" constant="16" id="qJc-zT-E7N"/>
                                                     <constraint firstItem="xY2-LW-0G9" firstAttribute="leading" secondItem="6B9-Ep-e0R" secondAttribute="leading" constant="28" id="vC7-WI-ol7"/>
-                                                    <constraint firstAttribute="trailing" secondItem="G5Y-Jp-D3x" secondAttribute="trailing" constant="16" id="xBe-U7-iKW"/>
                                                     <constraint firstItem="QxK-2h-Je3" firstAttribute="top" secondItem="uLu-gA-21w" secondAttribute="bottom" constant="44" id="zbZ-Ki-ifU"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -490,7 +481,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                             <constraint firstItem="uFw-Nx-4ro" firstAttribute="leading" secondItem="fzN-Vs-aSf" secondAttribute="leading" constant="12" id="Cax-ni-lMs"/>
                                             <constraint firstItem="uFw-Nx-4ro" firstAttribute="top" secondItem="fzN-Vs-aSf" secondAttribute="top" constant="24" id="IJ1-UJ-k86"/>
                                             <constraint firstItem="6B9-Ep-e0R" firstAttribute="top" secondItem="fzN-Vs-aSf" secondAttribute="top" constant="84" id="JrX-Ju-Usd"/>
-                                            <constraint firstAttribute="bottom" secondItem="6B9-Ep-e0R" secondAttribute="bottom" constant="65" id="TDl-jB-iV6"/>
+                                            <constraint firstAttribute="bottom" secondItem="6B9-Ep-e0R" secondAttribute="bottom" constant="100" id="TDl-jB-iV6"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -516,7 +507,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qfn-YN-ja4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2217" y="92"/>
+            <point key="canvasLocation" x="2217" y="22"/>
         </scene>
         <!--Error View Controller-->
         <scene sceneID="944-w0-g7d">
@@ -625,12 +616,12 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p6F-W9-KOM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5263" y="95"/>
+            <point key="canvasLocation" x="4326" y="-355"/>
         </scene>
         <!--Wrong Movement View Controller-->
         <scene sceneID="SBe-W2-Czb">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Gk4-E0-G28" userLabel="Wrong Movement View Controller" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Gk4-E0-G28" userLabel="Wrong Movement View Controller" customClass="WrongGestureViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fgq-Xq-dWc">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -639,10 +630,10 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                 <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVD-jQ-X6f">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="724"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="707.33333333333337"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9J1-LU-ygA" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="84" width="366" height="575"/>
+                                                <rect key="frame" x="12" y="83.999999999999972" width="366" height="503.33333333333326"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrong_move_image" translatesAutoresizingMaskIntoConstraints="NO" id="U5R-dz-wwO">
                                                         <rect key="frame" x="28" y="24" width="310" height="240"/>
@@ -671,12 +662,6 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Попробовать снова"/>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Все было пройдено корректно, отправить на проверку" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Xc-7L-HF3">
-                                                        <rect key="frame" x="16" y="517.33333333333337" width="334" height="33.666666666666629"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" name="CardColor"/>
                                                 <constraints>
@@ -685,16 +670,12 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                     <constraint firstAttribute="trailing" secondItem="3fM-Ho-q55" secondAttribute="trailing" constant="16" id="CuF-cb-XKJ"/>
                                                     <constraint firstItem="U5R-dz-wwO" firstAttribute="top" secondItem="9J1-LU-ygA" secondAttribute="top" constant="24" id="D0f-5X-79h"/>
                                                     <constraint firstItem="bVd-GC-ULM" firstAttribute="leading" secondItem="9J1-LU-ygA" secondAttribute="leading" constant="16" id="Fr5-Mx-kJf"/>
-                                                    <constraint firstItem="0Xc-7L-HF3" firstAttribute="top" secondItem="3fM-Ho-q55" secondAttribute="bottom" constant="20" id="FsA-1e-kq0"/>
-                                                    <constraint firstAttribute="trailing" secondItem="0Xc-7L-HF3" secondAttribute="trailing" constant="16" id="ILI-pT-MYf"/>
                                                     <constraint firstItem="3fM-Ho-q55" firstAttribute="top" secondItem="bVd-GC-ULM" secondAttribute="bottom" constant="44" id="KPo-N2-GSb"/>
-                                                    <constraint firstItem="0Xc-7L-HF3" firstAttribute="leading" secondItem="9J1-LU-ygA" secondAttribute="leading" constant="16" id="Kw6-P3-Sv8"/>
                                                     <constraint firstItem="U5R-dz-wwO" firstAttribute="leading" secondItem="9J1-LU-ygA" secondAttribute="leading" constant="28" id="NJv-X6-0xx"/>
                                                     <constraint firstAttribute="trailing" secondItem="bVd-GC-ULM" secondAttribute="trailing" constant="16" id="UYc-nN-qNO"/>
                                                     <constraint firstItem="uol-az-Qka" firstAttribute="leading" secondItem="9J1-LU-ygA" secondAttribute="leading" constant="16" id="Vig-qp-CcN"/>
                                                     <constraint firstItem="3fM-Ho-q55" firstAttribute="leading" secondItem="9J1-LU-ygA" secondAttribute="leading" constant="16" id="dup-qf-HIe"/>
                                                     <constraint firstAttribute="trailing" secondItem="uol-az-Qka" secondAttribute="trailing" constant="16" id="fQT-Wy-Iav"/>
-                                                    <constraint firstAttribute="bottom" secondItem="0Xc-7L-HF3" secondAttribute="bottom" constant="24" id="ppx-32-kup"/>
                                                     <constraint firstItem="uol-az-Qka" firstAttribute="top" secondItem="U5R-dz-wwO" secondAttribute="bottom" constant="12" id="xJV-RR-jZh"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -713,7 +694,8 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                         </subviews>
                                         <color key="backgroundColor" name="BackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="9J1-LU-ygA" secondAttribute="bottom" constant="65" id="0ZG-lA-AeZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="9J1-LU-ygA" secondAttribute="bottom" constant="120" id="0ZG-lA-AeZ"/>
+                                            <constraint firstAttribute="height" constant="707.33333333333337" id="A4d-Qb-krO"/>
                                             <constraint firstItem="9J1-LU-ygA" firstAttribute="leading" secondItem="gVD-jQ-X6f" secondAttribute="leading" constant="12" id="Bh2-aH-dkg"/>
                                             <constraint firstItem="cuh-Js-Dt3" firstAttribute="top" secondItem="gVD-jQ-X6f" secondAttribute="top" constant="24" id="DY1-70-66B"/>
                                             <constraint firstAttribute="trailing" secondItem="9J1-LU-ygA" secondAttribute="trailing" constant="12" id="GYE-ZZ-JNG"/>
@@ -749,7 +731,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
         <!--Frame Interference View Controller-->
         <scene sceneID="fXR-d2-LtU">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="K4l-kg-dQj" userLabel="Frame Interference View Controller" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="K4l-kg-dQj" userLabel="Frame Interference View Controller" customClass="MultipleFacesDetectedViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A4u-iE-GYT">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -758,10 +740,10 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                 <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ukX-sd-Tsb">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="724"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="707.33333333333337"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3fp-M1-0nX" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="84" width="366" height="575"/>
+                                                <rect key="frame" x="12" y="83.999999999999972" width="366" height="503.33333333333326"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frame_interference_image" translatesAutoresizingMaskIntoConstraints="NO" id="gnh-nc-jqj">
                                                         <rect key="frame" x="28" y="24" width="310" height="240"/>
@@ -790,26 +772,16 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Попробовать снова"/>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Все было пройдено корректно, отправить на проверку" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zj7-hg-UKx">
-                                                        <rect key="frame" x="16" y="517.33333333333337" width="334" height="33.666666666666629"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" name="CardColor"/>
                                                 <constraints>
                                                     <constraint firstItem="gnh-nc-jqj" firstAttribute="top" secondItem="3fp-M1-0nX" secondAttribute="top" constant="24" id="8VB-SF-sUX"/>
                                                     <constraint firstItem="gCO-14-vPo" firstAttribute="leading" secondItem="3fp-M1-0nX" secondAttribute="leading" constant="16" id="8j9-iX-bz3"/>
                                                     <constraint firstItem="aNj-4j-beg" firstAttribute="leading" secondItem="3fp-M1-0nX" secondAttribute="leading" constant="16" id="9JX-Pd-XWZ"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Zj7-hg-UKx" secondAttribute="bottom" constant="24" id="BvZ-Mb-ykc"/>
                                                     <constraint firstAttribute="trailing" secondItem="gnh-nc-jqj" secondAttribute="trailing" constant="28" id="CIk-CF-f5z"/>
                                                     <constraint firstItem="TdZ-WF-NIV" firstAttribute="top" secondItem="gnh-nc-jqj" secondAttribute="bottom" constant="12" id="OrD-OK-9lJ"/>
                                                     <constraint firstAttribute="trailing" secondItem="aNj-4j-beg" secondAttribute="trailing" constant="16" id="SUm-TT-A2f"/>
-                                                    <constraint firstItem="Zj7-hg-UKx" firstAttribute="top" secondItem="gCO-14-vPo" secondAttribute="bottom" constant="20" id="Th1-IR-oEZ"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Zj7-hg-UKx" secondAttribute="trailing" constant="16" id="UpH-dn-xJR"/>
                                                     <constraint firstAttribute="trailing" secondItem="TdZ-WF-NIV" secondAttribute="trailing" constant="16" id="VKB-TR-nIq"/>
-                                                    <constraint firstItem="Zj7-hg-UKx" firstAttribute="leading" secondItem="3fp-M1-0nX" secondAttribute="leading" constant="16" id="dpw-9z-Afe"/>
                                                     <constraint firstAttribute="trailing" secondItem="gCO-14-vPo" secondAttribute="trailing" constant="16" id="gjL-TN-ZTU"/>
                                                     <constraint firstItem="aNj-4j-beg" firstAttribute="top" secondItem="TdZ-WF-NIV" secondAttribute="bottom" constant="16" id="kJ2-aN-9ha"/>
                                                     <constraint firstItem="TdZ-WF-NIV" firstAttribute="leading" secondItem="3fp-M1-0nX" secondAttribute="leading" constant="16" id="nNg-NT-oQa"/>
@@ -837,7 +809,8 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                             <constraint firstItem="voY-Jm-XO5" firstAttribute="leading" secondItem="ukX-sd-Tsb" secondAttribute="leading" constant="12" id="aUO-4K-Uwo"/>
                                             <constraint firstItem="3fp-M1-0nX" firstAttribute="leading" secondItem="ukX-sd-Tsb" secondAttribute="leading" constant="12" id="bFI-Da-2cc"/>
                                             <constraint firstItem="3fp-M1-0nX" firstAttribute="top" secondItem="ukX-sd-Tsb" secondAttribute="top" constant="84" id="bdn-qu-D8g"/>
-                                            <constraint firstAttribute="bottom" secondItem="3fp-M1-0nX" secondAttribute="bottom" constant="65" id="c3I-QM-MMW"/>
+                                            <constraint firstAttribute="bottom" secondItem="3fp-M1-0nX" secondAttribute="bottom" constant="120" id="c3I-QM-MMW"/>
+                                            <constraint firstAttribute="height" constant="707.33333333333337" id="v3x-MJ-WgI"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -868,7 +841,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
         <!--Look Stratight Error View Controller-->
         <scene sceneID="3my-jL-PW1">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="YIZ-ih-eAP" userLabel="Look Stratight Error View Controller" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="YIZ-ih-eAP" userLabel="Look Stratight Error View Controller" customClass="NoFaceDetectedViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gxe-ll-VhG">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -880,7 +853,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="707.33333333333337"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s5b-A1-M5a" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="84" width="366" height="558.33333333333337"/>
+                                                <rect key="frame" x="12" y="83.999999999999972" width="366" height="503.33333333333326"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="look_stratight_error_image" translatesAutoresizingMaskIntoConstraints="NO" id="BzG-9H-pji">
                                                         <rect key="frame" x="28" y="24" width="310" height="240"/>
@@ -908,24 +881,17 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Попробовать снова"/>
+                                                        <connections>
+                                                            <action selector="nfRetryAction:" destination="YIZ-ih-eAP" eventType="touchUpInside" id="ret-Kg-oO1"/>
+                                                        </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Все было пройдено корректно, отправить на проверку" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqi-ej-qUg">
-                                                        <rect key="frame" x="16" y="500.66666666666669" width="334" height="33.666666666666686"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" name="CardColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="uqi-ej-qUg" firstAttribute="leading" secondItem="s5b-A1-M5a" secondAttribute="leading" constant="16" id="4Pe-e4-Z8Q"/>
                                                     <constraint firstItem="SQC-lw-w5d" firstAttribute="leading" secondItem="s5b-A1-M5a" secondAttribute="leading" constant="16" id="8Fu-it-pkS"/>
-                                                    <constraint firstAttribute="trailing" secondItem="uqi-ej-qUg" secondAttribute="trailing" constant="16" id="8Ko-OY-VId"/>
                                                     <constraint firstAttribute="trailing" secondItem="BzG-9H-pji" secondAttribute="trailing" constant="28" id="9AW-GA-A3e"/>
                                                     <constraint firstAttribute="trailing" secondItem="LeA-wx-gAE" secondAttribute="trailing" constant="16" id="D5A-H2-zZ0"/>
-                                                    <constraint firstItem="uqi-ej-qUg" firstAttribute="top" secondItem="LeA-wx-gAE" secondAttribute="bottom" constant="20" id="G9a-2G-M0H"/>
                                                     <constraint firstItem="LeA-wx-gAE" firstAttribute="leading" secondItem="s5b-A1-M5a" secondAttribute="leading" constant="16" id="Qsb-W1-Foo"/>
-                                                    <constraint firstAttribute="bottom" secondItem="uqi-ej-qUg" secondAttribute="bottom" constant="24" id="a2b-uv-ueR"/>
                                                     <constraint firstItem="LeA-wx-gAE" firstAttribute="top" secondItem="SQC-lw-w5d" secondAttribute="bottom" constant="44" id="bk4-6T-pnf"/>
                                                     <constraint firstItem="BzG-9H-pji" firstAttribute="leading" secondItem="s5b-A1-M5a" secondAttribute="leading" constant="28" id="dUp-Sr-NyV"/>
                                                     <constraint firstItem="SQC-lw-w5d" firstAttribute="top" secondItem="OPz-op-RyB" secondAttribute="bottom" constant="16" id="dv9-q4-Fpg"/>
@@ -952,11 +918,12 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                         <color key="backgroundColor" name="BackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="4xI-Ig-qmn" firstAttribute="leading" secondItem="rM6-bw-Dy6" secondAttribute="leading" constant="12" id="6gF-OJ-6oH"/>
+                                            <constraint firstAttribute="height" constant="707.33333333333337" id="736-Bk-bZC"/>
                                             <constraint firstItem="s5b-A1-M5a" firstAttribute="top" secondItem="rM6-bw-Dy6" secondAttribute="top" constant="84" id="95U-tb-j60"/>
                                             <constraint firstItem="s5b-A1-M5a" firstAttribute="leading" secondItem="rM6-bw-Dy6" secondAttribute="leading" constant="12" id="Q69-7c-nee"/>
                                             <constraint firstAttribute="trailing" secondItem="s5b-A1-M5a" secondAttribute="trailing" constant="12" id="WOy-Ph-PN9"/>
                                             <constraint firstItem="4xI-Ig-qmn" firstAttribute="top" secondItem="rM6-bw-Dy6" secondAttribute="top" constant="24" id="YqO-VC-vye"/>
-                                            <constraint firstAttribute="bottom" secondItem="s5b-A1-M5a" secondAttribute="bottom" constant="65" id="aUm-Hz-ShW"/>
+                                            <constraint firstAttribute="bottom" secondItem="s5b-A1-M5a" secondAttribute="bottom" constant="120" id="aUm-Hz-ShW"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1112,7 +1079,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xp3-NL-myv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6366" y="95"/>
+            <point key="canvasLocation" x="5263" y="-1703"/>
         </scene>
         <!--OS Not Supported View Controller-->
         <scene sceneID="eyy-0l-iIB">
@@ -1583,7 +1550,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m8B-LW-HPd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4282" y="-184"/>
+            <point key="canvasLocation" x="5263" y="95"/>
         </scene>
         <!--In Process View Controller-->
         <scene sceneID="Y29-ti-guP">
@@ -2303,7 +2270,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NfE-K9-vQd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1164.6153846153845" y="-259.478672985782"/>
+            <point key="canvasLocation" x="1166" y="-198"/>
         </scene>
         <!--Check Doc Info View Controller-->
         <scene sceneID="ljs-xk-7FC">
@@ -3412,7 +3379,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
         <!--Fast Movemetns View Controller-->
         <scene sceneID="2bB-1I-fRl">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="cii-CZ-O8e" userLabel="Fast Movemetns View Controller" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="cii-CZ-O8e" userLabel="Fast Movemetns View Controller" customClass="SharpMovementsViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KLd-hr-QbN">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3424,7 +3391,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="674"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D9J-RU-7XW" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="84" width="366" height="525"/>
+                                                <rect key="frame" x="12" y="84" width="366" height="470"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fast_movement" translatesAutoresizingMaskIntoConstraints="NO" id="PH1-BN-DoB">
                                                         <rect key="frame" x="28" y="24" width="310" height="240"/>
@@ -3452,30 +3419,20 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Попробовать снова"/>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Все было пройдено корректно, отправить на проверку" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YwK-TW-tcR">
-                                                        <rect key="frame" x="16" y="467.33333333333337" width="334" height="33.666666666666686"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" name="CardColor"/>
                                                 <constraints>
                                                     <constraint firstItem="Rsg-z4-gbq" firstAttribute="leading" secondItem="D9J-RU-7XW" secondAttribute="leading" constant="16" id="B6X-fq-Yho"/>
-                                                    <constraint firstAttribute="bottom" secondItem="YwK-TW-tcR" secondAttribute="bottom" constant="24" id="Brn-8Q-qfV"/>
                                                     <constraint firstItem="PH1-BN-DoB" firstAttribute="top" secondItem="D9J-RU-7XW" secondAttribute="top" constant="24" id="GbY-Jv-Akj"/>
                                                     <constraint firstItem="IDl-aE-NPd" firstAttribute="leading" secondItem="D9J-RU-7XW" secondAttribute="leading" constant="16" id="KzZ-g8-CQB"/>
                                                     <constraint firstAttribute="trailing" secondItem="PH1-BN-DoB" secondAttribute="trailing" constant="28" id="Lja-HJ-F2r"/>
                                                     <constraint firstItem="eta-Xk-i4x" firstAttribute="leading" secondItem="D9J-RU-7XW" secondAttribute="leading" constant="16" id="Lln-HY-61S"/>
-                                                    <constraint firstAttribute="trailing" secondItem="YwK-TW-tcR" secondAttribute="trailing" constant="16" id="P76-k5-9ig"/>
                                                     <constraint firstItem="Rsg-z4-gbq" firstAttribute="top" secondItem="eta-Xk-i4x" secondAttribute="bottom" constant="44" id="Pvn-HR-keR"/>
                                                     <constraint firstAttribute="trailing" secondItem="eta-Xk-i4x" secondAttribute="trailing" constant="16" id="WA6-qb-qUm"/>
                                                     <constraint firstAttribute="trailing" secondItem="IDl-aE-NPd" secondAttribute="trailing" constant="16" id="WTY-h4-43s"/>
                                                     <constraint firstItem="eta-Xk-i4x" firstAttribute="top" secondItem="IDl-aE-NPd" secondAttribute="bottom" constant="16" id="Xut-an-Fbx"/>
                                                     <constraint firstItem="IDl-aE-NPd" firstAttribute="top" secondItem="PH1-BN-DoB" secondAttribute="bottom" constant="12" id="bze-w7-BkP"/>
-                                                    <constraint firstItem="YwK-TW-tcR" firstAttribute="top" secondItem="Rsg-z4-gbq" secondAttribute="bottom" constant="20" id="cYb-mI-Riu"/>
                                                     <constraint firstItem="PH1-BN-DoB" firstAttribute="leading" secondItem="D9J-RU-7XW" secondAttribute="leading" constant="28" id="jhD-Mr-DH8"/>
-                                                    <constraint firstItem="YwK-TW-tcR" firstAttribute="leading" secondItem="D9J-RU-7XW" secondAttribute="leading" constant="16" id="t89-8Z-X6U"/>
                                                     <constraint firstAttribute="trailing" secondItem="Rsg-z4-gbq" secondAttribute="trailing" constant="16" id="vOR-6n-RCb"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -3496,8 +3453,9 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                         <constraints>
                                             <constraint firstItem="D9J-RU-7XW" firstAttribute="leading" secondItem="FtZ-Fe-fHe" secondAttribute="leading" constant="12" id="Hge-x6-2Hk"/>
                                             <constraint firstItem="D9J-RU-7XW" firstAttribute="top" secondItem="FtZ-Fe-fHe" secondAttribute="top" constant="84" id="KIY-qo-2h7"/>
-                                            <constraint firstAttribute="bottom" secondItem="D9J-RU-7XW" secondAttribute="bottom" constant="65" id="MIs-Pr-2SG"/>
+                                            <constraint firstAttribute="bottom" secondItem="D9J-RU-7XW" secondAttribute="bottom" constant="120" id="MIs-Pr-2SG"/>
                                             <constraint firstItem="kRH-dN-hZu" firstAttribute="leading" secondItem="FtZ-Fe-fHe" secondAttribute="leading" constant="12" id="PAX-kx-VhX"/>
+                                            <constraint firstAttribute="height" constant="674" id="aqm-ae-4oe"/>
                                             <constraint firstAttribute="trailing" secondItem="D9J-RU-7XW" secondAttribute="trailing" constant="12" id="pIS-bz-t5V"/>
                                             <constraint firstItem="kRH-dN-hZu" firstAttribute="top" secondItem="FtZ-Fe-fHe" secondAttribute="top" constant="24" id="y1L-aS-ye0"/>
                                         </constraints>
@@ -3530,7 +3488,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
         <!--Too Dark View Controller-->
         <scene sceneID="yq9-UK-vOG">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="MMF-sr-RPg" userLabel="Too Dark View Controller" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="MMF-sr-RPg" userLabel="Too Dark View Controller" customClass="NoBrightnessViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eCL-fk-PA8">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3542,7 +3500,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="690.66666666666663"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xZk-P1-DKL" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="84" width="366" height="541.66666666666663"/>
+                                                <rect key="frame" x="12" y="84.000000000000028" width="366" height="486.66666666666674"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Too dark" translatesAutoresizingMaskIntoConstraints="NO" id="0vT-6t-WEa">
                                                         <rect key="frame" x="28" y="24" width="310" height="240"/>
@@ -3570,12 +3528,6 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Попробовать снова"/>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Все было пройдено корректно, отправить на проверку" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyT-Sa-ECj">
-                                                        <rect key="frame" x="16" y="484" width="334" height="33.666666666666629"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" name="CardColor"/>
                                                 <constraints>
@@ -3585,10 +3537,6 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                     <constraint firstItem="NhH-7f-gBD" firstAttribute="leading" secondItem="xZk-P1-DKL" secondAttribute="leading" constant="16" id="Cpi-Ss-KGA"/>
                                                     <constraint firstAttribute="trailing" secondItem="0vT-6t-WEa" secondAttribute="trailing" constant="28" id="Qk7-WN-vfQ"/>
                                                     <constraint firstItem="J06-xe-Wnh" firstAttribute="leading" secondItem="xZk-P1-DKL" secondAttribute="leading" constant="16" id="WMM-Mi-H8f"/>
-                                                    <constraint firstItem="VyT-Sa-ECj" firstAttribute="leading" secondItem="xZk-P1-DKL" secondAttribute="leading" constant="16" id="Zmj-F4-Vq2"/>
-                                                    <constraint firstItem="VyT-Sa-ECj" firstAttribute="top" secondItem="J06-xe-Wnh" secondAttribute="bottom" constant="20" id="adp-qJ-u4r"/>
-                                                    <constraint firstAttribute="bottom" secondItem="VyT-Sa-ECj" secondAttribute="bottom" constant="24" id="bCl-tG-iy5"/>
-                                                    <constraint firstAttribute="trailing" secondItem="VyT-Sa-ECj" secondAttribute="trailing" constant="16" id="bRk-mO-nlh"/>
                                                     <constraint firstAttribute="trailing" secondItem="J06-xe-Wnh" secondAttribute="trailing" constant="16" id="eSl-Ej-8Zl"/>
                                                     <constraint firstItem="0vT-6t-WEa" firstAttribute="top" secondItem="xZk-P1-DKL" secondAttribute="top" constant="24" id="ejE-xs-ouK"/>
                                                     <constraint firstItem="iqs-Cd-Nh9" firstAttribute="leading" secondItem="xZk-P1-DKL" secondAttribute="leading" constant="16" id="qaf-iZ-Yj7"/>
@@ -3613,11 +3561,12 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                         <color key="backgroundColor" name="BackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="MNn-hJ-giQ" firstAttribute="leading" secondItem="MjI-9Q-v7Q" secondAttribute="leading" constant="12" id="2EV-ZG-XDn"/>
+                                            <constraint firstAttribute="height" constant="690.66666666666663" id="8MC-Bn-p0V"/>
                                             <constraint firstItem="xZk-P1-DKL" firstAttribute="leading" secondItem="MjI-9Q-v7Q" secondAttribute="leading" constant="12" id="An1-3k-Fdb"/>
                                             <constraint firstItem="xZk-P1-DKL" firstAttribute="top" secondItem="MjI-9Q-v7Q" secondAttribute="top" constant="84" id="QcY-v4-vlf"/>
                                             <constraint firstItem="MNn-hJ-giQ" firstAttribute="top" secondItem="MjI-9Q-v7Q" secondAttribute="top" constant="24" id="W9T-iL-f1x"/>
                                             <constraint firstAttribute="trailing" secondItem="xZk-P1-DKL" secondAttribute="trailing" constant="12" id="YEH-gh-yRQ"/>
-                                            <constraint firstAttribute="bottom" secondItem="xZk-P1-DKL" secondAttribute="bottom" constant="65" id="iPT-sC-F5l"/>
+                                            <constraint firstAttribute="bottom" secondItem="xZk-P1-DKL" secondAttribute="bottom" constant="120" id="iPT-sC-F5l"/>
                                         </constraints>
                                     </view>
                                 </subviews>

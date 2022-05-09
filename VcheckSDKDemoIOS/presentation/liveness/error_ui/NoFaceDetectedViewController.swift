@@ -6,3 +6,14 @@
 //
 
 import Foundation
+import UIKit
+
+class NoFaceDetectedViewController : UIViewController {
+    
+    var onRepeatBlock : ((Bool) -> Void)?
+    
+    @IBAction func nfRetryAction(_ sender: Any) {
+        self.dismiss(animated: true)
+        onRepeatBlock!(true)
+    }
+}
