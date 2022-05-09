@@ -135,20 +135,22 @@ public final class LivenessScreenViewController: UIViewController {
     }
     
     func renewLivenessSessionOnRetry() {
-        // reset UI
-        imgMilestoneChecked.isHidden = true
-        indicationFrame.isHidden = true
-        faceAnimationView = AnimationView()
-        arrowAnimationView = AnimationView()
-        arrowAnimationView.stop()
-        rightArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
-        leftArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
-        // reset logic
-        self.milestoneFlow = StandardMilestoneFlow()
-        self.majorObstacleFrameCounterHolder = MajorObstacleFrameCounterHolder()
-        self.isLivenessSessionFinished = false
-        self.hasEnoughTimeForNextGesture = true
-        self.blockStageIndicationByUI = false
+        DispatchQueue.main.async {
+            // reset UI
+            self.imgMilestoneChecked.isHidden = true
+            self.indicationFrame.isHidden = true
+            self.faceAnimationView = AnimationView()
+            self.arrowAnimationView = AnimationView()
+            self.arrowAnimationView.stop()
+            self.rightArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
+            self.leftArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
+            // reset logic
+            self.milestoneFlow = StandardMilestoneFlow()
+            self.majorObstacleFrameCounterHolder = MajorObstacleFrameCounterHolder()
+            self.isLivenessSessionFinished = false
+            self.hasEnoughTimeForNextGesture = true
+            self.blockStageIndicationByUI = false
+        }
     }
 }
 
@@ -212,11 +214,8 @@ extension LivenessScreenViewController {
                 } else {
                     if (self.hasEnoughTimeForNextGesture) {
                         if (milestoneType != GestureMilestoneType.CheckHeadPositionMilestone) {
-                            
                             self.majorObstacleFrameCounterHolder.resetFrameCountersOnStageSuccess()
-                            
                             self.hapticFeedbackGenerator.notificationOccurred(.success)
-                            //!
                             self.delayedStageIndicationRenew()
                         }
                         if (self.blockStageIndicationByUI == false) {
@@ -238,8 +237,20 @@ extension LivenessScreenViewController {
     
     func onObstableTypeMet(obstacleType: ObstacleType) {
         DispatchQueue.main.async {
+            if (obstacleType == ObstacleType.MOTIONS_ARE_TOO_SHARP) {
+                self.endSessionPrematurely()
+                self.performSegue(withIdentifier: "LivenessToFastMovements", sender: nil)
+            }
+            if (obstacleType == ObstacleType.NO_STRAIGHT_FACE_DETECTED) {
+                self.endSessionPrematurely()
+                self.performSegue(withIdentifier: "LivenessToNoFaceDetected", sender: nil)
+            }
+            if (obstacleType == ObstacleType.MULTIPLE_FACES_DETECTED) {
+                self.endSessionPrematurely()
+                self.performSegue(withIdentifier: "LivenessToMultipleFaces", sender: nil)
+            }
             if (obstacleType == ObstacleType.YAW_ANGLE) {
-                self.hapticFeedbackGenerator.notificationOccurred(.warning) //?
+                self.hapticFeedbackGenerator.notificationOccurred(.warning)
                 self.tvLivenessInfo.textColor = .red
                 self.tvLivenessInfo.text = NSLocalizedString("line_face_obstacle", comment: "")
                 DispatchQueue.main.asyncAfter(deadline:
@@ -254,22 +265,6 @@ extension LivenessScreenViewController {
                     self.performSegue(withIdentifier: "LivenessToWrongGesture", sender: nil)
                 }
             }
-            if (obstacleType == ObstacleType.NO_STRAIGHT_FACE_DETECTED) {
-                self.majorObstacleFrameCounterHolder.incrementNoFaceFrameCounter()
-                if (self.majorObstacleFrameCounterHolder.getNoFaceFrameCounter() >=
-                    LivenessScreenViewController.MAX_FRAMES_WITH_FATAL_OBSTACLES) {
-                    self.endSessionPrematurely()
-                    self.performSegue(withIdentifier: "LivenessToNoFaceDetected", sender: nil)
-                }
-            }
-            if (obstacleType == ObstacleType.MULTIPLE_FACES_DETECTED) {
-                self.majorObstacleFrameCounterHolder.incrementMultiFaceFrameCounter()
-                if (self.majorObstacleFrameCounterHolder.getMultiFaceFrameCounter() >=
-                    LivenessScreenViewController.MAX_FRAMES_WITH_FATAL_OBSTACLES) {
-                    self.endSessionPrematurely()
-                    self.performSegue(withIdentifier: "LivenessToMultipleFaces", sender: nil)
-                }
-            }
             if (obstacleType == ObstacleType.BRIGHTNESS_LEVEL_IS_LOW) {
                 self.majorObstacleFrameCounterHolder.incrementNoBrightnessFrameCounter()
                 if (self.majorObstacleFrameCounterHolder.getNoBrightnessFrameCounter() >=
@@ -278,17 +273,13 @@ extension LivenessScreenViewController {
                     self.performSegue(withIdentifier: "LivenessToTooDark", sender: nil)
                 }
             }
-            if (obstacleType == ObstacleType.MOTIONS_ARE_TOO_SHARP) {
-                self.endSessionPrematurely()
-                self.performSegue(withIdentifier: "LivenessToFastMovements", sender: nil)
-            }
         }
     }
     
     func endSessionPrematurely() {
+        self.isLivenessSessionFinished = true
         self.hapticFeedbackGenerator.notificationOccurred(.warning)
         self.majorObstacleFrameCounterHolder.resetFrameCountersOnSessionPrematureEnd()
-        self.isLivenessSessionFinished = true
     }
     
     func startLivenessSessionTimeoutTimer() {

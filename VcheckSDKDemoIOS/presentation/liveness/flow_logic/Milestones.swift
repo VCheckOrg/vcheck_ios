@@ -31,8 +31,8 @@ class MilestoneConstraints {
     static let RIGHT_PITCH_PASS_ANGLE: Float = 30.0
     static let MOUTH_OPEN_PASS_FACTOR: Float = 0.39  //reduced from 0.55 !
     
-    static let NEXT_FRAME_MAX_PITCH_DIFF: Float = 40.0
-    static let NEXT_FRAME_MAX_YAW_DIFF: Float = 25.0
+    static let NEXT_FRAME_MAX_PITCH_DIFF: Float = 15.0 //!
+    static let NEXT_FRAME_MAX_YAW_DIFF: Float = 8.0
     //VIDEO_APP_LIVENESS_MAX_ANGLES_DIFF=100,25,100 //add roll?
 }
 
@@ -145,6 +145,7 @@ class StandardMilestoneFlow {
     
     private var recentFramePitchAngle: Float = 0.0
     private var recentFrameYawAngle: Float = 0.0
+    private var shouldMakeMidFrameBreakSwitch: Bool = false //TODO: test properly!
     
 
     func getCurrentStage() -> GestureMilestone {
@@ -181,23 +182,38 @@ class StandardMilestoneFlow {
                 }
             }
         }
-        recentFramePitchAngle = pitchAngle
-        recentFrameYawAngle = yawAngle
+        if (shouldMakeMidFrameBreakSwitch == true) {
+            recentFramePitchAngle = pitchAngle
+            recentFrameYawAngle = yawAngle
+        }
+        shouldMakeMidFrameBreakSwitch = !shouldMakeMidFrameBreakSwitch
     }
     
     func hasExtensivePitchDiff(pitchAngle: Float) -> Bool {
         if ((pitchAngle < 0 && recentFramePitchAngle < 0) || (pitchAngle > 0 && recentFramePitchAngle > 0)) {
+//            let diff = abs(abs(pitchAngle) - abs(recentFramePitchAngle))
+//            print("PITCH DIFF: \(diff)")
             return abs(abs(pitchAngle) - abs(recentFramePitchAngle)) > MilestoneConstraints.NEXT_FRAME_MAX_PITCH_DIFF
-        } else {
+        } else if (pitchAngle != 0.0 && recentFrameYawAngle != 0.0) {
+//            let diff = (abs(pitchAngle) + abs(recentFramePitchAngle))
+//            print("PITCH DIFF: \(diff)")
             return (abs(pitchAngle) + abs(recentFramePitchAngle)) > MilestoneConstraints.NEXT_FRAME_MAX_PITCH_DIFF
+        } else {
+            return false
         }
     }
     
     func hasExtensiveYawDiff(yawAngle: Float) -> Bool {
         if ((yawAngle < 0 && recentFrameYawAngle < 0) || (yawAngle > 0 && recentFrameYawAngle > 0)) {
+//            let diff = abs(abs(yawAngle) - abs(recentFrameYawAngle))
+//            print("YAW DIFF: \(diff)")
             return abs(abs(yawAngle) - abs(recentFrameYawAngle)) > MilestoneConstraints.NEXT_FRAME_MAX_PITCH_DIFF
-        } else {
+        } else if (yawAngle != 0.0 && recentFrameYawAngle != 0.0) {
+//            let diff = (abs(yawAngle) + abs(recentFrameYawAngle))
+//            print("YAW DIFF: \(diff)")
             return (abs(yawAngle) + abs(recentFrameYawAngle)) > MilestoneConstraints.NEXT_FRAME_MAX_YAW_DIFF
+        } else {
+            return false
         }
     }
 }
@@ -205,51 +221,29 @@ class StandardMilestoneFlow {
 
 class MajorObstacleFrameCounterHolder {
     
-    private var multiFaceFrameCounter: Int = 0
-    private var noFaceFrameCounter: Int = 0
+//    private var multiFaceFrameCounter: Int = 0
+//    private var noFaceFrameCounter: Int = 0
     private var wrongGestureFrameCounter: Int = 0
     private var noBrightnessFrameCounter: Int = 0
     
     func resetFrameCountersOnSessionPrematureEnd() {
-        self.multiFaceFrameCounter = 0
-        self.noFaceFrameCounter = 0
         self.wrongGestureFrameCounter = 0
         self.noBrightnessFrameCounter = 0
     }
     
     func resetFrameCountersOnStageSuccess() {
-        self.multiFaceFrameCounter = -15
-        self.noFaceFrameCounter = -15
         self.wrongGestureFrameCounter = -15
         self.noBrightnessFrameCounter = -15
     }
     
-    func incrementMultiFaceFrameCounter() {
-        self.multiFaceFrameCounter += 1
-        print("MULTIPLE FACES DETECTED - FRAME COUNT: \(self.multiFaceFrameCounter)")
-    }
-    
-    func incrementNoFaceFrameCounter() {
-        self.noFaceFrameCounter += 1
-        print("NO STRAIGHT FACE DETECTED - FRAME COUNT: \(self.noFaceFrameCounter)")
-    }
-    
     func incrementWrongGestureFrameCounter() {
         self.wrongGestureFrameCounter += 1
-        print("WRONG GESTURE - FRAME COUNT: \(self.multiFaceFrameCounter)")
+        print("WRONG GESTURE - FRAME COUNT: \(self.wrongGestureFrameCounter)")
     }
     
     func incrementNoBrightnessFrameCounter() {
         self.noBrightnessFrameCounter += 1
-        print("NOT ENOUGH BRIGHTNESS DETECTED - FRAME COUNT: \(self.multiFaceFrameCounter)")
-    }
-    
-    func getMultiFaceFrameCounter() -> Int {
-        return self.multiFaceFrameCounter
-    }
-    
-    func getNoFaceFrameCounter() -> Int {
-        return self.noFaceFrameCounter
+        print("NOT ENOUGH BRIGHTNESS DETECTED - FRAME COUNT: \(self.noBrightnessFrameCounter)")
     }
     
     func getWrongGestureFrameCounter() -> Int {
