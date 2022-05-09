@@ -10,5 +10,10 @@ import UIKit
 
 class NoBrightnessViewController : UIViewController {
     
+    var onRepeatBlock : ((Bool) -> Void)?
     
+    @IBAction func nvRepeatAction(_ sender: UIButton) {
+        self.dismiss(animated: true)
+        onRepeatBlock!(true)
+    }
 }

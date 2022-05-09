@@ -60,7 +60,10 @@ public final class LivenessScreenViewController: UIViewController {
     static let LIVENESS_TIME_LIMIT_MILLIS = 14000 //max is 15000
     static let BLOCK_PIPELINE_ON_OBSTACLE_TIME_MILLIS = 1100 //may reduce a bit
     static let BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS = 1200 //may reduce a bit
+    
     static let MAX_FRAMES_WITH_FATAL_OBSTACLES = 50
+    static let FACE_DETECTION_FRAME_INTERVAL = 20
+    private var faceCountDetectionFrameCounter: Int = 0
  
     private var isLivenessSessionFinished: Bool = false
     private var hasEnoughTimeForNextGesture: Bool = true
@@ -89,10 +92,6 @@ public final class LivenessScreenViewController: UIViewController {
         }
     }
     
-//    public override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(false)
-//    }
-    
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -109,16 +108,44 @@ public final class LivenessScreenViewController: UIViewController {
     }
     
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //TODO: add check for non-obstacle screen (processing/etc)
+        //onRepeatFromObstacleDescriptionScreen(for: segue)
         if (segue.identifier == "LivenessToNoFaceDetected") {
             let vc = segue.destination as! NoFaceDetectedViewController
-            vc.onRepeatBlock = { result in
-                print("========================== BACK TO LIVENESS!")
-                self.renewLivenessSessionOnRetry()
-            }
+            vc.onRepeatBlock = { result in self.renewLivenessSessionOnRetry() }
+        }
+        if (segue.identifier == "LivenessToNoTime") {
+            let vc = segue.destination as! NoTimeViewController
+            vc.onRepeatBlock = { result in self.renewLivenessSessionOnRetry() }
+        }
+        if (segue.identifier == "LivenessToMultipleFaces") {
+            let vc = segue.destination as! MultipleFacesDetectedViewController
+            vc.onRepeatBlock = { result in self.renewLivenessSessionOnRetry() }
+        }
+        if (segue.identifier == "LivenessToTooDark") {
+            let vc = segue.destination as! NoBrightnessViewController
+            vc.onRepeatBlock = { result in self.renewLivenessSessionOnRetry() }
+        }
+        if (segue.identifier == "LivenessToWrongGesture") {
+            let vc = segue.destination as! WrongGestureViewController
+            vc.onRepeatBlock = { result in self.renewLivenessSessionOnRetry() }
+        }
+        if (segue.identifier == "LivenessToFastMovements") {
+            let vc = segue.destination as! SharpMovementsViewController
+            vc.onRepeatBlock = { result in self.renewLivenessSessionOnRetry() }
         }
     }
     
     func renewLivenessSessionOnRetry() {
+        // reset UI
+        imgMilestoneChecked.isHidden = true
+        indicationFrame.isHidden = true
+        faceAnimationView = AnimationView()
+        arrowAnimationView = AnimationView()
+        arrowAnimationView.stop()
+        rightArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
+        leftArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
+        // reset logic
         self.milestoneFlow = StandardMilestoneFlow()
         self.majorObstacleFrameCounterHolder = MajorObstacleFrameCounterHolder()
         self.isLivenessSessionFinished = false
@@ -262,7 +289,7 @@ extension LivenessScreenViewController {
                 }
             }
         }
-        //TODO: also add sharp movements
+        //TODO: also add sharp movements: here we need to check angle difference between each and next frame
     }
     
     func endSessionPrematurely() {
@@ -469,7 +496,12 @@ extension LivenessScreenViewController: AVCaptureVideoDataOutputSampleBufferDele
         }
         
         //TODO: test
-        detectFacesOnFrameOutput(buffer: imgBuffer)
+        
+        faceCountDetectionFrameCounter += 1
+        if (faceCountDetectionFrameCounter >= LivenessScreenViewController.FACE_DETECTION_FRAME_INTERVAL) {
+            faceCountDetectionFrameCounter = 0
+            detectFacesOnFrameOutput(buffer: imgBuffer)
+        }
         
         let frameTime = CMTimeGetSeconds(CMSampleBufferGetPresentationTimeStamp(sampleBuffer))
         
@@ -480,5 +512,18 @@ extension LivenessScreenViewController: AVCaptureVideoDataOutputSampleBufferDele
         //print("DEVICE(?) ROTATION DEGREES: \(rotationDegrees)")
         
         faceSession?.update(with: imgBuffer, timestamp: frameTime, recognitionRotation: rotationDegrees)
+    }
+    
+    func onFacesDetected(request: VNRequest, error: Error?) {
+      guard let results = request.results as? [VNFaceObservation] else {
+        return
+      }
+        print("FACE(S) DETECTED: \(results.count)")
+        if (results.count < 1) {
+            onObstableTypeMet(obstacleType: ObstacleType.NO_STRAIGHT_FACE_DETECTED)
+        }
+        if (results.count > 1) {
+            onObstableTypeMet(obstacleType: ObstacleType.MULTIPLE_FACES_DETECTED)
+        }
     }
 }

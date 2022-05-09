@@ -157,21 +157,6 @@ extension LivenessScreenViewController {
         }
       }
     }
-    
-    func onFacesDetected(request: VNRequest, error: Error?) {
-      guard let results = request.results as? [VNFaceObservation] else {
-        return
-      }
-        
-      //TODO: add screen + nav for multiple faces detection! + fix arrow
-
-        if (results.count < 1) {
-            onObstableTypeMet(obstacleType: ObstacleType.NO_STRAIGHT_FACE_DETECTED)
-        }
-        if (results.count > 1) {
-            onObstableTypeMet(obstacleType: ObstacleType.MULTIPLE_FACES_DETECTED)
-        }
-    }
 }
 
 

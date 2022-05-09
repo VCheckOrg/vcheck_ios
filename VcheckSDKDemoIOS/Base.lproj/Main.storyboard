@@ -412,10 +412,10 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                 <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fzN-Vs-aSf">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="674"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="704"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6B9-Ep-e0R" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="84" width="366" height="490"/>
+                                                <rect key="frame" x="12" y="84" width="366" height="520"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_time_image" translatesAutoresizingMaskIntoConstraints="NO" id="xY2-LW-0G9">
                                                         <rect key="frame" x="28" y="24" width="310" height="240"/>
@@ -423,42 +423,46 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                             <constraint firstAttribute="height" constant="240" id="ipg-2m-RJo"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Время на выполнение движения истекло" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="939-B9-Kfj">
-                                                        <rect key="frame" x="16" y="276" width="334" height="43"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Время на выполнение движения истекло" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="939-B9-Kfj">
+                                                        <rect key="frame" x="16" y="276" width="334" height="73"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы не успели выполнить корректное движение. Старайтесь четко придерживаться инструкций в момент прохождения проверки" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLu-gA-21w">
-                                                        <rect key="frame" x="16" y="335" width="334" height="50.333333333333314"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы не успели выполнить корректное движение. Старайтесь четко придерживаться инструкций в момент прохождения проверки." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLu-gA-21w">
+                                                        <rect key="frame" x="16" y="365" width="334" height="50.333333333333314"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QxK-2h-Je3">
-                                                        <rect key="frame" x="16" y="429.33333333333337" width="334" height="56"/>
+                                                        <rect key="frame" x="16" y="444" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="gfU-MC-cAK"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Попробовать снова"/>
+                                                        <connections>
+                                                            <action selector="ntBackAction:" destination="q0J-YZ-DjP" eventType="touchUpInside" id="KFB-IS-TmQ"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" name="CardColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="xY2-LW-0G9" secondAttribute="trailing" constant="28" id="2e8-Mr-V6T"/>
                                                     <constraint firstItem="uLu-gA-21w" firstAttribute="top" secondItem="939-B9-Kfj" secondAttribute="bottom" constant="16" id="2er-OI-k4H"/>
+                                                    <constraint firstItem="QxK-2h-Je3" firstAttribute="top" secondItem="uLu-gA-21w" secondAttribute="bottom" constant="28.666666666666686" id="5zF-HQ-c8I"/>
                                                     <constraint firstItem="939-B9-Kfj" firstAttribute="top" secondItem="xY2-LW-0G9" secondAttribute="bottom" constant="12" id="7T3-U8-hiI"/>
                                                     <constraint firstAttribute="trailing" secondItem="uLu-gA-21w" secondAttribute="trailing" constant="16" id="I6t-Nk-IYO"/>
-                                                    <constraint firstAttribute="height" constant="490" id="MfR-Df-R4i"/>
+                                                    <constraint firstAttribute="height" constant="520" id="MfR-Df-R4i"/>
                                                     <constraint firstItem="xY2-LW-0G9" firstAttribute="top" secondItem="6B9-Ep-e0R" secondAttribute="top" constant="24" id="O74-RR-Ycj"/>
                                                     <constraint firstItem="939-B9-Kfj" firstAttribute="leading" secondItem="6B9-Ep-e0R" secondAttribute="leading" constant="16" id="Qvb-rV-j6M"/>
                                                     <constraint firstAttribute="trailing" secondItem="QxK-2h-Je3" secondAttribute="trailing" constant="16" id="YJA-3G-LzH"/>
                                                     <constraint firstItem="uLu-gA-21w" firstAttribute="leading" secondItem="6B9-Ep-e0R" secondAttribute="leading" constant="16" id="co6-PF-HF7"/>
                                                     <constraint firstItem="QxK-2h-Je3" firstAttribute="leading" secondItem="6B9-Ep-e0R" secondAttribute="leading" constant="16" id="l54-yU-qOO"/>
                                                     <constraint firstAttribute="trailing" secondItem="939-B9-Kfj" secondAttribute="trailing" constant="16" id="qJc-zT-E7N"/>
+                                                    <constraint firstAttribute="bottom" secondItem="QxK-2h-Je3" secondAttribute="bottom" constant="20" id="uvd-kD-Lqf"/>
                                                     <constraint firstItem="xY2-LW-0G9" firstAttribute="leading" secondItem="6B9-Ep-e0R" secondAttribute="leading" constant="28" id="vC7-WI-ol7"/>
-                                                    <constraint firstItem="QxK-2h-Je3" firstAttribute="top" secondItem="uLu-gA-21w" secondAttribute="bottom" constant="44" id="zbZ-Ki-ifU"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -647,7 +651,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVd-GC-ULM">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVd-GC-ULM">
                                                         <rect key="frame" x="16" y="313.66666666666669" width="334" height="83.666666666666686"/>
                                                         <string key="text">Движение, которое запрашивалось не было выполнено корректно. Старайтесь делать именно те движения, которые запрашиваются. Движения должны быть плавными и своевременными.</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -655,22 +659,25 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fM-Ho-q55">
-                                                        <rect key="frame" x="16" y="441.33333333333337" width="334" height="56"/>
+                                                        <rect key="frame" x="16" y="427.33333333333337" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="nZX-TF-KWN"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Попробовать снова"/>
+                                                        <connections>
+                                                            <action selector="wgRepeatAction:" destination="Gk4-E0-G28" eventType="touchUpInside" id="QEe-FB-6Tn"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" name="CardColor"/>
                                                 <constraints>
                                                     <constraint firstItem="bVd-GC-ULM" firstAttribute="top" secondItem="uol-az-Qka" secondAttribute="bottom" constant="16" id="0ul-gP-dp5"/>
+                                                    <constraint firstAttribute="bottom" secondItem="3fM-Ho-q55" secondAttribute="bottom" constant="20" id="7Ly-VK-f2J"/>
                                                     <constraint firstAttribute="trailing" secondItem="U5R-dz-wwO" secondAttribute="trailing" constant="28" id="Ald-Nh-eCW"/>
                                                     <constraint firstAttribute="trailing" secondItem="3fM-Ho-q55" secondAttribute="trailing" constant="16" id="CuF-cb-XKJ"/>
                                                     <constraint firstItem="U5R-dz-wwO" firstAttribute="top" secondItem="9J1-LU-ygA" secondAttribute="top" constant="24" id="D0f-5X-79h"/>
                                                     <constraint firstItem="bVd-GC-ULM" firstAttribute="leading" secondItem="9J1-LU-ygA" secondAttribute="leading" constant="16" id="Fr5-Mx-kJf"/>
-                                                    <constraint firstItem="3fM-Ho-q55" firstAttribute="top" secondItem="bVd-GC-ULM" secondAttribute="bottom" constant="44" id="KPo-N2-GSb"/>
                                                     <constraint firstItem="U5R-dz-wwO" firstAttribute="leading" secondItem="9J1-LU-ygA" secondAttribute="leading" constant="28" id="NJv-X6-0xx"/>
                                                     <constraint firstAttribute="trailing" secondItem="bVd-GC-ULM" secondAttribute="trailing" constant="16" id="UYc-nN-qNO"/>
                                                     <constraint firstItem="uol-az-Qka" firstAttribute="leading" secondItem="9J1-LU-ygA" secondAttribute="leading" constant="16" id="Vig-qp-CcN"/>
@@ -765,12 +772,15 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCO-14-vPo">
-                                                        <rect key="frame" x="16" y="441.33333333333337" width="334" height="56"/>
+                                                        <rect key="frame" x="16" y="427.33333333333337" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="Zco-j0-AFB"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Попробовать снова"/>
+                                                        <connections>
+                                                            <action selector="nfRepeatAction:" destination="K4l-kg-dQj" eventType="touchUpInside" id="vAB-Pm-KeM"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" name="CardColor"/>
@@ -786,7 +796,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                     <constraint firstItem="aNj-4j-beg" firstAttribute="top" secondItem="TdZ-WF-NIV" secondAttribute="bottom" constant="16" id="kJ2-aN-9ha"/>
                                                     <constraint firstItem="TdZ-WF-NIV" firstAttribute="leading" secondItem="3fp-M1-0nX" secondAttribute="leading" constant="16" id="nNg-NT-oQa"/>
                                                     <constraint firstItem="gnh-nc-jqj" firstAttribute="leading" secondItem="3fp-M1-0nX" secondAttribute="leading" constant="28" id="sva-yS-j0A"/>
-                                                    <constraint firstItem="gCO-14-vPo" firstAttribute="top" secondItem="aNj-4j-beg" secondAttribute="bottom" constant="44" id="xKs-ua-nQ4"/>
+                                                    <constraint firstAttribute="bottom" secondItem="gCO-14-vPo" secondAttribute="bottom" constant="20" id="zED-kK-rsr"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -867,7 +877,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQC-lw-w5d">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQC-lw-w5d">
                                                         <rect key="frame" x="16" y="313.66666666666669" width="334" height="67"/>
                                                         <string key="text">Лицо не было зафиксировано прямо в кадре в необходимый для этого момент. Старайтесь четко придерживаться инструкций в момент прохождения проверки. Попробуйте снова. </string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -875,7 +885,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LeA-wx-gAE">
-                                                        <rect key="frame" x="16" y="424.66666666666663" width="334" height="56"/>
+                                                        <rect key="frame" x="16" y="427.33333333333337" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="LK8-JH-Lpd"/>
                                                         </constraints>
@@ -892,7 +902,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                     <constraint firstAttribute="trailing" secondItem="BzG-9H-pji" secondAttribute="trailing" constant="28" id="9AW-GA-A3e"/>
                                                     <constraint firstAttribute="trailing" secondItem="LeA-wx-gAE" secondAttribute="trailing" constant="16" id="D5A-H2-zZ0"/>
                                                     <constraint firstItem="LeA-wx-gAE" firstAttribute="leading" secondItem="s5b-A1-M5a" secondAttribute="leading" constant="16" id="Qsb-W1-Foo"/>
-                                                    <constraint firstItem="LeA-wx-gAE" firstAttribute="top" secondItem="SQC-lw-w5d" secondAttribute="bottom" constant="44" id="bk4-6T-pnf"/>
+                                                    <constraint firstAttribute="bottom" secondItem="LeA-wx-gAE" secondAttribute="bottom" constant="20" id="SX1-hT-3HY"/>
                                                     <constraint firstItem="BzG-9H-pji" firstAttribute="leading" secondItem="s5b-A1-M5a" secondAttribute="leading" constant="28" id="dUp-Sr-NyV"/>
                                                     <constraint firstItem="SQC-lw-w5d" firstAttribute="top" secondItem="OPz-op-RyB" secondAttribute="bottom" constant="16" id="dv9-q4-Fpg"/>
                                                     <constraint firstAttribute="trailing" secondItem="SQC-lw-w5d" secondAttribute="trailing" constant="16" id="hie-lK-7AO"/>
@@ -3418,6 +3428,9 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Попробовать снова"/>
+                                                        <connections>
+                                                            <action selector="smRepeatAction:" destination="cii-CZ-O8e" eventType="touchUpInside" id="bAa-tq-BrZ"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" name="CardColor"/>
@@ -3514,19 +3527,22 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проверка не может выполниться, так как в кадре слишком темно. Пройдите проверку повторно с хорошим освещением." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqs-Cd-Nh9">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проверка не может выполниться, так как в кадре слишком темно. Пройдите проверку повторно с хорошим освещением." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqs-Cd-Nh9">
                                                         <rect key="frame" x="16" y="313.66666666666669" width="334" height="50.333333333333314"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J06-xe-Wnh">
-                                                        <rect key="frame" x="16" y="408" width="334" height="56"/>
+                                                        <rect key="frame" x="16" y="410.66666666666663" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="cEa-Yp-2RN"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Попробовать снова"/>
+                                                        <connections>
+                                                            <action selector="nvRepeatAction:" destination="MMF-sr-RPg" eventType="touchUpInside" id="xGA-4E-cgZ"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" name="CardColor"/>
@@ -3539,10 +3555,10 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                     <constraint firstItem="J06-xe-Wnh" firstAttribute="leading" secondItem="xZk-P1-DKL" secondAttribute="leading" constant="16" id="WMM-Mi-H8f"/>
                                                     <constraint firstAttribute="trailing" secondItem="J06-xe-Wnh" secondAttribute="trailing" constant="16" id="eSl-Ej-8Zl"/>
                                                     <constraint firstItem="0vT-6t-WEa" firstAttribute="top" secondItem="xZk-P1-DKL" secondAttribute="top" constant="24" id="ejE-xs-ouK"/>
+                                                    <constraint firstAttribute="bottom" secondItem="J06-xe-Wnh" secondAttribute="bottom" constant="20" id="mIM-jG-lzt"/>
                                                     <constraint firstItem="iqs-Cd-Nh9" firstAttribute="leading" secondItem="xZk-P1-DKL" secondAttribute="leading" constant="16" id="qaf-iZ-Yj7"/>
                                                     <constraint firstItem="iqs-Cd-Nh9" firstAttribute="top" secondItem="NhH-7f-gBD" secondAttribute="bottom" constant="16" id="t5Z-6g-Foz"/>
                                                     <constraint firstItem="NhH-7f-gBD" firstAttribute="top" secondItem="0vT-6t-WEa" secondAttribute="bottom" constant="12" id="w7U-Dl-N9o"/>
-                                                    <constraint firstItem="J06-xe-Wnh" firstAttribute="top" secondItem="iqs-Cd-Nh9" secondAttribute="bottom" constant="44" id="zsh-34-T5w"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">

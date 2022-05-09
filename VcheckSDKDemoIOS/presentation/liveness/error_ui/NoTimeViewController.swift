@@ -10,5 +10,10 @@ import UIKit
 
 class NoTimeViewController: UIViewController {
     
+    var onRepeatBlock : ((Bool) -> Void)?
     
+    @IBAction func ntBackAction(_ sender: UIButton) {
+        self.dismiss(animated: true)
+        onRepeatBlock!(true)
+    }
 }

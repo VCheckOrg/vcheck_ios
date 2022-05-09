@@ -10,4 +10,10 @@ import UIKit
 
 class WrongGestureViewController : UIViewController {
     
+    var onRepeatBlock : ((Bool) -> Void)?
+    
+    @IBAction func wgRepeatAction(_ sender: UIButton) {
+        self.dismiss(animated: true)
+        onRepeatBlock!(true)
+    }
 }
