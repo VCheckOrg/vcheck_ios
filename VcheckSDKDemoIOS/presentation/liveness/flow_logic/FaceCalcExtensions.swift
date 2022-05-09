@@ -48,7 +48,7 @@ extension simd_float4x4 {
             let actualPitch = -radiansToDegress(radians:atan2(sinr, cosr))
             
             /// return array containing ypr values
-            return FaceAnglesHolder(pitch: actualPitch, yaw: abs(actualYaw), roll: actualRoll)
+            return FaceAnglesHolder(pitch: actualPitch, yaw: actualYaw, roll: actualRoll)
             //! actualPitch was roll; ! actualYaw was pitch; ! actualRoll was yaw
         }
     }

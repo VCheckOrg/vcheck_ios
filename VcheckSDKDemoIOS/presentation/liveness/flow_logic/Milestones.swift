@@ -30,6 +30,10 @@ class MilestoneConstraints {
     static let LEFT_PITCH_PASS_ANGLE: Float = -30.0
     static let RIGHT_PITCH_PASS_ANGLE: Float = 30.0
     static let MOUTH_OPEN_PASS_FACTOR: Float = 0.39  //reduced from 0.55 !
+    
+    static let NEXT_FRAME_MAX_PITCH_DIFF: Float = 40.0
+    static let NEXT_FRAME_MAX_YAW_DIFF: Float = 25.0
+    //VIDEO_APP_LIVENESS_MAX_ANGLES_DIFF=100,25,100 //add roll?
 }
 
 
@@ -134,9 +138,14 @@ class StandardMilestoneFlow {
         CheckOverallHeadPositionMilestone(milestoneType: GestureMilestoneType.CheckHeadPositionMilestone),
         HeadPitchGestureMilestone(milestoneType: GestureMilestoneType.OuterLeftHeadPitchMilestone),
         HeadPitchGestureMilestone(milestoneType: GestureMilestoneType.OuterRightHeadPitchMilestone),
-        MouthGestureMilestone(milestoneType: GestureMilestoneType.MouthOpenMilestone)]
+        MouthGestureMilestone(milestoneType: GestureMilestoneType.MouthOpenMilestone)
+    ]
 
     private var currentStageIdx: Int = 0
+    
+    private var recentFramePitchAngle: Float = 0.0
+    private var recentFrameYawAngle: Float = 0.0
+    
 
     func getCurrentStage() -> GestureMilestone {
         return stagesList[currentStageIdx]
@@ -146,14 +155,17 @@ class StandardMilestoneFlow {
         return stagesList[currentStageIdx - 1]
     }
 
-    func checkCurrentStage(pitchAngle: Float, mouthFactor: Float, yawAbsAngle: Float,
+    func checkCurrentStage(pitchAngle: Float, mouthFactor: Float, yawAngle: Float,
                            onMilestoneResult: (GestureMilestoneType) -> Void,
                            onObstacleMet: (ObstacleType) -> Void) {
-        if (currentStageIdx > (stagesList.count - 1)) {
-            //print("ERROR: Index out of bounds in milestones list!")
+        let yawAbsAngle = abs(yawAngle)
+        if (currentStageIdx > (stagesList.count)) {
+            print("ERROR: Index out of bounds in milestones list!")
             return
         }
-        if (yawAbsAngle > MilestoneConstraints.YAW_PASS_ANGLE_ABS) {
+        if (hasExtensivePitchDiff(pitchAngle: pitchAngle) || hasExtensiveYawDiff(yawAngle: yawAngle)) {
+            onObstacleMet(ObstacleType.MOTIONS_ARE_TOO_SHARP)
+        } else if (yawAbsAngle > MilestoneConstraints.YAW_PASS_ANGLE_ABS) {
             onObstacleMet(ObstacleType.YAW_ANGLE)
         } else {
             if (stagesList[currentStageIdx].isMet(pitchAngle: pitchAngle,
@@ -169,6 +181,24 @@ class StandardMilestoneFlow {
                 }
             }
         }
+        recentFramePitchAngle = pitchAngle
+        recentFrameYawAngle = yawAngle
+    }
+    
+    func hasExtensivePitchDiff(pitchAngle: Float) -> Bool {
+        if ((pitchAngle < 0 && recentFramePitchAngle < 0) || (pitchAngle > 0 && recentFramePitchAngle > 0)) {
+            return abs(abs(pitchAngle) - abs(recentFramePitchAngle)) > MilestoneConstraints.NEXT_FRAME_MAX_PITCH_DIFF
+        } else {
+            return (abs(pitchAngle) + abs(recentFramePitchAngle)) > MilestoneConstraints.NEXT_FRAME_MAX_PITCH_DIFF
+        }
+    }
+    
+    func hasExtensiveYawDiff(yawAngle: Float) -> Bool {
+        if ((yawAngle < 0 && recentFrameYawAngle < 0) || (yawAngle > 0 && recentFrameYawAngle > 0)) {
+            return abs(abs(yawAngle) - abs(recentFrameYawAngle)) > MilestoneConstraints.NEXT_FRAME_MAX_PITCH_DIFF
+        } else {
+            return (abs(yawAngle) + abs(recentFrameYawAngle)) > MilestoneConstraints.NEXT_FRAME_MAX_YAW_DIFF
+        }
     }
 }
 
@@ -179,7 +209,6 @@ class MajorObstacleFrameCounterHolder {
     private var noFaceFrameCounter: Int = 0
     private var wrongGestureFrameCounter: Int = 0
     private var noBrightnessFrameCounter: Int = 0
-    //also add counter for sharp movements
     
     func resetFrameCountersOnSessionPrematureEnd() {
         self.multiFaceFrameCounter = 0

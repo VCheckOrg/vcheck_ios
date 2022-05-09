@@ -108,8 +108,6 @@ public final class LivenessScreenViewController: UIViewController {
     }
     
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //TODO: add check for non-obstacle screen (processing/etc)
-        //onRepeatFromObstacleDescriptionScreen(for: segue)
         if (segue.identifier == "LivenessToNoFaceDetected") {
             let vc = segue.destination as! NoFaceDetectedViewController
             vc.onRepeatBlock = { result in self.renewLivenessSessionOnRetry() }
@@ -203,7 +201,7 @@ extension LivenessScreenViewController {
         
         milestoneFlow.checkCurrentStage(pitchAngle: faceAnglesHolder.pitch,
                                         mouthFactor: mouthAngle,
-                                        yawAbsAngle: faceAnglesHolder.yaw,
+                                        yawAngle: faceAnglesHolder.yaw,
                                         onMilestoneResult: { milestoneType in
             print("------- PASSED MILESTONE: \(milestoneType)")
             DispatchQueue.main.async {
@@ -234,13 +232,13 @@ extension LivenessScreenViewController {
             onObstableTypeMet(obstacleType: obstacleType)
         })
         
-        //      print("MOUTH: \(mouthAngle)\nPITCH: \(faceAnglesHolder.pitch)\nYAW: \(faceAnglesHolder.yaw)"
-        //              + "\n\nMOUTH OPEN: \(mouthOpen)\n\nTURNED LEFT: \(turnedLeft)\n\nTURNED RIGHT: \(turnedRight)")
+        //print("PITCH: \(faceAnglesHolder.pitch)\nYAW: \(faceAnglesHolder.yaw)")
+        //+ "MOUTH: \(mouthAngle)\n | \n\nMOUTH OPEN: \(mouthOpen)\n\nTURNED LEFT: \(turnedLeft)\n\nTURNED RIGHT: \(turnedRight)")
     }
     
     func onObstableTypeMet(obstacleType: ObstacleType) {
-        if (obstacleType == ObstacleType.YAW_ANGLE) {
-            DispatchQueue.main.async {
+        DispatchQueue.main.async {
+            if (obstacleType == ObstacleType.YAW_ANGLE) {
                 self.hapticFeedbackGenerator.notificationOccurred(.warning) //?
                 self.tvLivenessInfo.textColor = .red
                 self.tvLivenessInfo.text = NSLocalizedString("line_face_obstacle", comment: "")
@@ -249,18 +247,14 @@ extension LivenessScreenViewController {
                     self.updateLivenessInfoText(forMilestoneType: self.milestoneFlow.getUndoneStage().gestureMilestoneType)
                 }
             }
-        }
-        if (obstacleType == ObstacleType.WRONG_GESTURE) {
-            DispatchQueue.main.async {
+            if (obstacleType == ObstacleType.WRONG_GESTURE) {
                 self.majorObstacleFrameCounterHolder.incrementWrongGestureFrameCounter()
                 if (self.majorObstacleFrameCounterHolder.getWrongGestureFrameCounter() >= LivenessScreenViewController.MAX_FRAMES_WITH_FATAL_OBSTACLES) {
                     self.endSessionPrematurely()
                     self.performSegue(withIdentifier: "LivenessToWrongGesture", sender: nil)
                 }
             }
-        }
-        if (obstacleType == ObstacleType.NO_STRAIGHT_FACE_DETECTED) {
-            DispatchQueue.main.async {
+            if (obstacleType == ObstacleType.NO_STRAIGHT_FACE_DETECTED) {
                 self.majorObstacleFrameCounterHolder.incrementNoFaceFrameCounter()
                 if (self.majorObstacleFrameCounterHolder.getNoFaceFrameCounter() >=
                     LivenessScreenViewController.MAX_FRAMES_WITH_FATAL_OBSTACLES) {
@@ -268,9 +262,7 @@ extension LivenessScreenViewController {
                     self.performSegue(withIdentifier: "LivenessToNoFaceDetected", sender: nil)
                 }
             }
-        }
-        if (obstacleType == ObstacleType.MULTIPLE_FACES_DETECTED) {
-            DispatchQueue.main.async {
+            if (obstacleType == ObstacleType.MULTIPLE_FACES_DETECTED) {
                 self.majorObstacleFrameCounterHolder.incrementMultiFaceFrameCounter()
                 if (self.majorObstacleFrameCounterHolder.getMultiFaceFrameCounter() >=
                     LivenessScreenViewController.MAX_FRAMES_WITH_FATAL_OBSTACLES) {
@@ -278,9 +270,7 @@ extension LivenessScreenViewController {
                     self.performSegue(withIdentifier: "LivenessToMultipleFaces", sender: nil)
                 }
             }
-        }
-        if (obstacleType == ObstacleType.BRIGHTNESS_LEVEL_IS_LOW) {
-            DispatchQueue.main.async {
+            if (obstacleType == ObstacleType.BRIGHTNESS_LEVEL_IS_LOW) {
                 self.majorObstacleFrameCounterHolder.incrementNoBrightnessFrameCounter()
                 if (self.majorObstacleFrameCounterHolder.getNoBrightnessFrameCounter() >=
                     LivenessScreenViewController.MAX_FRAMES_WITH_FATAL_OBSTACLES) {
@@ -288,8 +278,11 @@ extension LivenessScreenViewController {
                     self.performSegue(withIdentifier: "LivenessToTooDark", sender: nil)
                 }
             }
+            if (obstacleType == ObstacleType.MOTIONS_ARE_TOO_SHARP) {
+                self.endSessionPrematurely()
+                self.performSegue(withIdentifier: "LivenessToFastMovements", sender: nil)
+            }
         }
-        //TODO: also add sharp movements: here we need to check angle difference between each and next frame
     }
     
     func endSessionPrematurely() {
@@ -518,7 +511,7 @@ extension LivenessScreenViewController: AVCaptureVideoDataOutputSampleBufferDele
       guard let results = request.results as? [VNFaceObservation] else {
         return
       }
-        print("FACE(S) DETECTED: \(results.count)")
+        //print("FACE(S) DETECTED: \(results.count)")
         if (results.count < 1) {
             onObstableTypeMet(obstacleType: ObstacleType.NO_STRAIGHT_FACE_DETECTED)
         }
