@@ -5,6 +5,21 @@
 "error_some_fields_are_empty" = "Please fill all empty document fields";
 
 /* No comment provided by engineer. */
+"line_face_obstacle" = "Don't look up or down";
+
+/* No comment provided by engineer. */
+"liveness_stage_check_face_pos" = "Align face and close mouth";
+
+/* No comment provided by engineer. */
+"liveness_stage_face_left" = "Turn face to the left";
+
+/* No comment provided by engineer. */
+"liveness_stage_face_right" = "Turn face to the right";
+
+/* No comment provided by engineer. */
+"liveness_stage_open_mouth" = "Open mouth";
+
+/* No comment provided by engineer. */
 "photo_loaing_wait_discl" = "Please, wait. The photo of your document is being loaded and processed. This may take from a few seconds to a minute.";
 
 /* No comment provided by engineer. */
@@ -24,9 +39,3 @@
 
 /* Default action */
 "OK" = "";
-
-"liveness_stage_check_face_pos" = "Align face and close mouth";
-"liveness_stage_face_left" = "Turn face to the left";
-"liveness_stage_face_right" = "Turn face to the right";
-"liveness_stage_open_mouth" = "Open mouth";
-"line_face_obstacle" = "Don't look up or down";

@@ -61,7 +61,9 @@ public final class LivenessScreenViewController: UIViewController {
     static let BLOCK_PIPELINE_ON_OBSTACLE_TIME_MILLIS = 1100 //may reduce a bit
     static let BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS = 1200 //may reduce a bit
     
-    static let MAX_FRAMES_WITH_FATAL_OBSTACLES = 50
+    static let MAX_FRAMES_WITH_WRONG_GESTURE = 50
+    static let MAX_FRAMES_WITH_LOW_BRIGHTNESS = 20
+    static let MIN_BRIGHTNESS_FACTOR = -1.5
     static let FACE_DETECTION_FRAME_INTERVAL = 20
     private var faceCountDetectionFrameCounter: Int = 0
  
@@ -147,6 +149,7 @@ public final class LivenessScreenViewController: UIViewController {
             // reset logic
             self.milestoneFlow = StandardMilestoneFlow()
             self.majorObstacleFrameCounterHolder = MajorObstacleFrameCounterHolder()
+            self.faceCountDetectionFrameCounter = 0
             self.isLivenessSessionFinished = false
             self.hasEnoughTimeForNextGesture = true
             self.blockStageIndicationByUI = false
@@ -260,7 +263,7 @@ extension LivenessScreenViewController {
             }
             if (obstacleType == ObstacleType.WRONG_GESTURE) {
                 self.majorObstacleFrameCounterHolder.incrementWrongGestureFrameCounter()
-                if (self.majorObstacleFrameCounterHolder.getWrongGestureFrameCounter() >= LivenessScreenViewController.MAX_FRAMES_WITH_FATAL_OBSTACLES) {
+                if (self.majorObstacleFrameCounterHolder.getWrongGestureFrameCounter() >= LivenessScreenViewController.MAX_FRAMES_WITH_WRONG_GESTURE) {
                     self.endSessionPrematurely()
                     self.performSegue(withIdentifier: "LivenessToWrongGesture", sender: nil)
                 }
@@ -268,7 +271,7 @@ extension LivenessScreenViewController {
             if (obstacleType == ObstacleType.BRIGHTNESS_LEVEL_IS_LOW) {
                 self.majorObstacleFrameCounterHolder.incrementNoBrightnessFrameCounter()
                 if (self.majorObstacleFrameCounterHolder.getNoBrightnessFrameCounter() >=
-                    LivenessScreenViewController.MAX_FRAMES_WITH_FATAL_OBSTACLES) {
+                    LivenessScreenViewController.MAX_FRAMES_WITH_LOW_BRIGHTNESS) {
                     self.endSessionPrematurely()
                     self.performSegue(withIdentifier: "LivenessToTooDark", sender: nil)
                 }
@@ -277,6 +280,7 @@ extension LivenessScreenViewController {
     }
     
     func endSessionPrematurely() {
+        self.faceCountDetectionFrameCounter = 0
         self.isLivenessSessionFinished = true
         self.hapticFeedbackGenerator.notificationOccurred(.warning)
         self.majorObstacleFrameCounterHolder.resetFrameCountersOnSessionPrematureEnd()
@@ -466,10 +470,13 @@ extension LivenessScreenViewController: AVCaptureVideoDataOutputSampleBufferDele
         didOutput sampleBuffer: CMSampleBuffer,
         from connection: AVCaptureConnection
     ) {
-        let brightness = getBrightness(sampleBuffer: sampleBuffer)
-        //print("CURRENT BRIGHTNESS: \(brightness)")
-        if (brightness < -1.0) {
-            onObstableTypeMet(obstacleType: ObstacleType.BRIGHTNESS_LEVEL_IS_LOW)
+        //MARK: Brightness Detection
+        if (self.isLivenessSessionFinished == false) {
+            let brightness = getBrightness(sampleBuffer: sampleBuffer)
+            //print("CURRENT BRIGHTNESS: \(brightness)")
+            if (brightness < LivenessScreenViewController.MIN_BRIGHTNESS_FACTOR) {
+                onObstableTypeMet(obstacleType: ObstacleType.BRIGHTNESS_LEVEL_IS_LOW)
+            }
         }
         
         guard let imgBuffer = CMSampleBufferGetImageBuffer(sampleBuffer),
@@ -479,16 +486,16 @@ extension LivenessScreenViewController: AVCaptureVideoDataOutputSampleBufferDele
             return
         }
         
-        //TODO: test
-        
-        faceCountDetectionFrameCounter += 1
-        if (faceCountDetectionFrameCounter >= LivenessScreenViewController.FACE_DETECTION_FRAME_INTERVAL) {
-            faceCountDetectionFrameCounter = 0
-            detectFacesOnFrameOutput(buffer: imgBuffer)
+        //MARK: Face Detection
+        if (self.isLivenessSessionFinished == false) {
+            faceCountDetectionFrameCounter += 1
+            if (faceCountDetectionFrameCounter >= LivenessScreenViewController.FACE_DETECTION_FRAME_INTERVAL) {
+                faceCountDetectionFrameCounter = 0
+                detectFacesOnFrameOutput(buffer: imgBuffer)
+            }
         }
         
         let frameTime = CMTimeGetSeconds(CMSampleBufferGetPresentationTimeStamp(sampleBuffer))
-        
         // Use the device's gravity vector to determine which direction is up for a face. This is the
         // positive counter-clockwise rotation of the device relative to landscape left orientation.
         let rotation = 2 * .pi - atan2(deviceMotion.gravity.x, deviceMotion.gravity.y) + .pi / 2
