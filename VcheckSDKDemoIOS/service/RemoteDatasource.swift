@@ -307,7 +307,7 @@ struct RemoteDatasource {
      }
     
     
-    func uploadLivenessVideo(videoURL: String,
+    func uploadLivenessVideo(videoFileURL: URL,
         completion: @escaping (Bool, ApiError?) -> ()) {
             
             let url = "\(baseUrl)liveness"
@@ -321,7 +321,7 @@ struct RemoteDatasource {
                 
             let multipartFormData = MultipartFormData.init()
                 
-            multipartFormData.append(NSURL(fileURLWithPath: videoURL) as URL, withName: "video", fileName: "video", mimeType: "video/mp4")
+            multipartFormData.append(videoFileURL, withName: "video.mp4", fileName: "video", mimeType: "video/mp4")
                 
             AF.upload(multipartFormData: multipartFormData, to: url, method: .post, headers: headers)
                 .validate()

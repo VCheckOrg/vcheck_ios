@@ -11,5 +11,8 @@ import UIKit
 class LivenessSuccessViewController: UIViewController {
     
     @IBAction func livenessSuccessAction(_ sender: UIButton) {
+        //Close app for new test
+        UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { exit(0) }
     }
 }

@@ -12,64 +12,63 @@ import AVKit
 
 class VideoProcessingViewController: UIViewController {
     
+    private let viewModel = VideoProcessingViewModel()
+    
     @IBOutlet weak var videoProcessingIndicator: UIActivityIndicatorView!
-    
-    //private var sampleBuffer: [CMSampleBuffer] = []
-    
+        
     var videoFileURL: URL?
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        activityIndicatorStart()
+        
         let token = LocalDatasource.shared.readAccessToken()
         
-//        print("========== TOKEN: \(token)")
-//        print("========== COMPOSED VIDEO FILE PATH: \(videoFilePath ?? "EMPTY!")")
+        viewModel.didUploadVideoResponse = {
+            self.activityIndicatorStop()
+            if (self.viewModel.uploadedVideoResponse == true) {
+                self.performSegue(withIdentifier: "VideoUploadToSuccess", sender: nil)
+            }
+        }
         
-        if (token.isEmpty && videoFileURL != nil) {
-            //print("=========== VIDEO FILE SIZE: \(String(describing: getSizeOfFile(withPath: videoFilePath!)))")
-            playLivenessVideoPreview()
+        viewModel.showAlertClosure = {
+            self.activityIndicatorStop()
+            let errText = self.viewModel.error?.errorText ?? "Error: No additional info"
+            self.showToast(message: errText, seconds: 2.0)
+        }
+        
+        if (!token.isEmpty && videoFileURL != nil) {
+            viewModel.uploadVideo(videoFileURL: videoFileURL!)
+        } else {
+            //FOR TESTS
+            if (videoFileURL != nil) {
+                print("=========== VIDEO FILE SIZE: \(String(describing: self.viewModel.fileSize(forURL: videoFileURL))) MB")
+                playLivenessVideoPreview()
+            }
         }
     }
     
     func playLivenessVideoPreview() {
-        let playerController = AVPlayerViewController()
-        
-        //let videoURL = URL.init(string: videoFilePath!) //NSURL(string: videoFilePath!)
         //let videoURL = URL.init(string: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
-        
+
+        let playerController = AVPlayerViewController()
         let player = AVPlayer(url: self.videoFileURL!)
         playerController.player = player
+        
         self.addChild(playerController)
-
         playerController.view.frame = self.view.frame
-
         self.view.addSubview(playerController.view)
 
         player.play()
      }
     
-    func getSizeOfFile(withPath path:String) -> UInt64? {
-        var totalSpace : UInt64?
-
-        var dict : [FileAttributeKey : Any]?
-
-        do {
-            dict = try FileManager.default.attributesOfItem(atPath: path)
-        } catch let error as NSError {
-             print(error.localizedDescription)
-        }
-
-        if dict != nil {
-            let fileSystemSizeInBytes = dict![FileAttributeKey.systemSize] as! NSNumber
-
-            totalSpace = fileSystemSizeInBytes.uint64Value
-            return (totalSpace!/1024)/1024
-        }
-        return nil
+    // MARK: - UI Setup
+    private func activityIndicatorStart() {
+        self.videoProcessingIndicator.startAnimating()
     }
-
-    func composeVideo() {
-
+    
+    private func activityIndicatorStop() {
+        self.videoProcessingIndicator.stopAnimating()
     }
 }

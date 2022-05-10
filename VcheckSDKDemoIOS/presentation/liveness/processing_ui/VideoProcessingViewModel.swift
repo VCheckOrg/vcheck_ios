@@ -33,18 +33,34 @@ class VideoProcessingViewModel {
     var didUploadVideoResponse: (() -> ())?
     
     
-    func uploadVideo() {
+    func uploadVideo(videoFileURL: URL) {
         
-//        dataService.getDocumentInfo(documentId: docId, completion: { (data, error) in
-//            if let error = error {
-//                self.isLoading = false
-//                self.error = error
-//                return
-//            }
-//            self.isLoading = false
-//
-//            self.docInfoResponse = data
-//            self.didReceiveDocInfoResponse!()
-//        })
+        dataService.uploadLivenessVideo(videoFileURL: videoFileURL,
+                                        completion: { (data, error) in
+            if let error = error {
+                self.isLoading = false
+                self.error = error
+                return
+            }
+            self.isLoading = false
+
+            self.uploadedVideoResponse = true
+            self.didUploadVideoResponse!()
+        })
+    }
+    
+    func fileSize(forURL: URL?) -> Double {
+        guard let filePath = forURL?.path else {
+            return 0.0
+        }
+        do {
+            let attribute = try FileManager.default.attributesOfItem(atPath: filePath)
+            if let size = attribute[FileAttributeKey.size] as? NSNumber {
+                return size.doubleValue / 1000000.0
+            }
+        } catch {
+            print("Error: \(error)")
+        }
+        return 0.0
     }
 }

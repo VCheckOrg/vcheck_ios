@@ -67,12 +67,8 @@ class DemoStartViewModel {
                     self.isLoading = false
                     return
                 }
-
-                let urlArr = data!.redirectUrl!.components(separatedBy: "/")
-                var urlBody = urlArr.last
-                let token = urlBody!.substringBefore("?id")
                 
-                LocalDatasource.shared.saveAccessToken(accessToken: token)
+                LocalDatasource.shared.saveAccessToken(accessToken: data!.token!)
                 
                 print("VERIF ::: CREATE ATTEMPT SUCCESS! DATA: \(String(describing: data))")
                 
@@ -108,9 +104,7 @@ class DemoStartViewModel {
                 self.isLoading = false
                 return
             }
-            
-            //print("VERIF ::: GOT COUNTRIES - SUCCESS! DATA: \(String(describing: data))")
-            
+                        
             if (data!.count > 0) {
                 self.isLoading = false
                 self.countries = data

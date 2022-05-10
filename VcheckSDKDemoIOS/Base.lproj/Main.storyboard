@@ -1092,16 +1092,6 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             </objects>
             <point key="canvasLocation" x="4375" y="-344"/>
         </scene>
-        <!--Liveness Video Preview VC-->
-        <scene sceneID="mdo-MZ-61v">
-            <objects>
-                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="w6D-Ti-HTR" userLabel="Liveness Video Preview VC" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="dsl-ds-A0z"/>
-                </avPlayerViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6hU-qn-Hg8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="577" y="-953"/>
-        </scene>
         <!--OS Not Supported View Controller-->
         <scene sceneID="eyy-0l-iIB">
             <objects>
@@ -1611,7 +1601,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="3LY-hv-Mp1">
+                                                    <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="3LY-hv-Mp1">
                                                         <rect key="frame" x="164.66666666666666" y="403" width="37" height="37"/>
                                                         <color key="color" name="DescriptionColor"/>
                                                     </activityIndicatorView>
@@ -2292,7 +2282,6 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                         <segue destination="K4l-kg-dQj" kind="show" identifier="LivenessToMultipleFaces" id="zJe-KO-wvN"/>
                         <segue destination="cii-CZ-O8e" kind="show" identifier="LivenessToFastMovements" id="ZOg-Lf-JSX"/>
                         <segue destination="MMF-sr-RPg" kind="show" identifier="LivenessToTooDark" id="GAO-QE-GuP"/>
-                        <segue destination="w6D-Ti-HTR" kind="show" identifier="LivenessToVideoPreview" id="Dey-hC-qNY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NfE-K9-vQd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
