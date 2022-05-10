@@ -111,6 +111,26 @@ extension LocalDatasource {
     func getSelectedDocTypeWithData() -> DocTypeData? {
         return _selectedDocTypeWithData
     }
+    
+    func resetAccessToken() {
+        let data = Data("".utf8)
+        save(data, service: "access-token", account: Constants.UTIL.keychainAccountName)
+    }
+    
+    func resetSelectedCountryCode() {
+        let data = Data("".utf8)
+        save(data, service: "country-code", account: Constants.UTIL.keychainAccountName)
+    }
+    
+    func deleteSelectedDocTypeWithData() {
+        _selectedDocTypeWithData = nil
+    }
+    
+    func deleteAllSessionData() {
+        resetAccessToken()
+        resetSelectedCountryCode()
+        deleteSelectedDocTypeWithData()
+    }
 }
 
 

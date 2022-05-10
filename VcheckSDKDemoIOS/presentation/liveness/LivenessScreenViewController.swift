@@ -72,11 +72,16 @@ public final class LivenessScreenViewController: UIViewController {
     private var livenessSessionTimeoutTimer : DispatchSourceTimer?
     private var blockStageIndicationByUI: Bool = false
     
+    var videoRecorder = LivenessVideoRecorder.init()
+    var videoStreamingPermitted: Bool = false
+    
     
     // MARK: - Implementation & Lifecycle methods
     
     override public func viewDidLoad() {
         super.viewDidLoad()
+        
+        //videoRecordFilePath = getVideoFilePath()
         
         if !setupScene() { return }
         if !setupCamera() { return }
@@ -102,6 +107,9 @@ public final class LivenessScreenViewController: UIViewController {
         if needToShowFatalError {
             popupAlertWindowOnError(alertWindowTitle: alertWindowTitle, alertMessage: alertMessage)
         }
+        
+        videoStreamingPermitted = true
+        videoRecorder.startRecording()
         
         startLivenessSessionTimeoutTimer()
         
@@ -134,6 +142,10 @@ public final class LivenessScreenViewController: UIViewController {
             let vc = segue.destination as! SharpMovementsViewController
             vc.onRepeatBlock = { result in self.renewLivenessSessionOnRetry() }
         }
+        if (segue.identifier == "LivenessToLocalSuccess") {
+            let vc = segue.destination as! VideoProcessingViewController
+            vc.videoFileURL = self.videoRecorder.outputFileURL
+        }
     }
     
     func renewLivenessSessionOnRetry() {
@@ -147,6 +159,9 @@ public final class LivenessScreenViewController: UIViewController {
             self.rightArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
             self.leftArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
             // reset logic
+            self.videoRecorder = LivenessVideoRecorder.init()
+            self.videoStreamingPermitted = true
+            //self.videoRecorder.startRecording() //obsolete
             self.milestoneFlow = StandardMilestoneFlow()
             self.majorObstacleFrameCounterHolder = MajorObstacleFrameCounterHolder()
             self.faceCountDetectionFrameCounter = 0
@@ -175,8 +190,18 @@ extension LivenessScreenViewController: SCNSceneRendererDelegate {
             }
             processFaceFrame(frame: frame)
         } else {
-            if (self.livenessSessionTimeoutTimer != nil) {
-                self.livenessSessionTimeoutTimer!.cancel()
+            DispatchQueue.main.asyncAfter(deadline:
+                    .now() + .milliseconds(800) ) {
+                self.videoStreamingPermitted = false
+                self.videoRecorder.stopRecording(completion: { url in
+                    DispatchQueue.main.async {
+                    print("========== FINISHED WRITING VIDEO IN: \(url)")
+                        if (self.livenessSessionTimeoutTimer != nil) {
+                            self.livenessSessionTimeoutTimer!.cancel()
+                        }
+                        self.performSegue(withIdentifier: "LivenessToLocalSuccess", sender: nil)
+                    }
+                })
             }
         }
     }
@@ -189,8 +214,10 @@ extension LivenessScreenViewController {
     func processFaceFrame(frame: GARAugmentedFaceFrame) {
         if let face = frame.face {
             
-            if (!isLivenessSessionFinished) {
+            if (isLivenessSessionFinished == false) {
                 processFaceCalcForFrame(face: face)
+            }
+            if (videoStreamingPermitted == true) {
                 updateCameraFrame(frame: frame)
             }
             
@@ -212,8 +239,8 @@ extension LivenessScreenViewController {
             DispatchQueue.main.async {
                 if (milestoneType == GestureMilestoneType.MouthOpenMilestone) {
                     self.hapticFeedbackGenerator.notificationOccurred(.success)
+                    self.delayedStageIndicationRenew()
                     self.isLivenessSessionFinished = true
-                    self.performSegue(withIdentifier: "LivenessToLocalSuccess", sender: nil)
                 } else {
                     if (self.hasEnoughTimeForNextGesture) {
                         if (milestoneType != GestureMilestoneType.CheckHeadPositionMilestone) {
@@ -239,20 +266,17 @@ extension LivenessScreenViewController {
     }
     
     func onObstableTypeMet(obstacleType: ObstacleType) {
-        DispatchQueue.main.async {
-            if (obstacleType == ObstacleType.MOTIONS_ARE_TOO_SHARP) {
-                self.endSessionPrematurely()
-                self.performSegue(withIdentifier: "LivenessToFastMovements", sender: nil)
-            }
-            if (obstacleType == ObstacleType.NO_STRAIGHT_FACE_DETECTED) {
-                self.endSessionPrematurely()
-                self.performSegue(withIdentifier: "LivenessToNoFaceDetected", sender: nil)
-            }
-            if (obstacleType == ObstacleType.MULTIPLE_FACES_DETECTED) {
-                self.endSessionPrematurely()
-                self.performSegue(withIdentifier: "LivenessToMultipleFaces", sender: nil)
-            }
-            if (obstacleType == ObstacleType.YAW_ANGLE) {
+        if (obstacleType == ObstacleType.MOTIONS_ARE_TOO_SHARP) {
+            self.endSessionPrematurely(performSegueWithIdentifier: "LivenessToFastMovements")
+        }
+        if (obstacleType == ObstacleType.NO_STRAIGHT_FACE_DETECTED) {
+            self.endSessionPrematurely(performSegueWithIdentifier: "LivenessToNoFaceDetected")
+        }
+        if (obstacleType == ObstacleType.MULTIPLE_FACES_DETECTED) {
+            self.endSessionPrematurely(performSegueWithIdentifier: "LivenessToMultipleFaces")
+        }
+        if (obstacleType == ObstacleType.YAW_ANGLE) {
+            DispatchQueue.main.async {
                 self.hapticFeedbackGenerator.notificationOccurred(.warning)
                 self.tvLivenessInfo.textColor = .red
                 self.tvLivenessInfo.text = NSLocalizedString("line_face_obstacle", comment: "")
@@ -261,29 +285,37 @@ extension LivenessScreenViewController {
                     self.updateLivenessInfoText(forMilestoneType: self.milestoneFlow.getUndoneStage().gestureMilestoneType)
                 }
             }
-            if (obstacleType == ObstacleType.WRONG_GESTURE) {
-                self.majorObstacleFrameCounterHolder.incrementWrongGestureFrameCounter()
-                if (self.majorObstacleFrameCounterHolder.getWrongGestureFrameCounter() >= LivenessScreenViewController.MAX_FRAMES_WITH_WRONG_GESTURE) {
-                    self.endSessionPrematurely()
-                    self.performSegue(withIdentifier: "LivenessToWrongGesture", sender: nil)
-                }
+        }
+        if (obstacleType == ObstacleType.WRONG_GESTURE) {
+            self.majorObstacleFrameCounterHolder.incrementWrongGestureFrameCounter()
+            if (self.majorObstacleFrameCounterHolder.getWrongGestureFrameCounter() >= LivenessScreenViewController.MAX_FRAMES_WITH_WRONG_GESTURE) {
+                self.endSessionPrematurely(performSegueWithIdentifier: "LivenessToWrongGesture")
             }
-            if (obstacleType == ObstacleType.BRIGHTNESS_LEVEL_IS_LOW) {
-                self.majorObstacleFrameCounterHolder.incrementNoBrightnessFrameCounter()
-                if (self.majorObstacleFrameCounterHolder.getNoBrightnessFrameCounter() >=
-                    LivenessScreenViewController.MAX_FRAMES_WITH_LOW_BRIGHTNESS) {
-                    self.endSessionPrematurely()
-                    self.performSegue(withIdentifier: "LivenessToTooDark", sender: nil)
-                }
+        }
+        if (obstacleType == ObstacleType.BRIGHTNESS_LEVEL_IS_LOW) {
+            self.majorObstacleFrameCounterHolder.incrementNoBrightnessFrameCounter()
+            if (self.majorObstacleFrameCounterHolder.getNoBrightnessFrameCounter() >=
+                LivenessScreenViewController.MAX_FRAMES_WITH_LOW_BRIGHTNESS) {
+                self.endSessionPrematurely(performSegueWithIdentifier: "LivenessToTooDark")
             }
         }
     }
     
-    func endSessionPrematurely() {
-        self.faceCountDetectionFrameCounter = 0
-        self.isLivenessSessionFinished = true
-        self.hapticFeedbackGenerator.notificationOccurred(.warning)
-        self.majorObstacleFrameCounterHolder.resetFrameCountersOnSessionPrematureEnd()
+    func endSessionPrematurely(performSegueWithIdentifier: String) {
+        self.videoStreamingPermitted = false
+        self.videoRecorder.stopRecording(completion: { url in
+            print("========== FINISHED WRITING VIDEO IN: \(url)")
+            DispatchQueue.main.async {
+                self.faceCountDetectionFrameCounter = 0
+                self.isLivenessSessionFinished = true
+                self.hapticFeedbackGenerator.notificationOccurred(.warning)
+                self.majorObstacleFrameCounterHolder.resetFrameCountersOnSessionPrematureEnd()
+                if (self.livenessSessionTimeoutTimer != nil) {
+                    self.livenessSessionTimeoutTimer!.cancel()
+                }
+                self.performSegue(withIdentifier: performSegueWithIdentifier, sender: nil)
+            }
+        })
     }
     
     func startLivenessSessionTimeoutTimer() {
@@ -448,7 +480,7 @@ extension LivenessScreenViewController {
     }
 }
 
-// MARK: - Camera optput capturing delegate
+// MARK: - Camera output capturing delegate
 
 extension LivenessScreenViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     
@@ -471,7 +503,7 @@ extension LivenessScreenViewController: AVCaptureVideoDataOutputSampleBufferDele
         from connection: AVCaptureConnection
     ) {
         //MARK: Brightness Detection
-        if (self.isLivenessSessionFinished == false) {
+        if (self.isLivenessSessionFinished == false && self.videoStreamingPermitted == true) {
             let brightness = getBrightness(sampleBuffer: sampleBuffer)
             //print("CURRENT BRIGHTNESS: \(brightness)")
             if (brightness < LivenessScreenViewController.MIN_BRIGHTNESS_FACTOR) {
@@ -479,7 +511,7 @@ extension LivenessScreenViewController: AVCaptureVideoDataOutputSampleBufferDele
             }
         }
         
-        guard let imgBuffer = CMSampleBufferGetImageBuffer(sampleBuffer),
+        guard let imgBuffer: CVImageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer),
               let deviceMotion = motionManager.deviceMotion
         else {
             NSLog("In captureOutput, imgBuffer or deviceMotion is nil.")
@@ -487,7 +519,7 @@ extension LivenessScreenViewController: AVCaptureVideoDataOutputSampleBufferDele
         }
         
         //MARK: Face Detection
-        if (self.isLivenessSessionFinished == false) {
+        if (self.isLivenessSessionFinished == false && self.videoStreamingPermitted == true) {
             faceCountDetectionFrameCounter += 1
             if (faceCountDetectionFrameCounter >= LivenessScreenViewController.FACE_DETECTION_FRAME_INTERVAL) {
                 faceCountDetectionFrameCounter = 0
@@ -495,6 +527,11 @@ extension LivenessScreenViewController: AVCaptureVideoDataOutputSampleBufferDele
             }
         }
         
+        //MARK: Liveness Session Video Recording
+        if (self.videoRecorder.outputFileURL != nil && self.videoStreamingPermitted == true) {
+            self.videoRecorder.recordVideo(sampleBuffer: sampleBuffer)
+        }
+ 
         let frameTime = CMTimeGetSeconds(CMSampleBufferGetPresentationTimeStamp(sampleBuffer))
         // Use the device's gravity vector to determine which direction is up for a face. This is the
         // positive counter-clockwise rotation of the device relative to landscape left orientation.
