@@ -1,0 +1,41 @@
+/* No comment provided by engineer. */
+"error_make_at_least_one_photo" = "Пожалуйста, сделайте как минимум одно фото документа";
+
+/* No comment provided by engineer. */
+"error_some_fields_are_empty" = "Пожалуйста, заполните все поля документа";
+
+/* No comment provided by engineer. */
+"line_face_obstacle" = "Смотрите прямо";
+
+/* No comment provided by engineer. */
+"liveness_stage_check_face_pos" = "Выровняйте лицо и закройте рот";
+
+/* No comment provided by engineer. */
+"liveness_stage_face_left" = "Поверните лицо влево";
+
+/* No comment provided by engineer. */
+"liveness_stage_face_right" = "Поверните лицо вправо";
+
+/* No comment provided by engineer. */
+"liveness_stage_open_mouth" = "Откройте рот";
+
+/* No comment provided by engineer. */
+"photo_loaing_wait_discl" = "Пожалуйста, подождите. Идет загрузка и обработка фото вашего документа. Это может занять от нескольких секунд до минуты.";
+
+/* No comment provided by engineer. */
+"photo_upload_title_common_back" = "Фотография последней страницы/стороны с вашей фотографией (если у вас несколько фотографий в документе).";
+
+/* No comment provided by engineer. */
+"photo_upload_title_common_forward" = "Фотография первой страницы/стороны документа (с вашим фото).";
+
+/* No comment provided by engineer. */
+"photo_upload_title_foreign" = "Полный разворот документа с вашим фото";
+
+/* No comment provided by engineer. */
+"photo_upload_title_id_card_back" = "Задняя сторона ID-карты";
+
+/* No comment provided by engineer. */
+"photo_upload_title_id_card_forward" = "Передняя сторона ID-карты";
+
+/* Default action */
+"OK" = "";

@@ -58,16 +58,15 @@ class DemoStartViewController : UIViewController {
         viewModel.startVerifFlow()
     }
     
-    //using a segue
     func goToCountriesScreen(data: [CountryTO]) {
         
         if let defaultSelectedCountry = self.viewModel.countries!.first(where: { $0.code == "ua" }) {
-            KeychainHelper.shared.saveSelectedCountryCode(code: defaultSelectedCountry.code)
+            LocalDatasource.shared.saveSelectedCountryCode(code: defaultSelectedCountry.code)
         } else {
            print("CANNOT SAVE DEFAULT COUNTRY TO KEYCHAIN")
         }
         
-        self.performSegue(withIdentifier: "StartToCountries", sender: data)//set the data from the segue to the controller
+        self.performSegue(withIdentifier: "StartToCountries", sender: data) //set the data from the segue to the controller
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -59,7 +59,7 @@ extension CountryListViewController: UITableViewDelegate {
     
     func tableView(_ countryListTable: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        KeychainHelper.shared.saveSelectedCountryCode(code: self.searchResultsList[indexPath.row].code)
+        LocalDatasource.shared.saveSelectedCountryCode(code: self.searchResultsList[indexPath.row].code)
 
         self.dismiss(animated: true, completion: nil)
     }

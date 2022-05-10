@@ -9,11 +9,12 @@ import Foundation
 
 class ChooseDocTypeViewModel  {
     
-    private var dataService: DataService = DataService.shared
+    private var dataService: RemoteDatasource = RemoteDatasource.shared
     
     // MARK: - Constructor
     init() {}
     
+    // MARK: - Properties
     var docTypeDataArr: [DocTypeData] = []
     
     var error: ApiError? {
@@ -27,23 +28,16 @@ class ChooseDocTypeViewModel  {
     
     func getAvailableDocTypes() {
         
-        let countryCode = KeychainHelper.shared.readSelectedCountryCode()
+        let countryCode = LocalDatasource.shared.readSelectedCountryCode()
         
         self.dataService.getCountryAvailableDocTypeInfo(countryCode: countryCode, completion: { (data, error) in
             if let error = error {
                 self.error = error
-                //self.isLoading = false
                 return
             }
-            
-            //print("VERIF ::: GOT COUNTRIES - SUCCESS! DATA: \(String(describing: data))")
-            
+                        
             if (data!.count > 0) {
-                //self.isLoading = false
-                //self.countries = data
-                
                 self.docTypeDataArr = data!
-                
                 self.retrievedDocTypes!()
             }
         })

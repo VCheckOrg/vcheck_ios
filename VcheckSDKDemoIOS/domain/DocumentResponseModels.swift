@@ -8,9 +8,23 @@
 import Foundation
 
 
+
+struct DocFieldWitOptPreFilledData {
+    let name: String
+    let title: DocTitle
+    let type: String
+    let regex: String?
+    var autoParsedValue: String = ""
+    
+    func modifyAutoParsedValue(with: String) -> DocFieldWitOptPreFilledData {
+        return DocFieldWitOptPreFilledData(name: name, title: title, type: type, regex: regex, autoParsedValue: with)
+    }
+}
+
+
 struct DocumentUploadResponse: Codable {
 
-  var data      : [DocTypeData]? = []
+  var data      : DocumentUploadResponseData? = nil
   var errorCode : Int?    = nil
   var message   : String? = nil
 
@@ -25,7 +39,7 @@ struct DocumentUploadResponse: Codable {
   init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
 
-    data      = try values.decodeIfPresent([DocTypeData].self , forKey: .data      )
+    data      = try values.decodeIfPresent(DocumentUploadResponseData.self , forKey: .data      )
     errorCode = try values.decodeIfPresent(Int.self    , forKey: .errorCode )
     message   = try values.decodeIfPresent(String.self , forKey: .message   )
  
@@ -213,7 +227,7 @@ struct PreProcessedDocData: Codable {
   var id         : Int?        = nil
   var images     : [String]?   = []
   var isPrimary  : Bool?       = nil
-  var parsedData : ParsedData? = ParsedData()
+  var parsedData : ParsedDocFieldsData? = ParsedDocFieldsData()
   var status     : Int?        = nil
   var type       : DocTypeData? = DocTypeData()
 
@@ -234,7 +248,7 @@ struct PreProcessedDocData: Codable {
     id         = try values.decodeIfPresent(Int.self        , forKey: .id         )
     images     = try values.decodeIfPresent([String].self   , forKey: .images     )
     isPrimary  = try values.decodeIfPresent(Bool.self       , forKey: .isPrimary  )
-    parsedData = try values.decodeIfPresent(ParsedData.self , forKey: .parsedData )
+    parsedData = try values.decodeIfPresent(ParsedDocFieldsData.self , forKey: .parsedData )
     status     = try values.decodeIfPresent(Int.self        , forKey: .status     )
     type       = try values.decodeIfPresent(DocTypeData.self       , forKey: .type       )
  
@@ -245,7 +259,7 @@ struct PreProcessedDocData: Codable {
 }
 
 
-struct ParsedData: Codable {
+struct ParsedDocFieldsData: Codable {
 
   var dateOfBirth  : String? = nil
   var dateOfExpiry : String? = nil

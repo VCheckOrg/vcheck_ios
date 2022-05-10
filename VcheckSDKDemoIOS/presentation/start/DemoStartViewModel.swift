@@ -9,7 +9,7 @@ import Foundation
 
 class DemoStartViewModel {
     
-    private var dataService: DataService = DataService.shared
+    private var dataService: RemoteDatasource = RemoteDatasource.shared
     
     // MARK: - Constructor
     init() {}
@@ -54,8 +54,9 @@ class DemoStartViewModel {
     }
     
     func createVerifAttempt() {
-        let languagePrefix = Locale.current.languageCode! //Locale.preferredLanguages[0] // test! getting default device locale code
-        print(languagePrefix)
+        let languagePrefix = Locale.current.languageCode!
+        //Locale.preferredLanguages[0] // test! getting default device locale code
+        //print(languagePrefix)
         
         if let timestamp = self.timestamp {
             self.dataService.createVerificationRequest(timestamp: timestamp,
@@ -71,7 +72,7 @@ class DemoStartViewModel {
                 var urlBody = urlArr.last
                 let token = urlBody!.substringBefore("?id")
                 
-                KeychainHelper.shared.saveAccessToken(accessToken: token)
+                LocalDatasource.shared.saveAccessToken(accessToken: token)
                 
                 print("VERIF ::: CREATE ATTEMPT SUCCESS! DATA: \(String(describing: data))")
                 
