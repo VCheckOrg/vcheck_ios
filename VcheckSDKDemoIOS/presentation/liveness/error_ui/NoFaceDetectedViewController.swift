@@ -13,7 +13,8 @@ class NoFaceDetectedViewController : UIViewController {
     var onRepeatBlock : ((Bool) -> Void)?
     
     @IBAction func nfRetryAction(_ sender: Any) {
-        self.dismiss(animated: true)
+        //self.dismiss(animated: true)
+        navigationController?.popViewController(animated: true)
         onRepeatBlock!(true)
     }
 }
