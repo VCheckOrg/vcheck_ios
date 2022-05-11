@@ -2406,6 +2406,11 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                                                     <color key="textColor" name="DescriptionColor"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                                     <textInputTraits key="textInputTraits"/>
+                                                                                    <userDefinedRuntimeAttributes>
+                                                                                        <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        </userDefinedRuntimeAttribute>
+                                                                                    </userDefinedRuntimeAttributes>
                                                                                 </textField>
                                                                             </subviews>
                                                                             <color key="backgroundColor" name="CountryCardColor"/>
@@ -3618,7 +3623,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="V8s-CT-emn"/>
+        <segue reference="mdJ-XX-Wrm"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Too dark" width="718" height="680"/>

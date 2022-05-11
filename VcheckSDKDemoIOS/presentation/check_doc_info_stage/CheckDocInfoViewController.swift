@@ -17,6 +17,8 @@ class CheckDocInfoViewController : UIViewController {
     
     var docId: Int? = nil
     
+    var regex: String?
+    
     var fieldsList: [DocFieldWitOptPreFilledData] = []
     
     let currLocaleCode = Locale.current.languageCode!
@@ -167,7 +169,29 @@ extension CheckDocInfoViewController: UITableViewDataSource {
         }
         
         if(fieldName == "name") {
-            cell.docTextField.addTarget(self, action: #selector(self.onDocNameFieldChanged(_:)),
+            cell.docTextField.addTarget(self, action: #selector(self.validateDocNameField(_:)),
+                                        for: UIControl.Event.editingChanged)
+        }
+        
+        if(fieldName == "surname") {
+            cell.docTextField.addTarget(self, action: #selector(self.validateDocSurnameField(_:)),
+                                        for: UIControl.Event.editingChanged)
+        }
+        
+        if(fieldName == "date_of_birth") {
+            cell.docTextField.placeholder = "ГГГГ-ММ-ДД"
+            cell.docTextField.addTarget(self, action: #selector(self.validateDocDateOfBirthField(_:)),
+                                        for: UIControl.Event.editingChanged)
+        }
+        
+        if(fieldName == "date_of_expiry") {
+            cell.docTextField.addTarget(self, action: #selector(self.validateDocDateOfExpiryField(_:)),
+                                        for: UIControl.Event.editingChanged)
+        }
+        
+        if(fieldName == "number") {
+            self.regex = field.regex
+            cell.docTextField.addTarget(self, action: #selector(self.validateDocNumberField(_:)),
                                         for: UIControl.Event.editingChanged)
         }
 
@@ -180,10 +204,52 @@ extension CheckDocInfoViewController: UITableViewDataSource {
         return 82
     }
     
-    @objc final private func onDocNameFieldChanged(_ textField: UITextField) {
+    @objc final private func validateDocNameField(_ textField: UITextField) {
         if(textField.text!.count < 3) {
-            textField.text = "Введите валидное имя"
+            textField.setError("Введите валидное имя")
+        } else {
+            textField.setError(show: false)
         }
+    }
+    
+    @objc final private func validateDocSurnameField(_ textField: UITextField) {
+        if(textField.text!.count < 3) {
+            textField.setError("Введите валидную фамилию")
+        } else {
+            textField.setError(show: false)
+        }
+    }
+    
+    @objc final private func validateDocDateOfBirthField(_ textField: UITextField) {
+        if(textField.text!.count < 3) {
+            textField.setError("Введите валидную дату рождения")
+        } else {
+            textField.setError(show: false)
+        }
+    }
+    
+    @objc final private func validateDocDateOfExpiryField(_ textField: UITextField) {
+        if(textField.text!.count < 3) {
+            textField.setError("Введите валидный срок документа")
+        } else {
+            textField.setError(show: false)
+        }
+    }
+    
+    @objc final private func validateDocNumberField(_ textField: UITextField) {
+        if(textField.text!.isMatchedBy(regex: self.regex!)) {
+            textField.setError(self.regex)
+        } else {
+            textField.setError(show: false)
+        }
+    
+    }
+}
+
+
+extension String {
+    func isMatchedBy(regex: String) -> Bool {
+        return (self.range(of: regex, options: .regularExpression) ?? nil) != nil
     }
 }
 

@@ -76,6 +76,7 @@
 		DAE87E102816CC1F00ED6826 /* ChooseCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E0F2816CC1F00ED6826 /* ChooseCountryViewController.swift */; };
 		DAE87E122816CC2C00ED6826 /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E112816CC2C00ED6826 /* CountryListViewController.swift */; };
 		DAE87E152816CE6E00ED6826 /* DemoStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E142816CE6E00ED6826 /* DemoStartViewController.swift */; };
+		E9B25AA5282BAC6800D5865B /* TextFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B25AA4282BAC6800D5865B /* TextFieldError.swift */; };
 		E9DAE090281D638400EA73BA /* (null) in Sources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
@@ -166,6 +167,7 @@
 		DAE87E0F2816CC1F00ED6826 /* ChooseCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCountryViewController.swift; sourceTree = "<group>"; };
 		DAE87E112816CC2C00ED6826 /* CountryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
 		DAE87E142816CE6E00ED6826 /* DemoStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoStartViewController.swift; sourceTree = "<group>"; };
+		E9B25AA4282BAC6800D5865B /* TextFieldError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldError.swift; sourceTree = "<group>"; };
 		E9B74937282A6780004E541E /* arrow.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = arrow.json; sourceTree = "<group>"; };
 		E9B74939282A6876004E541E /* down.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = down.json; sourceTree = "<group>"; };
 		E9B7493B282A6950004E541E /* left.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = left.json; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				DA737435281AF59400DBBDED /* Utils.swift */,
 				DA65CBB2281C527A006508A1 /* RoundedView.swift */,
 				DAD01E5128268E0B007DA004 /* Debouncer.swift */,
+				E9B25AA4282BAC6800D5865B /* TextFieldError.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				DA73742B281ACC3700DBBDED /* DemoStartViewModel.swift in Sources */,
 				DAE87E122816CC2C00ED6826 /* CountryListViewController.swift in Sources */,
 				DA88A1DC282A617A005C144D /* VideoProcessingViewController.swift in Sources */,
+				E9B25AA5282BAC6800D5865B /* TextFieldError.swift in Sources */,
 				DAAF4E0A281AC7A60029F26C /* VerificationResponseModels.swift in Sources */,
 				DAAF4E0C281AC7A60029F26C /* TimestampRequest.swift in Sources */,
 				DA1235772827B1D60008A46E /* NoFaceDetectedViewController.swift in Sources */,
