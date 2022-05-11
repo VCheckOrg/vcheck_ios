@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Localize_Swift
 
 
 struct CountriesResponse: Codable {
@@ -76,7 +77,8 @@ struct CountryTO {
     }
     
     static func countryName(countryCode: String) -> String {
-        let current = Locale(identifier: Locale.current.identifier)
+        let current = Locale(identifier: Localize.currentLanguage())
+                                //Locale.current.identifier)
         return current.localizedString(forRegionCode: countryCode) ?? "Not Localized"
     }
     

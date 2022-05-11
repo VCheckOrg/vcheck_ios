@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Localize_Swift
 
 class DemoStartViewModel {
     
@@ -54,7 +55,8 @@ class DemoStartViewModel {
     }
     
     func createVerifAttempt() {
-        let languagePrefix = Locale.current.languageCode!
+        let languagePrefix = Localize.currentLanguage()
+        //Locale.current.languageCode!
         //Locale.preferredLanguages[0] // test! getting default device locale code
         //print(languagePrefix)
         

@@ -20,7 +20,9 @@ final class LocalDatasource {
     
     
     //cached selected doc type with data
-    private var _selectedDocTypeWithData: DocTypeData? = nil
+    private var selectedDocTypeWithData: DocTypeData? = nil
+    
+    private var localeIsUserDefined: Bool = false
     
     
     
@@ -105,11 +107,11 @@ extension LocalDatasource {
     }
     
     func setSelectedDocTypeWithData(data: DocTypeData) {
-        _selectedDocTypeWithData = data
+        selectedDocTypeWithData = data
     }
 
     func getSelectedDocTypeWithData() -> DocTypeData? {
-        return _selectedDocTypeWithData
+        return selectedDocTypeWithData
     }
     
     func resetAccessToken() {
@@ -123,10 +125,19 @@ extension LocalDatasource {
     }
     
     func deleteSelectedDocTypeWithData() {
-        _selectedDocTypeWithData = nil
+        selectedDocTypeWithData = nil
+    }
+    
+    func setLocaleIsUserDefined() {
+        localeIsUserDefined = true
+    }
+    
+    func isLocaleUserDefined() -> Bool {
+        return localeIsUserDefined
     }
     
     func deleteAllSessionData() {
+        localeIsUserDefined = false
         resetAccessToken()
         resetSelectedCountryCode()
         deleteSelectedDocTypeWithData()

@@ -277,7 +277,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                         <outlet property="preSelectedCountryView" destination="3jc-tS-jTS" id="eeT-8t-v9b"/>
                         <outlet property="tvSelectedCountryFlag" destination="zr2-kK-wWI" id="tQN-8u-8Vs"/>
                         <outlet property="tvSelectedCountryName" destination="cY3-cf-m9e" id="oFj-jP-YAK"/>
-                        <segue destination="G2c-Yg-Bx4" kind="show" identifier="CountryToList" id="yUX-Na-bzN"/>
+                        <segue destination="G2c-Yg-Bx4" kind="presentation" identifier="CountryToList" id="yUX-Na-bzN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="djO-C6-qbE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -287,13 +287,13 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
         <!--Country List View Controller-->
         <scene sceneID="O7v-PE-izR">
             <objects>
-                <viewController id="G2c-Yg-Bx4" userLabel="Country List View Controller" customClass="CountryListViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="pageSheet" id="G2c-Yg-Bx4" userLabel="Country List View Controller" customClass="CountryListViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Gx-nu-ywK">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="746"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XZT-Se-5L6">
-                                <rect key="frame" x="0.0" y="100" width="390" height="700"/>
+                                <rect key="frame" x="0.0" y="100" width="390" height="646"/>
                                 <color key="backgroundColor" name="BackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="allowedCountryCell" rowHeight="70" id="onm-ZM-hCL" customClass="AllowedCountryViewCell" customModule="VcheckSDKDemoIOS" customModuleProvider="target">

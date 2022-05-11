@@ -239,7 +239,7 @@
 "uol-az-Qka.text" = "Неверное движение";
 
 /* Class = "UIButton"; configuration.title = "Start Demo Flow"; ObjectID = "uXu-nD-622"; */
-"uXu-nD-622.configuration.title" = "Start Demo Flow";
+"uXu-nD-622.configuration.title" = "Попробовать демо";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "uXu-nD-622"; */
 "uXu-nD-622.normalTitle" = "Button";
