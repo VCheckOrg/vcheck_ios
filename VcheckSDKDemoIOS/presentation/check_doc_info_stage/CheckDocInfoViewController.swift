@@ -162,11 +162,15 @@ extension CheckDocInfoViewController: UITableViewDataSource {
         let fieldName = fieldsList[indexPath.row].name
 
         let editingChanged = UIAction { _ in
-            
             self.fieldsList = self.fieldsList.map {
                 $0.name == fieldName ? $0.modifyAutoParsedValue(with: cell.docTextField.text!) : $0 }
         }
         
+        if(fieldName == "name") {
+            cell.docTextField.addTarget(self, action: #selector(self.onDocNameFieldChanged(_:)),
+                                        for: UIControl.Event.editingChanged)
+        }
+
         cell.docTextField.addAction(editingChanged, for: .editingChanged)
 
         return cell
@@ -176,8 +180,10 @@ extension CheckDocInfoViewController: UITableViewDataSource {
         return 82
     }
     
-    @objc final private func onDocCellTextChanged(textField: UITextField) {
-
+    @objc final private func onDocNameFieldChanged(_ textField: UITextField) {
+        if(textField.text!.count < 3) {
+            textField.text = "Введите валидное имя"
+        }
     }
 }
 

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		965EE52CD21510989273D883 /* Pods_VcheckSDKDemoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F8848E7D3C92883B37CB56 /* Pods_VcheckSDKDemoIOS.framework */; };
+		96E190AC08AF643C6D2E766E /* Pods_VcheckSDKDemoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71821315842BE5CF16624BC4 /* Pods_VcheckSDKDemoIOS.framework */; };
 		DA1235712827A5D80008A46E /* FaceCalcExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1235702827A5D80008A46E /* FaceCalcExtensions.swift */; };
 		DA1235732827A7F90008A46E /* LivenessVCExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1235722827A7F90008A46E /* LivenessVCExtensions.swift */; };
 		DA1235752827B1B00008A46E /* NoTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1235742827B1B00008A46E /* NoTimeViewController.swift */; };
@@ -62,12 +62,6 @@
 		DABCE2312822BCB900937E84 /* ZoomedDocPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCE2302822BCB900937E84 /* ZoomedDocPhotoViewController.swift */; };
 		DAC2325A281C3EF300D0CE16 /* BlockedCountryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC23259281C3EF300D0CE16 /* BlockedCountryViewCell.swift */; };
 		DAC26DBE2825378800EFCDB1 /* PhotoInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC26DBD2825378800EFCDB1 /* PhotoInstructionsViewController.swift */; };
-		DAD01E4628266CDA007DA004 /* up.json in Resources */ = {isa = PBXBuildFile; fileRef = DAD01E4028266CDA007DA004 /* up.json */; };
-		DAD01E4728266CDA007DA004 /* mouth.json in Resources */ = {isa = PBXBuildFile; fileRef = DAD01E4128266CDA007DA004 /* mouth.json */; };
-		DAD01E4828266CDA007DA004 /* arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = DAD01E4228266CDA007DA004 /* arrow.json */; };
-		DAD01E4928266CDA007DA004 /* down.json in Resources */ = {isa = PBXBuildFile; fileRef = DAD01E4328266CDA007DA004 /* down.json */; };
-		DAD01E4A28266CDA007DA004 /* left.json in Resources */ = {isa = PBXBuildFile; fileRef = DAD01E4428266CDA007DA004 /* left.json */; };
-		DAD01E4B28266CDA007DA004 /* right.json in Resources */ = {isa = PBXBuildFile; fileRef = DAD01E4528266CDA007DA004 /* right.json */; };
 		DAD01E502826793C007DA004 /* Milestones.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD01E4F2826793C007DA004 /* Milestones.swift */; };
 		DAD01E5228268E0B007DA004 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD01E5128268E0B007DA004 /* Debouncer.swift */; };
 		DAD01E552826D495007DA004 /* ic_success.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD01E542826D495007DA004 /* ic_success.png */; };
@@ -76,11 +70,19 @@
 		DAE87E102816CC1F00ED6826 /* ChooseCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E0F2816CC1F00ED6826 /* ChooseCountryViewController.swift */; };
 		DAE87E122816CC2C00ED6826 /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E112816CC2C00ED6826 /* CountryListViewController.swift */; };
 		DAE87E152816CE6E00ED6826 /* DemoStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E142816CE6E00ED6826 /* DemoStartViewController.swift */; };
+		E9B74938282A6781004E541E /* arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = E9B74937282A6780004E541E /* arrow.json */; };
+		E9B7493A282A6876004E541E /* down.json in Resources */ = {isa = PBXBuildFile; fileRef = E9B74939282A6876004E541E /* down.json */; };
+		E9B7493C282A6950004E541E /* left.json in Resources */ = {isa = PBXBuildFile; fileRef = E9B7493B282A6950004E541E /* left.json */; };
+		E9B7493E282A6967004E541E /* mouth.json in Resources */ = {isa = PBXBuildFile; fileRef = E9B7493D282A6967004E541E /* mouth.json */; };
+		E9B74940282A697A004E541E /* right.json in Resources */ = {isa = PBXBuildFile; fileRef = E9B7493F282A697A004E541E /* right.json */; };
+		E9B74942282A698B004E541E /* up.json in Resources */ = {isa = PBXBuildFile; fileRef = E9B74941282A698B004E541E /* up.json */; };
 		E9DAE090281D638400EA73BA /* (null) in Sources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B9F8848E7D3C92883B37CB56 /* Pods_VcheckSDKDemoIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VcheckSDKDemoIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56D8890D8155CC11D7D6B135 /* Pods-VcheckSDKDemoIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcheckSDKDemoIOS.debug.xcconfig"; path = "Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		71821315842BE5CF16624BC4 /* Pods_VcheckSDKDemoIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VcheckSDKDemoIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1539170A90FB9F7881F6587 /* Pods-VcheckSDKDemoIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcheckSDKDemoIOS.release.xcconfig"; path = "Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS.release.xcconfig"; sourceTree = "<group>"; };
 		DA1235702827A5D80008A46E /* FaceCalcExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCalcExtensions.swift; sourceTree = "<group>"; };
 		DA1235722827A7F90008A46E /* LivenessVCExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessVCExtensions.swift; sourceTree = "<group>"; };
 		DA1235742827B1B00008A46E /* NoTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoTimeViewController.swift; sourceTree = "<group>"; };
@@ -144,12 +146,6 @@
 		DABCE2302822BCB900937E84 /* ZoomedDocPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomedDocPhotoViewController.swift; sourceTree = "<group>"; };
 		DAC23259281C3EF300D0CE16 /* BlockedCountryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedCountryViewCell.swift; sourceTree = "<group>"; };
 		DAC26DBD2825378800EFCDB1 /* PhotoInstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInstructionsViewController.swift; sourceTree = "<group>"; };
-		DAD01E4028266CDA007DA004 /* up.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = up.json; sourceTree = "<group>"; };
-		DAD01E4128266CDA007DA004 /* mouth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mouth.json; sourceTree = "<group>"; };
-		DAD01E4228266CDA007DA004 /* arrow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = arrow.json; sourceTree = "<group>"; };
-		DAD01E4328266CDA007DA004 /* down.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = down.json; sourceTree = "<group>"; };
-		DAD01E4428266CDA007DA004 /* left.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = left.json; sourceTree = "<group>"; };
-		DAD01E4528266CDA007DA004 /* right.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = right.json; sourceTree = "<group>"; };
 		DAD01E4F2826793C007DA004 /* Milestones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milestones.swift; sourceTree = "<group>"; };
 		DAD01E5128268E0B007DA004 /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		DAD01E542826D495007DA004 /* ic_success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_success.png; sourceTree = "<group>"; };
@@ -158,7 +154,12 @@
 		DAE87E0F2816CC1F00ED6826 /* ChooseCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCountryViewController.swift; sourceTree = "<group>"; };
 		DAE87E112816CC2C00ED6826 /* CountryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
 		DAE87E142816CE6E00ED6826 /* DemoStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoStartViewController.swift; sourceTree = "<group>"; };
-		E9B7E81F28215265008CA50F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		E9B74937282A6780004E541E /* arrow.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = arrow.json; sourceTree = "<group>"; };
+		E9B74939282A6876004E541E /* down.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = down.json; sourceTree = "<group>"; };
+		E9B7493B282A6950004E541E /* left.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = left.json; sourceTree = "<group>"; };
+		E9B7493D282A6967004E541E /* mouth.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mouth.json; sourceTree = "<group>"; };
+		E9B7493F282A697A004E541E /* right.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = right.json; sourceTree = "<group>"; };
+		E9B74941282A698B004E541E /* up.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = up.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0592996FEFA8F42AED121F2 /* Pods_VcheckSDKDemoIOS.framework in Frameworks */,
+				96E190AC08AF643C6D2E766E /* Pods_VcheckSDKDemoIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,7 +177,7 @@
 		11D76F7ADC2999F8AAD8A593 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1D2673A3E99D87B068EB498C /* Pods_VcheckSDKDemoIOS.framework */,
+				71821315842BE5CF16624BC4 /* Pods_VcheckSDKDemoIOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -184,8 +185,8 @@
 		C55ED8972A87D4D9813AA1B5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				80ED58C74D2D840926FDEA0D /* Pods-VcheckSDKDemoIOS.debug.xcconfig */,
-				8EC1D481BD6159B5BBF0029E /* Pods-VcheckSDKDemoIOS.release.xcconfig */,
+				56D8890D8155CC11D7D6B135 /* Pods-VcheckSDKDemoIOS.debug.xcconfig */,
+				B1539170A90FB9F7881F6587 /* Pods-VcheckSDKDemoIOS.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -301,7 +302,7 @@
 		DAB613282814767700234BB2 /* VcheckSDKDemoIOS */ = {
 			isa = PBXGroup;
 			children = (
-				DAD01E3F28266CC0007DA004 /* animations */,
+				E9B74936282A670F004E541E /* animations */,
 				DAB85362281FB475008F3E35 /* Face.scnassets */,
 				DA19DCEC281C52DC00023B5A /* util */,
 				DA73742C281ACC6E00DBBDED /* service */,
@@ -329,20 +330,6 @@
 				DA63D79828240644005EE4C0 /* DocInfoViewCell.swift */,
 			);
 			path = check_doc_info_stage;
-			sourceTree = "<group>";
-		};
-		DAD01E3F28266CC0007DA004 /* animations */ = {
-			isa = PBXGroup;
-			children = (
-				DAD01E4228266CDA007DA004 /* arrow.json */,
-				DAD01E4328266CDA007DA004 /* down.json */,
-				DAD01E4428266CDA007DA004 /* left.json */,
-				DAD01E4128266CDA007DA004 /* mouth.json */,
-				DAD01E4528266CDA007DA004 /* right.json */,
-				DAD01E4028266CDA007DA004 /* up.json */,
-			);
-			name = animations;
-			path = ../../../../../.Trash/animations;
 			sourceTree = "<group>";
 		};
 		DAD01E4C282678E8007DA004 /* flow_logic */ = {
@@ -387,6 +374,19 @@
 				DAC23259281C3EF300D0CE16 /* BlockedCountryViewCell.swift */,
 			);
 			path = choose_country_stage;
+			sourceTree = "<group>";
+		};
+		E9B74936282A670F004E541E /* animations */ = {
+			isa = PBXGroup;
+			children = (
+				E9B7493F282A697A004E541E /* right.json */,
+				E9B74941282A698B004E541E /* up.json */,
+				E9B7493D282A6967004E541E /* mouth.json */,
+				E9B7493B282A6950004E541E /* left.json */,
+				E9B74939282A6876004E541E /* down.json */,
+				E9B74937282A6780004E541E /* arrow.json */,
+			);
+			path = animations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,10 +452,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9B74942282A698B004E541E /* up.json in Resources */,
+				E9B74940282A697A004E541E /* right.json in Resources */,
+				E9B7493E282A6967004E541E /* mouth.json in Resources */,
+				E9B7493C282A6950004E541E /* left.json in Resources */,
+				E9B7493A282A6876004E541E /* down.json in Resources */,
+				E9B74938282A6781004E541E /* arrow.json in Resources */,
 				DAB613392814767900234BB2 /* LaunchScreen.storyboard in Resources */,
 				DAAF4E0B281AC7A60029F26C /* document_verification_codes.kt in Resources */,
-				DAD01E4A28266CDA007DA004 /* left.json in Resources */,
-				DAD01E4628266CDA007DA004 /* up.json in Resources */,
 				DAAF4E21281AC7A60029F26C /* MainRepository.kt in Resources */,
 				DAAF4E11281AC7A60029F26C /* doc_image_parsing_statuses.kt in Resources */,
 				DAAF4E13281AC7A60029F26C /* country_models.kt in Resources */,
@@ -464,12 +468,8 @@
 				DAB85363281FB475008F3E35 /* Face.scnassets in Resources */,
 				DAAF4E1A281AC7A60029F26C /* verification_request_models.kt in Resources */,
 				DAAF4E1B281AC7A60029F26C /* document_response_models.kt in Resources */,
-				DAD01E4928266CDA007DA004 /* down.json in Resources */,
 				DAD01E552826D495007DA004 /* ic_success.png in Resources */,
-				DAD01E4728266CDA007DA004 /* mouth.json in Resources */,
-				DAD01E4B28266CDA007DA004 /* right.json in Resources */,
 				DABCE22328219CE700937E84 /* Localizable.strings in Resources */,
-				DAD01E4828266CDA007DA004 /* arrow.json in Resources */,
 				DAAF4E1F281AC7A60029F26C /* verification_response_models.kt in Resources */,
 				DAB613312814767700234BB2 /* Main.storyboard in Resources */,
 			);
@@ -750,7 +750,7 @@
 		};
 		DAB6133E2814767900234BB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80ED58C74D2D840926FDEA0D /* Pods-VcheckSDKDemoIOS.debug.xcconfig */;
+			baseConfigurationReference = 56D8890D8155CC11D7D6B135 /* Pods-VcheckSDKDemoIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -786,7 +786,7 @@
 		};
 		DAB6133F2814767900234BB2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8EC1D481BD6159B5BBF0029E /* Pods-VcheckSDKDemoIOS.release.xcconfig */;
+			baseConfigurationReference = B1539170A90FB9F7881F6587 /* Pods-VcheckSDKDemoIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
