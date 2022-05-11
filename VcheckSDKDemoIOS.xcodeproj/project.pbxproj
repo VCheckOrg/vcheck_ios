@@ -37,6 +37,7 @@
 		DA88A1E0282A622A005C144D /* LivenessSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88A1DF282A622A005C144D /* LivenessSuccessViewController.swift */; };
 		DA88A1E2282A67BC005C144D /* VideoFailureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88A1E1282A67BC005C144D /* VideoFailureViewController.swift */; };
 		DA88A1E6282A9D69005C144D /* LivenessVideoRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88A1E5282A9D69005C144D /* LivenessVideoRecorder.swift */; };
+		DA88A1E8282AD5EE005C144D /* VideoUploadFailureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88A1E7282AD5EE005C144D /* VideoUploadFailureViewModel.swift */; };
 		DAA1A60C2824F752005B5B8A /* DocumentVerificationCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA1A60B2824F752005B5B8A /* DocumentVerificationCodes.swift */; };
 		DAAF4E0A281AC7A60029F26C /* VerificationResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAF4DF1281AC7A50029F26C /* VerificationResponseModels.swift */; };
 		DAAF4E0B281AC7A60029F26C /* document_verification_codes.kt in Resources */ = {isa = PBXBuildFile; fileRef = DAAF4DF2281AC7A50029F26C /* document_verification_codes.kt */; };
@@ -118,6 +119,7 @@
 		DA88A1DF282A622A005C144D /* LivenessSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessSuccessViewController.swift; sourceTree = "<group>"; };
 		DA88A1E1282A67BC005C144D /* VideoFailureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFailureViewController.swift; sourceTree = "<group>"; };
 		DA88A1E5282A9D69005C144D /* LivenessVideoRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessVideoRecorder.swift; sourceTree = "<group>"; };
+		DA88A1E7282AD5EE005C144D /* VideoUploadFailureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUploadFailureViewModel.swift; sourceTree = "<group>"; };
 		DAA1A60B2824F752005B5B8A /* DocumentVerificationCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerificationCodes.swift; sourceTree = "<group>"; };
 		DAAF4DF1281AC7A50029F26C /* VerificationResponseModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationResponseModels.swift; sourceTree = "<group>"; };
 		DAAF4DF2281AC7A50029F26C /* document_verification_codes.kt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = document_verification_codes.kt; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				DA88A1DB282A617A005C144D /* VideoProcessingViewController.swift */,
 				DA88A1DD282A6189005C144D /* VideoProcessingViewModel.swift */,
 				DA88A1DF282A622A005C144D /* LivenessSuccessViewController.swift */,
+				DA88A1E7282AD5EE005C144D /* VideoUploadFailureViewModel.swift */,
 			);
 			path = processing_ui;
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 			files = (
 				DAB6132E2814767700234BB2 /* ViewController.swift in Sources */,
 				DA65CBB3281C527A006508A1 /* RoundedView.swift in Sources */,
+				DA88A1E8282AD5EE005C144D /* VideoUploadFailureViewModel.swift in Sources */,
 				DAAF4E1D281AC7A60029F26C /* Constants.swift in Sources */,
 				DAAF4E14281AC7A60029F26C /* VerificationRequestModels.swift in Sources */,
 				DABCE22C28229ABD00937E84 /* CheckDocPhotoViewModel.swift in Sources */,

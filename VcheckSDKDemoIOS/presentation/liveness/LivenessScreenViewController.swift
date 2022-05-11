@@ -46,15 +46,16 @@ public final class LivenessScreenViewController: UIViewController {
     lazy var motionManager = CMMotionManager()
     
     // MARK: - AR and Face Detection properties
-    
     private var faceSession: GARAugmentedFaceSession?
-    
     lazy var faceDetectionRequest = VNDetectFaceLandmarksRequest(completionHandler: self.onFacesDetected)
+    
+    // MARK: - Video recording properties
+    var videoRecorder = LivenessVideoRecorder.init()
+    var videoStreamingPermitted: Bool = false
     
     // MARK: - Milestone flow & logic properties
     
     private var milestoneFlow = StandardMilestoneFlow()
-    
     private var majorObstacleFrameCounterHolder = MajorObstacleFrameCounterHolder()
     
     static let LIVENESS_TIME_LIMIT_MILLIS = 14000 //max is 15000
@@ -72,17 +73,12 @@ public final class LivenessScreenViewController: UIViewController {
     private var livenessSessionTimeoutTimer : DispatchSourceTimer?
     private var blockStageIndicationByUI: Bool = false
     
-    var videoRecorder = LivenessVideoRecorder.init()
-    var videoStreamingPermitted: Bool = false
-    
     
     // MARK: - Implementation & Lifecycle methods
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        
-        //videoRecordFilePath = getVideoFilePath()
-        
+                
         if !setupScene() { return }
         if !setupCamera() { return }
         if !setupMotion() { return }
@@ -161,13 +157,16 @@ public final class LivenessScreenViewController: UIViewController {
             // reset logic
             self.videoRecorder = LivenessVideoRecorder.init()
             self.videoStreamingPermitted = true
-            //self.videoRecorder.startRecording() //obsolete
             self.milestoneFlow = StandardMilestoneFlow()
             self.majorObstacleFrameCounterHolder = MajorObstacleFrameCounterHolder()
             self.faceCountDetectionFrameCounter = 0
             self.isLivenessSessionFinished = false
             self.hasEnoughTimeForNextGesture = true
             self.blockStageIndicationByUI = false
+            
+            //! test session timer after major obstacle met
+            self.livenessSessionTimeoutTimer = nil
+            self.startLivenessSessionTimeoutTimer()
         }
     }
 }
