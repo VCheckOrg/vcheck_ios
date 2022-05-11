@@ -32,6 +32,7 @@
 		DA88A1E2282A67BC005C144D /* VideoFailureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88A1E1282A67BC005C144D /* VideoFailureViewController.swift */; };
 		DA88A1E6282A9D69005C144D /* LivenessVideoRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88A1E5282A9D69005C144D /* LivenessVideoRecorder.swift */; };
 		DA88A1E8282AD5EE005C144D /* VideoUploadFailureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88A1E7282AD5EE005C144D /* VideoUploadFailureViewModel.swift */; };
+		DA88A1EB282BBAD3005C144D /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88A1EA282BBAD3005C144D /* HeaderViewController.swift */; };
 		DAA1A60C2824F752005B5B8A /* DocumentVerificationCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA1A60B2824F752005B5B8A /* DocumentVerificationCodes.swift */; };
 		DAAF4E0A281AC7A60029F26C /* VerificationResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAF4DF1281AC7A50029F26C /* VerificationResponseModels.swift */; };
 		DAAF4E0B281AC7A60029F26C /* document_verification_codes.kt in Resources */ = {isa = PBXBuildFile; fileRef = DAAF4DF2281AC7A50029F26C /* document_verification_codes.kt */; };
@@ -68,6 +69,8 @@
 		DABCE2312822BCB900937E84 /* ZoomedDocPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCE2302822BCB900937E84 /* ZoomedDocPhotoViewController.swift */; };
 		DAC2325A281C3EF300D0CE16 /* BlockedCountryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC23259281C3EF300D0CE16 /* BlockedCountryViewCell.swift */; };
 		DAC26DBE2825378800EFCDB1 /* PhotoInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC26DBD2825378800EFCDB1 /* PhotoInstructionsViewController.swift */; };
+		DAC5CF85282BC2CC00891C96 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC5CF84282BC2CC00891C96 /* HeaderView.xib */; };
+		DAC5CF87282BC4D300891C96 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC5CF86282BC4D300891C96 /* HeaderView.swift */; };
 		DAD01E502826793C007DA004 /* Milestones.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD01E4F2826793C007DA004 /* Milestones.swift */; };
 		DAD01E5228268E0B007DA004 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD01E5128268E0B007DA004 /* Debouncer.swift */; };
 		DAD01E552826D495007DA004 /* ic_success.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD01E542826D495007DA004 /* ic_success.png */; };
@@ -118,6 +121,7 @@
 		DA88A1E1282A67BC005C144D /* VideoFailureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFailureViewController.swift; sourceTree = "<group>"; };
 		DA88A1E5282A9D69005C144D /* LivenessVideoRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessVideoRecorder.swift; sourceTree = "<group>"; };
 		DA88A1E7282AD5EE005C144D /* VideoUploadFailureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUploadFailureViewModel.swift; sourceTree = "<group>"; };
+		DA88A1EA282BBAD3005C144D /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
 		DAA1A60B2824F752005B5B8A /* DocumentVerificationCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerificationCodes.swift; sourceTree = "<group>"; };
 		DAAF4DF1281AC7A50029F26C /* VerificationResponseModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationResponseModels.swift; sourceTree = "<group>"; };
 		DAAF4DF2281AC7A50029F26C /* document_verification_codes.kt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = document_verification_codes.kt; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 		DABCE2302822BCB900937E84 /* ZoomedDocPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomedDocPhotoViewController.swift; sourceTree = "<group>"; };
 		DAC23259281C3EF300D0CE16 /* BlockedCountryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedCountryViewCell.swift; sourceTree = "<group>"; };
 		DAC26DBD2825378800EFCDB1 /* PhotoInstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInstructionsViewController.swift; sourceTree = "<group>"; };
+		DAC5CF84282BC2CC00891C96 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		DAC5CF86282BC4D300891C96 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		DAD01E4F2826793C007DA004 /* Milestones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milestones.swift; sourceTree = "<group>"; };
 		DAD01E5128268E0B007DA004 /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		DAD01E542826D495007DA004 /* ic_success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_success.png; sourceTree = "<group>"; };
@@ -231,6 +237,7 @@
 		DA737428281ACAFD00DBBDED /* presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DA88A1E9282BBAC4005C144D /* common */,
 				DABCE22F2822BBEE00937E84 /* check_doc_info_stage */,
 				DA34598228201D9B00068E6D /* photo_upload_stage */,
 				DADD31F0281D93C600EB25ED /* liveness */,
@@ -268,6 +275,15 @@
 				DA88A1E7282AD5EE005C144D /* VideoUploadFailureViewModel.swift */,
 			);
 			path = processing_ui;
+			sourceTree = "<group>";
+		};
+		DA88A1E9282BBAC4005C144D /* common */ = {
+			isa = PBXGroup;
+			children = (
+				DA88A1EA282BBAD3005C144D /* HeaderViewController.swift */,
+				DAC5CF86282BC4D300891C96 /* HeaderView.swift */,
+			);
+			path = common;
 			sourceTree = "<group>";
 		};
 		DAAF4DBE281AC6D80029F26C /* domain */ = {
@@ -345,6 +361,7 @@
 				DAB6133A2814767900234BB2 /* Info.plist */,
 				DAB613322814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld */,
 				DABCE22528219CE700937E84 /* Localizable.strings */,
+				DAC5CF84282BC2CC00891C96 /* HeaderView.xib */,
 			);
 			path = VcheckSDKDemoIOS;
 			sourceTree = "<group>";
@@ -500,6 +517,8 @@
 				DAAF4E21281AC7A60029F26C /* MainRepository.kt in Resources */,
 				DAAF4E11281AC7A60029F26C /* doc_image_parsing_statuses.kt in Resources */,
 				DAAF4E13281AC7A60029F26C /* country_models.kt in Resources */,
+				DA88A1D7282A5C2D005C144D /* mouth.json in Resources */,
+				DAC5CF85282BC2CC00891C96 /* HeaderView.xib in Resources */,
 				DAAF4E18281AC7A60029F26C /* document_request_models.kt in Resources */,
 				DAB613362814767900234BB2 /* Assets.xcassets in Resources */,
 				DAB85363281FB475008F3E35 /* Face.scnassets in Resources */,
@@ -597,6 +616,7 @@
 				DAAF4E20281AC7A60029F26C /* DocumentResponseModels.swift in Sources */,
 				DA34598128201D9600068E6D /* TakeDocPhotoViewController.swift in Sources */,
 				DA63D7952823B683005EE4C0 /* CheckDocInfoViewModel.swift in Sources */,
+				DA88A1EB282BBAD3005C144D /* HeaderViewController.swift in Sources */,
 				DABCE2292822754300937E84 /* CheckDocPhotoViewController.swift in Sources */,
 				DA12357B2827B21F0008A46E /* NoBrightnessViewController.swift in Sources */,
 				DAAF4E1C281AC7A60029F26C /* CountryModels.swift in Sources */,
@@ -634,6 +654,7 @@
 				DA737434281ADCD600DBBDED /* LocalDatasource.swift in Sources */,
 				DA73742E281ACC7E00DBBDED /* RemoteDatasource.swift in Sources */,
 				DADD31F2281D93F800EB25ED /* LivenessScreenViewController.swift in Sources */,
+				DAC5CF87282BC4D300891C96 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

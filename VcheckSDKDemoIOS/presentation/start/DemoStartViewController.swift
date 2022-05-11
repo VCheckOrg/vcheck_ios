@@ -19,6 +19,7 @@ class DemoStartViewController : UIViewController {
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,5 +87,36 @@ class DemoStartViewController : UIViewController {
     
     private func activityIndicatorStop() {
         self.spinner.stopAnimating()
+    }
+}
+
+
+//--------------------
+
+extension UIViewController {
+    func add(_ child: UIViewController, in container: UIView) {
+        addChild(child)
+        container.addSubview(child.view)
+        //child.view.frame = CGRectMake(100, 100, 100, 200);
+        child.view.frame = container.bounds
+        child.didMove(toParent: self)
+    }
+    
+    func add(_ child: UIViewController) {
+        add(child, in: view)
+    }
+    
+    func remove(from view: UIView) {
+        guard parent != nil else {
+            return
+        }
+        
+        willMove(toParent: nil)
+        removeFromParent()
+        view.removeFromSuperview()
+    }
+    
+    func remove() {
+        remove(from: view)
     }
 }
