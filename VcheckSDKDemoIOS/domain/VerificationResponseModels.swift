@@ -43,13 +43,14 @@ struct VerificationCreateAttemptResponseData: Codable {
   var applicationId : Int?    = nil
   var createTime    : String? = nil
   var redirectUrl   : String? = nil
+  var token         : String? = nil
 
   enum CodingKeys: String, CodingKey {
 
     case applicationId = "application_id"
     case createTime    = "create_time"
     case redirectUrl   = "redirect_url"
-  
+    case token = "token"
   }
 
   init(from decoder: Decoder) throws {
@@ -58,6 +59,7 @@ struct VerificationCreateAttemptResponseData: Codable {
     applicationId = try values.decodeIfPresent(Int.self    , forKey: .applicationId )
     createTime    = try values.decodeIfPresent(String.self , forKey: .createTime    )
     redirectUrl   = try values.decodeIfPresent(String.self , forKey: .redirectUrl   )
+    token         = try values.decodeIfPresent(String.self , forKey: .token   )
  
   }
 
@@ -90,9 +92,7 @@ struct VerificationInitResponse: Codable {
  
   }
 
-  init() {
-
-  }
+  init() {}
 
 }
 
@@ -126,9 +126,7 @@ struct VerificationInitResponseData: Codable {
    
     }
 
-    init() {
-
-    }
+    init() {}
 
   }
 
@@ -150,9 +148,7 @@ struct Config: Codable {
  
   }
 
-  init() {
-
-  }
+  init() {}
 
 }
 

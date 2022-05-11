@@ -2,7 +2,7 @@
 "1c6-jq-Hxi.text" = "Face checking";
 
 /* Class = "UILabel"; text = "К сожалению, нам не удалось верифицировать вашу заявку. Если вы не согласны с данным решением, просьба обратиться в службу поддержки"; ObjectID = "2Ip-f7-uZ5"; */
-"2Ip-f7-uZ5.text" = "Unfortunately, we were unable to verify your application. If you do not agree with this decision, please contact support";
+"2Ip-f7-uZ5.text" = "There was an issue while uploading a video. Please check your internet connection and try again without moving an app to the background.";
 
 /* Class = "UILabel"; text = "Фото вашего документа должно отвечать следующим требованиям:"; ObjectID = "2W7-Jm-sUy"; */
 "2W7-Jm-sUy.text" = "The photo of your document must face the following requirements:";
@@ -23,7 +23,7 @@
 "73Y-G0-L4X.text" = "For further processing and validation, select which of the types below corresponds to your document.";
 
 /* Class = "UILabel"; text = "Верификация неуспешна"; ObjectID = "8MH-tb-Ixh"; */
-"8MH-tb-Ixh.text" = "Verification failed";
+"8MH-tb-Ixh.text" = "Something went wrong :(";
 
 /* Class = "UITextView"; text = "Please, wait. The photo of your document is being loaded and processed. This may take from a few seconds to a minute."; ObjectID = "8ou-Zr-Oj3"; */
 "8ou-Zr-Oj3.text" = "Please, wait. The photo of your document is being loaded and processed. This may take from a few seconds to a minute.";

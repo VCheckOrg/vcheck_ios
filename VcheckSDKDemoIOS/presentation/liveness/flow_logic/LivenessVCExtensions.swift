@@ -54,7 +54,7 @@ extension LivenessScreenViewController {
         output.setSampleBufferDelegate(self, queue: DispatchQueue.global(qos: .userInteractive))
         
         let session = AVCaptureSession()
-        session.sessionPreset = .high
+        session.sessionPreset = .iFrame960x540
         session.addInput(input)
         session.addOutput(output)
         captureSession = session

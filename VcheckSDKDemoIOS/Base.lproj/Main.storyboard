@@ -37,7 +37,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="512-S9-Usq" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1160" y="-1137"/>
+            <point key="canvasLocation" x="-1529" y="-953"/>
         </scene>
         <!--Unsupported View Controller-->
         <scene sceneID="25P-IB-Srk">
@@ -78,7 +78,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pib-AZ-YMA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-303" y="-1137"/>
+            <point key="canvasLocation" x="-672" y="-953"/>
         </scene>
         <!--Demo Start View Controller-->
         <scene sceneID="5BM-mo-2Xp">
@@ -620,7 +620,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p6F-W9-KOM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4326" y="-355"/>
+            <point key="canvasLocation" x="5115" y="-1673"/>
         </scene>
         <!--Wrong Movement View Controller-->
         <scene sceneID="SBe-W2-Czb">
@@ -1005,14 +1005,15 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Закрыть"/>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBN-xJ-7O7">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBN-xJ-7O7" customClass="Rounded">
                                                         <rect key="frame" x="16" y="424.66666666666663" width="334" height="56"/>
+                                                        <color key="backgroundColor" name="borderColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="rgT-P8-2qa"/>
                                                         </constraints>
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="tintColor" name="borderColor"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Обратиться в службу поддер..."/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Обратиться в службу поддержки"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                                 <integer key="value" value="4"/>
@@ -1089,7 +1090,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xp3-NL-myv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5263" y="-1703"/>
+            <point key="canvasLocation" x="4375" y="-344"/>
         </scene>
         <!--OS Not Supported View Controller-->
         <scene sceneID="eyy-0l-iIB">
@@ -1219,7 +1220,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ot-po-KGK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1160" y="-1858"/>
+            <point key="canvasLocation" x="-1529" y="-1673"/>
         </scene>
         <!--No Camera View Controller-->
         <scene sceneID="wi6-la-w4P">
@@ -1349,7 +1350,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SSE-JD-3Sp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5843" y="-1022"/>
+            <point key="canvasLocation" x="5985" y="-1404"/>
         </scene>
         <!--Fast Movement View Controller-->
         <scene sceneID="eTh-NG-ulS">
@@ -1451,12 +1452,12 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sGW-Oa-s3n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-303" y="-1858"/>
+            <point key="canvasLocation" x="-672" y="-1673"/>
         </scene>
         <!--Success Verification View Controller-->
         <scene sceneID="ft6-tC-Pf5">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="uMO-hA-gT0" userLabel="Success Verification View Controller" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="uMO-hA-gT0" userLabel="Success Verification View Controller" customClass="LivenessSuccessViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T2T-B0-7L4">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1495,6 +1496,9 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Отлично"/>
+                                                        <connections>
+                                                            <action selector="livenessSuccessAction:" destination="uMO-hA-gT0" eventType="touchUpInside" id="C74-wZ-36o"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" name="CardColor"/>
@@ -1565,7 +1569,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
         <!--In Process View Controller-->
         <scene sceneID="Y29-ti-guP">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="IiJ-Ck-Dhz" userLabel="In Process View Controller" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="IiJ-Ck-Dhz" userLabel="In Process View Controller" customClass="VideoProcessingViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A97-HY-J1Q">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1597,7 +1601,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="3LY-hv-Mp1">
+                                                    <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="3LY-hv-Mp1">
                                                         <rect key="frame" x="164.66666666666666" y="403" width="37" height="37"/>
                                                         <color key="color" name="DescriptionColor"/>
                                                     </activityIndicatorView>
@@ -1662,12 +1666,14 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                     </view>
                     <navigationItem key="navigationItem" id="vFh-so-BRF"/>
                     <connections>
-                        <segue destination="uMO-hA-gT0" kind="show" id="d7I-Pw-cvc"/>
+                        <outlet property="videoProcessingIndicator" destination="3LY-hv-Mp1" id="gsT-Wh-pMt"/>
+                        <segue destination="uMO-hA-gT0" kind="show" identifier="VideoUploadToSuccess" id="d7I-Pw-cvc"/>
+                        <segue destination="Drf-gg-cCY" kind="show" identifier="VideoUploadToFailure" id="KTM-8y-TXX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YT1-AJ-w3Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3275" y="92"/>
+            <point key="canvasLocation" x="3388" y="95"/>
         </scene>
         <!--Photo Instructions View Controller-->
         <scene sceneID="HTG-Kf-TQP">
@@ -2156,7 +2162,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
         <!--Liveness Screen View Controller-->
         <scene sceneID="cHE-UQ-Euf">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="2Ob-Di-bza" customClass="LivenessScreenViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="2Ob-Di-bza" userLabel="Liveness Screen View Controller" customClass="LivenessScreenViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dGJ-l1-WKs">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

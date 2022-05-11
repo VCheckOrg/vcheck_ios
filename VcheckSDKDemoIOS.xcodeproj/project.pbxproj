@@ -26,6 +26,18 @@
 		DA737432281AD4CB00DBBDED /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA737431281AD4CB00DBBDED /* ApiError.swift */; };
 		DA737434281ADCD600DBBDED /* LocalDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA737433281ADCD600DBBDED /* LocalDatasource.swift */; };
 		DA737436281AF59400DBBDED /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA737435281AF59400DBBDED /* Utils.swift */; };
+		DA88A1D4282A5C2D005C144D /* up.json in Resources */ = {isa = PBXBuildFile; fileRef = DA88A1CE282A5C2D005C144D /* up.json */; };
+		DA88A1D5282A5C2D005C144D /* down.json in Resources */ = {isa = PBXBuildFile; fileRef = DA88A1CF282A5C2D005C144D /* down.json */; };
+		DA88A1D6282A5C2D005C144D /* right.json in Resources */ = {isa = PBXBuildFile; fileRef = DA88A1D0282A5C2D005C144D /* right.json */; };
+		DA88A1D7282A5C2D005C144D /* mouth.json in Resources */ = {isa = PBXBuildFile; fileRef = DA88A1D1282A5C2D005C144D /* mouth.json */; };
+		DA88A1D8282A5C2D005C144D /* arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = DA88A1D2282A5C2D005C144D /* arrow.json */; };
+		DA88A1D9282A5C2D005C144D /* left.json in Resources */ = {isa = PBXBuildFile; fileRef = DA88A1D3282A5C2D005C144D /* left.json */; };
+		DA88A1DC282A617A005C144D /* VideoProcessingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88A1DB282A617A005C144D /* VideoProcessingViewController.swift */; };
+		DA88A1DE282A6189005C144D /* VideoProcessingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88A1DD282A6189005C144D /* VideoProcessingViewModel.swift */; };
+		DA88A1E0282A622A005C144D /* LivenessSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88A1DF282A622A005C144D /* LivenessSuccessViewController.swift */; };
+		DA88A1E2282A67BC005C144D /* VideoFailureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88A1E1282A67BC005C144D /* VideoFailureViewController.swift */; };
+		DA88A1E6282A9D69005C144D /* LivenessVideoRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88A1E5282A9D69005C144D /* LivenessVideoRecorder.swift */; };
+		DA88A1E8282AD5EE005C144D /* VideoUploadFailureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88A1E7282AD5EE005C144D /* VideoUploadFailureViewModel.swift */; };
 		DAA1A60C2824F752005B5B8A /* DocumentVerificationCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA1A60B2824F752005B5B8A /* DocumentVerificationCodes.swift */; };
 		DAAF4E0A281AC7A60029F26C /* VerificationResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAF4DF1281AC7A50029F26C /* VerificationResponseModels.swift */; };
 		DAAF4E0B281AC7A60029F26C /* document_verification_codes.kt in Resources */ = {isa = PBXBuildFile; fileRef = DAAF4DF2281AC7A50029F26C /* document_verification_codes.kt */; };
@@ -105,6 +117,18 @@
 		DA737431281AD4CB00DBBDED /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		DA737433281ADCD600DBBDED /* LocalDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatasource.swift; sourceTree = "<group>"; };
 		DA737435281AF59400DBBDED /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		DA88A1CE282A5C2D005C144D /* up.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = up.json; sourceTree = "<group>"; };
+		DA88A1CF282A5C2D005C144D /* down.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = down.json; sourceTree = "<group>"; };
+		DA88A1D0282A5C2D005C144D /* right.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = right.json; sourceTree = "<group>"; };
+		DA88A1D1282A5C2D005C144D /* mouth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mouth.json; sourceTree = "<group>"; };
+		DA88A1D2282A5C2D005C144D /* arrow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = arrow.json; sourceTree = "<group>"; };
+		DA88A1D3282A5C2D005C144D /* left.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = left.json; sourceTree = "<group>"; };
+		DA88A1DB282A617A005C144D /* VideoProcessingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoProcessingViewController.swift; sourceTree = "<group>"; };
+		DA88A1DD282A6189005C144D /* VideoProcessingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoProcessingViewModel.swift; sourceTree = "<group>"; };
+		DA88A1DF282A622A005C144D /* LivenessSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessSuccessViewController.swift; sourceTree = "<group>"; };
+		DA88A1E1282A67BC005C144D /* VideoFailureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFailureViewController.swift; sourceTree = "<group>"; };
+		DA88A1E5282A9D69005C144D /* LivenessVideoRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessVideoRecorder.swift; sourceTree = "<group>"; };
+		DA88A1E7282AD5EE005C144D /* VideoUploadFailureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUploadFailureViewModel.swift; sourceTree = "<group>"; };
 		DAA1A60B2824F752005B5B8A /* DocumentVerificationCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerificationCodes.swift; sourceTree = "<group>"; };
 		DAAF4DF1281AC7A50029F26C /* VerificationResponseModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationResponseModels.swift; sourceTree = "<group>"; };
 		DAAF4DF2281AC7A50029F26C /* document_verification_codes.kt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = document_verification_codes.kt; sourceTree = "<group>"; };
@@ -244,6 +268,17 @@
 			path = service;
 			sourceTree = "<group>";
 		};
+		DA88A1DA282A6153005C144D /* processing_ui */ = {
+			isa = PBXGroup;
+			children = (
+				DA88A1DB282A617A005C144D /* VideoProcessingViewController.swift */,
+				DA88A1DD282A6189005C144D /* VideoProcessingViewModel.swift */,
+				DA88A1DF282A622A005C144D /* LivenessSuccessViewController.swift */,
+				DA88A1E7282AD5EE005C144D /* VideoUploadFailureViewModel.swift */,
+			);
+			path = processing_ui;
+			sourceTree = "<group>";
+		};
 		DAAF4DBE281AC6D80029F26C /* domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,9 +367,24 @@
 			path = check_doc_info_stage;
 			sourceTree = "<group>";
 		};
+		DAD01E3F28266CC0007DA004 /* animations */ = {
+			isa = PBXGroup;
+			children = (
+				DA88A1D2282A5C2D005C144D /* arrow.json */,
+				DA88A1CF282A5C2D005C144D /* down.json */,
+				DA88A1D3282A5C2D005C144D /* left.json */,
+				DA88A1D1282A5C2D005C144D /* mouth.json */,
+				DA88A1D0282A5C2D005C144D /* right.json */,
+				DA88A1CE282A5C2D005C144D /* up.json */,
+			);
+			name = animations;
+			path = ../../../../../.Trash/animations;
+			sourceTree = "<group>";
+		};
 		DAD01E4C282678E8007DA004 /* flow_logic */ = {
 			isa = PBXGroup;
 			children = (
+				DA88A1E5282A9D69005C144D /* LivenessVideoRecorder.swift */,
 				DAD01E4F2826793C007DA004 /* Milestones.swift */,
 				DA1235702827A5D80008A46E /* FaceCalcExtensions.swift */,
 				DA1235722827A7F90008A46E /* LivenessVCExtensions.swift */,
@@ -351,6 +401,7 @@
 				DA12357A2827B21F0008A46E /* NoBrightnessViewController.swift */,
 				DA12357C2827B2640008A46E /* WrongGestureViewController.swift */,
 				DA12357E2827B2740008A46E /* SharpMovementsViewController.swift */,
+				DA88A1E1282A67BC005C144D /* VideoFailureViewController.swift */,
 			);
 			path = error_ui;
 			sourceTree = "<group>";
@@ -358,6 +409,7 @@
 		DADD31F0281D93C600EB25ED /* liveness */ = {
 			isa = PBXGroup;
 			children = (
+				DA88A1DA282A6153005C144D /* processing_ui */,
 				DAD01E532826AE08007DA004 /* error_ui */,
 				DAD01E4C282678E8007DA004 /* flow_logic */,
 				DADD31F1281D93F800EB25ED /* LivenessScreenViewController.swift */,
@@ -463,13 +515,19 @@
 				DAAF4E21281AC7A60029F26C /* MainRepository.kt in Resources */,
 				DAAF4E11281AC7A60029F26C /* doc_image_parsing_statuses.kt in Resources */,
 				DAAF4E13281AC7A60029F26C /* country_models.kt in Resources */,
+				DA88A1D7282A5C2D005C144D /* mouth.json in Resources */,
 				DAAF4E18281AC7A60029F26C /* document_request_models.kt in Resources */,
 				DAB613362814767900234BB2 /* Assets.xcassets in Resources */,
+				DA88A1D9282A5C2D005C144D /* left.json in Resources */,
 				DAB85363281FB475008F3E35 /* Face.scnassets in Resources */,
 				DAAF4E1A281AC7A60029F26C /* verification_request_models.kt in Resources */,
+				DA88A1D6282A5C2D005C144D /* right.json in Resources */,
+				DA88A1D8282A5C2D005C144D /* arrow.json in Resources */,
+				DA88A1D5282A5C2D005C144D /* down.json in Resources */,
 				DAAF4E1B281AC7A60029F26C /* document_response_models.kt in Resources */,
 				DAD01E552826D495007DA004 /* ic_success.png in Resources */,
 				DABCE22328219CE700937E84 /* Localizable.strings in Resources */,
+				DA88A1D4282A5C2D005C144D /* up.json in Resources */,
 				DAAF4E1F281AC7A60029F26C /* verification_response_models.kt in Resources */,
 				DAB613312814767700234BB2 /* Main.storyboard in Resources */,
 			);
@@ -543,12 +601,14 @@
 			files = (
 				DAB6132E2814767700234BB2 /* ViewController.swift in Sources */,
 				DA65CBB3281C527A006508A1 /* RoundedView.swift in Sources */,
+				DA88A1E8282AD5EE005C144D /* VideoUploadFailureViewModel.swift in Sources */,
 				DAAF4E1D281AC7A60029F26C /* Constants.swift in Sources */,
 				DAAF4E14281AC7A60029F26C /* VerificationRequestModels.swift in Sources */,
 				DABCE22C28229ABD00937E84 /* CheckDocPhotoViewModel.swift in Sources */,
 				DA63D79928240644005EE4C0 /* DocInfoViewCell.swift in Sources */,
 				DA73742B281ACC3700DBBDED /* DemoStartViewModel.swift in Sources */,
 				DAE87E122816CC2C00ED6826 /* CountryListViewController.swift in Sources */,
+				DA88A1DC282A617A005C144D /* VideoProcessingViewController.swift in Sources */,
 				DAAF4E0A281AC7A60029F26C /* VerificationResponseModels.swift in Sources */,
 				DAAF4E0C281AC7A60029F26C /* TimestampRequest.swift in Sources */,
 				DA1235772827B1D60008A46E /* NoFaceDetectedViewController.swift in Sources */,
@@ -562,6 +622,7 @@
 				DAAF4E1C281AC7A60029F26C /* CountryModels.swift in Sources */,
 				DAD01E502826793C007DA004 /* Milestones.swift in Sources */,
 				DA737432281AD4CB00DBBDED /* ApiError.swift in Sources */,
+				DA88A1E6282A9D69005C144D /* LivenessVideoRecorder.swift in Sources */,
 				DAB11439281D6515001F82E4 /* ChooseDocTypeViewModel.swift in Sources */,
 				DAC2325A281C3EF300D0CE16 /* BlockedCountryViewCell.swift in Sources */,
 				DA47CDA4281C3B59001226B9 /* AllowedCountryViewCell.swift in Sources */,
@@ -569,6 +630,7 @@
 				DA12357F2827B2740008A46E /* SharpMovementsViewController.swift in Sources */,
 				DABCE22E2822BBE800937E84 /* CheckDocInfoViewController.swift in Sources */,
 				DAB11437281D64DE001F82E4 /* ChooseDocTypeViewController.swift in Sources */,
+				DA88A1E0282A622A005C144D /* LivenessSuccessViewController.swift in Sources */,
 				DAB6132A2814767700234BB2 /* AppDelegate.swift in Sources */,
 				DADD31EF281D7A0200EB25ED /* DocumentTypes.swift in Sources */,
 				DAAF4E15281AC7A60029F26C /* ApiClient.swift in Sources */,
@@ -584,7 +646,9 @@
 				DAAF4E12281AC7A60029F26C /* BaseClientrResponseModel.swift in Sources */,
 				DA1235712827A5D80008A46E /* FaceCalcExtensions.swift in Sources */,
 				DAAF4E0F281AC7A60029F26C /* BaseRequestBody.swift in Sources */,
+				DA88A1DE282A6189005C144D /* VideoProcessingViewModel.swift in Sources */,
 				DA1235732827A7F90008A46E /* LivenessVCExtensions.swift in Sources */,
+				DA88A1E2282A67BC005C144D /* VideoFailureViewController.swift in Sources */,
 				DAB613342814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld in Sources */,
 				DA1235792827B1F30008A46E /* MultipleFacesDetectedViewContoller.swift in Sources */,
 				DA737434281ADCD600DBBDED /* LocalDatasource.swift in Sources */,
@@ -757,7 +821,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 3CT5FANCSN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VcheckSDKDemoIOS/Info.plist;
@@ -774,7 +838,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vcheck.demo.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = VCheckDev;
@@ -793,7 +857,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 3CT5FANCSN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VcheckSDKDemoIOS/Info.plist;
@@ -810,7 +874,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vcheck.demo.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = VCheckDevDistr;

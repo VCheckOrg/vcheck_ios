@@ -22,6 +22,8 @@ class DemoStartViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        LocalDatasource.shared.deleteAllSessionData()
+        
         if (self.spinner.isAnimating) {
             self.spinner.stopAnimating()
         }
