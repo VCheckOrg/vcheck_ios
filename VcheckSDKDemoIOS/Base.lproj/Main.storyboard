@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3HI-Lp-Qj3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="azn-ur-GOV">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -80,12 +81,28 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             </objects>
             <point key="canvasLocation" x="-672" y="-953"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="du7-CT-IFv">
+            <objects>
+                <navigationController modalPresentationStyle="fullScreen" navigationBarHidden="YES" id="Rhv-qW-7Sw" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="KYL-fQ-JUc"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7vc-8O-xpe">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="3HI-Lp-Qj3" kind="relationship" relationship="rootViewController" id="ObR-Uw-w1G"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N0L-li-myX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2094" y="498"/>
+        </scene>
         <!--Demo Start View Controller-->
         <scene sceneID="5BM-mo-2Xp">
             <objects>
-                <viewController id="3HI-Lp-Qj3" customClass="DemoStartViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="3HI-Lp-Qj3" customClass="DemoStartViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A7h-UM-Lh9">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXu-nD-622">
@@ -97,7 +114,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DdH-Xd-pgi">
-                                <rect key="frame" x="91" y="634" width="208" height="31"/>
+                                <rect key="frame" x="91" y="624" width="208" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Liveness Demo"/>
                                 <connections>
@@ -123,6 +140,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                             <constraint firstItem="uXu-nD-622" firstAttribute="top" secondItem="j8W-bb-Qhj" secondAttribute="top" constant="160" id="xmL-Lj-qE0"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="2zy-Da-I5G"/>
                     <connections>
                         <outlet property="spinner" destination="eXt-L9-GpI" id="oni-yL-zbX"/>
                         <segue destination="VHf-Vf-Dha" kind="show" identifier="StartToCountries" id="Hnt-iA-CAy"/>
@@ -130,14 +148,14 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rSP-2F-feb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1101" y="508"/>
+            <point key="canvasLocation" x="-1103" y="498"/>
         </scene>
         <!--Choose Country View Controller-->
         <scene sceneID="QoB-W8-5k4">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="VHf-Vf-Dha" customClass="ChooseCountryViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qVF-Xu-QWL">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="k3m-1t-Loc">
@@ -148,7 +166,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7h-cr-WsJ" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                <rect key="frame" x="12" y="129" width="366" height="613"/>
+                                <rect key="frame" x="12" y="129" width="366" height="603"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите страну" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFZ-MA-crE">
                                         <rect key="frame" x="16" y="24" width="157" height="22"/>
@@ -170,7 +188,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W64-Ne-sgD">
-                                        <rect key="frame" x="16" y="533" width="334" height="56"/>
+                                        <rect key="frame" x="16" y="523" width="334" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="CPw-3f-yOn"/>
                                         </constraints>
@@ -271,11 +289,11 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController id="G2c-Yg-Bx4" userLabel="Country List View Controller" customClass="CountryListViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Gx-nu-ywK">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XZT-Se-5L6">
-                                <rect key="frame" x="0.0" y="100" width="390" height="690"/>
+                                <rect key="frame" x="0.0" y="100" width="390" height="700"/>
                                 <color key="backgroundColor" name="BackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="allowedCountryCell" rowHeight="70" id="onm-ZM-hCL" customClass="AllowedCountryViewCell" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
@@ -405,11 +423,11 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="q0J-YZ-DjP" userLabel="No Time View Controller" customClass="NoTimeViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZyN-xs-PfW">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m0Q-96-Yyt">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fzN-Vs-aSf">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="704"/>
@@ -627,11 +645,11 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="Gk4-E0-G28" userLabel="Wrong Movement View Controller" customClass="WrongGestureViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fgq-Xq-dWc">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6VX-2e-eOs">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVD-jQ-X6f">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="707.33333333333337"/>
@@ -740,11 +758,11 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="K4l-kg-dQj" userLabel="Frame Interference View Controller" customClass="MultipleFacesDetectedViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A4u-iE-GYT">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IzY-vQ-XSx">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ukX-sd-Tsb">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="707.33333333333337"/>
@@ -853,11 +871,11 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="YIZ-ih-eAP" userLabel="Look Stratight Error View Controller" customClass="NoFaceDetectedViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gxe-ll-VhG">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aFq-Qd-30Y">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rM6-bw-Dy6">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="707.33333333333337"/>
@@ -966,11 +984,11 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="Drf-gg-cCY" userLabel="Fail Verification View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lcl-Oh-GBb">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E14-XS-PWS">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qpX-jZ-Jb0">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="729.66666666666663"/>
@@ -1459,11 +1477,11 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="uMO-hA-gT0" userLabel="Success Verification View Controller" customClass="LivenessSuccessViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T2T-B0-7L4">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCf-BA-49I">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uTw-Hh-0V4">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="603.66666666666663"/>
@@ -1571,11 +1589,11 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="IiJ-Ck-Dhz" userLabel="In Process View Controller" customClass="VideoProcessingViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A97-HY-J1Q">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z9q-rn-yU5">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIj-7X-oeY">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="649"/>
@@ -1680,11 +1698,11 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="btG-18-IMq" userLabel="Photo Instructions View Controller" customClass="PhotoInstructionsViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="URt-vI-atd">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yz5-ex-IJd">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YxH-7y-FzT">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="638.33333333333337"/>
@@ -1912,11 +1930,11 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="EIw-6d-l49" userLabel="Choose Doc Method View Controller" customClass="ChooseDocTypeViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cZa-Gb-1mn">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D9J-fv-ygv">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RpV-lq-24o">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="615.66666666666663"/>
@@ -2164,11 +2182,11 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="2Ob-Di-bza" userLabel="Liveness Screen View Controller" customClass="LivenessScreenViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dGJ-l1-WKs">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q3r-w3-pWa" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="190" width="390" height="620"/>
+                                <rect key="frame" x="0.0" y="190" width="390" height="610"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="10"/>
@@ -2225,14 +2243,14 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fwi-Pr-m0O">
-                                <rect key="frame" x="270" y="410" width="100" height="100"/>
+                                <rect key="frame" x="270" y="400" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="aXr-XI-cmW"/>
                                     <constraint firstAttribute="width" constant="100" id="ue9-Pq-qCU"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8GZ-br-CdT">
-                                <rect key="frame" x="20" y="410" width="100" height="100"/>
+                                <rect key="frame" x="20" y="400" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="FDO-cJ-PSa"/>
                                     <constraint firstAttribute="width" constant="100" id="M7S-TO-TSQ"/>
@@ -2293,11 +2311,11 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="dcp-4c-bus" userLabel="Check Doc Info View Controller" customClass="CheckDocInfoViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SNh-eB-9EL">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZq-tw-zcH">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBt-rb-JKa">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="1328"/>
@@ -2564,11 +2582,11 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="ZEj-uY-1Rn" userLabel="Photo Upload View Controller" customClass="TakeDocPhotoViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MMb-ku-R2l">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KJu-a3-gx9">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VT8-7V-8px">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="884.66666666666663"/>
@@ -2891,11 +2909,11 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="OYj-MX-icL" userLabel="Check Photo View Controller" customClass="CheckDocPhotoViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ncW-VQ-0Po">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DXO-ku-gkK">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xJI-uw-YK5">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="1013"/>
@@ -3143,16 +3161,96 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             </objects>
             <point key="canvasLocation" x="4281.538461538461" y="858.76777251184831"/>
         </scene>
+        <!--Header View Contoller-->
+        <scene sceneID="o2A-bL-inV">
+            <objects>
+                <viewController storyboardIdentifier="HeaderVC" modalPresentationStyle="fullScreen" id="azn-ur-GOV" customClass="HeaderViewContoller" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CDb-h4-4mS">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LaA-aO-G4k">
+                                <rect key="frame" x="0.0" y="44" width="390" height="800"/>
+                                <connections>
+                                    <segue destination="Rhv-qW-7Sw" kind="embed" id="b9a-99-KOn"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Y2-k5-lex">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ca7-Xy-aCd">
+                                        <rect key="frame" x="281" y="54" width="68.666666666666686" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="s0v-LW-pJ6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="tintColor" name="DescriptionColor"/>
+                                        <state key="normal" title="English">
+                                            <color key="titleColor" name="DescriptionColor"/>
+                                            <imageReference key="image" image="globe" catalog="system" symbolScale="small"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="actionShowLangMenu:" destination="azn-ur-GOV" eventType="touchUpInside" id="fhe-9I-aWn"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="p1L-EV-TLD">
+                                        <rect key="frame" x="352" y="68.333333333333329" width="15" height="7.3333333333333286"/>
+                                        <color key="tintColor" name="DescriptionColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="12" id="GF5-jL-nBk"/>
+                                            <constraint firstAttribute="width" constant="15" id="nWw-O0-FWh"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="xPw-qh-b7e">
+                                        <rect key="frame" x="12" y="60" width="137" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="Mrz-gN-Rbl"/>
+                                            <constraint firstAttribute="width" constant="137" id="VDu-ZA-IEs"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" name="BackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="p1L-EV-TLD" firstAttribute="leading" secondItem="ca7-Xy-aCd" secondAttribute="trailing" constant="2.3333333333333712" id="H1s-rf-2tN"/>
+                                    <constraint firstAttribute="trailing" secondItem="p1L-EV-TLD" secondAttribute="trailing" constant="23" id="HsW-Bz-lXT"/>
+                                    <constraint firstAttribute="height" secondItem="xPw-qh-b7e" secondAttribute="height" multiplier="5" id="bsZ-BB-3nP"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JSc-mi-LF5"/>
+                        <constraints>
+                            <constraint firstItem="LaA-aO-G4k" firstAttribute="top" secondItem="JSc-mi-LF5" secondAttribute="top" id="53d-hG-BQ8"/>
+                            <constraint firstItem="p1L-EV-TLD" firstAttribute="top" secondItem="JSc-mi-LF5" secondAttribute="top" constant="22" id="6cH-4u-dhO"/>
+                            <constraint firstItem="LaA-aO-G4k" firstAttribute="leading" secondItem="JSc-mi-LF5" secondAttribute="leading" id="GD6-hZ-jTT"/>
+                            <constraint firstItem="9Y2-k5-lex" firstAttribute="trailing" secondItem="JSc-mi-LF5" secondAttribute="trailing" id="JcR-JS-4Dp"/>
+                            <constraint firstItem="xPw-qh-b7e" firstAttribute="top" secondItem="JSc-mi-LF5" secondAttribute="top" constant="16" id="QQV-aL-oeT"/>
+                            <constraint firstItem="9Y2-k5-lex" firstAttribute="top" secondItem="CDb-h4-4mS" secondAttribute="top" id="QZx-NG-i1p"/>
+                            <constraint firstItem="LaA-aO-G4k" firstAttribute="trailing" secondItem="JSc-mi-LF5" secondAttribute="trailing" id="cio-7h-A6a"/>
+                            <constraint firstItem="xPw-qh-b7e" firstAttribute="leading" secondItem="JSc-mi-LF5" secondAttribute="leading" constant="12" id="eGe-rb-MIU"/>
+                            <constraint firstItem="9Y2-k5-lex" firstAttribute="leading" secondItem="JSc-mi-LF5" secondAttribute="leading" id="mF1-DH-fdC"/>
+                            <constraint firstItem="ca7-Xy-aCd" firstAttribute="top" secondItem="JSc-mi-LF5" secondAttribute="top" constant="10" id="r8v-U6-3iI"/>
+                            <constraint firstAttribute="bottom" secondItem="LaA-aO-G4k" secondAttribute="bottom" id="y1U-MH-GNA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="uIg-di-aDI"/>
+                    <connections>
+                        <outlet property="showButton" destination="ca7-Xy-aCd" id="iFp-Le-xWa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vc0-A2-iRO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3046.1538461538462" y="497.63033175355446"/>
+        </scene>
         <!--Liveness Instructions View Controller-->
         <scene sceneID="PsH-Bt-cWC">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="vMJ-Fv-l4l" userLabel="Liveness Instructions View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mSN-jW-hCq">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRx-Bb-ohi">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qjd-Rt-rZ6">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="918.33333333333337"/>
@@ -3355,11 +3453,11 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController id="WJ2-QY-Hl3" customClass="ZoomedDocPhotoViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="44V-am-ckB">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aBI-ct-SYg">
-                                <rect key="frame" x="0.0" y="144" width="390" height="596"/>
+                                <rect key="frame" x="0.0" y="144" width="390" height="606"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmI-2b-PrY">
                                 <rect key="frame" x="311" y="24" width="61" height="80"/>
@@ -3397,11 +3495,11 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="cii-CZ-O8e" userLabel="Fast Movemetns View Controller" customClass="SharpMovementsViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KLd-hr-QbN">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0In-kd-3PX">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FtZ-Fe-fHe">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="674"/>
@@ -3509,11 +3607,11 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="MMF-sr-RPg" userLabel="Too Dark View Controller" customClass="NoBrightnessViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eCL-fk-PA8">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3sh-ue-lm4">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MjI-9Q-v7Q">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="690.66666666666663"/>
@@ -3618,10 +3716,11 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mdJ-XX-Wrm"/>
+        <segue reference="V8s-CT-emn"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Too dark" width="718" height="680"/>
+        <image name="arrowtriangle.down.fill" catalog="system" width="128" height="124"/>
         <image name="back_arrow" width="20" height="32"/>
         <image name="bio_passport_icon" width="48" height="38"/>
         <image name="delete_icon" width="88" height="88"/>
@@ -3631,6 +3730,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
         <image name="fast_movement" width="728" height="728"/>
         <image name="fixed_camera_icon" width="48" height="48"/>
         <image name="frame_interference_image" width="488" height="480"/>
+        <image name="globe" catalog="system" width="128" height="121"/>
         <image name="good_light_icon" width="48" height="48"/>
         <image name="ic_success" width="156" height="156"/>
         <image name="image_color_icon" width="48" height="48"/>
