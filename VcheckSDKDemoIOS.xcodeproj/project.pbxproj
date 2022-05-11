@@ -64,7 +64,6 @@
 		DAB11439281D6515001F82E4 /* ChooseDocTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB11438281D6515001F82E4 /* ChooseDocTypeViewModel.swift */; };
 		DAB6132A2814767700234BB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB613292814767700234BB2 /* AppDelegate.swift */; };
 		DAB6132C2814767700234BB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB6132B2814767700234BB2 /* SceneDelegate.swift */; };
-		DAB6132E2814767700234BB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB6132D2814767700234BB2 /* ViewController.swift */; };
 		DAB613312814767700234BB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB6132F2814767700234BB2 /* Main.storyboard */; };
 		DAB613342814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAB613322814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld */; };
 		DAB613362814767900234BB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB613352814767900234BB2 /* Assets.xcassets */; };
@@ -75,6 +74,7 @@
 		DABCE22C28229ABD00937E84 /* CheckDocPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCE22B28229ABD00937E84 /* CheckDocPhotoViewModel.swift */; };
 		DABCE22E2822BBE800937E84 /* CheckDocInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCE22D2822BBE800937E84 /* CheckDocInfoViewController.swift */; };
 		DABCE2312822BCB900937E84 /* ZoomedDocPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCE2302822BCB900937E84 /* ZoomedDocPhotoViewController.swift */; };
+		DAC1ACD7282C11ED001230DC /* LivenessInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC1ACD6282C11ED001230DC /* LivenessInstructionsViewController.swift */; };
 		DAC2325A281C3EF300D0CE16 /* BlockedCountryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC23259281C3EF300D0CE16 /* BlockedCountryViewCell.swift */; };
 		DAC26DBE2825378800EFCDB1 /* PhotoInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC26DBD2825378800EFCDB1 /* PhotoInstructionsViewController.swift */; };
 		DAD01E502826793C007DA004 /* Milestones.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD01E4F2826793C007DA004 /* Milestones.swift */; };
@@ -149,7 +149,6 @@
 		DAB613262814767700234BB2 /* VcheckSDKDemoIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VcheckSDKDemoIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB613292814767700234BB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAB6132B2814767700234BB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DAB6132D2814767700234BB2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DAB613302814767700234BB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DAB613332814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VcheckSDKDemoIOS.xcdatamodel; sourceTree = "<group>"; };
 		DAB613352814767900234BB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -164,6 +163,7 @@
 		DABCE22B28229ABD00937E84 /* CheckDocPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckDocPhotoViewModel.swift; sourceTree = "<group>"; };
 		DABCE22D2822BBE800937E84 /* CheckDocInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckDocInfoViewController.swift; sourceTree = "<group>"; };
 		DABCE2302822BCB900937E84 /* ZoomedDocPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomedDocPhotoViewController.swift; sourceTree = "<group>"; };
+		DAC1ACD6282C11ED001230DC /* LivenessInstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessInstructionsViewController.swift; sourceTree = "<group>"; };
 		DAC23259281C3EF300D0CE16 /* BlockedCountryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedCountryViewCell.swift; sourceTree = "<group>"; };
 		DAC26DBD2825378800EFCDB1 /* PhotoInstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInstructionsViewController.swift; sourceTree = "<group>"; };
 		DAD01E4F2826793C007DA004 /* Milestones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milestones.swift; sourceTree = "<group>"; };
@@ -269,6 +269,7 @@
 				DA88A1DD282A6189005C144D /* VideoProcessingViewModel.swift */,
 				DA88A1DF282A622A005C144D /* LivenessSuccessViewController.swift */,
 				DA88A1E7282AD5EE005C144D /* VideoUploadFailureViewModel.swift */,
+				DAC1ACD6282C11ED001230DC /* LivenessInstructionsViewController.swift */,
 			);
 			path = processing_ui;
 			sourceTree = "<group>";
@@ -348,7 +349,6 @@
 				DAAF4DBE281AC6D80029F26C /* domain */,
 				DAB613292814767700234BB2 /* AppDelegate.swift */,
 				DAB6132B2814767700234BB2 /* SceneDelegate.swift */,
-				DAB6132D2814767700234BB2 /* ViewController.swift */,
 				DAB6132F2814767700234BB2 /* Main.storyboard */,
 				DAB613352814767900234BB2 /* Assets.xcassets */,
 				DAD01E542826D495007DA004 /* ic_success.png */,
@@ -589,7 +589,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAB6132E2814767700234BB2 /* ViewController.swift in Sources */,
 				DA65CBB3281C527A006508A1 /* RoundedView.swift in Sources */,
 				DA88A1E8282AD5EE005C144D /* VideoUploadFailureViewModel.swift in Sources */,
 				DAAF4E1D281AC7A60029F26C /* Constants.swift in Sources */,
@@ -622,6 +621,7 @@
 				DABCE22E2822BBE800937E84 /* CheckDocInfoViewController.swift in Sources */,
 				DAB11437281D64DE001F82E4 /* ChooseDocTypeViewController.swift in Sources */,
 				DA88A1E0282A622A005C144D /* LivenessSuccessViewController.swift in Sources */,
+				DAC1ACD7282C11ED001230DC /* LivenessInstructionsViewController.swift in Sources */,
 				DAB6132A2814767700234BB2 /* AppDelegate.swift in Sources */,
 				DADD31EF281D7A0200EB25ED /* DocumentTypes.swift in Sources */,
 				DAAF4E15281AC7A60029F26C /* ApiClient.swift in Sources */,
