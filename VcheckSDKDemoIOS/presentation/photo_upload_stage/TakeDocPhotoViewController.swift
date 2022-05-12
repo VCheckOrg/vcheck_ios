@@ -252,9 +252,9 @@ class TakeDocPhotoViewController : UIViewController,
             if (firstPhoto != nil) {
                 prepareForNavigation(resetSecondPhoto: true)
             } else if (secondPhoto != nil && firstPhoto == nil) {
-                firstPhoto = secondPhoto
-                secondPhoto = nil
-                prepareForNavigation(resetSecondPhoto: true)
+                btnContinueToPreview.tintColor = UIColor(named: "borderColor")
+                btnContinueToPreview.titleLabel?.textColor = UIColor.gray
+                btnContinueToPreview.gestureRecognizers?.forEach(btnContinueToPreview.removeGestureRecognizer)
             } else if (secondPhoto != nil && firstPhoto != nil) {
                 prepareForNavigation(resetSecondPhoto: false)
             } else {

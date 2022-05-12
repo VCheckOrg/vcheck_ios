@@ -39,3 +39,6 @@
 
 /* Default action */
 "OK" = "";
+
+/* No comment provided by engineer. */
+"no_search_data_label" = "No data available";

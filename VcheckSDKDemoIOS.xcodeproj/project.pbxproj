@@ -21,7 +21,6 @@
 		DA63D7952823B683005EE4C0 /* CheckDocInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA63D7942823B683005EE4C0 /* CheckDocInfoViewModel.swift */; };
 		DA63D79928240644005EE4C0 /* DocInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA63D79828240644005EE4C0 /* DocInfoViewCell.swift */; };
 		DA65CBB3281C527A006508A1 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65CBB2281C527A006508A1 /* RoundedView.swift */; };
-		DA6899DD282BE9210094C259 /* Localize_Swift in Frameworks */ = {isa = PBXBuildFile; productRef = DA6899DC282BE9210094C259 /* Localize_Swift */; };
 		DA6899DF282BEA430094C259 /* genstrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6899DE282BEA430094C259 /* genstrings.swift */; };
 		DA73742B281ACC3700DBBDED /* DemoStartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73742A281ACC3700DBBDED /* DemoStartViewModel.swift */; };
 		DA73742E281ACC7E00DBBDED /* RemoteDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73742D281ACC7E00DBBDED /* RemoteDatasource.swift */; };
@@ -62,12 +61,6 @@
 		DAB613342814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAB613322814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld */; };
 		DAB613362814767900234BB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB613352814767900234BB2 /* Assets.xcassets */; };
 		DAB613392814767900234BB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB613372814767900234BB2 /* LaunchScreen.storyboard */; };
-		DAB69C2F282D067A00579BBB /* down.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB69C29282D067A00579BBB /* down.json */; };
-		DAB69C30282D067A00579BBB /* left.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB69C2A282D067A00579BBB /* left.json */; };
-		DAB69C31282D067A00579BBB /* arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB69C2B282D067A00579BBB /* arrow.json */; };
-		DAB69C32282D067A00579BBB /* up.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB69C2C282D067A00579BBB /* up.json */; };
-		DAB69C33282D067A00579BBB /* mouth.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB69C2D282D067A00579BBB /* mouth.json */; };
-		DAB69C34282D067A00579BBB /* right.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB69C2E282D067A00579BBB /* right.json */; };
 		DAB85363281FB475008F3E35 /* Face.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB85362281FB475008F3E35 /* Face.scnassets */; };
 		DABCE22328219CE700937E84 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DABCE22528219CE700937E84 /* Localizable.strings */; };
 		DABCE2292822754300937E84 /* CheckDocPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCE2282822754300937E84 /* CheckDocPhotoViewController.swift */; };
@@ -158,12 +151,6 @@
 		DAB613352814767900234BB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAB613382814767900234BB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAB6133A2814767900234BB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DAB69C29282D067A00579BBB /* down.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = down.json; sourceTree = "<group>"; };
-		DAB69C2A282D067A00579BBB /* left.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = left.json; sourceTree = "<group>"; };
-		DAB69C2B282D067A00579BBB /* arrow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = arrow.json; sourceTree = "<group>"; };
-		DAB69C2C282D067A00579BBB /* up.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = up.json; sourceTree = "<group>"; };
-		DAB69C2D282D067A00579BBB /* mouth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mouth.json; sourceTree = "<group>"; };
-		DAB69C2E282D067A00579BBB /* right.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = right.json; sourceTree = "<group>"; };
 		DAB85362281FB475008F3E35 /* Face.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Face.scnassets; sourceTree = "<group>"; };
 		DABCE22028214AE300937E84 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		DABCE22428219CE700937E84 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -184,6 +171,12 @@
 		DAE87E0F2816CC1F00ED6826 /* ChooseCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCountryViewController.swift; sourceTree = "<group>"; };
 		DAE87E112816CC2C00ED6826 /* CountryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
 		DAE87E142816CE6E00ED6826 /* DemoStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoStartViewController.swift; sourceTree = "<group>"; };
+		E972E1DD282D0E0B00A2BF07 /* arrow.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = arrow.json; path = VcheckSDKDemoIOS/animations/arrow.json; sourceTree = SOURCE_ROOT; };
+		E972E1DE282D0F0B00A2BF07 /* down.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = down.json; path = VcheckSDKDemoIOS/animations/down.json; sourceTree = SOURCE_ROOT; };
+		E972E1DF282D0F1000A2BF07 /* left.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = left.json; path = VcheckSDKDemoIOS/animations/left.json; sourceTree = SOURCE_ROOT; };
+		E972E1E0282D0F1200A2BF07 /* mouth.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = mouth.json; path = VcheckSDKDemoIOS/animations/mouth.json; sourceTree = SOURCE_ROOT; };
+		E972E1E1282D0F1300A2BF07 /* right.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = right.json; path = VcheckSDKDemoIOS/animations/right.json; sourceTree = SOURCE_ROOT; };
+		E972E1E2282D0F1500A2BF07 /* up.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = up.json; path = VcheckSDKDemoIOS/animations/up.json; sourceTree = SOURCE_ROOT; };
 		E9B25AA4282BAC6800D5865B /* TextFieldError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,7 +185,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA6899DD282BE9210094C259 /* Localize_Swift in Frameworks */,
 				A869F9596DC505230D4CAE6B /* Pods_VcheckSDKDemoIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,12 +366,12 @@
 		DAB69C28282D067A00579BBB /* animations */ = {
 			isa = PBXGroup;
 			children = (
-				DAB69C29282D067A00579BBB /* down.json */,
-				DAB69C2A282D067A00579BBB /* left.json */,
-				DAB69C2B282D067A00579BBB /* arrow.json */,
-				DAB69C2C282D067A00579BBB /* up.json */,
-				DAB69C2D282D067A00579BBB /* mouth.json */,
-				DAB69C2E282D067A00579BBB /* right.json */,
+				E972E1E2282D0F1500A2BF07 /* up.json */,
+				E972E1E1282D0F1300A2BF07 /* right.json */,
+				E972E1E0282D0F1200A2BF07 /* mouth.json */,
+				E972E1DF282D0F1000A2BF07 /* left.json */,
+				E972E1DD282D0E0B00A2BF07 /* arrow.json */,
+				E972E1DE282D0F0B00A2BF07 /* down.json */,
 			);
 			name = animations;
 			path = ../../../../../Desktop/animations;
@@ -475,7 +467,6 @@
 			);
 			name = VcheckSDKDemoIOS;
 			packageProductDependencies = (
-				DA6899DC282BE9210094C259 /* Localize_Swift */,
 			);
 			productName = VcheckSDKDemoIOS;
 			productReference = DAB613262814767700234BB2 /* VcheckSDKDemoIOS.app */;
@@ -508,7 +499,6 @@
 			);
 			mainGroup = DAB6131D2814767700234BB2;
 			packageReferences = (
-				DA6899DB282BE9210094C259 /* XCRemoteSwiftPackageReference "Localize-Swift" */,
 			);
 			productRefGroup = DAB613272814767700234BB2 /* Products */;
 			projectDirPath = "";
@@ -528,21 +518,15 @@
 				DAAF4E0B281AC7A60029F26C /* document_verification_codes.kt in Resources */,
 				DAAF4E21281AC7A60029F26C /* MainRepository.kt in Resources */,
 				DAAF4E11281AC7A60029F26C /* doc_image_parsing_statuses.kt in Resources */,
-				DAB69C34282D067A00579BBB /* right.json in Resources */,
 				DAAF4E13281AC7A60029F26C /* country_models.kt in Resources */,
 				DAAF4E18281AC7A60029F26C /* document_request_models.kt in Resources */,
-				DAB69C32282D067A00579BBB /* up.json in Resources */,
 				DAB613362814767900234BB2 /* Assets.xcassets in Resources */,
-				DAB69C31282D067A00579BBB /* arrow.json in Resources */,
 				DAB85363281FB475008F3E35 /* Face.scnassets in Resources */,
 				DAAF4E1A281AC7A60029F26C /* verification_request_models.kt in Resources */,
 				DAAF4E1B281AC7A60029F26C /* document_response_models.kt in Resources */,
 				DAD01E552826D495007DA004 /* ic_success.png in Resources */,
 				DABCE22328219CE700937E84 /* Localizable.strings in Resources */,
-				DAB69C30282D067A00579BBB /* left.json in Resources */,
-				DAB69C33282D067A00579BBB /* mouth.json in Resources */,
 				DAAF4E1F281AC7A60029F26C /* verification_response_models.kt in Resources */,
-				DAB69C2F282D067A00579BBB /* down.json in Resources */,
 				DAB613312814767700234BB2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -923,25 +907,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		DA6899DB282BE9210094C259 /* XCRemoteSwiftPackageReference "Localize-Swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/marmelroy/Localize-Swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		DA6899DC282BE9210094C259 /* Localize_Swift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DA6899DB282BE9210094C259 /* XCRemoteSwiftPackageReference "Localize-Swift" */;
-			productName = Localize_Swift;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		DAB613322814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld */ = {

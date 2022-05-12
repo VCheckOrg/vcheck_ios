@@ -23,10 +23,10 @@
 "photo_loaing_wait_discl" = "Будь ласка, зачекайте. Йде завантаження та обробка фото вашого документа. Це може тривати від кількох секунд до хвилини.";
 
 /* No comment provided by engineer. */
-"photo_upload_title_common_back" = "Фотографія останньої сторінки/сторони з вашою фотографією (якщо у вас є кілька фотографій у документі).";
+"photo_upload_title_common_back" = "Фотографія останньої сторінки/сторони з вашою фотографією (якщо у вас є кілька фотографій у документі)";
 
 /* No comment provided by engineer. */
-"photo_upload_title_common_forward" = "Фотографія першої сторінки/сторони документа (з вашим фото).";
+"photo_upload_title_common_forward" = "Фотографія першої сторінки/сторони документа (з вашим фото)";
 
 /* No comment provided by engineer. */
 "photo_upload_title_foreign" = "Повний розворот документа з вашим фото";
@@ -39,3 +39,6 @@
 
 /* Default action */
 "OK" = "";
+
+/* No comment provided by engineer. */
+"no_search_data_label" = "Немає даних";

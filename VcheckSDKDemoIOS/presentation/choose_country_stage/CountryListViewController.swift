@@ -42,6 +42,7 @@ class CountryListViewController : UIViewController {
         self.countriesDataSourceArr = countriesDataSourceArr.sorted { $0.name < $1.name }
         self.searchResultsList = countriesDataSourceArr
         
+        noSearchDataLabel.text = NSLocalizedString("no_search_data_label", comment: "")
         noSearchDataLabel.isHidden = true
         
         searchBar.delegate = self

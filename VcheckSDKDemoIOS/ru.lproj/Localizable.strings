@@ -23,10 +23,10 @@
 "photo_loaing_wait_discl" = "Пожалуйста, подождите. Идет загрузка и обработка фото вашего документа. Это может занять от нескольких секунд до минуты.";
 
 /* No comment provided by engineer. */
-"photo_upload_title_common_back" = "Фотография последней страницы/стороны с вашей фотографией (если у вас несколько фотографий в документе).";
+"photo_upload_title_common_back" = "Фотография последней страницы/стороны с вашей фотографией (если у вас несколько фотографий в документе)";
 
 /* No comment provided by engineer. */
-"photo_upload_title_common_forward" = "Фотография первой страницы/стороны документа (с вашим фото).";
+"photo_upload_title_common_forward" = "Фотография первой страницы/стороны документа (с вашим фото)";
 
 /* No comment provided by engineer. */
 "photo_upload_title_foreign" = "Полный разворот документа с вашим фото";
@@ -39,3 +39,6 @@
 
 /* Default action */
 "OK" = "";
+
+/* No comment provided by engineer. */
+"no_search_data_label" = "Нет данных";
