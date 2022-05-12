@@ -36,7 +36,8 @@ class TakeDocPhotoViewController : UIViewController,
     
     
     @IBAction func backToInstr(_ sender: UIButton) {
-        self.dismiss(animated: true)
+        //self.dismiss(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     

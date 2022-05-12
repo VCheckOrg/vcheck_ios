@@ -62,6 +62,12 @@
 		DAB613342814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAB613322814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld */; };
 		DAB613362814767900234BB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB613352814767900234BB2 /* Assets.xcassets */; };
 		DAB613392814767900234BB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB613372814767900234BB2 /* LaunchScreen.storyboard */; };
+		DAB69C2F282D067A00579BBB /* down.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB69C29282D067A00579BBB /* down.json */; };
+		DAB69C30282D067A00579BBB /* left.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB69C2A282D067A00579BBB /* left.json */; };
+		DAB69C31282D067A00579BBB /* arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB69C2B282D067A00579BBB /* arrow.json */; };
+		DAB69C32282D067A00579BBB /* up.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB69C2C282D067A00579BBB /* up.json */; };
+		DAB69C33282D067A00579BBB /* mouth.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB69C2D282D067A00579BBB /* mouth.json */; };
+		DAB69C34282D067A00579BBB /* right.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB69C2E282D067A00579BBB /* right.json */; };
 		DAB85363281FB475008F3E35 /* Face.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB85362281FB475008F3E35 /* Face.scnassets */; };
 		DABCE22328219CE700937E84 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DABCE22528219CE700937E84 /* Localizable.strings */; };
 		DABCE2292822754300937E84 /* CheckDocPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCE2282822754300937E84 /* CheckDocPhotoViewController.swift */; };
@@ -80,7 +86,7 @@
 		DAE87E122816CC2C00ED6826 /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E112816CC2C00ED6826 /* CountryListViewController.swift */; };
 		DAE87E152816CE6E00ED6826 /* DemoStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E142816CE6E00ED6826 /* DemoStartViewController.swift */; };
 		E9B25AA5282BAC6800D5865B /* TextFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B25AA4282BAC6800D5865B /* TextFieldError.swift */; };
-		E9DAE090281D638400EA73BA /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		E9DAE090281D638400EA73BA /* (null) in Sources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -152,6 +158,12 @@
 		DAB613352814767900234BB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAB613382814767900234BB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAB6133A2814767900234BB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAB69C29282D067A00579BBB /* down.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = down.json; sourceTree = "<group>"; };
+		DAB69C2A282D067A00579BBB /* left.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = left.json; sourceTree = "<group>"; };
+		DAB69C2B282D067A00579BBB /* arrow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = arrow.json; sourceTree = "<group>"; };
+		DAB69C2C282D067A00579BBB /* up.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = up.json; sourceTree = "<group>"; };
+		DAB69C2D282D067A00579BBB /* mouth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mouth.json; sourceTree = "<group>"; };
+		DAB69C2E282D067A00579BBB /* right.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = right.json; sourceTree = "<group>"; };
 		DAB85362281FB475008F3E35 /* Face.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Face.scnassets; sourceTree = "<group>"; };
 		DABCE22028214AE300937E84 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		DABCE22428219CE700937E84 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -339,6 +351,7 @@
 		DAB613282814767700234BB2 /* VcheckSDKDemoIOS */ = {
 			isa = PBXGroup;
 			children = (
+				DAB69C28282D067A00579BBB /* animations */,
 				DA6899DE282BEA430094C259 /* genstrings.swift */,
 				DAB85362281FB475008F3E35 /* Face.scnassets */,
 				DA19DCEC281C52DC00023B5A /* util */,
@@ -356,6 +369,20 @@
 				DABCE22528219CE700937E84 /* Localizable.strings */,
 			);
 			path = VcheckSDKDemoIOS;
+			sourceTree = "<group>";
+		};
+		DAB69C28282D067A00579BBB /* animations */ = {
+			isa = PBXGroup;
+			children = (
+				DAB69C29282D067A00579BBB /* down.json */,
+				DAB69C2A282D067A00579BBB /* left.json */,
+				DAB69C2B282D067A00579BBB /* arrow.json */,
+				DAB69C2C282D067A00579BBB /* up.json */,
+				DAB69C2D282D067A00579BBB /* mouth.json */,
+				DAB69C2E282D067A00579BBB /* right.json */,
+			);
+			name = animations;
+			path = ../../../../../Desktop/animations;
 			sourceTree = "<group>";
 		};
 		DABCE22F2822BBEE00937E84 /* check_doc_info_stage */ = {
@@ -481,7 +508,7 @@
 			);
 			mainGroup = DAB6131D2814767700234BB2;
 			packageReferences = (
-				DA6899DB282BE9210094C259 /* XCRemoteSwiftPackageReference "Localize-Swift.git" */,
+				DA6899DB282BE9210094C259 /* XCRemoteSwiftPackageReference "Localize-Swift" */,
 			);
 			productRefGroup = DAB613272814767700234BB2 /* Products */;
 			projectDirPath = "";
@@ -501,15 +528,21 @@
 				DAAF4E0B281AC7A60029F26C /* document_verification_codes.kt in Resources */,
 				DAAF4E21281AC7A60029F26C /* MainRepository.kt in Resources */,
 				DAAF4E11281AC7A60029F26C /* doc_image_parsing_statuses.kt in Resources */,
+				DAB69C34282D067A00579BBB /* right.json in Resources */,
 				DAAF4E13281AC7A60029F26C /* country_models.kt in Resources */,
 				DAAF4E18281AC7A60029F26C /* document_request_models.kt in Resources */,
+				DAB69C32282D067A00579BBB /* up.json in Resources */,
 				DAB613362814767900234BB2 /* Assets.xcassets in Resources */,
+				DAB69C31282D067A00579BBB /* arrow.json in Resources */,
 				DAB85363281FB475008F3E35 /* Face.scnassets in Resources */,
 				DAAF4E1A281AC7A60029F26C /* verification_request_models.kt in Resources */,
 				DAAF4E1B281AC7A60029F26C /* document_response_models.kt in Resources */,
 				DAD01E552826D495007DA004 /* ic_success.png in Resources */,
 				DABCE22328219CE700937E84 /* Localizable.strings in Resources */,
+				DAB69C30282D067A00579BBB /* left.json in Resources */,
+				DAB69C33282D067A00579BBB /* mouth.json in Resources */,
 				DAAF4E1F281AC7A60029F26C /* verification_response_models.kt in Resources */,
+				DAB69C2F282D067A00579BBB /* down.json in Resources */,
 				DAB613312814767700234BB2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -595,7 +628,7 @@
 				DAAF4E0C281AC7A60029F26C /* TimestampRequest.swift in Sources */,
 				DA1235772827B1D60008A46E /* NoFaceDetectedViewController.swift in Sources */,
 				DAE87E152816CE6E00ED6826 /* DemoStartViewController.swift in Sources */,
-				E9DAE090281D638400EA73BA /* BuildFile in Sources */,
+				E9DAE090281D638400EA73BA /* (null) in Sources */,
 				DAAF4E20281AC7A60029F26C /* DocumentResponseModels.swift in Sources */,
 				DA34598128201D9600068E6D /* TakeDocPhotoViewController.swift in Sources */,
 				DA63D7952823B683005EE4C0 /* CheckDocInfoViewModel.swift in Sources */,
@@ -892,7 +925,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		DA6899DB282BE9210094C259 /* XCRemoteSwiftPackageReference "Localize-Swift.git" */ = {
+		DA6899DB282BE9210094C259 /* XCRemoteSwiftPackageReference "Localize-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/marmelroy/Localize-Swift.git";
 			requirement = {
@@ -905,7 +938,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		DA6899DC282BE9210094C259 /* Localize_Swift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DA6899DB282BE9210094C259 /* XCRemoteSwiftPackageReference "Localize-Swift.git" */;
+			package = DA6899DB282BE9210094C259 /* XCRemoteSwiftPackageReference "Localize-Swift" */;
 			productName = Localize_Swift;
 		};
 /* End XCSwiftPackageProductDependency section */
