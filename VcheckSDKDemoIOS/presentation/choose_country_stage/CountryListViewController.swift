@@ -12,6 +12,8 @@ class CountryListViewController : UIViewController {
     
     @IBOutlet var countryListTable: UITableView!
     
+    @IBOutlet weak var noSearchDataLabel: UILabel!
+    
     @IBAction func navBackFromCountryList(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -36,7 +38,10 @@ class CountryListViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.countriesDataSourceArr = countriesDataSourceArr.sorted { $0.name < $1.name }
         self.searchResultsList = countriesDataSourceArr
+        
+        noSearchDataLabel.isHidden = true
         
         searchBar.delegate = self
         countryListTable.delegate = self
@@ -116,8 +121,15 @@ extension CountryListViewController: UISearchBarDelegate {
         
         if (forFragment.isEmpty) {
             self.searchResultsList = self.countriesDataSourceArr
+            self.noSearchDataLabel.isHidden = true
         } else {
-            self.searchResultsList = self.countriesDataSourceArr.filter { $0.name.lowercased().contains(forFragment.lowercased()) }
+            self.searchResultsList = self.countriesDataSourceArr.filter { $0.name.lowercased().contains(forFragment.lowercased())
+            }
+            if(self.searchResultsList.isEmpty) {
+                self.noSearchDataLabel.isHidden = false
+            } else {
+                self.noSearchDataLabel.isHidden = true
+            }
         }
         
         self.countryListTable.reloadData()

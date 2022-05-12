@@ -170,7 +170,7 @@
 "mhV-l1-ZoU.text" = "For some reason, we were unable to load the content of this page. Try reloading the page";
 
 /* Class = "UILabel"; text = "Биометрический паспорт (ID-карта)"; ObjectID = "o5B-Kh-Vep"; */
-"o5B-Kh-Vep.text" = "Biometric passport (ID-card)";
+"o5B-Kh-Vep.text" = "Biometric passport (ID card)";
 
 /* Class = "UITextView"; text = "Country"; ObjectID = "O84-jd-0oF"; */
 "O84-jd-0oF.text" = "Country";
