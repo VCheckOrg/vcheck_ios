@@ -39,3 +39,8 @@
 
 /* Default action */
 "OK" = "";
+
+"enter_valid_name" = "Введите валидное имя";
+"enter_valid_surname" = "Введите валидную фамилию";
+"enter_valid_dob" = "Введите дату рожения в формате 'ГГГГ-ММ-ДД'";
+"enter_valid_doc_number" = "Введите валидный номер документа";

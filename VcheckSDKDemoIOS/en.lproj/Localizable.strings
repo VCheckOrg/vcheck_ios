@@ -39,3 +39,8 @@
 
 /* Default action */
 "OK" = "";
+
+"enter_valid_name" = "Enter valid name";
+"enter_valid_surname" = "Enter valid surname";
+"enter_valid_dob" = "Enter DOB in format 'YYYY-MM-DD'";
+"enter_valid_doc_number" = "Enter valid document number";

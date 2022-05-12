@@ -451,22 +451,22 @@
             </objects>
             <point key="canvasLocation" x="2217" y="22"/>
         </scene>
-        <!--Error View Controller-->
+        <!--Doc Photo Verif Error View Controller-->
         <scene sceneID="944-w0-g7d">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="cnD-L5-BuD" userLabel="Error View Controller" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="cnD-L5-BuD" userLabel="Doc Photo Verif Error View Controller" customClass="DocPhotoVerifErrorViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Flg-BI-YSQ">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cc7-bg-eLX">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbU-iz-0Pd">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="637"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="708"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0aw-qs-CO4" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="84" width="366" height="488"/>
+                                                <rect key="frame" x="12" y="84" width="366" height="559"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error_image" translatesAutoresizingMaskIntoConstraints="NO" id="YS2-WY-Ywq">
                                                         <rect key="frame" x="28" y="24" width="310" height="240"/>
@@ -493,22 +493,47 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Попробовать снова"/>
+                                                        <connections>
+                                                            <action selector="actionReloadDocPhotos:" destination="cnD-L5-BuD" eventType="touchUpInside" id="CuH-9Z-9Qb"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EaO-z6-vaI">
+                                                        <rect key="frame" x="16" y="487.66666666666663" width="334" height="46.333333333333371"/>
+                                                        <color key="tintColor" name="DescriptionColor"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" titleAlignment="automatic">
+                                                            <attributedString key="attributedTitle">
+                                                                <fragment content="I am confident in my document, continue the verification process">
+                                                                    <attributes>
+                                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                        <font key="NSFont" size="14" name="Helvetica-Bold"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="actionResumeToDocCheck:" destination="cnD-L5-BuD" eventType="touchUpInside" id="XmS-OB-0gZ"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" name="CardColor"/>
                                                 <constraints>
                                                     <constraint firstItem="v87-W5-vbC" firstAttribute="top" secondItem="mhV-l1-ZoU" secondAttribute="bottom" constant="44" id="1PA-dF-RNd"/>
+                                                    <constraint firstAttribute="trailing" secondItem="EaO-z6-vaI" secondAttribute="trailing" constant="16" id="1xI-SR-O9X"/>
+                                                    <constraint firstItem="EaO-z6-vaI" firstAttribute="bottom" secondItem="v87-W5-vbC" secondAttribute="bottom" constant="70" id="5pd-iA-Rqa"/>
                                                     <constraint firstItem="mhV-l1-ZoU" firstAttribute="leading" secondItem="0aw-qs-CO4" secondAttribute="leading" constant="16" id="Dxk-06-H2e"/>
                                                     <constraint firstAttribute="trailing" secondItem="mhV-l1-ZoU" secondAttribute="trailing" constant="16" id="EFE-ml-mdc"/>
                                                     <constraint firstAttribute="trailing" secondItem="YS2-WY-Ywq" secondAttribute="trailing" constant="28" id="JoF-0W-syh"/>
                                                     <constraint firstItem="v87-W5-vbC" firstAttribute="leading" secondItem="0aw-qs-CO4" secondAttribute="leading" constant="16" id="L7f-Yv-KCL"/>
                                                     <constraint firstItem="mhV-l1-ZoU" firstAttribute="top" secondItem="vIo-1V-hp0" secondAttribute="bottom" constant="16" id="Qnr-iB-xxA"/>
                                                     <constraint firstItem="vIo-1V-hp0" firstAttribute="top" secondItem="YS2-WY-Ywq" secondAttribute="bottom" constant="12" id="UkQ-y7-kXg"/>
-                                                    <constraint firstAttribute="bottom" secondItem="v87-W5-vbC" secondAttribute="bottom" constant="24" id="Wrk-n0-zwZ"/>
                                                     <constraint firstItem="vIo-1V-hp0" firstAttribute="leading" secondItem="0aw-qs-CO4" secondAttribute="leading" constant="16" id="azi-hT-vqd"/>
+                                                    <constraint firstAttribute="bottom" secondItem="EaO-z6-vaI" secondAttribute="bottom" constant="25" id="dsP-rR-yc6"/>
                                                     <constraint firstAttribute="trailing" secondItem="v87-W5-vbC" secondAttribute="trailing" constant="16" id="e0O-rg-Dpx"/>
                                                     <constraint firstItem="YS2-WY-Ywq" firstAttribute="leading" secondItem="0aw-qs-CO4" secondAttribute="leading" constant="28" id="fSX-b7-K5Y"/>
                                                     <constraint firstAttribute="trailing" secondItem="vIo-1V-hp0" secondAttribute="trailing" constant="16" id="g5J-Iv-zb9"/>
+                                                    <constraint firstItem="EaO-z6-vaI" firstAttribute="leading" secondItem="0aw-qs-CO4" secondAttribute="leading" constant="16" id="l7J-VH-fvN"/>
                                                     <constraint firstItem="YS2-WY-Ywq" firstAttribute="top" secondItem="0aw-qs-CO4" secondAttribute="top" constant="24" id="z5m-d2-2vJ"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -546,10 +571,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tG7-Ec-Tvq"/>
+                    <connections>
+                        <outlet property="btnContinueToCheckDoc" destination="EaO-z6-vaI" id="NzO-pt-bFu"/>
+                        <segue destination="dcp-4c-bus" kind="show" identifier="DocPhotoVerifErrorToCheckDoc" id="MdT-K5-jp1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p6F-W9-KOM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5115" y="-1673"/>
+            <point key="canvasLocation" x="4757" y="1655"/>
         </scene>
         <!--Wrong Movement View Controller-->
         <scene sceneID="SBe-W2-Czb">
@@ -1225,7 +1254,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SSE-JD-3Sp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5985" y="-1404"/>
+            <point key="canvasLocation" x="5260" y="-1195"/>
         </scene>
         <!--Fast Movement View Controller-->
         <scene sceneID="eTh-NG-ulS">
@@ -1421,7 +1450,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m8B-LW-HPd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5263" y="95"/>
+            <point key="canvasLocation" x="5537" y="-19"/>
         </scene>
         <!--In Process View Controller-->
         <scene sceneID="Y29-ti-guP">
@@ -2367,7 +2396,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJX-PN-ae8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5264" y="858"/>
+            <point key="canvasLocation" x="5537" y="787"/>
         </scene>
         <!--Photo Upload View Controller-->
         <scene sceneID="TOh-Z3-wqv">
@@ -2929,6 +2958,7 @@
                         <outlet property="zoomSecondPhotoBtn" destination="7UI-Fb-JTd" id="pw6-LW-5hF"/>
                         <segue destination="dcp-4c-bus" kind="show" identifier="DocPhotosPreviewToCheckDocInfo" id="bvF-PB-3XP"/>
                         <segue destination="WJ2-QY-Hl3" kind="presentation" identifier="CheckPhotoToZoom" id="CN3-fL-m8u"/>
+                        <segue destination="cnD-L5-BuD" kind="show" identifier="DocPhotoCheckToError" id="2fa-cK-aUP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lZZ-dF-Dd4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3315,7 +3345,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VA1-yR-qJ3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4282" y="1642"/>
+            <point key="canvasLocation" x="3680" y="1655"/>
         </scene>
         <!--Fast Movemetns View Controller-->
         <scene sceneID="2bB-1I-fRl">
@@ -3526,6 +3556,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="mdJ-XX-Wrm"/>
+        <segue reference="MdT-K5-jp1"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Too dark" width="718" height="680"/>

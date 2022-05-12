@@ -167,7 +167,7 @@
 "lZr-qg-h72.text" = "the image must be in color";
 
 /* Class = "UILabel"; text = "По какой-то причине мы не смогли загрузить контент данной страницы. Попробуйте перезагрузить страницу"; ObjectID = "mhV-l1-ZoU"; */
-"mhV-l1-ZoU.text" = "For some reason, we were unable to load the content of this page. Try reloading the page";
+"mhV-l1-ZoU.text" = "Something went wrong. We recommend to re-upload the document.";
 
 /* Class = "UILabel"; text = "Биометрический паспорт (ID-карта)"; ObjectID = "o5B-Kh-Vep"; */
 "o5B-Kh-Vep.text" = "Biometric passport (ID card)";
@@ -260,7 +260,7 @@
 "v87-W5-vbC.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "Что-то пошло не так :("; ObjectID = "vIo-1V-hp0"; */
-"vIo-1V-hp0.text" = "Something went wrong :(";
+"vIo-1V-hp0.text" = "Document photo verification is not successful";
 
 /* Class = "UIButton"; configuration.title = "Вернуться"; ObjectID = "Vpj-sc-FAg"; */
 "Vpj-sc-FAg.configuration.title" = "To home";
@@ -356,7 +356,7 @@
 "Pgp-l7-9ju.normalTitle" = "";
 
 /* Class = "UIButton"; configuration.title = "Close"; ObjectID = "pmI-2b-PrY"; */
-"pmI-2b-PrY.configuration.title" = "";
+"pmI-2b-PrY.configuration.title" = "Close";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "pmI-2b-PrY"; */
 "pmI-2b-PrY.normalTitle" = "";
@@ -378,3 +378,5 @@
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ZYK-Zq-SfN"; */
 "ZYK-Zq-SfN.normalTitle" = "";
+
+"EaO-z6-vaI.configuration.title" = "I am confident in my document, continue the verification process";

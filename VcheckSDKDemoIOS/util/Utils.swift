@@ -48,6 +48,17 @@ public extension String {
         let components = self.components(separatedBy: string)
         return components[0]
     }
+    
+    func checkIfValidDocDateFormat() -> Bool {
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd"
+
+        if (dateFormatterGet.date(from: self) != nil) {
+            return true
+        } else {
+            return false
+        }
+    }
 }
 
 

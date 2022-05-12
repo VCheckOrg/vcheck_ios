@@ -161,7 +161,7 @@
 "lZr-qg-h72.text" = "зображення має бути кольоровим";
 
 /* Class = "UILabel"; text = "По какой-то причине мы не смогли загрузить контент данной страницы. Попробуйте перезагрузить страницу"; ObjectID = "mhV-l1-ZoU"; */
-"mhV-l1-ZoU.text" = "З якоїсь причини ми не змогли завантажити вміст цієї сторінки. Спробуйте перезавантажити сторінку";
+"mhV-l1-ZoU.text" = "Щось пішло не так. Ми рекомендуємо сфотографувати документ ще раз.";
 
 /* Class = "UILabel"; text = "Биометрический паспорт (ID-карта)"; ObjectID = "o5B-Kh-Vep"; */
 "o5B-Kh-Vep.text" = "Біометричний паспорт (ID-картка)";
@@ -251,7 +251,7 @@
 "v87-W5-vbC.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "Что-то пошло не так :("; ObjectID = "vIo-1V-hp0"; */
-"vIo-1V-hp0.text" = "Щось пішло не так :(";
+"vIo-1V-hp0.text" = "Помилка верифікації фото документу";
 
 /* Class = "UIButton"; configuration.title = "Вернуться"; ObjectID = "Vpj-sc-FAg"; */
 "Vpj-sc-FAg.configuration.title" = "На головну";
@@ -378,3 +378,5 @@
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ZYK-Zq-SfN"; */
 "ZYK-Zq-SfN.normalTitle" = "";
+
+"EaO-z6-vaI.configuration.title" = "Я впевнен(-а) в своєму документі, продовжити процес верифікації";

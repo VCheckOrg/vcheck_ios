@@ -39,3 +39,8 @@
 
 /* Default action */
 "OK" = "";
+
+"enter_valid_name" = "Введіть валідне ім'я";
+"enter_valid_surname" = "Введите валідне прізвище";
+"enter_valid_dob" = "Введіть дату народження у форматі 'РРРР-ММ-ДД'";
+"enter_valid_doc_number" = "Введіть валідний номер документа";

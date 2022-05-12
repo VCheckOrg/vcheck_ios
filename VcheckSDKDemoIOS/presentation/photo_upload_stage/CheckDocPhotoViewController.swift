@@ -69,10 +69,12 @@ class CheckDocPhotoViewController : UIViewController {
             //TODO: handle doc upload response w/codes
             
             if (self.viewModel.uploadResponse?.status != nil && self.viewModel.uploadResponse?.status != 0) {
-                let errText = "\(codeIdxToVerificationCode(codeIdx: (self.viewModel.uploadResponse?.status)!))"
-                self.showToast(message: errText, seconds: 2.0)
+                if (codeIdxToVerificationCode(codeIdx: (self.viewModel.uploadResponse?.status)!) == DocumentVerificationCode.UploadAttemptsExceeded) {
+                    self.navigateToDocInfoScreen()
+                } else {
+                    self.navigateToStatusError()
+                }
             } else {
-                
                 self.navigateToDocInfoScreen()
             }
         }
@@ -113,6 +115,13 @@ class CheckDocPhotoViewController : UIViewController {
         secondPhoto = nil
     }
     
+    func navigateToStatusError() {
+        self.performSegue(withIdentifier: "DocPhotoCheckToError", sender: nil)
+        
+        firstPhoto = nil
+        secondPhoto = nil
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "DocPhotosPreviewToCheckDocInfo") {
             let vc = segue.destination as! CheckDocInfoViewController
@@ -131,17 +140,22 @@ class CheckDocPhotoViewController : UIViewController {
             let vc = segue.destination as! ZoomedDocPhotoViewController
             vc.photoToZoom = sender as! UIImage?
         }
+        if (segue.identifier == "DocPhotoCheckToError") {
+            let vc = segue.destination as! DocPhotoVerifErrorViewController
+            if (self.viewModel.uploadResponse?.document == nil) {
+                let errText = "Error: Cannot find document id for navigation!"
+                self.showToast(message: errText, seconds: 2.0)
+            } else {
+                vc.docId = self.viewModel.uploadResponse?.document
+            }
+        }
     }
     
     func moveToChooseDocTypeViewController() {
-        self.dismiss(animated: true) //!
-                        
-//        let viewController = self.navigationController?.viewControllers.first { $0 is ChooseDocTypeViewController }
-//        guard let destinationVC = viewController else { return }
-//        self.navigationController?.popToViewController(destinationVC, animated: true)
-//            if let firstViewController = self.navigationController?.viewControllers[2] {
-//                self.navigationController?.popToViewController(firstViewController, animated: true)
-//            }
+        //!
+        let viewController = self.navigationController?.viewControllers.first { $0 is ChooseDocTypeViewController }
+        guard let destinationVC = viewController else { return }
+        self.navigationController?.popToViewController(destinationVC, animated: true)
     }
     
     

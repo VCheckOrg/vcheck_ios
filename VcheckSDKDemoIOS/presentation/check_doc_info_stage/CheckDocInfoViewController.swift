@@ -106,7 +106,6 @@ class CheckDocInfoViewController : UIViewController {
             
             tableViewHeightConstraint.constant = additionalHeight
             
-            
             print("GOT AUTO-PARSED FIELDS: \(String(describing: preProcessedDocData.type?.fields))")
             fieldsList = preProcessedDocData.type?.fields!.map { (element) -> (DocFieldWitOptPreFilledData) in
                     return convertDocFieldToOptParsedData(docField: element,
@@ -169,28 +168,19 @@ extension CheckDocInfoViewController: UITableViewDataSource {
             self.fieldsList = self.fieldsList.map {
                 $0.name == fieldName ? $0.modifyAutoParsedValue(with: cell.docTextField.text!) : $0 }
         }
-        
         if(fieldName == "name") {
             cell.docTextField.addTarget(self, action: #selector(self.validateDocNameField(_:)),
                                         for: UIControl.Event.editingChanged)
         }
-        
         if(fieldName == "surname") {
             cell.docTextField.addTarget(self, action: #selector(self.validateDocSurnameField(_:)),
                                         for: UIControl.Event.editingChanged)
         }
-        
         if(fieldName == "date_of_birth") {
             cell.docTextField.placeholder = "ГГГГ-ММ-ДД"
             cell.docTextField.addTarget(self, action: #selector(self.validateDocDateOfBirthField(_:)),
                                         for: UIControl.Event.editingChanged)
         }
-        
-        if(fieldName == "date_of_expiry") {
-            cell.docTextField.addTarget(self, action: #selector(self.validateDocDateOfExpiryField(_:)),
-                                        for: UIControl.Event.editingChanged)
-        }
-        
         if(fieldName == "number") {
             self.regex = field.regex
             cell.docTextField.addTarget(self, action: #selector(self.validateDocNumberField(_:)),
@@ -207,40 +197,32 @@ extension CheckDocInfoViewController: UITableViewDataSource {
     }
     
     @objc final private func validateDocNameField(_ textField: UITextField) {
-        if(textField.text!.count < 3) {
-            textField.setError("Введите валидное имя")
+        if (textField.text!.count < 2 || (self.regex != nil && (!textField.text!.isMatchedBy(regex: self.regex!)))) {
+            textField.setError("enter_valid_name".localized())
         } else {
             textField.setError(show: false)
         }
     }
     
     @objc final private func validateDocSurnameField(_ textField: UITextField) {
-        if(textField.text!.count < 3) {
-            textField.setError("Введите валидную фамилию")
+        if (textField.text!.count < 2 || (self.regex != nil && (!textField.text!.isMatchedBy(regex: self.regex!)))) {
+            textField.setError("enter_valid_surname".localized())
         } else {
             textField.setError(show: false)
         }
     }
     
     @objc final private func validateDocDateOfBirthField(_ textField: UITextField) {
-        if(textField.text!.count < 3) {
-            textField.setError("Введите валидную дату рождения")
-        } else {
-            textField.setError(show: false)
-        }
-    }
-    
-    @objc final private func validateDocDateOfExpiryField(_ textField: UITextField) {
-        if(textField.text!.count < 3) {
-            textField.setError("Введите валидный срок документа")
+        if (!textField.text!.checkIfValidDocDateFormat()) {
+            textField.setError("enter_valid_dob".localized())
         } else {
             textField.setError(show: false)
         }
     }
     
     @objc final private func validateDocNumberField(_ textField: UITextField) {
-        if(textField.text!.isMatchedBy(regex: self.regex!)) {
-            textField.setError(self.regex)
+        if(self.regex != nil && (!textField.text!.isMatchedBy(regex: self.regex!))) {
+            textField.setError("enter_valid_doc_number".localized())
         } else {
             textField.setError(show: false)
         }
@@ -264,9 +246,6 @@ extension CheckDocInfoViewController {
             if ($0.name == "date_of_birth") {
                 data.dateOfBirth = $0.autoParsedValue
             }
-            if ($0.name == "date_of_expiry") {
-                data.dateOfExpiry = $0.autoParsedValue
-            }
             if ($0.name == "name") {
                 data.name = $0.autoParsedValue
             }
@@ -275,12 +254,6 @@ extension CheckDocInfoViewController {
             }
             if ($0.name == "number") {
                 data.number = $0.autoParsedValue
-            }
-            if ($0.name == "og_name") {
-                data.ogName = $0.autoParsedValue
-            }
-            if ($0.name == "og_surname") {
-                data.ogSurname = $0.autoParsedValue
             }
         }
         return data
@@ -298,9 +271,6 @@ extension CheckDocInfoViewController {
             if (docField.name == "date_of_birth" && parsedDocFieldsData?.dateOfBirth != nil) {
                 optParsedData = (parsedDocFieldsData?.dateOfBirth)!
             }
-            if (docField.name == "date_of_expiry" && parsedDocFieldsData?.dateOfExpiry != nil) {
-                optParsedData = (parsedDocFieldsData?.dateOfExpiry)!
-            }
             if (docField.name == "name" && parsedDocFieldsData?.name != nil) {
                 optParsedData = (parsedDocFieldsData?.name)!
             }
@@ -309,12 +279,6 @@ extension CheckDocInfoViewController {
             }
             if (docField.name == "number" && parsedDocFieldsData?.number != nil) {
                 optParsedData = (parsedDocFieldsData?.number)!
-            }
-            if (docField.name == "og_name" && parsedDocFieldsData?.ogName != nil) {
-                optParsedData = (parsedDocFieldsData?.ogName)!
-            }
-            if (docField.name == "og_surname" && parsedDocFieldsData?.ogSurname != nil) {
-                optParsedData = (parsedDocFieldsData?.ogSurname)!
             }
             return DocFieldWitOptPreFilledData(
                 name: docField.name!, title: docField.title!, type: docField.type!,
@@ -329,3 +293,31 @@ extension UIViewController: UITextFieldDelegate{
         return true;
     }
 }
+
+
+// Deprecated fields/checks:
+
+//            if (docField.name == "date_of_expiry" && parsedDocFieldsData?.dateOfExpiry != nil) {
+//                optParsedData = (parsedDocFieldsData?.dateOfExpiry)!
+//            }
+//            if (docField.name == "og_name" && parsedDocFieldsData?.ogName != nil) {
+//                optParsedData = (parsedDocFieldsData?.ogName)!
+//            }
+//            if (docField.name == "og_surname" && parsedDocFieldsData?.ogSurname != nil) {
+//                optParsedData = (parsedDocFieldsData?.ogSurname)!
+//            }
+
+//        if(fieldName == "date_of_expiry") {
+//            cell.docTextField.addTarget(self, action: #selector(self.validateDocDateOfExpiryField(_:)),
+//                                        for: UIControl.Event.editingChanged)
+//        }
+
+//            if ($0.name == "date_of_expiry") {
+//                data.dateOfExpiry = $0.autoParsedValue
+//            }
+//            if ($0.name == "og_name") {
+//                data.ogName = $0.autoParsedValue
+//            }
+//            if ($0.name == "og_surname") {
+//                data.ogSurname = $0.autoParsedValue
+//            }
