@@ -12,7 +12,8 @@ class PhotoInstructionsViewController : UIViewController {
     
     
     @IBAction func backToDocType(_ sender: Any) {
-        self.dismiss(animated: true)
+        //self.dismiss(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {
