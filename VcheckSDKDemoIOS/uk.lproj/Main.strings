@@ -70,8 +70,17 @@
 /* Class = "UILabel"; text = "Верификация успешна"; ObjectID = "Dtj-8M-eb8"; */
 "Dtj-8M-eb8.text" = "Верифікація успішна";
 
+/* Class = "UIButton"; configuration.title = "I am confident in my document, continue the verification process"; ObjectID = "EaO-z6-vaI"; */
+"EaO-z6-vaI.configuration.title" = "Я впевнен(-а) в своєму документі, продовжити процес верифікації";
+
+/* Class = "UILabel"; text = "Старайтесь выполнять движения плавно. Попробуйте снова."; ObjectID = "eta-Xk-i4x"; */
+"eta-Xk-i4x.text" = "Намагайтеся виконувати рухи плавно. Спробуйте знову.";
+
 /* Class = "UILabel"; text = "нет посторонних объектов: обложки, пальцев, скрепок и т.п."; ObjectID = "EY3-6C-cJ9"; */
 "EY3-6C-cJ9.text" = "немає сторонніх об'єктів: обкладинки, пальців, скріпок тощо.";
+
+/* Class = "UILabel"; text = "PLEASE WAIT..."; ObjectID = "f3n-0Y-qsf"; */
+"f3n-0Y-qsf.text" = "Зачекайте...";
 
 /* Class = "UILabel"; text = "Выберите страну"; ObjectID = "fFZ-MA-crE"; */
 "fFZ-MA-crE.text" = "Оберіть країну";
@@ -112,20 +121,26 @@
 /* Class = "UILabel"; text = "Заявка отправлена  на проверку"; ObjectID = "iad-2I-iin"; */
 "iad-2I-iin.text" = "Заявку надіслано на перевірку";
 
+/* Class = "UILabel"; text = "Слишком резкие движения"; ObjectID = "IDl-aE-NPd"; */
+"IDl-aE-NPd.text" = "Занадто різкі рухи";
+
 /* Class = "UILabel"; text = "движения должны быть четкими и плавными"; ObjectID = "ilv-19-slf"; */
 "ilv-19-slf.text" = "рухи повинні бути чіткими та плавними";
 
+/* Class = "UILabel"; text = "Проверка не может выполниться, так как в кадре слишком темно. Пройдите проверку повторно с хорошим освещением."; ObjectID = "iqs-Cd-Nh9"; */
+"iqs-Cd-Nh9.text" = "Перевірка не може виконатись, тому що в кадрі занадто темно. Перейдіть повторно з хорошим освітленням.";
+
 /* Class = "UITextView"; text = "FLAG"; ObjectID = "irG-6P-v79"; */
 "irG-6P-v79.text" = "FLAG";
+
+/* Class = "UIButton"; configuration.title = "Попробовать снова"; ObjectID = "J06-xe-Wnh"; */
+"J06-xe-Wnh.configuration.title" = "Спробувати ще";
 
 /* Class = "UIButton"; configuration.title = "Попробовать снова"; ObjectID = "jks-Ld-fXF"; */
 "jks-Ld-fXF.configuration.title" = "Спробувати знову";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "jks-Ld-fXF"; */
 "jks-Ld-fXF.normalTitle" = "Button";
-
-/* Class = "UILabel"; text = "ARKit face tracking requires a device with a TrueDepth front-facing camera.\n\nShipping apps must support devices without face tracking. In your app, offer UI to launch face tracking features only if the current device is supported."; ObjectID = "jV6-F7-Bgl"; */
-"jV6-F7-Bgl.text" = "ARKit face tracking requires a device with a TrueDepth front-facing camera.\n\nShipping apps must support devices without face tracking. In your app, offer UI to launch face tracking features only if the current device is supported.";
 
 /* Class = "UILabel"; text = "Загрузите фото обратного разворота."; ObjectID = "k0x-f9-qUL"; */
 "k0x-f9-qUL.text" = "Допустимий формат зображення: JPG, JPEG";
@@ -163,6 +178,9 @@
 /* Class = "UILabel"; text = "По какой-то причине мы не смогли загрузить контент данной страницы. Попробуйте перезагрузить страницу"; ObjectID = "mhV-l1-ZoU"; */
 "mhV-l1-ZoU.text" = "Щось пішло не так. Ми рекомендуємо сфотографувати документ ще раз.";
 
+/* Class = "UILabel"; text = "Слишком темно"; ObjectID = "NhH-7f-gBD"; */
+"NhH-7f-gBD.text" = "Занадто темно";
+
 /* Class = "UILabel"; text = "Биометрический паспорт (ID-карта)"; ObjectID = "o5B-Kh-Vep"; */
 "o5B-Kh-Vep.text" = "Біометричний паспорт (ID-картка)";
 
@@ -199,11 +217,14 @@
 /* Class = "UIButton"; configuration.title = "Все понятно. Начать проверку"; ObjectID = "r7D-Nn-4Ql"; */
 "r7D-Nn-4Ql.configuration.title" = "Розпочати перевірку";
 
-/* Class = "UIButton"; configuration.title = "Обратиться в службу поддер..."; ObjectID = "rBN-xJ-7O7"; */
+/* Class = "UIButton"; configuration.title = "Обратиться в службу поддержки"; ObjectID = "rBN-xJ-7O7"; */
 "rBN-xJ-7O7.configuration.title" = "Звернутися в службу підтримки";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "rBN-xJ-7O7"; */
 "rBN-xJ-7O7.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Попробовать снова"; ObjectID = "Rsg-z4-gbq"; */
+"Rsg-z4-gbq.configuration.title" = "Спробувати ще";
 
 /* Class = "UITextView"; text = "FLAG"; ObjectID = "RyQ-vN-b5X"; */
 "RyQ-vN-b5X.text" = "FLAG";
@@ -286,9 +307,6 @@
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "wM8-4G-pEK"; */
 "wM8-4G-pEK.normalTitle" = "Button";
 
-/* Class = "UILabel"; text = "Unsupported Device"; ObjectID = "wtE-4q-cec"; */
-"wtE-4q-cec.text" = "Пристрій не підтримується";
-
 /* Class = "UIButton"; configuration.title = "Закрыть"; ObjectID = "WXG-eJ-qvn"; */
 "WXG-eJ-qvn.configuration.title" = "Закрити";
 
@@ -316,11 +334,11 @@
 /* Class = "UIButton"; configuration.title = "Продолжить"; ObjectID = "ZNG-ph-Cor"; */
 "ZNG-ph-Cor.configuration.title" = "Продовжити";
 
-/* Class = "UILabel"; text = "Старайтесь выполнять движения плавно. Попробуйте снова."; ObjectID = "eta-Xk-i4x"; */
-"eta-Xk-i4x.text" = "Намагайтеся виконувати рухи плавно. Спробуйте знову.";
+/* Class = "UIButton"; normalTitle = "English"; ObjectID = "ca7-Xy-aCd"; */
+"ca7-Xy-aCd.normalTitle" = "";
 
-/* Class = "UILabel"; text = "PLEASE WAIT..."; ObjectID = "f3n-0Y-qsf"; */
-"f3n-0Y-qsf.text" = "Зачекайте...";
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "EaO-z6-vaI"; */
+"EaO-z6-vaI.normalTitle" = "";
 
 /* Class = "UISearchBar"; fVU-YR-D7u.scopeButtonTitles[0] = "Title"; ObjectID = "fVU-YR-D7u"; */
 "fVU-YR-D7u.scopeButtonTitles[0]" = "";
@@ -328,20 +346,11 @@
 /* Class = "UISearchBar"; fVU-YR-D7u.scopeButtonTitles[1] = "Title"; ObjectID = "fVU-YR-D7u"; */
 "fVU-YR-D7u.scopeButtonTitles[1]" = "";
 
-/* Class = "UILabel"; text = "Слишком резкие движения"; ObjectID = "IDl-aE-NPd"; */
-"IDl-aE-NPd.text" = "Занадто різкі рухи";
-
-/* Class = "UILabel"; text = "Проверка не может выполниться, так как в кадре слишком темно. Пройдите проверку повторно с хорошим освещением."; ObjectID = "iqs-Cd-Nh9"; */
-"iqs-Cd-Nh9.text" = "Перевірка не може виконатись, тому що в кадрі занадто темно. Перейдіть повторно з хорошим освітленням.";
-
-/* Class = "UIButton"; configuration.title = "Попробовать снова"; ObjectID = "J06-xe-Wnh"; */
-"J06-xe-Wnh.configuration.title" = "Спробувати ще";
+/* Class = "UILabel"; text = "Нет данных"; ObjectID = "IUM-aR-pey"; */
+"IUM-aR-pey.text" = "Немає даних";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "J06-xe-Wnh"; */
 "J06-xe-Wnh.normalTitle" = "";
-
-/* Class = "UILabel"; text = "Слишком темно"; ObjectID = "NhH-7f-gBD"; */
-"NhH-7f-gBD.text" = "Занадто темно";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Pgp-l7-9ju"; */
 "Pgp-l7-9ju.normalTitle" = "";
@@ -354,9 +363,6 @@
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "r7D-Nn-4Ql"; */
 "r7D-Nn-4Ql.normalTitle" = "";
-
-/* Class = "UIButton"; configuration.title = "Попробовать снова"; ObjectID = "Rsg-z4-gbq"; */
-"Rsg-z4-gbq.configuration.title" = "Спробувати ще";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Rsg-z4-gbq"; */
 "Rsg-z4-gbq.normalTitle" = "";
@@ -378,5 +384,3 @@
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ZYK-Zq-SfN"; */
 "ZYK-Zq-SfN.normalTitle" = "";
-
-"EaO-z6-vaI.configuration.title" = "Я впевнен(-а) в своєму документі, продовжити процес верифікації";

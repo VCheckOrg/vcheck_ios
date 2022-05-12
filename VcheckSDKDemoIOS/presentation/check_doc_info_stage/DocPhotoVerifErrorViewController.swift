@@ -7,10 +7,14 @@
 
 import Foundation
 import UIKit
+import Localize_Swift
 
 class DocPhotoVerifErrorViewController : UIViewController {
     
     var docId: Int? = nil
+    
+    var firstPhoto: UIImage? = nil
+    var secondPhoto: UIImage? = nil
     
     private let viewModel = DocPhotoVerifErrorViewModel()
 
@@ -30,6 +34,7 @@ class DocPhotoVerifErrorViewController : UIViewController {
         super.viewDidLoad()
         
         btnContinueToCheckDoc.titleLabel?.textAlignment = .center
+        btnContinueToCheckDoc.titleLabel?.text = "confident_in_doc_title".localized()
         
         viewModel.didReceiveConfirmResponse = {
             self.performSegue(withIdentifier: "DocPhotoVerifErrorToCheckDoc", sender: nil)
@@ -49,6 +54,10 @@ class DocPhotoVerifErrorViewController : UIViewController {
                 self.showToast(message: errText, seconds: 2.0)
             } else {
                 vc.docId = self.docId
+            }
+            vc.firstPhoto = self.firstPhoto
+            if (self.secondPhoto != nil) {
+                vc.secondPhoto = self.secondPhoto
             }
         }
     }
