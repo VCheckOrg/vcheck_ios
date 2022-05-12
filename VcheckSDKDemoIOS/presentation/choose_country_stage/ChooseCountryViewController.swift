@@ -52,8 +52,18 @@ class ChooseCountryViewController : UIViewController {
         if (segue.identifier == "CountryToList") {
             let vc = segue.destination as! CountryListViewController
             vc.countriesDataSourceArr = self.countries
+            vc.parentVC = self
         }
-//        if (segue.identifier == "CountryToChooseDocType") {
-//        }
     }
+    
+//    public func presentationControllerDidDismiss(
+//        _ presentationController: UIPresentationController) {
+//        // Only called when the sheet is dismissed by DRAGGING.
+//        // You'll need something extra if you call .dismiss() on the child.
+//        // (I found that overriding dismiss in the child and calling
+//        // presentationController.delegate?.presentationControllerDidDismiss
+//        // works well).
+//
+//
+//      }
 }

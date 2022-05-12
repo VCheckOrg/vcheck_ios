@@ -37,7 +37,7 @@ extension Data {
 
 public extension String {
     
-    func sha256() -> String{
+    func sha256() -> String {
         if let stringData = self.data(using: String.Encoding.utf8) {
             return stringData.sha256()
         }
@@ -47,6 +47,10 @@ public extension String {
     mutating func substringBefore(_ string: String) -> String {
         let components = self.components(separatedBy: string)
         return components[0]
+    }
+    
+    func isMatchedBy(regex: String) -> Bool {
+        return (self.range(of: regex, options: .regularExpression) ?? nil) != nil
     }
     
     func checkIfValidDocDateFormat() -> Bool {
@@ -64,7 +68,7 @@ public extension String {
 
 extension UIViewController {
 
-    func showToast(message : String, seconds: Double){
+    func showToast(message : String, seconds: Double) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         alert.view.backgroundColor = .black
         alert.view.alpha = 0.5
@@ -144,46 +148,38 @@ extension FloatingPoint {
     var radiansToDegrees: Self { self * 180 / .pi }
 }
 
-
-//class SubBundle: Bundle {
-//
-//    override func localizedString(forKey key: String, value: String?, table tableName: String?) -> String {
-//        let bundle: Bundle = Bundle.main
-//      if let path = bundle.path(forResource: Localize.currentLanguage(), ofType: "lproj"), let bundle = Bundle(path: path) {
-//          return bundle.localizedString(forKey: key, value: value, table: tableName)
-//      } else {
-//        return super.localizedString(forKey: key, value: value, table: tableName) //super
-//      }
-//    }
-//}
-
 var bundleKey: UInt8 = 0
 
 class AnyLanguageBundle: Bundle {
 
-override func localizedString(forKey key: String,
+    override func localizedString(forKey key: String,
                               value: String?,
                               table tableName: String?) -> String {
 
-    guard let path = objc_getAssociatedObject(self, &bundleKey) as? String,
-        let bundle = Bundle(path: path) else {
-
+        guard let path = objc_getAssociatedObject(self, &bundleKey) as? String,
+            let bundle = Bundle(path: path) else {
             return super.localizedString(forKey: key, value: value, table: tableName)
+        }
+        return bundle.localizedString(forKey: key, value: value, table: tableName)
     }
-
-    return bundle.localizedString(forKey: key, value: value, table: tableName)
-  }
 }
 
 extension Bundle {
 
-class func setLanguage(_ language: String) {
-
-    defer {
-
-        object_setClass(Bundle.main, AnyLanguageBundle.self)
+    class func setLanguage(_ language: String) {
+        defer {
+            object_setClass(Bundle.main, AnyLanguageBundle.self)
+        }
+        objc_setAssociatedObject(Bundle.main, &bundleKey,    Bundle.main.path(forResource: language, ofType: "lproj"), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }
+}
 
-    objc_setAssociatedObject(Bundle.main, &bundleKey,    Bundle.main.path(forResource: language, ofType: "lproj"), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-  }
+extension UIDevice {
+    static var isSimulator: Bool = {
+        #if targetEnvironment(simulator)
+        return true
+        #else
+        return false
+        #endif
+    }()
 }

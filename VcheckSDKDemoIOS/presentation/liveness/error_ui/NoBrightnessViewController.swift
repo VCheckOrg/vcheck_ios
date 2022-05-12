@@ -13,8 +13,9 @@ class NoBrightnessViewController : UIViewController {
     var onRepeatBlock : ((Bool) -> Void)?
     
     @IBAction func nvRepeatAction(_ sender: UIButton) {
-        //self.dismiss(animated: true)
-        navigationController?.popViewController(animated: true)
-        onRepeatBlock!(true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(700) ) {
+            self.navigationController?.popViewController(animated: true)
+            self.onRepeatBlock!(true)
+        }
     }
 }
