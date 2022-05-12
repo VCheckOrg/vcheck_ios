@@ -15,6 +15,9 @@ class LivenessInstructionsViewController: UIViewController {
     
     @IBOutlet weak var animsHolder: RoundedView!
     
+    @IBOutlet weak var rightFadingCircle: RoundedView!
+    @IBOutlet weak var leftFadingCircle: RoundedView!
+    
     var timer = Timer()
     
     private var playAnimForLeftCycle: Bool = true
@@ -37,6 +40,7 @@ class LivenessInstructionsViewController: UIViewController {
     func updateAnimsCycle() {
         self.setupOrUpdateFaceAnimation(forLeftCycle: self.playAnimForLeftCycle)
         self.setupOrUpdateArrowAnimation(forLeftCycle: self.playAnimForLeftCycle)
+        self.fadeInOutCircles(forLeftCycle: !self.playAnimForLeftCycle)
         self.playAnimForLeftCycle = !self.playAnimForLeftCycle
     }
     
@@ -105,37 +109,21 @@ class LivenessInstructionsViewController: UIViewController {
         arrowAnimationView.play()
     }
     
+    func fadeInOutCircles(forLeftCycle: Bool) {
+        if (forLeftCycle) {
+            fadeViewInThenOut(view: leftFadingCircle, delay: 0.0)
+        } else {
+            fadeViewInThenOut(view: rightFadingCircle, delay: 0.0)
+        }
+    }
     
-            
-//        } else {
-//            arrowAnimationView = AnimationView()
-//            arrowAnimationView.stop()
-//            rightArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
-//            leftArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
-//        }
-    
-//    func updateFaceAnimation() {
-//        if (self.blockStageIndicationByUI == false) {
-//            DispatchQueue.main.async {
-//                let toProgress = self.faceAnimationView.realtimeAnimationProgress
-//                if (toProgress >= 0.99) {
-//                    self.faceAnimationView.play(toProgress: toProgress - 0.99)
-//                }
-//                if (toProgress <= 0.01) {
-//                    self.faceAnimationView.play(toProgress: toProgress + 1)
-//                }
-//            }
-//        }
-//    }
-//
-//    func updateArrowAnimation() {
-//        if (self.blockStageIndicationByUI == false) {
-//            DispatchQueue.main.async {
-//                let toProgress = self.arrowAnimationView.realtimeAnimationProgress
-//                if (toProgress <= 0.01) {
-//                    self.arrowAnimationView.play(toProgress: toProgress + 1)
-//                }
-//            }
-//        }
-//    }
+    func fadeViewInThenOut(view : UIView, delay: TimeInterval) {
+        let animationDuration = 2.0
+        UIView.animate(withDuration: animationDuration, delay: delay,
+                       options: [UIView.AnimationOptions.autoreverse,
+                                 UIView.AnimationOptions.repeat], animations: {
+            view.alpha = 0
+        }, completion: nil)
+    }
+
 }

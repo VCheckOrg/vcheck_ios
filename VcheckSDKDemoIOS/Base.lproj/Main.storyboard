@@ -3182,10 +3182,10 @@
                                 <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qjd-Rt-rZ6">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="888.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="889.66666666666663"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDm-lD-KGj" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="60" width="366" height="763.66666666666663"/>
+                                                <rect key="frame" x="12" y="60" width="366" height="764.66666666666663"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILo-Gx-ieA" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
                                                         <rect key="frame" x="83" y="147" width="200" height="200"/>
@@ -3206,14 +3206,14 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mhd-Nt-EFE">
-                                                        <rect key="frame" x="83" y="193" width="200" height="100"/>
+                                                        <rect key="frame" x="83" y="194" width="200" height="100"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="100" id="5Pf-qO-1Ts"/>
                                                             <constraint firstAttribute="width" constant="200" id="QXy-fn-Ghw"/>
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7D-Nn-4Ql">
-                                                        <rect key="frame" x="16" y="683.66666666666663" width="334" height="56"/>
+                                                        <rect key="frame" x="16" y="684.66666666666663" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="Nmd-OM-gYB"/>
                                                         </constraints>
@@ -3230,14 +3230,14 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ato-ly-woq">
-                                                        <rect key="frame" x="16" y="55.666666666666657" width="334" height="66"/>
+                                                        <rect key="frame" x="16" y="55.666666666666657" width="334" height="67"/>
                                                         <string key="text">Сначала разместите лицо по центру кадра, затем двигайте головой в заданом направлении, как на примере ниже, чтобы показать свое лицо со всех углов.</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="выполнятей только запрашиваемые движения" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOe-mg-i3J">
-                                                        <rect key="frame" x="46" y="371.66666666666669" width="284" height="24"/>
+                                                        <rect key="frame" x="46" y="372.66666666666669" width="284" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="89g-BG-sQT"/>
                                                         </constraints>
@@ -3246,67 +3246,71 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="движения должны быть четкими и плавными" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilv-19-slf">
-                                                        <rect key="frame" x="45" y="415.66666666666663" width="254" height="59"/>
+                                                        <rect key="frame" x="45" y="416.66666666666663" width="254" height="59"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="в кадре не должно быть помех" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAt-oD-4Mb">
-                                                        <rect key="frame" x="45" y="494.66666666666663" width="305" height="21"/>
+                                                        <rect key="frame" x="45" y="495.66666666666663" width="305" height="21"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="найдите место с хорошим освещением (светло, но без ярких засветов)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8c-XH-tNZ">
-                                                        <rect key="frame" x="45" y="535.66666666666663" width="285" height="57"/>
+                                                        <rect key="frame" x="45" y="536.66666666666663" width="285" height="57"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="зафиксированная камера (старайтесь не двигать камерой)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATp-gm-vMv">
-                                                        <rect key="frame" x="45" y="610.66666666666663" width="301" height="29"/>
+                                                        <rect key="frame" x="45" y="611.66666666666663" width="301" height="29"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="requested_movements_icon" translatesAutoresizingMaskIntoConstraints="NO" id="bCY-XI-wsl">
-                                                        <rect key="frame" x="16" y="375.33333333333331" width="20" height="19"/>
+                                                        <rect key="frame" x="16" y="376.33333333333331" width="20" height="19"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="BpG-pX-vd1"/>
                                                             <constraint firstAttribute="height" constant="19" id="coK-Me-YXd"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smooth_movements_icon" translatesAutoresizingMaskIntoConstraints="NO" id="fIc-s3-Bdh">
-                                                        <rect key="frame" x="16" y="434.33333333333337" width="18" height="22"/>
+                                                        <rect key="frame" x="16" y="435.33333333333337" width="18" height="22"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="AHU-ga-0qe"/>
                                                             <constraint firstAttribute="width" constant="18" id="DCp-s9-nsj"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_interference_icon" translatesAutoresizingMaskIntoConstraints="NO" id="FAq-ZT-TYG">
-                                                        <rect key="frame" x="16" y="496.33333333333337" width="18" height="18"/>
+                                                        <rect key="frame" x="16" y="497.33333333333337" width="18" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="18" id="95c-Ij-YCI"/>
                                                             <constraint firstAttribute="width" constant="18" id="rnj-px-VPn"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="good_light_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Rkf-kC-tcK">
-                                                        <rect key="frame" x="16" y="554.33333333333337" width="18" height="20"/>
+                                                        <rect key="frame" x="16" y="555.33333333333337" width="18" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="18" id="Ox1-5Z-Cbf"/>
                                                             <constraint firstAttribute="height" constant="20" id="XWH-Dv-COU"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fixed_camera_icon" translatesAutoresizingMaskIntoConstraints="NO" id="KiT-vF-PGZ">
-                                                        <rect key="frame" x="16" y="614.33333333333337" width="18" height="22"/>
+                                                        <rect key="frame" x="16" y="615.33333333333337" width="18" height="22"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="BiP-DI-pK4"/>
                                                             <constraint firstAttribute="width" constant="18" id="tbU-cr-StF"/>
                                                         </constraints>
                                                     </imageView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LML-g6-ei5" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="311" y="235" width="25" height="24"/>
+                                                        <rect key="frame" x="312" y="235" width="24" height="24"/>
                                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="pXJ-VK-4Pr"/>
+                                                            <constraint firstAttribute="width" constant="24" id="uJg-Cv-wdz"/>
+                                                        </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                 <real key="value" value="12"/>
@@ -3314,8 +3318,12 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XxC-da-209" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="28" y="235" width="25" height="24"/>
+                                                        <rect key="frame" x="28" y="235" width="24" height="24"/>
                                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="AxW-Md-06j"/>
+                                                            <constraint firstAttribute="width" constant="24" id="iJM-rO-o0g"/>
+                                                        </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                 <real key="value" value="12"/>
@@ -3335,7 +3343,6 @@
                                                     <constraint firstItem="ILo-Gx-ieA" firstAttribute="top" secondItem="dDm-lD-KGj" secondAttribute="top" constant="147" id="5HW-5a-fjH"/>
                                                     <constraint firstItem="ato-ly-woq" firstAttribute="leading" secondItem="dDm-lD-KGj" secondAttribute="leading" constant="16" id="9V8-Rr-JhR"/>
                                                     <constraint firstItem="KiT-vF-PGZ" firstAttribute="leading" secondItem="dDm-lD-KGj" secondAttribute="leading" constant="16" id="9dv-e8-Re8"/>
-                                                    <constraint firstItem="LML-g6-ei5" firstAttribute="leading" secondItem="ILo-Gx-ieA" secondAttribute="trailing" constant="28" id="BPW-fo-GiZ"/>
                                                     <constraint firstItem="ATp-gm-vMv" firstAttribute="top" secondItem="S8c-XH-tNZ" secondAttribute="bottom" constant="18" id="C6d-L4-5R7"/>
                                                     <constraint firstItem="XxC-da-209" firstAttribute="leading" secondItem="dDm-lD-KGj" secondAttribute="leading" constant="28" id="CF7-6K-432"/>
                                                     <constraint firstItem="XxC-da-209" firstAttribute="bottom" secondItem="LML-g6-ei5" secondAttribute="bottom" id="EqP-N9-Idp"/>
@@ -3344,10 +3351,8 @@
                                                     <constraint firstAttribute="trailing" secondItem="r7D-Nn-4Ql" secondAttribute="trailing" constant="16" id="Hxv-Pd-Oid"/>
                                                     <constraint firstItem="QOe-mg-i3J" firstAttribute="leading" secondItem="bCY-XI-wsl" secondAttribute="trailing" constant="10" id="KHb-TL-siD"/>
                                                     <constraint firstAttribute="trailing" secondItem="ato-ly-woq" secondAttribute="trailing" constant="16" id="KPs-Vm-8pL"/>
-                                                    <constraint firstItem="ILo-Gx-ieA" firstAttribute="leading" secondItem="XxC-da-209" secondAttribute="trailing" constant="30" id="Km7-se-ufT"/>
                                                     <constraint firstItem="r7D-Nn-4Ql" firstAttribute="leading" secondItem="dDm-lD-KGj" secondAttribute="leading" constant="16" id="KxA-j4-200"/>
                                                     <constraint firstItem="Mhd-Nt-EFE" firstAttribute="top" secondItem="ato-ly-woq" secondAttribute="bottom" constant="71.333333333333343" id="ODE-OD-x8i"/>
-                                                    <constraint firstAttribute="bottom" secondItem="XxC-da-209" secondAttribute="bottom" constant="504.66666666666663" id="P2l-gp-j6Q"/>
                                                     <constraint firstItem="Rkf-kC-tcK" firstAttribute="top" secondItem="FAq-ZT-TYG" secondAttribute="bottom" constant="40" id="R4i-kC-xfh"/>
                                                     <constraint firstItem="S8c-XH-tNZ" firstAttribute="leading" secondItem="Rkf-kC-tcK" secondAttribute="trailing" constant="11" id="S7p-Jf-qK2"/>
                                                     <constraint firstItem="FAq-ZT-TYG" firstAttribute="leading" secondItem="dDm-lD-KGj" secondAttribute="leading" constant="16" id="Uht-gH-tbo"/>
@@ -3371,7 +3376,6 @@
                                                     <constraint firstItem="sAt-oD-4Mb" firstAttribute="top" secondItem="ilv-19-slf" secondAttribute="bottom" constant="20" id="sxy-dj-jSE"/>
                                                     <constraint firstItem="1c6-jq-Hxi" firstAttribute="top" secondItem="dDm-lD-KGj" secondAttribute="top" constant="18" id="u2s-U9-Mb8"/>
                                                     <constraint firstItem="S8c-XH-tNZ" firstAttribute="top" secondItem="sAt-oD-4Mb" secondAttribute="bottom" constant="20" id="u3i-F9-jHv"/>
-                                                    <constraint firstItem="XxC-da-209" firstAttribute="centerY" secondItem="ILo-Gx-ieA" secondAttribute="centerY" id="uZS-4t-JDO"/>
                                                     <constraint firstItem="Rkf-kC-tcK" firstAttribute="leading" secondItem="dDm-lD-KGj" secondAttribute="leading" constant="16" id="v4n-OY-PVI"/>
                                                     <constraint firstAttribute="trailing" secondItem="ATp-gm-vMv" secondAttribute="trailing" constant="20" id="xaD-L3-CWI"/>
                                                     <constraint firstAttribute="trailing" secondItem="LML-g6-ei5" secondAttribute="trailing" constant="30" id="xd6-ds-kge"/>
@@ -3416,6 +3420,8 @@
                     <connections>
                         <outlet property="animsHolder" destination="ILo-Gx-ieA" id="CdR-Jo-fZq"/>
                         <outlet property="arrowHolder" destination="Mhd-Nt-EFE" id="zxx-ju-GAX"/>
+                        <outlet property="leftFadingCircle" destination="XxC-da-209" id="CiU-F4-QcT"/>
+                        <outlet property="rightFadingCircle" destination="LML-g6-ei5" id="PsB-eN-cEk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QZI-Sx-Sq4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
