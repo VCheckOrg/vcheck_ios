@@ -21,6 +21,8 @@
 		DA63D7952823B683005EE4C0 /* CheckDocInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA63D7942823B683005EE4C0 /* CheckDocInfoViewModel.swift */; };
 		DA63D79928240644005EE4C0 /* DocInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA63D79828240644005EE4C0 /* DocInfoViewCell.swift */; };
 		DA65CBB3281C527A006508A1 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65CBB2281C527A006508A1 /* RoundedView.swift */; };
+		DA6899DD282BE9210094C259 /* Localize_Swift in Frameworks */ = {isa = PBXBuildFile; productRef = DA6899DC282BE9210094C259 /* Localize_Swift */; };
+		DA6899DF282BEA430094C259 /* genstrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6899DE282BEA430094C259 /* genstrings.swift */; };
 		DA73742B281ACC3700DBBDED /* DemoStartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73742A281ACC3700DBBDED /* DemoStartViewModel.swift */; };
 		DA73742E281ACC7E00DBBDED /* RemoteDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73742D281ACC7E00DBBDED /* RemoteDatasource.swift */; };
 		DA737432281AD4CB00DBBDED /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA737431281AD4CB00DBBDED /* ApiError.swift */; };
@@ -56,7 +58,6 @@
 		DAB11439281D6515001F82E4 /* ChooseDocTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB11438281D6515001F82E4 /* ChooseDocTypeViewModel.swift */; };
 		DAB6132A2814767700234BB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB613292814767700234BB2 /* AppDelegate.swift */; };
 		DAB6132C2814767700234BB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB6132B2814767700234BB2 /* SceneDelegate.swift */; };
-		DAB6132E2814767700234BB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB6132D2814767700234BB2 /* ViewController.swift */; };
 		DAB613312814767700234BB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB6132F2814767700234BB2 /* Main.storyboard */; };
 		DAB613342814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAB613322814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld */; };
 		DAB613362814767900234BB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB613352814767900234BB2 /* Assets.xcassets */; };
@@ -67,10 +68,9 @@
 		DABCE22C28229ABD00937E84 /* CheckDocPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCE22B28229ABD00937E84 /* CheckDocPhotoViewModel.swift */; };
 		DABCE22E2822BBE800937E84 /* CheckDocInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCE22D2822BBE800937E84 /* CheckDocInfoViewController.swift */; };
 		DABCE2312822BCB900937E84 /* ZoomedDocPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCE2302822BCB900937E84 /* ZoomedDocPhotoViewController.swift */; };
+		DAC1ACD7282C11ED001230DC /* LivenessInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC1ACD6282C11ED001230DC /* LivenessInstructionsViewController.swift */; };
 		DAC2325A281C3EF300D0CE16 /* BlockedCountryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC23259281C3EF300D0CE16 /* BlockedCountryViewCell.swift */; };
 		DAC26DBE2825378800EFCDB1 /* PhotoInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC26DBD2825378800EFCDB1 /* PhotoInstructionsViewController.swift */; };
-		DAC5CF85282BC2CC00891C96 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC5CF84282BC2CC00891C96 /* HeaderView.xib */; };
-		DAC5CF87282BC4D300891C96 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC5CF86282BC4D300891C96 /* HeaderView.swift */; };
 		DAD01E502826793C007DA004 /* Milestones.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD01E4F2826793C007DA004 /* Milestones.swift */; };
 		DAD01E5228268E0B007DA004 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD01E5128268E0B007DA004 /* Debouncer.swift */; };
 		DAD01E552826D495007DA004 /* ic_success.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD01E542826D495007DA004 /* ic_success.png */; };
@@ -104,6 +104,7 @@
 		DA65CBB0281C4766006508A1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		DA65CBB1281C4766006508A1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		DA65CBB2281C527A006508A1 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		DA6899DE282BEA430094C259 /* genstrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = genstrings.swift; sourceTree = "<group>"; };
 		DA73742A281ACC3700DBBDED /* DemoStartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoStartViewModel.swift; sourceTree = "<group>"; };
 		DA73742D281ACC7E00DBBDED /* RemoteDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDatasource.swift; sourceTree = "<group>"; };
 		DA737431281AD4CB00DBBDED /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
@@ -146,7 +147,6 @@
 		DAB613262814767700234BB2 /* VcheckSDKDemoIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VcheckSDKDemoIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB613292814767700234BB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAB6132B2814767700234BB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DAB6132D2814767700234BB2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DAB613302814767700234BB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DAB613332814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VcheckSDKDemoIOS.xcdatamodel; sourceTree = "<group>"; };
 		DAB613352814767900234BB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -161,10 +161,9 @@
 		DABCE22B28229ABD00937E84 /* CheckDocPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckDocPhotoViewModel.swift; sourceTree = "<group>"; };
 		DABCE22D2822BBE800937E84 /* CheckDocInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckDocInfoViewController.swift; sourceTree = "<group>"; };
 		DABCE2302822BCB900937E84 /* ZoomedDocPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomedDocPhotoViewController.swift; sourceTree = "<group>"; };
+		DAC1ACD6282C11ED001230DC /* LivenessInstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessInstructionsViewController.swift; sourceTree = "<group>"; };
 		DAC23259281C3EF300D0CE16 /* BlockedCountryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedCountryViewCell.swift; sourceTree = "<group>"; };
 		DAC26DBD2825378800EFCDB1 /* PhotoInstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInstructionsViewController.swift; sourceTree = "<group>"; };
-		DAC5CF84282BC2CC00891C96 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
-		DAC5CF86282BC4D300891C96 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		DAD01E4F2826793C007DA004 /* Milestones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milestones.swift; sourceTree = "<group>"; };
 		DAD01E5128268E0B007DA004 /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		DAD01E542826D495007DA004 /* ic_success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_success.png; sourceTree = "<group>"; };
@@ -187,7 +186,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96E190AC08AF643C6D2E766E /* Pods_VcheckSDKDemoIOS.framework in Frameworks */,
+				965EE52CD21510989273D883 /* Pods_VcheckSDKDemoIOS.framework in Frameworks */,
+				DA6899DD282BE9210094C259 /* Localize_Swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +273,7 @@
 				DA88A1DD282A6189005C144D /* VideoProcessingViewModel.swift */,
 				DA88A1DF282A622A005C144D /* LivenessSuccessViewController.swift */,
 				DA88A1E7282AD5EE005C144D /* VideoUploadFailureViewModel.swift */,
+				DAC1ACD6282C11ED001230DC /* LivenessInstructionsViewController.swift */,
 			);
 			path = processing_ui;
 			sourceTree = "<group>";
@@ -281,7 +282,6 @@
 			isa = PBXGroup;
 			children = (
 				DA88A1EA282BBAD3005C144D /* HeaderViewController.swift */,
-				DAC5CF86282BC4D300891C96 /* HeaderView.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -345,7 +345,8 @@
 		DAB613282814767700234BB2 /* VcheckSDKDemoIOS */ = {
 			isa = PBXGroup;
 			children = (
-				E9B74936282A670F004E541E /* animations */,
+				DA6899DE282BEA430094C259 /* genstrings.swift */,
+				DAD01E3F28266CC0007DA004 /* animations */,
 				DAB85362281FB475008F3E35 /* Face.scnassets */,
 				DA19DCEC281C52DC00023B5A /* util */,
 				DA73742C281ACC6E00DBBDED /* service */,
@@ -353,7 +354,6 @@
 				DAAF4DBE281AC6D80029F26C /* domain */,
 				DAB613292814767700234BB2 /* AppDelegate.swift */,
 				DAB6132B2814767700234BB2 /* SceneDelegate.swift */,
-				DAB6132D2814767700234BB2 /* ViewController.swift */,
 				DAB6132F2814767700234BB2 /* Main.storyboard */,
 				DAB613352814767900234BB2 /* Assets.xcassets */,
 				DAD01E542826D495007DA004 /* ic_success.png */,
@@ -361,7 +361,6 @@
 				DAB6133A2814767900234BB2 /* Info.plist */,
 				DAB613322814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld */,
 				DABCE22528219CE700937E84 /* Localizable.strings */,
-				DAC5CF84282BC2CC00891C96 /* HeaderView.xib */,
 			);
 			path = VcheckSDKDemoIOS;
 			sourceTree = "<group>";
@@ -468,6 +467,9 @@
 			dependencies = (
 			);
 			name = VcheckSDKDemoIOS;
+			packageProductDependencies = (
+				DA6899DC282BE9210094C259 /* Localize_Swift */,
+			);
 			productName = VcheckSDKDemoIOS;
 			productReference = DAB613262814767700234BB2 /* VcheckSDKDemoIOS.app */;
 			productType = "com.apple.product-type.application";
@@ -498,6 +500,9 @@
 				ru,
 			);
 			mainGroup = DAB6131D2814767700234BB2;
+			packageReferences = (
+				DA6899DB282BE9210094C259 /* XCRemoteSwiftPackageReference "Localize-Swift" */,
+			);
 			productRefGroup = DAB613272814767700234BB2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -518,7 +523,6 @@
 				DAAF4E11281AC7A60029F26C /* doc_image_parsing_statuses.kt in Resources */,
 				DAAF4E13281AC7A60029F26C /* country_models.kt in Resources */,
 				DA88A1D7282A5C2D005C144D /* mouth.json in Resources */,
-				DAC5CF85282BC2CC00891C96 /* HeaderView.xib in Resources */,
 				DAAF4E18281AC7A60029F26C /* document_request_models.kt in Resources */,
 				DAB613362814767900234BB2 /* Assets.xcassets in Resources */,
 				DAB85363281FB475008F3E35 /* Face.scnassets in Resources */,
@@ -597,13 +601,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAB6132E2814767700234BB2 /* ViewController.swift in Sources */,
 				DA65CBB3281C527A006508A1 /* RoundedView.swift in Sources */,
 				DA88A1E8282AD5EE005C144D /* VideoUploadFailureViewModel.swift in Sources */,
 				DAAF4E1D281AC7A60029F26C /* Constants.swift in Sources */,
 				DAAF4E14281AC7A60029F26C /* VerificationRequestModels.swift in Sources */,
 				DABCE22C28229ABD00937E84 /* CheckDocPhotoViewModel.swift in Sources */,
 				DA63D79928240644005EE4C0 /* DocInfoViewCell.swift in Sources */,
+				DA6899DF282BEA430094C259 /* genstrings.swift in Sources */,
 				DA73742B281ACC3700DBBDED /* DemoStartViewModel.swift in Sources */,
 				DAE87E122816CC2C00ED6826 /* CountryListViewController.swift in Sources */,
 				DA88A1DC282A617A005C144D /* VideoProcessingViewController.swift in Sources */,
@@ -631,6 +635,7 @@
 				DABCE22E2822BBE800937E84 /* CheckDocInfoViewController.swift in Sources */,
 				DAB11437281D64DE001F82E4 /* ChooseDocTypeViewController.swift in Sources */,
 				DA88A1E0282A622A005C144D /* LivenessSuccessViewController.swift in Sources */,
+				DAC1ACD7282C11ED001230DC /* LivenessInstructionsViewController.swift in Sources */,
 				DAB6132A2814767700234BB2 /* AppDelegate.swift in Sources */,
 				DADD31EF281D7A0200EB25ED /* DocumentTypes.swift in Sources */,
 				DAAF4E15281AC7A60029F26C /* ApiClient.swift in Sources */,
@@ -654,7 +659,6 @@
 				DA737434281ADCD600DBBDED /* LocalDatasource.swift in Sources */,
 				DA73742E281ACC7E00DBBDED /* RemoteDatasource.swift in Sources */,
 				DADD31F2281D93F800EB25ED /* LivenessScreenViewController.swift in Sources */,
-				DAC5CF87282BC4D300891C96 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -907,6 +911,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DA6899DB282BE9210094C259 /* XCRemoteSwiftPackageReference "Localize-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Localize-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DA6899DC282BE9210094C259 /* Localize_Swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA6899DB282BE9210094C259 /* XCRemoteSwiftPackageReference "Localize-Swift" */;
+			productName = Localize_Swift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		DAB613322814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld */ = {

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Localize_Swift
 
 class CheckDocInfoViewController : UIViewController {
     
@@ -21,7 +22,8 @@ class CheckDocInfoViewController : UIViewController {
     
     var fieldsList: [DocFieldWitOptPreFilledData] = []
     
-    let currLocaleCode = Locale.current.languageCode!
+    let currLocaleCode = Localize.currentLanguage()
+    //Locale.current.languageCode!
     
     //TODO: stretch parent on table view size change (actual doc fields count)!
     @IBOutlet weak var docFieldsTableView: UITableView!

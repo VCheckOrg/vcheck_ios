@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import Alamofire
+import Localize_Swift
 
 class DemoStartViewController : UIViewController {
     

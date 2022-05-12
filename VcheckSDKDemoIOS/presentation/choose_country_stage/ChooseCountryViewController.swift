@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Localize_Swift
 
 //TODO: cleanup domain directory!
 
@@ -47,18 +48,12 @@ class ChooseCountryViewController : UIViewController {
        performSegue(withIdentifier: "CountryToList", sender: self)
     }
     
-//    @objc func navigateToChooDocType(_ sender:UITapGestureRecognizer){
-//       performSegue(withIdentifier: "CountryToChooseDocType", sender: self)
-//    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "CountryToList") {
             let vc = segue.destination as! CountryListViewController
             vc.countriesDataSourceArr = self.countries
         }
-        if (segue.identifier == "CountryToChooseDocType") {
-            //let vc = segue.destination as! ChooseDocTypeViewController
-            //vc.countriesDataSourceArr = self.countries
-        }
+//        if (segue.identifier == "CountryToChooseDocType") {
+//        }
     }
 }

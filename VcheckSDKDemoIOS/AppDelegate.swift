@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 import AlamofireNetworkActivityLogger
+import Localize_Swift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,8 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NetworkActivityLogger.shared.startLogging()
         #endif
         
-        
-
         return true
     }
 
@@ -90,15 +89,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 
+extension UIApplication {
 
-//extension UIApplication {
-//
-//  static var topWindow: UIWindow {
-//    //if #available(iOS 15.0, *) {
-//      let scenes = UIApplication.shared.connectedScenes
-//      let windowScene = scenes.first as? UIWindowScene
-//      return windowScene!.windows.first!
-//    //}
-//    //return UIApplication.shared.windows.filter { $0.isKeyWindow }.first!
-//  }
-//}
+  static var topWindow: UIWindow {
+    if #available(iOS 15.0, *) {
+      let scenes = UIApplication.shared.connectedScenes
+      let windowScene = scenes.first as? UIWindowScene
+      return windowScene!.windows.first!
+    } else {
+        return UIApplication.shared.windows.filter { $0.isKeyWindow }.first!
+    }
+  }
+}

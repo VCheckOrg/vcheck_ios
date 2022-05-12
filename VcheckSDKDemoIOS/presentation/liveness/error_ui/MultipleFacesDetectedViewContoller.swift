@@ -13,7 +13,8 @@ class MultipleFacesDetectedViewController : UIViewController {
     var onRepeatBlock : ((Bool) -> Void)?
     
     @IBAction func nfRepeatAction(_ sender: UIButton) {
-        self.dismiss(animated: true)
+        //self.dismiss(animated: true)
+        navigationController?.popViewController(animated: true)
         onRepeatBlock!(true)
     }
 }

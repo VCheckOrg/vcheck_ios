@@ -209,11 +209,11 @@
             <objects>
                 <viewController modalPresentationStyle="pageSheet" id="G2c-Yg-Bx4" userLabel="Country List View Controller" customClass="CountryListViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Gx-nu-ywK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="798"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="746"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XZT-Se-5L6">
-                                <rect key="frame" x="0.0" y="100" width="414" height="698"/>
+                                <rect key="frame" x="0.0" y="100" width="390" height="646"/>
                                 <color key="backgroundColor" name="BackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="allowedCountryCell" rowHeight="70" id="onm-ZM-hCL" customClass="AllowedCountryViewCell" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
@@ -2953,7 +2953,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ca7-Xy-aCd">
-                                        <rect key="frame" x="305.5" y="54" width="68" height="34"/>
+                                        <rect key="frame" x="281.33333333333331" y="54" width="68.333333333333314" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="s0v-LW-pJ6"/>
                                         </constraints>
@@ -3027,13 +3027,13 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qjd-Rt-rZ6">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="888.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="889.66666666666663"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDm-lD-KGj" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="60" width="390" height="763.5"/>
+                                                <rect key="frame" x="12" y="60" width="366" height="764.66666666666663"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILo-Gx-ieA" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="95" y="147" width="200" height="200"/>
+                                                        <rect key="frame" x="83" y="147" width="200" height="200"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="j6y-TH-xfH"/>
                                                             <constraint firstAttribute="height" constant="200" id="xpr-mf-PwX"/>
@@ -3051,14 +3051,14 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mhd-Nt-EFE">
-                                                        <rect key="frame" x="95" y="193" width="200" height="100"/>
+                                                        <rect key="frame" x="83" y="194" width="200" height="100"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="100" id="5Pf-qO-1Ts"/>
                                                             <constraint firstAttribute="width" constant="200" id="QXy-fn-Ghw"/>
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7D-Nn-4Ql">
-                                                        <rect key="frame" x="16" y="683.5" width="358" height="56"/>
+                                                        <rect key="frame" x="16" y="684.66666666666663" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="Nmd-OM-gYB"/>
                                                         </constraints>
@@ -3069,7 +3069,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Проверка лица" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1c6-jq-Hxi">
-                                                        <rect key="frame" x="16" y="18" width="136.5" height="21.5"/>
+                                                        <rect key="frame" x="16" y="18" width="136.66666666666666" height="21.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -3082,7 +3082,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="выполнятей только запрашиваемые движения" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOe-mg-i3J">
-                                                        <rect key="frame" x="46" y="371.5" width="308" height="24"/>
+                                                        <rect key="frame" x="46" y="372.66666666666669" width="284" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="89g-BG-sQT"/>
                                                         </constraints>
@@ -3091,25 +3091,25 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="движения должны быть четкими и плавными" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilv-19-slf">
-                                                        <rect key="frame" x="45" y="415.5" width="278" height="59"/>
+                                                        <rect key="frame" x="45" y="416.66666666666663" width="254" height="59"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="в кадре не должно быть помех" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAt-oD-4Mb">
-                                                        <rect key="frame" x="45" y="494.5" width="329" height="21"/>
+                                                        <rect key="frame" x="45" y="495.66666666666663" width="305" height="21"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="найдите место с хорошим освещением (светло, но без ярких засветов)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8c-XH-tNZ">
-                                                        <rect key="frame" x="45" y="535.5" width="309" height="57"/>
+                                                        <rect key="frame" x="45" y="536.66666666666663" width="285" height="57"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="зафиксированная камера (старайтесь не двигать камерой)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATp-gm-vMv">
-                                                        <rect key="frame" x="45" y="610.5" width="325" height="29"/>
+                                                        <rect key="frame" x="45" y="611.66666666666663" width="301" height="29"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -3150,8 +3150,12 @@
                                                         </constraints>
                                                     </imageView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LML-g6-ei5" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="323" y="235" width="37" height="24"/>
+                                                        <rect key="frame" x="312" y="235" width="24" height="24"/>
                                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="pXJ-VK-4Pr"/>
+                                                            <constraint firstAttribute="width" constant="24" id="uJg-Cv-wdz"/>
+                                                        </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                 <real key="value" value="12"/>
@@ -3159,8 +3163,12 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XxC-da-209" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="28" y="235" width="37" height="24"/>
+                                                        <rect key="frame" x="28" y="235" width="24" height="24"/>
                                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="AxW-Md-06j"/>
+                                                            <constraint firstAttribute="width" constant="24" id="iJM-rO-o0g"/>
+                                                        </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                 <real key="value" value="12"/>
@@ -3180,7 +3188,6 @@
                                                     <constraint firstItem="ILo-Gx-ieA" firstAttribute="top" secondItem="dDm-lD-KGj" secondAttribute="top" constant="147" id="5HW-5a-fjH"/>
                                                     <constraint firstItem="ato-ly-woq" firstAttribute="leading" secondItem="dDm-lD-KGj" secondAttribute="leading" constant="16" id="9V8-Rr-JhR"/>
                                                     <constraint firstItem="KiT-vF-PGZ" firstAttribute="leading" secondItem="dDm-lD-KGj" secondAttribute="leading" constant="16" id="9dv-e8-Re8"/>
-                                                    <constraint firstItem="LML-g6-ei5" firstAttribute="leading" secondItem="ILo-Gx-ieA" secondAttribute="trailing" constant="28" id="BPW-fo-GiZ"/>
                                                     <constraint firstItem="ATp-gm-vMv" firstAttribute="top" secondItem="S8c-XH-tNZ" secondAttribute="bottom" constant="18" id="C6d-L4-5R7"/>
                                                     <constraint firstItem="XxC-da-209" firstAttribute="leading" secondItem="dDm-lD-KGj" secondAttribute="leading" constant="28" id="CF7-6K-432"/>
                                                     <constraint firstItem="XxC-da-209" firstAttribute="bottom" secondItem="LML-g6-ei5" secondAttribute="bottom" id="EqP-N9-Idp"/>
@@ -3192,7 +3199,6 @@
                                                     <constraint firstItem="ILo-Gx-ieA" firstAttribute="leading" secondItem="XxC-da-209" secondAttribute="trailing" constant="30" id="Km7-se-ufT"/>
                                                     <constraint firstItem="r7D-Nn-4Ql" firstAttribute="leading" secondItem="dDm-lD-KGj" secondAttribute="leading" constant="16" id="KxA-j4-200"/>
                                                     <constraint firstItem="Mhd-Nt-EFE" firstAttribute="top" secondItem="ato-ly-woq" secondAttribute="bottom" constant="71.333333333333343" id="ODE-OD-x8i"/>
-                                                    <constraint firstAttribute="bottom" secondItem="XxC-da-209" secondAttribute="bottom" constant="504.66666666666663" id="P2l-gp-j6Q"/>
                                                     <constraint firstItem="Rkf-kC-tcK" firstAttribute="top" secondItem="FAq-ZT-TYG" secondAttribute="bottom" constant="40" id="R4i-kC-xfh"/>
                                                     <constraint firstItem="S8c-XH-tNZ" firstAttribute="leading" secondItem="Rkf-kC-tcK" secondAttribute="trailing" constant="11" id="S7p-Jf-qK2"/>
                                                     <constraint firstItem="FAq-ZT-TYG" firstAttribute="leading" secondItem="dDm-lD-KGj" secondAttribute="leading" constant="16" id="Uht-gH-tbo"/>
@@ -3261,6 +3267,8 @@
                     <connections>
                         <outlet property="animsHolder" destination="ILo-Gx-ieA" id="CdR-Jo-fZq"/>
                         <outlet property="arrowHolder" destination="Mhd-Nt-EFE" id="zxx-ju-GAX"/>
+                        <outlet property="leftFadingCircle" destination="XxC-da-209" id="CiU-F4-QcT"/>
+                        <outlet property="rightFadingCircle" destination="LML-g6-ei5" id="PsB-eN-cEk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QZI-Sx-Sq4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3272,11 +3280,11 @@
             <objects>
                 <viewController id="WJ2-QY-Hl3" customClass="ZoomedDocPhotoViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="44V-am-ckB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="798"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="746"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aBI-ct-SYg">
-                                <rect key="frame" x="0.0" y="100" width="414" height="648"/>
+                                <rect key="frame" x="0.0" y="144" width="390" height="552"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmI-2b-PrY">
                                 <rect key="frame" x="335" y="24" width="61" height="36"/>
