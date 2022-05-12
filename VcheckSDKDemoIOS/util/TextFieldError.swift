@@ -76,8 +76,7 @@ extension UITextField {
         if !show {
             container.isHidden = true
         }
-        // superview!.superview!.addSubview(container)
-        UIApplication.shared.keyWindow!.addSubview(container)
+        UIApplication.topWindow.addSubview(container) //!
 
         // Set constraints for container
         container.widthAnchor.constraint(lessThanOrEqualTo: superview!.widthAnchor, multiplier: 1).isActive = true

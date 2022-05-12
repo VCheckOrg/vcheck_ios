@@ -61,6 +61,14 @@
 		DAB613342814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAB613322814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld */; };
 		DAB613362814767900234BB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB613352814767900234BB2 /* Assets.xcassets */; };
 		DAB613392814767900234BB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB613372814767900234BB2 /* LaunchScreen.storyboard */; };
+		DAB69C2F282D067A00579BBB /* down.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB69C29282D067A00579BBB /* down.json */; };
+		DAB69C30282D067A00579BBB /* left.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB69C2A282D067A00579BBB /* left.json */; };
+		DAB69C31282D067A00579BBB /* arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB69C2B282D067A00579BBB /* arrow.json */; };
+		DAB69C32282D067A00579BBB /* up.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB69C2C282D067A00579BBB /* up.json */; };
+		DAB69C33282D067A00579BBB /* mouth.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB69C2D282D067A00579BBB /* mouth.json */; };
+		DAB69C34282D067A00579BBB /* right.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB69C2E282D067A00579BBB /* right.json */; };
+		DAB69C36282D289300579BBB /* DocPhotoVerifErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB69C35282D289300579BBB /* DocPhotoVerifErrorViewController.swift */; };
+		DAB69C38282D2E1700579BBB /* DocPhotoVerifErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB69C37282D2E1700579BBB /* DocPhotoVerifErrorViewModel.swift */; };
 		DAB85363281FB475008F3E35 /* Face.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB85362281FB475008F3E35 /* Face.scnassets */; };
 		DABCE22328219CE700937E84 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DABCE22528219CE700937E84 /* Localizable.strings */; };
 		DABCE2292822754300937E84 /* CheckDocPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCE2282822754300937E84 /* CheckDocPhotoViewController.swift */; };
@@ -151,6 +159,14 @@
 		DAB613352814767900234BB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAB613382814767900234BB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAB6133A2814767900234BB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAB69C29282D067A00579BBB /* down.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = down.json; sourceTree = "<group>"; };
+		DAB69C2A282D067A00579BBB /* left.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = left.json; sourceTree = "<group>"; };
+		DAB69C2B282D067A00579BBB /* arrow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = arrow.json; sourceTree = "<group>"; };
+		DAB69C2C282D067A00579BBB /* up.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = up.json; sourceTree = "<group>"; };
+		DAB69C2D282D067A00579BBB /* mouth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mouth.json; sourceTree = "<group>"; };
+		DAB69C2E282D067A00579BBB /* right.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = right.json; sourceTree = "<group>"; };
+		DAB69C35282D289300579BBB /* DocPhotoVerifErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocPhotoVerifErrorViewController.swift; sourceTree = "<group>"; };
+		DAB69C37282D2E1700579BBB /* DocPhotoVerifErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocPhotoVerifErrorViewModel.swift; sourceTree = "<group>"; };
 		DAB85362281FB475008F3E35 /* Face.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Face.scnassets; sourceTree = "<group>"; };
 		DABCE22028214AE300937E84 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		DABCE22428219CE700937E84 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -383,6 +399,8 @@
 				DABCE22D2822BBE800937E84 /* CheckDocInfoViewController.swift */,
 				DA63D7942823B683005EE4C0 /* CheckDocInfoViewModel.swift */,
 				DA63D79828240644005EE4C0 /* DocInfoViewCell.swift */,
+				DAB69C35282D289300579BBB /* DocPhotoVerifErrorViewController.swift */,
+				DAB69C37282D2E1700579BBB /* DocPhotoVerifErrorViewModel.swift */,
 			);
 			path = check_doc_info_stage;
 			sourceTree = "<group>";
@@ -611,6 +629,7 @@
 				DAAF4E0A281AC7A60029F26C /* VerificationResponseModels.swift in Sources */,
 				DAAF4E0C281AC7A60029F26C /* TimestampRequest.swift in Sources */,
 				DA1235772827B1D60008A46E /* NoFaceDetectedViewController.swift in Sources */,
+				DAB69C38282D2E1700579BBB /* DocPhotoVerifErrorViewModel.swift in Sources */,
 				DAE87E152816CE6E00ED6826 /* DemoStartViewController.swift in Sources */,
 				E9DAE090281D638400EA73BA /* (null) in Sources */,
 				DAAF4E20281AC7A60029F26C /* DocumentResponseModels.swift in Sources */,
@@ -624,6 +643,7 @@
 				DA737432281AD4CB00DBBDED /* ApiError.swift in Sources */,
 				DA88A1E6282A9D69005C144D /* LivenessVideoRecorder.swift in Sources */,
 				DAB11439281D6515001F82E4 /* ChooseDocTypeViewModel.swift in Sources */,
+				DAB69C36282D289300579BBB /* DocPhotoVerifErrorViewController.swift in Sources */,
 				DAC2325A281C3EF300D0CE16 /* BlockedCountryViewCell.swift in Sources */,
 				DA47CDA4281C3B59001226B9 /* AllowedCountryViewCell.swift in Sources */,
 				DA12357D2827B2640008A46E /* WrongGestureViewController.swift in Sources */,

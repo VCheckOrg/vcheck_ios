@@ -287,7 +287,8 @@ extension LivenessScreenViewController {
         }
         if (obstacleType == ObstacleType.WRONG_GESTURE) {
             self.majorObstacleFrameCounterHolder.incrementWrongGestureFrameCounter()
-            if (self.majorObstacleFrameCounterHolder.getWrongGestureFrameCounter() >= LivenessScreenViewController.MAX_FRAMES_WITH_WRONG_GESTURE) {
+            if (self.majorObstacleFrameCounterHolder.getWrongGestureFrameCounter() >=
+                LivenessScreenViewController.MAX_FRAMES_WITH_WRONG_GESTURE) {
                 self.endSessionPrematurely(performSegueWithIdentifier: "LivenessToWrongGesture")
             }
         }

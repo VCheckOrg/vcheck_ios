@@ -1,3 +1,11 @@
+"enter_valid_dob" = "Введите дату рожения в формате 'ГГГГ-ММ-ДД'";
+
+"enter_valid_doc_number" = "Введите валидный номер документа";
+
+"enter_valid_name" = "Введите валидное имя";
+
+"enter_valid_surname" = "Введите валидную фамилию";
+
 /* No comment provided by engineer. */
 "error_make_at_least_one_photo" = "Пожалуйста, сделайте как минимум одно фото документа";
 
@@ -42,3 +50,5 @@
 
 /* No comment provided by engineer. */
 "no_search_data_label" = "Нет данных";
+"confident_in_doc_title" = "Я уверен(-а) в своем документе, продолжить процесс верификации";
+

@@ -159,10 +159,9 @@ class TakeDocPhotoViewController : UIViewController,
         }
     }
     
-    //TODO: if simulator, add gallery picker instead of image picker!
     @objc func takePhoto(_ sender:UITapGestureRecognizer) {
         let vc = UIImagePickerController()
-        vc.sourceType = .photoLibrary
+        vc.sourceType = .camera //.photoLibrary for tests in Simulator
         vc.allowsEditing = false
         vc.delegate = self
         present(vc, animated: true)
