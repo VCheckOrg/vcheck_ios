@@ -41,7 +41,6 @@ class CountryListViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.countriesDataSourceArr = countriesDataSourceArr.sorted { $0.name < $1.name }
         self.searchResultsList = countriesDataSourceArr
         
         noSearchDataLabel.text = NSLocalizedString("no_search_data_label", comment: "")
@@ -50,12 +49,21 @@ class CountryListViewController : UIViewController {
         searchBar.delegate = self
         countryListTable.delegate = self
         countryListTable.dataSource = self
+        
+        self.searchResultsList = getSortedArr()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         parentVC!.reloadData()
+    }
+    
+    func getSortedArr() -> [CountryTO] {
+        let locale = Locale(identifier: Localize.currentLanguage())
+        return self.countriesDataSourceArr.sorted {
+            return $0.name.compare($1.name, locale: locale) == .orderedAscending
+        }
     }
 }
 
@@ -90,8 +98,7 @@ extension CountryListViewController: UITableViewDataSource {
         if (cell is AllowedCountryViewCell) {
             (cell as! AllowedCountryViewCell).setCountryName(name: self.searchResultsList[indexPath.row].name)
             (cell as! AllowedCountryViewCell).setCountryFlag(flag: self.searchResultsList[indexPath.row].flag)
-        }
-        else {
+        } else {
             (cell as! BlockedCountryViewCell).setCountryName(name: self.searchResultsList[indexPath.row].name)
             (cell as! BlockedCountryViewCell).setCountryFlag(flag: self.searchResultsList[indexPath.row].flag)
         }

@@ -100,7 +100,6 @@ class CheckDocInfoViewController : UIViewController {
         } else {
             viewModel.getDocumentInfo(docId: self.docId!)
         }
-        
     }
     
     
@@ -176,6 +175,12 @@ extension CheckDocInfoViewController: UITableViewDataSource {
         cell.docTextField.delegate = self
         
         let fieldName = fieldsList[indexPath.row].name
+        
+        if (fieldName == "date_of_birth") {
+            cell.docTextField.keyboardType = .numberPad
+        } else {
+            cell.docTextField.keyboardType = .default
+        }
 
         let editingChanged = UIAction { _ in
             self.fieldsList = self.fieldsList.map {

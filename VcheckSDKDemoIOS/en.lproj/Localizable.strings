@@ -53,3 +53,5 @@
 "confident_in_doc_title" = "I am confident in my document, continue the verification process";
 
 "doc_date_placeholder" = "YYYY-MM-DD";
+
+"non_available" = "Non available";
