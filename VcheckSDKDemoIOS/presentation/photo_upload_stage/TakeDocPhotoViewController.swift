@@ -14,6 +14,9 @@ class TakeDocPhotoViewController : UIViewController,
     
     @IBOutlet weak var continueButtonTopConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var frontSideDocTitleConstraint: NSLayoutConstraint!
+    @IBOutlet weak var backSideDocTitleConstraint: NSLayoutConstraint!
+        
     @IBOutlet weak var firstPhotoCard: RoundedView!
     @IBOutlet weak var secondPhotoCard: RoundedView!
     
@@ -70,6 +73,9 @@ class TakeDocPhotoViewController : UIViewController,
             imgViewIconFirst.isHidden = true
             imgViewIconSecond.isHidden = true
             
+            frontSideDocTitleConstraint.constant = 16
+            backSideDocTitleConstraint.constant = 16
+            
             tvFirstCardTitle.text = NSLocalizedString("photo_upload_title_common_forward", comment: "")
             tvSecondCardTitle.text = NSLocalizedString("photo_upload_title_common_back", comment: "")
             
@@ -90,6 +96,7 @@ class TakeDocPhotoViewController : UIViewController,
                 imgViewIconFirst.image = UIImage(imageLiteralResourceName: "doc_ua_international_passport")
             } else {
                 imgViewIconFirst.isHidden = true
+                frontSideDocTitleConstraint.constant = 16
             }
             
             continueButtonTopConstraint.constant = 100
@@ -109,6 +116,9 @@ class TakeDocPhotoViewController : UIViewController,
             } else {
                 imgViewIconFirst.isHidden = true
                 imgViewIconSecond.isHidden = true
+                
+                frontSideDocTitleConstraint.constant = 16
+                backSideDocTitleConstraint.constant = 16
             }
             
             tvFirstCardTitle.text = NSLocalizedString("photo_upload_title_id_card_forward", comment: "")

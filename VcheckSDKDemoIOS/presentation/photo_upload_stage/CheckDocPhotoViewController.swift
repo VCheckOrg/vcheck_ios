@@ -29,10 +29,10 @@ class CheckDocPhotoViewController : UIViewController {
     @IBOutlet weak var confirmBtnVerticalConstraint: NSLayoutConstraint!
     @IBOutlet weak var remakeBtnVerticalConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var tvLoadingDescl: UITextView!
+    @IBOutlet weak var tvLoadingDescl: UILabel!
+    
     @IBOutlet weak var photosUploadingSpinner: UIActivityIndicatorView!
     
-    @IBOutlet weak var tvLoadingTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var uplSpinnerTopConstraint: NSLayoutConstraint!
     
     
@@ -51,14 +51,17 @@ class CheckDocPhotoViewController : UIViewController {
             
             let zoomSecondPhotoTap = UITapGestureRecognizer(target: self, action: #selector(zoomSecondPhoto(_:)))
             zoomSecondPhotoBtn.addGestureRecognizer(zoomSecondPhotoTap)
+
+            uplSpinnerTopConstraint.constant = 400
+            
         } else {
             secondPhotoCard.isHidden = true
             
             remakeBtnVerticalConstraint.constant = 86
             confirmBtnVerticalConstraint.constant = 160
-            
-            tvLoadingTopConstraint.constant = 80
-            uplSpinnerTopConstraint.constant = 160
+                    
+            uplSpinnerTopConstraint.constant = 130
+
         }
                 
         viewModel.didReceiveDocUploadResponse = {
