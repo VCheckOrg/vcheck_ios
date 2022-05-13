@@ -51,3 +51,5 @@
 /* No comment provided by engineer. */
 "no_search_data_label" = "No data available";
 "confident_in_doc_title" = "I am confident in my document, continue the verification process";
+
+"doc_date_placeholder" = "YYYY-MM-DD";

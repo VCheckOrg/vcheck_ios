@@ -28,7 +28,7 @@
 		<key>Alamofire.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>12</integer>
+			<integer>10</integer>
 		</dict>
 		<key>AlamofireNetworkActivityLogger.xcscheme</key>
 		<dict>
@@ -75,7 +75,7 @@
 		<key>Pods-VcheckSDKDemoIOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>11</integer>
 		</dict>
 		<key>PromisesObjC.xcscheme</key>
 		<dict>

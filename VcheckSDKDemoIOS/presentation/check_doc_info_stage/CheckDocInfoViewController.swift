@@ -37,8 +37,21 @@ class CheckDocInfoViewController : UIViewController {
     @IBOutlet weak var tableTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var docInfoScrollView: UIScrollView!
+    
+    
     @IBAction func submitDocAction(_ sender: UIButton) {
         self.checkDocFieldsAndPerformConfirmation()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        registerKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func viewDidLoad() {
@@ -177,7 +190,7 @@ extension CheckDocInfoViewController: UITableViewDataSource {
                                         for: UIControl.Event.editingChanged)
         }
         if(fieldName == "date_of_birth") {
-            cell.docTextField.placeholder = "ГГГГ-ММ-ДД"
+            cell.docTextField.placeholder = "doc_date_placeholder".localized()
             cell.docTextField.addTarget(self, action: #selector(self.validateDocDateOfBirthField(_:)),
                                         for: UIControl.Event.editingChanged)
         }
@@ -228,12 +241,44 @@ extension CheckDocInfoViewController: UITableViewDataSource {
         }
     
     }
-}
+    
+    func registerKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self,
+                                             selector: #selector(keyboardWillShow(notification:)),
+                                             name: UIResponder.keyboardWillShowNotification,
+                                             object: nil)
+        NotificationCenter.default.addObserver(self,
+                                             selector: #selector(keyboardWillHide(notification:)),
+                                             name: UIResponder.keyboardWillHideNotification,
+                                             object: nil)
+    }
 
+    @objc func keyboardWillShow(notification: NSNotification) {
+        let userInfo: NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardInfo = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue // keyboardFrameEndUserInfoKey
+        let keyboardSize = keyboardInfo.cgRectValue.size
+        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+        self.docInfoScrollView.contentInset = contentInsets
+        self.docInfoScrollView.scrollIndicatorInsets = contentInsets
+        
+        
+        //TODO: test on more devices!
+        var diff = 0.0
+        if (secondPhoto != nil) {
+            diff = keyboardSize.height - 130.0
+        } else {
+            diff = keyboardSize.height - 270.0
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100) ) {
+            self.docInfoScrollView.setContentOffset(CGPoint(x: self.view.frame.minX,
+                                                            y: self.tableViewHeightConstraint.constant + diff),
+                                                            animated: true)
+        }
+    }
 
-extension String {
-    func isMatchedBy(regex: String) -> Bool {
-        return (self.range(of: regex, options: .regularExpression) ?? nil) != nil
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.docInfoScrollView.contentInset = .zero
+        self.docInfoScrollView.scrollIndicatorInsets = .zero
     }
 }
 

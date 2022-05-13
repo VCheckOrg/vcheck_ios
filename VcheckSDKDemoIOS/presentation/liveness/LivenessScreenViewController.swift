@@ -86,13 +86,7 @@ public final class LivenessScreenViewController: UIViewController {
         imgMilestoneChecked.isHidden = true
         indicationFrame.isHidden = true
         
-        do {
-            faceSession = try GARAugmentedFaceSession(fieldOfView: videoFieldOfView)
-        } catch {
-            alertWindowTitle = "A fatal error occurred."
-            alertMessage = "Failed to create session. Error description: \(error)"
-            popupAlertWindowOnError(alertWindowTitle: alertWindowTitle, alertMessage: alertMessage)
-        }
+        setupFaceSession()
     }
     
     override public func viewDidAppear(_ animated: Bool) {
@@ -146,6 +140,7 @@ public final class LivenessScreenViewController: UIViewController {
     
     func renewLivenessSessionOnRetry() {
         DispatchQueue.main.async {
+            self.indicationFrame.alpha = 1
             // reset UI
             self.imgMilestoneChecked.isHidden = true
             self.indicationFrame.isHidden = true
@@ -168,6 +163,18 @@ public final class LivenessScreenViewController: UIViewController {
             self.livenessSessionTimeoutTimer = nil
             self.startLivenessSessionTimeoutTimer()
         }
+        self.faceSession = nil
+        self.setupFaceSession()
+    }
+    
+    func setupFaceSession() {
+        do {
+            faceSession = try GARAugmentedFaceSession(fieldOfView: videoFieldOfView)
+        } catch {
+            alertWindowTitle = "A fatal error occurred."
+            alertMessage = "Failed to create session. Error description: \(error)"
+            popupAlertWindowOnError(alertWindowTitle: alertWindowTitle, alertMessage: alertMessage)
+        }
     }
 }
 
@@ -184,8 +191,10 @@ extension LivenessScreenViewController: SCNSceneRendererDelegate {
         
         if (isLivenessSessionFinished == false) {
             if (blockStageIndicationByUI == false) {
-                updateFaceAnimation()
-                updateArrowAnimation()
+                DispatchQueue.main.async {
+                    self.updateFaceAnimation()
+                    self.updateArrowAnimation()
+                }
             }
             processFaceFrame(frame: frame)
         } else {
@@ -194,7 +203,7 @@ extension LivenessScreenViewController: SCNSceneRendererDelegate {
                 self.videoStreamingPermitted = false
                 self.videoRecorder.stopRecording(completion: { url in
                     DispatchQueue.main.async {
-                    print("========== FINISHED WRITING VIDEO IN: \(url)")
+                        print("========== FINISHED WRITING VIDEO IN: \(url)")
                         if (self.livenessSessionTimeoutTimer != nil) {
                             self.livenessSessionTimeoutTimer!.cancel()
                         }
@@ -217,11 +226,16 @@ extension LivenessScreenViewController {
                 processFaceCalcForFrame(face: face)
             }
             if (videoStreamingPermitted == true) {
-                updateCameraFrame(frame: frame)
+                DispatchQueue.main.async {
+                    self.updateCameraFrame(frame: frame)
+                }
+                
             }
             
-            // Only show AR content when a face is detected. //!
-            sceneView.scene?.rootNode.isHidden = frame.face == nil
+            DispatchQueue.main.async {
+                // Only show AR content when a face is detected. //!
+                self.sceneView.scene?.rootNode.isHidden = frame.face == nil
+            }
         }
     }
     
@@ -377,7 +391,9 @@ extension LivenessScreenViewController {
     }
     
     func setupOrUpdateFaceAnimation(forMilestoneType: GestureMilestoneType) {
-            
+        
+        faceAnimationView.subviews.forEach { $0.removeFromSuperview() }
+        
         if (forMilestoneType == GestureMilestoneType.CheckHeadPositionMilestone) {
             faceAnimationView = AnimationView(name: "left")
         } else if (forMilestoneType == GestureMilestoneType.OuterLeftHeadPitchMilestone) {
@@ -471,12 +487,14 @@ extension LivenessScreenViewController {
     }
     
     func fadeViewInThenOut(view : UIView, delay: TimeInterval) {
-        let animationDuration = Double(LivenessScreenViewController.BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS) / 1000.0
-        UIView.animate(withDuration: animationDuration, delay: delay,
-                       options: [UIView.AnimationOptions.autoreverse,
-                                 UIView.AnimationOptions.repeat], animations: {
-            view.alpha = 0
-        }, completion: nil)
+        DispatchQueue.main.async {
+            let animationDuration = Double(LivenessScreenViewController.BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS) / 1000.0
+            UIView.animate(withDuration: animationDuration, delay: delay,
+                           options: [UIView.AnimationOptions.autoreverse,
+                                     UIView.AnimationOptions.repeat], animations: {
+                view.alpha = 0
+            }, completion: nil)
+        }
     }
 }
 

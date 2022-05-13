@@ -52,3 +52,4 @@
 "no_search_data_label" = "Нет данных";
 "confident_in_doc_title" = "Я уверен(-а) в своем документе, продолжить процесс верификации";
 
+"doc_date_placeholder" = "ГГГГ-ММ-ДД";

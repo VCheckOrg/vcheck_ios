@@ -2156,7 +2156,7 @@
                                                 <rect key="frame" x="12" y="84" width="366" height="909"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проверьте, все ли данные по документу были распознаны корректно?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgk-ad-nWW">
-                                                        <rect key="frame" x="16" y="56" width="334" height="43"/>
+                                                        <rect key="frame" x="16" y="65" width="334" height="43"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="43" id="bmq-XP-yhI"/>
                                                         </constraints>
@@ -2171,7 +2171,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3Y-Ya-7BQ" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="113" width="334" height="250"/>
+                                                        <rect key="frame" x="16" y="122" width="334" height="250"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_photo_1" translatesAutoresizingMaskIntoConstraints="NO" id="2NZ-jG-pb9">
                                                                 <rect key="frame" x="18" y="0.0" width="298" height="250"/>
@@ -2202,7 +2202,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Cf-tI-RPy" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="379" width="334" height="250"/>
+                                                        <rect key="frame" x="16" y="388" width="334" height="250"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_photo" translatesAutoresizingMaskIntoConstraints="NO" id="87H-j0-OXZ">
                                                                 <rect key="frame" x="18" y="0.0" width="298" height="250"/>
@@ -2232,7 +2232,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Zhd-T3-QWa">
-                                                        <rect key="frame" x="16" y="636.66666666666663" width="334" height="175.33333333333337"/>
+                                                        <rect key="frame" x="16" y="645.66666666666663" width="334" height="175.33333333333337"/>
                                                         <color key="backgroundColor" name="CardColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="175.5" id="HJe-os-lcS"/>
@@ -2328,7 +2328,7 @@
                                                     <constraint firstAttribute="height" constant="909" id="1Py-Yb-KBE"/>
                                                     <constraint firstAttribute="trailing" secondItem="4Cf-tI-RPy" secondAttribute="trailing" constant="16" id="7dZ-FH-jSh"/>
                                                     <constraint firstItem="FNT-ys-lqv" firstAttribute="top" secondItem="Kzh-Vj-yGm" secondAttribute="top" constant="18" id="9xp-iV-MrB"/>
-                                                    <constraint firstItem="oMH-sQ-S0l" firstAttribute="top" secondItem="Zhd-T3-QWa" secondAttribute="bottom" constant="21" id="Arr-xN-dkK"/>
+                                                    <constraint firstItem="oMH-sQ-S0l" firstAttribute="top" secondItem="Zhd-T3-QWa" secondAttribute="bottom" constant="12" id="Arr-xN-dkK"/>
                                                     <constraint firstItem="q3Y-Ya-7BQ" firstAttribute="top" secondItem="Wgk-ad-nWW" secondAttribute="bottom" constant="14" id="CYj-00-hdl"/>
                                                     <constraint firstItem="Wgk-ad-nWW" firstAttribute="leading" secondItem="FNT-ys-lqv" secondAttribute="leading" id="GkL-Dm-3mH"/>
                                                     <constraint firstAttribute="trailing" secondItem="Zhd-T3-QWa" secondAttribute="trailing" constant="16" id="HmF-Rf-J3L"/>
@@ -2385,6 +2385,7 @@
                     <navigationItem key="navigationItem" id="rH8-hJ-t2h"/>
                     <connections>
                         <outlet property="docFieldsTableView" destination="Zhd-T3-QWa" id="upf-gP-u7v"/>
+                        <outlet property="docInfoScrollView" destination="JZq-tw-zcH" id="p1c-3n-RYD"/>
                         <outlet property="firstPhotoImageView" destination="2NZ-jG-pb9" id="eK7-zw-hXJ"/>
                         <outlet property="parentCardHeightConstraint" destination="1Py-Yb-KBE" id="abr-Xq-MwX"/>
                         <outlet property="secondPhotoImageView" destination="87H-j0-OXZ" id="blw-es-Ov1"/>

@@ -27,6 +27,7 @@ class DocPhotoVerifErrorViewController : UIViewController {
     }
     
     @IBAction func actionResumeToDocCheck(_ sender: UIButton) {
+        self.btnContinueToCheckDoc.isHidden = true //!
         self.viewModel.setDocAsPrimary(docId: self.docId!)
     }
     

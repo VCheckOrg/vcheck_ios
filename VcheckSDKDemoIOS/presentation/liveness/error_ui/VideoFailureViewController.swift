@@ -10,5 +10,5 @@ import UIKit
 
 class VideoFailureViewController: UIViewController {
     
-    
+    //TODO: write buttons logic
 }

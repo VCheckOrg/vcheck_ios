@@ -35,6 +35,8 @@ class CountryListViewController : UIViewController {
     
     var searchResultsList: [CountryTO] = []
     
+    var parentVC: ChooseCountryViewController? = nil
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,12 +54,8 @@ class CountryListViewController : UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
-        if let firstVC = presentingViewController as? ChooseCountryViewController {
-            DispatchQueue.main.async {
-                firstVC.reloadData()
-            }
-        }
+        
+        parentVC!.reloadData()
     }
 }
 
