@@ -161,7 +161,7 @@ class TakeDocPhotoViewController : UIViewController,
     
     @objc func takePhoto(_ sender:UITapGestureRecognizer) {
         let vc = UIImagePickerController()
-        vc.sourceType = .camera //.photoLibrary for tests in Simulator
+        vc.sourceType = .photoLibrary //.photoLibrary for tests in Simulator
         vc.allowsEditing = false
         vc.delegate = self
         present(vc, animated: true)
@@ -266,6 +266,10 @@ class TakeDocPhotoViewController : UIViewController,
         } else {
             if (firstPhoto != nil && secondPhoto != nil) {
                 prepareForNavigation(resetSecondPhoto: true)
+            } else {
+                btnContinueToPreview.tintColor = UIColor(named: "borderColor")
+                btnContinueToPreview.titleLabel?.textColor = UIColor.gray
+                btnContinueToPreview.gestureRecognizers?.forEach(btnContinueToPreview.removeGestureRecognizer)
             }
         }
     }
