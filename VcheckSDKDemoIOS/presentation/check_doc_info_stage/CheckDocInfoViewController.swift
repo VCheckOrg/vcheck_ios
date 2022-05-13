@@ -190,7 +190,10 @@ extension CheckDocInfoViewController: UITableViewDataSource {
                                         for: UIControl.Event.editingChanged)
         }
         if(fieldName == "date_of_birth") {
-            cell.docTextField.placeholder = "doc_date_placeholder".localized()
+            cell.docTextField.attributedPlaceholder = NSAttributedString(
+                string: "doc_date_placeholder".localized(),
+                attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
+            )
             cell.docTextField.addTarget(self, action: #selector(self.validateDocDateOfBirthField(_:)),
                                         for: UIControl.Event.editingChanged)
         }
@@ -332,13 +335,19 @@ extension CheckDocInfoViewController {
     }
 }
 
-extension UIViewController: UITextFieldDelegate{
+extension UIViewController: UITextFieldDelegate {
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true;
     }
-}
 
+//    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//       let allowedCharacters = CharacterSet.decimalDigits
+//       let characterSet = CharacterSet(charactersIn: string)
+//       return allowedCharacters.isSuperset(of: characterSet)
+//   }
+
+}
 
 // Deprecated fields/checks:
 
@@ -366,3 +375,4 @@ extension UIViewController: UITextFieldDelegate{
 //            if ($0.name == "og_surname") {
 //                data.ogSurname = $0.autoParsedValue
 //            }
+
