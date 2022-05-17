@@ -23,6 +23,12 @@ PODS:
   - GoogleUtilities/Environment (7.7.0):
     - PromisesObjC (< 3.0, >= 1.2)
   - GTMSessionFetcher/Core (1.7.1)
+  - Localize-Swift (3.2.0):
+    - Localize-Swift/LocalizeSwiftCore (= 3.2.0)
+    - Localize-Swift/UIKit (= 3.2.0)
+  - Localize-Swift/LocalizeSwiftCore (3.2.0)
+  - Localize-Swift/UIKit (3.2.0):
+    - Localize-Swift/LocalizeSwiftCore
   - lottie-ios (3.3.0)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
@@ -35,6 +41,7 @@ DEPENDENCIES:
   - Alamofire (~> 5.4.0)
   - AlamofireNetworkActivityLogger (~> 3.4)
   - ARCore/AugmentedFaces (~> 1.30.0)
+  - Localize-Swift (~> 3.2)
   - lottie-ios
 
 SPEC REPOS:
@@ -46,6 +53,7 @@ SPEC REPOS:
     - GoogleToolboxForMac
     - GoogleUtilities
     - GTMSessionFetcher
+    - Localize-Swift
     - lottie-ios
     - nanopb
     - PromisesObjC
@@ -58,10 +66,11 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8bef7c7c5cf7291c687cf5354f39f9db6399ad34
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   GTMSessionFetcher: 4577a4cc914a5a07c40a8a0ad0acc22080418c2d
+  Localize-Swift: 6f4475136bdb0d7b2882ea3d4ea919d70142b232
   lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 99b6f43f9e1044bd87a95a60beff28c2c44ddb72
 
-PODFILE CHECKSUM: 108df9cfd6fd2e063f1ddca1a45b36485a4a46d4
+PODFILE CHECKSUM: 9aeed9a44d428d6f4c4f5cc98a7878b0456ccdf0
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.11.2
