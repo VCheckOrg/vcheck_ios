@@ -41,7 +41,7 @@ class ChooseCountryViewController : UIViewController {
            print("COUNTRY NOT FOUND IN KEYCHAIN")
            tvSelectedCountryName.text = countries[0].name
            tvSelectedCountryFlag.text = countries[0].flag
-        }
+       }
     }
     
     @objc func navigateToList(_ sender:UITapGestureRecognizer){
@@ -55,15 +55,4 @@ class ChooseCountryViewController : UIViewController {
             vc.parentVC = self
         }
     }
-    
-//    public func presentationControllerDidDismiss(
-//        _ presentationController: UIPresentationController) {
-//        // Only called when the sheet is dismissed by DRAGGING.
-//        // You'll need something extra if you call .dismiss() on the child.
-//        // (I found that overriding dismiss in the child and calling
-//        // presentationController.delegate?.presentationControllerDidDismiss
-//        // works well).
-//
-//
-//      }
 }

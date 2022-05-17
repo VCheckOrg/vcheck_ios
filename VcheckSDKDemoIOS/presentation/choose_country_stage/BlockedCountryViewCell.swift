@@ -13,7 +13,10 @@ class BlockedCountryViewCell : UITableViewCell {
     @IBOutlet weak var tvCountryFlag: UITextView!
     
     @IBOutlet weak var tvCountryName: UITextView!
-        
+    
+    @IBOutlet weak var localizedNADiscl: UITextView!
+    
+    
     func setCountryName(name: String) {
         tvCountryName.text = name
     }

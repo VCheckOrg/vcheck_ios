@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A869F9596DC505230D4CAE6B /* Pods_VcheckSDKDemoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71821315842BE5CF16624BC4 /* Pods_VcheckSDKDemoIOS.framework */; };
 		DA1235712827A5D80008A46E /* FaceCalcExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1235702827A5D80008A46E /* FaceCalcExtensions.swift */; };
 		DA1235732827A7F90008A46E /* LivenessVCExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1235722827A7F90008A46E /* LivenessVCExtensions.swift */; };
 		DA1235752827B1B00008A46E /* NoTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1235742827B1B00008A46E /* NoTimeViewController.swift */; };
@@ -61,12 +60,6 @@
 		DAB613342814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAB613322814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld */; };
 		DAB613362814767900234BB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB613352814767900234BB2 /* Assets.xcassets */; };
 		DAB613392814767900234BB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB613372814767900234BB2 /* LaunchScreen.storyboard */; };
-		DAB69C2F282D067A00579BBB /* down.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB69C29282D067A00579BBB /* down.json */; };
-		DAB69C30282D067A00579BBB /* left.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB69C2A282D067A00579BBB /* left.json */; };
-		DAB69C31282D067A00579BBB /* arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB69C2B282D067A00579BBB /* arrow.json */; };
-		DAB69C32282D067A00579BBB /* up.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB69C2C282D067A00579BBB /* up.json */; };
-		DAB69C33282D067A00579BBB /* mouth.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB69C2D282D067A00579BBB /* mouth.json */; };
-		DAB69C34282D067A00579BBB /* right.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB69C2E282D067A00579BBB /* right.json */; };
 		DAB69C36282D289300579BBB /* DocPhotoVerifErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB69C35282D289300579BBB /* DocPhotoVerifErrorViewController.swift */; };
 		DAB69C38282D2E1700579BBB /* DocPhotoVerifErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB69C37282D2E1700579BBB /* DocPhotoVerifErrorViewModel.swift */; };
 		DAB85363281FB475008F3E35 /* Face.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB85362281FB475008F3E35 /* Face.scnassets */; };
@@ -83,17 +76,19 @@
 		DAD01E552826D495007DA004 /* ic_success.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD01E542826D495007DA004 /* ic_success.png */; };
 		DADD31EF281D7A0200EB25ED /* DocumentTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD31EE281D7A0200EB25ED /* DocumentTypes.swift */; };
 		DADD31F2281D93F800EB25ED /* LivenessScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD31F1281D93F800EB25ED /* LivenessScreenViewController.swift */; };
+		DAE61CC1282E46D200903437 /* Localize_Swift in Frameworks */ = {isa = PBXBuildFile; productRef = DAE61CC0282E46D200903437 /* Localize_Swift */; };
 		DAE87E102816CC1F00ED6826 /* ChooseCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E0F2816CC1F00ED6826 /* ChooseCountryViewController.swift */; };
 		DAE87E122816CC2C00ED6826 /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E112816CC2C00ED6826 /* CountryListViewController.swift */; };
 		DAE87E152816CE6E00ED6826 /* DemoStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E142816CE6E00ED6826 /* DemoStartViewController.swift */; };
 		E9B25AA5282BAC6800D5865B /* TextFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B25AA4282BAC6800D5865B /* TextFieldError.swift */; };
-		E9DAE090281D638400EA73BA /* (null) in Sources */ = {isa = PBXBuildFile; };
+		E9DAE090281D638400EA73BA /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		FE49FAE595C75E03465517E3 /* Pods_VcheckSDKDemoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5016D62A72EAE8F46E5DF3A0 /* Pods_VcheckSDKDemoIOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		56D8890D8155CC11D7D6B135 /* Pods-VcheckSDKDemoIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcheckSDKDemoIOS.debug.xcconfig"; path = "Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS.debug.xcconfig"; sourceTree = "<group>"; };
-		71821315842BE5CF16624BC4 /* Pods_VcheckSDKDemoIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VcheckSDKDemoIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B1539170A90FB9F7881F6587 /* Pods-VcheckSDKDemoIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcheckSDKDemoIOS.release.xcconfig"; path = "Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS.release.xcconfig"; sourceTree = "<group>"; };
+		5016D62A72EAE8F46E5DF3A0 /* Pods_VcheckSDKDemoIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VcheckSDKDemoIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92F5B193435FA075F0623B90 /* Pods-VcheckSDKDemoIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcheckSDKDemoIOS.release.xcconfig"; path = "Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS.release.xcconfig"; sourceTree = "<group>"; };
+		C67C5A318995C9A1F62FEF03 /* Pods-VcheckSDKDemoIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcheckSDKDemoIOS.debug.xcconfig"; path = "Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		DA1235702827A5D80008A46E /* FaceCalcExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCalcExtensions.swift; sourceTree = "<group>"; };
 		DA1235722827A7F90008A46E /* LivenessVCExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessVCExtensions.swift; sourceTree = "<group>"; };
 		DA1235742827B1B00008A46E /* NoTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoTimeViewController.swift; sourceTree = "<group>"; };
@@ -159,12 +154,6 @@
 		DAB613352814767900234BB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAB613382814767900234BB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAB6133A2814767900234BB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DAB69C29282D067A00579BBB /* down.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = down.json; sourceTree = "<group>"; };
-		DAB69C2A282D067A00579BBB /* left.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = left.json; sourceTree = "<group>"; };
-		DAB69C2B282D067A00579BBB /* arrow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = arrow.json; sourceTree = "<group>"; };
-		DAB69C2C282D067A00579BBB /* up.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = up.json; sourceTree = "<group>"; };
-		DAB69C2D282D067A00579BBB /* mouth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mouth.json; sourceTree = "<group>"; };
-		DAB69C2E282D067A00579BBB /* right.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = right.json; sourceTree = "<group>"; };
 		DAB69C35282D289300579BBB /* DocPhotoVerifErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocPhotoVerifErrorViewController.swift; sourceTree = "<group>"; };
 		DAB69C37282D2E1700579BBB /* DocPhotoVerifErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocPhotoVerifErrorViewModel.swift; sourceTree = "<group>"; };
 		DAB85362281FB475008F3E35 /* Face.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Face.scnassets; sourceTree = "<group>"; };
@@ -201,26 +190,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A869F9596DC505230D4CAE6B /* Pods_VcheckSDKDemoIOS.framework in Frameworks */,
+				DAE61CC1282E46D200903437 /* Localize_Swift in Frameworks */,
+				FE49FAE595C75E03465517E3 /* Pods_VcheckSDKDemoIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		11D76F7ADC2999F8AAD8A593 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				71821315842BE5CF16624BC4 /* Pods_VcheckSDKDemoIOS.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		C55ED8972A87D4D9813AA1B5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				56D8890D8155CC11D7D6B135 /* Pods-VcheckSDKDemoIOS.debug.xcconfig */,
-				B1539170A90FB9F7881F6587 /* Pods-VcheckSDKDemoIOS.release.xcconfig */,
+				C67C5A318995C9A1F62FEF03 /* Pods-VcheckSDKDemoIOS.debug.xcconfig */,
+				92F5B193435FA075F0623B90 /* Pods-VcheckSDKDemoIOS.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -343,8 +325,8 @@
 				DAB613282814767700234BB2 /* VcheckSDKDemoIOS */,
 				DAB613272814767700234BB2 /* Products */,
 				C55ED8972A87D4D9813AA1B5 /* Pods */,
-				11D76F7ADC2999F8AAD8A593 /* Frameworks */,
 				E9B25AA3282BA92400D5865B /* Recovered References */,
+				F70C3F0F1C01BF3BEB9EE333 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -465,6 +447,14 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		F70C3F0F1C01BF3BEB9EE333 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5016D62A72EAE8F46E5DF3A0 /* Pods_VcheckSDKDemoIOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -472,12 +462,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DAB6133D2814767900234BB2 /* Build configuration list for PBXNativeTarget "VcheckSDKDemoIOS" */;
 			buildPhases = (
-				D2123B03DC67FDF5557F9664 /* [CP] Check Pods Manifest.lock */,
+				CABE2A6FE886BB8714FFB101 /* [CP] Check Pods Manifest.lock */,
 				DAB613222814767700234BB2 /* Sources */,
 				DAB613232814767700234BB2 /* Frameworks */,
 				DAB613242814767700234BB2 /* Resources */,
-				0DF0E5655B1780474889EBC6 /* [CP] Embed Pods Frameworks */,
-				4864F71E6B605A03B16C6C65 /* [CP] Copy Pods Resources */,
+				18767E86F60D1D1C5766D331 /* [CP] Embed Pods Frameworks */,
+				790E1E38276A573A976BF142 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -485,6 +475,7 @@
 			);
 			name = VcheckSDKDemoIOS;
 			packageProductDependencies = (
+				DAE61CC0282E46D200903437 /* Localize_Swift */,
 			);
 			productName = VcheckSDKDemoIOS;
 			productReference = DAB613262814767700234BB2 /* VcheckSDKDemoIOS.app */;
@@ -517,6 +508,7 @@
 			);
 			mainGroup = DAB6131D2814767700234BB2;
 			packageReferences = (
+				DAE61CBF282E46D200903437 /* XCRemoteSwiftPackageReference "Localize-Swift.git" */,
 			);
 			productRefGroup = DAB613272814767700234BB2 /* Products */;
 			projectDirPath = "";
@@ -552,7 +544,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0DF0E5655B1780474889EBC6 /* [CP] Embed Pods Frameworks */ = {
+		18767E86F60D1D1C5766D331 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -569,7 +561,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4864F71E6B605A03B16C6C65 /* [CP] Copy Pods Resources */ = {
+		790E1E38276A573A976BF142 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -586,7 +578,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D2123B03DC67FDF5557F9664 /* [CP] Check Pods Manifest.lock */ = {
+		CABE2A6FE886BB8714FFB101 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -631,7 +623,7 @@
 				DA1235772827B1D60008A46E /* NoFaceDetectedViewController.swift in Sources */,
 				DAB69C38282D2E1700579BBB /* DocPhotoVerifErrorViewModel.swift in Sources */,
 				DAE87E152816CE6E00ED6826 /* DemoStartViewController.swift in Sources */,
-				E9DAE090281D638400EA73BA /* (null) in Sources */,
+				E9DAE090281D638400EA73BA /* BuildFile in Sources */,
 				DAAF4E20281AC7A60029F26C /* DocumentResponseModels.swift in Sources */,
 				DA34598128201D9600068E6D /* TakeDocPhotoViewController.swift in Sources */,
 				DA63D7952823B683005EE4C0 /* CheckDocInfoViewModel.swift in Sources */,
@@ -835,7 +827,7 @@
 		};
 		DAB6133E2814767900234BB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 56D8890D8155CC11D7D6B135 /* Pods-VcheckSDKDemoIOS.debug.xcconfig */;
+			baseConfigurationReference = C67C5A318995C9A1F62FEF03 /* Pods-VcheckSDKDemoIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -871,7 +863,7 @@
 		};
 		DAB6133F2814767900234BB2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B1539170A90FB9F7881F6587 /* Pods-VcheckSDKDemoIOS.release.xcconfig */;
+			baseConfigurationReference = 92F5B193435FA075F0623B90 /* Pods-VcheckSDKDemoIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -927,6 +919,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DAE61CBF282E46D200903437 /* XCRemoteSwiftPackageReference "Localize-Swift.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Localize-Swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DAE61CC0282E46D200903437 /* Localize_Swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DAE61CBF282E46D200903437 /* XCRemoteSwiftPackageReference "Localize-Swift.git" */;
+			productName = Localize_Swift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		DAB613322814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld */ = {
