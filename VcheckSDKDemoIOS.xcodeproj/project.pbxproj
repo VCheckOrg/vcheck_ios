@@ -76,12 +76,11 @@
 		DAD01E552826D495007DA004 /* ic_success.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD01E542826D495007DA004 /* ic_success.png */; };
 		DADD31EF281D7A0200EB25ED /* DocumentTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD31EE281D7A0200EB25ED /* DocumentTypes.swift */; };
 		DADD31F2281D93F800EB25ED /* LivenessScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD31F1281D93F800EB25ED /* LivenessScreenViewController.swift */; };
-		DAE61CC1282E46D200903437 /* Localize_Swift in Frameworks */ = {isa = PBXBuildFile; productRef = DAE61CC0282E46D200903437 /* Localize_Swift */; };
 		DAE87E102816CC1F00ED6826 /* ChooseCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E0F2816CC1F00ED6826 /* ChooseCountryViewController.swift */; };
 		DAE87E122816CC2C00ED6826 /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E112816CC2C00ED6826 /* CountryListViewController.swift */; };
 		DAE87E152816CE6E00ED6826 /* DemoStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E142816CE6E00ED6826 /* DemoStartViewController.swift */; };
 		E9B25AA5282BAC6800D5865B /* TextFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B25AA4282BAC6800D5865B /* TextFieldError.swift */; };
-		E9DAE090281D638400EA73BA /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		E9DAE090281D638400EA73BA /* (null) in Sources */ = {isa = PBXBuildFile; };
 		FE49FAE595C75E03465517E3 /* Pods_VcheckSDKDemoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5016D62A72EAE8F46E5DF3A0 /* Pods_VcheckSDKDemoIOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -190,7 +189,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAE61CC1282E46D200903437 /* Localize_Swift in Frameworks */,
 				FE49FAE595C75E03465517E3 /* Pods_VcheckSDKDemoIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,7 +473,6 @@
 			);
 			name = VcheckSDKDemoIOS;
 			packageProductDependencies = (
-				DAE61CC0282E46D200903437 /* Localize_Swift */,
 			);
 			productName = VcheckSDKDemoIOS;
 			productReference = DAB613262814767700234BB2 /* VcheckSDKDemoIOS.app */;
@@ -508,7 +505,6 @@
 			);
 			mainGroup = DAB6131D2814767700234BB2;
 			packageReferences = (
-				DAE61CBF282E46D200903437 /* XCRemoteSwiftPackageReference "Localize-Swift.git" */,
 			);
 			productRefGroup = DAB613272814767700234BB2 /* Products */;
 			projectDirPath = "";
@@ -623,7 +619,7 @@
 				DA1235772827B1D60008A46E /* NoFaceDetectedViewController.swift in Sources */,
 				DAB69C38282D2E1700579BBB /* DocPhotoVerifErrorViewModel.swift in Sources */,
 				DAE87E152816CE6E00ED6826 /* DemoStartViewController.swift in Sources */,
-				E9DAE090281D638400EA73BA /* BuildFile in Sources */,
+				E9DAE090281D638400EA73BA /* (null) in Sources */,
 				DAAF4E20281AC7A60029F26C /* DocumentResponseModels.swift in Sources */,
 				DA34598128201D9600068E6D /* TakeDocPhotoViewController.swift in Sources */,
 				DA63D7952823B683005EE4C0 /* CheckDocInfoViewModel.swift in Sources */,
@@ -919,25 +915,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		DAE61CBF282E46D200903437 /* XCRemoteSwiftPackageReference "Localize-Swift.git" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/marmelroy/Localize-Swift.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		DAE61CC0282E46D200903437 /* Localize_Swift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DAE61CBF282E46D200903437 /* XCRemoteSwiftPackageReference "Localize-Swift.git" */;
-			productName = Localize_Swift;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		DAB613322814767700234BB2 /* VcheckSDKDemoIOS.xcdatamodeld */ = {

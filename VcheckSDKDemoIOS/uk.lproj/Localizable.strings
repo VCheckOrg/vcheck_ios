@@ -4,10 +4,12 @@
 
 "enter_valid_name" = "Введіть валідне ім'я";
 
-"enter_valid_surname" = "Введите валідне прізвище";
+"enter_valid_surname" = "Введіть валідне прізвище";
 
 /* No comment provided by engineer. */
 "error_make_at_least_one_photo" = "Будь ласка, зробіть щонайменше одну фотографію документа";
+
+"error_make_two_photos" = "Будь ласка, зробіть дві фотографії документа";
 
 /* No comment provided by engineer. */
 "error_some_fields_are_empty" = "Будь ласка, заповніть всі поля документа";
@@ -50,8 +52,17 @@
 
 /* No comment provided by engineer. */
 "no_search_data_label" = "Немає даних";
-"confident_in_doc_title" = "Я впевнен(-а) в своєму документі, продовжити процес верифікації";
+
+"confident_in_doc_title" = "Я впевнений(-а) в своєму документі, продовжити процес верифікації";
 
 "doc_date_placeholder" = "РРРР-ММ-ДД";
 
 "non_available" = "Недоступно";
+
+"bermuda" = "Бермудські Острови";
+
+"invalid_doc_type_desc" = "Документ не відповідає вибраному типу. Рекомендуємо повторити завантаження документа.";
+
+"verif_error_desc" = "Щось пішло не так. Рекомендуємо повторити завантаження документа.";
+
+"check_doc_fields_input_message" = "Перевірте правильність заповнення усіх полей документа";

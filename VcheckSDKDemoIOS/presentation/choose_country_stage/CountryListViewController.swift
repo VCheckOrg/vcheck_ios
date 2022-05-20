@@ -96,11 +96,22 @@ extension CountryListViewController: UITableViewDataSource {
         }
         
         if (cell is AllowedCountryViewCell) {
-            (cell as! AllowedCountryViewCell).setCountryName(name: self.searchResultsList[indexPath.row].name)
-            (cell as! AllowedCountryViewCell).setCountryFlag(flag: self.searchResultsList[indexPath.row].flag)
+            if (self.searchResultsList[indexPath.row].code == "bm") {
+                (cell as! AllowedCountryViewCell).setCountryName(name: NSLocalizedString("bermuda", comment: ""))
+                (cell as! AllowedCountryViewCell).setCountryFlag(flag: self.searchResultsList[indexPath.row].flag)
+            } else {
+                if (self.searchResultsList[indexPath.row].name.lowercased().contains("&")) {
+                    (cell as! AllowedCountryViewCell).setCountryName(name: self.searchResultsList[indexPath.row].name.replacingOccurrences(of: "&", with: "and"))
+                    (cell as! AllowedCountryViewCell).setCountryFlag(flag: self.searchResultsList[indexPath.row].flag)
+                } else {
+                    (cell as! AllowedCountryViewCell).setCountryName(name: self.searchResultsList[indexPath.row].name)
+                    (cell as! AllowedCountryViewCell).setCountryFlag(flag: self.searchResultsList[indexPath.row].flag)
+                }
+            }
         } else {
             (cell as! BlockedCountryViewCell).setCountryName(name: self.searchResultsList[indexPath.row].name)
             (cell as! BlockedCountryViewCell).setCountryFlag(flag: self.searchResultsList[indexPath.row].flag)
+            (cell as! BlockedCountryViewCell).setNACountry()
         }
         
         return cell
@@ -127,7 +138,7 @@ extension CountryListViewController: UISearchBarDelegate {
     func searchCountries(forFragment: String) {
         
         if (forFragment.isEmpty) {
-            self.searchResultsList = self.countriesDataSourceArr
+            self.searchResultsList = getSortedArr()
             self.noSearchDataLabel.isHidden = true
         } else {
             self.searchResultsList = self.countriesDataSourceArr.filter { $0.name.lowercased().contains(forFragment.lowercased())

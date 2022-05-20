@@ -35,8 +35,20 @@ class ChooseCountryViewController : UIViewController {
     
     func reloadData() {
         if let selectedCountry = countries.first(where: { $0.code == LocalDatasource.shared.readSelectedCountryCode() }) {
-            tvSelectedCountryName.text = selectedCountry.name
-            tvSelectedCountryFlag.text = selectedCountry.flag
+            
+            if (selectedCountry.code == "bm") {
+                tvSelectedCountryName.text = NSLocalizedString("bermuda", comment: "")
+                tvSelectedCountryFlag.text = selectedCountry.flag
+            } else {
+                if (selectedCountry.name.lowercased().contains("&")) {
+                    tvSelectedCountryName.text = selectedCountry.name.replacingOccurrences(of: "&", with: "and")
+                    tvSelectedCountryFlag.text = selectedCountry.flag
+                } else {
+                    tvSelectedCountryName.text = selectedCountry.name
+                    tvSelectedCountryFlag.text = selectedCountry.flag
+                }
+            }
+            
        } else {
            print("COUNTRY NOT FOUND IN KEYCHAIN")
            tvSelectedCountryName.text = countries[0].name

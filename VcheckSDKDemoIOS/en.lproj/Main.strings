@@ -116,7 +116,7 @@
 "goj-ZF-231.text" = "Check your photo";
 
 /* Class = "UILabel"; text = "сфотографированы или отсканированы с оригиналов"; ObjectID = "hfh-Nr-Lyd"; */
-"hfh-Nr-Lyd.text" = "photographed or scanned from originals";
+"ACV-UJ-hZv.text" = "photographed or scanned from originals";
 
 /* Class = "UILabel"; text = "Требования к фото"; ObjectID = "hgH-RH-Doo"; */
 "hgH-RH-Doo.text" = "Photo requirements";
@@ -281,7 +281,7 @@
 "v87-W5-vbC.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "Что-то пошло не так :("; ObjectID = "vIo-1V-hp0"; */
-"vIo-1V-hp0.text" = "Document photo verification is not successful";
+"vIo-1V-hp0.text" = "Document verification is not successful";
 
 /* Class = "UIButton"; configuration.title = "Вернуться"; ObjectID = "Vpj-sc-FAg"; */
 "Vpj-sc-FAg.configuration.title" = "To home";
@@ -308,7 +308,7 @@
 "Wgk-ad-nWW.text" = "Check if all the data on the document was recognized correctly.";
 
 /* Class = "UILabel"; text = "Заменить фото"; ObjectID = "wgy-0K-AbA"; */
-"wgy-0K-AbA.text" = "Replace photo";
+"wgy-0K-AbA.text" = "Change photo";
 
 /* Class = "UIButton"; configuration.title = "Отмена"; ObjectID = "wM8-4G-pEK"; */
 "wM8-4G-pEK.configuration.title" = "Cancel";
