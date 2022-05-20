@@ -280,12 +280,23 @@ class TakeDocPhotoViewController : UIViewController,
                 self.showToast(message: errText, seconds: 1.3)
             }
         } else {
-            if (firstPhoto != nil && secondPhoto != nil) {
+            
+            if (firstPhoto != nil && secondPhoto == nil) {
+                btnContinueToPreview.tintColor = UIColor(named: "borderColor")
+                btnContinueToPreview.titleLabel?.textColor = UIColor.white
+                btnContinueToPreview.gestureRecognizers?.forEach(btnContinueToPreview.removeGestureRecognizer)
+            } else if (firstPhoto == nil && secondPhoto != nil) {
+                btnContinueToPreview.tintColor = UIColor(named: "borderColor")
+                btnContinueToPreview.titleLabel?.textColor = UIColor.white
+                btnContinueToPreview.gestureRecognizers?.forEach(btnContinueToPreview.removeGestureRecognizer)
+            } else if (firstPhoto != nil && secondPhoto != nil) {
                 prepareForNavigation(resetSecondPhoto: true)
             } else {
                 btnContinueToPreview.tintColor = UIColor(named: "borderColor")
-                btnContinueToPreview.titleLabel?.textColor = UIColor.gray
+                btnContinueToPreview.titleLabel?.textColor = UIColor.white
                 btnContinueToPreview.gestureRecognizers?.forEach(btnContinueToPreview.removeGestureRecognizer)
+                let errText = NSLocalizedString("error_make_two_photos", comment: "")
+                self.showToast(message: errText, seconds: 1.3)
             }
         }
     }

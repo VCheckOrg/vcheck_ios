@@ -146,6 +146,7 @@ class CheckDocPhotoViewController : UIViewController {
         if (segue.identifier == "DocPhotoCheckToError") {
             let vc = segue.destination as! DocPhotoVerifErrorViewController
             vc.firstPhoto = self.firstPhoto
+            vc.statusCode = self.viewModel.uploadResponse?.status
             if (self.secondPhoto != nil) {
                 vc.secondPhoto = self.secondPhoto
             }

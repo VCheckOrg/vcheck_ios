@@ -90,8 +90,9 @@ class CheckDocInfoViewController : UIViewController {
         }
         
         viewModel.showAlertClosure = {
-            let errText = self.viewModel.error?.errorText ?? "Error: No additional info"
-            self.showToast(message: errText, seconds: 2.0)
+//            let errText = self.viewModel.error?.errorText ?? "Error: No additional info"
+//            self.showToast(message: errText, seconds: 2.0)
+            self.showToast(message: NSLocalizedString("check_doc_fields_input_message", comment: ""), seconds: 2.0)
         }
         
         if (self.docId == nil) {
@@ -186,15 +187,19 @@ extension CheckDocInfoViewController: UITableViewDataSource {
             self.fieldsList = self.fieldsList.map {
                 $0.name == fieldName ? $0.modifyAutoParsedValue(with: cell.docTextField.text!) : $0 }
         }
-        if(fieldName == "name") {
+        
+        cell.docTextField.addAction(editingChanged, for: .editingChanged)
+        
+        
+        if (fieldName == "name") {
             cell.docTextField.addTarget(self, action: #selector(self.validateDocNameField(_:)),
                                         for: UIControl.Event.editingChanged)
         }
-        if(fieldName == "surname") {
+        if (fieldName == "surname") {
             cell.docTextField.addTarget(self, action: #selector(self.validateDocSurnameField(_:)),
                                         for: UIControl.Event.editingChanged)
         }
-        if(fieldName == "date_of_birth") {
+        if (fieldName == "date_of_birth") {
             cell.docTextField.attributedPlaceholder = NSAttributedString(
                 string: "doc_date_placeholder".localized(),
                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
@@ -202,14 +207,20 @@ extension CheckDocInfoViewController: UITableViewDataSource {
             cell.docTextField.addTarget(self, action: #selector(self.validateDocDateOfBirthField(_:)),
                                         for: UIControl.Event.editingChanged)
         }
-        if(fieldName == "number") {
+        if (fieldName == "number") {
             self.regex = field.regex
             cell.docTextField.addTarget(self, action: #selector(self.validateDocNumberField(_:)),
                                         for: UIControl.Event.editingChanged)
         }
+        
+        let setMaskedDate = UIAction { _ in
+            cell.docTextField.text = self.formattedNumber(number: cell.docTextField.text)
+        }
 
-        cell.docTextField.addAction(editingChanged, for: .editingChanged)
-
+        if (fieldName == "date_of_birth") {
+            cell.docTextField.addAction(setMaskedDate, for: .editingChanged)
+        }
+        
         return cell
     }
 
@@ -234,7 +245,7 @@ extension CheckDocInfoViewController: UITableViewDataSource {
     }
     
     @objc final private func validateDocDateOfBirthField(_ textField: UITextField) {
-        if (!textField.text!.checkIfValidDocDateFormat()) {
+        if (!textField.text!.checkIfValidDocDateFormat() && textField.text!.count <= 10) {
             textField.setError("enter_valid_dob".localized())
         } else {
             textField.setError(show: false)
@@ -249,6 +260,22 @@ extension CheckDocInfoViewController: UITableViewDataSource {
         }
     
     }
+    
+    func formattedNumber(number: String?) -> String {
+                    let cleanPhoneNumber = number!.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+                    let mask = "####-##-##"
+                    var result = ""
+                    var index = cleanPhoneNumber.startIndex
+        for ch in mask where index < cleanPhoneNumber.endIndex {
+                        if ch == "#" {
+                            result.append(cleanPhoneNumber[index])
+                            index = cleanPhoneNumber.index(after: index)
+                        } else {
+                            result.append(ch)
+                        }
+                    }
+                    return result
+                }
     
     func registerKeyboardNotifications() {
         NotificationCenter.default.addObserver(self,
@@ -297,7 +324,7 @@ extension CheckDocInfoViewController {
         var data = ParsedDocFieldsData()
         fieldsList.forEach {
             if ($0.name == "date_of_birth") {
-                data.dateOfBirth = $0.autoParsedValue
+                data.dateOfBirth = String($0.autoParsedValue.prefix(10))
             }
             if ($0.name == "name") {
                 data.name = $0.autoParsedValue
@@ -343,16 +370,10 @@ extension CheckDocInfoViewController {
 extension UIViewController: UITextFieldDelegate {
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        return true;
+        return true
     }
-
-//    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//       let allowedCharacters = CharacterSet.decimalDigits
-//       let characterSet = CharacterSet(charactersIn: string)
-//       return allowedCharacters.isSuperset(of: characterSet)
-//   }
-
 }
+
 
 // Deprecated fields/checks:
 

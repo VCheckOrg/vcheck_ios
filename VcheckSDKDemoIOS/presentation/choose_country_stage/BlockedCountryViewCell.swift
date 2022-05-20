@@ -16,7 +16,6 @@ class BlockedCountryViewCell : UITableViewCell {
     
     @IBOutlet weak var localizedNADiscl: UITextView!
     
-    
     func setCountryName(name: String) {
         tvCountryName.text = name
     }
@@ -24,4 +23,9 @@ class BlockedCountryViewCell : UITableViewCell {
     func setCountryFlag(flag: String) {
         tvCountryFlag.text = flag
     }
+    
+    func setNACountry() {
+        localizedNADiscl.text = NSLocalizedString("non_available", comment: "")
+    }
+
 }

@@ -1,4 +1,4 @@
-"enter_valid_dob" = "Введите дату рожения в формате 'ГГГГ-ММ-ДД'";
+"enter_valid_dob" = "Введите дату рождения в формате 'ГГГГ-ММ-ДД'";
 
 "enter_valid_doc_number" = "Введите валидный номер документа";
 
@@ -8,6 +8,8 @@
 
 /* No comment provided by engineer. */
 "error_make_at_least_one_photo" = "Пожалуйста, сделайте как минимум одно фото документа";
+
+"error_make_two_photos" = "Пожалуйста, сделайте две фотографии документа";
 
 /* No comment provided by engineer. */
 "error_some_fields_are_empty" = "Пожалуйста, заполните все поля документа";
@@ -50,8 +52,17 @@
 
 /* No comment provided by engineer. */
 "no_search_data_label" = "Нет данных";
+
 "confident_in_doc_title" = "Я уверен(-а) в своем документе, продолжить процесс верификации";
 
 "doc_date_placeholder" = "ГГГГ-ММ-ДД";
 
 "non_available" = "Недоступно";
+
+"bermuda" = "Бермудские Острова";
+
+"invalid_doc_type_desc" = "Документ не соответствует выбранному типу. Рекомендуем повторить загрузку документа.";
+
+"verif_error_desc" = "Что-то пошло не так. Мы рекомендуем сфотографировать документ еще раз.";
+
+"check_doc_fields_input_message" = "Проверте правильность заполнения всех полей документа";
