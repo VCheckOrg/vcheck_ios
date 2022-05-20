@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C721843E86F7C45326713A96 /* Pods_VcheckSDKDemoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CC24DF3A453C81A1523A8B7 /* Pods_VcheckSDKDemoIOS.framework */; };
 		DA1235712827A5D80008A46E /* FaceCalcExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1235702827A5D80008A46E /* FaceCalcExtensions.swift */; };
 		DA1235732827A7F90008A46E /* LivenessVCExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1235722827A7F90008A46E /* LivenessVCExtensions.swift */; };
 		DA1235752827B1B00008A46E /* NoTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1235742827B1B00008A46E /* NoTimeViewController.swift */; };
@@ -81,13 +82,12 @@
 		DAE87E152816CE6E00ED6826 /* DemoStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE87E142816CE6E00ED6826 /* DemoStartViewController.swift */; };
 		E9B25AA5282BAC6800D5865B /* TextFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B25AA4282BAC6800D5865B /* TextFieldError.swift */; };
 		E9DAE090281D638400EA73BA /* (null) in Sources */ = {isa = PBXBuildFile; };
-		FE49FAE595C75E03465517E3 /* Pods_VcheckSDKDemoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5016D62A72EAE8F46E5DF3A0 /* Pods_VcheckSDKDemoIOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5016D62A72EAE8F46E5DF3A0 /* Pods_VcheckSDKDemoIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VcheckSDKDemoIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		92F5B193435FA075F0623B90 /* Pods-VcheckSDKDemoIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcheckSDKDemoIOS.release.xcconfig"; path = "Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS.release.xcconfig"; sourceTree = "<group>"; };
-		C67C5A318995C9A1F62FEF03 /* Pods-VcheckSDKDemoIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcheckSDKDemoIOS.debug.xcconfig"; path = "Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		0CC24DF3A453C81A1523A8B7 /* Pods_VcheckSDKDemoIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VcheckSDKDemoIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		144E15697D3A6E9A1D3EA468 /* Pods-VcheckSDKDemoIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcheckSDKDemoIOS.release.xcconfig"; path = "Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS.release.xcconfig"; sourceTree = "<group>"; };
+		B12E00F5D351E86A6EA126C2 /* Pods-VcheckSDKDemoIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcheckSDKDemoIOS.debug.xcconfig"; path = "Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		DA1235702827A5D80008A46E /* FaceCalcExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCalcExtensions.swift; sourceTree = "<group>"; };
 		DA1235722827A7F90008A46E /* LivenessVCExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessVCExtensions.swift; sourceTree = "<group>"; };
 		DA1235742827B1B00008A46E /* NoTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoTimeViewController.swift; sourceTree = "<group>"; };
@@ -189,7 +189,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE49FAE595C75E03465517E3 /* Pods_VcheckSDKDemoIOS.framework in Frameworks */,
+				C721843E86F7C45326713A96 /* Pods_VcheckSDKDemoIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,8 +199,8 @@
 		C55ED8972A87D4D9813AA1B5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C67C5A318995C9A1F62FEF03 /* Pods-VcheckSDKDemoIOS.debug.xcconfig */,
-				92F5B193435FA075F0623B90 /* Pods-VcheckSDKDemoIOS.release.xcconfig */,
+				B12E00F5D351E86A6EA126C2 /* Pods-VcheckSDKDemoIOS.debug.xcconfig */,
+				144E15697D3A6E9A1D3EA468 /* Pods-VcheckSDKDemoIOS.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -324,7 +324,7 @@
 				DAB613272814767700234BB2 /* Products */,
 				C55ED8972A87D4D9813AA1B5 /* Pods */,
 				E9B25AA3282BA92400D5865B /* Recovered References */,
-				F70C3F0F1C01BF3BEB9EE333 /* Frameworks */,
+				E16913479EBD5F81022BDD81 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -432,6 +432,14 @@
 			path = choose_country_stage;
 			sourceTree = "<group>";
 		};
+		E16913479EBD5F81022BDD81 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0CC24DF3A453C81A1523A8B7 /* Pods_VcheckSDKDemoIOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E9B25AA3282BA92400D5865B /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -445,14 +453,6 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		F70C3F0F1C01BF3BEB9EE333 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5016D62A72EAE8F46E5DF3A0 /* Pods_VcheckSDKDemoIOS.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -460,20 +460,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DAB6133D2814767900234BB2 /* Build configuration list for PBXNativeTarget "VcheckSDKDemoIOS" */;
 			buildPhases = (
-				CABE2A6FE886BB8714FFB101 /* [CP] Check Pods Manifest.lock */,
+				7F5F304641F00FC942C52E2F /* [CP] Check Pods Manifest.lock */,
 				DAB613222814767700234BB2 /* Sources */,
 				DAB613232814767700234BB2 /* Frameworks */,
 				DAB613242814767700234BB2 /* Resources */,
-				18767E86F60D1D1C5766D331 /* [CP] Embed Pods Frameworks */,
-				790E1E38276A573A976BF142 /* [CP] Copy Pods Resources */,
+				05CF999A20E81177570E2D81 /* [CP] Embed Pods Frameworks */,
+				A7ABB7EE9732F4A4BAED31EE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = VcheckSDKDemoIOS;
-			packageProductDependencies = (
-			);
 			productName = VcheckSDKDemoIOS;
 			productReference = DAB613262814767700234BB2 /* VcheckSDKDemoIOS.app */;
 			productType = "com.apple.product-type.application";
@@ -504,8 +502,6 @@
 				ru,
 			);
 			mainGroup = DAB6131D2814767700234BB2;
-			packageReferences = (
-			);
 			productRefGroup = DAB613272814767700234BB2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -540,7 +536,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		18767E86F60D1D1C5766D331 /* [CP] Embed Pods Frameworks */ = {
+		05CF999A20E81177570E2D81 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -557,24 +553,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		790E1E38276A573A976BF142 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CABE2A6FE886BB8714FFB101 /* [CP] Check Pods Manifest.lock */ = {
+		7F5F304641F00FC942C52E2F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -594,6 +573,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7ABB7EE9732F4A4BAED31EE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VcheckSDKDemoIOS/Pods-VcheckSDKDemoIOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -823,14 +819,14 @@
 		};
 		DAB6133E2814767900234BB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C67C5A318995C9A1F62FEF03 /* Pods-VcheckSDKDemoIOS.debug.xcconfig */;
+			baseConfigurationReference = B12E00F5D351E86A6EA126C2 /* Pods-VcheckSDKDemoIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 3CT5FANCSN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VcheckSDKDemoIOS/Info.plist;
@@ -847,7 +843,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vcheck.demo.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = VCheckDev;
@@ -859,14 +855,14 @@
 		};
 		DAB6133F2814767900234BB2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 92F5B193435FA075F0623B90 /* Pods-VcheckSDKDemoIOS.release.xcconfig */;
+			baseConfigurationReference = 144E15697D3A6E9A1D3EA468 /* Pods-VcheckSDKDemoIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 3CT5FANCSN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VcheckSDKDemoIOS/Info.plist;
@@ -883,7 +879,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vcheck.demo.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = VCheckDevDistr;
