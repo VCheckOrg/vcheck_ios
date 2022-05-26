@@ -104,6 +104,7 @@ struct VerificationInitResponseData: Codable {
   var locale    : String? = nil
   var returnUrl : String? = nil
   var stage     : Int?    = nil
+  var livenessAttempts: Int? = nil
 
   enum CodingKeys: String, CodingKey {
 
@@ -112,7 +113,7 @@ struct VerificationInitResponseData: Codable {
     case locale    = "locale"
     case returnUrl = "return_url"
     case stage     = "stage"
-  
+    case livenessAttempts = "liveness_attempts"
   }
 
   init(from decoder: Decoder) throws {
@@ -123,7 +124,7 @@ struct VerificationInitResponseData: Codable {
       locale    = try values.decodeIfPresent(String.self , forKey: .locale    )
       returnUrl = try values.decodeIfPresent(String.self , forKey: .returnUrl )
       stage     = try values.decodeIfPresent(Int.self    , forKey: .stage     )
-   
+      livenessAttempts = try values.decodeIfPresent(Int.self, forKey: .livenessAttempts)
     }
 
     init() {}

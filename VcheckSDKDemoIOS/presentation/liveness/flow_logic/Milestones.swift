@@ -18,11 +18,11 @@ enum GestureMilestoneType {
 
 enum ObstacleType {
     case YAW_ANGLE
-    case WRONG_GESTURE
     case MULTIPLE_FACES_DETECTED
-    case NO_STRAIGHT_FACE_DETECTED
+    case NO_OR_PARTIAL_FACE_DETECTED //TEST!
     case BRIGHTNESS_LEVEL_IS_LOW
-    case MOTIONS_ARE_TOO_SHARP
+    //case MOTIONS_ARE_TOO_SHARP
+    //case WRONG_GESTURE
 }
 
 class MilestoneConstraints {
@@ -31,8 +31,8 @@ class MilestoneConstraints {
     static let RIGHT_PITCH_PASS_ANGLE: Float = 30.0
     static let MOUTH_OPEN_PASS_FACTOR: Float = 0.39  //reduced from 0.55 !
     
-    static let NEXT_FRAME_MAX_PITCH_DIFF: Float = 15.0 //!
-    static let NEXT_FRAME_MAX_YAW_DIFF: Float = 8.0
+    //static let NEXT_FRAME_MAX_PITCH_DIFF: Float = 15.0 //!
+    //static let NEXT_FRAME_MAX_YAW_DIFF: Float = 8.0
     //VIDEO_APP_LIVENESS_MAX_ANGLES_DIFF=100,25,100 //add roll?
 }
 
@@ -142,11 +142,6 @@ class StandardMilestoneFlow {
     ]
 
     private var currentStageIdx: Int = 0
-    
-    private var recentFramePitchAngle: Float = 0.0
-    private var recentFrameYawAngle: Float = 0.0
-    private var shouldMakeMidFrameBreakSwitch: Bool = false //TODO: test properly!
-    
 
     func getCurrentStage() -> GestureMilestone {
         return stagesList[currentStageIdx]
@@ -164,65 +159,22 @@ class StandardMilestoneFlow {
             print("ERROR: Index out of bounds in milestones list!")
             return
         }
-        if (hasExtensivePitchDiff(pitchAngle: pitchAngle) || hasExtensiveYawDiff(yawAngle: yawAngle)) {
-            onObstacleMet(ObstacleType.MOTIONS_ARE_TOO_SHARP)
-        } else if (yawAbsAngle > MilestoneConstraints.YAW_PASS_ANGLE_ABS) {
+        if (yawAbsAngle > MilestoneConstraints.YAW_PASS_ANGLE_ABS) {
             onObstacleMet(ObstacleType.YAW_ANGLE)
         } else {
             if (stagesList[currentStageIdx].isMet(pitchAngle: pitchAngle,
                                                   mouthFactor: mouthFactor, yawAbsAngle: yawAbsAngle)) {
                 onMilestoneResult(stagesList[currentStageIdx].gestureMilestoneType)
                 currentStageIdx += 1
-            } else {
-                stagesList.enumerated().forEach { (idx, stage) in
-                    if (idx != 0 && idx != currentStageIdx && stage.isMet(pitchAngle: pitchAngle,
-                                       mouthFactor: mouthFactor, yawAbsAngle: yawAbsAngle)) {
-                        onObstacleMet(ObstacleType.WRONG_GESTURE)
-                    }
-                }
             }
         }
-        if (shouldMakeMidFrameBreakSwitch == true) {
-            recentFramePitchAngle = pitchAngle
-            recentFrameYawAngle = yawAngle
-        }
-        shouldMakeMidFrameBreakSwitch = !shouldMakeMidFrameBreakSwitch
     }
     
-    func hasExtensivePitchDiff(pitchAngle: Float) -> Bool {
-        if ((pitchAngle < 0 && recentFramePitchAngle < 0) || (pitchAngle > 0 && recentFramePitchAngle > 0)) {
-//            let diff = abs(abs(pitchAngle) - abs(recentFramePitchAngle))
-//            print("PITCH DIFF: \(diff)")
-            return abs(abs(pitchAngle) - abs(recentFramePitchAngle)) > MilestoneConstraints.NEXT_FRAME_MAX_PITCH_DIFF
-        } else if (pitchAngle != 0.0 && recentFrameYawAngle != 0.0) {
-//            let diff = (abs(pitchAngle) + abs(recentFramePitchAngle))
-//            print("PITCH DIFF: \(diff)")
-            return (abs(pitchAngle) + abs(recentFramePitchAngle)) > MilestoneConstraints.NEXT_FRAME_MAX_PITCH_DIFF
-        } else {
-            return false
-        }
-    }
-    
-    func hasExtensiveYawDiff(yawAngle: Float) -> Bool {
-        if ((yawAngle < 0 && recentFrameYawAngle < 0) || (yawAngle > 0 && recentFrameYawAngle > 0)) {
-//            let diff = abs(abs(yawAngle) - abs(recentFrameYawAngle))
-//            print("YAW DIFF: \(diff)")
-            return abs(abs(yawAngle) - abs(recentFrameYawAngle)) > MilestoneConstraints.NEXT_FRAME_MAX_PITCH_DIFF
-        } else if (yawAngle != 0.0 && recentFrameYawAngle != 0.0) {
-//            let diff = (abs(yawAngle) + abs(recentFrameYawAngle))
-//            print("YAW DIFF: \(diff)")
-            return (abs(yawAngle) + abs(recentFrameYawAngle)) > MilestoneConstraints.NEXT_FRAME_MAX_YAW_DIFF
-        } else {
-            return false
-        }
-    }
 }
 
 
 class MajorObstacleFrameCounterHolder {
     
-//    private var multiFaceFrameCounter: Int = 0
-//    private var noFaceFrameCounter: Int = 0
     private var wrongGestureFrameCounter: Int = 0
     private var noBrightnessFrameCounter: Int = 0
     
@@ -254,3 +206,67 @@ class MajorObstacleFrameCounterHolder {
         return self.noBrightnessFrameCounter
     }
 }
+
+
+// deprecated:
+//    func hasExtensivePitchDiff(pitchAngle: Float) -> Bool {
+//        if ((pitchAngle < 0 && recentFramePitchAngle < 0) || (pitchAngle > 0 && recentFramePitchAngle > 0)) {
+////            let diff = abs(abs(pitchAngle) - abs(recentFramePitchAngle))
+////            print("PITCH DIFF: \(diff)")
+//            return abs(abs(pitchAngle) - abs(recentFramePitchAngle)) > MilestoneConstraints.NEXT_FRAME_MAX_PITCH_DIFF
+//        } else if (pitchAngle != 0.0 && recentFrameYawAngle != 0.0) {
+////            let diff = (abs(pitchAngle) + abs(recentFramePitchAngle))
+////            print("PITCH DIFF: \(diff)")
+//            return (abs(pitchAngle) + abs(recentFramePitchAngle)) > MilestoneConstraints.NEXT_FRAME_MAX_PITCH_DIFF
+//        } else {
+//            return false
+//        }
+//    }
+//
+//    func hasExtensiveYawDiff(yawAngle: Float) -> Bool {
+//        if ((yawAngle < 0 && recentFrameYawAngle < 0) || (yawAngle > 0 && recentFrameYawAngle > 0)) {
+////            let diff = abs(abs(yawAngle) - abs(recentFrameYawAngle))
+////            print("YAW DIFF: \(diff)")
+//            return abs(abs(yawAngle) - abs(recentFrameYawAngle)) > MilestoneConstraints.NEXT_FRAME_MAX_PITCH_DIFF
+//        } else if (yawAngle != 0.0 && recentFrameYawAngle != 0.0) {
+////            let diff = (abs(yawAngle) + abs(recentFrameYawAngle))
+////            print("YAW DIFF: \(diff)")
+//            return (abs(yawAngle) + abs(recentFrameYawAngle)) > MilestoneConstraints.NEXT_FRAME_MAX_YAW_DIFF
+//        } else {
+//            return false
+//        }
+//    }
+
+// else {
+//          stagesList.enumerated().forEach { (idx, stage) in
+//                    if (idx != 0 && idx != currentStageIdx && stage.isMet(pitchAngle: pitchAngle,
+//                                       mouthFactor: mouthFactor, yawAbsAngle: yawAbsAngle)) {
+//                        onObstacleMet(ObstacleType.WRONG_GESTURE)
+//                    }
+//                }
+//            }
+
+
+//        if (obstacleType == ObstacleType.MOTIONS_ARE_TOO_SHARP) {
+//            self.endSessionPrematurely(performSegueWithIdentifier: "LivenessToFastMovements")
+//        }
+//        if (obstacleType == ObstacleType.WRONG_GESTURE) {
+//            self.majorObstacleFrameCounterHolder.incrementWrongGestureFrameCounter()
+//            if (self.majorObstacleFrameCounterHolder.getWrongGestureFrameCounter() >=
+//                LivenessScreenViewController.MAX_FRAMES_WITH_WRONG_GESTURE) {
+//                self.endSessionPrematurely(performSegueWithIdentifier: "LivenessToWrongGesture")
+//            }
+//        }
+
+//    private var multiFaceFrameCounter: Int = 0
+//    private var noFaceFrameCounter: Int = 0
+
+
+//        if (segue.identifier == "LivenessToWrongGesture") {
+//            let vc = segue.destination as! WrongGestureViewController
+//            vc.onRepeatBlock = { result in self.renewLivenessSessionOnRetry() }
+//        }
+//        if (segue.identifier == "LivenessToFastMovements") {
+//            let vc = segue.destination as! SharpMovementsViewController
+//            vc.onRepeatBlock = { result in self.renewLivenessSessionOnRetry() }
+//        }

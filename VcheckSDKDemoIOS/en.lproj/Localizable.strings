@@ -64,4 +64,11 @@
 
 "verif_error_desc" = "Something went wrong. We recommend to re-upload the document.";
 
-"check_doc_fields_input_message" = "Some document fields are not properly filed or empty";
+"check_doc_fields_input_message" = "Some document fields are not properly filled or empty";
+
+"need_camera_access_title" = "Need Camera Access";
+"need_camera_access_descr" = "Camera access is required for taking document photos and performing face-checking sessions.";
+"allow" = "Allow";
+"decline" = "Decline";
+
+"declined_camera_access" = "Camera access is declined: that will make the major product features unavailable. To allow Camera acess, re-launch app or go to Settings.";

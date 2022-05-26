@@ -16,6 +16,12 @@
 		DA12357B2827B21F0008A46E /* NoBrightnessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12357A2827B21F0008A46E /* NoBrightnessViewController.swift */; };
 		DA12357D2827B2640008A46E /* WrongGestureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12357C2827B2640008A46E /* WrongGestureViewController.swift */; };
 		DA12357F2827B2740008A46E /* SharpMovementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12357E2827B2740008A46E /* SharpMovementsViewController.swift */; };
+		DA1724C9283FB77700638EE9 /* mouth.json in Resources */ = {isa = PBXBuildFile; fileRef = DA1724C3283FB77700638EE9 /* mouth.json */; };
+		DA1724CA283FB77700638EE9 /* up.json in Resources */ = {isa = PBXBuildFile; fileRef = DA1724C4283FB77700638EE9 /* up.json */; };
+		DA1724CB283FB77700638EE9 /* arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = DA1724C5283FB77700638EE9 /* arrow.json */; };
+		DA1724CC283FB77700638EE9 /* down.json in Resources */ = {isa = PBXBuildFile; fileRef = DA1724C6283FB77700638EE9 /* down.json */; };
+		DA1724CD283FB77700638EE9 /* right.json in Resources */ = {isa = PBXBuildFile; fileRef = DA1724C7283FB77700638EE9 /* right.json */; };
+		DA1724CE283FB77700638EE9 /* left.json in Resources */ = {isa = PBXBuildFile; fileRef = DA1724C8283FB77700638EE9 /* left.json */; };
 		DA34598128201D9600068E6D /* TakeDocPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34598028201D9600068E6D /* TakeDocPhotoViewController.swift */; };
 		DA47CDA4281C3B59001226B9 /* AllowedCountryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47CDA3281C3B59001226B9 /* AllowedCountryViewCell.swift */; };
 		DA63D7952823B683005EE4C0 /* CheckDocInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA63D7942823B683005EE4C0 /* CheckDocInfoViewModel.swift */; };
@@ -32,7 +38,6 @@
 		DA88A1E0282A622A005C144D /* LivenessSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88A1DF282A622A005C144D /* LivenessSuccessViewController.swift */; };
 		DA88A1E2282A67BC005C144D /* VideoFailureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88A1E1282A67BC005C144D /* VideoFailureViewController.swift */; };
 		DA88A1E6282A9D69005C144D /* LivenessVideoRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88A1E5282A9D69005C144D /* LivenessVideoRecorder.swift */; };
-		DA88A1E8282AD5EE005C144D /* VideoUploadFailureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88A1E7282AD5EE005C144D /* VideoUploadFailureViewModel.swift */; };
 		DA88A1EB282BBAD3005C144D /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88A1EA282BBAD3005C144D /* HeaderViewController.swift */; };
 		DAA1A60C2824F752005B5B8A /* DocumentVerificationCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA1A60B2824F752005B5B8A /* DocumentVerificationCodes.swift */; };
 		DAAF4E0A281AC7A60029F26C /* VerificationResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAF4DF1281AC7A50029F26C /* VerificationResponseModels.swift */; };
@@ -96,6 +101,12 @@
 		DA12357A2827B21F0008A46E /* NoBrightnessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoBrightnessViewController.swift; sourceTree = "<group>"; };
 		DA12357C2827B2640008A46E /* WrongGestureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongGestureViewController.swift; sourceTree = "<group>"; };
 		DA12357E2827B2740008A46E /* SharpMovementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharpMovementsViewController.swift; sourceTree = "<group>"; };
+		DA1724C3283FB77700638EE9 /* mouth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mouth.json; sourceTree = "<group>"; };
+		DA1724C4283FB77700638EE9 /* up.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = up.json; sourceTree = "<group>"; };
+		DA1724C5283FB77700638EE9 /* arrow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = arrow.json; sourceTree = "<group>"; };
+		DA1724C6283FB77700638EE9 /* down.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = down.json; sourceTree = "<group>"; };
+		DA1724C7283FB77700638EE9 /* right.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = right.json; sourceTree = "<group>"; };
+		DA1724C8283FB77700638EE9 /* left.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = left.json; sourceTree = "<group>"; };
 		DA34598028201D9600068E6D /* TakeDocPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeDocPhotoViewController.swift; sourceTree = "<group>"; };
 		DA47CDA3281C3B59001226B9 /* AllowedCountryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowedCountryViewCell.swift; sourceTree = "<group>"; };
 		DA63D7942823B683005EE4C0 /* CheckDocInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckDocInfoViewModel.swift; sourceTree = "<group>"; };
@@ -122,7 +133,6 @@
 		DA88A1DF282A622A005C144D /* LivenessSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessSuccessViewController.swift; sourceTree = "<group>"; };
 		DA88A1E1282A67BC005C144D /* VideoFailureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFailureViewController.swift; sourceTree = "<group>"; };
 		DA88A1E5282A9D69005C144D /* LivenessVideoRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessVideoRecorder.swift; sourceTree = "<group>"; };
-		DA88A1E7282AD5EE005C144D /* VideoUploadFailureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUploadFailureViewModel.swift; sourceTree = "<group>"; };
 		DA88A1EA282BBAD3005C144D /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
 		DAA1A60B2824F752005B5B8A /* DocumentVerificationCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerificationCodes.swift; sourceTree = "<group>"; };
 		DAAF4DF1281AC7A50029F26C /* VerificationResponseModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationResponseModels.swift; sourceTree = "<group>"; };
@@ -175,12 +185,6 @@
 		DAE87E0F2816CC1F00ED6826 /* ChooseCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCountryViewController.swift; sourceTree = "<group>"; };
 		DAE87E112816CC2C00ED6826 /* CountryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
 		DAE87E142816CE6E00ED6826 /* DemoStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoStartViewController.swift; sourceTree = "<group>"; };
-		E972E1DD282D0E0B00A2BF07 /* arrow.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = arrow.json; path = VcheckSDKDemoIOS/animations/arrow.json; sourceTree = SOURCE_ROOT; };
-		E972E1DE282D0F0B00A2BF07 /* down.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = down.json; path = VcheckSDKDemoIOS/animations/down.json; sourceTree = SOURCE_ROOT; };
-		E972E1DF282D0F1000A2BF07 /* left.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = left.json; path = VcheckSDKDemoIOS/animations/left.json; sourceTree = SOURCE_ROOT; };
-		E972E1E0282D0F1200A2BF07 /* mouth.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = mouth.json; path = VcheckSDKDemoIOS/animations/mouth.json; sourceTree = SOURCE_ROOT; };
-		E972E1E1282D0F1300A2BF07 /* right.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = right.json; path = VcheckSDKDemoIOS/animations/right.json; sourceTree = SOURCE_ROOT; };
-		E972E1E2282D0F1500A2BF07 /* up.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = up.json; path = VcheckSDKDemoIOS/animations/up.json; sourceTree = SOURCE_ROOT; };
 		E9B25AA4282BAC6800D5865B /* TextFieldError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -266,7 +270,6 @@
 				DA88A1DB282A617A005C144D /* VideoProcessingViewController.swift */,
 				DA88A1DD282A6189005C144D /* VideoProcessingViewModel.swift */,
 				DA88A1DF282A622A005C144D /* LivenessSuccessViewController.swift */,
-				DA88A1E7282AD5EE005C144D /* VideoUploadFailureViewModel.swift */,
 				DAC1ACD6282C11ED001230DC /* LivenessInstructionsViewController.swift */,
 			);
 			path = processing_ui;
@@ -362,12 +365,12 @@
 		DAB69C28282D067A00579BBB /* animations */ = {
 			isa = PBXGroup;
 			children = (
-				E972E1E2282D0F1500A2BF07 /* up.json */,
-				E972E1E1282D0F1300A2BF07 /* right.json */,
-				E972E1E0282D0F1200A2BF07 /* mouth.json */,
-				E972E1DF282D0F1000A2BF07 /* left.json */,
-				E972E1DD282D0E0B00A2BF07 /* arrow.json */,
-				E972E1DE282D0F0B00A2BF07 /* down.json */,
+				DA1724C5283FB77700638EE9 /* arrow.json */,
+				DA1724C6283FB77700638EE9 /* down.json */,
+				DA1724C8283FB77700638EE9 /* left.json */,
+				DA1724C3283FB77700638EE9 /* mouth.json */,
+				DA1724C7283FB77700638EE9 /* right.json */,
+				DA1724C4283FB77700638EE9 /* up.json */,
 			);
 			name = animations;
 			path = ../../../../../Desktop/animations;
@@ -520,13 +523,19 @@
 				DAAF4E0B281AC7A60029F26C /* document_verification_codes.kt in Resources */,
 				DAAF4E21281AC7A60029F26C /* MainRepository.kt in Resources */,
 				DAAF4E11281AC7A60029F26C /* doc_image_parsing_statuses.kt in Resources */,
+				DA1724CA283FB77700638EE9 /* up.json in Resources */,
 				DAAF4E13281AC7A60029F26C /* country_models.kt in Resources */,
 				DAAF4E18281AC7A60029F26C /* document_request_models.kt in Resources */,
+				DA1724CC283FB77700638EE9 /* down.json in Resources */,
+				DA1724CE283FB77700638EE9 /* left.json in Resources */,
+				DA1724CB283FB77700638EE9 /* arrow.json in Resources */,
 				DAB613362814767900234BB2 /* Assets.xcassets in Resources */,
 				DAB85363281FB475008F3E35 /* Face.scnassets in Resources */,
 				DAAF4E1A281AC7A60029F26C /* verification_request_models.kt in Resources */,
 				DAAF4E1B281AC7A60029F26C /* document_response_models.kt in Resources */,
 				DAD01E552826D495007DA004 /* ic_success.png in Resources */,
+				DA1724CD283FB77700638EE9 /* right.json in Resources */,
+				DA1724C9283FB77700638EE9 /* mouth.json in Resources */,
 				DABCE22328219CE700937E84 /* Localizable.strings in Resources */,
 				DAAF4E1F281AC7A60029F26C /* verification_response_models.kt in Resources */,
 				DAB613312814767700234BB2 /* Main.storyboard in Resources */,
@@ -600,7 +609,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA65CBB3281C527A006508A1 /* RoundedView.swift in Sources */,
-				DA88A1E8282AD5EE005C144D /* VideoUploadFailureViewModel.swift in Sources */,
 				DAAF4E1D281AC7A60029F26C /* Constants.swift in Sources */,
 				DAAF4E14281AC7A60029F26C /* VerificationRequestModels.swift in Sources */,
 				DABCE22C28229ABD00937E84 /* CheckDocPhotoViewModel.swift in Sources */,
@@ -826,7 +834,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 3CT5FANCSN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VcheckSDKDemoIOS/Info.plist;
@@ -843,7 +851,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.7;
+				MARKETING_VERSION = 1.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vcheck.demo.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = VCheckDev;
@@ -862,7 +870,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 3CT5FANCSN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VcheckSDKDemoIOS/Info.plist;
@@ -879,7 +887,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.7;
+				MARKETING_VERSION = 1.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vcheck.demo.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = VCheckDevDistr;

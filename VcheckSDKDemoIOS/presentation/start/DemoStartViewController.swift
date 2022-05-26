@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import Alamofire
 import Localize_Swift
+import AVFoundation
 
 class DemoStartViewController : UIViewController {
     
@@ -25,10 +26,14 @@ class DemoStartViewController : UIViewController {
         super.viewDidLoad()
         
         LocalDatasource.shared.deleteAllSessionData()
+        //Storing default num of max liveness attempts
+        LocalDatasource.shared.storeMaxLivenessLocalAttempts(attempts: 5)
         
         if (self.spinner.isAnimating) {
             self.spinner.stopAnimating()
         }
+        
+        requestCameraPermission()
     }
 
     
@@ -88,6 +93,33 @@ class DemoStartViewController : UIViewController {
     
     private func activityIndicatorStop() {
         self.spinner.stopAnimating()
+    }
+    
+    private func requestCameraPermission() {
+        AVCaptureDevice.requestAccess(for: .video) { [weak self] accessGranted in
+            if !accessGranted {
+                DispatchQueue.main.async {
+                    self?.alertCameraAccessNeeded()
+                }
+            }
+        }
+    }
+    
+    private  func alertCameraAccessNeeded() {
+        guard let settingsAppURL = URL(string: UIApplication.openSettingsURLString),
+              UIApplication.shared.canOpenURL(settingsAppURL) else { return } // This should never happen
+        let alert = UIAlertController(
+            title: "need_camera_access_title".localized(),
+            message: "need_camera_access_descr".localized(),
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "decline".localized(), style: .default) { _ in
+            self.showToast(message: "declined_camera_access".localized(), seconds: 4.0)
+        })
+        alert.addAction(UIAlertAction(title: "allow".localized(), style: .cancel) { _ in
+            UIApplication.shared.open(settingsAppURL, options: [:])
+        })
+        present(alert, animated: true)
     }
 }
 

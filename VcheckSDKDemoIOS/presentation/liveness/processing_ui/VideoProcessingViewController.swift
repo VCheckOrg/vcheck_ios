@@ -39,7 +39,7 @@ class VideoProcessingViewController: UIViewController {
         }
         
         if (!token.isEmpty && videoFileURL != nil) {
-            viewModel.uploadVideo(videoFileURL: videoFileURL!)
+            uploadVideo()
         } else {
             //FOR TESTS
             if (videoFileURL != nil) {
@@ -47,6 +47,10 @@ class VideoProcessingViewController: UIViewController {
                 playLivenessVideoPreview()
             }
         }
+    }
+    
+    func uploadVideo() {
+        viewModel.uploadVideo(videoFileURL: videoFileURL!)
     }
     
     func playLivenessVideoPreview() {
