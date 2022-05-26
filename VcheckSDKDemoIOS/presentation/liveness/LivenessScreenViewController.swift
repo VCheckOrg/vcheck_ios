@@ -73,7 +73,7 @@ public final class LivenessScreenViewController: UIViewController {
     private var livenessSessionTimeoutTimer : DispatchSourceTimer?
     private var blockStageIndicationByUI: Bool = false
     
-    private var localLivenessAttempts: Int = 1
+    private var localLivenessAttempts: Int = 0
     private var maxLivenessAttempts: Int = 5
     
     
@@ -256,7 +256,7 @@ extension LivenessScreenViewController {
                             self.hapticFeedbackGenerator.notificationOccurred(.success)
                             self.delayedStageIndicationRenew()
                         }
-//                     if (self.blockStageIndicationByUI == false) { //TODO remove if block
+                    //if (self.blockStageIndicationByUI == false) { //TODO remove if block
                         self.setupOrUpdateFaceAnimation(forMilestoneType: milestoneType)
                         self.setupOrUpdateArrowAnimation(forMilestoneType: milestoneType)
                         self.updateLivenessInfoText(forMilestoneType: milestoneType)
@@ -279,6 +279,13 @@ extension LivenessScreenViewController {
         if (obstacleType == ObstacleType.MULTIPLE_FACES_DETECTED) {
             self.endSessionPrematurely(performSegueWithIdentifier: "LivenessToMultipleFaces")
         }
+        if (obstacleType == ObstacleType.BRIGHTNESS_LEVEL_IS_LOW) {
+            self.majorObstacleFrameCounterHolder.incrementNoBrightnessFrameCounter()
+            if (self.majorObstacleFrameCounterHolder.getNoBrightnessFrameCounter() >=
+                LivenessScreenViewController.MAX_FRAMES_WITH_LOW_BRIGHTNESS) {
+                self.endSessionPrematurely(performSegueWithIdentifier: "LivenessToTooDark")
+            }
+        }
         if (obstacleType == ObstacleType.YAW_ANGLE) {
             DispatchQueue.main.async {
                 self.hapticFeedbackGenerator.notificationOccurred(.warning)
@@ -290,39 +297,32 @@ extension LivenessScreenViewController {
                 }
             }
         }
-        if (obstacleType == ObstacleType.BRIGHTNESS_LEVEL_IS_LOW) {
-            self.majorObstacleFrameCounterHolder.incrementNoBrightnessFrameCounter()
-            if (self.majorObstacleFrameCounterHolder.getNoBrightnessFrameCounter() >=
-                LivenessScreenViewController.MAX_FRAMES_WITH_LOW_BRIGHTNESS) {
-                self.endSessionPrematurely(performSegueWithIdentifier: "LivenessToTooDark")
-            }
-        }
     }
     
     func endSessionPrematurely(performSegueWithIdentifier: String) {
-        if (self.localLivenessAttempts >= maxLivenessAttempts) {
-            //TODO: test!
-            self.hapticFeedbackGenerator.notificationOccurred(.success)
-            self.isLivenessSessionFinished = true
-        } else {
-            self.videoStreamingPermitted = false
-            self.videoRecorder.stopRecording(completion: { url in
-                print("========== FINISHED WRITING VIDEO IN: \(url)")
-                DispatchQueue.main.async {
-                    self.localLivenessAttempts += 1
-                    print("==== LOCAL LIVENESS ATTEMPTS: \(self.localLivenessAttempts)")
-                    
-                    self.faceCountDetectionFrameCounter = 0
-                    self.isLivenessSessionFinished = true
-                    self.hapticFeedbackGenerator.notificationOccurred(.warning)
-                    self.majorObstacleFrameCounterHolder.resetFrameCountersOnSessionPrematureEnd()
-                    if (self.livenessSessionTimeoutTimer != nil) {
-                        self.livenessSessionTimeoutTimer!.cancel()
-                    }
+        self.videoStreamingPermitted = false
+        self.videoRecorder.stopRecording(completion: { url in
+            print("========== FINISHED WRITING VIDEO IN: \(url)")
+            DispatchQueue.main.async {
+                self.localLivenessAttempts += 1
+                print("==== LOCAL LIVENESS ATTEMPTS: \(self.localLivenessAttempts)")
+                self.faceCountDetectionFrameCounter = 0
+                
+                self.hasEnoughTimeForNextGesture = false
+                
+                self.isLivenessSessionFinished = true
+                self.hapticFeedbackGenerator.notificationOccurred(.warning)
+                self.majorObstacleFrameCounterHolder.resetFrameCountersOnSessionPrematureEnd()
+                if (self.livenessSessionTimeoutTimer != nil) {
+                    self.livenessSessionTimeoutTimer!.cancel()
+                }
+                if (self.localLivenessAttempts >= self.maxLivenessAttempts) {
+                    self.performSegue(withIdentifier: "LivenessToLocalSuccess", sender: nil)
+                } else {
                     self.performSegue(withIdentifier: performSegueWithIdentifier, sender: nil)
                 }
-            })
-        }
+            }
+        })
     }
     
     func startLivenessSessionTimeoutTimer() {
@@ -331,12 +331,7 @@ extension LivenessScreenViewController {
             livenessSessionTimeoutTimer = DispatchSource.makeTimerSource(queue: DispatchQueue.global())
             livenessSessionTimeoutTimer!.schedule(deadline: delay, repeating: 0)
             livenessSessionTimeoutTimer!.setEventHandler {
-                self.hasEnoughTimeForNextGesture = false
-                self.livenessSessionTimeoutTimer!.cancel()
-                self.livenessSessionTimeoutTimer = nil
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "LivenessToNoTime", sender: nil)
-                }
+                self.endSessionPrematurely(performSegueWithIdentifier: "LivenessToNoTime")
             }
             livenessSessionTimeoutTimer!.resume()
         } else {
@@ -352,6 +347,7 @@ extension LivenessScreenViewController {
     
     func delayedStageIndicationRenew() {
         DispatchQueue.main.async {
+            
             self.blockStageIndicationByUI = true
             
             self.imgMilestoneChecked.isHidden = false
@@ -385,7 +381,7 @@ extension LivenessScreenViewController {
     
     func setupOrUpdateFaceAnimation(forMilestoneType: GestureMilestoneType) {
         
-        faceAnimationView.subviews.forEach { $0.removeFromSuperview() }
+        roundedView.subviews.forEach { $0.removeFromSuperview() }
         
         if (forMilestoneType == GestureMilestoneType.CheckHeadPositionMilestone) {
             faceAnimationView = AnimationView(name: "left")
@@ -396,6 +392,7 @@ extension LivenessScreenViewController {
         } else {
             faceAnimationView = AnimationView()
             faceAnimationView.stop()
+            roundedView.subviews.forEach { $0.removeFromSuperview() }
         }
         
         faceAnimationView.contentMode = .scaleAspectFit
