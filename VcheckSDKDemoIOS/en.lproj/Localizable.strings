@@ -9,6 +9,8 @@
 /* No comment provided by engineer. */
 "error_make_at_least_one_photo" = "Please make at least one photo of the document";
 
+"error_make_one_photo" = "Please make one photo of the document";
+
 "error_make_two_photos" = "Please make two photos of the document";
 
 /* No comment provided by engineer. */

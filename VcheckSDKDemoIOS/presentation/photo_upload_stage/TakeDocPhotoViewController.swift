@@ -260,7 +260,7 @@ class TakeDocPhotoViewController : UIViewController,
                 btnContinueToPreview.tintColor = UIColor(named: "borderColor")
                 btnContinueToPreview.titleLabel?.textColor = UIColor.gray
                 btnContinueToPreview.gestureRecognizers?.forEach(btnContinueToPreview.removeGestureRecognizer)
-                let errText = NSLocalizedString("error_make_at_least_one_photo", comment: "")
+                let errText = NSLocalizedString("error_make_one_photo", comment: "")
                 self.showToast(message: errText, seconds: 1.3)
             }
         } else if (selectedDocType == DocType.INNER_PASSPORT_OR_COMMON) {

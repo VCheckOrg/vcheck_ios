@@ -71,7 +71,7 @@
 "Dtj-8M-eb8.text" = "Верифікація успішна";
 
 /* Class = "UIButton"; configuration.title = "I am confident in my document, continue the verification process"; ObjectID = "EaO-z6-vaI"; */
-"EaO-z6-vaI.configuration.title" = "Я впевнен(-а) в своєму документі, продовжити процес верифікації";
+"EaO-z6-vaI.configuration.title" = "Я впевнений(-а) в своєму документі, продовжити процес верифікації";
 
 /* Class = "UILabel"; text = "Старайтесь выполнять движения плавно. Попробуйте снова."; ObjectID = "eta-Xk-i4x"; */
 "eta-Xk-i4x.text" = "Намагайтеся виконувати рухи плавно. Спробуйте знову.";
@@ -128,7 +128,7 @@
 "ilv-19-slf.text" = "рухи повинні бути чіткими та плавними";
 
 /* Class = "UILabel"; text = "Проверка не может выполниться, так как в кадре слишком темно. Пройдите проверку повторно с хорошим освещением."; ObjectID = "iqs-Cd-Nh9"; */
-"iqs-Cd-Nh9.text" = "Перевірка не може виконатись, тому що в кадрі занадто темно. Повторіть повторно з хорошим освітленням.";
+"iqs-Cd-Nh9.text" = "Перевірка не може виконатись, тому що в кадрі занадто темно. Повторіть знову з хорошим освітленням.";
 
 /* Class = "UITextView"; text = "FLAG"; ObjectID = "irG-6P-v79"; */
 "irG-6P-v79.text" = "FLAG";

@@ -245,7 +245,7 @@ extension CheckDocInfoViewController: UITableViewDataSource {
     }
     
     @objc final private func validateDocDateOfBirthField(_ textField: UITextField) {
-        if (!textField.text!.checkIfValidDocDateFormat() && textField.text!.count <= 10) {
+        if (!String(textField.text!.prefix(10)).checkIfValidDocDateFormat()) {
             textField.setError("enter_valid_dob".localized())
         } else {
             textField.setError(show: false)

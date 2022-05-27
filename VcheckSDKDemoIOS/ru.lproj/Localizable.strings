@@ -9,6 +9,8 @@
 /* No comment provided by engineer. */
 "error_make_at_least_one_photo" = "Пожалуйста, сделайте как минимум одно фото документа";
 
+"error_make_one_photo" = "Пожалуйста, сделайте одно фото документа";
+
 "error_make_two_photos" = "Пожалуйста, сделайте две фотографии документа";
 
 /* No comment provided by engineer. */

@@ -308,7 +308,7 @@
 "Wgk-ad-nWW.text" = "Check if all the data on the document was recognized correctly.";
 
 /* Class = "UILabel"; text = "Заменить фото"; ObjectID = "wgy-0K-AbA"; */
-"wgy-0K-AbA.text" = "Change photo";
+"wgy-0K-AbA.text" = "Replace photo";
 
 /* Class = "UIButton"; configuration.title = "Отмена"; ObjectID = "wM8-4G-pEK"; */
 "wM8-4G-pEK.configuration.title" = "Cancel";
