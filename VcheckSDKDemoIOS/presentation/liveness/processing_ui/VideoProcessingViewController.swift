@@ -15,11 +15,20 @@ class VideoProcessingViewController: UIViewController {
     private let viewModel = VideoProcessingViewModel()
     
     @IBOutlet weak var videoProcessingIndicator: UIActivityIndicatorView!
-        
+    
+    @IBOutlet weak var videoProcessingTitle: UILabel!
+    @IBOutlet weak var videoProcessingDesc: UILabel!
+    
+    @IBOutlet weak var videoProcessingSuccessButton: UIButton!
+    
     var videoFileURL: URL?
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.videoProcessingTitle.isHidden = true
+        self.videoProcessingDesc.isHidden = true
+        self.videoProcessingSuccessButton.isHidden = true
         
         activityIndicatorStart()
         
@@ -28,14 +37,26 @@ class VideoProcessingViewController: UIViewController {
         viewModel.didUploadVideoResponse = {
             self.activityIndicatorStop()
             if (self.viewModel.uploadedVideoResponse == true) {
-                self.performSegue(withIdentifier: "VideoUploadToSuccess", sender: nil)
+                
+                self.videoProcessingTitle.isHidden = false
+                self.videoProcessingDesc.isHidden = false
+                self.videoProcessingSuccessButton.isHidden = false
+                
+                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.livenessSuccessAction))
+                tapGesture.numberOfTapsRequired = 1
+                
+                self.videoProcessingSuccessButton.addGestureRecognizer(tapGesture)
+                
             }
         }
         
         viewModel.showAlertClosure = {
             self.activityIndicatorStop()
-            let errText = self.viewModel.error?.errorText ?? "Error: No additional info"
-            self.showToast(message: errText, seconds: 2.0)
+            
+//            let errText = self.viewModel.error?.errorText ?? "Error: No additional info"
+//            self.showToast(message: errText, seconds: 2.0)
+            
+            self.performSegue(withIdentifier: "VideoUploadToFailure", sender: nil)
         }
         
         if (!token.isEmpty && videoFileURL != nil) {
@@ -47,6 +68,12 @@ class VideoProcessingViewController: UIViewController {
                 playLivenessVideoPreview()
             }
         }
+    }
+    
+    @objc func livenessSuccessAction() {
+        //Close app for new test
+        UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { exit(0) }
     }
     
     func uploadVideo() {

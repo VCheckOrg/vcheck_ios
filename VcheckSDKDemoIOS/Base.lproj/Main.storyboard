@@ -1012,7 +1012,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xp3-NL-myv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4375" y="-344"/>
+            <point key="canvasLocation" x="4525" y="-356"/>
         </scene>
         <!--OS Not Supported View Controller-->
         <scene sceneID="eyy-0l-iIB">
@@ -1354,11 +1354,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="uMO-hA-gT0" userLabel="Success Verification View Controller" customClass="LivenessSuccessViewController" customModule="VcheckSDKDemoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T2T-B0-7L4">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCf-BA-49I">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uTw-Hh-0V4">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="603.66666666666663"/>
@@ -1450,7 +1450,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m8B-LW-HPd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5537" y="-19"/>
+            <point key="canvasLocation" x="5769" y="-328"/>
         </scene>
         <!--In Process View Controller-->
         <scene sceneID="Y29-ti-guP">
@@ -1464,10 +1464,10 @@
                                 <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIj-7X-oeY">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="649"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="637"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fk7-0l-cCW" customClass="RoundedView" customModule="VcheckSDKDemoIOS" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="84" width="366" height="500"/>
+                                                <rect key="frame" x="12" y="84" width="366" height="488"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="in_process" translatesAutoresizingMaskIntoConstraints="NO" id="g2g-gf-gml">
                                                         <rect key="frame" x="28" y="24" width="310" height="240"/>
@@ -1488,22 +1488,36 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="3LY-hv-Mp1">
-                                                        <rect key="frame" x="164.66666666666666" y="403" width="37" height="37"/>
+                                                        <rect key="frame" x="164.66666666666666" y="391" width="37" height="37"/>
                                                         <color key="color" name="DescriptionColor"/>
                                                     </activityIndicatorView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6yr-kz-O3F">
+                                                        <rect key="frame" x="16" y="408" width="334" height="56"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="56" id="219-zN-H8y"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Отлично"/>
+                                                        <connections>
+                                                            <action selector="livenessSuccessAction:" destination="uMO-hA-gT0" eventType="touchUpInside" id="fwb-Uq-PSK"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" name="CardColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="iad-2I-iin" secondAttribute="trailing" constant="16" id="0eq-03-yC7"/>
+                                                    <constraint firstItem="6yr-kz-O3F" firstAttribute="top" secondItem="Oov-Zo-rlv" secondAttribute="bottom" constant="44" id="BRE-Zr-lKN"/>
+                                                    <constraint firstAttribute="bottom" secondItem="6yr-kz-O3F" secondAttribute="bottom" constant="24" id="POe-fp-kMO"/>
                                                     <constraint firstItem="g2g-gf-gml" firstAttribute="top" secondItem="fk7-0l-cCW" secondAttribute="top" constant="24" id="cem-n0-s1r"/>
+                                                    <constraint firstItem="6yr-kz-O3F" firstAttribute="leading" secondItem="fk7-0l-cCW" secondAttribute="leading" constant="16" id="efV-qR-dkh"/>
                                                     <constraint firstItem="iad-2I-iin" firstAttribute="leading" secondItem="fk7-0l-cCW" secondAttribute="leading" constant="16" id="jEk-Tk-Ptv"/>
                                                     <constraint firstItem="Oov-Zo-rlv" firstAttribute="top" secondItem="iad-2I-iin" secondAttribute="bottom" constant="16" id="jXi-Ra-MhY"/>
                                                     <constraint firstItem="iad-2I-iin" firstAttribute="top" secondItem="g2g-gf-gml" secondAttribute="bottom" constant="12" id="jvf-T9-yNx"/>
                                                     <constraint firstItem="3LY-hv-Mp1" firstAttribute="centerX" secondItem="fk7-0l-cCW" secondAttribute="centerX" id="lRg-yD-4zE"/>
                                                     <constraint firstAttribute="bottom" secondItem="3LY-hv-Mp1" secondAttribute="bottom" constant="60" id="m6d-XJ-DnR"/>
-                                                    <constraint firstAttribute="height" constant="500" id="mpR-vq-2cM"/>
                                                     <constraint firstItem="Oov-Zo-rlv" firstAttribute="leading" secondItem="fk7-0l-cCW" secondAttribute="leading" constant="16" id="nCO-ni-aQa"/>
                                                     <constraint firstItem="g2g-gf-gml" firstAttribute="leading" secondItem="fk7-0l-cCW" secondAttribute="leading" constant="28" id="nyz-R7-tHr"/>
+                                                    <constraint firstAttribute="trailing" secondItem="6yr-kz-O3F" secondAttribute="trailing" constant="16" id="tpT-y4-36P"/>
                                                     <constraint firstAttribute="trailing" secondItem="Oov-Zo-rlv" secondAttribute="trailing" constant="16" id="u1q-h9-BQt"/>
                                                     <constraint firstAttribute="trailing" secondItem="g2g-gf-gml" secondAttribute="trailing" constant="28" id="wU6-wc-E2h"/>
                                                 </constraints>
@@ -1543,8 +1557,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="vFh-so-BRF"/>
                     <connections>
+                        <outlet property="videoProcessingDesc" destination="Oov-Zo-rlv" id="2nP-LX-CrM"/>
                         <outlet property="videoProcessingIndicator" destination="3LY-hv-Mp1" id="gsT-Wh-pMt"/>
-                        <segue destination="uMO-hA-gT0" kind="show" identifier="VideoUploadToSuccess" id="d7I-Pw-cvc"/>
+                        <outlet property="videoProcessingSuccessButton" destination="6yr-kz-O3F" id="VCl-pG-05w"/>
+                        <outlet property="videoProcessingTitle" destination="iad-2I-iin" id="PTw-X9-z3G"/>
                         <segue destination="Drf-gg-cCY" kind="show" identifier="VideoUploadToFailure" id="KTM-8y-TXX"/>
                     </connections>
                 </viewController>
