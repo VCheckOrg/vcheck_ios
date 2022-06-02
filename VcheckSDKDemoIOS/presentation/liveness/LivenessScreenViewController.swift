@@ -72,6 +72,7 @@ public final class LivenessScreenViewController: UIViewController {
     private var hasEnoughTimeForNextGesture: Bool = true
     private var livenessSessionTimeoutTimer : DispatchSourceTimer?
     private var blockStageIndicationByUI: Bool = false
+    private var blockTextIndicationByWarning: Bool = false
     
     private var localLivenessAttempts: Int = 0
     private var maxLivenessAttempts: Int = 5
@@ -239,6 +240,10 @@ extension LivenessScreenViewController {
         let mouthAngle = calculateMouthFactor(face: face)
         let faceAnglesHolder = face.centerTransform.eulerAngles
         
+        DispatchQueue.main.async {
+            self.updateLivenessInfoText(forMilestoneType: self.milestoneFlow.getUndoneStage().gestureMilestoneType)
+        }
+        
         milestoneFlow.checkCurrentStage(pitchAngle: faceAnglesHolder.pitch,
                                         mouthFactor: mouthAngle,
                                         yawAngle: faceAnglesHolder.yaw,
@@ -256,10 +261,8 @@ extension LivenessScreenViewController {
                             self.hapticFeedbackGenerator.notificationOccurred(.success)
                             self.delayedStageIndicationRenew()
                         }
-                    //if (self.blockStageIndicationByUI == false) { //TODO remove if block
                         self.setupOrUpdateFaceAnimation(forMilestoneType: milestoneType)
                         self.setupOrUpdateArrowAnimation(forMilestoneType: milestoneType)
-                        self.updateLivenessInfoText(forMilestoneType: milestoneType)
                     }
                 }
             }
@@ -290,10 +293,14 @@ extension LivenessScreenViewController {
             DispatchQueue.main.async {
                 self.hapticFeedbackGenerator.notificationOccurred(.warning)
                 self.tvLivenessInfo.textColor = .red
-                self.tvLivenessInfo.text = NSLocalizedString("line_face_obstacle", comment: "")
+                self.tvLivenessInfo.text = "line_face_obstacle".localized()
+                self.blockTextIndicationByWarning = true
                 DispatchQueue.main.asyncAfter(deadline:
                         .now() + .milliseconds(LivenessScreenViewController.BLOCK_PIPELINE_ON_OBSTACLE_TIME_MILLIS) ) {
-                    self.updateLivenessInfoText(forMilestoneType: self.milestoneFlow.getUndoneStage().gestureMilestoneType)
+                    //self.updateLivenessInfoText(forMilestoneType: self.milestoneFlow.getUndoneStage().gestureMilestoneType)
+                    if (self.blockTextIndicationByWarning == true) {
+                        self.blockTextIndicationByWarning = false
+                    }
                 }
             }
         }
@@ -367,15 +374,18 @@ extension LivenessScreenViewController {
     }
     
     func updateLivenessInfoText(forMilestoneType: GestureMilestoneType) {
-        self.tvLivenessInfo.textColor = .white
-        if (forMilestoneType == GestureMilestoneType.CheckHeadPositionMilestone) {
-            self.tvLivenessInfo.text = NSLocalizedString("liveness_stage_face_left", comment: "")
-        } else if (forMilestoneType == GestureMilestoneType.OuterLeftHeadPitchMilestone) {
-            self.tvLivenessInfo.text = NSLocalizedString("liveness_stage_face_right", comment: "")
-        } else if (forMilestoneType == GestureMilestoneType.OuterRightHeadPitchMilestone) {
-            self.tvLivenessInfo.text = NSLocalizedString("liveness_stage_open_mouth", comment: "")
-        } else {
-            self.tvLivenessInfo.text = NSLocalizedString("liveness_stage_check_face_pos", comment: "")
+        print("UPDATE INFO TEXT - INDICATION FLAG: \(self.blockTextIndicationByWarning)")
+        if (blockTextIndicationByWarning == false) {
+            self.tvLivenessInfo.textColor = .white
+            if (forMilestoneType == GestureMilestoneType.CheckHeadPositionMilestone) {
+                self.tvLivenessInfo.text = "liveness_stage_face_left".localized()
+            } else if (forMilestoneType == GestureMilestoneType.OuterLeftHeadPitchMilestone) {
+                self.tvLivenessInfo.text = "liveness_stage_face_right".localized()
+            } else if (forMilestoneType == GestureMilestoneType.OuterRightHeadPitchMilestone) {
+                self.tvLivenessInfo.text = "liveness_stage_open_mouth".localized()
+            } else {
+                self.tvLivenessInfo.text = "liveness_stage_check_face_pos".localized()
+            }
         }
     }
     

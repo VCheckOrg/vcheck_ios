@@ -29,7 +29,7 @@ class MilestoneConstraints {
     static let YAW_PASS_ANGLE_ABS: Float = 20.0
     static let LEFT_PITCH_PASS_ANGLE: Float = -30.0
     static let RIGHT_PITCH_PASS_ANGLE: Float = 30.0
-    static let MOUTH_OPEN_PASS_FACTOR: Float = 0.39  //reduced from 0.55 !
+    static let MOUTH_OPEN_PASS_FACTOR: Float = 0.35  //reduced from 0.55 !
     
     //static let NEXT_FRAME_MAX_PITCH_DIFF: Float = 15.0 //!
     //static let NEXT_FRAME_MAX_YAW_DIFF: Float = 8.0
@@ -148,7 +148,11 @@ class StandardMilestoneFlow {
     }
     
     func getUndoneStage() -> GestureMilestone {
-        return stagesList[currentStageIdx - 1]
+        if (currentStageIdx == 0) {
+            return stagesList[0]
+        } else {
+            return stagesList[currentStageIdx - 1]
+        }
     }
 
     func checkCurrentStage(pitchAngle: Float, mouthFactor: Float, yawAngle: Float,
