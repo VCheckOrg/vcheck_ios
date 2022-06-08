@@ -90,13 +90,4 @@ struct CountryTO {
         }
         return s
     }
-    
-//    static func strToFlagEmoji(strCode: String) -> String {
-//        strCode
-//            .unicodeScalars
-//            .map({ 127397 + $0.value })
-//            .compactMap(UnicodeScalar.init)
-//            .map(String.init)
-//            .joined()
-//    }
 }

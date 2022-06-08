@@ -40,10 +40,6 @@
 		DA88A1EB282BBAD3005C144D /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88A1EA282BBAD3005C144D /* HeaderViewController.swift */; };
 		DAA1A60C2824F752005B5B8A /* DocumentVerificationCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA1A60B2824F752005B5B8A /* DocumentVerificationCodes.swift */; };
 		DAAF4E0A281AC7A60029F26C /* VerificationResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAF4DF1281AC7A50029F26C /* VerificationResponseModels.swift */; };
-		DAAF4E0C281AC7A60029F26C /* TimestampRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAF4DF3281AC7A50029F26C /* TimestampRequest.swift */; };
-		DAAF4E0E281AC7A60029F26C /* BaseClientResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAF4DF5281AC7A50029F26C /* BaseClientResponseModel.swift */; };
-		DAAF4E0F281AC7A60029F26C /* BaseRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAF4DF6281AC7A50029F26C /* BaseRequestBody.swift */; };
-		DAAF4E12281AC7A60029F26C /* BaseClientrResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAF4DF9281AC7A50029F26C /* BaseClientrResponseModel.swift */; };
 		DAAF4E14281AC7A60029F26C /* VerificationRequestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAF4DFB281AC7A50029F26C /* VerificationRequestModels.swift */; };
 		DAAF4E1C281AC7A60029F26C /* CountryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAF4E03281AC7A60029F26C /* CountryModels.swift */; };
 		DAAF4E1D281AC7A60029F26C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAF4E04281AC7A60029F26C /* Constants.swift */; };
@@ -127,10 +123,6 @@
 		DA88A1EA282BBAD3005C144D /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
 		DAA1A60B2824F752005B5B8A /* DocumentVerificationCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerificationCodes.swift; sourceTree = "<group>"; };
 		DAAF4DF1281AC7A50029F26C /* VerificationResponseModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationResponseModels.swift; sourceTree = "<group>"; };
-		DAAF4DF3281AC7A50029F26C /* TimestampRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimestampRequest.swift; sourceTree = "<group>"; };
-		DAAF4DF5281AC7A50029F26C /* BaseClientResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseClientResponseModel.swift; sourceTree = "<group>"; };
-		DAAF4DF6281AC7A50029F26C /* BaseRequestBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRequestBody.swift; sourceTree = "<group>"; };
-		DAAF4DF9281AC7A50029F26C /* BaseClientrResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseClientrResponseModel.swift; sourceTree = "<group>"; };
 		DAAF4DFB281AC7A50029F26C /* VerificationRequestModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationRequestModels.swift; sourceTree = "<group>"; };
 		DAAF4E03281AC7A60029F26C /* CountryModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryModels.swift; sourceTree = "<group>"; };
 		DAAF4E04281AC7A60029F26C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -270,13 +262,9 @@
 		DAAF4DBE281AC6D80029F26C /* domain */ = {
 			isa = PBXGroup;
 			children = (
-				DAAF4DF5281AC7A50029F26C /* BaseClientResponseModel.swift */,
-				DAAF4DF9281AC7A50029F26C /* BaseClientrResponseModel.swift */,
-				DAAF4DF6281AC7A50029F26C /* BaseRequestBody.swift */,
 				DAAF4E04281AC7A60029F26C /* Constants.swift */,
 				DAAF4E03281AC7A60029F26C /* CountryModels.swift */,
 				DAAF4E07281AC7A60029F26C /* DocumentResponseModels.swift */,
-				DAAF4DF3281AC7A50029F26C /* TimestampRequest.swift */,
 				DAAF4DFB281AC7A50029F26C /* VerificationRequestModels.swift */,
 				DAAF4DF1281AC7A50029F26C /* VerificationResponseModels.swift */,
 				DADD31EE281D7A0200EB25ED /* DocumentTypes.swift */,
@@ -587,7 +575,6 @@
 				DA88A1DC282A617A005C144D /* VideoProcessingViewController.swift in Sources */,
 				E9B25AA5282BAC6800D5865B /* TextFieldError.swift in Sources */,
 				DAAF4E0A281AC7A60029F26C /* VerificationResponseModels.swift in Sources */,
-				DAAF4E0C281AC7A60029F26C /* TimestampRequest.swift in Sources */,
 				DA1235772827B1D60008A46E /* NoFaceDetectedViewController.swift in Sources */,
 				DAB69C38282D2E1700579BBB /* DocPhotoVerifErrorViewModel.swift in Sources */,
 				DAE87E152816CE6E00ED6826 /* DemoStartViewController.swift in Sources */,
@@ -613,7 +600,6 @@
 				DAC1ACD7282C11ED001230DC /* LivenessInstructionsViewController.swift in Sources */,
 				DAB6132A2814767700234BB2 /* AppDelegate.swift in Sources */,
 				DADD31EF281D7A0200EB25ED /* DocumentTypes.swift in Sources */,
-				DAAF4E0E281AC7A60029F26C /* BaseClientResponseModel.swift in Sources */,
 				DA1235752827B1B00008A46E /* NoTimeViewController.swift in Sources */,
 				DAC26DBE2825378800EFCDB1 /* PhotoInstructionsViewController.swift in Sources */,
 				DAB6132C2814767700234BB2 /* SceneDelegate.swift in Sources */,
@@ -623,9 +609,7 @@
 				DAE87E102816CC1F00ED6826 /* ChooseCountryViewController.swift in Sources */,
 				DAC90A782850A9EA00270AF5 /* ApiError.swift in Sources */,
 				DAD01E5228268E0B007DA004 /* Debouncer.swift in Sources */,
-				DAAF4E12281AC7A60029F26C /* BaseClientrResponseModel.swift in Sources */,
 				DA1235712827A5D80008A46E /* FaceCalcExtensions.swift in Sources */,
-				DAAF4E0F281AC7A60029F26C /* BaseRequestBody.swift in Sources */,
 				DA88A1DE282A6189005C144D /* VideoProcessingViewModel.swift in Sources */,
 				DA1235732827A7F90008A46E /* LivenessVCExtensions.swift in Sources */,
 				DA88A1E2282A67BC005C144D /* VideoFailureViewController.swift in Sources */,

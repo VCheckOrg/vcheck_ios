@@ -46,8 +46,8 @@ class VideoProcessingViewController: UIViewController {
                         == LivenessChallengeStatus.FAIL) {
                     if (self.viewModel.uploadedVideoResponse!.reason != nil
                         && !self.viewModel.uploadedVideoResponse!.reason!.isEmpty) {
-                        //onBackendObstacleMet(strCodeToLivenessFailureReason(uploadResponse.data.data.reason))
-                        
+                        self.onBackendObstacleMet(reason: strCodeToLivenessFailureReason(
+                            strCode: (self.viewModel.uploadedVideoResponse?.reason!)!))
                     } else {
                         self.onVideoUploadResponseSuccess()
                     }
@@ -77,23 +77,43 @@ class VideoProcessingViewController: UIViewController {
 //        viewModel.repository
 //            .incrementActualLivenessLocalAttempts(activity as LivenessActivity) //!
         switch(reason) {
-        case LivenessFailureReason.FACE_NOT_FOUND:
-            self.performSegue(withIdentifier: "InProcessToLookStraight", sender: nil)
-        case LivenessFailureReason.MULTIPLE_FACES:
-            self.performSegue(withIdentifier: "InProcessToObstacles", sender: nil)
-        case LivenessFailureReason.FAST_MOVEMENT:
-            self.performSegue(withIdentifier: "InProcessToSharpMovement", sender: nil)
-        case LivenessFailureReason.TOO_DARK:
-            self.performSegue(withIdentifier: "InProcessToTooDark", sender: nil)
-        case LivenessFailureReason.INVALID_MOVEMENTS:
-            self.performSegue(withIdentifier: "InProcessToWrongGesture", sender: nil)
-        case LivenessFailureReason.UNKNOWN:
-            self.performSegue(withIdentifier: "InProcessToObstacles", sender: nil)
+            case LivenessFailureReason.FACE_NOT_FOUND:
+                self.performSegue(withIdentifier: "InProcessToLookStraight", sender: nil)
+            case LivenessFailureReason.MULTIPLE_FACES:
+                self.performSegue(withIdentifier: "InProcessToObstacles", sender: nil)
+            case LivenessFailureReason.FAST_MOVEMENT:
+                self.performSegue(withIdentifier: "InProcessToSharpMovement", sender: nil)
+            case LivenessFailureReason.TOO_DARK:
+                self.performSegue(withIdentifier: "InProcessToTooDark", sender: nil)
+            case LivenessFailureReason.INVALID_MOVEMENTS:
+                self.performSegue(withIdentifier: "InProcessToWrongGesture", sender: nil)
+            case LivenessFailureReason.UNKNOWN:
+                self.performSegue(withIdentifier: "InProcessToObstacles", sender: nil)
         }
     }
     
+    //TODO: TEST!
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if (segue.identifier == "InProcessToLookStraight") {
+            let vc = segue.destination as! NoFaceDetectedViewController
+            vc.onRepeatBlock = { result in self.navigationController?.popViewController(animated: false) }
+        }
+        if (segue.identifier == "InProcessToObstacles") {
+            let vc = segue.destination as! MultipleFacesDetectedViewController
+            vc.onRepeatBlock = { result in self.navigationController?.popViewController(animated: false) }
+        }
+        if (segue.identifier == "InProcessToSharpMovement") {
+            let vc = segue.destination as! SharpMovementsViewController
+            vc.onRepeatBlock = { result in self.navigationController?.popViewController(animated: false) }
+        }
+        if (segue.identifier == "InProcessToTooDark") {
+            let vc = segue.destination as! NoBrightnessViewController
+            vc.onRepeatBlock = { result in self.navigationController?.popViewController(animated: false) }
+        }
+        if (segue.identifier == "InProcessToWrongGesture") {
+            let vc = segue.destination as! WrongGestureViewController
+            vc.onRepeatBlock = { result in self.navigationController?.popViewController(animated: false) }
+        }
     }
     
     func onVideoUploadResponseSuccess() {
