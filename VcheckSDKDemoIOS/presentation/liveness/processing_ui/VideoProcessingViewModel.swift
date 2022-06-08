@@ -16,7 +16,7 @@ class VideoProcessingViewModel {
     
     
     // MARK: - Properties
-    var uploadedVideoResponse: Bool = false
+    var uploadedVideoResponse: LivenessUploadResponseData? = nil
    
 
     var error: ApiError? {
@@ -43,8 +43,7 @@ class VideoProcessingViewModel {
                 return
             }
             self.isLoading = false
-
-            self.uploadedVideoResponse = true
+            self.uploadedVideoResponse = data!
             self.didUploadVideoResponse!()
         })
     }

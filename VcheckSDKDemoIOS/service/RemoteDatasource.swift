@@ -308,13 +308,13 @@ struct RemoteDatasource {
     
     
     func uploadLivenessVideo(videoFileURL: URL,
-        completion: @escaping (Bool, ApiError?) -> ()) {
+        completion: @escaping (LivenessUploadResponseData?, ApiError?) -> ()) {
             
             let url = "\(baseUrl)liveness"
 
             let token = LocalDatasource.shared.readAccessToken()
             if (token.isEmpty) {
-                completion(false, ApiError(errorText: "Error: cannot find access token"))
+                completion(nil, ApiError(errorText: "Error: cannot find access token"))
                 return
             }
             let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
@@ -325,15 +325,21 @@ struct RemoteDatasource {
                 
             AF.upload(multipartFormData: multipartFormData, to: url, method: .post, headers: headers)
                 .validate()
-                .response(completionHandler: { (response) in
-                    guard response.value != nil else {
+                .responseDecodable(of: LivenessUploadResponse.self) { (response) in
+                    guard let response = response.value else {
                     //showing error on non-200 response code
-                     completion(false, ApiError(errorText: response.error!.localizedDescription))
+                     completion(nil, ApiError(errorText: response.error!.localizedDescription))
                      return
                     }
-                    completion(true, nil)
-                    return
-                })
+                    if (response.data != nil && response.errorCode == 0) {
+                       completion(response.data, nil)
+                    }
+                    if (response.errorCode != nil && response.errorCode != 0) {
+                       completion(nil, ApiError(errorText: "\(String(describing: response.errorCode)): "
+                                                + "\(response.message ?? "")"))
+                       return
+                    }
+                }
     }
     
 }

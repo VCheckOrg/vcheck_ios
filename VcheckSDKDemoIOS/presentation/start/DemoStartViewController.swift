@@ -124,13 +124,11 @@ class DemoStartViewController : UIViewController {
 }
 
 
-//--------------------
-
+// MARK: - Child VCs nav extension
 extension UIViewController {
     func add(_ child: UIViewController, in container: UIView) {
         addChild(child)
         container.addSubview(child.view)
-        //child.view.frame = CGRectMake(100, 100, 100, 200);
         child.view.frame = container.bounds
         child.didMove(toParent: self)
     }

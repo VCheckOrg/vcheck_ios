@@ -116,7 +116,7 @@
 "hJ9-Ol-hHi.text" = "Все необходимые данные по заявке на верификацию отправлены на наши сервисы и находятся на финальной стадии обработки. Вы можете вернуться к партнерскому сервису.";
 
 /* Class = "UILabel"; text = "Заявка отправлена  на проверку"; ObjectID = "iad-2I-iin"; */
-"iad-2I-iin.text" = "Заявка отправлена  на проверку";
+"iad-2I-iin.text" = "Ваша заявка отправлена на финальную стадию верификации.";
 
 /* Class = "UILabel"; text = "Слишком резкие движения"; ObjectID = "IDl-aE-NPd"; */
 "IDl-aE-NPd.text" = "Слишком резкие движения";
@@ -191,7 +191,7 @@
 "oMH-sQ-S0l.normalTitle" = "Все верно! Продолжить";
 
 /* Class = "UILabel"; text = "Заявка на верификацию отправлена на проверку. Очень скоро Вас уведомят о результате."; ObjectID = "Oov-Zo-rlv"; */
-"Oov-Zo-rlv.text" = "Заявка на верификацию отправлена на проверку. Очень скоро Вас уведомят о результате.";
+"Oov-Zo-rlv.text" = "Это может занять некоторое время. Теперь вы можете вернуться к основному сервису.";
 
 /* Class = "UILabel"; text = "Вы не смотрели прямо"; ObjectID = "OPz-op-RyB"; */
 "OPz-op-RyB.text" = "Вы не смотрели прямо";
@@ -384,3 +384,6 @@
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ZYK-Zq-SfN"; */
 "ZYK-Zq-SfN.normalTitle" = "";
+
+/* Class = "UIButton"; configuration.title = "Отлично"; ObjectID = "Kfa-tK-cWU"; */
+"6yr-kz-O3F.configuration.title" = "Отлично";

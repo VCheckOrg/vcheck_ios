@@ -36,26 +36,29 @@ class VideoProcessingViewController: UIViewController {
         
         viewModel.didUploadVideoResponse = {
             self.activityIndicatorStop()
-            if (self.viewModel.uploadedVideoResponse == true) {
-                
-                self.videoProcessingTitle.isHidden = false
-                self.videoProcessingDesc.isHidden = false
-                self.videoProcessingSuccessButton.isHidden = false
-                
-                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.livenessSuccessAction))
-                tapGesture.numberOfTapsRequired = 1
-                
-                self.videoProcessingSuccessButton.addGestureRecognizer(tapGesture)
-                
+            if (self.viewModel.uploadedVideoResponse != nil) {
+                print("DATA: ${uploadResponse.data}")
+                if (self.viewModel.uploadedVideoResponse?.isFinal == true) {
+                    self.showToast(message: "[TEST] This upload response is final!", seconds: 2)
+                    self.onVideoUploadResponseSuccess()
+                }
+                if (statusCodeToLivenessChallengeStatus(code: self.viewModel.uploadedVideoResponse!.status!)
+                        == LivenessChallengeStatus.FAIL) {
+                    if (self.viewModel.uploadedVideoResponse!.reason != nil
+                        && !self.viewModel.uploadedVideoResponse!.reason!.isEmpty) {
+                        //onBackendObstacleMet(strCodeToLivenessFailureReason(uploadResponse.data.data.reason))
+                        
+                    } else {
+                        self.onVideoUploadResponseSuccess()
+                    }
+                } else {
+                    self.onVideoUploadResponseSuccess()
+                }
             }
         }
         
         viewModel.showAlertClosure = {
             self.activityIndicatorStop()
-            
-//            let errText = self.viewModel.error?.errorText ?? "Error: No additional info"
-//            self.showToast(message: errText, seconds: 2.0)
-            
             self.performSegue(withIdentifier: "VideoUploadToFailure", sender: nil)
         }
         
@@ -68,6 +71,40 @@ class VideoProcessingViewController: UIViewController {
                 playLivenessVideoPreview()
             }
         }
+    }
+    
+    func onBackendObstacleMet(reason: LivenessFailureReason) {
+//        viewModel.repository
+//            .incrementActualLivenessLocalAttempts(activity as LivenessActivity) //!
+        switch(reason) {
+        case LivenessFailureReason.FACE_NOT_FOUND:
+            self.performSegue(withIdentifier: "InProcessToLookStraight", sender: nil)
+        case LivenessFailureReason.MULTIPLE_FACES:
+            self.performSegue(withIdentifier: "InProcessToObstacles", sender: nil)
+        case LivenessFailureReason.FAST_MOVEMENT:
+            self.performSegue(withIdentifier: "InProcessToSharpMovement", sender: nil)
+        case LivenessFailureReason.TOO_DARK:
+            self.performSegue(withIdentifier: "InProcessToTooDark", sender: nil)
+        case LivenessFailureReason.INVALID_MOVEMENTS:
+            self.performSegue(withIdentifier: "InProcessToWrongGesture", sender: nil)
+        case LivenessFailureReason.UNKNOWN:
+            self.performSegue(withIdentifier: "InProcessToObstacles", sender: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
+    
+    func onVideoUploadResponseSuccess() {
+        self.videoProcessingTitle.isHidden = false
+        self.videoProcessingDesc.isHidden = false
+        self.videoProcessingSuccessButton.isHidden = false
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.livenessSuccessAction))
+        tapGesture.numberOfTapsRequired = 1
+        
+        self.videoProcessingSuccessButton.addGestureRecognizer(tapGesture)
     }
     
     @objc func livenessSuccessAction() {
@@ -96,10 +133,12 @@ class VideoProcessingViewController: UIViewController {
     
     // MARK: - UI Setup
     private func activityIndicatorStart() {
+        self.videoProcessingIndicator.isHidden = false
         self.videoProcessingIndicator.startAnimating()
     }
     
     private func activityIndicatorStop() {
+        self.videoProcessingIndicator.isHidden = true
         self.videoProcessingIndicator.stopAnimating()
     }
 }

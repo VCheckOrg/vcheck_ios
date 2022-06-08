@@ -2,7 +2,7 @@
 //  ApiError.swift
 //  VcheckSDKDemoIOS
 //
-//  Created by Kirill Kaun on 28.04.2022.
+//  Created by Kirill Kaun on 08.06.2022.
 //
 
 import Foundation
