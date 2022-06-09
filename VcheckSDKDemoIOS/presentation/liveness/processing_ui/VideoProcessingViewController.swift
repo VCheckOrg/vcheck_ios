@@ -14,6 +14,8 @@ class VideoProcessingViewController: UIViewController {
     
     private let viewModel = VideoProcessingViewModel()
     
+    var livenessVC: LivenessScreenViewController? = nil
+    
     @IBOutlet weak var videoProcessingIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var videoProcessingTitle: UILabel!
@@ -74,8 +76,6 @@ class VideoProcessingViewController: UIViewController {
     }
     
     func onBackendObstacleMet(reason: LivenessFailureReason) {
-//        viewModel.repository
-//            .incrementActualLivenessLocalAttempts(activity as LivenessActivity) //!
         switch(reason) {
             case LivenessFailureReason.FACE_NOT_FOUND:
                 self.performSegue(withIdentifier: "InProcessToLookStraight", sender: nil)
@@ -96,23 +96,38 @@ class VideoProcessingViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "InProcessToLookStraight") {
             let vc = segue.destination as! NoFaceDetectedViewController
-            vc.onRepeatBlock = { result in self.navigationController?.popViewController(animated: false) }
+            vc.onRepeatBlock = { result in
+                self.navigationController?.popViewController(animated: false)
+                self.livenessVC?.renewLivenessSessionOnRetry()
+            }
         }
         if (segue.identifier == "InProcessToObstacles") {
             let vc = segue.destination as! MultipleFacesDetectedViewController
-            vc.onRepeatBlock = { result in self.navigationController?.popViewController(animated: false) }
+            vc.onRepeatBlock = { result in
+                self.navigationController?.popViewController(animated: false)
+                self.livenessVC?.renewLivenessSessionOnRetry()
+            }
         }
         if (segue.identifier == "InProcessToSharpMovement") {
             let vc = segue.destination as! SharpMovementsViewController
-            vc.onRepeatBlock = { result in self.navigationController?.popViewController(animated: false) }
+            vc.onRepeatBlock = { result in
+                self.navigationController?.popViewController(animated: false)
+                self.livenessVC?.renewLivenessSessionOnRetry()
+            }
         }
         if (segue.identifier == "InProcessToTooDark") {
             let vc = segue.destination as! NoBrightnessViewController
-            vc.onRepeatBlock = { result in self.navigationController?.popViewController(animated: false) }
+            vc.onRepeatBlock = { result in
+                self.navigationController?.popViewController(animated: false)
+                self.livenessVC?.renewLivenessSessionOnRetry()
+            }
         }
         if (segue.identifier == "InProcessToWrongGesture") {
             let vc = segue.destination as! WrongGestureViewController
-            vc.onRepeatBlock = { result in self.navigationController?.popViewController(animated: false) }
+            vc.onRepeatBlock = { result in
+                self.navigationController?.popViewController(animated: false)
+                self.livenessVC?.renewLivenessSessionOnRetry()
+            }
         }
     }
     

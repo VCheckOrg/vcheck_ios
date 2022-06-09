@@ -63,8 +63,6 @@ public final class LivenessScreenViewController: UIViewController {
     static let BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS = 1200 //may reduce a bit
     
     static let MAX_FRAMES_WITH_WRONG_GESTURE = 50
-    static let MAX_FRAMES_WITH_LOW_BRIGHTNESS = 20
-    static let MIN_BRIGHTNESS_FACTOR = -1.5
     static let FACE_DETECTION_FRAME_INTERVAL = 20
     private var faceCountDetectionFrameCounter: Int = 0
  
@@ -74,17 +72,12 @@ public final class LivenessScreenViewController: UIViewController {
     private var blockStageIndicationByUI: Bool = false
     private var blockTextIndicationByWarning: Bool = false
     
-    private var localLivenessAttempts: Int = 0
-    private var maxLivenessAttempts: Int = 5
-    
     
     // MARK: - Implementation & Lifecycle methods
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        
-        maxLivenessAttempts = LocalDatasource.shared.getMaxLivenessLocalAttempts()
-        
+                
         if !setupScene() { return }
         if !setupCamera() { return }
         if !setupMotion() { return }
@@ -130,9 +123,10 @@ public final class LivenessScreenViewController: UIViewController {
             let vc = segue.destination as! NoBrightnessViewController
             vc.onRepeatBlock = { result in self.renewLivenessSessionOnRetry() }
         }
-        if (segue.identifier == "LivenessToLocalSuccess") {
+        if (segue.identifier == "LivenessToVideoProcessing") {
             let vc = segue.destination as! VideoProcessingViewController
             vc.videoFileURL = self.videoRecorder.outputFileURL
+            vc.livenessVC = self
         }
     }
     
@@ -205,7 +199,7 @@ extension LivenessScreenViewController: SCNSceneRendererDelegate {
                         if (self.livenessSessionTimeoutTimer != nil) {
                             self.livenessSessionTimeoutTimer!.cancel()
                         }
-                        self.performSegue(withIdentifier: "LivenessToLocalSuccess", sender: nil)
+                        self.performSegue(withIdentifier: "LivenessToVideoProcessing", sender: nil)
                     }
                 })
             }
@@ -282,13 +276,6 @@ extension LivenessScreenViewController {
         if (obstacleType == ObstacleType.MULTIPLE_FACES_DETECTED) {
             self.endSessionPrematurely(performSegueWithIdentifier: "LivenessToMultipleFaces")
         }
-        if (obstacleType == ObstacleType.BRIGHTNESS_LEVEL_IS_LOW) {
-            self.majorObstacleFrameCounterHolder.incrementNoBrightnessFrameCounter()
-            if (self.majorObstacleFrameCounterHolder.getNoBrightnessFrameCounter() >=
-                LivenessScreenViewController.MAX_FRAMES_WITH_LOW_BRIGHTNESS) {
-                self.endSessionPrematurely(performSegueWithIdentifier: "LivenessToTooDark")
-            }
-        }
         if (obstacleType == ObstacleType.YAW_ANGLE) {
             DispatchQueue.main.async {
                 self.hapticFeedbackGenerator.notificationOccurred(.warning)
@@ -311,8 +298,6 @@ extension LivenessScreenViewController {
         self.videoRecorder.stopRecording(completion: { url in
             print("========== FINISHED WRITING VIDEO IN: \(url)")
             DispatchQueue.main.async {
-                self.localLivenessAttempts += 1
-                print("==== LOCAL LIVENESS ATTEMPTS: \(self.localLivenessAttempts)")
                 self.faceCountDetectionFrameCounter = 0
                 
                 self.hasEnoughTimeForNextGesture = false
@@ -323,11 +308,7 @@ extension LivenessScreenViewController {
                 if (self.livenessSessionTimeoutTimer != nil) {
                     self.livenessSessionTimeoutTimer!.cancel()
                 }
-                if (self.localLivenessAttempts >= self.maxLivenessAttempts) {
-                    self.performSegue(withIdentifier: "LivenessToLocalSuccess", sender: nil)
-                } else {
-                    self.performSegue(withIdentifier: performSegueWithIdentifier, sender: nil)
-                }
+                self.performSegue(withIdentifier: performSegueWithIdentifier, sender: nil)
             }
         })
     }
@@ -520,14 +501,6 @@ extension LivenessScreenViewController: AVCaptureVideoDataOutputSampleBufferDele
         didOutput sampleBuffer: CMSampleBuffer,
         from connection: AVCaptureConnection
     ) {
-        //MARK: Brightness Detection
-        if (self.isLivenessSessionFinished == false && self.videoStreamingPermitted == true) {
-            let brightness = getBrightness(sampleBuffer: sampleBuffer)
-            //print("CURRENT BRIGHTNESS: \(brightness)")
-            if (brightness < LivenessScreenViewController.MIN_BRIGHTNESS_FACTOR) {
-                onObstableTypeMet(obstacleType: ObstacleType.BRIGHTNESS_LEVEL_IS_LOW)
-            }
-        }
         
         guard let imgBuffer: CVImageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer),
               let deviceMotion = motionManager.deviceMotion

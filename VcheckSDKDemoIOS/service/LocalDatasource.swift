@@ -136,16 +136,6 @@ extension LocalDatasource {
         return localeIsUserDefined
     }
     
-    func storeMaxLivenessLocalAttempts(attempts: Int) {
-        let data = Data("\(attempts)".utf8)
-        save(data, service: "max_liveness_attempts", account: Constants.UTIL.keychainAccountName)
-    }
-
-    func getMaxLivenessLocalAttempts() -> Int {
-        return Int(String(data: read(service: "max_liveness_attempts",
-                                     account: Constants.UTIL.keychainAccountName)!, encoding: .utf8)!)!
-    }
-    
     func deleteAllSessionData() {
         localeIsUserDefined = false
         resetAccessToken()

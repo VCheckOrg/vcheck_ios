@@ -43,7 +43,10 @@ class VideoProcessingViewModel {
                 return
             }
             self.isLoading = false
+            
             self.uploadedVideoResponse = data!
+            print("LIVENESS UPLOAD - response: \(String(describing: self.uploadedVideoResponse))")
+            
             self.didUploadVideoResponse!()
         })
     }

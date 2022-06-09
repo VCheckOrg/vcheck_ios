@@ -26,8 +26,6 @@ class DemoStartViewController : UIViewController {
         super.viewDidLoad()
         
         LocalDatasource.shared.deleteAllSessionData()
-        //Storing default num of max liveness attempts
-        LocalDatasource.shared.storeMaxLivenessLocalAttempts(attempts: 5)
         
         if (self.spinner.isAnimating) {
             self.spinner.stopAnimating()

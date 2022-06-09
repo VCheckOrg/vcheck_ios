@@ -19,8 +19,10 @@ enum GestureMilestoneType {
 enum ObstacleType {
     case YAW_ANGLE
     case MULTIPLE_FACES_DETECTED
-    case NO_OR_PARTIAL_FACE_DETECTED //TEST!
-    case BRIGHTNESS_LEVEL_IS_LOW
+    case NO_OR_PARTIAL_FACE_DETECTED
+    
+    //Deprecated local checks:
+    //case BRIGHTNESS_LEVEL_IS_LOW
     //case MOTIONS_ARE_TOO_SHARP
     //case WRONG_GESTURE
 }
@@ -31,6 +33,7 @@ class MilestoneConstraints {
     static let RIGHT_PITCH_PASS_ANGLE: Float = 30.0
     static let MOUTH_OPEN_PASS_FACTOR: Float = 0.35  //reduced from 0.55 !
     
+    //Deprecated local checks:
     //static let NEXT_FRAME_MAX_PITCH_DIFF: Float = 15.0 //!
     //static let NEXT_FRAME_MAX_YAW_DIFF: Float = 8.0
     //VIDEO_APP_LIVENESS_MAX_ANGLES_DIFF=100,25,100 //add roll?
@@ -180,16 +183,13 @@ class StandardMilestoneFlow {
 class MajorObstacleFrameCounterHolder {
     
     private var wrongGestureFrameCounter: Int = 0
-    private var noBrightnessFrameCounter: Int = 0
     
     func resetFrameCountersOnSessionPrematureEnd() {
         self.wrongGestureFrameCounter = 0
-        self.noBrightnessFrameCounter = 0
     }
     
     func resetFrameCountersOnStageSuccess() {
         self.wrongGestureFrameCounter = -15
-        self.noBrightnessFrameCounter = -15
     }
     
     func incrementWrongGestureFrameCounter() {
@@ -197,80 +197,7 @@ class MajorObstacleFrameCounterHolder {
         print("WRONG GESTURE - FRAME COUNT: \(self.wrongGestureFrameCounter)")
     }
     
-    func incrementNoBrightnessFrameCounter() {
-        self.noBrightnessFrameCounter += 1
-        print("NOT ENOUGH BRIGHTNESS DETECTED - FRAME COUNT: \(self.noBrightnessFrameCounter)")
-    }
-    
     func getWrongGestureFrameCounter() -> Int {
         return self.wrongGestureFrameCounter
     }
-    
-    func getNoBrightnessFrameCounter() -> Int {
-        return self.noBrightnessFrameCounter
-    }
 }
-
-
-// deprecated:
-//    func hasExtensivePitchDiff(pitchAngle: Float) -> Bool {
-//        if ((pitchAngle < 0 && recentFramePitchAngle < 0) || (pitchAngle > 0 && recentFramePitchAngle > 0)) {
-////            let diff = abs(abs(pitchAngle) - abs(recentFramePitchAngle))
-////            print("PITCH DIFF: \(diff)")
-//            return abs(abs(pitchAngle) - abs(recentFramePitchAngle)) > MilestoneConstraints.NEXT_FRAME_MAX_PITCH_DIFF
-//        } else if (pitchAngle != 0.0 && recentFrameYawAngle != 0.0) {
-////            let diff = (abs(pitchAngle) + abs(recentFramePitchAngle))
-////            print("PITCH DIFF: \(diff)")
-//            return (abs(pitchAngle) + abs(recentFramePitchAngle)) > MilestoneConstraints.NEXT_FRAME_MAX_PITCH_DIFF
-//        } else {
-//            return false
-//        }
-//    }
-//
-//    func hasExtensiveYawDiff(yawAngle: Float) -> Bool {
-//        if ((yawAngle < 0 && recentFrameYawAngle < 0) || (yawAngle > 0 && recentFrameYawAngle > 0)) {
-////            let diff = abs(abs(yawAngle) - abs(recentFrameYawAngle))
-////            print("YAW DIFF: \(diff)")
-//            return abs(abs(yawAngle) - abs(recentFrameYawAngle)) > MilestoneConstraints.NEXT_FRAME_MAX_PITCH_DIFF
-//        } else if (yawAngle != 0.0 && recentFrameYawAngle != 0.0) {
-////            let diff = (abs(yawAngle) + abs(recentFrameYawAngle))
-////            print("YAW DIFF: \(diff)")
-//            return (abs(yawAngle) + abs(recentFrameYawAngle)) > MilestoneConstraints.NEXT_FRAME_MAX_YAW_DIFF
-//        } else {
-//            return false
-//        }
-//    }
-
-// else {
-//          stagesList.enumerated().forEach { (idx, stage) in
-//                    if (idx != 0 && idx != currentStageIdx && stage.isMet(pitchAngle: pitchAngle,
-//                                       mouthFactor: mouthFactor, yawAbsAngle: yawAbsAngle)) {
-//                        onObstacleMet(ObstacleType.WRONG_GESTURE)
-//                    }
-//                }
-//            }
-
-
-//        if (obstacleType == ObstacleType.MOTIONS_ARE_TOO_SHARP) {
-//            self.endSessionPrematurely(performSegueWithIdentifier: "LivenessToFastMovements")
-//        }
-//        if (obstacleType == ObstacleType.WRONG_GESTURE) {
-//            self.majorObstacleFrameCounterHolder.incrementWrongGestureFrameCounter()
-//            if (self.majorObstacleFrameCounterHolder.getWrongGestureFrameCounter() >=
-//                LivenessScreenViewController.MAX_FRAMES_WITH_WRONG_GESTURE) {
-//                self.endSessionPrematurely(performSegueWithIdentifier: "LivenessToWrongGesture")
-//            }
-//        }
-
-//    private var multiFaceFrameCounter: Int = 0
-//    private var noFaceFrameCounter: Int = 0
-
-
-//        if (segue.identifier == "LivenessToWrongGesture") {
-//            let vc = segue.destination as! WrongGestureViewController
-//            vc.onRepeatBlock = { result in self.renewLivenessSessionOnRetry() }
-//        }
-//        if (segue.identifier == "LivenessToFastMovements") {
-//            let vc = segue.destination as! SharpMovementsViewController
-//            vc.onRepeatBlock = { result in self.renewLivenessSessionOnRetry() }
-//        }

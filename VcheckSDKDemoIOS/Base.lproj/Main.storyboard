@@ -2147,7 +2147,7 @@
                         <outlet property="rightArrowAnimHolderView" destination="Fwi-Pr-m0O" id="emE-aR-yDQ"/>
                         <outlet property="roundedView" destination="NrB-hx-Tlh" id="KuT-j5-CUh"/>
                         <outlet property="tvLivenessInfo" destination="f3n-0Y-qsf" id="KfW-rw-Zoc"/>
-                        <segue destination="IiJ-Ck-Dhz" kind="show" identifier="LivenessToLocalSuccess" id="ZdL-1s-Zh3"/>
+                        <segue destination="IiJ-Ck-Dhz" kind="show" identifier="LivenessToVideoProcessing" id="ZdL-1s-Zh3"/>
                         <segue destination="q0J-YZ-DjP" kind="show" identifier="LivenessToNoTime" id="E2k-TB-gTE"/>
                         <segue destination="Gk4-E0-G28" kind="show" identifier="LivenessToWrongGesture" id="HKh-3c-Vf4"/>
                         <segue destination="YIZ-ih-eAP" kind="show" identifier="LivenessToNoFaceDetected" id="dMs-gB-ZC7"/>

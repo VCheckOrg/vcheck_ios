@@ -20,14 +20,6 @@ import Vision
 
 extension LivenessScreenViewController {
     
-    func getBrightness(sampleBuffer: CMSampleBuffer) -> Double {
-        let rawMetadata = CMCopyDictionaryOfAttachments(allocator: nil, target: sampleBuffer, attachmentMode: CMAttachmentMode(kCMAttachmentMode_ShouldPropagate))
-        let metadata = CFDictionaryCreateMutableCopy(nil, 0, rawMetadata) as NSMutableDictionary
-        let exifData = metadata.value(forKey: "{Exif}") as? NSMutableDictionary
-        let brightnessValue : Double = exifData?[kCGImagePropertyExifBrightnessValue as String] as! Double
-        return brightnessValue
-    }
-    
     /// Setup a camera capture session from the front camera to receive captures.
     /// - Returns: true when the function has fatal error; false when not.
     func setupCamera() -> Bool {
@@ -218,23 +210,11 @@ extension LivenessScreenViewController {
 //        #endif
 //    }()
 
-//DispatchQueue.global(qos: .userInitiated).async {
-//    print("This is run on a background queue")
-//
-//    DispatchQueue.main.async {
-//        print("This is run on the main queue, after the previous code in outer block")
-//    }
+//Deprecated local check
+//func getBrightness(sampleBuffer: CMSampleBuffer) -> Double {
+//    let rawMetadata = CMCopyDictionaryOfAttachments(allocator: nil, target: sampleBuffer, attachmentMode: CMAttachmentMode(kCMAttachmentMode_ShouldPropagate))
+//    let metadata = CFDictionaryCreateMutableCopy(nil, 0, rawMetadata) as NSMutableDictionary
+//    let exifData = metadata.value(forKey: "{Exif}") as? NSMutableDictionary
+//    let brightnessValue : Double = exifData?[kCGImagePropertyExifBrightnessValue as String] as! Double
+//    return brightnessValue
 //}
-
-//    func delay(_ delay:Double, closure:@escaping ()->()) {
-//        let when = DispatchTime.now() + delay
-//        DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
-//    }
-
-//      let mouthOpen: Bool = mouthAngle > 0.39
-//      let turnedLeft: Bool = faceAnglesHolder.pitch < -30
-//      let turnedRight: Bool = faceAnglesHolder.pitch > 30
-
-//faceAnimationView.transform = CGAffineTransform(rotationAngle: CGFloat.pi) //rotate by 180 deg.
-//faceAnimationView.loopMode = .autoReverse
-//faceAnimationView.play()
