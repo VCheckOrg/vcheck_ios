@@ -1,0 +1,390 @@
+/* Class = "UILabel"; text = "Проверка лица"; ObjectID = "1c6-jq-Hxi"; */
+"1c6-jq-Hxi.text" = "Проверка лица";
+
+/* Class = "UILabel"; text = "К сожалению, нам не удалось верифицировать вашу заявку. Если вы не согласны с данным решением, просьба обратиться в службу поддержки"; ObjectID = "2Ip-f7-uZ5"; */
+"2Ip-f7-uZ5.text" = "При загрузке видео возникла проблема. Проверьте подключение к Интернету и повторите попытку, не переводя приложение в фоновый режим.";
+
+/* Class = "UILabel"; text = "Фото вашего документа должно отвечать следующим требованиям:"; ObjectID = "2W7-Jm-sUy"; */
+"2W7-Jm-sUy.text" = "Фото вашего документа должно отвечать следующим требованиям:";
+
+/* Class = "UIButton"; configuration.title = "Попробовать снова"; ObjectID = "3fM-Ho-q55"; */
+"3fM-Ho-q55.configuration.title" = "Попробовать снова";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "3fM-Ho-q55"; */
+"3fM-Ho-q55.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Загранпаспорт"; ObjectID = "3gZ-MQ-puZ"; */
+"3gZ-MQ-puZ.text" = "Загранпаспорт";
+
+/* Class = "UILabel"; text = "Загрузите фото лицевого разворота \n(разворот с вашим фото)."; ObjectID = "6v6-eK-T1j"; */
+"6v6-eK-T1j.text" = "Загрузите фото лицевого разворота \n(разворот с вашим фото).";
+
+/* Class = "UILabel"; text = "Не следует, однако забывать, что консультация с широким активом обеспечивает широкому кругу (специалистов) участие в формировании систем массового участия."; ObjectID = "73Y-G0-L4X"; */
+"73Y-G0-L4X.text" = "Для последующей обработки и валидации укажите, какому из типов ниже соответствует ваш документ.";
+
+/* Class = "UILabel"; text = "Верификация неуспешна"; ObjectID = "8MH-tb-Ixh"; */
+"8MH-tb-Ixh.text" = "Что-то пошло не так :(";
+
+/* Class = "UITextView"; text = "Please, wait. The photo of your document is being loaded and processed. This may take from a few seconds to a minute."; ObjectID = "8ou-Zr-Oj3"; */
+"8ou-Zr-Oj3.text" = "Пожалуйста, подождите. Идет загрузка и обработка фото вашего документа. Это может занять от нескольких секунд до минуты.";
+
+/* Class = "UILabel"; text = "Время на выполнение движения истекло"; ObjectID = "939-B9-Kfj"; */
+"939-B9-Kfj.text" = "Время на выполнение движения истекло";
+
+/* Class = "UIButton"; configuration.title = "Скопировать ссылку"; ObjectID = "9Fe-fP-c8z"; */
+"9Fe-fP-c8z.configuration.title" = "Скопировать ссылку";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "9Fe-fP-c8z"; */
+"9Fe-fP-c8z.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "В кадре могло быть несколько людей, либо посторонние предметы. При повторной проверке постарайтесь, что бы в кадре было только ваше лицо и его было видно как можно четче."; ObjectID = "aNj-4j-beg"; */
+"aNj-4j-beg.text" = "В кадре могло быть несколько людей, либо посторонние предметы. При повторной проверке постарайтесь, чтобы в кадре было только ваше лицо и его было видно как можно четче.";
+
+/* Class = "UILabel"; text = "Сначала разместите лицо по центру кадра, затем двигайте головой в заданом направлении, как на примере ниже, чтобы показать свое лицо со всех углов."; ObjectID = "ato-ly-woq"; */
+"ato-ly-woq.text" = "Сначала разместите лицо по центру кадра, затем двигайте головой в заданном направлении, как на примере ниже, чтобы показать свое лицо со всех углов.";
+
+/* Class = "UILabel"; text = "зафиксированная камера (старайтесь не двигать камерой)"; ObjectID = "ATp-gm-vMv"; */
+"ATp-gm-vMv.text" = "зафиксированная камера (старайтесь не двигать камерой)";
+
+/* Class = "UILabel"; text = "Страница не найдена"; ObjectID = "Bn8-gv-ckR"; */
+"Bn8-gv-ckR.text" = "Мы не нашли страницы с таким адресом :(";
+
+/* Class = "UILabel"; text = "Внутренний гражданский паспорт"; ObjectID = "bPH-Ay-ydn"; */
+"bPH-Ay-ydn.text" = "Внутренний паспорт гражданина";
+
+/* Class = "UILabel"; text = "Движение, которое запрашивалось не было выполнено корректно. Старайтесь делать именно те движения, которые запрашиваются. Движения должны быть плавными и своевременными."; ObjectID = "bVd-GC-ULM"; */
+"bVd-GC-ULM.text" = "Движение, которое запрашивалось не было выполнено корректно. Старайтесь делать именно те движения, которые запрашиваются. Движения должны быть плавными и своевременными.";
+
+/* Class = "UITextView"; text = "Non available"; ObjectID = "Ci0-dm-ifp"; */
+"Ci0-dm-ifp.text" = "Недоступно";
+
+/* Class = "UILabel"; text = "Україна"; ObjectID = "cY3-cf-m9e"; */
+"cY3-cf-m9e.text" = "Украина";
+
+/* Class = "UIButton"; configuration.title = "Liveness Demo"; ObjectID = "DdH-Xd-pgi"; */
+"DdH-Xd-pgi.configuration.title" = "Liveness(Локально!)";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "DdH-Xd-pgi"; */
+"DdH-Xd-pgi.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Верификация успешна"; ObjectID = "Dtj-8M-eb8"; */
+"Dtj-8M-eb8.text" = "Верификация успешна";
+
+/* Class = "UIButton"; configuration.title = "I am confident in my document, continue the verification process"; ObjectID = "EaO-z6-vaI"; */
+"EaO-z6-vaI.configuration.title" = "Я уверен(-а) в своем документе, продолжить процесс верификации";
+
+/* Class = "UILabel"; text = "нет посторонних объектов: обложки, пальцев, скрепок и т.п."; ObjectID = "EY3-6C-cJ9"; */
+"EY3-6C-cJ9.text" = "нет посторонних объектов: обложки, пальцев, скрепок и т.п.";
+
+/* Class = "UILabel"; text = "PLEASE WAIT..."; ObjectID = "f3n-0Y-qsf"; */
+"f3n-0Y-qsf.text" = "Загрузка...";
+
+/* Class = "UILabel"; text = "Выберите страну"; ObjectID = "fFZ-MA-crE"; */
+"fFZ-MA-crE.text" = "Выберите страну";
+
+/* Class = "UILabel"; text = "Сверка заполнение данных"; ObjectID = "FNT-ys-lqv"; */
+"FNT-ys-lqv.text" = "Сверка заполнения данных";
+
+/* Class = "UILabel"; text = "Сделать фото"; ObjectID = "fRM-vS-6wd"; */
+"fRM-vS-6wd.text" = "Сделать фото";
+
+/* Class = "UISearchBar"; placeholder = "Search"; ObjectID = "fVU-YR-D7u"; */
+"fVU-YR-D7u.placeholder" = "Поиск";
+
+/* Class = "UILabel"; text = "Загрузите фото документа"; ObjectID = "GCm-VK-XhF"; */
+"GCm-VK-XhF.text" = "Сделайте фото документа";
+
+/* Class = "UIButton"; configuration.title = "Попробовать снова"; ObjectID = "gCO-14-vPo"; */
+"gCO-14-vPo.configuration.title" = "Попробовать снова";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "gCO-14-vPo"; */
+"gCO-14-vPo.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Сделать фото"; ObjectID = "gGK-zu-Dsf"; */
+"gGK-zu-Dsf.text" = "Сделать фото";
+
+/* Class = "UILabel"; text = "Проверьте свое фото"; ObjectID = "goj-ZF-231"; */
+"goj-ZF-231.text" = "Проверьте свое фото";
+
+/* Class = "UILabel"; text = "сфотографированы или отсканированы с оригиналов"; ObjectID = "hfh-Nr-Lyd"; */
+"ACV-UJ-hZv.text" = "сфотографированы или отсканированы с оригиналов";
+
+/* Class = "UILabel"; text = "Требования к фото"; ObjectID = "hgH-RH-Doo"; */
+"hgH-RH-Doo.text" = "Требования к фото";
+
+/* Class = "UILabel"; text = "Текст по факту успешной верификации"; ObjectID = "hJ9-Ol-hHi"; */
+"hJ9-Ol-hHi.text" = "Все необходимые данные по заявке на верификацию отправлены на наши сервисы и находятся на финальной стадии обработки. Вы можете вернуться к партнерскому сервису.";
+
+/* Class = "UILabel"; text = "Заявка отправлена  на проверку"; ObjectID = "iad-2I-iin"; */
+"iad-2I-iin.text" = "Ваша заявка отправлена на финальную стадию верификации.";
+
+/* Class = "UILabel"; text = "Слишком резкие движения"; ObjectID = "IDl-aE-NPd"; */
+"IDl-aE-NPd.text" = "Слишком резкие движения";
+
+/* Class = "UILabel"; text = "движения должны быть четкими и плавными"; ObjectID = "ilv-19-slf"; */
+"ilv-19-slf.text" = "движения должны быть четкими и плавными";
+
+/* Class = "UILabel"; text = "Проверка не может выполниться, так как в кадре слишком темно. Пройдите проверку повторно с хорошим освещением."; ObjectID = "iqs-Cd-Nh9"; */
+"iqs-Cd-Nh9.text" = "Проверка не может выполниться, так как в кадре слишком темно. Пройдите проверку повторно с хорошим освещением.";
+
+/* Class = "UITextView"; text = "FLAG"; ObjectID = "irG-6P-v79"; */
+"irG-6P-v79.text" = "FLAG";
+
+/* Class = "UIButton"; configuration.title = "Попробовать снова"; ObjectID = "J06-xe-Wnh"; */
+"J06-xe-Wnh.configuration.title" = "Попробовать снова";
+
+/* Class = "UIButton"; configuration.title = "Попробовать снова"; ObjectID = "jks-Ld-fXF"; */
+"jks-Ld-fXF.configuration.title" = "Попробовать снова";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "jks-Ld-fXF"; */
+"jks-Ld-fXF.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Загрузите фото обратного разворота."; ObjectID = "k0x-f9-qUL"; */
+"k0x-f9-qUL.text" = "Загрузите фото обратного разворота.";
+
+/* Class = "UILabel"; text = "действительны на момент отправки"; ObjectID = "k3O-6X-MdF"; */
+"k3O-6X-MdF.text" = "действительны на момент отправки";
+
+/* Class = "UIButton"; configuration.title = "Вернуться"; ObjectID = "KCf-7P-AoR"; */
+"KCf-7P-AoR.configuration.title" = "Вернуться";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "KCf-7P-AoR"; */
+"KCf-7P-AoR.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Отлично"; ObjectID = "Kfa-tK-cWU"; */
+"Kfa-tK-cWU.configuration.title" = "Отлично";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Kfa-tK-cWU"; */
+"Kfa-tK-cWU.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Камера не найдена, либо вы отказали в доступе к ней. Если камера работает исправно - нажмите на кнопку ниже и в появившемся окне дайте доступ на ее использование. Если проблема не решилась попробуйте скопировать ссылку на верефикацию продолжить на другом устройстве"; ObjectID = "kMc-Ag-ZwR"; */
+"kMc-Ag-ZwR.text" = "Камера не найдена, либо вы отказали в доступе к ней. Если камера работает исправно - нажмите на кнопку ниже и в появившемся окне дайте доступ на ее использование. Если проблема не решилась попробуйте скопировать ссылку на верефикацию продолжить на другом устройстве";
+
+/* Class = "UIButton"; configuration.title = "Попробовать снова"; ObjectID = "LeA-wx-gAE"; */
+"LeA-wx-gAE.configuration.title" = "Попробовать снова";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "LeA-wx-gAE"; */
+"LeA-wx-gAE.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "видны все защитные элементы"; ObjectID = "lqU-VZ-pLL"; */
+"lqU-VZ-pLL.text" = "видны все защитные элементы";
+
+/* Class = "UILabel"; text = "изображение должно быть цветным"; ObjectID = "lZr-qg-h72"; */
+"lZr-qg-h72.text" = "изображение должно быть цветным";
+
+/* Class = "UILabel"; text = "По какой-то причине мы не смогли загрузить контент данной страницы. Попробуйте перезагрузить страницу"; ObjectID = "mhV-l1-ZoU"; */
+"mhV-l1-ZoU.text" = "Что-то пошло не так. Мы рекомендуем сфотографировать документ еще раз.";
+
+/* Class = "UILabel"; text = "Слишком темно"; ObjectID = "NhH-7f-gBD"; */
+"NhH-7f-gBD.text" = "Слишком темно";
+
+/* Class = "UILabel"; text = "Биометрический паспорт (ID-карта)"; ObjectID = "o5B-Kh-Vep"; */
+"o5B-Kh-Vep.text" = "Биометрический паспорт (ID-карта)";
+
+/* Class = "UITextView"; text = "Country"; ObjectID = "O84-jd-0oF"; */
+"O84-jd-0oF.text" = "Страна";
+
+/* Class = "UIButton"; configuration.title = "Все верно! Продолжить"; ObjectID = "oMH-sQ-S0l"; */
+"oMH-sQ-S0l.configuration.title" = "Все верно! Продолжить";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "oMH-sQ-S0l"; */
+"oMH-sQ-S0l.normalTitle" = "Все верно! Продолжить";
+
+/* Class = "UILabel"; text = "Заявка на верификацию отправлена на проверку. Очень скоро Вас уведомят о результате."; ObjectID = "Oov-Zo-rlv"; */
+"Oov-Zo-rlv.text" = "Это может занять некоторое время. Теперь вы можете вернуться к основному сервису.";
+
+/* Class = "UILabel"; text = "Вы не смотрели прямо"; ObjectID = "OPz-op-RyB"; */
+"OPz-op-RyB.text" = "Вы не смотрели прямо";
+
+/* Class = "UIButton"; configuration.title = "Close"; ObjectID = "pmI-2b-PrY"; */
+"pmI-2b-PrY.configuration.title" = "Закрыть";
+
+/* Class = "UILabel"; text = "Камера не доступна"; ObjectID = "PPj-wU-k0I"; */
+"PPj-wU-k0I.text" = "Камера не доступна";
+
+/* Class = "UILabel"; text = "выполнятей только запрашиваемые движения"; ObjectID = "QOe-mg-i3J"; */
+"QOe-mg-i3J.text" = "выполняйте только запрашиваемые движения";
+
+/* Class = "UIButton"; configuration.title = "Попробовать снова"; ObjectID = "QxK-2h-Je3"; */
+"QxK-2h-Je3.configuration.title" = "Попробовать снова";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "QxK-2h-Je3"; */
+"QxK-2h-Je3.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Все понятно. Начать проверку"; ObjectID = "r7D-Nn-4Ql"; */
+"r7D-Nn-4Ql.configuration.title" = "Начать проверку";
+
+/* Class = "UIButton"; configuration.title = "Обратиться в службу поддержки"; ObjectID = "rBN-xJ-7O7"; */
+"rBN-xJ-7O7.configuration.title" = "Обратиться в службу поддержки";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "rBN-xJ-7O7"; */
+"rBN-xJ-7O7.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Попробовать снова"; ObjectID = "Rsg-z4-gbq"; */
+"Rsg-z4-gbq.configuration.title" = "Попробовать снова";
+
+/* Class = "UITextView"; text = "FLAG"; ObjectID = "RyQ-vN-b5X"; */
+"RyQ-vN-b5X.text" = "FLAG";
+
+/* Class = "UILabel"; text = "найдите место с хорошим освещением (светло, но без ярких засветов)"; ObjectID = "S8c-XH-tNZ"; */
+"S8c-XH-tNZ.text" = "найдите место с хорошим освещением (светло, но без ярких засветов)";
+
+/* Class = "UILabel"; text = "в кадре не должно быть помех"; ObjectID = "sAt-oD-4Mb"; */
+"sAt-oD-4Mb.text" = "в кадре не должно быть помех";
+
+/* Class = "UILabel"; text = "Лицо не было зафиксировано прямо в кадре в необходимый для этого момент. Старайтесь четко придерживаться инструкций в момент прохождения проверки. Попробуйте снова. "; ObjectID = "SQC-lw-w5d"; */
+"SQC-lw-w5d.text" = "Лицо не было зафиксировано прямо в кадре в необходимый для этого момент. Старайтесь четко придерживаться инструкций в момент прохождения проверки. Попробуйте снова. ";
+
+/* Class = "UIButton"; configuration.title = "Подтвердить"; ObjectID = "t8n-y7-cdZ"; */
+"t8n-y7-cdZ.configuration.title" = "Подтвердить";
+
+/* Class = "UILabel"; text = "В кадре много помех"; ObjectID = "TdZ-WF-NIV"; */
+"TdZ-WF-NIV.text" = "В кадре много помех";
+
+/* Class = "UILabel"; text = "Страна"; ObjectID = "tZV-5H-szz"; */
+"tZV-5H-szz.text" = "Страна";
+
+/* Class = "UITextView"; text = "Country"; ObjectID = "U6K-vN-zaz"; */
+"U6K-vN-zaz.text" = "Страна";
+
+/* Class = "UILabel"; text = "Операционная система не поддерживаеться"; ObjectID = "UJr-ZK-4ZA"; */
+"UJr-ZK-4ZA.text" = "Операционная система не поддерживаеться";
+
+/* Class = "UILabel"; text = "Вы не успели выполнить корректное движение. Старайтесь четко придерживаться инструкций в момент прохождения проверки."; ObjectID = "uLu-gA-21w"; */
+"uLu-gA-21w.text" = "Вы не успели выполнить корректное движение. Старайтесь четко придерживаться инструкций в момент прохождения проверки";
+
+/* Class = "UILabel"; text = "Неверное движение"; ObjectID = "uol-az-Qka"; */
+"uol-az-Qka.text" = "Неверное движение";
+
+/* Class = "UIButton"; configuration.title = "Start Demo Flow"; ObjectID = "uXu-nD-622"; */
+"uXu-nD-622.configuration.title" = "Попробовать демо";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "uXu-nD-622"; */
+"uXu-nD-622.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Попробовать снова"; ObjectID = "v87-W5-vbC"; */
+"v87-W5-vbC.configuration.title" = "Попробовать снова";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "v87-W5-vbC"; */
+"v87-W5-vbC.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Что-то пошло не так :("; ObjectID = "vIo-1V-hp0"; */
+"vIo-1V-hp0.text" = "Верификация документа неуспешна";
+
+/* Class = "UIButton"; configuration.title = "Вернуться"; ObjectID = "Vpj-sc-FAg"; */
+"Vpj-sc-FAg.configuration.title" = "На главную";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Vpj-sc-FAg"; */
+"Vpj-sc-FAg.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Проверьте читаемость информации на фото. Убедитесь, что на фото видны все 4 угла документа"; ObjectID = "VQx-HL-SS1"; */
+"VQx-HL-SS1.text" = "Проверьте читаемость информации на фото. Убедитесь, что на фото видны все 4 угла документа";
+
+/* Class = "UILabel"; text = "полностью видны все 4 угла документа"; ObjectID = "vUd-yM-LbS"; */
+"vUd-yM-LbS.text" = "полностью видны все 4 угла документа";
+
+/* Class = "UILabel"; text = "К сожалению, данная мобильная ОС не поддерживаеться. Для успешного прохождения процедуры верификации рекомендуем вам скопировать ссылку ниже и продолжить на персональном компьютере"; ObjectID = "w2I-Vr-HHn"; */
+"w2I-Vr-HHn.text" = "К сожалению, данная мобильная ОС не поддерживается. Для успешного прохождения процедуры верификации рекомендуем вам скопировать ссылку ниже и продолжить на персональном компьютере";
+
+/* Class = "UIButton"; configuration.title = "Продолжить"; ObjectID = "W64-Ne-sgD"; */
+"W64-Ne-sgD.configuration.title" = "Продолжить";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "W64-Ne-sgD"; */
+"W64-Ne-sgD.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Проверьте, все ли данные по документу были распознаны корректно?"; ObjectID = "Wgk-ad-nWW"; */
+"Wgk-ad-nWW.text" = "Проверьте, все ли данные по документу были распознаны корректно?";
+
+/* Class = "UILabel"; text = "Заменить фото"; ObjectID = "wgy-0K-AbA"; */
+"wgy-0K-AbA.text" = "Заменить фото";
+
+/* Class = "UIButton"; configuration.title = "Отмена"; ObjectID = "wM8-4G-pEK"; */
+"wM8-4G-pEK.configuration.title" = "Отмена";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "wM8-4G-pEK"; */
+"wM8-4G-pEK.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Закрыть"; ObjectID = "WXG-eJ-qvn"; */
+"WXG-eJ-qvn.configuration.title" = "Попробовать снова";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "WXG-eJ-qvn"; */
+"WXG-eJ-qvn.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Выберите тип документа"; ObjectID = "XJJ-7D-hfl"; */
+"XJJ-7D-hfl.text" = "Выберите тип документа";
+
+/* Class = "UIButton"; configuration.title = "Продолжить"; ObjectID = "YYe-al-bEj"; */
+"YYe-al-bEj.configuration.title" = "Продолжить";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "YYe-al-bEj"; */
+"YYe-al-bEj.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Дать доступ к камере"; ObjectID = "ZKB-FU-zba"; */
+"ZKB-FU-zba.configuration.title" = "Дать доступ к камере";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ZKB-FU-zba"; */
+"ZKB-FU-zba.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Значимость этих проблем настолько очевидна, что новая модель организационной деятельности требуют определения и уточнения направлений прогрессивного развития. "; ObjectID = "zMS-X5-1mQ"; */
+"zMS-X5-1mQ.text" = "Выберите страну регистрации вашего документа, который необходимо будет сфотографировать на следующем шаге.";
+
+/* Class = "UIButton"; configuration.title = "Продолжить"; ObjectID = "ZNG-ph-Cor"; */
+"ZNG-ph-Cor.configuration.title" = "Продолжить";
+
+/* Class = "UIButton"; normalTitle = "English"; ObjectID = "ca7-Xy-aCd"; */
+"ca7-Xy-aCd.normalTitle" = "";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "EaO-z6-vaI"; */
+"EaO-z6-vaI.normalTitle" = "";
+
+/* Class = "UILabel"; text = "Старайтесь выполнять движения плавно. Попробуйте снова."; ObjectID = "eta-Xk-i4x"; */
+"eta-Xk-i4x.text" = "Старайтесь выполнять движения плавно. Попробуйте снова.";
+
+/* Class = "UISearchBar"; fVU-YR-D7u.scopeButtonTitles[0] = "Title"; ObjectID = "fVU-YR-D7u"; */
+"fVU-YR-D7u.scopeButtonTitles[0]" = "";
+
+/* Class = "UISearchBar"; fVU-YR-D7u.scopeButtonTitles[1] = "Title"; ObjectID = "fVU-YR-D7u"; */
+"fVU-YR-D7u.scopeButtonTitles[1]" = "";
+
+/* Class = "UILabel"; text = "Нет данных"; ObjectID = "IUM-aR-pey"; */
+"IUM-aR-pey.text" = "No data available";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "J06-xe-Wnh"; */
+"J06-xe-Wnh.normalTitle" = "";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Pgp-l7-9ju"; */
+"Pgp-l7-9ju.normalTitle" = "";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "pmI-2b-PrY"; */
+"pmI-2b-PrY.normalTitle" = "";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "R50-oF-lGI"; */
+"R50-oF-lGI.normalTitle" = "";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "r7D-Nn-4Ql"; */
+"r7D-Nn-4Ql.normalTitle" = "";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Rsg-z4-gbq"; */
+"Rsg-z4-gbq.normalTitle" = "";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "t8n-y7-cdZ"; */
+"t8n-y7-cdZ.normalTitle" = "";
+
+/* Class = "UITextField"; text = "Test"; ObjectID = "u3Q-g0-NzA"; */
+"u3Q-g0-NzA.text" = "";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ZNG-ph-Cor"; */
+"ZNG-ph-Cor.normalTitle" = "";
+
+/* Class = "UITextView"; text = "FLAG"; ObjectID = "zr2-kK-wWI"; */
+"zr2-kK-wWI.text" = "";
+
+/* Class = "UITextView"; text = "Field name"; ObjectID = "zVf-o1-mBp"; */
+"zVf-o1-mBp.text" = "";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ZYK-Zq-SfN"; */
+"ZYK-Zq-SfN.normalTitle" = "";
+
+/* Class = "UIButton"; configuration.title = "Отлично"; ObjectID = "Kfa-tK-cWU"; */
+"6yr-kz-O3F.configuration.title" = "Отлично";
+

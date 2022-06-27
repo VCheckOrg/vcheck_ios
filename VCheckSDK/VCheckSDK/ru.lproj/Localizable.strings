@@ -1,0 +1,78 @@
+"enter_valid_dob" = "Введите дату рождения в формате 'ГГГГ-ММ-ДД'";
+
+"enter_valid_doc_number" = "Введите валидный номер документа";
+
+"enter_valid_name" = "Введите валидное имя";
+
+"enter_valid_surname" = "Введите валидную фамилию";
+
+/* No comment provided by engineer. */
+"error_make_at_least_one_photo" = "Пожалуйста, сделайте как минимум одно фото документа";
+
+"error_make_one_photo" = "Пожалуйста, сделайте одно фото документа";
+
+"error_make_two_photos" = "Пожалуйста, сделайте две фотографии документа";
+
+/* No comment provided by engineer. */
+"error_some_fields_are_empty" = "Пожалуйста, заполните все поля документа";
+
+/* No comment provided by engineer. */
+"line_face_obstacle" = "Смотрите прямо";
+
+/* No comment provided by engineer. */
+"liveness_stage_check_face_pos" = "Выровняйте лицо и закройте рот";
+
+/* No comment provided by engineer. */
+"liveness_stage_face_left" = "Поверните лицо влево";
+
+/* No comment provided by engineer. */
+"liveness_stage_face_right" = "Поверните лицо вправо";
+
+/* No comment provided by engineer. */
+"liveness_stage_open_mouth" = "Откройте рот";
+
+/* No comment provided by engineer. */
+"photo_loaing_wait_discl" = "Пожалуйста, подождите. Идет загрузка и обработка фото вашего документа. Это может занять от нескольких секунд до минуты.";
+
+/* No comment provided by engineer. */
+"photo_upload_title_common_back" = "Фотография последней страницы/стороны с вашей фотографией (если у вас несколько фотографий в документе)";
+
+/* No comment provided by engineer. */
+"photo_upload_title_common_forward" = "Фотография первой страницы/стороны документа (с вашим фото)";
+
+/* No comment provided by engineer. */
+"photo_upload_title_foreign" = "Полный разворот документа с вашим фото";
+
+/* No comment provided by engineer. */
+"photo_upload_title_id_card_back" = "Задняя сторона ID-карты";
+
+/* No comment provided by engineer. */
+"photo_upload_title_id_card_forward" = "Передняя сторона ID-карты";
+
+/* Default action */
+"OK" = "";
+
+/* No comment provided by engineer. */
+"no_search_data_label" = "Нет данных";
+
+"confident_in_doc_title" = "Я уверен(-а) в своем документе, продолжить процесс верификации";
+
+"doc_date_placeholder" = "ГГГГ-ММ-ДД";
+
+"non_available" = "Недоступно";
+
+"bermuda" = "Бермудские Острова";
+
+"invalid_doc_type_desc" = "Документ не соответствует выбранному типу. Рекомендуем повторить загрузку документа.";
+
+"verif_error_desc" = "Что-то пошло не так. Мы рекомендуем сфотографировать документ еще раз.";
+
+"check_doc_fields_input_message" = "Проверте правильность заполнения всех полей документа";
+
+"need_camera_access_title" = "Доступ к Камере";
+"need_camera_access_descr" = "Необходимо предоставить доступ к камере для фотографирования документов и проведения сеансов проверки лица.";
+"allow" = "Позволить";
+"decline" = "Запретить";
+
+"declined_camera_access" = "Доступ к камере отклонен: это сделает недоступными основные функции продукта. Чтобы разрешить доступ к камере, перезапустите приложение или перейдите в Системные Настройки.";
+

@@ -1,0 +1,76 @@
+"enter_valid_dob" = "Enter DOB in format 'YYYY-MM-DD'";
+
+"enter_valid_doc_number" = "Enter valid document number";
+
+"enter_valid_name" = "Enter valid name";
+
+"enter_valid_surname" = "Enter valid surname";
+
+/* No comment provided by engineer. */
+"error_make_at_least_one_photo" = "Please make at least one photo of the document";
+
+"error_make_one_photo" = "Please make one photo of the document";
+
+"error_make_two_photos" = "Please make two photos of the document";
+
+/* No comment provided by engineer. */
+"error_some_fields_are_empty" = "Please fill all empty document fields";
+
+/* No comment provided by engineer. */
+"line_face_obstacle" = "Don't look up or down";
+
+/* No comment provided by engineer. */
+"liveness_stage_check_face_pos" = "Align face and close mouth";
+
+/* No comment provided by engineer. */
+"liveness_stage_face_left" = "Turn face to the left";
+
+/* No comment provided by engineer. */
+"liveness_stage_face_right" = "Turn face to the right";
+
+/* No comment provided by engineer. */
+"liveness_stage_open_mouth" = "Open mouth";
+
+/* No comment provided by engineer. */
+"photo_loaing_wait_discl" = "Please, wait. The photo of your document is being loaded and processed. This may take from a few seconds to a minute.";
+
+/* No comment provided by engineer. */
+"photo_upload_title_common_back" = "Photo of the last page / side with your photo (if you have multiple photos in the document)";
+
+/* No comment provided by engineer. */
+"photo_upload_title_common_forward" = "Photo of the first page / side of the document (with your photo)";
+
+/* No comment provided by engineer. */
+"photo_upload_title_foreign" = "Full spread of the document with your photo";
+
+/* No comment provided by engineer. */
+"photo_upload_title_id_card_back" = "Back side of the ID card";
+
+/* No comment provided by engineer. */
+"photo_upload_title_id_card_forward" = "Front side of the ID card";
+
+/* Default action */
+"OK" = "";
+
+/* No comment provided by engineer. */
+"no_search_data_label" = "No data available";
+"confident_in_doc_title" = "I am confident in my document, continue the verification process";
+
+"doc_date_placeholder" = "YYYY-MM-DD";
+
+"non_available" = "Non available";
+
+"bermuda" = "Bermuda";
+
+"invalid_doc_type_desc" = "The document does not match the selected type. We recommend to re-upload the document.";
+
+"verif_error_desc" = "Something went wrong. We recommend to re-upload the document.";
+
+"check_doc_fields_input_message" = "Some document fields are not properly filled or empty";
+
+"need_camera_access_title" = "Need Camera Access";
+"need_camera_access_descr" = "Camera access is required for taking document photos and performing face-checking sessions.";
+"allow" = "Allow";
+"decline" = "Decline";
+
+"declined_camera_access" = "Camera access is declined: that will make the major product features unavailable. To allow Camera acess, re-launch app or go to Settings.";
