@@ -8,7 +8,7 @@
 import Foundation
 import AVFoundation
 import SceneKit
-import ARCoreAugmentedFaces
+@_implementationOnly import ARCore
 
 
 // MARK: - Matrix (face coords calc) extensions

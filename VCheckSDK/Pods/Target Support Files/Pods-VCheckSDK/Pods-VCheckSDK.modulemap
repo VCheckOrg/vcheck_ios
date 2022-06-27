@@ -1,0 +1,6 @@
+module Pods_VCheckSDK {
+  umbrella header "Pods-VCheckSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}

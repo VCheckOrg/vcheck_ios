@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class DemoStartViewModel {
+class DemoStartViewModel {
     
     private var dataService: RemoteDatasource = RemoteDatasource.shared
     

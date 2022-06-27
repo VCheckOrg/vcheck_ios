@@ -8,7 +8,7 @@
 import Foundation
 
 
-public class Debouncer {
+internal class Debouncer {
     
     private let timeInterval: TimeInterval
     private var timer: Timer?

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Alamofire
+@_implementationOnly import Alamofire
 import UIKit
 
 struct RemoteDatasource {

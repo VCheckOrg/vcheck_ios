@@ -3,11 +3,11 @@ import CoreMedia
 import CoreMotion
 import SceneKit
 import UIKit
-import ARCoreAugmentedFaces
-import Lottie
+@_implementationOnly import ARCore
+@_implementationOnly import Lottie
 import Vision
 
-public class LivenessScreenViewController: UIViewController {
+internal class LivenessScreenViewController: UIViewController {
 
     // MARK: Outlets/Actions
 

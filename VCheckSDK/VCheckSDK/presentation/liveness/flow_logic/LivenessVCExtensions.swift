@@ -11,7 +11,7 @@ import CoreMedia
 import CoreMotion
 import SceneKit
 import UIKit
-import ARCoreAugmentedFaces
+@_implementationOnly import ARCore
 import Vision
 
 

@@ -40,7 +40,7 @@ class MilestoneConstraints {
 }
 
 
-open class GestureMilestone {
+class GestureMilestone {
     
     let gestureMilestoneType: GestureMilestoneType
     

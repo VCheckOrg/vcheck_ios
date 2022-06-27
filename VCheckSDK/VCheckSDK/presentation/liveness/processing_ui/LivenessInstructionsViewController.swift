@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-import Lottie
+@_implementationOnly import Lottie
 
 class LivenessInstructionsViewController: UIViewController {
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F60208CF26FC6AC217F1B08 /* libPods-VCheckSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E91D25A620D272E32705FE /* libPods-VCheckSDK.a */; };
 		DA3BED562869A69D00B15E5C /* VCheckSDK.docc in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED552869A69D00B15E5C /* VCheckSDK.docc */; };
 		DA3BED572869A69D00B15E5C /* VCheckSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = DA3BED542869A69D00B15E5C /* VCheckSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DA3BED652869A76700B15E5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA3BED5D2869A76700B15E5C /* Assets.xcassets */; };
@@ -75,55 +76,13 @@
 		DA3BEE032869A8D300B15E5C /* LocalDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDC02869A8D300B15E5C /* LocalDatasource.swift */; };
 		DA3BEE0A2869B25D00B15E5C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA3BEE0C2869B25D00B15E5C /* Localizable.strings */; };
 		DA3BEE0F2869B49100B15E5C /* VCheckFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA3BEE112869B49100B15E5C /* VCheckFlow.storyboard */; };
-		DA3BEE242869BA8800B15E5C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3BEE192869BA8800B15E5C /* Alamofire.framework */; };
-		DA3BEE252869BA8800B15E5C /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA3BEE192869BA8800B15E5C /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DA3BEE262869BA8800B15E5C /* AlamofireNetworkActivityLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3BEE1A2869BA8800B15E5C /* AlamofireNetworkActivityLogger.framework */; };
-		DA3BEE272869BA8800B15E5C /* AlamofireNetworkActivityLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA3BEE1A2869BA8800B15E5C /* AlamofireNetworkActivityLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DA3BEE282869BA8800B15E5C /* GoogleDataTransport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3BEE1B2869BA8800B15E5C /* GoogleDataTransport.framework */; };
-		DA3BEE292869BA8800B15E5C /* GoogleDataTransport.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA3BEE1B2869BA8800B15E5C /* GoogleDataTransport.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DA3BEE2A2869BA8800B15E5C /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3BEE1C2869BA8800B15E5C /* GoogleToolboxForMac.framework */; };
-		DA3BEE2B2869BA8800B15E5C /* GoogleToolboxForMac.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA3BEE1C2869BA8800B15E5C /* GoogleToolboxForMac.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DA3BEE2C2869BA8800B15E5C /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3BEE1D2869BA8800B15E5C /* GoogleUtilities.framework */; };
-		DA3BEE2D2869BA8800B15E5C /* GoogleUtilities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA3BEE1D2869BA8800B15E5C /* GoogleUtilities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DA3BEE2E2869BA8800B15E5C /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3BEE1E2869BA8800B15E5C /* GTMSessionFetcher.framework */; };
-		DA3BEE2F2869BA8800B15E5C /* GTMSessionFetcher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA3BEE1E2869BA8800B15E5C /* GTMSessionFetcher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DA3BEE302869BA8800B15E5C /* Localize_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3BEE1F2869BA8800B15E5C /* Localize_Swift.framework */; };
-		DA3BEE312869BA8800B15E5C /* Localize_Swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA3BEE1F2869BA8800B15E5C /* Localize_Swift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DA3BEE322869BA8800B15E5C /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3BEE202869BA8800B15E5C /* Lottie.framework */; };
-		DA3BEE332869BA8800B15E5C /* Lottie.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA3BEE202869BA8800B15E5C /* Lottie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DA3BEE342869BA8900B15E5C /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3BEE212869BA8800B15E5C /* nanopb.framework */; };
-		DA3BEE352869BA8900B15E5C /* nanopb.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA3BEE212869BA8800B15E5C /* nanopb.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DA3BEE362869BA8900B15E5C /* Pods_VcheckSDKDemoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3BEE222869BA8800B15E5C /* Pods_VcheckSDKDemoIOS.framework */; };
-		DA3BEE372869BA8900B15E5C /* Pods_VcheckSDKDemoIOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA3BEE222869BA8800B15E5C /* Pods_VcheckSDKDemoIOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DA3BEE382869BA8900B15E5C /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3BEE232869BA8800B15E5C /* FBLPromises.framework */; };
-		DA3BEE392869BA8900B15E5C /* FBLPromises.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA3BEE232869BA8800B15E5C /* FBLPromises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		DA3BEE3A2869BA8900B15E5C /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				DA3BEE292869BA8800B15E5C /* GoogleDataTransport.framework in Embed Frameworks */,
-				DA3BEE312869BA8800B15E5C /* Localize_Swift.framework in Embed Frameworks */,
-				DA3BEE2B2869BA8800B15E5C /* GoogleToolboxForMac.framework in Embed Frameworks */,
-				DA3BEE392869BA8900B15E5C /* FBLPromises.framework in Embed Frameworks */,
-				DA3BEE252869BA8800B15E5C /* Alamofire.framework in Embed Frameworks */,
-				DA3BEE372869BA8900B15E5C /* Pods_VcheckSDKDemoIOS.framework in Embed Frameworks */,
-				DA3BEE352869BA8900B15E5C /* nanopb.framework in Embed Frameworks */,
-				DA3BEE2D2869BA8800B15E5C /* GoogleUtilities.framework in Embed Frameworks */,
-				DA3BEE332869BA8800B15E5C /* Lottie.framework in Embed Frameworks */,
-				DA3BEE2F2869BA8800B15E5C /* GTMSessionFetcher.framework in Embed Frameworks */,
-				DA3BEE272869BA8800B15E5C /* AlamofireNetworkActivityLogger.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		12E91D25A620D272E32705FE /* libPods-VCheckSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VCheckSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1ADD078FCE455C076F1A9048 /* Pods-VCheckSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCheckSDK.debug.xcconfig"; path = "Target Support Files/Pods-VCheckSDK/Pods-VCheckSDK.debug.xcconfig"; sourceTree = "<group>"; };
+		5BF982D6522858D422155751 /* Pods_VCheckSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCheckSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D6D74B31D1ABCB8046CCC02 /* Pods-VCheckSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCheckSDK.release.xcconfig"; path = "Target Support Files/Pods-VCheckSDK/Pods-VCheckSDK.release.xcconfig"; sourceTree = "<group>"; };
 		DA3BED512869A69D00B15E5C /* VCheckSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCheckSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA3BED542869A69D00B15E5C /* VCheckSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCheckSDK.h; sourceTree = "<group>"; };
 		DA3BED552869A69D00B15E5C /* VCheckSDK.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = VCheckSDK.docc; sourceTree = "<group>"; };
@@ -198,17 +157,7 @@
 		DA3BEE152869B4CF00B15E5C /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/VCheckFlow.strings; sourceTree = "<group>"; };
 		DA3BEE162869B4F600B15E5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/VCheckFlow.storyboard; sourceTree = "<group>"; };
 		DA3BEE172869B50000B15E5C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/VCheckFlow.strings; sourceTree = "<group>"; };
-		DA3BEE192869BA8800B15E5C /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA3BEE1A2869BA8800B15E5C /* AlamofireNetworkActivityLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AlamofireNetworkActivityLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA3BEE1B2869BA8800B15E5C /* GoogleDataTransport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleDataTransport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA3BEE1C2869BA8800B15E5C /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA3BEE1D2869BA8800B15E5C /* GoogleUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA3BEE1E2869BA8800B15E5C /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA3BEE1F2869BA8800B15E5C /* Localize_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Localize_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA3BEE202869BA8800B15E5C /* Lottie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Lottie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA3BEE212869BA8800B15E5C /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA3BEE222869BA8800B15E5C /* Pods_VcheckSDKDemoIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_VcheckSDKDemoIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA3BEE232869BA8800B15E5C /* FBLPromises.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBLPromises.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,17 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA3BEE282869BA8800B15E5C /* GoogleDataTransport.framework in Frameworks */,
-				DA3BEE302869BA8800B15E5C /* Localize_Swift.framework in Frameworks */,
-				DA3BEE2A2869BA8800B15E5C /* GoogleToolboxForMac.framework in Frameworks */,
-				DA3BEE382869BA8900B15E5C /* FBLPromises.framework in Frameworks */,
-				DA3BEE242869BA8800B15E5C /* Alamofire.framework in Frameworks */,
-				DA3BEE362869BA8900B15E5C /* Pods_VcheckSDKDemoIOS.framework in Frameworks */,
-				DA3BEE342869BA8900B15E5C /* nanopb.framework in Frameworks */,
-				DA3BEE2C2869BA8800B15E5C /* GoogleUtilities.framework in Frameworks */,
-				DA3BEE322869BA8800B15E5C /* Lottie.framework in Frameworks */,
-				DA3BEE2E2869BA8800B15E5C /* GTMSessionFetcher.framework in Frameworks */,
-				DA3BEE262869BA8800B15E5C /* AlamofireNetworkActivityLogger.framework in Frameworks */,
+				1F60208CF26FC6AC217F1B08 /* libPods-VCheckSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +178,8 @@
 				DA3BED532869A69D00B15E5C /* VCheckSDK */,
 				DA3BED522869A69D00B15E5C /* Products */,
 				DA3BEE182869BA8800B15E5C /* Frameworks */,
+				DF81D1DD20E285BE7EDAC9B8 /* Pods */,
+				DAA730392869C5540056CC8D /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -456,19 +397,27 @@
 		DA3BEE182869BA8800B15E5C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DA3BEE192869BA8800B15E5C /* Alamofire.framework */,
-				DA3BEE1A2869BA8800B15E5C /* AlamofireNetworkActivityLogger.framework */,
-				DA3BEE1B2869BA8800B15E5C /* GoogleDataTransport.framework */,
-				DA3BEE1C2869BA8800B15E5C /* GoogleToolboxForMac.framework */,
-				DA3BEE1D2869BA8800B15E5C /* GoogleUtilities.framework */,
-				DA3BEE1E2869BA8800B15E5C /* GTMSessionFetcher.framework */,
-				DA3BEE1F2869BA8800B15E5C /* Localize_Swift.framework */,
-				DA3BEE202869BA8800B15E5C /* Lottie.framework */,
-				DA3BEE212869BA8800B15E5C /* nanopb.framework */,
-				DA3BEE222869BA8800B15E5C /* Pods_VcheckSDKDemoIOS.framework */,
-				DA3BEE232869BA8800B15E5C /* FBLPromises.framework */,
+				12E91D25A620D272E32705FE /* libPods-VCheckSDK.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DAA730392869C5540056CC8D /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				DA3BEE222869BA8800B15E5C /* Pods_VcheckSDKDemoIOS.framework */,
+				5BF982D6522858D422155751 /* Pods_VCheckSDK.framework */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		DF81D1DD20E285BE7EDAC9B8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1ADD078FCE455C076F1A9048 /* Pods-VCheckSDK.debug.xcconfig */,
+				9D6D74B31D1ABCB8046CCC02 /* Pods-VCheckSDK.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -489,11 +438,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA3BED5A2869A69D00B15E5C /* Build configuration list for PBXNativeTarget "VCheckSDK" */;
 			buildPhases = (
+				6563D3F0BF97F1A7FA03C966 /* [CP] Check Pods Manifest.lock */,
 				DA3BED4C2869A69D00B15E5C /* Headers */,
 				DA3BED4D2869A69D00B15E5C /* Sources */,
 				DA3BED4E2869A69D00B15E5C /* Frameworks */,
 				DA3BED4F2869A69D00B15E5C /* Resources */,
-				DA3BEE3A2869BA8900B15E5C /* Embed Frameworks */,
+				106934ED89086BFD882C9A0B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -558,6 +508,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		106934ED89086BFD882C9A0B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VCheckSDK/Pods-VCheckSDK-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VCheckSDK/Pods-VCheckSDK-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VCheckSDK/Pods-VCheckSDK-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6563D3F0BF97F1A7FA03C966 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VCheckSDK-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DA3BED4D2869A69D00B15E5C /* Sources */ = {
@@ -772,6 +764,7 @@
 		};
 		DA3BED5B2869A69D00B15E5C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1ADD078FCE455C076F1A9048 /* Pods-VCheckSDK.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -801,6 +794,7 @@
 		};
 		DA3BED5C2869A69D00B15E5C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D6D74B31D1ABCB8046CCC02 /* Pods-VCheckSDK.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

@@ -7,11 +7,11 @@
 
 import Foundation
 import UIKit
-import Alamofire
+@_implementationOnly import Alamofire
 import AVFoundation
 
 
-public class DemoStartViewController : UIViewController {
+class DemoStartViewController : UIViewController {
     
     private let viewModel = DemoStartViewModel()
     
