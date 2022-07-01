@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F60208CF26FC6AC217F1B08 /* libPods-VCheckSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E91D25A620D272E32705FE /* libPods-VCheckSDK.a */; };
+		DA153774286F4FE60038A203 /* GeneralStageModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA153773286F4FE60038A203 /* GeneralStageModels.swift */; };
 		DA3BED562869A69D00B15E5C /* VCheckSDK.docc in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED552869A69D00B15E5C /* VCheckSDK.docc */; };
 		DA3BED572869A69D00B15E5C /* VCheckSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = DA3BED542869A69D00B15E5C /* VCheckSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DA3BED652869A76700B15E5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA3BED5D2869A76700B15E5C /* Assets.xcassets */; };
@@ -83,6 +84,7 @@
 		1ADD078FCE455C076F1A9048 /* Pods-VCheckSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCheckSDK.debug.xcconfig"; path = "Target Support Files/Pods-VCheckSDK/Pods-VCheckSDK.debug.xcconfig"; sourceTree = "<group>"; };
 		5BF982D6522858D422155751 /* Pods_VCheckSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCheckSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D6D74B31D1ABCB8046CCC02 /* Pods-VCheckSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCheckSDK.release.xcconfig"; path = "Target Support Files/Pods-VCheckSDK/Pods-VCheckSDK.release.xcconfig"; sourceTree = "<group>"; };
+		DA153773286F4FE60038A203 /* GeneralStageModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralStageModels.swift; sourceTree = "<group>"; };
 		DA3BED512869A69D00B15E5C /* VCheckSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCheckSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA3BED542869A69D00B15E5C /* VCheckSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCheckSDK.h; sourceTree = "<group>"; };
 		DA3BED552869A69D00B15E5C /* VCheckSDK.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = VCheckSDK.docc; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				DA3BED7B2869A8D200B15E5C /* VerificationRequestModels.swift */,
 				DA3BED7C2869A8D200B15E5C /* DocumentTypes.swift */,
 				DA3BED7D2869A8D200B15E5C /* LIvenessUploadModels.swift */,
+				DA153773286F4FE60038A203 /* GeneralStageModels.swift */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -567,6 +570,7 @@
 				DA3BEDE42869A8D300B15E5C /* MultipleFacesDetectedViewContoller.swift in Sources */,
 				DA3BEE022869A8D300B15E5C /* RemoteDatasource.swift in Sources */,
 				DA3BEDCB2869A8D300B15E5C /* ApiError.swift in Sources */,
+				DA153774286F4FE60038A203 /* GeneralStageModels.swift in Sources */,
 				DA3BEDE62869A8D300B15E5C /* DemoStartViewModel.swift in Sources */,
 				DA3BEDFE2869A8D300B15E5C /* RoundedView.swift in Sources */,
 				DA3BEDDA2869A8D300B15E5C /* VideoUploadFailureViewModel.swift in Sources */,

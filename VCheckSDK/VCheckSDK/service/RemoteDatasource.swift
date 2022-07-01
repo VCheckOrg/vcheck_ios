@@ -36,6 +36,48 @@ struct RemoteDatasource {
           })
     }
     
+    
+    func getCurrentStage(completion: @escaping (StageResponse?, ApiError?) -> ()) {
+        let type = Int.random(in: (0...1))
+        if (Int.random(in: (0...1)) == 1) {
+            completion(StageResponse.init(data: StageResponseData.init(id: 0, type: type),
+                       errorCode: 1, message: "USER_INTERACTED_COMPLETED"), nil)
+        } else {
+            completion(StageResponse.init(data: StageResponseData.init(id: 0, type: type),
+                       errorCode: 0, message: "VERIFICATION_NOT_INITIALIZED"), nil)
+        }
+    }
+    
+    //For real implementation:
+//    func getCurrentStage(completion: @escaping (StageResponse?, ApiError?) -> ()) {
+//        let url = "\(baseUrl)stage/current"
+//
+//        let token = LocalDatasource.shared.readAccessToken()
+//        if (token.isEmpty) {
+//            completion(nil, ApiError(errorText: "Error: cannot find access token"))
+//            return
+//        }
+//        let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
+//
+//        AF.request(url, method: .get, headers: headers)
+//          .validate()  //response returned an HTTP status code in the range 200–299
+//          .responseDecodable(of: StageResponse.self) { (response) in
+//              guard let response = response.value else {
+//              //showing error on non-200 response code
+//               completion(nil, ApiError(errorText: response.error!.localizedDescription))
+//               return
+//              }
+//              if (response.data != nil && response.errorCode == 0) {
+//                 completion(response, nil)
+//              }
+//              if (response.errorCode != nil && response.errorCode != 0) {
+//                 completion(nil, ApiError(errorText: "\(String(describing: response.errorCode)): "
+//                                          + "\(response.message ?? "")"))
+//                 return
+//              }
+//          }
+//    }
+    
     // with pre-composed test request body
     func createVerificationRequest(timestamp: String,
                                    locale: String,

@@ -18,6 +18,8 @@ class DemoStartViewModel {
     // MARK: - Properties
     private var timestamp: String?
     
+    var currentStage: StageResponse?
+    
     var countries: [Country]?
 
     var error: ApiError? {
@@ -32,9 +34,13 @@ class DemoStartViewModel {
     var updateLoadingStatus: (() -> ())?
     
     var didCreateVerif: (() -> ())?
+    
     var didInitVerif: (() -> ())?
+    
     var didFinishFetch: (() -> ())?
     var gotCountries: (() -> ())?
+    
+    var didReceivedCurrentStage: (() -> ())?
     
     
     // MARK: - Data calls
@@ -89,10 +95,28 @@ class DemoStartViewModel {
             
             print("VERIF ::: INIT SUCCESS! DATA: \(String(describing: data))")
             
-            self.getCountries()
+            //self.getCountries()
+            self.getCurrentStage()
         })
     }
     
+    func getCurrentStage() {
+        self.dataService.getCurrentStage(completion: { (data, error) in
+            if let error = error {
+                self.error = error
+                self.isLoading = false
+                return
+            }
+            
+            
+                        
+//            if (data!.count > 0) {
+//                self.isLoading = false
+//                self.countries = data
+//                self.gotCountries!()
+//            }
+        })
+    }
     
     func getCountries() {
         
