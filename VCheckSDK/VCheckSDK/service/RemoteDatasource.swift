@@ -48,7 +48,7 @@ struct RemoteDatasource {
         }
     }
     
-    //For real implementation:
+    //TODO: add/replace for real implementation:
 //    func getCurrentStage(completion: @escaping (StageResponse?, ApiError?) -> ()) {
 //        let url = "\(baseUrl)stage/current"
 //
@@ -78,6 +78,7 @@ struct RemoteDatasource {
 //          }
 //    }
     
+    //TODO: should be removed with new architecture ?
     // with pre-composed test request body
     func createVerificationRequest(timestamp: String,
                                    locale: String,
@@ -209,11 +210,12 @@ struct RemoteDatasource {
     
     //https://stackoverflow.com/a/62407235/6405022  -- Alamofire + Multipart :
     
+    //TODO: change to POST /document/upload
     func uploadVerificationDocuments(
         photo1: UIImage,
         photo2: UIImage?,
         countryCode: String,
-        documentType: String,
+        documentType: String, // TODO: rename to category = fields.Integer()
         completion: @escaping (DocumentUploadResponseData?, ApiError?) -> ()) {
             
             let url = "\(baseUrl)documents"
@@ -260,6 +262,7 @@ struct RemoteDatasource {
     }
     
     
+    //TODO: change to GET documents/{document}/info
     func getDocumentInfo(documentId: Int,
                          completion: @escaping (PreProcessedDocData?, ApiError?) -> ()) {
         let url = "\(baseUrl)documents/\(documentId)"
@@ -291,6 +294,7 @@ struct RemoteDatasource {
     }
     
     
+    //TODO: change to PUT /document/<int:verification_document_id>/confirm
     func updateAndConfirmDocInfo(documentId: Int,
                                  parsedDocFieldsData: ParsedDocFieldsData,
                                  completion: @escaping (Bool, ApiError?) -> ()) {
@@ -324,7 +328,7 @@ struct RemoteDatasource {
         })
     }
         
-    
+    //TODO: should remove w/new arch?
     func setDocumentAsPrimary(documentId: Int,
                               completion: @escaping (Bool, ApiError?) -> ()) {
         let url = "\(baseUrl)documents/\(documentId)/primary"
