@@ -29,7 +29,7 @@
         <!--Demo Start View Controller-->
         <scene sceneID="5BM-mo-2Xp">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="3HI-Lp-Qj3" customClass="DemoStartViewController" customModule="VcheckFramework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="3HI-Lp-Qj3" customClass="DemoStartViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A7h-UM-Lh9">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,14 +42,6 @@
                                     <action selector="startDemoFlowAction:" destination="3HI-Lp-Qj3" eventType="touchUpInside" id="lcF-j0-HUt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DdH-Xd-pgi">
-                                <rect key="frame" x="91" y="624" width="208" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Liveness Demo"/>
-                                <connections>
-                                    <segue destination="vMJ-Fv-l4l" kind="show" id="V8s-CT-emn"/>
-                                </connections>
-                            </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="eXt-L9-GpI">
                                 <rect key="frame" x="187" y="361" width="40" height="40"/>
                                 <color key="tintColor" name="AccentColor"/>
@@ -60,10 +52,7 @@
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="uXu-nD-622" firstAttribute="centerX" secondItem="eXt-L9-GpI" secondAttribute="centerX" id="8NR-jV-Sv9"/>
-                            <constraint firstItem="j8W-bb-Qhj" firstAttribute="bottom" secondItem="DdH-Xd-pgi" secondAttribute="bottom" constant="145" id="BHa-au-3WD"/>
                             <constraint firstItem="eXt-L9-GpI" firstAttribute="centerY" secondItem="j8W-bb-Qhj" secondAttribute="centerY" constant="-72" id="RJi-c0-oAf"/>
-                            <constraint firstItem="j8W-bb-Qhj" firstAttribute="trailing" secondItem="DdH-Xd-pgi" secondAttribute="trailing" constant="91" id="Whg-hH-Vvo"/>
-                            <constraint firstItem="DdH-Xd-pgi" firstAttribute="leading" secondItem="j8W-bb-Qhj" secondAttribute="leading" constant="91" id="dyj-J9-PxF"/>
                             <constraint firstItem="uXu-nD-622" firstAttribute="leading" secondItem="j8W-bb-Qhj" secondAttribute="leading" constant="99" id="gSZ-LX-6wZ"/>
                             <constraint firstItem="eXt-L9-GpI" firstAttribute="centerX" secondItem="j8W-bb-Qhj" secondAttribute="centerX" id="gbB-br-SDM"/>
                             <constraint firstItem="uXu-nD-622" firstAttribute="top" secondItem="j8W-bb-Qhj" secondAttribute="top" constant="160" id="xmL-Lj-qE0"/>
@@ -73,6 +62,8 @@
                     <connections>
                         <outlet property="spinner" destination="eXt-L9-GpI" id="oni-yL-zbX"/>
                         <segue destination="VHf-Vf-Dha" kind="show" identifier="StartToCountries" id="Hnt-iA-CAy"/>
+                        <segue destination="vMJ-Fv-l4l" kind="show" identifier="StartToLivenessInstructions" id="dMv-If-cud"/>
+                        <segue destination="dcp-4c-bus" kind="show" identifier="StartToCheckDocInfo" id="Apu-Tu-38V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rSP-2F-feb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -82,12 +73,12 @@
         <!--Choose Country View Controller-->
         <scene sceneID="QoB-W8-5k4">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="VHf-Vf-Dha" customClass="ChooseCountryViewController" customModule="VcheckFramework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="VHf-Vf-Dha" customClass="ChooseCountryViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qVF-Xu-QWL">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7h-cr-WsJ" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7h-cr-WsJ" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                 <rect key="frame" x="12" y="128" width="366" height="604"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите страну" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFZ-MA-crE">
@@ -121,7 +112,7 @@
                                             <segue destination="EIw-6d-l49" kind="show" identifier="CountryToChooseDocType" id="ehe-Ka-KVL"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jc-tS-jTS" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jc-tS-jTS" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="16" y="178" width="334" height="54.333333333333343"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Україна" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cY3-cf-m9e">
@@ -207,7 +198,7 @@
         <!--Country List View Controller-->
         <scene sceneID="O7v-PE-izR">
             <objects>
-                <viewController modalPresentationStyle="pageSheet" id="G2c-Yg-Bx4" userLabel="Country List View Controller" customClass="CountryListViewController" customModule="VcheckFramework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="pageSheet" id="G2c-Yg-Bx4" userLabel="Country List View Controller" customClass="CountryListViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Gx-nu-ywK">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="746"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -216,7 +207,7 @@
                                 <rect key="frame" x="0.0" y="100" width="390" height="646"/>
                                 <color key="backgroundColor" name="BackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="allowedCountryCell" rowHeight="70" id="onm-ZM-hCL" customClass="AllowedCountryViewCell" customModule="VcheckFramework" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="allowedCountryCell" rowHeight="70" id="onm-ZM-hCL" customClass="AllowedCountryViewCell" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="45" width="390" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="onm-ZM-hCL" id="xmW-dM-7uI">
@@ -254,7 +245,7 @@
                                             <outlet property="tvName" destination="U6K-vN-zaz" id="Of0-eQ-2Yd"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="blockedCountryCell" rowHeight="70" id="FYf-d5-FD0" customClass="BlockedCountryViewCell" customModule="VcheckFramework" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="blockedCountryCell" rowHeight="70" id="FYf-d5-FD0" customClass="BlockedCountryViewCell" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="115" width="390" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FYf-d5-FD0" id="tuM-nP-JaI">
@@ -351,7 +342,7 @@
         <!--No Time View Controller-->
         <scene sceneID="6ZM-lh-nBu">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="q0J-YZ-DjP" userLabel="No Time View Controller" customClass="NoTimeViewController" customModule="VcheckFramework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="q0J-YZ-DjP" userLabel="No Time View Controller" customClass="NoTimeViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZyN-xs-PfW">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -362,7 +353,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fzN-Vs-aSf">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="704"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6B9-Ep-e0R" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6B9-Ep-e0R" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="84" width="366" height="520"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_time_image" translatesAutoresizingMaskIntoConstraints="NO" id="xY2-LW-0G9">
@@ -450,12 +441,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qfn-YN-ja4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2217" y="22"/>
+            <point key="canvasLocation" x="2368" y="36"/>
         </scene>
         <!--Doc Photo Verif Error View Controller-->
         <scene sceneID="944-w0-g7d">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="cnD-L5-BuD" userLabel="Doc Photo Verif Error View Controller" customClass="DocPhotoVerifErrorViewController" customModule="VcheckFramework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="cnD-L5-BuD" userLabel="Doc Photo Verif Error View Controller" customClass="DocPhotoVerifErrorViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Flg-BI-YSQ">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -466,7 +457,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbU-iz-0Pd">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="708"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0aw-qs-CO4" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0aw-qs-CO4" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="84" width="366" height="559"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error_image" translatesAutoresizingMaskIntoConstraints="NO" id="YS2-WY-Ywq">
@@ -577,7 +568,7 @@
         <!--Wrong Movement View Controller-->
         <scene sceneID="SBe-W2-Czb">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Gk4-E0-G28" userLabel="Wrong Movement View Controller" customClass="WrongGestureViewController" customModule="VcheckFramework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Gk4-E0-G28" userLabel="Wrong Movement View Controller" customClass="WrongGestureViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fgq-Xq-dWc">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -588,7 +579,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVD-jQ-X6f">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="707.33333333333337"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9J1-LU-ygA" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9J1-LU-ygA" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="83.999999999999972" width="366" height="503.33333333333326"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrong_move_image" translatesAutoresizingMaskIntoConstraints="NO" id="U5R-dz-wwO">
@@ -681,7 +672,7 @@
         <!--Frame Interference View Controller-->
         <scene sceneID="fXR-d2-LtU">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="K4l-kg-dQj" userLabel="Frame Interference View Controller" customClass="MultipleFacesDetectedViewController" customModule="VcheckFramework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="K4l-kg-dQj" userLabel="Frame Interference View Controller" customClass="MultipleFacesDetectedViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A4u-iE-GYT">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -692,7 +683,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ukX-sd-Tsb">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="707.33333333333337"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3fp-M1-0nX" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3fp-M1-0nX" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="83.999999999999972" width="366" height="503.33333333333326"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frame_interference_image" translatesAutoresizingMaskIntoConstraints="NO" id="gnh-nc-jqj">
@@ -785,7 +776,7 @@
         <!--Look Stratight Error View Controller-->
         <scene sceneID="3my-jL-PW1">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="YIZ-ih-eAP" userLabel="Look Stratight Error View Controller" customClass="NoFaceDetectedViewController" customModule="VcheckFramework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="YIZ-ih-eAP" userLabel="Look Stratight Error View Controller" customClass="NoFaceDetectedViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gxe-ll-VhG">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -796,7 +787,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rM6-bw-Dy6">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="707.33333333333337"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s5b-A1-M5a" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s5b-A1-M5a" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="83.999999999999972" width="366" height="503.33333333333326"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="look_stratight_error_image" translatesAutoresizingMaskIntoConstraints="NO" id="BzG-9H-pji">
@@ -889,7 +880,7 @@
         <!--Fail Verification View Controller-->
         <scene sceneID="ARG-lg-EGv">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Drf-gg-cCY" userLabel="Fail Verification View Controller" customClass="VideoFailureViewController" customModule="VcheckFramework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Drf-gg-cCY" userLabel="Fail Verification View Controller" customClass="VideoFailureViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lcl-Oh-GBb">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -900,7 +891,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qpX-jZ-Jb0">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="729.66666666666663"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UL1-KP-CLj" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UL1-KP-CLj" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="84" width="366" height="580.66666666666663"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fail_verification_image" translatesAutoresizingMaskIntoConstraints="NO" id="UVD-3C-SnY">
@@ -1028,7 +1019,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OXC-vo-RQN">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="734.33333333333337"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fr1-nL-QZj" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fr1-nL-QZj" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="84" width="366" height="585.33333333333337"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="os_not_support_image" translatesAutoresizingMaskIntoConstraints="NO" id="oNP-ag-RoD">
@@ -1149,7 +1140,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zf9-HC-E9M">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="779.66666666666663"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XsW-wP-QAE" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XsW-wP-QAE" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="84" width="366" height="630.66666666666663"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_camera_image" translatesAutoresizingMaskIntoConstraints="NO" id="2I0-Zf-OH4">
@@ -1270,7 +1261,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aWk-uq-Y5y">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="700"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MUn-T6-9LL" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MUn-T6-9LL" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="84" width="366" height="550"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="not_found_image" translatesAutoresizingMaskIntoConstraints="NO" id="Dg7-AE-LEx">
@@ -1352,7 +1343,7 @@
         <!--Success Verification View Controller-->
         <scene sceneID="ft6-tC-Pf5">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="uMO-hA-gT0" userLabel="Success Verification View Controller" customClass="LivenessSuccessViewController" customModule="VcheckFramework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="uMO-hA-gT0" userLabel="Success Verification View Controller" customClass="LivenessSuccessViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T2T-B0-7L4">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1363,7 +1354,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uTw-Hh-0V4">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="603.66666666666663"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsj-iY-EIl" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsj-iY-EIl" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="84.000000000000028" width="366" height="454.66666666666674"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success_image" translatesAutoresizingMaskIntoConstraints="NO" id="bR3-j2-q56">
@@ -1455,7 +1446,7 @@
         <!--In Process View Controller-->
         <scene sceneID="Y29-ti-guP">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="IiJ-Ck-Dhz" userLabel="In Process View Controller" customClass="VideoProcessingViewController" customModule="VcheckFramework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="IiJ-Ck-Dhz" userLabel="In Process View Controller" customClass="VideoProcessingViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A97-HY-J1Q">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1466,7 +1457,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIj-7X-oeY">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="637"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fk7-0l-cCW" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fk7-0l-cCW" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="84" width="366" height="488"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="in_process" translatesAutoresizingMaskIntoConstraints="NO" id="g2g-gf-gml">
@@ -1576,7 +1567,7 @@
         <!--Photo Instructions View Controller-->
         <scene sceneID="HTG-Kf-TQP">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="btG-18-IMq" userLabel="Photo Instructions View Controller" customClass="PhotoInstructionsViewController" customModule="VcheckFramework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="btG-18-IMq" userLabel="Photo Instructions View Controller" customClass="PhotoInstructionsViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="URt-vI-atd">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1587,7 +1578,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YxH-7y-FzT">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="635.66666666666663"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mdb-Ax-DBB" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mdb-Ax-DBB" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="84.000000000000028" width="366" height="486.66666666666674"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YYe-al-bEj">
@@ -1800,7 +1791,7 @@
         <!--Choose Doc Method View Controller-->
         <scene sceneID="taE-BH-axR">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="EIw-6d-l49" userLabel="Choose Doc Method View Controller" customClass="ChooseDocTypeViewController" customModule="VcheckFramework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="EIw-6d-l49" userLabel="Choose Doc Method View Controller" customClass="ChooseDocTypeViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cZa-Gb-1mn">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1811,7 +1802,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RpV-lq-24o">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="615.66666666666663"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1P2-W0-56G" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1P2-W0-56G" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="84.000000000000028" width="366" height="466.66666666666674"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="XKg-SM-GGZ">
@@ -1828,7 +1819,7 @@
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G3p-Gh-F6E" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G3p-Gh-F6E" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="188.66666666666669" width="334" height="74"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Внутренний гражданский паспорт" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPH-Ay-ydn">
@@ -1876,7 +1867,7 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Df-Ew-TxF" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Df-Ew-TxF" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="278.66666666666669" width="334" height="74"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Загранпаспорт" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gZ-MQ-puZ">
@@ -1918,7 +1909,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AcB-eO-u3b" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AcB-eO-u3b" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="368.66666666666669" width="334" height="74"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Биометрический паспорт (ID-карта)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5B-Kh-Vep">
@@ -2043,12 +2034,12 @@
         <!--Liveness Screen View Controller-->
         <scene sceneID="cHE-UQ-Euf">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="2Ob-Di-bza" userLabel="Liveness Screen View Controller" customClass="LivenessScreenViewController" customModule="VcheckFramework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="2Ob-Di-bza" userLabel="Liveness Screen View Controller" customClass="LivenessScreenViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dGJ-l1-WKs">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q3r-w3-pWa" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q3r-w3-pWa" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="150" width="390" height="650"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -2077,7 +2068,7 @@
                                     <constraint firstAttribute="height" constant="150" id="cKF-Yy-54c"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NrB-hx-Tlh" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NrB-hx-Tlh" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                 <rect key="frame" x="238" y="112" width="128" height="128"/>
                                 <color key="backgroundColor" name="CardColor"/>
                                 <constraints>
@@ -2163,7 +2154,7 @@
         <!--Check Doc Info View Controller-->
         <scene sceneID="ljs-xk-7FC">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="dcp-4c-bus" userLabel="Check Doc Info View Controller" customClass="CheckDocInfoViewController" customModule="VcheckFramework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="dcp-4c-bus" userLabel="Check Doc Info View Controller" customClass="CheckDocInfoViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SNh-eB-9EL">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2174,7 +2165,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBt-rb-JKa">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="1058"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kzh-Vj-yGm" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kzh-Vj-yGm" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="84" width="366" height="909"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проверьте, все ли данные по документу были распознаны корректно?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgk-ad-nWW">
@@ -2192,7 +2183,7 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3Y-Ya-7BQ" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3Y-Ya-7BQ" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="122" width="334" height="250"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_photo_1" translatesAutoresizingMaskIntoConstraints="NO" id="2NZ-jG-pb9">
@@ -2223,7 +2214,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Cf-tI-RPy" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Cf-tI-RPy" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="388" width="334" height="250"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_photo" translatesAutoresizingMaskIntoConstraints="NO" id="87H-j0-OXZ">
@@ -2262,14 +2253,14 @@
                                                         <color key="sectionIndexBackgroundColor" name="CardColor"/>
                                                         <color key="sectionIndexTrackingBackgroundColor" name="CardColor"/>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="docFieldCell" rowHeight="82" id="Jcf-Ms-xcs" customClass="DocInfoViewCell" customModule="VcheckFramework" customModuleProvider="target">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="docFieldCell" rowHeight="82" id="Jcf-Ms-xcs" customClass="DocInfoViewCell" customModule="VCheckSDK" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="44.666666030883789" width="334" height="82"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jcf-Ms-xcs" id="dqy-io-axa">
                                                                     <rect key="frame" x="0.0" y="0.0" width="334" height="82"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GLw-Ck-Zxn" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GLw-Ck-Zxn" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="26" width="334" height="53"/>
                                                                             <subviews>
                                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Test" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u3Q-g0-NzA">
@@ -2419,12 +2410,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJX-PN-ae8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5537" y="787"/>
+            <point key="canvasLocation" x="5540" y="498"/>
         </scene>
         <!--Photo Upload View Controller-->
         <scene sceneID="TOh-Z3-wqv">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="ZEj-uY-1Rn" userLabel="Photo Upload View Controller" customClass="TakeDocPhotoViewController" customModule="VcheckFramework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="ZEj-uY-1Rn" userLabel="Photo Upload View Controller" customClass="TakeDocPhotoViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MMb-ku-R2l">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2435,7 +2426,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VT8-7V-8px">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="884.66666666666663"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hhc-oa-FC6" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hhc-oa-FC6" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="84" width="366" height="735.66666666666663"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNG-ph-Cor">
@@ -2461,7 +2452,7 @@
                                                             <constraint firstAttribute="width" constant="10" id="mvS-oa-aaY"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QAk-dG-hue" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QAk-dG-hue" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="97.666666666666657" width="334" height="249.99999999999997"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JoJ-Ks-g2F">
@@ -2481,7 +2472,7 @@
                                                                     <constraint firstAttribute="width" constant="42" id="ijS-Vi-hPh"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAe-re-A91" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAe-re-A91" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                                 <rect key="frame" x="43" y="160.00000000000003" width="248" height="46"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сделать фото" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGK-zu-Dsf">
@@ -2559,7 +2550,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hWN-ru-b13" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hWN-ru-b13" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="375.66666666666669" width="334" height="250.00000000000006"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="shV-i7-dlB">
@@ -2585,7 +2576,7 @@
                                                                     <constraint firstAttribute="width" constant="42" id="emx-Jk-ocE"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OaU-0r-EKr" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OaU-0r-EKr" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                                 <rect key="frame" x="43" y="159.99999999999994" width="248" height="46"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сделать фото" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRM-vS-6wd">
@@ -2749,7 +2740,7 @@
         <!--Check Photo View Controller-->
         <scene sceneID="zJy-By-c23">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="OYj-MX-icL" userLabel="Check Photo View Controller" customClass="CheckDocPhotoViewController" customModule="VcheckFramework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="OYj-MX-icL" userLabel="Check Photo View Controller" customClass="CheckDocPhotoViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ncW-VQ-0Po">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2760,7 +2751,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xJI-uw-YK5">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="1013"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Cm-GH-i0e" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Cm-GH-i0e" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="84" width="366" height="864"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8n-y7-cdZ">
@@ -2783,7 +2774,7 @@
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Crw-Dx-4qz" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Crw-Dx-4qz" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="134" width="334" height="250"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_photo_1" translatesAutoresizingMaskIntoConstraints="NO" id="ZWJ-nl-6Jb">
@@ -2824,7 +2815,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gtp-7i-H4k" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gtp-7i-H4k" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="412" width="334" height="250"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_photo" translatesAutoresizingMaskIntoConstraints="NO" id="4ET-0K-fh8">
@@ -2866,7 +2857,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQv-f5-Kf7" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQv-f5-Kf7" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="706" width="334" height="58"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Заменить фото" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgy-0K-AbA">
@@ -2995,7 +2986,7 @@
         <!--Header View Contoller-->
         <scene sceneID="o2A-bL-inV">
             <objects>
-                <viewController storyboardIdentifier="HeaderVC" modalPresentationStyle="fullScreen" id="azn-ur-GOV" customClass="HeaderViewContoller" customModule="VcheckFramework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HeaderVC" modalPresentationStyle="fullScreen" id="azn-ur-GOV" customClass="HeaderViewContoller" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CDb-h4-4mS">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3076,7 +3067,7 @@
         <!--Liveness Instructions View Controller-->
         <scene sceneID="PsH-Bt-cWC">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="vMJ-Fv-l4l" userLabel="Liveness Instructions View Controller" customClass="LivenessInstructionsViewController" customModule="VcheckFramework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="vMJ-Fv-l4l" userLabel="Liveness Instructions View Controller" customClass="LivenessInstructionsViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mSN-jW-hCq">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3087,10 +3078,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qjd-Rt-rZ6">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="841"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDm-lD-KGj" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDm-lD-KGj" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="60" width="366" height="716"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILo-Gx-ieA" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILo-Gx-ieA" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="83" y="147" width="200" height="200"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="j6y-TH-xfH"/>
@@ -3198,7 +3189,7 @@
                                                             <constraint firstAttribute="width" constant="18" id="tbU-cr-StF"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LML-g6-ei5" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LML-g6-ei5" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="314" y="235" width="24" height="24"/>
                                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                         <constraints>
@@ -3211,7 +3202,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XxC-da-209" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XxC-da-209" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="28" y="235" width="24" height="24"/>
                                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                         <constraints>
@@ -3333,7 +3324,7 @@
         <!--Zoomed Doc Photo View Controller-->
         <scene sceneID="ClG-Je-hUm">
             <objects>
-                <viewController id="WJ2-QY-Hl3" customClass="ZoomedDocPhotoViewController" customModule="VcheckFramework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WJ2-QY-Hl3" customClass="ZoomedDocPhotoViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="44V-am-ckB">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="746"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3375,7 +3366,7 @@
         <!--Fast Movemetns View Controller-->
         <scene sceneID="2bB-1I-fRl">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="cii-CZ-O8e" userLabel="Fast Movemetns View Controller" customClass="SharpMovementsViewController" customModule="VcheckFramework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="cii-CZ-O8e" userLabel="Fast Movemetns View Controller" customClass="SharpMovementsViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KLd-hr-QbN">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3386,7 +3377,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FtZ-Fe-fHe">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="674"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D9J-RU-7XW" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D9J-RU-7XW" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="84" width="366" height="470"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fast_movement" translatesAutoresizingMaskIntoConstraints="NO" id="PH1-BN-DoB">
@@ -3478,7 +3469,7 @@
         <!--Too Dark View Controller-->
         <scene sceneID="yq9-UK-vOG">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="MMF-sr-RPg" userLabel="Too Dark View Controller" customClass="NoBrightnessViewController" customModule="VcheckFramework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="MMF-sr-RPg" userLabel="Too Dark View Controller" customClass="NoBrightnessViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eCL-fk-PA8">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3489,7 +3480,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MjI-9Q-v7Q">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="690.66666666666663"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xZk-P1-DKL" customClass="RoundedView" customModule="VcheckFramework" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xZk-P1-DKL" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="84.000000000000028" width="366" height="486.66666666666674"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Too dark" translatesAutoresizingMaskIntoConstraints="NO" id="0vT-6t-WEa">
@@ -3582,8 +3573,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="GAO-QE-GuP"/>
         <segue reference="ZOg-Lf-JSX"/>
-        <segue reference="V8s-CT-emn"/>
-        <segue reference="MdT-K5-jp1"/>
+        <segue reference="mdJ-XX-Wrm"/>
+        <segue reference="Apu-Tu-38V"/>
         <segue reference="dMs-gB-ZC7"/>
         <segue reference="zJe-KO-wvN"/>
         <segue reference="HKh-3c-Vf4"/>

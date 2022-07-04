@@ -18,7 +18,7 @@ class DemoStartViewModel {
     // MARK: - Properties
     private var timestamp: String?
     
-    var currentStage: StageResponse?
+    var currentStageResponse: StageResponse?
     
     var countries: [Country]?
 
@@ -101,6 +101,7 @@ class DemoStartViewModel {
     }
     
     func getCurrentStage() {
+        
         self.dataService.getCurrentStage(completion: { (data, error) in
             if let error = error {
                 self.error = error
@@ -108,13 +109,10 @@ class DemoStartViewModel {
                 return
             }
             
-            
-                        
-//            if (data!.count > 0) {
-//                self.isLoading = false
-//                self.countries = data
-//                self.gotCountries!()
-//            }
+            if (data!.data != nil || data!.errorCode != nil) {
+                self.currentStageResponse = data
+                self.didReceivedCurrentStage!()
+            }
         })
     }
     

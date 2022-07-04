@@ -79,3 +79,52 @@ struct StageResponseData: Codable {
         self.type = type
     }
 }
+
+
+enum StageObstacleErrorType {
+    case VERIFICATION_NOT_INITIALIZED
+    case USER_INTERACTED_COMPLETED
+}
+
+extension StageObstacleErrorType {
+    
+    func toTypeIdx() -> Int {
+        switch(self) {
+            case StageObstacleErrorType.VERIFICATION_NOT_INITIALIZED: return 0
+            case StageObstacleErrorType.USER_INTERACTED_COMPLETED: return 1
+        }
+    }
+
+    static func idxToType(categoryIdx: Int) -> StageObstacleErrorType {
+        switch(categoryIdx) {
+            case 0: return StageObstacleErrorType.VERIFICATION_NOT_INITIALIZED
+            case 1: return StageObstacleErrorType.USER_INTERACTED_COMPLETED
+            default: return StageObstacleErrorType.VERIFICATION_NOT_INITIALIZED
+        }
+    }
+}
+
+
+enum StageType {
+    case DOCUMENT_UPLOAD// = 0
+    case LIVENESS_CHALLENGE// = 1
+    //IDENTITY_VERIFICATION = 2 - should not interact with front-end
+}
+
+extension StageType {
+    
+    func toTypeIdx() -> Int {
+        switch(self) {
+            case StageType.DOCUMENT_UPLOAD: return 0
+            case StageType.LIVENESS_CHALLENGE: return 1
+        }
+    }
+
+    static func idxToType(categoryIdx: Int) -> StageType {
+        switch(categoryIdx) {
+            case 0: return StageType.DOCUMENT_UPLOAD
+            case 1: return StageType.LIVENESS_CHALLENGE
+            default: return StageType.DOCUMENT_UPLOAD
+        }
+    }
+}

@@ -40,6 +40,24 @@ class DemoStartViewController : UIViewController {
         
         self.activityIndicatorStart()
         
+        viewModel.didReceivedCurrentStage = {
+            if (self.viewModel.currentStageResponse?.errorCode ==
+                    StageObstacleErrorType.USER_INTERACTED_COMPLETED.toTypeIdx()) {
+                self.performSegue(withIdentifier: "StartToLivenessInstructions", sender: nil)
+            } else {
+                if (self.viewModel.currentStageResponse?.data != nil) {
+                    print("STAGING", "----- CURRENT STAGE TYPE: \(String(describing: self.viewModel.currentStageResponse?.data?.type))")
+                    if (self.viewModel.currentStageResponse?.data?.uploadedDocId != nil) {
+                        self.performSegue(withIdentifier: "StartToCheckDocInfo", sender: self.viewModel.currentStageResponse?.data?.uploadedDocId)
+                    } else if (self.viewModel.currentStageResponse?.data?.type == StageType.DOCUMENT_UPLOAD.toTypeIdx()) {
+                        self.viewModel.getCountries()
+                    } else {
+                        self.performSegue(withIdentifier: "StartToLivenessInstructions", sender: nil)
+                    }
+                }
+            }
+        }
+        
         viewModel.gotCountries = {
             let countryTOArr: [CountryTO] = self.viewModel.countries!.map { (element) -> (CountryTO) in
                 let to: CountryTO = CountryTO.init(from: element)
@@ -73,7 +91,7 @@ class DemoStartViewController : UIViewController {
            print("CANNOT SAVE DEFAULT COUNTRY TO KEYCHAIN")
         }
         
-        self.performSegue(withIdentifier: "StartToCountries", sender: data) //set the data from the segue to the controller
+        self.performSegue(withIdentifier: "StartToCountries", sender: data)
     }
     
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -81,6 +99,12 @@ class DemoStartViewController : UIViewController {
             print ("Navigating to Countries")
             let vc = segue.destination as! ChooseCountryViewController
             vc.countries = sender as! [CountryTO]
+        }
+        if (segue.identifier == "StartToCheckDocInfo") {
+            print ("Navigating to Check Doc Info")
+            let vc = segue.destination as! CheckDocInfoViewController
+            vc.docId = sender as? Int
+            //TODO: find a way to also provide previously uploaded doc's photos
         }
     }
     
