@@ -143,10 +143,16 @@ class VideoProcessingViewController: UIViewController {
     }
     
     @objc func livenessSuccessAction() {
-        //Close app for new test
-//        UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { exit(0) }
-        VCheckSDK.shared.onFinish()
+        self.viewModel.didReceivedCurrentStage = {
+            if (self.viewModel.currentStageResponse?.data?.type == StageType.LIVENESS_CHALLENGE.toTypeIdx() &&
+                self.viewModel.currentStageResponse?.errorCode == StageObstacleErrorType.USER_INTERACTED_COMPLETED.toTypeIdx()) {
+                VCheckSDK.shared.onFinish()
+            } else {
+                self.showToast(message: "Stage Error", seconds: 3.0)
+                self.performSegue(withIdentifier: "VideoUploadToFailure", sender: nil)
+            }
+        }
+        self.viewModel.getCurrentStage()
     }
     
     func uploadVideo() {
