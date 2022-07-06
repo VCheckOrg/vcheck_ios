@@ -95,7 +95,6 @@ class DemoStartViewModel {
             
             print("VERIF ::: INIT SUCCESS! DATA: \(String(describing: data))")
             
-            //self.getCountries()
             self.getCurrentStage()
         })
     }

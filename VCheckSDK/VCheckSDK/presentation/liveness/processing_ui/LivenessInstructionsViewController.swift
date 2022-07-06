@@ -127,15 +127,3 @@ class LivenessInstructionsViewController: UIViewController {
     }
 
 }
-
-
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(true)
-//
-//        DispatchQueue.main.async {
-//            self.animsHolder.subviews.forEach { $0.removeFromSuperview() }
-//            self.arrowHolder.subviews.forEach { $0.removeFromSuperview() }
-//            self.rightFadingCircle.isHidden = true
-//            self.leftFadingCircle.isHidden = true
-//        }
-//    }

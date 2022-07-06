@@ -19,6 +19,7 @@ class CheckDocInfoViewModel {
     var docInfoResponse: PreProcessedDocData? = nil
     var confirmedDocResponse: Bool = false
    
+    var currentStageResponse: StageResponse?
 
     var error: ApiError? {
         didSet { self.showAlertClosure?() }
@@ -33,6 +34,8 @@ class CheckDocInfoViewModel {
     
     var didReceiveDocInfoResponse: (() -> ())?
     var didReceiveConfirmedResponse: (() -> ())?
+    
+    var didReceivedCurrentStage: (() -> ())?
     
     
     func getDocumentInfo(docId: Int) {
@@ -63,6 +66,22 @@ class CheckDocInfoViewModel {
             
             self.confirmedDocResponse = data
             self.didReceiveConfirmedResponse!()
+        })
+    }
+    
+    func getCurrentStage() {
+        
+        self.dataService.getCurrentStage(completion: { (data, error) in
+            if let error = error {
+                self.error = error
+                self.isLoading = false
+                return
+            }
+            
+            if (data!.data != nil || data!.errorCode != nil) {
+                self.currentStageResponse = data
+                self.didReceivedCurrentStage!()
+            }
         })
     }
 }

@@ -18,14 +18,14 @@ class CheckDocInfoViewController : UIViewController {
     
     var docId: Int? = nil
     
+    var isDocPreviouslyUplaoded: Bool = false
+    
     var regex: String?
     
     var fieldsList: [DocFieldWitOptPreFilledData] = []
     
     let currLocaleCode = GlobalUtils.getVCheckCurrentLanguageCode()
-    //Locale.current.languageCode!
     
-    //TODO: stretch parent on table view size change (actual doc fields count)!
     @IBOutlet weak var docFieldsTableView: UITableView!
     
     @IBOutlet weak var firstPhotoImageView: UIImageView!
@@ -58,14 +58,16 @@ class CheckDocInfoViewController : UIViewController {
         
         docFieldsTableView.dataSource = self
         
-        firstPhotoImageView.image = firstPhoto
-        
-        if (secondPhoto != nil) {
-            secondPhotoImageView.isHidden = false
-            secondPhotoImageView.image = secondPhoto
-        } else {
-            secondPhotoImgCard.isHidden = true
-            tableTopConstraint.constant = 30
+        if (isDocPreviouslyUplaoded == false) {
+            firstPhotoImageView.image = firstPhoto
+            
+            if (secondPhoto != nil) {
+                secondPhotoImageView.isHidden = false
+                secondPhotoImageView.image = secondPhoto
+            } else {
+                secondPhotoImgCard.isHidden = true
+                tableTopConstraint.constant = 30
+            }
         }
         
         viewModel.didReceiveDocInfoResponse = {
@@ -73,11 +75,25 @@ class CheckDocInfoViewController : UIViewController {
                 self.populateDocFields(preProcessedDocData: self.viewModel.docInfoResponse!,
                                        currentLocaleCode: self.currLocaleCode)
             }
+            if (self.isDocPreviouslyUplaoded == true) {
+                //TODO: get doc photo link from backend!
+            }
         }
         
         viewModel.didReceiveConfirmedResponse = {
             if (self.viewModel.confirmedDocResponse == true) {
+                self.viewModel.getCurrentStage()
+            }
+        }
+        
+        viewModel.didReceivedCurrentStage = {
+            //TODO: test!
+            if (self.viewModel.currentStageResponse?.errorCode ==
+                    StageObstacleErrorType.USER_INTERACTED_COMPLETED.toTypeIdx()) {
                 self.performSegue(withIdentifier: "CheckInfoToLivenessInstr", sender: nil)
+            } else {
+                let storyboard = UIStoryboard(name: "VCheckFlow", bundle: InternalConstants.bundle)
+                UIApplication.topWindow.rootViewController = storyboard.instantiateInitialViewController()
             }
         }
         
@@ -90,8 +106,6 @@ class CheckDocInfoViewController : UIViewController {
         }
         
         viewModel.showAlertClosure = {
-//            let errText = self.viewModel.error?.errorText ?? "Error: No additional info"
-//            self.showToast(message: errText, seconds: 2.0)
             self.showToast(message: "check_doc_fields_input_message".localized, seconds: 2.0)
         }
         

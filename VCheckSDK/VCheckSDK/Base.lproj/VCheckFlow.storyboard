@@ -3571,13 +3571,13 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GAO-QE-GuP"/>
-        <segue reference="ZOg-Lf-JSX"/>
-        <segue reference="mdJ-XX-Wrm"/>
+        <segue reference="6Dz-L8-h7I"/>
+        <segue reference="hbx-PL-eMi"/>
+        <segue reference="dMv-If-cud"/>
         <segue reference="Apu-Tu-38V"/>
-        <segue reference="dMs-gB-ZC7"/>
-        <segue reference="zJe-KO-wvN"/>
-        <segue reference="HKh-3c-Vf4"/>
+        <segue reference="Cj4-0s-twM"/>
+        <segue reference="riI-uo-ZBO"/>
+        <segue reference="thq-za-677"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Too dark" width="718" height="680"/>

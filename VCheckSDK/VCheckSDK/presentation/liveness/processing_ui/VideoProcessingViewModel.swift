@@ -18,6 +18,7 @@ class VideoProcessingViewModel {
     // MARK: - Properties
     var uploadedVideoResponse: LivenessUploadResponseData? = nil
    
+    var currentStageResponse: StageResponse?
 
     var error: ApiError? {
         didSet { self.showAlertClosure?() }
@@ -31,6 +32,8 @@ class VideoProcessingViewModel {
     var updateLoadingStatus: (() -> ())?
     
     var didUploadVideoResponse: (() -> ())?
+    
+    var didReceivedCurrentStage: (() -> ())?
     
     
     func uploadVideo(videoFileURL: URL) {
@@ -50,6 +53,23 @@ class VideoProcessingViewModel {
             self.didUploadVideoResponse!()
         })
     }
+    
+    func getCurrentStage() {
+        
+        self.dataService.getCurrentStage(completion: { (data, error) in
+            if let error = error {
+                self.error = error
+                self.isLoading = false
+                return
+            }
+            
+            if (data!.data != nil || data!.errorCode != nil) {
+                self.currentStageResponse = data
+                self.didReceivedCurrentStage!()
+            }
+        })
+    }
+    
     
     func fileSize(forURL: URL?) -> Double {
         guard let filePath = forURL?.path else {

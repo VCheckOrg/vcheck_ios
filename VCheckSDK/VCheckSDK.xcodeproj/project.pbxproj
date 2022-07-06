@@ -34,7 +34,6 @@
 		DA3BEDD62869A8D300B15E5C /* LivenessVideoRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED862869A8D300B15E5C /* LivenessVideoRecorder.swift */; };
 		DA3BEDD72869A8D300B15E5C /* milestones.kt in Resources */ = {isa = PBXBuildFile; fileRef = DA3BED872869A8D300B15E5C /* milestones.kt */; };
 		DA3BEDD82869A8D300B15E5C /* VideoProcessingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED892869A8D300B15E5C /* VideoProcessingViewModel.swift */; };
-		DA3BEDD92869A8D300B15E5C /* LivenessSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED8A2869A8D300B15E5C /* LivenessSuccessViewController.swift */; };
 		DA3BEDDA2869A8D300B15E5C /* VideoUploadFailureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED8B2869A8D300B15E5C /* VideoUploadFailureViewModel.swift */; };
 		DA3BEDDB2869A8D300B15E5C /* VideoProcessingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED8C2869A8D300B15E5C /* VideoProcessingViewController.swift */; };
 		DA3BEDDC2869A8D300B15E5C /* LivenessInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED8D2869A8D300B15E5C /* LivenessInstructionsViewController.swift */; };
@@ -111,7 +110,6 @@
 		DA3BED862869A8D300B15E5C /* LivenessVideoRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LivenessVideoRecorder.swift; sourceTree = "<group>"; };
 		DA3BED872869A8D300B15E5C /* milestones.kt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = milestones.kt; sourceTree = "<group>"; };
 		DA3BED892869A8D300B15E5C /* VideoProcessingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoProcessingViewModel.swift; sourceTree = "<group>"; };
-		DA3BED8A2869A8D300B15E5C /* LivenessSuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LivenessSuccessViewController.swift; sourceTree = "<group>"; };
 		DA3BED8B2869A8D300B15E5C /* VideoUploadFailureViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoUploadFailureViewModel.swift; sourceTree = "<group>"; };
 		DA3BED8C2869A8D300B15E5C /* VideoProcessingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoProcessingViewController.swift; sourceTree = "<group>"; };
 		DA3BED8D2869A8D300B15E5C /* LivenessInstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LivenessInstructionsViewController.swift; sourceTree = "<group>"; };
@@ -291,7 +289,6 @@
 			isa = PBXGroup;
 			children = (
 				DA3BED892869A8D300B15E5C /* VideoProcessingViewModel.swift */,
-				DA3BED8A2869A8D300B15E5C /* LivenessSuccessViewController.swift */,
 				DA3BED8B2869A8D300B15E5C /* VideoUploadFailureViewModel.swift */,
 				DA3BED8C2869A8D300B15E5C /* VideoProcessingViewController.swift */,
 				DA3BED8D2869A8D300B15E5C /* LivenessInstructionsViewController.swift */,
@@ -604,7 +601,6 @@
 				DA3BEDE22869A8D300B15E5C /* SharpMovementsViewController.swift in Sources */,
 				DA3BEDED2869A8D300B15E5C /* DocPhotoVerifErrorViewController.swift in Sources */,
 				DA3BEDE12869A8D300B15E5C /* OnLivenessRepeatCommonVC.swift in Sources */,
-				DA3BEDD92869A8D300B15E5C /* LivenessSuccessViewController.swift in Sources */,
 				DA3BEE002869A8D300B15E5C /* Utils.swift in Sources */,
 				DA3BEDFD2869A8D300B15E5C /* TextFieldError.swift in Sources */,
 				DA3BEDD32869A8D300B15E5C /* LivenessVCExtensions.swift in Sources */,

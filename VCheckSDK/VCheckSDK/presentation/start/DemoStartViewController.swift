@@ -104,7 +104,6 @@ class DemoStartViewController : UIViewController {
             print ("Navigating to Check Doc Info")
             let vc = segue.destination as! CheckDocInfoViewController
             vc.docId = sender as? Int
-            //TODO: find a way to also provide previously uploaded doc's photos
         }
     }
     
