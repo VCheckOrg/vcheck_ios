@@ -65,6 +65,7 @@ class DemoStartViewModel {
         if let timestamp = self.timestamp {
             self.dataService.createVerificationRequest(timestamp: timestamp,
                                                        locale: languagePrefix,
+                                                       verificationClientCreationModel: VerificationClientCreationModel,
                                                        completion: { (data, error) in
                 if let error = error {
                     self.error = error

@@ -15,13 +15,14 @@ struct RemoteDatasource {
     static let shared = RemoteDatasource()
     
     // MARK: - URL
-    private let baseUrl = Constants.API.serviceBaseURL
+    private let verifBaseUrl = Constants.API.verificationApiBaseUrl
+    private let partnerBaseUrl = Constants.API.partnerApiBaseUrl
     
     
-    // MARK: - Services
+    // MARK: - API calls
     
     func requestServerTimestamp(completion: @escaping (String?, ApiError?) -> ()) {
-        let url = "\(baseUrl)timestamp"
+        let url = "\(verifBaseUrl)timestamp"
         
         AF.request(url, method: .get)
           .validate()  //response returned an HTTP status code in the range 200–299
@@ -37,55 +38,55 @@ struct RemoteDatasource {
     }
     
     
-    func getCurrentStage(completion: @escaping (StageResponse?, ApiError?) -> ()) {
-        let type = Int.random(in: (0...1))
-        if (Int.random(in: (0...1)) == 1) {
-            completion(StageResponse.init(data: StageResponseData.init(id: 0, type: type),
-                       errorCode: 1, message: "USER_INTERACTED_COMPLETED"), nil)
-        } else {
-            completion(StageResponse.init(data: StageResponseData.init(id: 0, type: type),
-                       errorCode: 0, message: "VERIFICATION_NOT_INITIALIZED"), nil)
-        }
-    }
-    
-    //TODO: add/replace for real implementation:
+// Just for test:
 //    func getCurrentStage(completion: @escaping (StageResponse?, ApiError?) -> ()) {
-//        let url = "\(baseUrl)stage/current"
-//
-//        let token = LocalDatasource.shared.readAccessToken()
-//        if (token.isEmpty) {
-//            completion(nil, ApiError(errorText: "Error: cannot find access token"))
-//            return
+//        let type = Int.random(in: (0...1))
+//        if (Int.random(in: (0...1)) == 1) {
+//            completion(StageResponse.init(data: StageResponseData.init(id: 0, type: type),
+//                       errorCode: 1, message: "USER_INTERACTED_COMPLETED"), nil)
+//        } else {
+//            completion(StageResponse.init(data: StageResponseData.init(id: 0, type: type),
+//                       errorCode: 0, message: "VERIFICATION_NOT_INITIALIZED"), nil)
 //        }
-//        let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
-//
-//        AF.request(url, method: .get, headers: headers)
-//          .validate()  //response returned an HTTP status code in the range 200–299
-//          .responseDecodable(of: StageResponse.self) { (response) in
-//              guard let response = response.value else {
-//              //showing error on non-200 response code
-//               completion(nil, ApiError(errorText: response.error!.localizedDescription))
-//               return
-//              }
-//              if (response.data != nil && response.errorCode == 0) {
-//                 completion(response, nil)
-//              }
-//              if (response.errorCode != nil && response.errorCode != 0) {
-//                 completion(nil, ApiError(errorText: "\(String(describing: response.errorCode)): "
-//                                          + "\(response.message ?? "")"))
-//                 return
-//              }
-//          }
 //    }
     
-    //TODO: should be removed with new architecture ?
-    // with pre-composed test request body
+    func getCurrentStage(completion: @escaping (StageResponse?, ApiError?) -> ()) {
+        let url = "\(verifBaseUrl)stage/current"
+
+        let token = LocalDatasource.shared.readAccessToken()
+        if (token.isEmpty) {
+            completion(nil, ApiError(errorText: "Error: cannot find access token"))
+            return
+        }
+        let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
+
+        AF.request(url, method: .get, headers: headers)
+          .validate()  //response returned an HTTP status code in the range 200–299
+          .responseDecodable(of: StageResponse.self) { (response) in
+              guard let response = response.value else {
+              //showing error on non-200 response code
+               completion(nil, ApiError(errorText: response.error!.localizedDescription))
+               return
+              }
+              if (response.data != nil && response.errorCode == 0) {
+                 completion(response, nil)
+              }
+              if (response.errorCode != nil && response.errorCode != 0) {
+                 completion(nil, ApiError(errorText: "\(String(describing: response.errorCode)): "
+                                          + "\(response.message ?? "")"))
+                 return
+              }
+          }
+    }
+
     func createVerificationRequest(timestamp: String,
                                    locale: String,
+                                   verificationClientCreationModel: VerificationClientCreationModel,
                                    completion: @escaping (VerificationCreateAttemptResponseData?, ApiError?) -> ()) {
-        let url = "\(baseUrl)verifications"
+        let url = "\(partnerBaseUrl)verifications"
         
-        let model = CreateVerificationRequestBody.init(ts: timestamp, locale: locale)
+        //TODO: test!
+        let model = CreateVerificationRequestBody.init(ts: timestamp, locale: locale, vModel: verificationClientCreationModel)
         
         var jsonData: Dictionary<String, Any>?
         do {
@@ -116,7 +117,7 @@ struct RemoteDatasource {
     
     
     func initVerification(completion: @escaping (VerificationInitResponseData?, ApiError?) -> ()) {
-        let url = "\(baseUrl)verifications/init"
+        let url = "\(verifBaseUrl)verifications/init"
         
         let token = LocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
@@ -147,7 +148,7 @@ struct RemoteDatasource {
     
     
     func getCountries(completion: @escaping ([Country]?, ApiError?) -> ()) {
-        let url = "\(baseUrl)countries"
+        let url = "\(verifBaseUrl)documents/countries"
 
         let token = LocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
@@ -179,7 +180,8 @@ struct RemoteDatasource {
     
     func getCountryAvailableDocTypeInfo(countryCode: String,
                                         completion: @escaping ([DocTypeData]?, ApiError?) -> ()) {
-        let url = "\(baseUrl)countries/\(countryCode)/documents"
+        //TODO: test!
+        let url = "\(verifBaseUrl)documents/types?country=\(countryCode)"
 
         let token = LocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
@@ -210,7 +212,6 @@ struct RemoteDatasource {
     
     //https://stackoverflow.com/a/62407235/6405022  -- Alamofire + Multipart :
     
-    //TODO: change to POST /document/upload
     func uploadVerificationDocuments(
         photo1: UIImage,
         photo2: UIImage?,
@@ -218,7 +219,7 @@ struct RemoteDatasource {
         documentType: String, // TODO: rename to category = fields.Integer()
         completion: @escaping (DocumentUploadResponseData?, ApiError?) -> ()) {
             
-            let url = "\(baseUrl)documents"
+            let url = "\(verifBaseUrl)documents/upload"
 
             let token = LocalDatasource.shared.readAccessToken()
             if (token.isEmpty) {
@@ -262,10 +263,9 @@ struct RemoteDatasource {
     }
     
     
-    //TODO: change to GET documents/{document}/info
     func getDocumentInfo(documentId: Int,
                          completion: @escaping (PreProcessedDocData?, ApiError?) -> ()) {
-        let url = "\(baseUrl)documents/\(documentId)"
+        let url = "\(verifBaseUrl)documents/\(documentId)/info"
 
         let token = LocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
@@ -294,11 +294,10 @@ struct RemoteDatasource {
     }
     
     
-    //TODO: change to PUT /document/<int:verification_document_id>/confirm
     func updateAndConfirmDocInfo(documentId: Int,
                                  parsedDocFieldsData: ParsedDocFieldsData,
                                  completion: @escaping (Bool, ApiError?) -> ()) {
-        let url = "\(baseUrl)documents/\(documentId)"
+        let url = "\(verifBaseUrl)documents/\(documentId)/confirm"
         
         var jsonData: Dictionary<String, Any>?
         do {
@@ -328,10 +327,10 @@ struct RemoteDatasource {
         })
     }
         
-    //TODO: should remove w/new arch?
+    //TODO: should remove w/new arch!
     func setDocumentAsPrimary(documentId: Int,
                               completion: @escaping (Bool, ApiError?) -> ()) {
-        let url = "\(baseUrl)documents/\(documentId)/primary"
+        let url = "\(verifBaseUrl)documents/\(documentId)/primary"
 
         let token = LocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
@@ -357,7 +356,7 @@ struct RemoteDatasource {
     func uploadLivenessVideo(videoFileURL: URL,
         completion: @escaping (LivenessUploadResponseData?, ApiError?) -> ()) {
             
-            let url = "\(baseUrl)liveness"
+            let url = "\(verifBaseUrl)liveness_challenges"
 
             let token = LocalDatasource.shared.readAccessToken()
             if (token.isEmpty) {

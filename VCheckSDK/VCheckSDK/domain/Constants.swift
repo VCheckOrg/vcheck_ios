@@ -12,10 +12,9 @@ enum Constants {
     
     enum API {
 
-        static let serviceBaseURL = URL(string: "https://test-verification.vycheck.com/api/")!
-        
-        // FOR TEST
-        static let testPartnerSecret = "DWBnN7LbeTaqG9vE"
+        static let verificationApiBaseUrl = URL(string: "https://test-verification.vycheck.com/api/v1/")!
+        static let partnerApiBaseUrl = URL(string: "https://test-partner.vycheck.com/api/v1/")!
+        static let defaultSessionLifetime = 3600
     }
     
     enum UTIL {

@@ -76,6 +76,8 @@
 		DA3BEE032869A8D300B15E5C /* LocalDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDC02869A8D300B15E5C /* LocalDatasource.swift */; };
 		DA3BEE0A2869B25D00B15E5C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA3BEE0C2869B25D00B15E5C /* Localizable.strings */; };
 		DA3BEE0F2869B49100B15E5C /* VCheckFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA3BEE112869B49100B15E5C /* VCheckFlow.storyboard */; };
+		DAC3C82A2877669F00B32FFC /* VerificationClientCreationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3C8292877669F00B32FFC /* VerificationClientCreationModel.swift */; };
+		DAC3C82C2877695700B32FFC /* VerificationSchemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3C82B2877695700B32FFC /* VerificationSchemes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -158,6 +160,8 @@
 		DA3BEE162869B4F600B15E5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/VCheckFlow.storyboard; sourceTree = "<group>"; };
 		DA3BEE172869B50000B15E5C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/VCheckFlow.strings; sourceTree = "<group>"; };
 		DA3BEE222869BA8800B15E5C /* Pods_VcheckSDKDemoIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_VcheckSDKDemoIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAC3C8292877669F00B32FFC /* VerificationClientCreationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationClientCreationModel.swift; sourceTree = "<group>"; };
+		DAC3C82B2877695700B32FFC /* VerificationSchemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationSchemes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +240,8 @@
 				DA3BED7C2869A8D200B15E5C /* DocumentTypes.swift */,
 				DA3BED7D2869A8D200B15E5C /* LIvenessUploadModels.swift */,
 				DA153773286F4FE60038A203 /* GeneralStageModels.swift */,
+				DAC3C8292877669F00B32FFC /* VerificationClientCreationModel.swift */,
+				DAC3C82B2877695700B32FFC /* VerificationSchemes.swift */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -596,6 +602,7 @@
 				DA3BEDF52869A8D300B15E5C /* CheckDocPhotoViewModel.swift in Sources */,
 				DA3BEDDE2869A8D300B15E5C /* NoTimeViewController.swift in Sources */,
 				DA3BEDD52869A8D300B15E5C /* FaceCalcExtensions.swift in Sources */,
+				DAC3C82A2877669F00B32FFC /* VerificationClientCreationModel.swift in Sources */,
 				DA3BEDD82869A8D300B15E5C /* VideoProcessingViewModel.swift in Sources */,
 				DA3BEDCA2869A8D300B15E5C /* DocumentResponseModels.swift in Sources */,
 				DA3BEDE22869A8D300B15E5C /* SharpMovementsViewController.swift in Sources */,
@@ -610,6 +617,7 @@
 				DA3BEDF92869A8D300B15E5C /* TakeDocPhotoViewController.swift in Sources */,
 				DA3BEDE92869A8D300B15E5C /* ChooseDocTypeViewModel.swift in Sources */,
 				DA3BEDF32869A8D300B15E5C /* CountryListViewController.swift in Sources */,
+				DAC3C82C2877695700B32FFC /* VerificationSchemes.swift in Sources */,
 				DA3BEDD22869A8D300B15E5C /* VCheckSDK.swift in Sources */,
 				DA3BEDCC2869A8D300B15E5C /* VerificationResponseModels.swift in Sources */,
 			);
