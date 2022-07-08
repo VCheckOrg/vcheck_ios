@@ -43,7 +43,7 @@ struct RemoteDatasource {
                                    completion: @escaping (VerificationCreateAttemptResponseData?, ApiError?) -> ()) {
         let url = "\(partnerBaseUrl)verifications"
         
-        //TODO: test!
+        //TODO: test creation properly!
         let model = CreateVerificationRequestBody.init(ts: timestamp, locale: locale, vModel: verificationClientCreationModel)
         
         var jsonData: Dictionary<String, Any>?
