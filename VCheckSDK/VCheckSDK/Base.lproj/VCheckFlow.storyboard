@@ -34,14 +34,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXu-nD-622">
-                                <rect key="frame" x="99" y="204" width="192" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Start Demo Flow"/>
-                                <connections>
-                                    <action selector="startDemoFlowAction:" destination="3HI-Lp-Qj3" eventType="touchUpInside" id="lcF-j0-HUt"/>
-                                </connections>
-                            </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="eXt-L9-GpI">
                                 <rect key="frame" x="187" y="361" width="40" height="40"/>
                                 <color key="tintColor" name="AccentColor"/>
@@ -51,11 +43,8 @@
                         <viewLayoutGuide key="safeArea" id="j8W-bb-Qhj"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="uXu-nD-622" firstAttribute="centerX" secondItem="eXt-L9-GpI" secondAttribute="centerX" id="8NR-jV-Sv9"/>
                             <constraint firstItem="eXt-L9-GpI" firstAttribute="centerY" secondItem="j8W-bb-Qhj" secondAttribute="centerY" constant="-72" id="RJi-c0-oAf"/>
-                            <constraint firstItem="uXu-nD-622" firstAttribute="leading" secondItem="j8W-bb-Qhj" secondAttribute="leading" constant="99" id="gSZ-LX-6wZ"/>
                             <constraint firstItem="eXt-L9-GpI" firstAttribute="centerX" secondItem="j8W-bb-Qhj" secondAttribute="centerX" id="gbB-br-SDM"/>
-                            <constraint firstItem="uXu-nD-622" firstAttribute="top" secondItem="j8W-bb-Qhj" secondAttribute="top" constant="160" id="xmL-Lj-qE0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2zy-Da-I5G"/>

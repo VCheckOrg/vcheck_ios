@@ -22,3 +22,13 @@ enum Constants {
         static let keychainAccountName = "vhcheck"
     }
 }
+
+
+
+//    func setVerificationApiBaseUrl(url: String) {
+//        self.verificationApiBaseUrl = URL(string: url)!
+//    }
+//
+//    func setPartnerApiBaseUrl(url: String) {
+//        self.partnerApiBaseUrl = URL(string: url)!
+//    }

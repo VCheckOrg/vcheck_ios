@@ -15,7 +15,6 @@ struct CreateVerificationRequestBody: Codable {
     var locale: String
     var partnerUserId: String?
     var partnerVerificationId : String?
-    var callbackUrl: String?
     var sessionLifetime: Int?
     var sign: String
 
@@ -28,7 +27,6 @@ struct CreateVerificationRequestBody: Codable {
     case sign                 = "sign"
     case timestamp            = "timestamp"
     case scheme               = "scheme"
-    case callbackUrl          = "callback_url"
     case sessionLifetime      = "session_lifetime"
   }
 
@@ -42,8 +40,8 @@ struct CreateVerificationRequestBody: Codable {
     sign                    = try values.decodeIfPresent(String.self , forKey: .sign                 )!
     timestamp               = try values.decodeIfPresent(Int.self    , forKey: .timestamp            )!
     scheme                  = try values.decodeIfPresent(String.self , forKey: .scheme               )!
-    callbackUrl             = try values.decodeIfPresent(String.self , forKey: .callbackUrl          )!
     sessionLifetime         = try values.decodeIfPresent(Int.self    , forKey: .sessionLifetime      )!
+    //callbackUrl             = try values.decodeIfPresent(String.self , forKey: .callbackUrl          )!
   }
 
     init(ts: String, locale: String, vModel: VerificationClientCreationModel) {
@@ -53,13 +51,6 @@ struct CreateVerificationRequestBody: Codable {
         let scheme = vModel.verificationType.description
         let partnerUserId = vModel.partnerUserId ?? CreateVerificationRequestBody.currentTimeInMilliSecondsStr()
         let partnerVerificationId = vModel.partnerVerificationId ?? CreateVerificationRequestBody.currentTimeInMilliSecondsStr()
-        var callbackUrl = ""
-        if (vModel.customServiceURL != nil) {
-            callbackUrl = vModel.customServiceURL!
-        }
-        else {
-            callbackUrl = "\(Constants.API.verificationApiBaseUrl)ping"
-        }
         let sessionLifetime = vModel.sessionLifetime ?? Constants.API.defaultSessionLifetime
               
         self.partnerId = partnerId
@@ -68,7 +59,6 @@ struct CreateVerificationRequestBody: Codable {
         self.locale = locale
         self.partnerUserId = partnerUserId
         self.partnerVerificationId = partnerVerificationId
-        self.callbackUrl = callbackUrl
         self.sessionLifetime = sessionLifetime
       
         let strToSign = "\(self.partnerId)\(self.partnerUserId)\(self.partnerVerificationId)\(self.scheme)\(self.timestamp)\(partnerSecret)"

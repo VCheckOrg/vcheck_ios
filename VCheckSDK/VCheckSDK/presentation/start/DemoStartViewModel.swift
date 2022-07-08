@@ -62,10 +62,17 @@ class DemoStartViewModel {
     func createVerifAttempt() {
         let languagePrefix = GlobalUtils.getVCheckCurrentLanguageCode()
         
+        if (VCheckSDK.shared.verificationClientCreationModel == nil) {
+            self.error = ApiError(errorText: "Client error: Verification was not created properly")
+            self.isLoading = false
+            return
+        }
+        
         if let timestamp = self.timestamp {
             self.dataService.createVerificationRequest(timestamp: timestamp,
                                                        locale: languagePrefix,
-                                                       verificationClientCreationModel: VerificationClientCreationModel,
+                                                       verificationClientCreationModel:
+                                                            VCheckSDK.shared.verificationClientCreationModel!,
                                                        completion: { (data, error) in
                 if let error = error {
                     self.error = error

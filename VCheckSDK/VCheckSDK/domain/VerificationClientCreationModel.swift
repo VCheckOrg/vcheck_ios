@@ -15,6 +15,5 @@ struct VerificationClientCreationModel {
     var verificationType: VerificationSchemeType = VerificationSchemeType.FULL_CHECK
     var partnerUserId: String? = nil
     var partnerVerificationId: String? = nil
-    var customServiceURL: String? = nil
     var sessionLifetime: Int? = nil
 }

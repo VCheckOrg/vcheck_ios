@@ -15,9 +15,9 @@ class DemoStartViewController : UIViewController {
     
     private let viewModel = DemoStartViewModel()
     
-    @IBAction func startDemoFlowAction(_ sender: UIButton) {
-        initVerification()
-    }
+//    @IBAction func startDemoFlowAction(_ sender: UIButton) {
+//        initVerification()
+//    }
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     

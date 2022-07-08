@@ -36,48 +36,6 @@ struct RemoteDatasource {
               return
           })
     }
-    
-    
-// Just for test:
-//    func getCurrentStage(completion: @escaping (StageResponse?, ApiError?) -> ()) {
-//        let type = Int.random(in: (0...1))
-//        if (Int.random(in: (0...1)) == 1) {
-//            completion(StageResponse.init(data: StageResponseData.init(id: 0, type: type),
-//                       errorCode: 1, message: "USER_INTERACTED_COMPLETED"), nil)
-//        } else {
-//            completion(StageResponse.init(data: StageResponseData.init(id: 0, type: type),
-//                       errorCode: 0, message: "VERIFICATION_NOT_INITIALIZED"), nil)
-//        }
-//    }
-    
-    func getCurrentStage(completion: @escaping (StageResponse?, ApiError?) -> ()) {
-        let url = "\(verifBaseUrl)stage/current"
-
-        let token = LocalDatasource.shared.readAccessToken()
-        if (token.isEmpty) {
-            completion(nil, ApiError(errorText: "Error: cannot find access token"))
-            return
-        }
-        let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
-
-        AF.request(url, method: .get, headers: headers)
-          .validate()  //response returned an HTTP status code in the range 200–299
-          .responseDecodable(of: StageResponse.self) { (response) in
-              guard let response = response.value else {
-              //showing error on non-200 response code
-               completion(nil, ApiError(errorText: response.error!.localizedDescription))
-               return
-              }
-              if (response.data != nil && response.errorCode == 0) {
-                 completion(response, nil)
-              }
-              if (response.errorCode != nil && response.errorCode != 0) {
-                 completion(nil, ApiError(errorText: "\(String(describing: response.errorCode)): "
-                                          + "\(response.message ?? "")"))
-                 return
-              }
-          }
-    }
 
     func createVerificationRequest(timestamp: String,
                                    locale: String,
@@ -142,6 +100,35 @@ struct RemoteDatasource {
                   completion(nil, ApiError(errorText: "\(String(describing: response.errorCode)): "
                                             + "\(response.message ?? "")"))
                   return
+              }
+          }
+    }
+    
+    func getCurrentStage(completion: @escaping (StageResponse?, ApiError?) -> ()) {
+        let url = "\(verifBaseUrl)stage/current"
+
+        let token = LocalDatasource.shared.readAccessToken()
+        if (token.isEmpty) {
+            completion(nil, ApiError(errorText: "Error: cannot find access token"))
+            return
+        }
+        let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
+
+        AF.request(url, method: .get, headers: headers)
+          .validate()  //response returned an HTTP status code in the range 200–299
+          .responseDecodable(of: StageResponse.self) { (response) in
+              guard let response = response.value else {
+              //showing error on non-200 response code
+               completion(nil, ApiError(errorText: response.error!.localizedDescription))
+               return
+              }
+              if (response.data != nil && response.errorCode == 0) {
+                 completion(response, nil)
+              }
+              if (response.errorCode != nil && response.errorCode != 0) {
+                 completion(nil, ApiError(errorText: "\(String(describing: response.errorCode)): "
+                                          + "\(response.message ?? "")"))
+                 return
               }
           }
     }
@@ -326,31 +313,6 @@ struct RemoteDatasource {
             return
         })
     }
-        
-    //TODO: should remove w/new arch!
-    func setDocumentAsPrimary(documentId: Int,
-                              completion: @escaping (Bool, ApiError?) -> ()) {
-        let url = "\(verifBaseUrl)documents/\(documentId)/primary"
-
-        let token = LocalDatasource.shared.readAccessToken()
-        if (token.isEmpty) {
-            completion(false, ApiError(errorText: "Error: cannot find access token"))
-            return
-        }
-        let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
-
-         AF.request(url, method: .put, headers: headers)
-         .validate()  //response returned an HTTP status code in the range 200–299
-         .response(completionHandler: { (response) in
-             guard response.value != nil else {
-             //showing error on non-200 response code (?)
-              completion(false, ApiError(errorText: response.error!.localizedDescription))
-              return
-             }
-             completion(true, nil)
-             return
-         })
-     }
     
     
     func uploadLivenessVideo(videoFileURL: URL,
@@ -404,3 +366,40 @@ extension Encodable {
         return json
     }
 }
+
+
+// Just for test:
+//    func getCurrentStage(completion: @escaping (StageResponse?, ApiError?) -> ()) {
+//        let type = Int.random(in: (0...1))
+//        if (Int.random(in: (0...1)) == 1) {
+//            completion(StageResponse.init(data: StageResponseData.init(id: 0, type: type),
+//                       errorCode: 1, message: "USER_INTERACTED_COMPLETED"), nil)
+//        } else {
+//            completion(StageResponse.init(data: StageResponseData.init(id: 0, type: type),
+//                       errorCode: 0, message: "VERIFICATION_NOT_INITIALIZED"), nil)
+//        }
+//    }
+
+//    func setDocumentAsPrimary(documentId: Int,
+//                              completion: @escaping (Bool, ApiError?) -> ()) {
+//        let url = "\(verifBaseUrl)documents/\(documentId)/primary"
+//
+//        let token = LocalDatasource.shared.readAccessToken()
+//        if (token.isEmpty) {
+//            completion(false, ApiError(errorText: "Error: cannot find access token"))
+//            return
+//        }
+//        let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
+//
+//         AF.request(url, method: .put, headers: headers)
+//         .validate()  //response returned an HTTP status code in the range 200–299
+//         .response(completionHandler: { (response) in
+//             guard response.value != nil else {
+//             //showing error on non-200 response code (?)
+//              completion(false, ApiError(errorText: response.error!.localizedDescription))
+//              return
+//             }
+//             completion(true, nil)
+//             return
+//         })
+//     }

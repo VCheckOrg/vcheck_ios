@@ -34,7 +34,9 @@ class DocPhotoVerifErrorViewModel {
     
     func setDocAsPrimary(docId: Int) {
         
-        dataService.setDocumentAsPrimary(documentId: docId, completion: { (data, error) in
+        //TODO: test!
+        dataService.updateAndConfirmDocInfo(documentId: docId, parsedDocFieldsData: ParsedDocFieldsData(),
+                                            completion: { (data, error) in
             if let error = error {
                 self.isLoading = false
                 self.error = error
