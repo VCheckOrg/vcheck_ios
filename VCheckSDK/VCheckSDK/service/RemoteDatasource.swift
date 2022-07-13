@@ -203,8 +203,8 @@ struct RemoteDatasource {
         photo1: UIImage,
         photo2: UIImage?,
         countryCode: String,
-        documentType: String, // TODO: rename to category = fields.Integer()
-        completion: @escaping (DocumentUploadResponseData?, ApiError?) -> ()) {
+        category: String,
+        completion: @escaping (DocumentUploadResponse?, ApiError?) -> ()) {
             
             let url = "\(verifBaseUrl)documents/upload"
 
@@ -226,7 +226,7 @@ struct RemoteDatasource {
             } else {
                 print("CLIENT: PHOTO 2 IS NIL")
             }
-            multipartFormData.append(documentType.data(using: .utf8, allowLossyConversion: false)!, withName: "document_type")
+            multipartFormData.append(category.data(using: .utf8, allowLossyConversion: false)!, withName: "category")
             multipartFormData.append(countryCode.data(using: .utf8, allowLossyConversion: false)!, withName: "country")
                 
             AF.upload(multipartFormData: multipartFormData, to: url, method: .post, headers: headers,
@@ -238,14 +238,12 @@ struct RemoteDatasource {
                         completion(nil, ApiError(errorText: response.error!.localizedDescription))
                         return
                     }
-                      if (response.data != nil && response.errorCode == 0) {
-                          completion(response.data, nil)
-                      }
-                      if (response.errorCode != nil && response.errorCode != 0) {
-                          completion(nil, ApiError(errorText: "\(String(describing: response.errorCode)): "
-                                                   + "\(response.message ?? "")"))
-                          return
-                      }
+                    completion(response, nil)
+//                      if (response.errorCode != nil && response.errorCode != 0) {
+//                          completion(nil, ApiError(errorText: "\(String(describing: response.errorCode)): "
+//                                                   + "\(response.message ?? "")"))
+//                          return
+//                      }
                   }
     }
     

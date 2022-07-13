@@ -65,21 +65,7 @@ class CheckDocPhotoViewController : UIViewController {
         }
                 
         viewModel.didReceiveDocUploadResponse = {
-            self.activityIndicatorStop()
-            
-            print("RECEIVED PHOTO UPLOAD RESPONSE! ::: \(String(describing: self.viewModel.uploadResponse))")
-            
-            //TODO: handle doc upload response w/codes
-            
-            if (self.viewModel.uploadResponse?.status != nil && self.viewModel.uploadResponse?.status != 0) {
-                if (codeIdxToVerificationCode(codeIdx: (self.viewModel.uploadResponse?.status)!) == DocumentVerificationCode.UploadAttemptsExceeded) {
-                    self.navigateToDocInfoScreen()
-                } else {
-                    self.navigateToStatusError()
-                }
-            } else {
-                self.navigateToDocInfoScreen()
-            }
+            self.handleDocUploadResponse()
         }
         
         viewModel.updateLoadingStatus = {
@@ -102,6 +88,23 @@ class CheckDocPhotoViewController : UIViewController {
         confirmUploadPhotosBtn.addGestureRecognizer(uploadPhotosTap)
     }
     
+    func handleDocUploadResponse() {
+        self.activityIndicatorStop()
+        
+        print("RECEIVED PHOTO UPLOAD RESPONSE! ::: \(String(describing: self.viewModel.uploadResponse))")
+        
+        //TODO: handle doc upload response w/codes
+        
+        if (self.viewModel.uploadResponse?.errorCode != nil && self.viewModel.uploadResponse?.errorCode != 0) {
+            self.showToast(message: "Error: [\(String(describing: self.viewModel.uploadResponse?.errorCode))]", seconds: 3.0)
+        } else {
+            if (self.viewModel.uploadResponse?.data != nil) {
+                self.navigateToDocInfoScreen()
+            } else {
+                self.showToast(message: "Error: no document data in response", seconds: 3.0)
+            }
+        }
+    }
     
     @objc func replacePhotoClicked(_ sender: NavGestureRecognizer) {
         moveToChooseDocTypeViewController()
@@ -132,11 +135,11 @@ class CheckDocPhotoViewController : UIViewController {
             if (self.secondPhoto != nil) {
                 vc.secondPhoto = self.secondPhoto
             }
-            if (self.viewModel.uploadResponse?.document == nil) {
+            if (self.viewModel.uploadResponse?.data?.document == nil) {
                 let errText = "Error: Cannot find document id for navigation!"
                 self.showToast(message: errText, seconds: 2.0)
             } else {
-                vc.docId = self.viewModel.uploadResponse?.document
+                vc.docId = self.viewModel.uploadResponse?.data?.document
             }
         }
         if (segue.identifier == "CheckPhotoToZoom") {
@@ -146,15 +149,15 @@ class CheckDocPhotoViewController : UIViewController {
         if (segue.identifier == "DocPhotoCheckToError") {
             let vc = segue.destination as! DocPhotoVerifErrorViewController
             vc.firstPhoto = self.firstPhoto
-            vc.statusCode = self.viewModel.uploadResponse?.status
+            vc.statusCode = self.viewModel.uploadResponse?.data?.status
             if (self.secondPhoto != nil) {
                 vc.secondPhoto = self.secondPhoto
             }
-            if (self.viewModel.uploadResponse?.document == nil) {
+            if (self.viewModel.uploadResponse?.data?.document == nil) {
                 let errText = "Error: Cannot find document id for navigation!"
                 self.showToast(message: errText, seconds: 2.0)
             } else {
-                vc.docId = self.viewModel.uploadResponse?.document
+                vc.docId = self.viewModel.uploadResponse?.data?.document
             }
         }
     }

@@ -20,8 +20,9 @@ class LocalDatasource {
     //cached selected doc type with data
     private var selectedDocTypeWithData: DocTypeData? = nil
     
-    private var localeIsUserDefined: Bool = false
+    private var livenessMilestonesList: [String]? = nil
     
+    private var localeIsUserDefined: Bool = false
     
     
     func save(_ data: Data, service: String, account: String) {
@@ -112,6 +113,14 @@ extension LocalDatasource {
         return selectedDocTypeWithData
     }
     
+    func setLivenessMilestonesList(list: [String]) {
+        livenessMilestonesList = list
+    }
+    
+    func getLivenessMilestonesList() -> [String]? {
+        return livenessMilestonesList
+    }
+    
     func resetAccessToken() {
         let data = Data("".utf8)
         save(data, service: "access-token", account: Constants.UTIL.keychainAccountName)
@@ -124,6 +133,10 @@ extension LocalDatasource {
     
     func deleteSelectedDocTypeWithData() {
         selectedDocTypeWithData = nil
+    }
+    
+    func deleteLivenessMilestonesList() {
+        livenessMilestonesList = nil
     }
     
     func getCurrentSDKLangauge() -> String {
@@ -149,6 +162,7 @@ extension LocalDatasource {
         resetAccessToken()
         resetSelectedCountryCode()
         deleteSelectedDocTypeWithData()
+        deleteLivenessMilestonesList()
     }
 }
 

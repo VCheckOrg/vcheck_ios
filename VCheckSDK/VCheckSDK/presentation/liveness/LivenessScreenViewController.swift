@@ -21,7 +21,6 @@ internal class LivenessScreenViewController: UIViewController {
     @IBOutlet weak var imgMilestoneChecked: UIImageView!
     @IBOutlet weak var indicationFrame: RoundedView!
     
-
     // MARK: - Anim properties
     private var faceAnimationView: AnimationView = AnimationView()
     private var arrowAnimationView: AnimationView = AnimationView()
@@ -81,6 +80,15 @@ internal class LivenessScreenViewController: UIViewController {
 
         imgMilestoneChecked.isHidden = true
         indicationFrame.isHidden = true
+        
+        guard let milestonesList = LocalDatasource.shared.getLivenessMilestonesList()
+        else {
+            self.alertWindowTitle = "Milestone list is not found"
+            self.alertMessage = "Probably, milestone list was not retrieved form verification service or not cached properly."
+            self.needToShowFatalError = true
+            return
+        }
+        milestoneFlow.setStagesList(list: milestonesList)
 
         setupFaceSession()
     }
@@ -99,8 +107,8 @@ internal class LivenessScreenViewController: UIViewController {
 
         startLivenessSessionTimeoutTimer()
 
-        setupOrUpdateFaceAnimation(forMilestoneType: GestureMilestoneType.CheckHeadPositionMilestone)
-        setupOrUpdateArrowAnimation(forMilestoneType: GestureMilestoneType.CheckHeadPositionMilestone)
+        setupOrUpdateFaceAnimation(forMilestoneType: self.milestoneFlow.getNextStage().gestureMilestoneType)
+        setupOrUpdateArrowAnimation(forMilestoneType: self.milestoneFlow.getNextStage().gestureMilestoneType)
     }
 
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -141,7 +149,10 @@ internal class LivenessScreenViewController: UIViewController {
             // reset logic
             self.videoRecorder = LivenessVideoRecorder.init()
             self.videoStreamingPermitted = true
-            self.milestoneFlow = StandardMilestoneFlow()
+            
+            //self.milestoneFlow = StandardMilestoneFlow()
+            self.milestoneFlow.resetStages() //!
+            
             self.majorObstacleFrameCounterHolder = MajorObstacleFrameCounterHolder()
             self.faceCountDetectionFrameCounter = 0
             self.isLivenessSessionFinished = false
@@ -235,34 +246,33 @@ extension LivenessScreenViewController {
             self.updateLivenessInfoText(forMilestoneType: self.milestoneFlow.getUndoneStage().gestureMilestoneType)
         }
 
-        milestoneFlow.checkCurrentStage(pitchAngle: faceAnglesHolder.pitch,
+        milestoneFlow.checkCurrentStage(yawAngle: faceAnglesHolder.yaw,
                                         mouthFactor: mouthAngle,
-                                        yawAngle: faceAnglesHolder.yaw,
+                                        pitchAngle: faceAnglesHolder.pitch,
                                         onMilestoneResult: { milestoneType in
             print("------- PASSED MILESTONE: \(milestoneType)")
             DispatchQueue.main.async {
-                if (milestoneType == GestureMilestoneType.MouthOpenMilestone) {
-                    self.hapticFeedbackGenerator.notificationOccurred(.success)
-                    self.delayedStageIndicationRenew()
-                    self.isLivenessSessionFinished = true
-                } else {
-                    if (self.hasEnoughTimeForNextGesture) {
-                        if (milestoneType != GestureMilestoneType.CheckHeadPositionMilestone) {
-                            self.majorObstacleFrameCounterHolder.resetFrameCountersOnStageSuccess()
-                            self.hapticFeedbackGenerator.notificationOccurred(.success)
-                            self.delayedStageIndicationRenew()
-                        }
-                        self.setupOrUpdateFaceAnimation(forMilestoneType: milestoneType)
-                        self.setupOrUpdateArrowAnimation(forMilestoneType: milestoneType)
+                if (self.hasEnoughTimeForNextGesture) {
+                    if (milestoneType != GestureMilestoneType.CheckHeadPositionMilestone) {
+                        self.majorObstacleFrameCounterHolder.resetFrameCountersOnStageSuccess()
+                        self.hapticFeedbackGenerator.notificationOccurred(.success)
+                        self.delayedStageIndicationRenew()
                     }
+                    self.setupOrUpdateFaceAnimation(forMilestoneType: self.milestoneFlow.getNextStage().gestureMilestoneType)
+                    self.setupOrUpdateArrowAnimation(forMilestoneType: self.milestoneFlow.getNextStage().gestureMilestoneType)
                 }
             }
         },
         onObstacleMet: { obstacleType in
             onObstableTypeMet(obstacleType: obstacleType)
+        },
+        onAllStagesPassed: {
+            self.hapticFeedbackGenerator.notificationOccurred(.success)
+            self.delayedStageIndicationRenew()
+            self.isLivenessSessionFinished = true
         })
 
-        //print("PITCH: \(faceAnglesHolder.pitch)\nYAW: \(faceAnglesHolder.yaw)")
+        print("PITCH: \(faceAnglesHolder.pitch)\nYAW: \(faceAnglesHolder.yaw)")
         //+ "MOUTH: \(mouthAngle)\n | \n\nMOUTH OPEN: \(mouthOpen)\n\nTURNED LEFT: \(turnedLeft)\n\nTURNED RIGHT: \(turnedRight)")
     }
 
@@ -273,7 +283,7 @@ extension LivenessScreenViewController {
         if (obstacleType == ObstacleType.MULTIPLE_FACES_DETECTED) {
             self.endSessionPrematurely(performSegueWithIdentifier: "LivenessToMultipleFaces")
         }
-        if (obstacleType == ObstacleType.YAW_ANGLE) {
+        if (obstacleType == ObstacleType.PITCH_ANGLE) {
             DispatchQueue.main.async {
                 self.hapticFeedbackGenerator.notificationOccurred(.warning)
                 self.tvLivenessInfo.textColor = .red
@@ -356,9 +366,9 @@ extension LivenessScreenViewController {
             self.tvLivenessInfo.textColor = .white
             if (forMilestoneType == GestureMilestoneType.CheckHeadPositionMilestone) {
                 self.tvLivenessInfo.text = "liveness_stage_face_left".localized
-            } else if (forMilestoneType == GestureMilestoneType.OuterLeftHeadPitchMilestone) {
+            } else if (forMilestoneType == GestureMilestoneType.OuterLeftHeadYawMilestone) {
                 self.tvLivenessInfo.text = "liveness_stage_face_right".localized
-            } else if (forMilestoneType == GestureMilestoneType.OuterRightHeadPitchMilestone) {
+            } else if (forMilestoneType == GestureMilestoneType.OuterRightHeadYawMilestone) {
                 self.tvLivenessInfo.text = "liveness_stage_open_mouth".localized
             } else {
                 self.tvLivenessInfo.text = "liveness_stage_check_face_pos".localized
@@ -370,11 +380,15 @@ extension LivenessScreenViewController {
 
         roundedView.subviews.forEach { $0.removeFromSuperview() }
 
-        if (forMilestoneType == GestureMilestoneType.CheckHeadPositionMilestone) {
+        if (forMilestoneType == GestureMilestoneType.OuterLeftHeadYawMilestone) {
             faceAnimationView = AnimationView(name: "left", bundle: InternalConstants.bundle)
-        } else if (forMilestoneType == GestureMilestoneType.OuterLeftHeadPitchMilestone) {
+        } else if (forMilestoneType == GestureMilestoneType.OuterRightHeadYawMilestone) {
             faceAnimationView = AnimationView(name: "right", bundle: InternalConstants.bundle)
-        } else if (forMilestoneType == GestureMilestoneType.OuterRightHeadPitchMilestone) {
+        } else if (forMilestoneType == GestureMilestoneType.UpHeadPitchMilestone) {
+            faceAnimationView = AnimationView(name: "up", bundle: InternalConstants.bundle)
+        } else if (forMilestoneType == GestureMilestoneType.DownHeadPitchMilestone) {
+            faceAnimationView = AnimationView(name: "down", bundle: InternalConstants.bundle)
+        } else if (forMilestoneType == GestureMilestoneType.MouthOpenMilestone) {
             faceAnimationView = AnimationView(name: "mouth", bundle: InternalConstants.bundle)
         } else {
             faceAnimationView = AnimationView()
@@ -395,7 +409,7 @@ extension LivenessScreenViewController {
 
     func setupOrUpdateArrowAnimation(forMilestoneType: GestureMilestoneType) {
 
-        if (forMilestoneType == GestureMilestoneType.CheckHeadPositionMilestone) {
+        if (forMilestoneType == GestureMilestoneType.OuterLeftHeadYawMilestone) {
             arrowAnimationView = AnimationView(name: "arrow", bundle: InternalConstants.bundle)
 
             arrowAnimationView.contentMode = .center
@@ -410,7 +424,7 @@ extension LivenessScreenViewController {
 
             arrowAnimationView.loopMode = .loop
 
-        } else if (forMilestoneType == GestureMilestoneType.OuterLeftHeadPitchMilestone) {
+        } else if (forMilestoneType == GestureMilestoneType.OuterRightHeadYawMilestone) {
 
             leftArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
 

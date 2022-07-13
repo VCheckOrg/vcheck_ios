@@ -9,34 +9,33 @@ import Foundation
 
 enum GestureMilestoneType {
     case CheckHeadPositionMilestone
-    case OuterLeftHeadPitchMilestone
-    case OuterRightHeadPitchMilestone
-    case InnerHeadPitchMilestone
+    
+    case InnerHeadPitchMilestone //?
+    case OuterLeftHeadYawMilestone
+    case OuterRightHeadYawMilestone
+    
+    case UpHeadPitchMilestone
+    case DownHeadPitchMilestone
+    
     case MouthOpenMilestone
     case MouthClosedMilestone
 }
 
 enum ObstacleType {
-    case YAW_ANGLE
+    case PITCH_ANGLE
     case MULTIPLE_FACES_DETECTED
     case NO_OR_PARTIAL_FACE_DETECTED
-    
-    //Deprecated local checks:
-    //case BRIGHTNESS_LEVEL_IS_LOW
-    //case MOTIONS_ARE_TOO_SHARP
-    //case WRONG_GESTURE
 }
 
 class MilestoneConstraints {
-    static let YAW_PASS_ANGLE_ABS: Float = 20.0
-    static let LEFT_PITCH_PASS_ANGLE: Float = -30.0
-    static let RIGHT_PITCH_PASS_ANGLE: Float = 30.0
-    static let MOUTH_OPEN_PASS_FACTOR: Float = 0.35  //reduced from 0.55 !
+    static let PITCH_STRAIGHT_CHECK_ANGLE_ABS: Float = 20.0
     
-    //Deprecated local checks:
-    //static let NEXT_FRAME_MAX_PITCH_DIFF: Float = 15.0 //!
-    //static let NEXT_FRAME_MAX_YAW_DIFF: Float = 8.0
-    //VIDEO_APP_LIVENESS_MAX_ANGLES_DIFF=100,25,100 //add roll?
+    static let PITCH_UP_PASS_ANGLE: Float = 20.0
+    static let PITCH_DOWN_PASS_ANGLE: Float = -20.0
+    
+    static let LEFT_YAW_PASS_ANGLE: Float = -30.0
+    static let RIGHT_YAW_PASS_ANGLE: Float = 30.0
+    static let MOUTH_OPEN_PASS_FACTOR: Float = 0.35  //reduced from 0.55 !
 }
 
 
@@ -48,7 +47,7 @@ class GestureMilestone {
         self.gestureMilestoneType = milestoneType
     }
 
-    open func isMet(pitchAngle: Float, mouthFactor: Float, yawAbsAngle: Float) -> Bool {
+    open func isMet(yawAngle: Float, mouthFactor: Float, pitchAngle: Float) -> Bool {
         return false
     }
 }
@@ -57,26 +56,47 @@ class HeadPitchGestureMilestone : GestureMilestone {
     
     override init(milestoneType: GestureMilestoneType) {
         super.init(milestoneType: milestoneType)
+        if (gestureMilestoneType != GestureMilestoneType.UpHeadPitchMilestone
+            && gestureMilestoneType != GestureMilestoneType.DownHeadPitchMilestone) {
+            print("Head angle milestone type required but not provided!")
+        }
+    }
+    
+    
+    override func isMet(yawAngle: Float, mouthFactor: Float, pitchAngle: Float) -> Bool {
+        switch(gestureMilestoneType) {
+            case GestureMilestoneType.UpHeadPitchMilestone:
+                return (pitchAngle > MilestoneConstraints.PITCH_UP_PASS_ANGLE)
+            case GestureMilestoneType.DownHeadPitchMilestone:
+                return (pitchAngle < MilestoneConstraints.PITCH_DOWN_PASS_ANGLE)
+            default: return false
+        }
+    }
+}
+
+class HeadYawGestureMilestone : GestureMilestone {
+    
+    override init(milestoneType: GestureMilestoneType) {
+        super.init(milestoneType: milestoneType)
         if (gestureMilestoneType != GestureMilestoneType.InnerHeadPitchMilestone
-            && gestureMilestoneType != GestureMilestoneType.OuterLeftHeadPitchMilestone
-            && gestureMilestoneType != GestureMilestoneType.OuterRightHeadPitchMilestone
-        ) {
+            && gestureMilestoneType != GestureMilestoneType.OuterLeftHeadYawMilestone
+            && gestureMilestoneType != GestureMilestoneType.OuterRightHeadYawMilestone) {
             print("Head angle milestone type required but not provided!")
         }
     }
 
-    override func isMet(pitchAngle: Float, mouthFactor: Float, yawAbsAngle: Float) -> Bool {
+    override func isMet(yawAngle: Float, mouthFactor: Float, pitchAngle: Float) -> Bool {
         switch(gestureMilestoneType) {
             case GestureMilestoneType.InnerHeadPitchMilestone:
-            return (pitchAngle < MilestoneConstraints.RIGHT_PITCH_PASS_ANGLE
-                    && pitchAngle > MilestoneConstraints.LEFT_PITCH_PASS_ANGLE
-                    && yawAbsAngle < MilestoneConstraints.YAW_PASS_ANGLE_ABS)
-            case GestureMilestoneType.OuterLeftHeadPitchMilestone:
-            return (pitchAngle < MilestoneConstraints.LEFT_PITCH_PASS_ANGLE
-                    && yawAbsAngle < MilestoneConstraints.YAW_PASS_ANGLE_ABS)
-            case GestureMilestoneType.OuterRightHeadPitchMilestone:
-            return (pitchAngle > MilestoneConstraints.RIGHT_PITCH_PASS_ANGLE
-                    && yawAbsAngle < MilestoneConstraints.YAW_PASS_ANGLE_ABS)
+            return (yawAngle < MilestoneConstraints.RIGHT_YAW_PASS_ANGLE
+                    && yawAngle > MilestoneConstraints.LEFT_YAW_PASS_ANGLE
+                    && abs(pitchAngle) < MilestoneConstraints.PITCH_STRAIGHT_CHECK_ANGLE_ABS)
+            case GestureMilestoneType.OuterLeftHeadYawMilestone:
+            return (yawAngle < MilestoneConstraints.LEFT_YAW_PASS_ANGLE
+                    && abs(pitchAngle) < MilestoneConstraints.PITCH_STRAIGHT_CHECK_ANGLE_ABS)
+            case GestureMilestoneType.OuterRightHeadYawMilestone:
+            return (yawAngle > MilestoneConstraints.RIGHT_YAW_PASS_ANGLE
+                    && abs(pitchAngle) < MilestoneConstraints.PITCH_STRAIGHT_CHECK_ANGLE_ABS)
             default: return false
         }
     }
@@ -92,14 +112,14 @@ class MouthGestureMilestone : GestureMilestone {
         }
     }
 
-    override func isMet(pitchAngle: Float, mouthFactor: Float, yawAbsAngle: Float) -> Bool {
+    override func isMet(yawAngle: Float, mouthFactor: Float, pitchAngle: Float) -> Bool {
         switch (gestureMilestoneType) {
             case GestureMilestoneType.MouthOpenMilestone:
                 return (mouthFactor >= MilestoneConstraints.MOUTH_OPEN_PASS_FACTOR
-                    && yawAbsAngle < MilestoneConstraints.YAW_PASS_ANGLE_ABS)
+                    && abs(pitchAngle) < MilestoneConstraints.PITCH_STRAIGHT_CHECK_ANGLE_ABS)
             case GestureMilestoneType.MouthClosedMilestone:
                 return (mouthFactor < MilestoneConstraints.MOUTH_OPEN_PASS_FACTOR
-                    && yawAbsAngle < MilestoneConstraints.YAW_PASS_ANGLE_ABS)
+                    && abs(pitchAngle) < MilestoneConstraints.PITCH_STRAIGHT_CHECK_ANGLE_ABS)
             default: return false
         }
     }
@@ -107,8 +127,8 @@ class MouthGestureMilestone : GestureMilestone {
 
 class CheckOverallHeadPositionMilestone : GestureMilestone {
 
-    private let pitchStableMilestone: HeadPitchGestureMilestone =
-        HeadPitchGestureMilestone(milestoneType: GestureMilestoneType.InnerHeadPitchMilestone)
+    private let pitchStableMilestone: HeadYawGestureMilestone =
+        HeadYawGestureMilestone(milestoneType: GestureMilestoneType.InnerHeadPitchMilestone)
     private let mouthClosedMilestone: MouthGestureMilestone =
         MouthGestureMilestone(milestoneType: GestureMilestoneType.MouthClosedMilestone)
 
@@ -124,12 +144,12 @@ class CheckOverallHeadPositionMilestone : GestureMilestone {
             && mouthClosedMilestone.gestureMilestoneType == GestureMilestoneType.MouthClosedMilestone)
     }
 
-    override func isMet(pitchAngle: Float, mouthFactor: Float, yawAbsAngle: Float) -> Bool {
+    override func isMet(yawAngle: Float, mouthFactor: Float, pitchAngle: Float) -> Bool {
         if (!areMilestoneTypesMet()) {
             return false
         } else {
-            return (pitchStableMilestone.isMet(pitchAngle: pitchAngle, mouthFactor: mouthFactor, yawAbsAngle: yawAbsAngle)
-                && mouthClosedMilestone.isMet(pitchAngle: pitchAngle, mouthFactor: mouthFactor, yawAbsAngle: yawAbsAngle))
+            return (pitchStableMilestone.isMet(yawAngle: yawAngle, mouthFactor: mouthFactor, pitchAngle: pitchAngle)
+                && mouthClosedMilestone.isMet(yawAngle: yawAngle, mouthFactor: mouthFactor, pitchAngle: pitchAngle))
         }
     }
 }
@@ -137,14 +157,34 @@ class CheckOverallHeadPositionMilestone : GestureMilestone {
 
 class StandardMilestoneFlow {
     
-    private let stagesList: [GestureMilestone] = [
-        CheckOverallHeadPositionMilestone(milestoneType: GestureMilestoneType.CheckHeadPositionMilestone),
-        HeadPitchGestureMilestone(milestoneType: GestureMilestoneType.OuterLeftHeadPitchMilestone),
-        HeadPitchGestureMilestone(milestoneType: GestureMilestoneType.OuterRightHeadPitchMilestone),
-        MouthGestureMilestone(milestoneType: GestureMilestoneType.MouthOpenMilestone)
+    private var stagesList: [GestureMilestone] = [
+        CheckOverallHeadPositionMilestone(milestoneType: GestureMilestoneType.CheckHeadPositionMilestone)
     ]
 
     private var currentStageIdx: Int = 0
+    
+    //!
+    func resetStages() {
+        currentStageIdx = 0
+    }
+    
+    func setStagesList(list: [String]) {
+        let gestures: [GestureMilestone] = list.map{ (element) -> (GestureMilestone) in
+            let gm = gmFromServiceValue(strValue: element)
+            return gm
+        }
+        stagesList.append(contentsOf: gestures)
+    }
+    
+    func getNextStage() -> GestureMilestone {
+        if (stagesList.count == 1) {
+            return stagesList[0]
+        } else if (stagesList.count <= currentStageIdx - 1) {
+            return stagesList[stagesList.count - 1]
+        } else {
+            return stagesList[currentStageIdx + 1]
+        }
+    }
 
     func getCurrentStage() -> GestureMilestone {
         return stagesList[currentStageIdx]
@@ -158,22 +198,34 @@ class StandardMilestoneFlow {
         }
     }
 
-    func checkCurrentStage(pitchAngle: Float, mouthFactor: Float, yawAngle: Float,
+    func checkCurrentStage(yawAngle: Float, mouthFactor: Float, pitchAngle: Float,
                            onMilestoneResult: (GestureMilestoneType) -> Void,
-                           onObstacleMet: (ObstacleType) -> Void) {
-        let yawAbsAngle = abs(yawAngle)
+                           onObstacleMet: (ObstacleType) -> Void,
+                           onAllStagesPassed: () -> Void) {
         if (currentStageIdx > (stagesList.count)) {
-            print("ERROR: Index out of bounds in milestones list!")
-            return
+            onAllStagesPassed()
         }
-        if (yawAbsAngle > MilestoneConstraints.YAW_PASS_ANGLE_ABS) {
-            onObstacleMet(ObstacleType.YAW_ANGLE)
+        if (getCurrentStage().gestureMilestoneType != GestureMilestoneType.UpHeadPitchMilestone
+            && getCurrentStage().gestureMilestoneType != GestureMilestoneType.DownHeadPitchMilestone
+            && abs(pitchAngle) > MilestoneConstraints.PITCH_STRAIGHT_CHECK_ANGLE_ABS) {
+            onObstacleMet(ObstacleType.PITCH_ANGLE)
         } else {
-            if (stagesList[currentStageIdx].isMet(pitchAngle: pitchAngle,
-                                                  mouthFactor: mouthFactor, yawAbsAngle: yawAbsAngle)) {
-                onMilestoneResult(stagesList[currentStageIdx].gestureMilestoneType)
+            if (getCurrentStage().isMet(yawAngle: yawAngle,
+                                  mouthFactor: mouthFactor, pitchAngle: pitchAngle)) {
+                onMilestoneResult(getCurrentStage().gestureMilestoneType)
                 currentStageIdx += 1
             }
+        }
+    }
+    
+    func gmFromServiceValue(strValue: String) -> GestureMilestone {
+        switch(strValue) {
+            case "left": return HeadYawGestureMilestone(milestoneType: GestureMilestoneType.OuterLeftHeadYawMilestone)
+            case "right": return HeadYawGestureMilestone(milestoneType: GestureMilestoneType.OuterRightHeadYawMilestone)
+            case "up": return HeadPitchGestureMilestone(milestoneType: GestureMilestoneType.UpHeadPitchMilestone)
+            case "down": return HeadPitchGestureMilestone(milestoneType: GestureMilestoneType.DownHeadPitchMilestone)
+            case "mouth": return MouthGestureMilestone(milestoneType: GestureMilestoneType.MouthOpenMilestone)
+            default: return CheckOverallHeadPositionMilestone(milestoneType: GestureMilestoneType.CheckHeadPositionMilestone)
         }
     }
     
@@ -201,3 +253,10 @@ class MajorObstacleFrameCounterHolder {
         return self.wrongGestureFrameCounter
     }
 }
+
+
+//Hardcoded (deprecated) list:
+//        CheckOverallHeadPositionMilestone(milestoneType: GestureMilestoneType.CheckHeadPositionMilestone),
+//        HeadYawGestureMilestone(milestoneType: GestureMilestoneType.OuterLeftHeadYawMilestone),
+//        HeadYawGestureMilestone(milestoneType: GestureMilestoneType.OuterRightHeadYawMilestone),
+//        MouthGestureMilestone(milestoneType: GestureMilestoneType.MouthOpenMilestone)

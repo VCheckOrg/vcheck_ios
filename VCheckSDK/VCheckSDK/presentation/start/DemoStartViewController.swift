@@ -41,7 +41,8 @@ class DemoStartViewController : UIViewController {
         self.activityIndicatorStart()
         
         viewModel.didReceivedCurrentStage = {
-            if (self.viewModel.currentStageResponse?.errorCode ==
+            if (self.viewModel.currentStageResponse?.errorCode != nil
+                && self.viewModel.currentStageResponse?.errorCode ==
                     StageObstacleErrorType.USER_INTERACTED_COMPLETED.toTypeIdx()) {
                 self.performSegue(withIdentifier: "StartToLivenessInstructions", sender: nil)
             } else {

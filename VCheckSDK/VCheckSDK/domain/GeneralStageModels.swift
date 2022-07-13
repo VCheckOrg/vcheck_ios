@@ -44,9 +44,7 @@ struct StageResponseData: Codable {
     
     var id: Int? = nil
     var type: Int? = nil
-    
-    //Shuld be any object in future
-    var config: String? = nil
+    var config: LivenessStageConfig? = nil //!
     
     var primaryDocId: Int? = nil // for DOCUMENT UPLOAD stage only
     var uploadedDocId: Int? = nil // for DOCUMENT UPLOAD stage only
@@ -66,7 +64,7 @@ struct StageResponseData: Codable {
 
         id = try values.decodeIfPresent(Int.self   , forKey: .id )
         type  = try values.decodeIfPresent(Int.self , forKey: .type )
-        config  = try values.decodeIfPresent(String.self    , forKey: .config )
+        config  = try values.decodeIfPresent(LivenessStageConfig.self    , forKey: .config )
         primaryDocId  = try values.decodeIfPresent(Int.self    , forKey: .primaryDocId  )
         uploadedDocId  = try values.decodeIfPresent(Int.self    , forKey: .uploadedDocId  )
     }
@@ -103,6 +101,29 @@ extension StageObstacleErrorType {
         }
     }
 }
+
+
+//TODO: add for Android!
+struct LivenessStageConfig: Codable {
+
+  var gestures : [String]? = []
+
+  enum CodingKeys: String, CodingKey {
+
+    case gestures = "gestures"
+  }
+
+  init(from decoder: Decoder) throws {
+    let values = try decoder.container(keyedBy: CodingKeys.self)
+
+    gestures = try values.decodeIfPresent([String].self , forKey: .gestures )
+  }
+
+  init() {}
+
+}
+
+
 
 
 enum StageType {

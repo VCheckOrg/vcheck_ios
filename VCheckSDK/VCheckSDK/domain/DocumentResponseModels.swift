@@ -299,11 +299,19 @@ struct ParsedDocFieldsData: Codable {
 }
 
 
-//data class DocFieldWitOptPreFilledData(
-//    val name: String,
-//    val title: DocTitle,
-//    val type: String,
-//    val regex: String?,
-//    var autoParsedValue: String = ""
-//)
-
+struct DocUserDataRequestBody: Codable {
+    
+    var user_data: ParsedDocFieldsData? = nil
+    
+    enum CodingKeys: String, CodingKey {
+        case user_data  = "user_data"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        user_data = try values.decodeIfPresent(ParsedDocFieldsData.self , forKey: .user_data )
+    }
+    
+    init() {}
+}

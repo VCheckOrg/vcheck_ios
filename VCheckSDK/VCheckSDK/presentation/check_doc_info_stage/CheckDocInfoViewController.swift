@@ -18,7 +18,7 @@ class CheckDocInfoViewController : UIViewController {
     
     var docId: Int? = nil
     
-    var isDocPreviouslyUplaoded: Bool = false
+    var isDocPreviouslyUploaded: Bool = false
     
     var regex: String?
     
@@ -58,7 +58,7 @@ class CheckDocInfoViewController : UIViewController {
         
         docFieldsTableView.dataSource = self
         
-        if (isDocPreviouslyUplaoded == false) {
+        if (isDocPreviouslyUploaded == false) {
             firstPhotoImageView.image = firstPhoto
             
             if (secondPhoto != nil) {
@@ -75,7 +75,7 @@ class CheckDocInfoViewController : UIViewController {
                 self.populateDocFields(preProcessedDocData: self.viewModel.docInfoResponse!,
                                        currentLocaleCode: self.currLocaleCode)
             }
-            if (self.isDocPreviouslyUplaoded == true) {
+            if (self.isDocPreviouslyUploaded == true) {
                 //TODO: get doc photo link from backend!
             }
         }
@@ -87,9 +87,15 @@ class CheckDocInfoViewController : UIViewController {
         }
         
         viewModel.didReceivedCurrentStage = {
-            //TODO: test!
-            if (self.viewModel.currentStageResponse?.errorCode ==
-                    StageObstacleErrorType.USER_INTERACTED_COMPLETED.toTypeIdx()) {
+            if (self.viewModel.currentStageResponse?.data?.config?.gestures != nil) {
+                LocalDatasource.shared.setLivenessMilestonesList(list:
+                    (self.viewModel.currentStageResponse?.data?.config?.gestures)!)
+                print("GOT LIVENESS MILESTONES LIST: \(String(describing: LocalDatasource.shared.getLivenessMilestonesList()))")
+            }
+            if ((self.viewModel.currentStageResponse?.errorCode == nil) ||
+                (self.viewModel.currentStageResponse?.errorCode != nil
+                && self.viewModel.currentStageResponse?.errorCode ==
+                    StageObstacleErrorType.USER_INTERACTED_COMPLETED.toTypeIdx())) {
                 self.performSegue(withIdentifier: "CheckInfoToLivenessInstr", sender: nil)
             } else {
                 let storyboard = UIStoryboard(name: "VCheckFlow", bundle: InternalConstants.bundle)

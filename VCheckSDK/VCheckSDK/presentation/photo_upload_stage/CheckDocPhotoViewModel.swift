@@ -17,7 +17,7 @@ class CheckDocPhotoViewModel {
     
     
     // MARK: - Properties
-    var uploadResponse: DocumentUploadResponseData? = nil
+    var uploadResponse: DocumentUploadResponse? = nil
 
     var error: ApiError? {
         didSet { self.showAlertClosure?() }
@@ -41,14 +41,14 @@ class CheckDocPhotoViewModel {
         
         let docType: Int = LocalDatasource.shared.getSelectedDocTypeWithData()!.category!
         
-        let docTpeStr: String = "\(docType)"
+        let docTypeStr: String = "\(docType)"
         
-        print("DOC TYPE: \(docTpeStr)")
+        print("DOC TYPE / CATEGORY: \(docTypeStr)")
     
         dataService.uploadVerificationDocuments(photo1: photo1,
                                                 photo2: photo2,
                                                 countryCode: countryCode,
-                                                documentType: docTpeStr,
+                                                category: docTypeStr,
                                                 completion: { (data, error) in
             if let error = error {
                 self.isLoading = false
