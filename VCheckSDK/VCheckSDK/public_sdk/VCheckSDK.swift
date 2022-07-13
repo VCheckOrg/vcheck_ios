@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+
+
 public class VCheckSDK {
     
     public static let shared = VCheckSDK()
@@ -75,37 +77,37 @@ public class VCheckSDK {
         return true
     }
     
-    func partnerEndCallback(callback: (() -> Void)?) -> VCheckSDK {
+    public func partnerEndCallback(callback: (() -> Void)?) -> VCheckSDK {
         self.partnerEndCallback = callback
         return self
     }
     
-    func partnerId(id: Int) -> VCheckSDK {
+    public func partnerId(id: Int) -> VCheckSDK {
         self.partnerId = id
         return self
     }
 
-    func partnerSecret(secret: String) -> VCheckSDK {
+    public func partnerSecret(secret: String) -> VCheckSDK {
         self.partnerSecret = secret
         return self
     }
 
-    func verificationType(type: VerificationSchemeType) -> VCheckSDK {
+    public func verificationType(type: VerificationSchemeType) -> VCheckSDK {
         self.verificationType = type
         return self
     }
 
-    func partnerUserId(pUID: String) -> VCheckSDK {
+    public func partnerUserId(pUID: String) -> VCheckSDK {
         self.partnerUserId = pUID
         return self
     }
 
-    func partnerVerificationId(pVerId: String) -> VCheckSDK {
+    public func partnerVerificationId(pVerId: String) -> VCheckSDK {
         self.partnerVerificationId = pVerId
         return self
     }
 
-    func sessionLifetime(lifetime: Int) -> VCheckSDK {
+    public func sessionLifetime(lifetime: Int) -> VCheckSDK {
         self.sessionLifetime = lifetime
         return self
     }

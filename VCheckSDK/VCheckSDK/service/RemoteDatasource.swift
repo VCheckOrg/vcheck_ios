@@ -46,6 +46,8 @@ struct RemoteDatasource {
         //TODO: test creation properly!
         let model = CreateVerificationRequestBody.init(ts: timestamp, locale: locale, vModel: verificationClientCreationModel)
         
+        print("====== VERIF MODEL : \(model)")
+        
         var jsonData: Dictionary<String, Any>?
         do {
             jsonData = try model.toDictionary()
@@ -62,14 +64,13 @@ struct RemoteDatasource {
                 completion(nil, ApiError(errorText: response.error!.localizedDescription))
                 return
             }
-              if (response.data != nil && response.errorCode == 0) {
-                  completion(response.data, nil)
-              }
               if (response.errorCode != nil && response.errorCode != 0) {
                   completion(nil, ApiError(errorText: "\(String(describing: response.errorCode)): "
                                            + "\(response.message ?? "")"))
                   return
               }
+              //!
+              completion(response.data, nil)
           }
     }
     
@@ -92,20 +93,18 @@ struct RemoteDatasource {
                 completion(nil, ApiError(errorText: response.error!.localizedDescription))
                 return
             }
-              if (response.data != nil && response.errorCode == 0) {
-                  completion(response.data, nil)
-                  return
-              }
-              if (response.errorCode != nil && response.errorCode != 0) {
+            if (response.errorCode != nil && response.errorCode != 0) {
                   completion(nil, ApiError(errorText: "\(String(describing: response.errorCode)): "
                                             + "\(response.message ?? "")"))
-                  return
-              }
+                return
+            }
+            //!
+            completion(response.data, nil)
           }
     }
     
     func getCurrentStage(completion: @escaping (StageResponse?, ApiError?) -> ()) {
-        let url = "\(verifBaseUrl)stage/current"
+        let url = "\(verifBaseUrl)stages/current"
 
         let token = LocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
@@ -122,14 +121,13 @@ struct RemoteDatasource {
                completion(nil, ApiError(errorText: response.error!.localizedDescription))
                return
               }
-              if (response.data != nil && response.errorCode == 0) {
-                 completion(response, nil)
-              }
               if (response.errorCode != nil && response.errorCode != 0) {
                  completion(nil, ApiError(errorText: "\(String(describing: response.errorCode)): "
                                           + "\(response.message ?? "")"))
                  return
               }
+              //!
+              completion(response, nil)
           }
     }
     
@@ -152,15 +150,13 @@ struct RemoteDatasource {
                 completion(nil, ApiError(errorText: response.error!.localizedDescription))
                 return
             }
-              if (response.data != nil && response.errorCode == 0) {
-                  completion(response.data, nil)
-                  return
-              }
               if (response.errorCode != nil && response.errorCode != 0) {
                   completion(nil, ApiError(errorText: "\(String(describing: response.errorCode)): "
                                            + "\(response.message ?? "")"))
                   return
               }
+              //!
+              completion(response.data, nil)
           }
     }
     
@@ -185,14 +181,13 @@ struct RemoteDatasource {
                 completion(nil, ApiError(errorText: response.error!.localizedDescription))
                 return
             }
-              if (response.data != nil && response.errorCode == 0) {
-                  completion(response.data, nil)
-              }
               if (response.errorCode != nil && response.errorCode != 0) {
                   completion(nil, ApiError(errorText: "\(String(describing: response.errorCode)): "
                                            + "\(response.message ?? "")"))
                   return
               }
+              //!
+              completion(response.data, nil)
           }
     }
     
@@ -239,12 +234,8 @@ struct RemoteDatasource {
                         return
                     }
                     completion(response, nil)
-//                      if (response.errorCode != nil && response.errorCode != 0) {
-//                          completion(nil, ApiError(errorText: "\(String(describing: response.errorCode)): "
-//                                                   + "\(response.message ?? "")"))
-//                          return
-//                      }
                   }
+            
     }
     
     
@@ -267,20 +258,19 @@ struct RemoteDatasource {
              completion(nil, ApiError(errorText: response.error!.localizedDescription))
              return
             }
-            if (response.data != nil && response.errorCode == 0) {
-               completion(response.data, nil)
-            }
             if (response.errorCode != nil && response.errorCode != 0) {
                completion(nil, ApiError(errorText: "\(String(describing: response.errorCode)): "
                                         + "\(response.message ?? "")"))
                return
             }
+            //!
+            completion(response.data, nil)
         }
     }
     
     
     func updateAndConfirmDocInfo(documentId: Int,
-                                 parsedDocFieldsData: ParsedDocFieldsData,
+                                 parsedDocFieldsData: DocUserDataRequestBody,
                                  completion: @escaping (Bool, ApiError?) -> ()) {
         let url = "\(verifBaseUrl)documents/\(documentId)/confirm"
         
@@ -337,14 +327,13 @@ struct RemoteDatasource {
                      completion(nil, ApiError(errorText: response.error!.localizedDescription))
                      return
                     }
-                    if (response.data != nil && response.errorCode == 0) {
-                       completion(response.data, nil)
-                    }
                     if (response.errorCode != nil && response.errorCode != 0) {
                        completion(nil, ApiError(errorText: "\(String(describing: response.errorCode)): "
                                                 + "\(response.message ?? "")"))
                        return
                     }
+                    //!
+                    completion(response.data, nil)
                 }
     }
     

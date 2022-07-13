@@ -53,7 +53,7 @@ class CheckDocInfoViewModel {
         })
     }
     
-    func updateAndConfirmDocument(docId: Int, parsedDocFieldsData: ParsedDocFieldsData) {
+    func updateAndConfirmDocument(docId: Int, parsedDocFieldsData: DocUserDataRequestBody) {
         
         dataService.updateAndConfirmDocInfo(documentId: docId,
                                             parsedDocFieldsData: parsedDocFieldsData, completion: { (data, error) in

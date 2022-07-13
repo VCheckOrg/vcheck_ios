@@ -36,19 +36,19 @@ extension simd_float4x4 {
             let actualRoll = radiansToDegress(radians:atan2(siny, cosy))
             // pitch (y-axis rotation)
             let sinp = +2.0 * (qw * qy - qz * qx)
-            var actualYaw: Float
+            var pitch: Float
             if abs(sinp) >= 1 {
-                actualYaw = radiansToDegress(radians:copysign(Float.pi / 2, sinp))
+                pitch = radiansToDegress(radians:copysign(Float.pi / 2, sinp))
             } else {
-                actualYaw = radiansToDegress(radians:asin(sinp))
+                pitch = radiansToDegress(radians:asin(sinp))
             }
             /// roll (x-axis rotation)
             let sinr = +2.0 * (qw * qx + qy * qz)
             let cosr = +1.0 - 2.0 * (qx * qx + qy * qy)
-            let actualPitch = -radiansToDegress(radians:atan2(sinr, cosr))
+            let yaw = -radiansToDegress(radians:atan2(sinr, cosr))
 
             /// return array containing ypr values
-            return FaceAnglesHolder(pitch: actualPitch, yaw: actualYaw, roll: actualRoll)
+            return FaceAnglesHolder(pitch: pitch, yaw: yaw, roll: actualRoll)
             //! actualPitch was roll; ! actualYaw was pitch; ! actualRoll was yaw
         }
     }

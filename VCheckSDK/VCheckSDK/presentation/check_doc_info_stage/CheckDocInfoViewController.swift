@@ -340,7 +340,7 @@ extension CheckDocInfoViewController: UITableViewDataSource {
 
 extension CheckDocInfoViewController {
     
-    func composeConfirmedDocFieldsData() -> ParsedDocFieldsData {
+    func composeConfirmedDocFieldsData() -> DocUserDataRequestBody {
         var data = ParsedDocFieldsData()
         fieldsList.forEach {
             if ($0.name == "date_of_birth") {
@@ -356,7 +356,7 @@ extension CheckDocInfoViewController {
                 data.number = $0.autoParsedValue
             }
         }
-        return data
+        return DocUserDataRequestBody(data: data)
     }
 
     func convertDocFieldToOptParsedData(docField: DocField,

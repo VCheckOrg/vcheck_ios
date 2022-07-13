@@ -15,6 +15,7 @@ class DemoStartViewController : UIViewController {
     
     private let viewModel = DemoStartViewModel()
     
+    //TODO: turn back button and make it initially hidden
 //    @IBAction func startDemoFlowAction(_ sender: UIButton) {
 //        initVerification()
 //    }
@@ -47,12 +48,18 @@ class DemoStartViewController : UIViewController {
                 self.performSegue(withIdentifier: "StartToLivenessInstructions", sender: nil)
             } else {
                 if (self.viewModel.currentStageResponse?.data != nil) {
-                    print("STAGING", "----- CURRENT STAGE TYPE: \(String(describing: self.viewModel.currentStageResponse?.data?.type))")
+                    print("STAGING", "----- CURRENT STAGE TYPE: \(self.viewModel.currentStageResponse!.data!.type!)")
                     if (self.viewModel.currentStageResponse?.data?.uploadedDocId != nil) {
                         self.performSegue(withIdentifier: "StartToCheckDocInfo", sender: self.viewModel.currentStageResponse?.data?.uploadedDocId)
-                    } else if (self.viewModel.currentStageResponse?.data?.type == StageType.DOCUMENT_UPLOAD.toTypeIdx()) {
+                        return
+                    }
+                    if (self.viewModel.currentStageResponse!.data!.type! == StageType.DOCUMENT_UPLOAD.toTypeIdx()) {
                         self.viewModel.getCountries()
                     } else {
+                        if (self.viewModel.currentStageResponse?.data?.config != nil) {
+                            LocalDatasource.shared.setLivenessMilestonesList(list:
+                                (self.viewModel.currentStageResponse?.data?.config!.gestures)!)
+                        }
                         self.performSegue(withIdentifier: "StartToLivenessInstructions", sender: nil)
                     }
                 }
@@ -119,15 +126,17 @@ class DemoStartViewController : UIViewController {
     
     private func requestCameraPermission() {
         AVCaptureDevice.requestAccess(for: .video) { [weak self] accessGranted in
-            if !accessGranted {
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                if !accessGranted {
                     self?.alertCameraAccessNeeded()
+                } else {
+                    self?.initVerification()
                 }
             }
         }
     }
     
-    private  func alertCameraAccessNeeded() {
+    private func alertCameraAccessNeeded() {
         guard let settingsAppURL = URL(string: UIApplication.openSettingsURLString),
               UIApplication.shared.canOpenURL(settingsAppURL) else { return } // This should never happen
         let alert = UIAlertController(

@@ -53,18 +53,16 @@ struct DocumentUploadResponse: Codable {
 
 struct DocumentUploadResponseData: Codable {
     
-    var status: Int? = nil
-    var document: Int? = nil
+    var id: Int? = nil
     
     enum CodingKeys: String, CodingKey {
-        case status = "status"
-        case document = "document"
+        case id = "id"
     }
     
     init(from decoder: Decoder) throws {
       let values = try decoder.container(keyedBy: CodingKeys.self)
-      status = try values.decodeIfPresent(Int.self, forKey: .status)
-      document = try values.decodeIfPresent(Int.self, forKey: .document)
+        
+      id = try values.decodeIfPresent(Int.self, forKey: .id)
     }
 }
 
@@ -84,6 +82,7 @@ struct DocumentTypesForCountryResponse: Codable {
 
   init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
+      
     data      = try values.decodeIfPresent([DocTypeData].self , forKey: .data      )
     errorCode = try values.decodeIfPresent(Int.self    , forKey: .errorCode )
     message   = try values.decodeIfPresent(String.self , forKey: .message   )
@@ -311,6 +310,10 @@ struct DocUserDataRequestBody: Codable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
         user_data = try values.decodeIfPresent(ParsedDocFieldsData.self , forKey: .user_data )
+    }
+    
+    init(data: ParsedDocFieldsData) {
+        self.user_data = data
     }
     
     init() {}

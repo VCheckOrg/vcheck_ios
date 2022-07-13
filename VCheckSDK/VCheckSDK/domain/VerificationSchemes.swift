@@ -7,12 +7,12 @@
 
 import Foundation
 
-enum VerificationSchemeType: String, CustomStringConvertible {
+public enum VerificationSchemeType: String, CustomStringConvertible {
     case FULL_CHECK// = «full_check»
     case DOCUMENT_UPLOAD_ONLY// = «document_upload_only»
     case LIVENESS_CHALLENGE_ONLY// = «liveness_challenge_only»
     
-    var description: String {
+    public var description: String {
         get {
             return self.rawValue.lowercased()
         }

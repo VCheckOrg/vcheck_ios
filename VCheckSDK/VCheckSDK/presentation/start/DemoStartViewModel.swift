@@ -116,6 +116,8 @@ class DemoStartViewModel {
                 return
             }
             
+            print("VERIF ::: GOT CURRENT STAGE! DATA: \(String(describing: data))")
+            
             if (data!.data != nil || data!.errorCode != nil) {
                 self.currentStageResponse = data
                 self.didReceivedCurrentStage!()
@@ -131,6 +133,8 @@ class DemoStartViewModel {
                 self.isLoading = false
                 return
             }
+            
+            print("VERIF ::: GOT COUNTRIES! DATA: \(String(describing: data))")
                         
             if (data!.count > 0) {
                 self.isLoading = false

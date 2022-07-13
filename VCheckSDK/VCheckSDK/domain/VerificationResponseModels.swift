@@ -99,32 +99,29 @@ struct VerificationInitResponse: Codable {
 
 struct VerificationInitResponseData: Codable {
 
-  var config    : Config? = Config()
-  var document  : String? = nil
+  var id  : Int? = nil
+  var status  : Int? = nil
   var locale    : String? = nil
   var returnUrl : String? = nil
-  var stage     : Int?    = nil
-  var livenessAttempts: Int? = nil
+  var theme: String? = nil
 
   enum CodingKeys: String, CodingKey {
 
-    case config    = "config"
-    case document  = "document"
+    case id    = "id"
+    case status  = "status"
     case locale    = "locale"
     case returnUrl = "return_url"
-    case stage     = "stage"
-    case livenessAttempts = "liveness_attempts"
+    case theme     = "theme"
   }
 
   init(from decoder: Decoder) throws {
       let values = try decoder.container(keyedBy: CodingKeys.self)
 
-      config    = try values.decodeIfPresent(Config.self , forKey: .config    )
-      document  = try values.decodeIfPresent(String.self , forKey: .document  )
+      id   = try values.decodeIfPresent(Int.self , forKey: .id    )!
+      status  = try values.decodeIfPresent(Int.self , forKey: .status  )!
       locale    = try values.decodeIfPresent(String.self , forKey: .locale    )
       returnUrl = try values.decodeIfPresent(String.self , forKey: .returnUrl )
-      stage     = try values.decodeIfPresent(Int.self    , forKey: .stage     )
-      livenessAttempts = try values.decodeIfPresent(Int.self, forKey: .livenessAttempts)
+      theme     = try values.decodeIfPresent(String.self    , forKey: .theme     )
     }
 
     init() {}

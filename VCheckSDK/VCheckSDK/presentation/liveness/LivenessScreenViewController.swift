@@ -77,9 +77,6 @@ internal class LivenessScreenViewController: UIViewController {
         if !setupScene() { return }
         if !setupCamera() { return }
         if !setupMotion() { return }
-
-        imgMilestoneChecked.isHidden = true
-        indicationFrame.isHidden = true
         
         guard let milestonesList = LocalDatasource.shared.getLivenessMilestonesList()
         else {
@@ -90,6 +87,9 @@ internal class LivenessScreenViewController: UIViewController {
         }
         milestoneFlow.setStagesList(list: milestonesList)
 
+        imgMilestoneChecked.isHidden = true
+        indicationFrame.isHidden = true
+        
         setupFaceSession()
     }
 
@@ -364,6 +364,7 @@ extension LivenessScreenViewController {
     func updateLivenessInfoText(forMilestoneType: GestureMilestoneType) {
         if (blockTextIndicationByWarning == false) {
             self.tvLivenessInfo.textColor = .white
+            //TODO: update texts for up/down gestures!
             if (forMilestoneType == GestureMilestoneType.CheckHeadPositionMilestone) {
                 self.tvLivenessInfo.text = "liveness_stage_face_left".localized
             } else if (forMilestoneType == GestureMilestoneType.OuterLeftHeadYawMilestone) {

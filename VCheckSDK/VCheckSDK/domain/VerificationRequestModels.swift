@@ -13,10 +13,10 @@ struct CreateVerificationRequestBody: Codable {
     var timestamp: Int  // Int(Date().timeIntervalSince1970)
     var scheme: String
     var locale: String
-    var partnerUserId: String?
-    var partnerVerificationId : String?
-    var callbackUrl: String?
-    var sessionLifetime: Int?
+    var partnerUserId: String
+    var partnerVerificationId : String
+    var callbackUrl: String
+    var sessionLifetime: Int
     var sign: String
 
   enum CodingKeys: String, CodingKey {
@@ -48,13 +48,13 @@ struct CreateVerificationRequestBody: Codable {
 
     init(ts: String, locale: String, vModel: VerificationClientCreationModel) {
         
-        let partnerId = vModel.partnerId
-        let partnerSecret = vModel.partnerSecret
-        let scheme = vModel.verificationType.description
-        let partnerUserId = vModel.partnerUserId ?? CreateVerificationRequestBody.currentTimeInMilliSecondsStr()
-        let partnerVerificationId = vModel.partnerVerificationId ?? CreateVerificationRequestBody.currentTimeInMilliSecondsStr()
-        let callbackUrl = "\(Constants.API.verificationApiBaseUrl)ping"
-        let sessionLifetime = vModel.sessionLifetime ?? Constants.API.defaultSessionLifetime
+        let partnerId: Int = vModel.partnerId
+        let partnerSecret: String = vModel.partnerSecret
+        let scheme: String = vModel.verificationType.description
+        let partnerUserId: String = vModel.partnerUserId ?? CreateVerificationRequestBody.currentTimeInMilliSecondsStr()
+        let partnerVerificationId: String = vModel.partnerVerificationId ?? CreateVerificationRequestBody.currentTimeInMilliSecondsStr()
+        let callbackUrl: String = "\(Constants.API.verificationApiBaseUrl)ping"
+        let sessionLifetime: Int = vModel.sessionLifetime ?? Constants.API.defaultSessionLifetime
               
         self.partnerId = partnerId
         self.timestamp = Int(ts)!

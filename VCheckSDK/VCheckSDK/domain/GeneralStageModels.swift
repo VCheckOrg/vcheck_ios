@@ -44,10 +44,10 @@ struct StageResponseData: Codable {
     
     var id: Int? = nil
     var type: Int? = nil
-    var config: LivenessStageConfig? = nil //!
+    var config: LivenessStageConfig? = nil //Curretly using only for Liveness purposes
     
-    var primaryDocId: Int? = nil // for DOCUMENT UPLOAD stage only
-    var uploadedDocId: Int? = nil // for DOCUMENT UPLOAD stage only
+    var primaryDocId: Int? = nil // optional; for DOCUMENT UPLOAD stage only
+    var uploadedDocId: Int? = nil // optional; for DOCUMENT UPLOAD stage only
 
     enum CodingKeys: String, CodingKey {
 
