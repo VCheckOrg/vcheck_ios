@@ -29,7 +29,7 @@ struct RemoteDatasource {
           .responseString(completionHandler: { (response) in
             guard let timestamp = response.value else {
               //showing error on non-200 response code (?)
-                completion(nil, ApiError(errorText: response.error!.localizedDescription))
+                completion(nil, ApiError(errorText: "requestServerTimestamp: " + response.error!.localizedDescription))
                 return
             }
               completion(timestamp, nil)
@@ -61,7 +61,7 @@ struct RemoteDatasource {
           .responseDecodable(of: VerificationCreateAttemptResponse.self) { (response) in
             guard let response = response.value else {
               //showing error on non-200 response code
-                completion(nil, ApiError(errorText: response.error!.localizedDescription))
+                completion(nil, ApiError(errorText: "createVerificationRequest: " + response.error!.localizedDescription))
                 return
             }
               if (response.errorCode != nil && response.errorCode != 0) {
@@ -90,7 +90,7 @@ struct RemoteDatasource {
           .responseDecodable(of: VerificationInitResponse.self) { (response) in
             guard let response = response.value else {
               //showing error on non-200 response code (?)
-                completion(nil, ApiError(errorText: response.error!.localizedDescription))
+                completion(nil, ApiError(errorText: "initVerification: " + response.error!.localizedDescription))
                 return
             }
             if (response.errorCode != nil && response.errorCode != 0) {
@@ -118,7 +118,7 @@ struct RemoteDatasource {
           .responseDecodable(of: StageResponse.self) { (response) in
               guard let response = response.value else {
               //showing error on non-200 response code
-               completion(nil, ApiError(errorText: response.error!.localizedDescription))
+               completion(nil, ApiError(errorText: "getCurrentStage: " +  response.error!.localizedDescription))
                return
               }
               if (response.errorCode != nil && response.errorCode != 0) {
@@ -147,7 +147,7 @@ struct RemoteDatasource {
           .responseDecodable(of: CountriesResponse.self) { (response) in
             guard let response = response.value else {
               //showing error on non-200 response code
-                completion(nil, ApiError(errorText: response.error!.localizedDescription))
+                completion(nil, ApiError(errorText: "getCountries: " +  response.error!.localizedDescription))
                 return
             }
               if (response.errorCode != nil && response.errorCode != 0) {
@@ -178,7 +178,7 @@ struct RemoteDatasource {
           .responseDecodable(of: DocumentTypesForCountryResponse.self) { (response) in
             guard let response = response.value else {
               //showing error on non-200 response code
-                completion(nil, ApiError(errorText: response.error!.localizedDescription))
+                completion(nil, ApiError(errorText: "getCountryAvailableDocTypeInfo: " + response.error!.localizedDescription))
                 return
             }
               if (response.errorCode != nil && response.errorCode != 0) {
@@ -230,7 +230,7 @@ struct RemoteDatasource {
                 .responseDecodable(of: DocumentUploadResponse.self) { (response) in
                     guard let response = response.value else {
                       //showing error on non-200 response code
-                        completion(nil, ApiError(errorText: response.error!.localizedDescription))
+                        completion(nil, ApiError(errorText: "uploadVerificationDocuments: " + response.error!.localizedDescription))
                         return
                     }
                     completion(response, nil)
@@ -255,7 +255,7 @@ struct RemoteDatasource {
         .responseDecodable(of: PreProcessedDocumentResponse.self) { (response) in
             guard let response = response.value else {
             //showing error on non-200 response code
-             completion(nil, ApiError(errorText: response.error!.localizedDescription))
+             completion(nil, ApiError(errorText: "getDocumentInfo: " + response.error!.localizedDescription))
              return
             }
             if (response.errorCode != nil && response.errorCode != 0) {
@@ -294,7 +294,7 @@ struct RemoteDatasource {
         .response(completionHandler: { (response) in
             guard response.value != nil else {
             //showing error on non-200 response code
-             completion(false, ApiError(errorText: response.error!.localizedDescription))
+             completion(false, ApiError(errorText: "updateAndConfirmDocInfo" + response.error!.localizedDescription))
              return
             }
             completion(true, nil)
@@ -324,7 +324,7 @@ struct RemoteDatasource {
                 .responseDecodable(of: LivenessUploadResponse.self) { (response) in
                     guard let response = response.value else {
                     //showing error on non-200 response code
-                     completion(nil, ApiError(errorText: response.error!.localizedDescription))
+                     completion(nil, ApiError(errorText: "uploadLivenessVideo" + response.error!.localizedDescription))
                      return
                     }
                     if (response.errorCode != nil && response.errorCode != 0) {

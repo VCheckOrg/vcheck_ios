@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import CoreMedia
 import AVKit
+import Photos
 
 class VideoProcessingViewController: UIViewController {
     
@@ -171,6 +172,14 @@ class VideoProcessingViewController: UIViewController {
         self.view.addSubview(playerController.view)
 
         player.play()
+        
+        //ONLY FOR TESTS:
+//        PHPhotoLibrary.requestAuthorization(for: .readWrite) { [unowned self] (status) in
+//            DispatchQueue.main.async { [unowned self] in
+//                saveVideoToGallery(url: self.videoFileURL!)
+//            }
+//        }
+        
      }
     
     // MARK: - UI Setup
@@ -183,4 +192,19 @@ class VideoProcessingViewController: UIViewController {
         self.videoProcessingIndicator.isHidden = true
         self.videoProcessingIndicator.stopAnimating()
     }
+    
+    
+    //TODO: only for tests; remove
+//    private func saveVideoToGallery(url: URL) {
+//        PHPhotoLibrary.shared().performChanges({
+//            PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: url)
+//        }) { saved, error in
+//            if saved {
+//                let alertController = UIAlertController(title: "Your video was successfully saved", message: nil, preferredStyle: .alert)
+//                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//                alertController.addAction(defaultAction)
+//                self.present(alertController, animated: true, completion: nil)
+//            }
+//        }
+//    }
 }

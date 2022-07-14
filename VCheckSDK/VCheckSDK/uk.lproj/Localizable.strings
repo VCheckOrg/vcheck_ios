@@ -28,6 +28,10 @@
 /* No comment provided by engineer. */
 "liveness_stage_face_right" = "Поверніть обличчя праворуч";
 
+"liveness_stage_face_up" = "Підніміть обличчя вгору";
+
+"liveness_stage_face_down" = "Наклоніть обличчя вниз";
+
 /* No comment provided by engineer. */
 "liveness_stage_open_mouth" = "Відкрийте рота";
 

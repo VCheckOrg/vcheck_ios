@@ -43,6 +43,7 @@ class VideoProcessingViewModel {
             if let error = error {
                 self.isLoading = false
                 self.error = error
+                print("======== LIVENESS UPLOAD ERROR: \(error)")
                 return
             }
             self.isLoading = false

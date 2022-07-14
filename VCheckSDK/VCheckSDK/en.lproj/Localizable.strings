@@ -28,6 +28,10 @@
 /* No comment provided by engineer. */
 "liveness_stage_face_right" = "Turn face to the right";
 
+"liveness_stage_face_up" = "Lift face up";
+
+"liveness_stage_face_down" = "Tilt face down";
+
 /* No comment provided by engineer. */
 "liveness_stage_open_mouth" = "Open mouth";
 

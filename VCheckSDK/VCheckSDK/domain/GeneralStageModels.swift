@@ -103,7 +103,6 @@ extension StageObstacleErrorType {
 }
 
 
-//TODO: add for Android!
 struct LivenessStageConfig: Codable {
 
   var gestures : [String]? = []

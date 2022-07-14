@@ -73,10 +73,6 @@ internal class LivenessScreenViewController: UIViewController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-
-        if !setupScene() { return }
-        if !setupCamera() { return }
-        if !setupMotion() { return }
         
         guard let milestonesList = LocalDatasource.shared.getLivenessMilestonesList()
         else {
@@ -86,6 +82,10 @@ internal class LivenessScreenViewController: UIViewController {
             return
         }
         milestoneFlow.setStagesList(list: milestonesList)
+
+        if !setupScene() { return }
+        if !setupCamera() { return }
+        if !setupMotion() { return }
 
         imgMilestoneChecked.isHidden = true
         indicationFrame.isHidden = true
@@ -100,15 +100,8 @@ internal class LivenessScreenViewController: UIViewController {
 
         if needToShowFatalError {
             popupAlertWindowOnError(alertWindowTitle: alertWindowTitle, alertMessage: alertMessage)
+            return
         }
-
-        videoStreamingPermitted = true
-        videoRecorder.startRecording()
-
-        startLivenessSessionTimeoutTimer()
-
-        setupOrUpdateFaceAnimation(forMilestoneType: self.milestoneFlow.getNextStage().gestureMilestoneType)
-        setupOrUpdateArrowAnimation(forMilestoneType: self.milestoneFlow.getNextStage().gestureMilestoneType)
     }
 
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -149,17 +142,12 @@ internal class LivenessScreenViewController: UIViewController {
             // reset logic
             self.videoRecorder = LivenessVideoRecorder.init()
             self.videoStreamingPermitted = true
-            
-            //self.milestoneFlow = StandardMilestoneFlow()
             self.milestoneFlow.resetStages() //!
-            
             self.majorObstacleFrameCounterHolder = MajorObstacleFrameCounterHolder()
             self.faceCountDetectionFrameCounter = 0
             self.isLivenessSessionFinished = false
             self.hasEnoughTimeForNextGesture = true
             self.blockStageIndicationByUI = false
-
-            //! test session timer after major obstacle met
             self.livenessSessionTimeoutTimer = nil
             self.startLivenessSessionTimeoutTimer()
         }
@@ -170,6 +158,14 @@ internal class LivenessScreenViewController: UIViewController {
     func setupFaceSession() {
         do {
             faceSession = try GARAugmentedFaceSession(fieldOfView: videoFieldOfView)
+            
+            videoStreamingPermitted = true
+            videoRecorder.startRecording()
+
+            startLivenessSessionTimeoutTimer()
+
+            setupOrUpdateFaceAnimation(forMilestoneType: self.milestoneFlow.getCurrentStage().gestureMilestoneType)
+            setupOrUpdateArrowAnimation(forMilestoneType: self.milestoneFlow.getCurrentStage().gestureMilestoneType)
         } catch {
             alertWindowTitle = "A fatal error occurred."
             alertMessage = "Failed to create session. Error description: \(error)"
@@ -241,25 +237,23 @@ extension LivenessScreenViewController {
 
         let mouthAngle = calculateMouthFactor(face: face)
         let faceAnglesHolder = face.centerTransform.eulerAngles
-
-        DispatchQueue.main.async {
-            self.updateLivenessInfoText(forMilestoneType: self.milestoneFlow.getUndoneStage().gestureMilestoneType)
-        }
-
+        
         milestoneFlow.checkCurrentStage(yawAngle: faceAnglesHolder.yaw,
                                         mouthFactor: mouthAngle,
                                         pitchAngle: faceAnglesHolder.pitch,
                                         onMilestoneResult: { milestoneType in
-            print("------- PASSED MILESTONE: \(milestoneType)")
+            //print("------- PASSED MILESTONE: \(milestoneType)")
             DispatchQueue.main.async {
                 if (self.hasEnoughTimeForNextGesture) {
-                    if (milestoneType != GestureMilestoneType.CheckHeadPositionMilestone) {
+                    if (self.milestoneFlow.getCurrentStage().gestureMilestoneType
+                            != GestureMilestoneType.CheckHeadPositionMilestone) {
                         self.majorObstacleFrameCounterHolder.resetFrameCountersOnStageSuccess()
                         self.hapticFeedbackGenerator.notificationOccurred(.success)
                         self.delayedStageIndicationRenew()
                     }
-                    self.setupOrUpdateFaceAnimation(forMilestoneType: self.milestoneFlow.getNextStage().gestureMilestoneType)
-                    self.setupOrUpdateArrowAnimation(forMilestoneType: self.milestoneFlow.getNextStage().gestureMilestoneType)
+                    self.updateLivenessInfoText(forMilestoneType: self.milestoneFlow.getCurrentStage().gestureMilestoneType)
+                    self.setupOrUpdateFaceAnimation(forMilestoneType: self.milestoneFlow.getCurrentStage().gestureMilestoneType)
+                    self.setupOrUpdateArrowAnimation(forMilestoneType: self.milestoneFlow.getCurrentStage().gestureMilestoneType)
                 }
             }
         },
@@ -272,7 +266,7 @@ extension LivenessScreenViewController {
             self.isLivenessSessionFinished = true
         })
 
-        print("PITCH: \(faceAnglesHolder.pitch)\nYAW: \(faceAnglesHolder.yaw)")
+        //print("PITCH: \(faceAnglesHolder.pitch)\nYAW: \(faceAnglesHolder.yaw)")
         //+ "MOUTH: \(mouthAngle)\n | \n\nMOUTH OPEN: \(mouthOpen)\n\nTURNED LEFT: \(turnedLeft)\n\nTURNED RIGHT: \(turnedRight)")
     }
 
@@ -365,12 +359,16 @@ extension LivenessScreenViewController {
         if (blockTextIndicationByWarning == false) {
             self.tvLivenessInfo.textColor = .white
             //TODO: update texts for up/down gestures!
-            if (forMilestoneType == GestureMilestoneType.CheckHeadPositionMilestone) {
+            if (forMilestoneType == GestureMilestoneType.OuterLeftHeadYawMilestone) {
                 self.tvLivenessInfo.text = "liveness_stage_face_left".localized
-            } else if (forMilestoneType == GestureMilestoneType.OuterLeftHeadYawMilestone) {
-                self.tvLivenessInfo.text = "liveness_stage_face_right".localized
             } else if (forMilestoneType == GestureMilestoneType.OuterRightHeadYawMilestone) {
+                self.tvLivenessInfo.text = "liveness_stage_face_right".localized
+            } else if (forMilestoneType == GestureMilestoneType.MouthOpenMilestone) {
                 self.tvLivenessInfo.text = "liveness_stage_open_mouth".localized
+            } else if (forMilestoneType == GestureMilestoneType.UpHeadPitchMilestone) {
+                self.tvLivenessInfo.text = "liveness_stage_face_up".localized
+            } else if (forMilestoneType == GestureMilestoneType.DownHeadPitchMilestone) {
+                self.tvLivenessInfo.text = "liveness_stage_face_down".localized
             } else {
                 self.tvLivenessInfo.text = "liveness_stage_check_face_pos".localized
             }
@@ -409,6 +407,9 @@ extension LivenessScreenViewController {
     }
 
     func setupOrUpdateArrowAnimation(forMilestoneType: GestureMilestoneType) {
+        
+        rightArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
+        leftArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
 
         if (forMilestoneType == GestureMilestoneType.OuterLeftHeadYawMilestone) {
             arrowAnimationView = AnimationView(name: "arrow", bundle: InternalConstants.bundle)
