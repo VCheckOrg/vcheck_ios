@@ -34,8 +34,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="eXt-L9-GpI">
-                                <rect key="frame" x="187" y="361" width="40" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LjI-UZ-ZrL">
+                                <rect key="frame" x="20" y="704" width="350" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="vH3-1G-qvH"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Начать верификацию"/>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="eXt-L9-GpI">
+                                <rect key="frame" x="0.0" y="44" width="390" height="660"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <color key="color" name="DescriptionColor"/>
                             </activityIndicatorView>
@@ -43,12 +51,19 @@
                         <viewLayoutGuide key="safeArea" id="j8W-bb-Qhj"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="eXt-L9-GpI" firstAttribute="centerY" secondItem="j8W-bb-Qhj" secondAttribute="centerY" constant="-72" id="RJi-c0-oAf"/>
-                            <constraint firstItem="eXt-L9-GpI" firstAttribute="centerX" secondItem="j8W-bb-Qhj" secondAttribute="centerX" id="gbB-br-SDM"/>
+                            <constraint firstItem="eXt-L9-GpI" firstAttribute="top" secondItem="j8W-bb-Qhj" secondAttribute="top" id="4Ug-IZ-jua"/>
+                            <constraint firstItem="j8W-bb-Qhj" firstAttribute="trailing" secondItem="eXt-L9-GpI" secondAttribute="trailing" id="GLM-RB-iah"/>
+                            <constraint firstItem="LjI-UZ-ZrL" firstAttribute="top" secondItem="eXt-L9-GpI" secondAttribute="bottom" id="K5O-ed-uKC"/>
+                            <constraint firstItem="j8W-bb-Qhj" firstAttribute="bottom" secondItem="LjI-UZ-ZrL" secondAttribute="bottom" constant="40" id="Mjh-Ac-yKL"/>
+                            <constraint firstItem="LjI-UZ-ZrL" firstAttribute="centerX" secondItem="j8W-bb-Qhj" secondAttribute="centerX" id="Vth-DO-cZF"/>
+                            <constraint firstItem="LjI-UZ-ZrL" firstAttribute="leading" secondItem="j8W-bb-Qhj" secondAttribute="leading" constant="20" id="Wtz-u4-1at"/>
+                            <constraint firstItem="j8W-bb-Qhj" firstAttribute="trailing" secondItem="LjI-UZ-ZrL" secondAttribute="trailing" constant="20" id="p4Q-KM-jC5"/>
+                            <constraint firstItem="eXt-L9-GpI" firstAttribute="leading" secondItem="j8W-bb-Qhj" secondAttribute="leading" id="vCf-hO-CT5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2zy-Da-I5G"/>
                     <connections>
+                        <outlet property="retryBtn" destination="LjI-UZ-ZrL" id="IH6-hO-Arb"/>
                         <outlet property="spinner" destination="eXt-L9-GpI" id="oni-yL-zbX"/>
                         <segue destination="VHf-Vf-Dha" kind="show" identifier="StartToCountries" id="Hnt-iA-CAy"/>
                         <segue destination="vMJ-Fv-l4l" kind="show" identifier="StartToLivenessInstructions" id="dMv-If-cud"/>

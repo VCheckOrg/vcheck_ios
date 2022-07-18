@@ -23,20 +23,25 @@ class LivenessVideoRecorder {
 
     private(set) var isRecording = false
     
-    func getVideoTransform() -> CGAffineTransform {
-            switch UIDevice.current.orientation {
-                case .portrait:
-                    return CGAffineTransform(rotationAngle: 90.degreesToRadians)
-                case .portraitUpsideDown:
-                    return CGAffineTransform(rotationAngle: 180)
-                case .landscapeLeft:
-                    return CGAffineTransform(rotationAngle: 0.degreesToRadians)
-                case .landscapeRight:
-                    return CGAffineTransform(rotationAngle: 180.degreesToRadians)
-                default:
-                    return CGAffineTransform(rotationAngle: 90.degreesToRadians)
-            }
-        }
+//    func getVideoTransform() -> CGAffineTransform {
+//            switch UIDevice.current.orientation {
+//                case .portrait:
+//                    print("ORIENTATION : .portrait")
+//                    return CGAffineTransform(rotationAngle: 90.degreesToRadians)
+//                case .portraitUpsideDown:
+//                    print("ORIENTATION : .portraitUpsideDown")
+//                    return CGAffineTransform(rotationAngle: 180)
+//                case .landscapeLeft:
+//                    print("ORIENTATION : .landscapeLeft")
+//                    return CGAffineTransform(rotationAngle: 0.degreesToRadians)
+//                case .landscapeRight:
+//                    print("ORIENTATION : .landscapeRight")
+//                    return CGAffineTransform(rotationAngle: 180.degreesToRadians)
+//                default:
+//                    print("ORIENTATION : default")
+//                    return CGAffineTransform(rotationAngle: 90.degreesToRadians)
+//            }
+//        }
     
     func startRecording() {
         
@@ -46,7 +51,7 @@ class LivenessVideoRecorder {
                               AVVideoHeightKey : NSNumber(value: Float(540))]
                           as [String : Any]
         
-        self.videoTransform = getVideoTransform()
+        //self.videoTransform = getVideoTransform()
         
         // Create an asset writer that records to a temporary file
         let outputFileName = NSUUID().uuidString
@@ -63,7 +68,8 @@ class LivenessVideoRecorder {
         // Add a video input
         let assetWriterVideoInput = AVAssetWriterInput(mediaType: .video, outputSettings: videoSettings)
         assetWriterVideoInput.expectsMediaDataInRealTime = true
-        assetWriterVideoInput.transform = videoTransform!
+        //assetWriterVideoInput.transform = videoTransform!
+        assetWriterVideoInput.transform = CGAffineTransform(rotationAngle: -90.degreesToRadians)
         assetWriter.add(assetWriterVideoInput)
         
         self.assetWriter = assetWriter

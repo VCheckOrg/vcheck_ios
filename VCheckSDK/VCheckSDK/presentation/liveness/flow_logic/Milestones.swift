@@ -122,8 +122,6 @@ class MouthGestureMilestone : GestureMilestone {
 
 class CheckOverallHeadPositionMilestone : GestureMilestone {
 
-    private let pitchStableMilestone: HeadYawGestureMilestone =
-        HeadYawGestureMilestone(milestoneType: GestureMilestoneType.InnerHeadPitchMilestone)
     private let mouthClosedMilestone: MouthGestureMilestone =
         MouthGestureMilestone(milestoneType: GestureMilestoneType.MouthClosedMilestone)
 
@@ -135,16 +133,14 @@ class CheckOverallHeadPositionMilestone : GestureMilestone {
     }
 
     private func areMilestoneTypesMet() -> Bool {
-        return (pitchStableMilestone.gestureMilestoneType == GestureMilestoneType.InnerHeadPitchMilestone
-            && mouthClosedMilestone.gestureMilestoneType == GestureMilestoneType.MouthClosedMilestone)
+        return (mouthClosedMilestone.gestureMilestoneType == GestureMilestoneType.MouthClosedMilestone)
     }
 
     override func isMet(yawAngle: Float, mouthFactor: Float, pitchAngle: Float) -> Bool {
         if (!areMilestoneTypesMet()) {
             return false
         } else {
-            return (pitchStableMilestone.isMet(yawAngle: yawAngle, mouthFactor: mouthFactor, pitchAngle: pitchAngle)
-                && mouthClosedMilestone.isMet(yawAngle: yawAngle, mouthFactor: mouthFactor, pitchAngle: pitchAngle))
+            return (mouthClosedMilestone.isMet(yawAngle: yawAngle, mouthFactor: mouthFactor, pitchAngle: pitchAngle))
         }
     }
 }

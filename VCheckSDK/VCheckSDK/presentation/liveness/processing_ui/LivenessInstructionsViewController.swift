@@ -125,5 +125,4 @@ class LivenessInstructionsViewController: UIViewController {
             view.alpha = 0
         }, completion: nil)
     }
-
 }

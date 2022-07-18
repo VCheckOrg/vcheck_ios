@@ -61,9 +61,11 @@ class VideoProcessingViewModel {
             if let error = error {
                 self.error = error
                 self.isLoading = false
+                print("======== GET CURRENT STAGE ERROR: \(error)")
                 return
             }
             
+            print("======= GET CURRENT STAGE - response: \(String(describing: self.currentStageResponse))")
             if (data!.data != nil || data!.errorCode != nil) {
                 self.currentStageResponse = data
                 self.didReceivedCurrentStage!()

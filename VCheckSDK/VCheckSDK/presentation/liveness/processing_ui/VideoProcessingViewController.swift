@@ -41,10 +41,10 @@ class VideoProcessingViewController: UIViewController {
             self.activityIndicatorStop()
             if (self.viewModel.uploadedVideoResponse != nil) {
                 print("DATA: ${uploadResponse.data}")
-                if (self.viewModel.uploadedVideoResponse?.isFinal == true) {
-                    self.showToast(message: "[TEST] This upload response is final!", seconds: 2)
+                //if (self.viewModel.uploadedVideoResponse?.isFinal == true) {
+                //    self.showToast(message: "[TEST] This upload response is final!", seconds: 2)
                     self.onVideoUploadResponseSuccess()
-                }
+                //}
                 if (statusCodeToLivenessChallengeStatus(code: self.viewModel.uploadedVideoResponse!.status!)
                         == LivenessChallengeStatus.FAIL) {
                     if (self.viewModel.uploadedVideoResponse!.reason != nil
@@ -145,12 +145,10 @@ class VideoProcessingViewController: UIViewController {
     
     @objc func livenessSuccessAction() {
         self.viewModel.didReceivedCurrentStage = {
-            if (self.viewModel.currentStageResponse?.data?.type == StageType.LIVENESS_CHALLENGE.toTypeIdx() &&
-                self.viewModel.currentStageResponse?.errorCode == StageObstacleErrorType.USER_INTERACTED_COMPLETED.toTypeIdx()) {
+            if (self.viewModel.currentStageResponse?.errorCode != nil && self.viewModel.currentStageResponse?.errorCode == StageObstacleErrorType.USER_INTERACTED_COMPLETED.toTypeIdx()) {
                 VCheckSDK.shared.onFinish()
             } else {
                 self.showToast(message: "Stage Error", seconds: 3.0)
-                self.performSegue(withIdentifier: "VideoUploadToFailure", sender: nil)
             }
         }
         self.viewModel.getCurrentStage()
@@ -194,7 +192,7 @@ class VideoProcessingViewController: UIViewController {
     }
     
     
-    //TODO: only for tests; remove
+//    //TODO: only for tests; remove
 //    private func saveVideoToGallery(url: URL) {
 //        PHPhotoLibrary.shared().performChanges({
 //            PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: url)

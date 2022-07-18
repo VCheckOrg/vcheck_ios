@@ -114,20 +114,15 @@ struct RemoteDatasource {
         let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
 
         AF.request(url, method: .get, headers: headers)
-          .validate()  //response returned an HTTP status code in the range 200–299
+          //.validate()  //response returned an HTTP status code in the range 200–299 //TODO: test!
           .responseDecodable(of: StageResponse.self) { (response) in
               guard let response = response.value else {
               //showing error on non-200 response code
                completion(nil, ApiError(errorText: "getCurrentStage: " +  response.error!.localizedDescription))
                return
               }
-              if (response.errorCode != nil && response.errorCode != 0) {
-                 completion(nil, ApiError(errorText: "\(String(describing: response.errorCode)): "
-                                          + "\(response.message ?? "")"))
-                 return
-              }
-              //!
               completion(response, nil)
+              print("======= CLIENT:  GET CURRENT STAGE - response data: \(String(describing: response))")
           }
     }
     

@@ -15,10 +15,7 @@ class DemoStartViewController : UIViewController {
     
     private let viewModel = DemoStartViewModel()
     
-    //TODO: turn back button and make it initially hidden
-//    @IBAction func startDemoFlowAction(_ sender: UIButton) {
-//        initVerification()
-//    }
+    @IBOutlet weak var retryBtn: UIButton!
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
@@ -38,6 +35,8 @@ class DemoStartViewController : UIViewController {
     
     // MARK: - Networking
     private func initVerification() {
+        
+        retryBtn.isHidden = true
         
         self.activityIndicatorStart()
         
@@ -86,10 +85,19 @@ class DemoStartViewController : UIViewController {
         viewModel.showAlertClosure = {
             let errText = self.viewModel.error?.errorText ?? "Error: No additional info"
             self.showToast(message: errText, seconds: 2.0)
+            self.retryBtn.isHidden = false
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.retryVerificationStart))
+            tapGesture.numberOfTapsRequired = 1
+            self.retryBtn.addGestureRecognizer(tapGesture)
         }
         
         viewModel.startVerifFlow()
     }
+    
+    @objc func retryVerificationStart() {
+        self.initVerification()
+    }
+    
     
     func goToCountriesScreen(data: [CountryTO]) {
         

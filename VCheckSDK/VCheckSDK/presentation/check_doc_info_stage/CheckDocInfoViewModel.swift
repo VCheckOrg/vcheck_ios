@@ -56,7 +56,8 @@ class CheckDocInfoViewModel {
     func updateAndConfirmDocument(docId: Int, parsedDocFieldsData: DocUserDataRequestBody) {
         
         dataService.updateAndConfirmDocInfo(documentId: docId,
-                                            parsedDocFieldsData: parsedDocFieldsData, completion: { (data, error) in
+                                            parsedDocFieldsData: parsedDocFieldsData,
+                                            completion: { (data, error) in
             if let error = error {
                 self.isLoading = false
                 self.error = error
@@ -75,6 +76,7 @@ class CheckDocInfoViewModel {
             if let error = error {
                 self.error = error
                 self.isLoading = false
+                print("======== GET CURRENT STAGE ERROR: \(error)")
                 return
             }
             
