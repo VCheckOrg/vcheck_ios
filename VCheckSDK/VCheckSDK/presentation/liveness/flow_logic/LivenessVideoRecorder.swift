@@ -23,25 +23,6 @@ class LivenessVideoRecorder {
 
     private(set) var isRecording = false
     
-//    func getVideoTransform() -> CGAffineTransform {
-//            switch UIDevice.current.orientation {
-//                case .portrait:
-//                    print("ORIENTATION : .portrait")
-//                    return CGAffineTransform(rotationAngle: 90.degreesToRadians)
-//                case .portraitUpsideDown:
-//                    print("ORIENTATION : .portraitUpsideDown")
-//                    return CGAffineTransform(rotationAngle: 180)
-//                case .landscapeLeft:
-//                    print("ORIENTATION : .landscapeLeft")
-//                    return CGAffineTransform(rotationAngle: 0.degreesToRadians)
-//                case .landscapeRight:
-//                    print("ORIENTATION : .landscapeRight")
-//                    return CGAffineTransform(rotationAngle: 180.degreesToRadians)
-//                default:
-//                    print("ORIENTATION : default")
-//                    return CGAffineTransform(rotationAngle: 90.degreesToRadians)
-//            }
-//        }
     
     func startRecording() {
         
@@ -69,7 +50,7 @@ class LivenessVideoRecorder {
         let assetWriterVideoInput = AVAssetWriterInput(mediaType: .video, outputSettings: videoSettings)
         assetWriterVideoInput.expectsMediaDataInRealTime = true
         //assetWriterVideoInput.transform = videoTransform!
-        assetWriterVideoInput.transform = CGAffineTransform(rotationAngle: -90.degreesToRadians)
+        assetWriterVideoInput.transform = CGAffineTransform(rotationAngle: 90.degreesToRadians)
         assetWriter.add(assetWriterVideoInput)
         
         self.assetWriter = assetWriter
@@ -111,3 +92,24 @@ class LivenessVideoRecorder {
     }
 
 }
+
+
+//    func getVideoTransform() -> CGAffineTransform {
+//            switch UIDevice.current.orientation {
+//                case .portrait:
+//                    print("ORIENTATION : .portrait")
+//                    return CGAffineTransform(rotationAngle: 90.degreesToRadians)
+//                case .portraitUpsideDown:
+//                    print("ORIENTATION : .portraitUpsideDown")
+//                    return CGAffineTransform(rotationAngle: 180)
+//                case .landscapeLeft:
+//                    print("ORIENTATION : .landscapeLeft")
+//                    return CGAffineTransform(rotationAngle: 0.degreesToRadians)
+//                case .landscapeRight:
+//                    print("ORIENTATION : .landscapeRight")
+//                    return CGAffineTransform(rotationAngle: 180.degreesToRadians)
+//                default:
+//                    print("ORIENTATION : default")
+//                    return CGAffineTransform(rotationAngle: 90.degreesToRadians)
+//            }
+//        }

@@ -8,6 +8,34 @@
 import Foundation
 
 
+struct LivenessGestureResponse: Codable {
+
+  var success   : Bool? = nil
+  var errorCode : Int?    = nil
+  var message   : String? = nil
+
+  enum CodingKeys: String, CodingKey {
+
+    case success  = "data"
+    case errorCode = "error_code"
+    case message   = "message"
+  
+  }
+
+  init(from decoder: Decoder) throws {
+    let values = try decoder.container(keyedBy: CodingKeys.self)
+
+    success   = try values.decodeIfPresent(Bool.self , forKey: .success    )
+    errorCode = try values.decodeIfPresent(Int.self    , forKey: .errorCode )
+    message   = try values.decodeIfPresent(String.self , forKey: .message   )
+  }
+
+  init() {
+  }
+
+}
+
+
 struct LivenessUploadResponse: Codable {
 
   var data      : LivenessUploadResponseData? = nil
@@ -34,6 +62,7 @@ struct LivenessUploadResponse: Codable {
   }
 
 }
+
 
 struct LivenessUploadResponseData: Codable {
 

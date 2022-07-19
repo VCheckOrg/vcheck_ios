@@ -332,6 +332,44 @@ struct RemoteDatasource {
                 }
     }
     
+    
+    func sendLivenessGestureAttempt(frameImage: UIImage,
+                                    gesture: String,
+                                    completion: @escaping (LivenessGestureResponse?, ApiError?) -> ()) {
+        
+        let url = "\(verifBaseUrl)liveness_challenges/gesture"
+
+        let token = LocalDatasource.shared.readAccessToken()
+        if (token.isEmpty) {
+            completion(nil, ApiError(errorText: "Error: cannot find access token"))
+            return
+        }
+        let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
+            
+        let multipartFormData = MultipartFormData.init()
+        
+        multipartFormData.append(frameImage.jpegData(compressionQuality: 0.7)!, withName: "image",
+                                 fileName: "image.jpg", mimeType: "image/jpeg")
+        multipartFormData.append(gesture.data(using: .utf8, allowLossyConversion: false)!, withName: "gesture")
+        
+        AF.upload(multipartFormData: multipartFormData, to: url, method: .post, headers: headers)
+            .validate()
+            .responseDecodable(of: LivenessGestureResponse.self) { (response) in
+                guard let response = response.value else {
+                //showing error on non-200 response code
+                 completion(nil, ApiError(errorText: "uploadLivenessVideo" + response.error!.localizedDescription))
+                 return
+                }
+                if (response.errorCode != nil && response.errorCode != 0) {
+                   completion(nil, ApiError(errorText: "\(String(describing: response.errorCode)): "
+                                            + "\(response.message ?? "")"))
+                   return
+                }
+                //!
+                completion(response, nil)
+            }
+    }
+    
 }
 
 
@@ -348,40 +386,3 @@ extension Encodable {
         return json
     }
 }
-
-
-// Just for test:
-//    func getCurrentStage(completion: @escaping (StageResponse?, ApiError?) -> ()) {
-//        let type = Int.random(in: (0...1))
-//        if (Int.random(in: (0...1)) == 1) {
-//            completion(StageResponse.init(data: StageResponseData.init(id: 0, type: type),
-//                       errorCode: 1, message: "USER_INTERACTED_COMPLETED"), nil)
-//        } else {
-//            completion(StageResponse.init(data: StageResponseData.init(id: 0, type: type),
-//                       errorCode: 0, message: "VERIFICATION_NOT_INITIALIZED"), nil)
-//        }
-//    }
-
-//    func setDocumentAsPrimary(documentId: Int,
-//                              completion: @escaping (Bool, ApiError?) -> ()) {
-//        let url = "\(verifBaseUrl)documents/\(documentId)/primary"
-//
-//        let token = LocalDatasource.shared.readAccessToken()
-//        if (token.isEmpty) {
-//            completion(false, ApiError(errorText: "Error: cannot find access token"))
-//            return
-//        }
-//        let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
-//
-//         AF.request(url, method: .put, headers: headers)
-//         .validate()  //response returned an HTTP status code in the range 200–299
-//         .response(completionHandler: { (response) in
-//             guard response.value != nil else {
-//             //showing error on non-200 response code (?)
-//              completion(false, ApiError(errorText: response.error!.localizedDescription))
-//              return
-//             }
-//             completion(true, nil)
-//             return
-//         })
-//     }

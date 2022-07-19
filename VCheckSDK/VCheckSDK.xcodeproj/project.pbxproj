@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F60208CF26FC6AC217F1B08 /* libPods-VCheckSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E91D25A620D272E32705FE /* libPods-VCheckSDK.a */; };
 		DA153774286F4FE60038A203 /* GeneralStageModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA153773286F4FE60038A203 /* GeneralStageModels.swift */; };
+		DA33FB30288584A100B0C507 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = DA33FB2F288584A100B0C507 /* Lottie */; };
 		DA3BED562869A69D00B15E5C /* VCheckSDK.docc in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED552869A69D00B15E5C /* VCheckSDK.docc */; };
 		DA3BED572869A69D00B15E5C /* VCheckSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = DA3BED542869A69D00B15E5C /* VCheckSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DA3BED652869A76700B15E5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA3BED5D2869A76700B15E5C /* Assets.xcassets */; };
@@ -76,15 +76,12 @@
 		DA3BEE032869A8D300B15E5C /* LocalDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDC02869A8D300B15E5C /* LocalDatasource.swift */; };
 		DA3BEE0A2869B25D00B15E5C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA3BEE0C2869B25D00B15E5C /* Localizable.strings */; };
 		DA3BEE0F2869B49100B15E5C /* VCheckFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA3BEE112869B49100B15E5C /* VCheckFlow.storyboard */; };
+		DA827B1B2885852800090816 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DA827B1A2885852800090816 /* Alamofire */; };
 		DAC3C82A2877669F00B32FFC /* VerificationClientCreationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3C8292877669F00B32FFC /* VerificationClientCreationModel.swift */; };
 		DAC3C82C2877695700B32FFC /* VerificationSchemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3C82B2877695700B32FFC /* VerificationSchemes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		12E91D25A620D272E32705FE /* libPods-VCheckSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VCheckSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1ADD078FCE455C076F1A9048 /* Pods-VCheckSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCheckSDK.debug.xcconfig"; path = "Target Support Files/Pods-VCheckSDK/Pods-VCheckSDK.debug.xcconfig"; sourceTree = "<group>"; };
-		5BF982D6522858D422155751 /* Pods_VCheckSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCheckSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D6D74B31D1ABCB8046CCC02 /* Pods-VCheckSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCheckSDK.release.xcconfig"; path = "Target Support Files/Pods-VCheckSDK/Pods-VCheckSDK.release.xcconfig"; sourceTree = "<group>"; };
 		DA153773286F4FE60038A203 /* GeneralStageModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralStageModels.swift; sourceTree = "<group>"; };
 		DA3BED512869A69D00B15E5C /* VCheckSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCheckSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA3BED542869A69D00B15E5C /* VCheckSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCheckSDK.h; sourceTree = "<group>"; };
@@ -159,7 +156,6 @@
 		DA3BEE152869B4CF00B15E5C /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/VCheckFlow.strings; sourceTree = "<group>"; };
 		DA3BEE162869B4F600B15E5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/VCheckFlow.storyboard; sourceTree = "<group>"; };
 		DA3BEE172869B50000B15E5C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/VCheckFlow.strings; sourceTree = "<group>"; };
-		DA3BEE222869BA8800B15E5C /* Pods_VcheckSDKDemoIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_VcheckSDKDemoIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC3C8292877669F00B32FFC /* VerificationClientCreationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationClientCreationModel.swift; sourceTree = "<group>"; };
 		DAC3C82B2877695700B32FFC /* VerificationSchemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationSchemes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -169,7 +165,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F60208CF26FC6AC217F1B08 /* libPods-VCheckSDK.a in Frameworks */,
+				DA33FB30288584A100B0C507 /* Lottie in Frameworks */,
+				DA827B1B2885852800090816 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,8 +178,6 @@
 			children = (
 				DA3BED532869A69D00B15E5C /* VCheckSDK */,
 				DA3BED522869A69D00B15E5C /* Products */,
-				DA3BEE182869BA8800B15E5C /* Frameworks */,
-				DF81D1DD20E285BE7EDAC9B8 /* Pods */,
 				DAA730392869C5540056CC8D /* Recovered References */,
 			);
 			sourceTree = "<group>";
@@ -400,30 +395,11 @@
 			path = service;
 			sourceTree = "<group>";
 		};
-		DA3BEE182869BA8800B15E5C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				12E91D25A620D272E32705FE /* libPods-VCheckSDK.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		DAA730392869C5540056CC8D /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				DA3BEE222869BA8800B15E5C /* Pods_VcheckSDKDemoIOS.framework */,
-				5BF982D6522858D422155751 /* Pods_VCheckSDK.framework */,
 			);
 			name = "Recovered References";
-			sourceTree = "<group>";
-		};
-		DF81D1DD20E285BE7EDAC9B8 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1ADD078FCE455C076F1A9048 /* Pods-VCheckSDK.debug.xcconfig */,
-				9D6D74B31D1ABCB8046CCC02 /* Pods-VCheckSDK.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -444,18 +420,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA3BED5A2869A69D00B15E5C /* Build configuration list for PBXNativeTarget "VCheckSDK" */;
 			buildPhases = (
-				6563D3F0BF97F1A7FA03C966 /* [CP] Check Pods Manifest.lock */,
 				DA3BED4C2869A69D00B15E5C /* Headers */,
 				DA3BED4D2869A69D00B15E5C /* Sources */,
 				DA3BED4E2869A69D00B15E5C /* Frameworks */,
 				DA3BED4F2869A69D00B15E5C /* Resources */,
-				106934ED89086BFD882C9A0B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = VCheckSDK;
+			packageProductDependencies = (
+				DA33FB2F288584A100B0C507 /* Lottie */,
+				DA827B1A2885852800090816 /* Alamofire */,
+			);
 			productName = VCheckSDK;
 			productReference = DA3BED512869A69D00B15E5C /* VCheckSDK.framework */;
 			productType = "com.apple.product-type.framework";
@@ -485,6 +463,10 @@
 				uk,
 			);
 			mainGroup = DA3BED472869A69D00B15E5C;
+			packageReferences = (
+				DA33FB2E288584A100B0C507 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				DA827B192885852800090816 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = DA3BED522869A69D00B15E5C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -514,48 +496,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		106934ED89086BFD882C9A0B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VCheckSDK/Pods-VCheckSDK-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VCheckSDK/Pods-VCheckSDK-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VCheckSDK/Pods-VCheckSDK-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6563D3F0BF97F1A7FA03C966 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VCheckSDK-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DA3BED4D2869A69D00B15E5C /* Sources */ = {
@@ -654,6 +594,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BITCODE_GENERATION_MODE = "";
+				"BITCODE_GENERATION_MODE[arch=*]" = marker;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -701,10 +643,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_CFLAGS[arch=*]" = "-fembed-bitcode-marker";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -717,6 +660,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BITCODE_GENERATION_MODE = "";
+				"BITCODE_GENERATION_MODE[arch=*]" = release;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -758,9 +703,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				"OTHER_CFLAGS[arch=*]" = "-fembed-bitcode";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -772,8 +718,9 @@
 		};
 		DA3BED5B2869A69D00B15E5C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1ADD078FCE455C076F1A9048 /* Pods-VCheckSDK.debug.xcconfig */;
 			buildSettings = {
+				BITCODE_GENERATION_MODE = "";
+				"BITCODE_GENERATION_MODE[arch=*]" = marker;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -802,8 +749,9 @@
 		};
 		DA3BED5C2869A69D00B15E5C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D6D74B31D1ABCB8046CCC02 /* Pods-VCheckSDK.release.xcconfig */;
 			buildSettings = {
+				BITCODE_GENERATION_MODE = "";
+				"BITCODE_GENERATION_MODE[arch=*]" = release;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -852,6 +800,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DA33FB2E288584A100B0C507 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		DA827B192885852800090816 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DA33FB2F288584A100B0C507 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA33FB2E288584A100B0C507 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		DA827B1A2885852800090816 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA827B192885852800090816 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DA3BED482869A69D00B15E5C /* Project object */;
 }

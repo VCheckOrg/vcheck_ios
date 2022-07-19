@@ -11,7 +11,6 @@ import CoreMedia
 import CoreMotion
 import SceneKit
 import UIKit
-@_implementationOnly import ARCore
 import Vision
 
 
@@ -78,45 +77,44 @@ extension LivenessScreenViewController {
     /// canonical face mesh asset.
     /// https://developers.google.com/ar/develop/developer-guides/creating-assets-for-augmented-faces
     /// - Returns: true when the function has fatal error; false when not.
-    func setupScene() -> Bool {
-
-        let sceneUrl: URL? = InternalConstants.bundle
-            .url(forResource: "Face.scnassets/liveness_scene", withExtension: "scn")
-        
-        if (sceneUrl == nil) {
-            alertWindowTitle = "A fatal error occurred."
-            alertMessage = "Fialed to load scene URL!"
-            popupAlertWindowOnError(alertWindowTitle: alertWindowTitle, alertMessage: alertMessage)
-            return false
-        }
-        
-        do {
-            let scene: SCNScene = try SCNScene(url: sceneUrl!)
-
-            let cameraNode = SCNNode()
-            cameraNode.camera = sceneCamera
-            scene.rootNode.addChildNode(cameraNode)
-
-            sceneView.scene = scene
-            sceneView.frame = view.bounds
-            sceneView.delegate = self
-            sceneView.rendersContinuously = true
-            sceneView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            sceneView.backgroundColor = .clear
-            // Flip 'x' to mirror content to mimic 'selfie' mode
-            sceneView.layer.transform = CATransform3DMakeScale(-1, 1, 1)
-            view.addSubview(sceneView)
-
-            return true
-            
-        } catch {
-            alertWindowTitle = "A fatal error occurred."
-            alertMessage = "Failed to load face scene!"
-            popupAlertWindowOnError(alertWindowTitle: alertWindowTitle, alertMessage: alertMessage)
-            return false
-        }
-        
-    }
+//    func setupScene() -> Bool {
+//
+//        let sceneUrl: URL? = InternalConstants.bundle
+//            .url(forResource: "Face.scnassets/liveness_scene", withExtension: "scn")
+//
+//        if (sceneUrl == nil) {
+//            alertWindowTitle = "A fatal error occurred."
+//            alertMessage = "Fialed to load scene URL!"
+//            popupAlertWindowOnError(alertWindowTitle: alertWindowTitle, alertMessage: alertMessage)
+//            return false
+//        }
+//
+//        do {
+//            let scene: SCNScene = try SCNScene(url: sceneUrl!)
+//
+//            let cameraNode = SCNNode()
+//            cameraNode.camera = sceneCamera
+//            scene.rootNode.addChildNode(cameraNode)
+//
+//            sceneView.scene = scene
+//            sceneView.frame = view.bounds
+//            sceneView.delegate = self
+//            sceneView.rendersContinuously = true
+//            sceneView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//            sceneView.backgroundColor = .clear
+//            // Flip 'x' to mirror content to mimic 'selfie' mode
+//            sceneView.layer.transform = CATransform3DMakeScale(-1, 1, 1)
+//            view.addSubview(sceneView)
+//
+//            return true
+//
+//        } catch {
+//            alertWindowTitle = "A fatal error occurred."
+//            alertMessage = "Failed to load face scene!"
+//            popupAlertWindowOnError(alertWindowTitle: alertWindowTitle, alertMessage: alertMessage)
+//            return false
+//        }
+//    }
 
     /// Start receiving motion updates to determine device orientation for use in the face session.
     /// - Returns: true when the function has fatal error; false when not.
@@ -133,38 +131,6 @@ extension LivenessScreenViewController {
         return true
     }
 }
-
-
-// MARK: - Multiple faces detection
-
-extension LivenessScreenViewController {
-
-    func detectFacesOnFrameOutput(buffer: CVImageBuffer) {
-        detectFaces(on: convertCVImageBufferToUIImage(buffer: buffer))
-    }
-
-    func convertCVImageBufferToUIImage(buffer: CVImageBuffer) -> UIImage {
-        let ciImage: CIImage = CIImage(cvPixelBuffer: buffer)
-        return ciImage.orientationCorrectedImage()!
-    }
-
-    func detectFaces(on image: UIImage) {
-      let handler = VNImageRequestHandler(
-        cgImage: image.cgImage!,
-        options: [:])
-
-      DispatchQueue.global(qos: .userInitiated).async {
-        do {
-          try handler.perform([self.faceDetectionRequest])
-        } catch {
-          print(error)
-        }
-      }
-    }
-}
-
-
-// MARK: - Permission and alert util
 
 extension LivenessScreenViewController {
 
@@ -204,6 +170,11 @@ extension LivenessScreenViewController {
 }
 
 
+
+
+
+
+
 //DispatchQueue.main.async {
 //CATransaction.begin()
 //print("DETECTED FACES: \(results.count)")
@@ -230,3 +201,35 @@ extension LivenessScreenViewController {
 //    let brightnessValue : Double = exifData?[kCGImagePropertyExifBrightnessValue as String] as! Double
 //    return brightnessValue
 //}
+//
+//// MARK: - Multiple faces detection
+//
+//extension LivenessScreenViewController {
+//
+//    func detectFacesOnFrameOutput(buffer: CVImageBuffer) {
+//        detectFaces(on: convertCVImageBufferToUIImage(buffer: buffer))
+//    }
+//
+//    func convertCVImageBufferToUIImage(buffer: CVImageBuffer) -> UIImage {
+//        let ciImage: CIImage = CIImage(cvPixelBuffer: buffer)
+//        return ciImage.orientationCorrectedImage()!
+//    }
+//
+//    func detectFaces(on image: UIImage) {
+//      let handler = VNImageRequestHandler(
+//        cgImage: image.cgImage!,
+//        options: [:])
+//
+//      DispatchQueue.global(qos: .userInitiated).async {
+//        do {
+//          try handler.perform([self.faceDetectionRequest])
+//        } catch {
+//          print(error)
+//        }
+//      }
+//    }
+//}
+//
+//
+//// MARK: - Permission and alert util
+//
