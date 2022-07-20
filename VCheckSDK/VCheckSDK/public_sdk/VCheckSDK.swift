@@ -19,7 +19,7 @@ public class VCheckSDK {
     private var partnerId: Int? = nil
     private var partnerSecret: String? = nil
     
-    private var verificationType: VerificationSchemeType = VerificationSchemeType.FULL_CHECK
+    private var verificationType: VerificationSchemeType?
     private var partnerUserId: String? = nil
     private var partnerVerificationId: String? = nil
     private var sessionLifetime: Int? = nil
@@ -35,7 +35,7 @@ public class VCheckSDK {
             
             self.verificationClientCreationModel = VerificationClientCreationModel.init(partnerId: self.partnerId!,
                                                                                         partnerSecret: self.partnerSecret!,
-                                                                                        verificationType: self.verificationType,
+                                                                                        verificationType: self.verificationType!,
                                                                                         partnerUserId: self.partnerUserId,
                                                                                         partnerVerificationId: self.partnerVerificationId,
                                                                                         sessionLifetime: self.sessionLifetime)
@@ -50,6 +50,10 @@ public class VCheckSDK {
     }
     
     private func preStartChecksPassed() -> Bool {
+        if (self.verificationType == nil) {
+            print("VCheckSDK - error: proper verification type must be provided | see VheckSDK.shared.verificationType(type: VerificationSchemeType)")
+            return false
+        }
         if (self.partnerEndCallback == nil) {
            print("VCheckSDK - error: partner application's callback function (invoked on SDK flow finish) must be provided | see VheckSDK.shared.partnerSecret(secret: String)")
            return false

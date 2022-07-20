@@ -7,14 +7,9 @@
 
 import Foundation
 import AVFoundation
-import CoreMedia
-import CoreMotion
-import SceneKit
 import UIKit
-import Vision
 
-
-// MARK: - camera & scene setup
+// MARK: - Camera & Video Preview setup
 
 extension LivenessScreenViewController {
 
@@ -38,11 +33,11 @@ extension LivenessScreenViewController {
             popupAlertWindowOnError(alertWindowTitle: alertWindowTitle, alertMessage: alertMessage)
             return false
         }
-
+        
         let output = AVCaptureVideoDataOutput()
         output.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA]
         output.setSampleBufferDelegate(self, queue: DispatchQueue.global(qos: .userInteractive))
-
+        
         let session = AVCaptureSession()
         session.sessionPreset = .iFrame960x540
         session.addInput(input)
@@ -51,10 +46,14 @@ extension LivenessScreenViewController {
         captureDevice = device
 
         videoFieldOfView = captureDevice?.activeFormat.videoFieldOfView ?? 0
-
-        cameraImageLayer.contentsGravity = .center
-        cameraImageLayer.frame = self.view.bounds
-        view.layer.insertSublayer(cameraImageLayer, at: 0)
+        
+        self.previewLayer = {
+            let preview = AVCaptureVideoPreviewLayer(session: self.captureSession!)
+            preview.videoGravity = .resizeAspectFill //.resizeAspect
+            return preview
+        }()
+        
+        self.view.layer.insertSublayer(previewLayer, at: 0)
 
         // Start capturing images from the capture session once permission is granted.
         getVideoPermission(permissionHandler: { granted in
@@ -68,65 +67,6 @@ extension LivenessScreenViewController {
             }
             self.captureSession?.startRunning()
         })
-
-        return true
-    }
-
-    /// Create the scene view from a scene and supporting nodes, and add to the view.
-    /// The scene is loaded from 'fox_face.scn' which was created from 'canonical_face_mesh.fbx', the
-    /// canonical face mesh asset.
-    /// https://developers.google.com/ar/develop/developer-guides/creating-assets-for-augmented-faces
-    /// - Returns: true when the function has fatal error; false when not.
-//    func setupScene() -> Bool {
-//
-//        let sceneUrl: URL? = InternalConstants.bundle
-//            .url(forResource: "Face.scnassets/liveness_scene", withExtension: "scn")
-//
-//        if (sceneUrl == nil) {
-//            alertWindowTitle = "A fatal error occurred."
-//            alertMessage = "Fialed to load scene URL!"
-//            popupAlertWindowOnError(alertWindowTitle: alertWindowTitle, alertMessage: alertMessage)
-//            return false
-//        }
-//
-//        do {
-//            let scene: SCNScene = try SCNScene(url: sceneUrl!)
-//
-//            let cameraNode = SCNNode()
-//            cameraNode.camera = sceneCamera
-//            scene.rootNode.addChildNode(cameraNode)
-//
-//            sceneView.scene = scene
-//            sceneView.frame = view.bounds
-//            sceneView.delegate = self
-//            sceneView.rendersContinuously = true
-//            sceneView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//            sceneView.backgroundColor = .clear
-//            // Flip 'x' to mirror content to mimic 'selfie' mode
-//            sceneView.layer.transform = CATransform3DMakeScale(-1, 1, 1)
-//            view.addSubview(sceneView)
-//
-//            return true
-//
-//        } catch {
-//            alertWindowTitle = "A fatal error occurred."
-//            alertMessage = "Failed to load face scene!"
-//            popupAlertWindowOnError(alertWindowTitle: alertWindowTitle, alertMessage: alertMessage)
-//            return false
-//        }
-//    }
-
-    /// Start receiving motion updates to determine device orientation for use in the face session.
-    /// - Returns: true when the function has fatal error; false when not.
-    func setupMotion() -> Bool {
-        guard motionManager.isDeviceMotionAvailable else {
-            alertWindowTitle = "Alert"
-            alertMessage = "Device does not have motion sensors."
-            popupAlertWindowOnError(alertWindowTitle: alertWindowTitle, alertMessage: alertMessage)
-            return false
-        }
-        motionManager.deviceMotionUpdateInterval = 0.01
-        motionManager.startDeviceMotionUpdates()
 
         return true
     }
@@ -168,68 +108,3 @@ extension LivenessScreenViewController {
         self.present(alertController, animated: true, completion: nil)
     }
 }
-
-
-
-
-
-
-
-//DispatchQueue.main.async {
-//CATransaction.begin()
-//print("DETECTED FACES: \(results.count)")
-//        for result in results {
-//          //print(result.boundingBox)
-//          // self.drawFace(in: result.boundingBox)
-//        }
-//CATransaction.commit()
-//
-//extension UIDevice {
-//    static var isSimulator: Bool = {
-//        #if targetEnvironment(simulator)
-//        return true
-//        #else
-//        return false
-//        #endif
-//    }()
-//
-//Deprecated local check
-//func getBrightness(sampleBuffer: CMSampleBuffer) -> Double {
-//    let rawMetadata = CMCopyDictionaryOfAttachments(allocator: nil, target: sampleBuffer, attachmentMode: CMAttachmentMode(kCMAttachmentMode_ShouldPropagate))
-//    let metadata = CFDictionaryCreateMutableCopy(nil, 0, rawMetadata) as NSMutableDictionary
-//    let exifData = metadata.value(forKey: "{Exif}") as? NSMutableDictionary
-//    let brightnessValue : Double = exifData?[kCGImagePropertyExifBrightnessValue as String] as! Double
-//    return brightnessValue
-//}
-//
-//// MARK: - Multiple faces detection
-//
-//extension LivenessScreenViewController {
-//
-//    func detectFacesOnFrameOutput(buffer: CVImageBuffer) {
-//        detectFaces(on: convertCVImageBufferToUIImage(buffer: buffer))
-//    }
-//
-//    func convertCVImageBufferToUIImage(buffer: CVImageBuffer) -> UIImage {
-//        let ciImage: CIImage = CIImage(cvPixelBuffer: buffer)
-//        return ciImage.orientationCorrectedImage()!
-//    }
-//
-//    func detectFaces(on image: UIImage) {
-//      let handler = VNImageRequestHandler(
-//        cgImage: image.cgImage!,
-//        options: [:])
-//
-//      DispatchQueue.global(qos: .userInitiated).async {
-//        do {
-//          try handler.perform([self.faceDetectionRequest])
-//        } catch {
-//          print(error)
-//        }
-//      }
-//    }
-//}
-//
-//
-//// MARK: - Permission and alert util
-//

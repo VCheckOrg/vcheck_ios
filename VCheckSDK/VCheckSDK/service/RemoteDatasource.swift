@@ -43,11 +43,8 @@ struct RemoteDatasource {
                                    completion: @escaping (VerificationCreateAttemptResponseData?, ApiError?) -> ()) {
         let url = "\(partnerBaseUrl)verifications"
         
-        //TODO: test creation properly!
         let model = CreateVerificationRequestBody.init(ts: timestamp, locale: locale, vModel: verificationClientCreationModel)
-        
-        print("====== VERIF MODEL : \(model)")
-        
+                
         var jsonData: Dictionary<String, Any>?
         do {
             jsonData = try model.toDictionary()
@@ -69,7 +66,6 @@ struct RemoteDatasource {
                                            + "\(response.message ?? "")"))
                   return
               }
-              //!
               completion(response.data, nil)
           }
     }
@@ -98,7 +94,6 @@ struct RemoteDatasource {
                                             + "\(response.message ?? "")"))
                 return
             }
-            //!
             completion(response.data, nil)
           }
     }
@@ -122,7 +117,7 @@ struct RemoteDatasource {
                return
               }
               completion(response, nil)
-              print("======= CLIENT:  GET CURRENT STAGE - response data: \(String(describing: response))")
+              //print("======= CLIENT:  GET CURRENT STAGE - response data: \(String(describing: response))")
           }
     }
     
@@ -150,7 +145,6 @@ struct RemoteDatasource {
                                            + "\(response.message ?? "")"))
                   return
               }
-              //!
               completion(response.data, nil)
           }
     }
@@ -181,7 +175,6 @@ struct RemoteDatasource {
                                            + "\(response.message ?? "")"))
                   return
               }
-              //!
               completion(response.data, nil)
           }
     }
@@ -258,7 +251,6 @@ struct RemoteDatasource {
                                         + "\(response.message ?? "")"))
                return
             }
-            //!
             completion(response.data, nil)
         }
     }
@@ -327,7 +319,6 @@ struct RemoteDatasource {
                                                 + "\(response.message ?? "")"))
                        return
                     }
-                    //!
                     completion(response.data, nil)
                 }
     }
@@ -352,6 +343,8 @@ struct RemoteDatasource {
                                  fileName: "image.jpg", mimeType: "image/jpeg")
         multipartFormData.append(gesture.data(using: .utf8, allowLossyConversion: false)!, withName: "gesture")
         
+        //print("===== SENDING REQUEST FOR GESTURE: \(gesture)")
+        
         AF.upload(multipartFormData: multipartFormData, to: url, method: .post, headers: headers)
             .validate()
             .responseDecodable(of: LivenessGestureResponse.self) { (response) in
@@ -365,7 +358,6 @@ struct RemoteDatasource {
                                             + "\(response.message ?? "")"))
                    return
                 }
-                //!
                 completion(response, nil)
             }
     }

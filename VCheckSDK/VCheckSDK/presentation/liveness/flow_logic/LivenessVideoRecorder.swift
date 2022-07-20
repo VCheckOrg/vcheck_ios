@@ -31,9 +31,7 @@ class LivenessVideoRecorder {
                               AVVideoWidthKey : NSNumber(value: Float(960)),
                               AVVideoHeightKey : NSNumber(value: Float(540))]
                           as [String : Any]
-        
-        //self.videoTransform = getVideoTransform()
-        
+                
         // Create an asset writer that records to a temporary file
         let outputFileName = NSUUID().uuidString
         
@@ -49,12 +47,10 @@ class LivenessVideoRecorder {
         // Add a video input
         let assetWriterVideoInput = AVAssetWriterInput(mediaType: .video, outputSettings: videoSettings)
         assetWriterVideoInput.expectsMediaDataInRealTime = true
-        //assetWriterVideoInput.transform = videoTransform!
         assetWriterVideoInput.transform = CGAffineTransform(rotationAngle: 90.degreesToRadians)
         assetWriter.add(assetWriterVideoInput)
         
         self.assetWriter = assetWriter
-        //self.assetWriterAudioInput = assetWriterAudioInput
         self.assetWriterVideoInput = assetWriterVideoInput
         
         isRecording = true
@@ -79,8 +75,8 @@ class LivenessVideoRecorder {
                 return
         }
         
+        //print("VIDEO RECORDER - STATUS \(assetWriter.status)")
         if assetWriter.status == .unknown {
-            print("STATUS UNKNOWN")
             assetWriter.startWriting()
             assetWriter.startSession(atSourceTime: CMSampleBufferGetPresentationTimeStamp(sampleBuffer))
         } else if assetWriter.status == .writing {
@@ -94,6 +90,7 @@ class LivenessVideoRecorder {
 }
 
 
+// deprecated:
 //    func getVideoTransform() -> CGAffineTransform {
 //            switch UIDevice.current.orientation {
 //                case .portrait:

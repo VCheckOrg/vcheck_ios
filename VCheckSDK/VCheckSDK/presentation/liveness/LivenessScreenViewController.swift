@@ -1,10 +1,6 @@
 import AVFoundation
-import CoreMedia
-import CoreMotion
-import SceneKit
 import UIKit
 @_implementationOnly import Lottie
-//import Vision
 
 internal class LivenessScreenViewController: UIViewController {
 
@@ -35,10 +31,7 @@ internal class LivenessScreenViewController: UIViewController {
     var captureDevice: AVCaptureDevice?
     var captureSession: AVCaptureSession?
     var videoFieldOfView = Float(0)
-    lazy var cameraImageLayer = CALayer()
-    lazy var sceneView = SCNView()
-    lazy var sceneCamera = SCNCamera()
-    lazy var motionManager = CMMotionManager()
+    lazy var previewLayer = CALayer()
 
     // MARK: - Video recording properties
     var videoRecorder = LivenessVideoRecorder.init()
@@ -50,90 +43,140 @@ internal class LivenessScreenViewController: UIViewController {
     private var milestoneFlow = StandardMilestoneFlow()
 
     static let LIVENESS_TIME_LIMIT_MILLIS = 14000 //max is 15000
-    static let BLOCK_PIPELINE_ON_OBSTACLE_TIME_MILLIS = 1100 //may reduce a bit
-    static let BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS = 1200 //may reduce a bit
+    static let BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS = 900
+    static let GESTURE_REQUEST_INTERVAL = 0.25 //TODO: reduce on Android!
 
     private var isLivenessSessionFinished: Bool = false
     private var hasEnoughTimeForNextGesture: Bool = true
     private var livenessSessionTimeoutTimer : DispatchSourceTimer?
+    private var periodicGestureCheckTimer: Timer?
     private var blockStageIndicationByUI: Bool = false
+    private var blockStageChecksByRunningRequest: Bool = false  //TODO: implement on Android!
 
     // MARK: - Implementation & Lifecycle methods
 
     override public func viewDidLoad() {
         super.viewDidLoad()
 
+        if !setMilestonesList() { return }
+        if !setupCamera() { return }
+
+        setupMilestoneFlow()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        self.viewDidAppearReached = true
+
+        if needToShowFatalError {
+            popupAlertWindowOnError(alertWindowTitle: alertWindowTitle, alertMessage: alertMessage)
+            return
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.previewLayer.frame = self.view.bounds
+    }
+    
+    func setMilestonesList() -> Bool {
         guard let milestonesList = LocalDatasource.shared.getLivenessMilestonesList()
         else {
             self.alertWindowTitle = "Milestone list is not found"
             self.alertMessage = "Probably, milestone list was not retrieved form verification service or not cached properly."
             self.needToShowFatalError = true
-            return
+            return false
         }
-        milestoneFlow.setStagesList(list: milestonesList)
-
-        //if !setupScene() { return }
-        if !setupCamera() { return }
-        if !setupMotion() { return }
-
-        imgMilestoneChecked.isHidden = true
-        indicationFrame.isHidden = true
-
-        setupMilestoneFlow()
+        self.milestoneFlow.setStagesList(list: milestonesList)
+        return true
     }
     
     func setupMilestoneFlow() {
-        Timer.scheduledTimer(timeInterval: 0.5, target: self,
-                 selector: #selector(performGestureCheck), userInfo: nil, repeats: true)
-        //TODO: invalidate timer when session ends!
+        
+        self.milestoneFlow.resetStages()
+        
+        self.isLivenessSessionFinished = false
+        self.hasEnoughTimeForNextGesture = true
+        self.blockStageIndicationByUI = false
+        
+        self.videoRecorder = LivenessVideoRecorder.init()
+        self.videoStreamingPermitted = true
+        self.videoRecorder.startRecording()
+        
+        self.livenessSessionTimeoutTimer = nil
+        self.startLivenessSessionTimeoutTimer()
+        
+        self.imgMilestoneChecked.isHidden = true
+        self.indicationFrame.isHidden = true
+        
+        self.tvLivenessInfo.text = "liveness_stage_check_face_pos".localized
+        
+        self.periodicGestureCheckTimer = Timer.scheduledTimer(timeInterval:
+                        LivenessScreenViewController.GESTURE_REQUEST_INTERVAL, target: self,
+                          selector: #selector(performGestureCheck), userInfo: nil, repeats: true)
     }
     
     @objc func performGestureCheck() {
-        
-        if (milestoneFlow.areAllStagesPassed()) {
-            self.onAllStagesPassed()
-        } else {
-            if (videoBuffer != nil) {
-                guard let frameImage: UIImage = getScreenshotFromVideoStream(videoBuffer!) else {
-                    print("====== Cannot perform gesture request: either frameImage or currentStage is nil!")
-                    return
-                }
-                RemoteDatasource.shared.sendLivenessGestureAttempt(frameImage: frameImage,
-                                        gesture: milestoneFlow.getGestureRequestFromCurrentStage(),
-                                        completion: { (data, error) in
-                    if let error = error {
-                        print("Gesture request: Error [\(error.errorText)]")
-                        return
-                    }
-                        
-                    print("GESTURE REUEST -- DATA: \(String(describing: data))")
-                    if (data?.success == true) {
-                        self.onStagePassed()
-                    }
-                })
+        if (self.isLivenessSessionFinished == false) {
+            if (milestoneFlow.areAllStagesPassed()) {
+                self.onAllStagesPassed()
             } else {
-                print("------ VideoBuffer is NIL!")
+                if (videoBuffer != nil
+                    && self.hasEnoughTimeForNextGesture == true
+                    && self.blockStageChecksByRunningRequest == false) {
+                    self.checkStage()
+                } else { print("------ VideoBuffer is NIL!") }
             }
         }
     }
     
-    func onAllStagesPassed() {
-        //self.delayedStageIndicationRenew()
-        self.hapticFeedbackGenerator.notificationOccurred(.success)
-        self.isLivenessSessionFinished = true
-        DispatchQueue.main.asyncAfter(deadline:
-                .now() + .milliseconds(800) ) {
-            self.videoStreamingPermitted = false
-            self.videoRecorder.stopRecording(completion: { url in
-                DispatchQueue.main.async {
-                    print("========== FINISHED WRITING VIDEO IN: \(url)")
-                    if (self.livenessSessionTimeoutTimer != nil) {
-                        self.livenessSessionTimeoutTimer!.cancel()
-                    }
-                    self.performSegue(withIdentifier: "LivenessToVideoProcessing", sender: nil)
-                }
-            })
+    func checkStage() {
+        guard let frameImage: UIImage = getScreenshotFromVideoStream(videoBuffer!) else {
+            print("====== Cannot perform gesture request: either frameImage is nil!")
+            return
         }
+        self.blockStageChecksByRunningRequest = true
+        RemoteDatasource.shared.sendLivenessGestureAttempt(frameImage: frameImage,
+                                gesture: milestoneFlow.getGestureRequestFromCurrentStage(),
+                                completion: { (data, error) in
+            if let error = error {
+                print("Gesture request: Error [\(error.errorText)]")
+                return
+            }
+            //print("GESTURE RESPONSE -- DATA: \(String(describing: data))")
+            if (data?.success == true) {
+                self.milestoneFlow.incrementCurrentStage()
+                if (self.milestoneFlow.areAllStagesPassed()) {
+                    self.onAllStagesPassed()
+                } else {
+                    self.onStagePassed()
+                }
+            }
+            self.blockStageChecksByRunningRequest = false
+        })
+    }
+    
+    func onAllStagesPassed() {
+        
+        self.periodicGestureCheckTimer?.invalidate()
+        
+        self.hasEnoughTimeForNextGesture = false
+        
+        self.videoStreamingPermitted = false
+        self.isLivenessSessionFinished = true
+        
+        self.hapticFeedbackGenerator.notificationOccurred(.success)
+
+        self.videoRecorder.stopRecording(completion: { url in
+            DispatchQueue.main.async {
+                print("========== FINISHED WRITING VIDEO IN: \(url)")
+                if (self.livenessSessionTimeoutTimer != nil) {
+                    self.livenessSessionTimeoutTimer!.cancel()
+                }
+                self.performSegue(withIdentifier: "LivenessToVideoProcessing", sender: nil)
+            }
+        })
     }
     
     func onStagePassed() {
@@ -141,18 +184,7 @@ internal class LivenessScreenViewController: UIViewController {
         self.delayedStageIndicationRenew()
     }
 
-    override public func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        viewDidAppearReached = true
-
-        if needToShowFatalError {
-            popupAlertWindowOnError(alertWindowTitle: alertWindowTitle, alertMessage: alertMessage)
-            return
-        }
-    }
-
-    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "LivenessToNoFaceDetected") {
             let vc = segue.destination as! NoFaceDetectedViewController
             vc.onRepeatBlock = { result in self.renewLivenessSessionOnRetry() }
@@ -178,8 +210,8 @@ internal class LivenessScreenViewController: UIViewController {
 
     func renewLivenessSessionOnRetry() {
         DispatchQueue.main.async {
-            self.indicationFrame.alpha = 1
             // reset UI
+            self.indicationFrame.alpha = 1
             self.imgMilestoneChecked.isHidden = true
             self.indicationFrame.isHidden = true
             self.faceAnimationView = AnimationView()
@@ -187,31 +219,24 @@ internal class LivenessScreenViewController: UIViewController {
             self.arrowAnimationView.stop()
             self.rightArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
             self.leftArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
-            // reset logic
-            self.videoRecorder = LivenessVideoRecorder.init()
-            self.videoStreamingPermitted = true
-            self.milestoneFlow.resetStages()//!
-            self.isLivenessSessionFinished = false
-            self.hasEnoughTimeForNextGesture = true
-            self.blockStageIndicationByUI = false
-            self.livenessSessionTimeoutTimer = nil
-            self.startLivenessSessionTimeoutTimer()
+            // General reset logic
+            self.setupMilestoneFlow()
         }
     }
-}
-
-// MARK: - Frame processing at upper level
-
-extension LivenessScreenViewController {
-
 
     func endSessionPrematurely(performSegueWithIdentifier: String) {
-        self.videoStreamingPermitted = false
         self.videoRecorder.stopRecording(completion: { url in
             print("========== FINISHED WRITING VIDEO IN: \(url)")
             DispatchQueue.main.async {
+                self.periodicGestureCheckTimer?.invalidate()
+                
                 self.hasEnoughTimeForNextGesture = false
+                
+                self.videoStreamingPermitted = false
                 self.isLivenessSessionFinished = true
+                
+                self.periodicGestureCheckTimer?.invalidate()
+                
                 self.hapticFeedbackGenerator.notificationOccurred(.warning)
                 if (self.livenessSessionTimeoutTimer != nil) {
                     self.livenessSessionTimeoutTimer!.cancel()
@@ -410,17 +435,25 @@ extension LivenessScreenViewController: AVCaptureVideoDataOutputSampleBufferDele
     ) {
 
         guard let imgBuffer: CVImageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
-              //let deviceMotion = motionManager.deviceMotion
         else {
             NSLog("In captureOutput, imgBuffer is nil.")
             return
         }
         
-        self.videoBuffer = imgBuffer
-        
-        //MARK: Liveness Session Video Recording
-        if (self.videoRecorder.outputFileURL != nil && self.videoStreamingPermitted == true) {
-            self.videoRecorder.recordVideo(sampleBuffer: sampleBuffer)
+        if (self.isLivenessSessionFinished == false) {
+            self.videoBuffer = imgBuffer
+                        
+            //MARK: Liveness Session Video Recording
+            if (self.videoRecorder.outputFileURL != nil && self.videoStreamingPermitted == true) {
+                self.videoRecorder.recordVideo(sampleBuffer: sampleBuffer)
+            }
+            
+            if (blockStageIndicationByUI == false) {
+                DispatchQueue.main.async {
+                    self.updateFaceAnimation()
+                    self.updateArrowAnimation()
+                }
+            }
         }
     }
     
@@ -442,93 +475,35 @@ extension LivenessScreenViewController: AVCaptureVideoDataOutputSampleBufferDele
                     height: CGFloat(CVPixelBufferGetHeight(imageBuffer))))
         }
         if let cgImage = videoImage {
-            return UIImage(cgImage: cgImage)
+            let uiImage = UIImage(cgImage: cgImage)
+            let rotatedImage = uiImage.rotate(radians: Float(90.degreesToRadians))
+            return rotatedImage
         } else {
             print("--------------- FAILED TO CONVERT VIDEO SCREEN TO IMAGE!")
             return nil
         }
-        
-        
-        //doSomething(withOurUIImage: image)
-        //CGImageRelease(videoImage!) //deprecated
     }
 }
 
 
 
-
-
-
-
-/*
- //ON ALL STAGES PASSED
- self.hapticFeedbackGenerator.notificationOccurred(.success)
- self.delayedStageIndicationRenew()
- self.isLivenessSessionFinished = true
- */
-
-
-
-/*
- //ON STAGE PASSED
- if (self.milestoneFlow.getCurrentStage().gestureMilestoneType
-         != GestureMilestoneType.CheckHeadPositionMilestone) {
-     
- }
- 
- self.majorObstacleFrameCounterHolder.resetFrameCountersOnStageSuccess()
- self.hapticFeedbackGenerator.notificationOccurred(.success)
- self.delayedStageIndicationRenew()
- self.updateLivenessInfoText(forMilestoneType: self.milestoneFlow.getCurrentStage().gestureMilestoneType)
- self.setupOrUpdateFaceAnimation(forMilestoneType: self.milestoneFlow.getCurrentStage().gestureMilestoneType)
- self.setupOrUpdateArrowAnimation(forMilestoneType: self.milestoneFlow.getCurrentStage().gestureMilestoneType)
- */
-
-
-
-//    public func updateCameraFrame(frame: GARAugmentedFaceFrame) {
-//        // Update the camera image layer's transform to the display transform for this frame. //?
-//        CATransaction.begin()
-//        CATransaction.setAnimationDuration(0)
-//        cameraImageLayer.contents = frame.capturedImage as CVPixelBuffer
-//        cameraImageLayer.setAffineTransform(
-//            frame.displayTransform(
-//                forViewportSize: cameraImageLayer.bounds.size,
-//                presentationOrientation: .portrait,
-//                mirrored: true))
-//        CATransaction.commit()
-//    }
-
-
-// MARK: - Scene Renderer delegate
-
-//extension LivenessScreenViewController: SCNSceneRendererDelegate {
+// FOR TEST!
+//extension LivenessScreenViewController {
 //
-//    public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+//    //MARK: - Saving Image here
+//        func saveToGallery(image: UIImage) {
+//            UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+//        }
 //
-//        if (isLivenessSessionFinished == false) {
-//            if (blockStageIndicationByUI == false) {
-//                DispatchQueue.main.async {
-//                    self.updateFaceAnimation()
-//                    self.updateArrowAnimation()
-//                }
-//            }
-//            //processFaceFrame(frame: frame)
-//            // TODO: CHECK RESULT OR REQUEST!
-//        } else {
-//            DispatchQueue.main.asyncAfter(deadline:
-//                    .now() + .milliseconds(800) ) {
-//                self.videoStreamingPermitted = false
-//                self.videoRecorder.stopRecording(completion: { url in
-//                    DispatchQueue.main.async {
-//                        print("========== FINISHED WRITING VIDEO IN: \(url)")
-//                        if (self.livenessSessionTimeoutTimer != nil) {
-//                            self.livenessSessionTimeoutTimer!.cancel()
-//                        }
-//                        self.performSegue(withIdentifier: "LivenessToVideoProcessing", sender: nil)
-//                    }
-//                })
+//        //MARK: - Add image to Library
+//        @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+//            if let error = error {
+//                print("************* ERRROR SAVING IMAGE : \(error)")
+//                // we got back an error!
+//                //showAlertWith(title: "Save error", message: error.localizedDescription)
+//            } else {
+//                print("************* SAVED IMAGE !")
+//                //showAlertWith(title: "Saved!", message: "Your image has been saved to your photos.")
 //            }
 //        }
-//    }
 //}

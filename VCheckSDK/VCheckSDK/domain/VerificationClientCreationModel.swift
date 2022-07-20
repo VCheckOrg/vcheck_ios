@@ -12,7 +12,7 @@ struct VerificationClientCreationModel {
     
     let partnerId: Int
     let partnerSecret: String
-    var verificationType: VerificationSchemeType = VerificationSchemeType.FULL_CHECK
+    let verificationType: VerificationSchemeType
     var partnerUserId: String? = nil
     var partnerVerificationId: String? = nil
     var sessionLifetime: Int? = nil

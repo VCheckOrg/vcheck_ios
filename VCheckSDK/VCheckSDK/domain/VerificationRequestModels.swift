@@ -67,13 +67,6 @@ struct CreateVerificationRequestBody: Codable {
       
         let strToSign = "\(self.partnerId)\(self.partnerUserId)\(self.partnerVerificationId)\(self.scheme)\(self.timestamp)\(partnerSecret)"
         self.sign = strToSign.sha256()
-      
-    //'partner_id'+'partner_user_id'+'partner_verification_id'+'scheme'+'timestamp'+'secret' !!!
-        
-    //self.timestamp = Int(timestamp)
-    //      let secondPrecision = Int(Date().timeIntervalSince1970)
-    //      self.timestamp = secondPrecision
-    //      print("SELF TIMESTAMP : \(String(describing: self.timestamp))")
   }
 }
 

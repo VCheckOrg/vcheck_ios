@@ -72,7 +72,7 @@ struct LivenessUploadResponseData: Codable {
 
   enum CodingKeys: String, CodingKey {
 
-    case isFinal = "is_final"
+    case isFinal = "is_primary"
     case reason  = "reason"
     case status  = "status"
   
@@ -97,6 +97,7 @@ enum LivenessChallengeStatus {
     case RUNNING
     case SUCCESS
     case FAIL
+    case ERROR
 }
 
 func statusCodeToLivenessChallengeStatus(code: Int) -> LivenessChallengeStatus {
@@ -105,7 +106,7 @@ func statusCodeToLivenessChallengeStatus(code: Int) -> LivenessChallengeStatus {
         case 1: return LivenessChallengeStatus.RUNNING
         case 2: return LivenessChallengeStatus.SUCCESS
         case 3: return LivenessChallengeStatus.FAIL
-        default: return LivenessChallengeStatus.FAIL
+        default: return LivenessChallengeStatus.ERROR
     }
 }
 
@@ -115,6 +116,7 @@ func livenessChallengeStatusToCode(livenessChallengeStatus: LivenessChallengeSta
         case LivenessChallengeStatus.RUNNING: return 1
         case LivenessChallengeStatus.SUCCESS: return 2
         case LivenessChallengeStatus.FAIL: return 3
+    case LivenessChallengeStatus.ERROR: return 4
     }
 }
 

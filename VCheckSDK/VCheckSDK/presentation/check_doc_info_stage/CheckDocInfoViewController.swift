@@ -88,15 +88,14 @@ class CheckDocInfoViewController : UIViewController {
         
         viewModel.didReceivedCurrentStage = {
             if (self.viewModel.currentStageResponse?.errorCode == nil
-                || self.viewModel.currentStageResponse?.errorCode ==
-                    StageObstacleErrorType.USER_INTERACTED_COMPLETED.toTypeIdx()) {
-                if (self.viewModel.currentStageResponse?.data?.config?.gestures != nil) {
+                || self.viewModel.currentStageResponse?.errorCode
+                    == StageObstacleErrorType.USER_INTERACTED_COMPLETED.toTypeIdx()) {
+                if (self.viewModel.currentStageResponse?.data?.config != nil) {
                     LocalDatasource.shared.setLivenessMilestonesList(list:
                         (self.viewModel.currentStageResponse?.data?.config?.gestures)!)
                     print("GOT LIVENESS MILESTONES LIST: \(String(describing: LocalDatasource.shared.getLivenessMilestonesList()))")
                     self.performSegue(withIdentifier: "CheckInfoToLivenessInstr", sender: nil)
-                } else {
-                    //TODO: test!
+                } else if (VCheckSDK.shared.verificationClientCreationModel?.verificationType == VerificationSchemeType.DOCUMENT_UPLOAD_ONLY) {
                     VCheckSDK.shared.onFinish()
                 }
             } else {
@@ -105,6 +104,7 @@ class CheckDocInfoViewController : UIViewController {
             }
         }
         
+        //TODO: improve UX
         viewModel.updateLoadingStatus = {
             if (self.viewModel.isLoading == true) {
                 //self.activityIndicatorStart()

@@ -104,7 +104,7 @@ class DemoStartViewController : UIViewController {
         if let defaultSelectedCountry = self.viewModel.countries!.first(where: { $0.code == "ua" }) {
             LocalDatasource.shared.saveSelectedCountryCode(code: defaultSelectedCountry.code)
         } else {
-           print("CANNOT SAVE DEFAULT COUNTRY TO KEYCHAIN")
+           print("ERROR: CANNOT SAVE DEFAULT COUNTRY TO KEYCHAIN!")
         }
         
         self.performSegue(withIdentifier: "StartToCountries", sender: data)

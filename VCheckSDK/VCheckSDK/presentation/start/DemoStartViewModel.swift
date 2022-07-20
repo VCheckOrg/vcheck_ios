@@ -68,6 +68,8 @@ class DemoStartViewModel {
             return
         }
         
+        //print("VERIF MODEL TYPE: \(String(describing: VCheckSDK.shared.verificationClientCreationModel?.verificationType))")
+        
         if let timestamp = self.timestamp {
             self.dataService.createVerificationRequest(timestamp: timestamp,
                                                        locale: languagePrefix,
@@ -134,7 +136,7 @@ class DemoStartViewModel {
                 return
             }
             
-            print("VERIF ::: GOT COUNTRIES! DATA: \(String(describing: data))")
+            //print("VERIF ::: GOT COUNTRIES! DATA: \(String(describing: data))")
                         
             if (data!.count > 0) {
                 self.isLoading = false
