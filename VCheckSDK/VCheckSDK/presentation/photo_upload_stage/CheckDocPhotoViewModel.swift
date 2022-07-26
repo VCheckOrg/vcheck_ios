@@ -19,7 +19,7 @@ class CheckDocPhotoViewModel {
     // MARK: - Properties
     var uploadResponse: DocumentUploadResponse? = nil
 
-    var error: ApiError? {
+    var error: VCheckApiError? {
         didSet { self.showAlertClosure?() }
     }
     var isLoading: Bool = false {

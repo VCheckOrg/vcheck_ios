@@ -19,6 +19,8 @@ public class VCheckSDK {
     private var partnerId: Int? = nil
     private var partnerSecret: String? = nil
     
+    private var verificationId: Int? = nil
+    
     private var verificationType: VerificationSchemeType?
     private var partnerUserId: String? = nil
     private var partnerVerificationId: String? = nil
@@ -51,11 +53,11 @@ public class VCheckSDK {
     
     private func preStartChecksPassed() -> Bool {
         if (self.verificationType == nil) {
-            print("VCheckSDK - error: proper verification type must be provided | see VheckSDK.shared.verificationType(type: VerificationSchemeType)")
+            print("VCheckSDK - error: proper verification type must be provided | see VCheckSDK.shared.verificationType(type: VerificationSchemeType)")
             return false
         }
         if (self.partnerEndCallback == nil) {
-           print("VCheckSDK - error: partner application's callback function (invoked on SDK flow finish) must be provided | see VheckSDK.shared.partnerSecret(secret: String)")
+           print("VCheckSDK - error: partner application's callback function (invoked on SDK flow finish) must be provided | see VCheckSDK.shared.partnerSecret(secret: String)")
            return false
         }
         if (self.partnerId == nil) {
@@ -116,17 +118,30 @@ public class VCheckSDK {
         return self
     }
     
-    
-    
-    //private var customServiceURL: String? = nil
-    
-    //    if (customServiceURL != nil && !customServiceURL!.isValidURL()) {
-    //       print("VCheckSDK - error: if provided, custom service URL must be valid public URL")
-    //       return false
-    //    }
-    
-    //    func customServiceURL(url: String) -> VCheckSDK {
-    //        self.customServiceURL = url
-    //        return self
-    //    }
+    public func checkFinalVerificationStatus(completion:
+                                             @escaping (VerificationCheckResult?, VCheckApiError?) -> ()) {
+        RemoteDatasource.shared.checkFinalVerificationStatus(verifToken: LocalDatasource.shared.readAccessToken(),
+                                                             verifId: self.verificationId!,
+                                                             partnerId: self.partnerId!,
+                                                             partnerSecret: self.partnerSecret!,
+                                                             completion: { (result, error) in
+            if let error = error {
+                completion(nil, error)
+            }
+            completion(result, nil)
+        })
+    }
 }
+
+
+//private var customServiceURL: String? = nil
+
+//    if (customServiceURL != nil && !customServiceURL!.isValidURL()) {
+//       print("VCheckSDK - error: if provided, custom service URL must be valid public URL")
+//       return false
+//    }
+
+//    func customServiceURL(url: String) -> VCheckSDK {
+//        self.customServiceURL = url
+//        return self
+//    }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ApiError {
+public struct VCheckApiError {
     
     let errorText: String
 }

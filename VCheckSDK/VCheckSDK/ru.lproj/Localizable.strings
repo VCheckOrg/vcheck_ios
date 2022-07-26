@@ -20,17 +20,17 @@
 "line_face_obstacle" = "Смотрите прямо";
 
 /* No comment provided by engineer. */
-"liveness_stage_check_face_pos" = "Выровняйте лицо и закройте рот";
+"liveness_stage_check_face_pos" = "Держите голову прямо";
 
 /* No comment provided by engineer. */
-"liveness_stage_face_left" = "Поверните лицо влево";
+"liveness_stage_face_left" = "Поверните голову влево";
 
 /* No comment provided by engineer. */
-"liveness_stage_face_right" = "Поверните лицо вправо";
+"liveness_stage_face_right" = "Поверните голову вправо";
 
-"liveness_stage_face_up" = "Поднимите лицо вверх";
+"liveness_stage_face_up" = "Поднимите голову вверх";
 
-"liveness_stage_face_down" = "Наклоните лицо вниз";
+"liveness_stage_face_down" = "Наклоните голову вниз";
 
 /* No comment provided by engineer. */
 "liveness_stage_open_mouth" = "Откройте рот";

@@ -484,26 +484,3 @@ extension LivenessScreenViewController: AVCaptureVideoDataOutputSampleBufferDele
         }
     }
 }
-
-
-
-// FOR TEST!
-//extension LivenessScreenViewController {
-//
-//    //MARK: - Saving Image here
-//        func saveToGallery(image: UIImage) {
-//            UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
-//        }
-//
-//        //MARK: - Add image to Library
-//        @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-//            if let error = error {
-//                print("************* ERRROR SAVING IMAGE : \(error)")
-//                // we got back an error!
-//                //showAlertWith(title: "Save error", message: error.localizedDescription)
-//            } else {
-//                print("************* SAVED IMAGE !")
-//                //showAlertWith(title: "Saved!", message: "Your image has been saved to your photos.")
-//            }
-//        }
-//}

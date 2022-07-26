@@ -20,20 +20,20 @@
 "line_face_obstacle" = "Don't look up or down";
 
 /* No comment provided by engineer. */
-"liveness_stage_check_face_pos" = "Align face and close mouth";
+"liveness_stage_check_face_pos" = "Keep your head straight";
 
 /* No comment provided by engineer. */
-"liveness_stage_face_left" = "Turn face to the left";
+"liveness_stage_face_left" = "Turn your head to the left";
 
 /* No comment provided by engineer. */
-"liveness_stage_face_right" = "Turn face to the right";
+"liveness_stage_face_right" = "Turn your head to the right";
 
-"liveness_stage_face_up" = "Lift face up";
+"liveness_stage_face_up" = "Lift your head up";
 
-"liveness_stage_face_down" = "Tilt face down";
+"liveness_stage_face_down" = "Put your head down";
 
 /* No comment provided by engineer. */
-"liveness_stage_open_mouth" = "Open mouth";
+"liveness_stage_open_mouth" = "Open your mouth";
 
 /* No comment provided by engineer. */
 "photo_loaing_wait_discl" = "Please, wait. The photo of your document is being loaded and processed. This may take from a few seconds to a minute.";

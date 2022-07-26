@@ -22,7 +22,7 @@ class DemoStartViewModel {
     
     var countries: [Country]?
 
-    var error: ApiError? {
+    var error: VCheckApiError? {
         didSet { self.showAlertClosure?() }
     }
     var isLoading: Bool = false {
@@ -63,7 +63,7 @@ class DemoStartViewModel {
         let languagePrefix = GlobalUtils.getVCheckCurrentLanguageCode()
         
         if (VCheckSDK.shared.verificationClientCreationModel == nil) {
-            self.error = ApiError(errorText: "Client error: Verification was not created properly")
+            self.error = VCheckApiError(errorText: "Client error: Verification was not created properly")
             self.isLoading = false
             return
         }

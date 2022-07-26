@@ -20,7 +20,7 @@ class VideoProcessingViewModel {
    
     var currentStageResponse: StageResponse?
 
-    var error: ApiError? {
+    var error: VCheckApiError? {
         didSet { self.showAlertClosure?() }
     }
     var isLoading: Bool = false {

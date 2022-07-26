@@ -8,9 +8,9 @@
 import Foundation
 
 public enum VerificationSchemeType: String, CustomStringConvertible {
-    case FULL_CHECK// = «full_check»
-    case DOCUMENT_UPLOAD_ONLY// = «document_upload_only»
-    case LIVENESS_CHALLENGE_ONLY// = «liveness_challenge_only»
+    case FULL_CHECK
+    case DOCUMENT_UPLOAD_ONLY
+    case LIVENESS_CHALLENGE_ONLY
     
     public var description: String {
         get {

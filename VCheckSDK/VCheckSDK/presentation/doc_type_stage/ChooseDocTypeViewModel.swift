@@ -17,7 +17,7 @@ class ChooseDocTypeViewModel  {
     // MARK: - Properties
     var docTypeDataArr: [DocTypeData] = []
     
-    var error: ApiError? {
+    var error: VCheckApiError? {
         didSet { self.showAlertClosure?() }
     }
     

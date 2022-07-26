@@ -18,7 +18,7 @@ class DocPhotoVerifErrorViewModel {
     var docInfoResponse: PreProcessedDocData? = nil
     var confirmedDocResponse: Bool = false
    
-    var error: ApiError? {
+    var error: VCheckApiError? {
         didSet { self.showAlertClosure?() }
     }
     var isLoading: Bool = false {
