@@ -14,6 +14,8 @@ class CheckDocPhotoViewController : UIViewController {
     
     var firstPhoto: UIImage? = nil
     var secondPhoto: UIImage? = nil
+    
+    var isDocCheckForced: Bool = false
         
     @IBOutlet weak var secondPhotoCard: RoundedView!
     
@@ -88,21 +90,30 @@ class CheckDocPhotoViewController : UIViewController {
         confirmUploadPhotosBtn.addGestureRecognizer(uploadPhotosTap)
     }
     
+//    func handleDocUplResponse() {
+//        self.activityIndicatorStop()
+//    }
+    
     func handleDocUploadResponse() {
         self.activityIndicatorStop()
         
-        print("RECEIVED PHOTO UPLOAD RESPONSE! ::: \(String(describing: self.viewModel.uploadResponse))")
-        
-        //TODO: handle doc upload response w/codes
-        
-        if (self.viewModel.uploadResponse?.errorCode != nil && self.viewModel.uploadResponse?.errorCode != 0) {
-            self.showToast(message: "Error: [\(String(describing: self.viewModel.uploadResponse?.errorCode))]", seconds: 3.0)
+        print("RECEIVED PHOTO UPLOAD ERROR ::: \(String(describing: self.viewModel.uploadResponse))")
+                
+        if (self.viewModel.uploadResponse?.errorCode == DocumentVerificationCode.PARSING_ERROR.toCodeIdx()
+            || self.viewModel.uploadResponse?.errorCode == DocumentVerificationCode.INVALID_PAGE.toCodeIdx()) {
+            //self.showToast(message: "Error: [\(String(describing: self.viewModel.uploadResponse?.errorCode))]", seconds: 3.0)
+            handleDocDataResponse(isDocCheckForced: true)
         } else {
-            if (self.viewModel.uploadResponse?.data != nil) {
-                self.navigateToDocInfoScreen()
-            } else {
-                self.showToast(message: "Error: no document data in response", seconds: 3.0)
-            }
+            handleDocDataResponse(isDocCheckForced: false)
+        }
+    }
+    
+    func handleDocDataResponse(isDocCheckForced: Bool) {
+        if(self.viewModel.uploadResponse?.data?.id != nil) {
+            self.isDocCheckForced = true
+            self.navigateToDocInfoScreen()
+        } else {
+            self.showToast(message: "Error: no document data in response", seconds: 3.0)
         }
     }
     
@@ -141,6 +152,7 @@ class CheckDocPhotoViewController : UIViewController {
             } else {
                 vc.docId = self.viewModel.uploadResponse?.data?.id
             }
+            vc.isDocCheckForced = self.isDocCheckForced
         }
         if (segue.identifier == "CheckPhotoToZoom") {
             let vc = segue.destination as! ZoomedDocPhotoViewController
@@ -149,7 +161,7 @@ class CheckDocPhotoViewController : UIViewController {
         if (segue.identifier == "DocPhotoCheckToError") {
             let vc = segue.destination as! DocPhotoVerifErrorViewController
             vc.firstPhoto = self.firstPhoto
-            vc.statusCode = -1//!
+            vc.statusCode = -1
             if (self.secondPhoto != nil) {
                 vc.secondPhoto = self.secondPhoto
             }
@@ -163,7 +175,6 @@ class CheckDocPhotoViewController : UIViewController {
     }
     
     func moveToChooseDocTypeViewController() {
-        //!
         let viewController = self.navigationController?.viewControllers.first { $0 is ChooseDocTypeViewController }
         guard let destinationVC = viewController else { return }
         self.navigationController?.popToViewController(destinationVC, animated: true)

@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 
-
 public class VCheckSDK {
     
     public static let shared = VCheckSDK()
@@ -31,6 +30,8 @@ public class VCheckSDK {
 
     public func start(partnerAppRootWindow: UIWindow) {
         
+        self.resetVerification()
+        
         if (preStartChecksPassed()) {
             
             GlobalUtils.setVCheckCurrentLanguageCode(langCode: Locale.current.languageCode!)
@@ -45,6 +46,11 @@ public class VCheckSDK {
             partnerAppRootWindow.rootViewController = GlobalUtils.getVCheckHomeVC()
             partnerAppRootWindow.makeKeyAndVisible()
         }
+    }
+    
+    private func resetVerification() {
+        LocalDatasource.shared.deleteAllSessionData()
+        self.verificationId = nil
     }
     
     public func onFinish() {
@@ -130,6 +136,10 @@ public class VCheckSDK {
             }
             completion(result, nil)
         })
+    }
+    
+    internal func setVerificationId(verifId: Int) {
+        self.verificationId = verifId
     }
 }
 

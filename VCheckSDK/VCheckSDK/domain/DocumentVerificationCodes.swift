@@ -9,17 +9,18 @@ import Foundation
 
 enum DocumentVerificationCode {
     
-    case VERIFICATION_NOT_INITIALIZED// = 0
-    case USER_INTERACTED_COMPLETED// = 1
-    case STAGE_NOT_FOUND// = 2
-    case INVALID_STAGE_TYPE// = 3
-    case PRIMARY_DOCUMENT_EXISTS// = 4
-    case UPLOAD_ATTEMPTS_EXCEEDED// = 5
-    case INVALID_DOCUMENT_TYPE// = 6
-    case INVALID_PAGES_COUNT// = 7
-    case INVALID_FILES// = 8
-    case PHOTO_TOO_LARGE// = 9
-    case PARSING_ERROR// = 10
+    case VERIFICATION_NOT_INITIALIZED // = 0
+    case USER_INTERACTED_COMPLETED // = 1
+    case STAGE_NOT_FOUND // = 2
+    case INVALID_STAGE_TYPE // = 3
+    case PRIMARY_DOCUMENT_EXISTS // = 4
+    case UPLOAD_ATTEMPTS_EXCEEDED // = 5
+    case INVALID_DOCUMENT_TYPE // = 6
+    case INVALID_PAGES_COUNT // = 7
+    case INVALID_FILES // = 8
+    case PHOTO_TOO_LARGE // = 9
+    case PARSING_ERROR // = 10
+    case INVALID_PAGE // = 11
 }
 
 extension DocumentVerificationCode {
@@ -36,6 +37,7 @@ extension DocumentVerificationCode {
             case DocumentVerificationCode.INVALID_FILES: return 8
             case DocumentVerificationCode.PHOTO_TOO_LARGE: return 9
             case DocumentVerificationCode.PARSING_ERROR: return 10
+            case DocumentVerificationCode.INVALID_PAGE: return 11
         }
     }
 }
@@ -52,16 +54,7 @@ func codeIdxToVerificationCode(codeIdx: Int) -> DocumentVerificationCode {
         case 7: return DocumentVerificationCode.INVALID_PAGES_COUNT
         case 8: return DocumentVerificationCode.INVALID_FILES
         case 9: return DocumentVerificationCode.PHOTO_TOO_LARGE
-        default: return DocumentVerificationCode.PARSING_ERROR
+        case 10: return DocumentVerificationCode.PARSING_ERROR
+        default: return DocumentVerificationCode.INVALID_PAGE
     }
 }
-
-
-//    case OK //0
-//    case InvalidPagesCount  //1 - Неверное кол-во загруженных файлов
-//    case InvalidVerificationStage  //2 - Этап заявки не соответствует разрешенному для данного запроса
-//    case UploadAttemptsExceeded  //3 - Кол-во попыток на загрузку истекло
-//    case InvalidFiles //4 - Неверное расширение документа
-//    case InvalidDocumentType //5 - Неверный тип документа
-//    case PrimaryAlreadyExists  //6 - Основой документ уже существует
-//    case PhotoTooLarge //7 - Вес файлов превышает допустимый

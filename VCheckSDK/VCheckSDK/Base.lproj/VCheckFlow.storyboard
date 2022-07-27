@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="-2094" y="498"/>
         </scene>
-        <!--Demo Start View Controller-->
+        <!--Check Start View Controller-->
         <scene sceneID="5BM-mo-2Xp">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="3HI-Lp-Qj3" customClass="DemoStartViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="3HI-Lp-Qj3" customClass="VCheckStartViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A7h-UM-Lh9">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1470,50 +1470,17 @@
                                                             <constraint firstAttribute="height" constant="240" id="bzH-zE-nsQ"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Заявка отправлена  на проверку" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iad-2I-iin">
-                                                        <rect key="frame" x="16" y="276" width="334" height="21.666666666666686"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Заявка на верификацию отправлена на проверку. Очень скоро Вас уведомят о результате." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oov-Zo-rlv">
-                                                        <rect key="frame" x="16" y="313.66666666666669" width="334" height="50.333333333333314"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <color key="textColor" name="DescriptionColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="3LY-hv-Mp1">
+                                                    <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="3LY-hv-Mp1">
                                                         <rect key="frame" x="164.66666666666666" y="391" width="37" height="37"/>
                                                         <color key="color" name="DescriptionColor"/>
                                                     </activityIndicatorView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6yr-kz-O3F">
-                                                        <rect key="frame" x="16" y="408" width="334" height="56"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="56" id="219-zN-H8y"/>
-                                                        </constraints>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="filled" title="Отлично"/>
-                                                        <connections>
-                                                            <action selector="livenessSuccessAction:" destination="uMO-hA-gT0" eventType="touchUpInside" id="fwb-Uq-PSK"/>
-                                                        </connections>
-                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" name="CardColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="iad-2I-iin" secondAttribute="trailing" constant="16" id="0eq-03-yC7"/>
-                                                    <constraint firstItem="6yr-kz-O3F" firstAttribute="top" secondItem="Oov-Zo-rlv" secondAttribute="bottom" constant="44" id="BRE-Zr-lKN"/>
-                                                    <constraint firstAttribute="bottom" secondItem="6yr-kz-O3F" secondAttribute="bottom" constant="24" id="POe-fp-kMO"/>
                                                     <constraint firstItem="g2g-gf-gml" firstAttribute="top" secondItem="fk7-0l-cCW" secondAttribute="top" constant="24" id="cem-n0-s1r"/>
-                                                    <constraint firstItem="6yr-kz-O3F" firstAttribute="leading" secondItem="fk7-0l-cCW" secondAttribute="leading" constant="16" id="efV-qR-dkh"/>
-                                                    <constraint firstItem="iad-2I-iin" firstAttribute="leading" secondItem="fk7-0l-cCW" secondAttribute="leading" constant="16" id="jEk-Tk-Ptv"/>
-                                                    <constraint firstItem="Oov-Zo-rlv" firstAttribute="top" secondItem="iad-2I-iin" secondAttribute="bottom" constant="16" id="jXi-Ra-MhY"/>
-                                                    <constraint firstItem="iad-2I-iin" firstAttribute="top" secondItem="g2g-gf-gml" secondAttribute="bottom" constant="12" id="jvf-T9-yNx"/>
                                                     <constraint firstItem="3LY-hv-Mp1" firstAttribute="centerX" secondItem="fk7-0l-cCW" secondAttribute="centerX" id="lRg-yD-4zE"/>
                                                     <constraint firstAttribute="bottom" secondItem="3LY-hv-Mp1" secondAttribute="bottom" constant="60" id="m6d-XJ-DnR"/>
-                                                    <constraint firstItem="Oov-Zo-rlv" firstAttribute="leading" secondItem="fk7-0l-cCW" secondAttribute="leading" constant="16" id="nCO-ni-aQa"/>
                                                     <constraint firstItem="g2g-gf-gml" firstAttribute="leading" secondItem="fk7-0l-cCW" secondAttribute="leading" constant="28" id="nyz-R7-tHr"/>
-                                                    <constraint firstAttribute="trailing" secondItem="6yr-kz-O3F" secondAttribute="trailing" constant="16" id="tpT-y4-36P"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Oov-Zo-rlv" secondAttribute="trailing" constant="16" id="u1q-h9-BQt"/>
                                                     <constraint firstAttribute="trailing" secondItem="g2g-gf-gml" secondAttribute="trailing" constant="28" id="wU6-wc-E2h"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -1529,6 +1496,7 @@
                                             <constraint firstItem="fk7-0l-cCW" firstAttribute="leading" secondItem="zIj-7X-oeY" secondAttribute="leading" constant="12" id="ZOT-cC-xgq"/>
                                             <constraint firstItem="fk7-0l-cCW" firstAttribute="top" secondItem="zIj-7X-oeY" secondAttribute="top" constant="84" id="tVb-gJ-01N"/>
                                             <constraint firstAttribute="bottom" secondItem="fk7-0l-cCW" secondAttribute="bottom" constant="65" id="uJL-QD-Zpb"/>
+                                            <constraint firstAttribute="height" constant="637" id="wIh-nb-LRg"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1552,10 +1520,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="vFh-so-BRF"/>
                     <connections>
-                        <outlet property="videoProcessingDesc" destination="Oov-Zo-rlv" id="2nP-LX-CrM"/>
                         <outlet property="videoProcessingIndicator" destination="3LY-hv-Mp1" id="gsT-Wh-pMt"/>
-                        <outlet property="videoProcessingSuccessButton" destination="6yr-kz-O3F" id="VCl-pG-05w"/>
-                        <outlet property="videoProcessingTitle" destination="iad-2I-iin" id="PTw-X9-z3G"/>
                         <segue destination="Drf-gg-cCY" kind="show" identifier="VideoUploadToFailure" id="KTM-8y-TXX"/>
                         <segue destination="K4l-kg-dQj" kind="show" identifier="InProcessToObstacles" id="riI-uo-ZBO"/>
                         <segue destination="Gk4-E0-G28" kind="show" identifier="InProcessToWrongGesture" id="thq-za-677"/>
@@ -2433,18 +2398,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hhc-oa-FC6" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="84" width="366" height="735.66666666666663"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNG-ph-Cor">
-                                                        <rect key="frame" x="16" y="655.66666666666663" width="334" height="56"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="56" id="j5v-Wb-Ipl"/>
-                                                        </constraints>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="filled" title="Продолжить">
-                                                            <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
-                                                        </buttonConfiguration>
-                                                    </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Загрузите фото документа" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCm-VK-XhF">
-                                                        <rect key="frame" x="16.000000000000014" y="55.999999999999993" width="242.33333333333337" height="21.666666666666664"/>
+                                                        <rect key="frame" x="16.000000000000014" y="56.000000000000007" width="242.33333333333337" height="22.333333333333336"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -2457,13 +2412,13 @@
                                                         </constraints>
                                                     </imageView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QAk-dG-hue" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="97.666666666666657" width="334" height="249.99999999999997"/>
+                                                        <rect key="frame" x="16" y="98.333333333333343" width="334" height="250.00000000000003"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JoJ-Ks-g2F">
                                                                 <rect key="frame" x="18" y="0.0" width="298" height="250"/>
                                                             </imageView>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dvC-xF-m5v">
-                                                                <rect key="frame" x="16" y="34.000000000000028" width="62" height="80"/>
+                                                                <rect key="frame" x="16" y="33.999999999999972" width="62" height="80"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="62" id="C0W-4q-yfq"/>
                                                                     <constraint firstAttribute="height" constant="80" id="qSS-Pa-9WY"/>
@@ -2477,7 +2432,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAe-re-A91" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
-                                                                <rect key="frame" x="43" y="160.00000000000003" width="248" height="46"/>
+                                                                <rect key="frame" x="43" y="159.99999999999997" width="248" height="46"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сделать фото" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGK-zu-Dsf">
                                                                         <rect key="frame" x="82" y="11" width="115" height="24"/>
@@ -2517,7 +2472,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6v6-eK-T1j">
-                                                                <rect key="frame" x="90" y="65.000000000000028" width="228" height="28.666666666666671"/>
+                                                                <rect key="frame" x="90" y="64.999999999999972" width="228" height="28.666666666666671"/>
                                                                 <string key="text">Загрузите фото лицевого разворота
 (разворот с вашим фото).</string>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
@@ -2555,33 +2510,33 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hWN-ru-b13" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="375.66666666666669" width="334" height="250.00000000000006"/>
+                                                        <rect key="frame" x="16" y="376.33333333333331" width="334" height="249.99999999999994"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="shV-i7-dlB">
                                                                 <rect key="frame" x="18" y="0.0" width="298" height="250"/>
                                                             </imageView>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q4M-96-N2h">
-                                                                <rect key="frame" x="16" y="33.999999999999943" width="62" height="80"/>
+                                                                <rect key="frame" x="16" y="34.000000000000057" width="62" height="80"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="62" id="KQv-ea-dnz"/>
                                                                     <constraint firstAttribute="height" constant="80" id="PeT-sJ-iAJ"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Загрузите фото обратного разворота." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0x-f9-qUL">
-                                                                <rect key="frame" x="90" y="64.999999999999943" width="228" height="28.666666666666671"/>
+                                                                <rect key="frame" x="90" y="65.000000000000057" width="228" height="28.666666666666671"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="247" verticalHuggingPriority="251" image="delete_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Tee-xk-jrh">
-                                                                <rect key="frame" x="284" y="11.999999999999943" width="42" height="42"/>
+                                                                <rect key="frame" x="284" y="12.000000000000057" width="42" height="42"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="42" id="7Hb-sO-BSr"/>
                                                                     <constraint firstAttribute="width" constant="42" id="emx-Jk-ocE"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OaU-0r-EKr" customClass="RoundedView" customModule="VCheckSDK" customModuleProvider="target">
-                                                                <rect key="frame" x="43" y="159.99999999999994" width="248" height="46"/>
+                                                                <rect key="frame" x="43" y="160.00000000000006" width="248" height="46"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сделать фото" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRM-vS-6wd">
                                                                         <rect key="frame" x="82" y="11" width="115" height="24"/>
@@ -2662,25 +2617,35 @@
                                                             <action selector="backToInstr:" destination="ZEj-uY-1Rn" eventType="touchUpInside" id="dUV-kC-4Ua"/>
                                                         </connections>
                                                     </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEk-Jf-qte">
+                                                        <rect key="frame" x="16" y="655.66666666666663" width="334" height="56"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="56" id="3an-mn-CVb"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Продолжить"/>
+                                                        <connections>
+                                                            <action selector="livenessSuccessAction:" destination="uMO-hA-gT0" eventType="touchUpInside" id="QnK-Xl-eWF"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" name="CardColor"/>
                                                 <constraints>
                                                     <constraint firstItem="hWN-ru-b13" firstAttribute="top" secondItem="QAk-dG-hue" secondAttribute="bottom" constant="28" id="4sD-py-S0g"/>
-                                                    <constraint firstItem="ZNG-ph-Cor" firstAttribute="top" secondItem="hWN-ru-b13" secondAttribute="bottom" constant="30" id="5yB-Uq-92D"/>
+                                                    <constraint firstItem="eEk-Jf-qte" firstAttribute="leading" secondItem="Hhc-oa-FC6" secondAttribute="leading" constant="16" id="5dz-1M-Qs4"/>
                                                     <constraint firstAttribute="trailing" secondItem="hWN-ru-b13" secondAttribute="trailing" constant="16" id="BlH-Gz-Qoo"/>
                                                     <constraint firstItem="QAk-dG-hue" firstAttribute="top" secondItem="GCm-VK-XhF" secondAttribute="bottom" constant="20" id="EwY-Aj-TXF"/>
-                                                    <constraint firstAttribute="trailing" secondItem="ZNG-ph-Cor" secondAttribute="trailing" constant="16" id="HpJ-M5-fFc"/>
+                                                    <constraint firstAttribute="trailing" secondItem="eEk-Jf-qte" secondAttribute="trailing" constant="16" id="HHe-fV-zTf"/>
                                                     <constraint firstItem="GCm-VK-XhF" firstAttribute="leading" secondItem="Hhc-oa-FC6" secondAttribute="leading" constant="16" id="SLp-Au-gZ4"/>
                                                     <constraint firstAttribute="trailing" secondItem="QAk-dG-hue" secondAttribute="trailing" constant="16" id="TEa-JR-GrN"/>
-                                                    <constraint firstItem="ZNG-ph-Cor" firstAttribute="leading" secondItem="Hhc-oa-FC6" secondAttribute="leading" constant="16" id="Wts-Td-t4U"/>
+                                                    <constraint firstAttribute="bottom" secondItem="eEk-Jf-qte" secondAttribute="bottom" constant="24" id="aTv-pU-3cy"/>
                                                     <constraint firstItem="AM5-Tn-EH1" firstAttribute="top" secondItem="Hhc-oa-FC6" secondAttribute="top" constant="28" id="c99-zX-x3O"/>
                                                     <constraint firstItem="AM5-Tn-EH1" firstAttribute="leading" secondItem="Hhc-oa-FC6" secondAttribute="leading" constant="23" id="ciI-4d-5p3"/>
                                                     <constraint firstItem="GCm-VK-XhF" firstAttribute="top" secondItem="AM5-Tn-EH1" secondAttribute="bottom" constant="12" id="eHu-8N-VGv"/>
                                                     <constraint firstItem="hWN-ru-b13" firstAttribute="leading" secondItem="Hhc-oa-FC6" secondAttribute="leading" constant="16" id="fzH-Gq-yB1"/>
                                                     <constraint firstItem="QAk-dG-hue" firstAttribute="leading" secondItem="Hhc-oa-FC6" secondAttribute="leading" constant="16" id="iDy-i0-bB3"/>
                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GCm-VK-XhF" secondAttribute="trailing" constant="20" symbolic="YES" id="iTb-oa-fsU"/>
-                                                    <constraint firstItem="ZNG-ph-Cor" firstAttribute="top" secondItem="QAk-dG-hue" secondAttribute="bottom" constant="307.99999999999994" id="j3o-j8-qGe"/>
-                                                    <constraint firstAttribute="bottom" secondItem="ZNG-ph-Cor" secondAttribute="bottom" constant="24" id="yEn-z3-zF8"/>
+                                                    <constraint firstItem="eEk-Jf-qte" firstAttribute="top" secondItem="hWN-ru-b13" secondAttribute="bottom" constant="29.333333333333258" id="yTV-Hn-SJb"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -2695,6 +2660,7 @@
                                             <constraint firstAttribute="bottom" secondItem="Hhc-oa-FC6" secondAttribute="bottom" constant="65" id="9sO-sa-L29"/>
                                             <constraint firstItem="Hhc-oa-FC6" firstAttribute="top" secondItem="VT8-7V-8px" secondAttribute="top" constant="84" id="aXb-0e-aHW"/>
                                             <constraint firstAttribute="trailing" secondItem="Hhc-oa-FC6" secondAttribute="trailing" constant="12" id="gPh-EK-VKR"/>
+                                            <constraint firstAttribute="height" constant="884.66666666666663" id="rXU-yI-M7M"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -2719,8 +2685,6 @@
                     <navigationItem key="navigationItem" id="SZd-wG-nRA"/>
                     <connections>
                         <outlet property="backSideDocTitleConstraint" destination="0OK-1l-ujz" id="Y72-7k-c8m"/>
-                        <outlet property="btnContinueToPreview" destination="ZNG-ph-Cor" id="zFd-NG-4ul"/>
-                        <outlet property="continueButtonTopConstraint" destination="j3o-j8-qGe" id="tlw-Yl-LhN"/>
                         <outlet property="deleteFirstPhotoBtn" destination="a3h-nf-ex5" id="oO4-9F-T1y"/>
                         <outlet property="deleteSecondPhotoBtn" destination="Tee-xk-jrh" id="eNf-Hl-13F"/>
                         <outlet property="docPhotoFirstImgHolder" destination="JoJ-Ks-g2F" id="t7f-p1-5qX"/>
@@ -3575,13 +3539,13 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GAO-QE-GuP"/>
-        <segue reference="ZOg-Lf-JSX"/>
+        <segue reference="6Dz-L8-h7I"/>
+        <segue reference="hbx-PL-eMi"/>
         <segue reference="dMv-If-cud"/>
-        <segue reference="Apu-Tu-38V"/>
-        <segue reference="dMs-gB-ZC7"/>
-        <segue reference="zJe-KO-wvN"/>
-        <segue reference="HKh-3c-Vf4"/>
+        <segue reference="bvF-PB-3XP"/>
+        <segue reference="Cj4-0s-twM"/>
+        <segue reference="riI-uo-ZBO"/>
+        <segue reference="thq-za-677"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Too dark" width="718" height="680"/>

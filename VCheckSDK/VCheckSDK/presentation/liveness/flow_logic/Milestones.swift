@@ -46,14 +46,6 @@ class StandardMilestoneFlow {
         }
     }
     
-    func getFirstStage() -> GestureMilestoneType {
-        if (stagesList.count > 0) {
-            return stagesList[0]
-        } else {
-            return GestureMilestoneType.StraightHeadCheckMilestone
-        }
-    }
-    
     func areAllStagesPassed() -> Bool {
         return currentStageIdx > (stagesList.count - 1)
     }

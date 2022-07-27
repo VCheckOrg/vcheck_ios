@@ -9,24 +9,26 @@ import Foundation
 
 
 public struct VerificationCheckResult {
-    var isFinalizedAndSuccessful: Bool = false
-    var isFinalizedAndFailed: Bool = false
-    var isWaitingForManualCheck: Bool = false
-    var status: String
-    var scheme: String
-    var createdAt: String?
-    var finalizedAt: String?
-    var rejectionReasons: [String]?
+    private(set) var isFinalizedAndSuccess: Bool? = nil
+    private(set) var isFinalizedAndFail: Bool? = nil
+    private(set) var isWaitForManualCheck: Bool? = nil
+    private(set) var status: String
+    private(set) var scheme: String
+    private(set) var createdAt: String?
+    private(set) var finalizedAt: String?
+    private(set) var rejectionReasons: [String]?
     
     init(fromData: FinalVerifCheckResponseData) {
         
+        print("--- CHECK VERIF STATUS RESPONSE: \(fromData)")
+        
         let isFinalizedAndSuccess: Bool = (fromData.status?.lowercased() == "finalized" && fromData.isSuccess == true)
         let isFinalizedAndFailed: Bool = (fromData.status?.lowercased() == "finalized" && fromData.isSuccess == false)
-        let waitingForManualcheck: Bool = fromData.status?.lowercased() == "waiting_manual_check"
+        let waitingForManualCheck: Bool = fromData.status?.lowercased() == "waiting_manual_check"
         
-        self.isFinalizedAndSuccessful = isFinalizedAndSuccess
-        self.isFinalizedAndFailed = isFinalizedAndFailed
-        self.isWaitingForManualCheck = waitingForManualcheck
+        self.isFinalizedAndSuccess = isFinalizedAndSuccess
+        self.isFinalizedAndFail = isFinalizedAndFailed
+        self.isWaitForManualCheck = waitingForManualCheck
         
         self.status = fromData.status!
         self.scheme = fromData.scheme!
@@ -35,7 +37,37 @@ public struct VerificationCheckResult {
         self.rejectionReasons = fromData.rejectionReasons
     }
     
+    public func isFinalizedAndSuccessful() -> Bool {
+        return self.isFinalizedAndSuccess ?? false
+    }
     
+    public func isFinalizedAndFailed() -> Bool {
+        return self.isFinalizedAndFail ?? false
+    }
+    
+    public func isWaitingForManualCheck() -> Bool {
+        return self.isWaitForManualCheck ?? false
+    }
+    
+    public func getStatus() -> String {
+        return self.status
+    }
+    
+    public func getScheme() -> String {
+        return self.scheme
+    }
+    
+    public func getCreationTimeStr() -> String? {
+        return self.createdAt
+    }
+    
+    public func getFinalizationTimeStr() -> String? {
+        return self.finalizedAt
+    }
+    
+    public func getRejectionReasons() -> [String]? {
+        return self.rejectionReasons
+    }
 }
 
 
@@ -81,6 +113,17 @@ struct FinalVerifCheckResponseData: Codable {
     var finalizedAt: String? = nil
     var rejectionReasons: [String]? = nil
     
+    enum CodingKeys: String, CodingKey {
+
+      case status    = "status"
+      case isSuccess = "is_success"
+      case scheme   = "scheme"
+      case createdAt = "created_at"
+      case finalizedAt = "finalized_at"
+      case rejectionReasons = "rejection_reasons"
+    
+    }
+    
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
 
@@ -95,41 +138,3 @@ struct FinalVerifCheckResponseData: Codable {
     init() {
     }
 }
-
-
-/*
- data class VerificationResult(
-     val isFinalizedAndSuccessful: Boolean,
-     val isFinalizedAndFailed: Boolean,
-     val isWaitingForManualCheck: Boolean,
-     val status: String,
-     val scheme: String,
-     val createdAt: String?,
-     val finalizedAt: String?,
-     val rejectionReasons: List<String>?
- )
-
- data class FinalVerifCheckResponseModel(
-     @SerializedName("data")
-     val data: FinalVerifCheckResponseData,
-     @SerializedName("error_code")
-     var errorCode: Int = 0,
-     @SerializedName("message")
-     var message: String = ""
- )
-
- data class FinalVerifCheckResponseData(
-     @SerializedName("status")
-     val status: String,
-     @SerializedName("is_success")
-     val isSuccess: Boolean?,
-     @SerializedName("scheme")
-     val scheme: String,
-     @SerializedName("created_at")
-     val createdAt: String,
-     @SerializedName("finalized_at")
-     val finalizedAt: String?,
-     @SerializedName("rejection_reasons")
-     val rejectionReasons: List<String>?
- )
- */

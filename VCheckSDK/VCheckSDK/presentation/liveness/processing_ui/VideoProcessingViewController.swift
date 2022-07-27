@@ -18,27 +18,17 @@ class VideoProcessingViewController: UIViewController {
     var livenessVC: LivenessScreenViewController? = nil
     
     @IBOutlet weak var videoProcessingIndicator: UIActivityIndicatorView!
-    
-    @IBOutlet weak var videoProcessingTitle: UILabel!
-    @IBOutlet weak var videoProcessingDesc: UILabel!
-    
-    @IBOutlet weak var videoProcessingSuccessButton: UIButton!
-    
+        
     var videoFileURL: URL?
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.videoProcessingTitle.isHidden = true
-        self.videoProcessingDesc.isHidden = true
-        self.videoProcessingSuccessButton.isHidden = true
-        
-        activityIndicatorStart()
+        videoProcessingIndicator.isHidden = false
         
         let token = LocalDatasource.shared.readAccessToken()
         
         viewModel.didUploadVideoResponse = {
-            self.activityIndicatorStop()
             if (self.viewModel.uploadedVideoResponse != nil) {
                 print("DATA: \(String(describing: self.viewModel.uploadedVideoResponse))")
                 if (statusCodeToLivenessChallengeStatus(code: self.viewModel.uploadedVideoResponse!.status!)
@@ -48,27 +38,31 @@ class VideoProcessingViewController: UIViewController {
                         self.onBackendObstacleMet(reason: strCodeToLivenessFailureReason(
                             strCode: (self.viewModel.uploadedVideoResponse?.reason!)!))
                     } else {
-                        self.onVideoUploadResponseSuccess()
+                        self.livenessSuccessAction()
                     }
                 } else {
-                    self.onVideoUploadResponseSuccess()
+                    self.livenessSuccessAction()
                 }
             }
         }
         
         viewModel.showAlertClosure = {
-            self.activityIndicatorStop()
-            self.performSegue(withIdentifier: "VideoUploadToFailure", sender: nil)
+            if (self.viewModel.error?.errorCode == 400) {
+                self.livenessSuccessAction()
+            } else {
+                self.performSegue(withIdentifier: "VideoUploadToFailure", sender: nil)
+            }
         }
         
         if (!token.isEmpty && videoFileURL != nil) {
             uploadVideo()
         } else {
             //FOR TESTS
-            if (videoFileURL != nil) {
-                print("=========== TOKEN IS NIL. VIDEO FILE SIZE: \(String(describing: self.viewModel.fileSize(forURL: videoFileURL))) MB")
+            //if (videoFileURL != nil) {
+                print("VCheckSDK - Error: TOKEN/VIDEO FILE IS NIL")
+                //VIDEO FILE SIZE: \(String(describing: self.viewModel.fileSize(forURL: videoFileURL))) MB")
                 //playLivenessVideoPreview()
-            }
+            //}
         }
     }
     
@@ -126,20 +120,13 @@ class VideoProcessingViewController: UIViewController {
                 self.livenessVC?.renewLivenessSessionOnRetry()
             }
         }
+        if (segue.identifier == "VideoUploadToFailure") {
+            let vc = segue.destination as! VideoFailureViewController
+            vc.videoProcessingViewController = self
+        }
     }
     
-    func onVideoUploadResponseSuccess() {
-        self.videoProcessingTitle.isHidden = false
-        self.videoProcessingDesc.isHidden = false
-        self.videoProcessingSuccessButton.isHidden = false
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.livenessSuccessAction))
-        tapGesture.numberOfTapsRequired = 1
-        
-        self.videoProcessingSuccessButton.addGestureRecognizer(tapGesture)
-    }
-    
-    @objc func livenessSuccessAction() {
+    func livenessSuccessAction() {
         self.viewModel.didReceivedCurrentStage = {
             if (self.viewModel.currentStageResponse?.errorCode != nil && self.viewModel.currentStageResponse?.errorCode == StageObstacleErrorType.USER_INTERACTED_COMPLETED.toTypeIdx()) {
                 VCheckSDK.shared.onFinish()
@@ -152,17 +139,6 @@ class VideoProcessingViewController: UIViewController {
     
     func uploadVideo() {
         viewModel.uploadVideo(videoFileURL: videoFileURL!)
-    }
-    
-    // MARK: - UI Setup
-    private func activityIndicatorStart() {
-        self.videoProcessingIndicator.isHidden = false
-        self.videoProcessingIndicator.startAnimating()
-    }
-    
-    private func activityIndicatorStop() {
-        self.videoProcessingIndicator.isHidden = true
-        self.videoProcessingIndicator.stopAnimating()
     }
     
     

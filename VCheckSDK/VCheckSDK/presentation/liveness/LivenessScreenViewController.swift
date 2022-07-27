@@ -115,6 +115,8 @@ internal class LivenessScreenViewController: UIViewController {
         self.periodicGestureCheckTimer = Timer.scheduledTimer(timeInterval:
                         LivenessScreenViewController.GESTURE_REQUEST_INTERVAL, target: self,
                           selector: #selector(performGestureCheck), userInfo: nil, repeats: true)
+        
+        self.delayedStageIndicationRenew()
     }
     
     @objc func performGestureCheck() {
@@ -144,7 +146,6 @@ internal class LivenessScreenViewController: UIViewController {
                 print("Gesture request: Error [\(error.errorText)]")
                 return
             }
-            //print("GESTURE RESPONSE -- DATA: \(String(describing: data))")
             if (data?.success == true) {
                 self.milestoneFlow.incrementCurrentStage()
                 if (self.milestoneFlow.areAllStagesPassed()) {
@@ -323,9 +324,10 @@ extension LivenessScreenViewController {
         } else if (forMilestoneType == GestureMilestoneType.MouthOpenMilestone) {
             faceAnimationView = AnimationView(name: "mouth", bundle: InternalConstants.bundle)
         } else {
-            faceAnimationView = AnimationView()
-            faceAnimationView.stop()
-            roundedView.subviews.forEach { $0.removeFromSuperview() }
+//            faceAnimationView = AnimationView()
+//            faceAnimationView.stop()
+//            roundedView.subviews.forEach { $0.removeFromSuperview()
+            faceAnimationView = AnimationView(name: "mouth", bundle: InternalConstants.bundle)
         }
 
         faceAnimationView.contentMode = .scaleAspectFit
@@ -379,7 +381,47 @@ extension LivenessScreenViewController {
 
             arrowAnimationView.loopMode = .loop
 
-        } else {
+        } else if (forMilestoneType == GestureMilestoneType.UpHeadPitchMilestone) {
+            
+            leftArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
+
+            arrowAnimationView = AnimationView(name: "arrow", bundle: InternalConstants.bundle)
+
+            arrowAnimationView.contentMode = .center
+            arrowAnimationView.translatesAutoresizingMaskIntoConstraints = false
+            leftArrowAnimHolderView.addSubview(arrowAnimationView)
+
+            arrowAnimationView.centerXAnchor.constraint(equalTo: leftArrowAnimHolderView.centerXAnchor).isActive = true
+            arrowAnimationView.centerYAnchor.constraint(equalTo: leftArrowAnimHolderView.centerYAnchor).isActive = true
+
+            arrowAnimationView.heightAnchor.constraint(equalToConstant: 250).isActive = true
+            arrowAnimationView.widthAnchor.constraint(equalToConstant: 250).isActive = true
+
+            arrowAnimationView.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2) //rotate by 90 deg.
+
+            arrowAnimationView.loopMode = .loop
+            
+        } else if (forMilestoneType == GestureMilestoneType.DownHeadPitchMilestone) {
+            
+            leftArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
+
+            arrowAnimationView = AnimationView(name: "arrow", bundle: InternalConstants.bundle)
+
+            arrowAnimationView.contentMode = .center
+            arrowAnimationView.translatesAutoresizingMaskIntoConstraints = false
+            leftArrowAnimHolderView.addSubview(arrowAnimationView)
+
+            arrowAnimationView.centerXAnchor.constraint(equalTo: leftArrowAnimHolderView.centerXAnchor).isActive = true
+            arrowAnimationView.centerYAnchor.constraint(equalTo: leftArrowAnimHolderView.centerYAnchor).isActive = true
+
+            arrowAnimationView.heightAnchor.constraint(equalToConstant: 250).isActive = true
+            arrowAnimationView.widthAnchor.constraint(equalToConstant: 250).isActive = true
+
+            arrowAnimationView.transform = CGAffineTransform(rotationAngle: CGFloat.pi * 1.5) //rotate by 270 deg.
+
+            arrowAnimationView.loopMode = .loop
+        }
+        else {
             arrowAnimationView = AnimationView()
             arrowAnimationView.stop()
             rightArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
@@ -389,20 +431,25 @@ extension LivenessScreenViewController {
 
     func updateFaceAnimation() {
         if (self.blockStageIndicationByUI == false) {
-            DispatchQueue.main.async {
-                let toProgress = self.faceAnimationView.realtimeAnimationProgress
-                if (toProgress >= 0.99) {
-                    self.faceAnimationView.play(toProgress: toProgress - 0.99)
+            if (self.milestoneFlow.getCurrentStage() != GestureMilestoneType.StraightHeadCheckMilestone) {
+                DispatchQueue.main.async {
+                    let toProgress = self.faceAnimationView.realtimeAnimationProgress
+                    if (toProgress >= 0.99) {
+                        self.faceAnimationView.play(toProgress: toProgress - 0.99)
+                    }
+                    if (toProgress <= 0.01) {
+                        self.faceAnimationView.play(toProgress: toProgress + 1)
+                    }
                 }
-                if (toProgress <= 0.01) {
-                    self.faceAnimationView.play(toProgress: toProgress + 1)
-                }
+            } else {
+                self.faceAnimationView.play(toProgress: 0.02)
             }
         }
     }
 
     func updateArrowAnimation() {
-        if (self.blockStageIndicationByUI == false) {
+        if (self.blockStageIndicationByUI == false
+            && self.milestoneFlow.getCurrentStage() != GestureMilestoneType.StraightHeadCheckMilestone) {
             DispatchQueue.main.async {
                 let toProgress = self.arrowAnimationView.realtimeAnimationProgress
                 if (toProgress <= 0.01) {

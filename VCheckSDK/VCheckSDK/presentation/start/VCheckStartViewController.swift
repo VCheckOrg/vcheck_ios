@@ -11,9 +11,9 @@ import UIKit
 import AVFoundation
 
 
-class DemoStartViewController : UIViewController {
+class VCheckStartViewController : UIViewController {
     
-    private let viewModel = DemoStartViewModel()
+    private let viewModel = VCheckStartViewModel()
     
     @IBOutlet weak var retryBtn: UIButton!
     
@@ -22,12 +22,12 @@ class DemoStartViewController : UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
-        LocalDatasource.shared.deleteAllSessionData()
-        
+                
         if (self.spinner.isAnimating) {
             self.spinner.stopAnimating()
         }
+        
+        retryBtn.isHidden = true
         
         requestCameraPermission()
     }

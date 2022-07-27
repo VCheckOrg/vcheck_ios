@@ -43,7 +43,7 @@ class VideoProcessingViewModel {
             if let error = error {
                 self.isLoading = false
                 self.error = error
-                print("======== LIVENESS UPLOAD ERROR: \(error)")
+                print("VCHeckSDK - Error: \(error)")
                 return
             }
             self.isLoading = false
@@ -61,11 +61,11 @@ class VideoProcessingViewModel {
             if let error = error {
                 self.error = error
                 self.isLoading = false
-                print("======== GET CURRENT STAGE ERROR: \(error)")
+                print("VCHeckSDK - Error: \(error)")
                 return
             }
             
-            print("======= GET CURRENT STAGE - response: \(String(describing: self.currentStageResponse))")
+            print("VCHeckSDK - Error: \(String(describing: self.currentStageResponse))")
             if (data!.data != nil || data!.errorCode != nil) {
                 self.currentStageResponse = data
                 self.didReceivedCurrentStage!()

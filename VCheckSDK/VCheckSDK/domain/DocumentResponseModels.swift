@@ -296,25 +296,3 @@ struct ParsedDocFieldsData: Codable {
   init() {}
 
 }
-
-
-struct DocUserDataRequestBody: Codable {
-    
-    var user_data: ParsedDocFieldsData? = nil
-    
-    enum CodingKeys: String, CodingKey {
-        case user_data  = "user_data"
-    }
-    
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        
-        user_data = try values.decodeIfPresent(ParsedDocFieldsData.self , forKey: .user_data )
-    }
-    
-    init(data: ParsedDocFieldsData) {
-        self.user_data = data
-    }
-    
-    init() {}
-}

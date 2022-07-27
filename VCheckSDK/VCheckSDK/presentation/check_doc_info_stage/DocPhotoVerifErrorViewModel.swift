@@ -36,7 +36,7 @@ class DocPhotoVerifErrorViewModel {
         
         //TODO: test!
         dataService.updateAndConfirmDocInfo(documentId: docId, parsedDocFieldsData:
-                                                DocUserDataRequestBody(data: ParsedDocFieldsData()),
+                                                DocUserDataRequestBody(data: ParsedDocFieldsData(), isForced: false),
                                             completion: { (data, error) in
             if let error = error {
                 self.isLoading = false

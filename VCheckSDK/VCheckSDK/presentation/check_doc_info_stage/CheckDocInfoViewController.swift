@@ -18,6 +18,8 @@ class CheckDocInfoViewController : UIViewController {
     
     var docId: Int? = nil
     
+    var isDocCheckForced: Bool = false
+    
     var isDocPreviouslyUploaded: Bool = false
     
     var regex: String?
@@ -360,7 +362,7 @@ extension CheckDocInfoViewController {
                 data.number = $0.autoParsedValue
             }
         }
-        return DocUserDataRequestBody(data: data)
+        return DocUserDataRequestBody(data: data, isForced: nil)
     }
 
     func convertDocFieldToOptParsedData(docField: DocField,

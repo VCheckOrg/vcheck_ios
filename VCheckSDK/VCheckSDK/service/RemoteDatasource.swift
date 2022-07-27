@@ -26,11 +26,10 @@ struct RemoteDatasource {
         let url = "\(verifBaseUrl)timestamp"
         
         AF.request(url, method: .get)
-          .validate()  //response returned an HTTP status code in the range 200–299
           .responseString(completionHandler: { (response) in
             guard let timestamp = response.value else {
-              //showing error on non-200 response code (?)
-                completion(nil, VCheckApiError(errorText: "requestServerTimestamp: " + response.error!.localizedDescription))
+                completion(nil, VCheckApiError(errorText: "requestServerTimestamp: " + response.error!.localizedDescription,
+                                               errorCode: response.response?.statusCode))
                 return
             }
               completion(timestamp, nil)
@@ -50,21 +49,22 @@ struct RemoteDatasource {
         do {
             jsonData = try model.toDictionary()
         } catch {
-            completion(nil, VCheckApiError(errorText: "Error: Failed to convert model!"))
+            completion(nil, VCheckApiError(errorText: "Error: Failed to convert model!",
+                                           errorCode: VCheckApiError.DEFAULT_CODE))
             return
         }
         
         AF.request(url, method: .post, parameters: jsonData, encoding: JSONEncoding.default)
-          .validate()  //response returned an HTTP status code in the range 200–299
           .responseDecodable(of: VerificationCreateAttemptResponse.self) { (response) in
             guard let response = response.value else {
-              //showing error on non-200 response code
-                completion(nil, VCheckApiError(errorText: "createVerificationRequest: " + response.error!.localizedDescription))
+                completion(nil, VCheckApiError(errorText: "createVerificationRequest: " + response.error!.localizedDescription,
+                                               errorCode: response.response?.statusCode))
                 return
             }
               if (response.errorCode != nil && response.errorCode != 0) {
                   completion(nil, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
-                                           + "\(response.message ?? "")"))
+                                           + "\(response.message ?? "")",
+                                                 errorCode: response.errorCode))
                   return
               }
               completion(response.data, nil)
@@ -77,7 +77,8 @@ struct RemoteDatasource {
         
         let token = LocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
-            completion(nil, VCheckApiError(errorText: "Error: cannot find access token"))
+            completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
+                                           errorCode: VCheckApiError.DEFAULT_CODE))
             return
         }
         let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
@@ -86,13 +87,14 @@ struct RemoteDatasource {
           .validate()  //response returned an HTTP status code in the range 200–299
           .responseDecodable(of: VerificationInitResponse.self) { (response) in
             guard let response = response.value else {
-              //showing error on non-200 response code (?)
-                completion(nil, VCheckApiError(errorText: "initVerification: " + response.error!.localizedDescription))
+                completion(nil, VCheckApiError(errorText: "initVerification: " + response.error!.localizedDescription,
+                                               errorCode: response.response?.statusCode))
                 return
             }
             if (response.errorCode != nil && response.errorCode != 0) {
                   completion(nil, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
-                                            + "\(response.message ?? "")"))
+                                            + "\(response.message ?? "")",
+                                                 errorCode: response.errorCode))
                 return
             }
             completion(response.data, nil)
@@ -104,7 +106,8 @@ struct RemoteDatasource {
 
         let token = LocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
-            completion(nil, VCheckApiError(errorText: "Error: cannot find access token"))
+            completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
+                                           errorCode: VCheckApiError.DEFAULT_CODE))
             return
         }
         let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
@@ -112,8 +115,8 @@ struct RemoteDatasource {
         AF.request(url, method: .get, headers: headers)
           .responseDecodable(of: StageResponse.self) { (response) in
               guard let response = response.value else {
-              //showing error on non-200 response code
-               completion(nil, VCheckApiError(errorText: "getCurrentStage: " +  response.error!.localizedDescription))
+               completion(nil, VCheckApiError(errorText: "getCurrentStage: " +  response.error!.localizedDescription,
+                                              errorCode: response.response?.statusCode))
                return
               }
               completion(response, nil)
@@ -127,22 +130,23 @@ struct RemoteDatasource {
 
         let token = LocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
-            completion(nil, VCheckApiError(errorText: "Error: cannot find access token"))
+            completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
+                                           errorCode: VCheckApiError.DEFAULT_CODE))
             return
         }
         let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
         
         AF.request(url, method: .get, headers: headers)
-          .validate()  //response returned an HTTP status code in the range 200–299
           .responseDecodable(of: CountriesResponse.self) { (response) in
             guard let response = response.value else {
-              //showing error on non-200 response code
-                completion(nil, VCheckApiError(errorText: "getCountries: " +  response.error!.localizedDescription))
+                completion(nil, VCheckApiError(errorText: "getCountries: " +  response.error!.localizedDescription,
+                                               errorCode: response.response?.statusCode))
                 return
             }
               if (response.errorCode != nil && response.errorCode != 0) {
                   completion(nil, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
-                                           + "\(response.message ?? "")"))
+                                           + "\(response.message ?? "")",
+                                                 errorCode: response.errorCode))
                   return
               }
               completion(response.data, nil)
@@ -157,22 +161,23 @@ struct RemoteDatasource {
 
         let token = LocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
-            completion(nil, VCheckApiError(errorText: "Error: cannot find access token"))
+            completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
+                                           errorCode: VCheckApiError.DEFAULT_CODE))
             return
         }
         let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
         
         AF.request(url, method: .get, headers: headers)
-          .validate()  //response returned an HTTP status code in the range 200–299
           .responseDecodable(of: DocumentTypesForCountryResponse.self) { (response) in
             guard let response = response.value else {
-              //showing error on non-200 response code
-                completion(nil, VCheckApiError(errorText: "getCountryAvailableDocTypeInfo: " + response.error!.localizedDescription))
+                completion(nil, VCheckApiError(errorText: "getCountryAvailableDocTypeInfo: " + response.error!.localizedDescription,
+                                               errorCode: response.response?.statusCode))
                 return
             }
               if (response.errorCode != nil && response.errorCode != 0) {
                   completion(nil, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
-                                           + "\(response.message ?? "")"))
+                                           + "\(response.message ?? "")",
+                                                 errorCode: response.errorCode))
                   return
               }
               completion(response.data, nil)
@@ -193,7 +198,8 @@ struct RemoteDatasource {
 
             let token = LocalDatasource.shared.readAccessToken()
             if (token.isEmpty) {
-                completion(nil, VCheckApiError(errorText: "Error: cannot find access token"))
+                completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
+                                               errorCode: VCheckApiError.DEFAULT_CODE))
                 return
             }
             let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))",
@@ -214,11 +220,11 @@ struct RemoteDatasource {
                 
             AF.upload(multipartFormData: multipartFormData, to: url, method: .post, headers: headers,
                       requestModifier: { $0.timeoutInterval = .infinity })
-                .validate()
                 .responseDecodable(of: DocumentUploadResponse.self) { (response) in
                     guard let response = response.value else {
-                      //showing error on non-200 response code
-                        completion(nil, VCheckApiError(errorText: "uploadVerificationDocuments: " + response.error!.localizedDescription))
+                        completion(nil, VCheckApiError(errorText: "uploadVerificationDocuments: "
+                                                       + response.error!.localizedDescription,
+                                                       errorCode: response.response?.statusCode))
                         return
                     }
                     completion(response, nil)
@@ -233,22 +239,23 @@ struct RemoteDatasource {
 
         let token = LocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
-            completion(nil, VCheckApiError(errorText: "Error: cannot find access token"))
+            completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
+                                           errorCode: VCheckApiError.DEFAULT_CODE))
             return
         }
         let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
 
         AF.request(url, method: .get, headers: headers)
-        .validate()  //response returned an HTTP status code in the range 200–299
         .responseDecodable(of: PreProcessedDocumentResponse.self) { (response) in
             guard let response = response.value else {
-            //showing error on non-200 response code
-             completion(nil, VCheckApiError(errorText: "getDocumentInfo: " + response.error!.localizedDescription))
+             completion(nil, VCheckApiError(errorText: "getDocumentInfo: " + response.error!.localizedDescription,
+                                            errorCode: response.response?.statusCode))
              return
             }
             if (response.errorCode != nil && response.errorCode != 0) {
                completion(nil, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
-                                        + "\(response.message ?? "")"))
+                                        + "\(response.message ?? "")",
+                                              errorCode: response.errorCode))
                return
             }
             completion(response.data, nil)
@@ -265,23 +272,23 @@ struct RemoteDatasource {
         do {
             jsonData = try parsedDocFieldsData.toDictionary()
         } catch {
-            completion(false, VCheckApiError(errorText: "Error: Failed to convert model!"))
+            completion(false, VCheckApiError(errorText: "Error: Failed to convert model!",
+                                             errorCode: VCheckApiError.DEFAULT_CODE))
             return
         }
-
         let token = LocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
-            completion(false, VCheckApiError(errorText: "Error: cannot find access token"))
+            completion(false, VCheckApiError(errorText: "Error: cannot find access token",
+                                             errorCode: VCheckApiError.DEFAULT_CODE))
             return
         }
         let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
 
         AF.request(url, method: .put, parameters: jsonData, encoding: JSONEncoding.default, headers: headers)
-        .validate()  //response returned an HTTP status code in the range 200–299
         .response(completionHandler: { (response) in
             guard response.value != nil else {
-            //showing error on non-200 response code
-             completion(false, VCheckApiError(errorText: "updateAndConfirmDocInfo" + response.error!.localizedDescription))
+             completion(false, VCheckApiError(errorText: "updateAndConfirmDocInfo" + response.error!.localizedDescription,
+                                              errorCode: response.response?.statusCode))
              return
             }
             completion(true, nil)
@@ -297,7 +304,8 @@ struct RemoteDatasource {
 
             let token = LocalDatasource.shared.readAccessToken()
             if (token.isEmpty) {
-                completion(nil, VCheckApiError(errorText: "Error: cannot find access token"))
+                completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
+                                               errorCode: VCheckApiError.DEFAULT_CODE))
                 return
             }
             let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
@@ -307,16 +315,16 @@ struct RemoteDatasource {
             multipartFormData.append(videoFileURL, withName: "video.mp4", fileName: "video", mimeType: "video/mp4")
                 
             AF.upload(multipartFormData: multipartFormData, to: url, method: .post, headers: headers)
-                .validate()
                 .responseDecodable(of: LivenessUploadResponse.self) { (response) in
                     guard let response = response.value else {
-                    //showing error on non-200 response code
-                     completion(nil, VCheckApiError(errorText: "uploadLivenessVideo" + response.error!.localizedDescription))
+                     completion(nil, VCheckApiError(errorText: "uploadLivenessVideo" + response.error!.localizedDescription,
+                                                    errorCode: response.response?.statusCode))
                      return
                     }
                     if (response.errorCode != nil && response.errorCode != 0) {
                        completion(nil, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
-                                                + "\(response.message ?? "")"))
+                                                + "\(response.message ?? "")",
+                                                      errorCode: response.errorCode))
                        return
                     }
                     completion(response.data, nil)
@@ -332,32 +340,34 @@ struct RemoteDatasource {
 
         let token = LocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
-            completion(nil, VCheckApiError(errorText: "Error: cannot find access token"))
+            completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
+                                           errorCode: VCheckApiError.DEFAULT_CODE))
             return
         }
         let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
             
         let multipartFormData = MultipartFormData.init()
         
-        multipartFormData.append(frameImage.jpegData(compressionQuality: 0.7)!, withName: "image",
+        multipartFormData.append(frameImage.jpegData(compressionQuality: 0.5)!, withName: "image",
                                  fileName: "image.jpg", mimeType: "image/jpeg")
         multipartFormData.append(gesture.data(using: .utf8, allowLossyConversion: false)!, withName: "gesture")
         
-        //print("===== SENDING REQUEST FOR GESTURE: \(gesture)")
+        print("===== SENDING REQUEST FOR GESTURE: \(gesture)")
         
         AF.upload(multipartFormData: multipartFormData, to: url, method: .post, headers: headers)
-            .validate()
             .responseDecodable(of: LivenessGestureResponse.self) { (response) in
                 guard let response = response.value else {
-                //showing error on non-200 response code
-                 completion(nil, VCheckApiError(errorText: "uploadLivenessVideo" + response.error!.localizedDescription))
+                 completion(nil, VCheckApiError(errorText: "uploadLivenessVideo" + response.error!.localizedDescription,
+                                                errorCode: response.response?.statusCode))
                  return
                 }
                 if (response.errorCode != nil && response.errorCode != 0) {
                    completion(nil, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
-                                            + "\(response.message ?? "")"))
+                                            + "\(response.message ?? "")",
+                                                  errorCode: response.errorCode))
                    return
                 }
+                print("GESTURE RESPONSE -- DATA: \(String(describing: response))")
                 completion(response, nil)
             }
     }
@@ -371,30 +381,33 @@ struct RemoteDatasource {
 
         let token = LocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
-            completion(nil, VCheckApiError(errorText: "Error: cannot find access token"))
+            completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
+                                           errorCode: VCheckApiError.DEFAULT_CODE))
             return
         }
         let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
         
         requestServerTimestamp(completion: { (timestamp, error) in
             if error != nil {
-                completion(nil, VCheckApiError(errorText: "Error: Service timestamp was not retrieved"))
+                completion(nil, VCheckApiError(errorText: "Error: Service timestamp was not retrieved",
+                                               errorCode: VCheckApiError.DEFAULT_CODE))
                 return
             } else {
                 let sign = "\(partnerId)\(timestamp!)\(verifId)\(partnerSecret)".sha256()
                 let url = "\(partnerBaseUrl)verifications/\(verifId)?partner_id=\(partnerId)&timestamp=\(timestamp!)&sign=\(sign)"
                 
                 AF.request(url, method: .get, headers: headers)
-                  .validate()  //response returned an HTTP status code in the range 200–299
                   .responseDecodable(of: FinalVerifCheckResponseModel.self) { (response) in
                     guard let response = response.value else {
-                      //showing error on non-200 response code
-                        completion(nil, VCheckApiError(errorText: "getCountryAvailableDocTypeInfo: " + response.error!.localizedDescription))
+                        completion(nil, VCheckApiError(errorText: "getCountryAvailableDocTypeInfo: "
+                                                       + response.error!.localizedDescription,
+                                                       errorCode: response.response?.statusCode))
                         return
                     }
                       if (response.errorCode != nil && response.errorCode != 0) {
                           completion(nil, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
-                                                   + "\(response.message ?? "")"))
+                                                   + "\(response.message ?? "")",
+                                                         errorCode: response.errorCode))
                           return
                       }
                       let result = VerificationCheckResult.init(fromData: response.data!)
