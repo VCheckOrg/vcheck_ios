@@ -9,7 +9,7 @@ import Foundation
 
 class ChooseDocTypeViewModel  {
     
-    private var dataService: RemoteDatasource = RemoteDatasource.shared
+    private var dataService: VCheckSDKRemoteDatasource = VCheckSDKRemoteDatasource.shared
     
     // MARK: - Constructor
     init() {}
@@ -28,7 +28,7 @@ class ChooseDocTypeViewModel  {
     
     func getAvailableDocTypes() {
         
-        let countryCode = LocalDatasource.shared.readSelectedCountryCode()
+        let countryCode = VCheckSDKLocalDatasource.shared.readSelectedCountryCode()
         
         self.dataService.getCountryAvailableDocTypeInfo(countryCode: countryCode, completion: { (data, error) in
             if let error = error {

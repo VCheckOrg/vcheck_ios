@@ -72,7 +72,7 @@ extension CountryListViewController: UITableViewDelegate {
     
     func tableView(_ countryListTable: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        LocalDatasource.shared.saveSelectedCountryCode(code: self.searchResultsList[indexPath.row].code)
+        VCheckSDKLocalDatasource.shared.saveSelectedCountryCode(code: self.searchResultsList[indexPath.row].code)
 
         self.dismiss(animated: true, completion: nil)
     }

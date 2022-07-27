@@ -56,7 +56,7 @@ class VCheckStartViewController : UIViewController {
                         self.viewModel.getCountries()
                     } else {
                         if (self.viewModel.currentStageResponse?.data?.config != nil) {
-                            LocalDatasource.shared.setLivenessMilestonesList(list:
+                            VCheckSDKLocalDatasource.shared.setLivenessMilestonesList(list:
                                 (self.viewModel.currentStageResponse?.data?.config!.gestures)!)
                         }
                         self.performSegue(withIdentifier: "StartToLivenessInstructions", sender: nil)
@@ -102,7 +102,7 @@ class VCheckStartViewController : UIViewController {
     func goToCountriesScreen(data: [CountryTO]) {
         
         if let defaultSelectedCountry = self.viewModel.countries!.first(where: { $0.code == "ua" }) {
-            LocalDatasource.shared.saveSelectedCountryCode(code: defaultSelectedCountry.code)
+            VCheckSDKLocalDatasource.shared.saveSelectedCountryCode(code: defaultSelectedCountry.code)
         } else {
            print("ERROR: CANNOT SAVE DEFAULT COUNTRY TO KEYCHAIN!")
         }

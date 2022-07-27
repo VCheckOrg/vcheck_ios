@@ -10,7 +10,7 @@ import UIKit
 
 class CheckDocPhotoViewModel {
     
-    private var dataService: RemoteDatasource = RemoteDatasource.shared
+    private var dataService: VCheckSDKRemoteDatasource = VCheckSDKRemoteDatasource.shared
     
     // MARK: - Constructor
     init() {}
@@ -37,9 +37,9 @@ class CheckDocPhotoViewModel {
         
         self.isLoading = true
         
-        let countryCode: String = LocalDatasource.shared.readSelectedCountryCode()
+        let countryCode: String = VCheckSDKLocalDatasource.shared.readSelectedCountryCode()
         
-        let docType: Int = LocalDatasource.shared.getSelectedDocTypeWithData()!.category!
+        let docType: Int = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData()!.category!
         
         let docTypeStr: String = "\(docType)"
         

@@ -14,11 +14,11 @@ class ChooseDocTypeViewController : UIViewController {
     
     @IBOutlet weak var backArrow: UIImageView!
     
-    @IBOutlet weak var sectionDefaultInnerPassport: RoundedView!
+    @IBOutlet weak var sectionDefaultInnerPassport: VCheckSDKRoundedView!
     
-    @IBOutlet weak var sectionForeignPasspot: RoundedView!
+    @IBOutlet weak var sectionForeignPasspot: VCheckSDKRoundedView!
     
-    @IBOutlet weak var sectionIDCard: RoundedView!
+    @IBOutlet weak var sectionIDCard: VCheckSDKRoundedView!
         
     @IBAction func backToCountriesAction(_ sender: UIButton) {
         //self.dismiss(animated: true)
@@ -55,19 +55,19 @@ class ChooseDocTypeViewController : UIViewController {
     }
     
     @objc func navigateForwardOnInnerPassportSelected(_ sender:UITapGestureRecognizer){
-        LocalDatasource.shared.setSelectedDocTypeWithData(data:
+        VCheckSDKLocalDatasource.shared.setSelectedDocTypeWithData(data:
                         viewModel.docTypeDataArr.first(where: { $0.category == 0 })!)
         performSegue(withIdentifier: "ChooseDocTypeToPhotoInfo", sender: self)
     }
     
     @objc func navigateForwardOnForeginPassportSelected(_ sender:UITapGestureRecognizer){
-        LocalDatasource.shared.setSelectedDocTypeWithData(data:
+        VCheckSDKLocalDatasource.shared.setSelectedDocTypeWithData(data:
                         viewModel.docTypeDataArr.first(where: { $0.category == 1 })!)
         performSegue(withIdentifier: "ChooseDocTypeToPhotoInfo", sender: self)
     }
     
     @objc func navigateForwardOnIDCardSelected(_ sender:UITapGestureRecognizer){
-        LocalDatasource.shared.setSelectedDocTypeWithData(data:
+        VCheckSDKLocalDatasource.shared.setSelectedDocTypeWithData(data:
                         viewModel.docTypeDataArr.first(where: { $0.category == 2 })!)
         performSegue(withIdentifier: "ChooseDocTypeToPhotoInfo", sender: self)
     }

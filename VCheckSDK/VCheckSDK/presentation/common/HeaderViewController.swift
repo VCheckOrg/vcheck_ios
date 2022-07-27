@@ -17,13 +17,18 @@ class HeaderViewContoller: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let deviceLocale = Locale.current.languageCode!
-        
-        if (GlobalUtils.getVCheckCurrentLanguageCode() != deviceLocale && LocalDatasource.shared.isLocaleUserDefined() == false) {
-            Bundle.setLanguage(deviceLocale)
+        if (GlobalUtils.getVCheckCurrentLanguageCode() != Locale.current.languageCode!
+            && VCheckSDKLocalDatasource.shared.isLocaleUserDefined() == false) {
+            Bundle.setLanguage(Locale.current.languageCode!)
         }
         
-        print("BUNDLE CURR LANGUAGE: \(GlobalUtils.getVCheckCurrentLanguageCode())")
+        //print("BUNDLE CURR LANGUAGE: \(GlobalUtils.getVCheckCurrentLanguageCode())")
+        
+        refreshMenu()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(false)
         
         refreshMenu()
     }
@@ -41,6 +46,8 @@ class HeaderViewContoller: UIViewController {
         }
         
         var children: [UIAction] = []
+        
+        //print("------- SDK LOCALE: \(GlobalUtils.getVCheckCurrentLanguageCode())")
         
         switch(GlobalUtils.getVCheckCurrentLanguageCode()) {
             case "uk": children = [ukItem, enItem, ruItem]
@@ -62,13 +69,13 @@ class HeaderViewContoller: UIViewController {
             
             (UIAlertAction) -> Void in
             
-            LocalDatasource.shared.setLocaleIsUserDefined()
+            VCheckSDKLocalDatasource.shared.setLocaleIsUserDefined()
             
-            print("------- SELECTED \(locale)")
+            //print("------- SELECTED \(locale)")
             Bundle.setLanguage(locale)
             
             GlobalUtils.setVCheckCurrentLanguageCode(langCode: locale)
-            print("BUNDLE CURR LANGUAGE: \(GlobalUtils.getVCheckCurrentLanguageCode())")
+            //print("BUNDLE CURR LANGUAGE: \(GlobalUtils.getVCheckCurrentLanguageCode())")
             
             let storyboard = UIStoryboard(name: "VCheckFlow", bundle: InternalConstants.bundle)
             UIApplication.topWindow.rootViewController = storyboard.instantiateInitialViewController()

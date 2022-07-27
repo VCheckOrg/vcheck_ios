@@ -53,8 +53,8 @@ struct CreateVerificationRequestBody: Codable {
         let scheme: String = vModel.verificationType.description
         let partnerUserId: String = vModel.partnerUserId ?? CreateVerificationRequestBody.currentTimeInMilliSecondsStr()
         let partnerVerificationId: String = vModel.partnerVerificationId ?? CreateVerificationRequestBody.currentTimeInMilliSecondsStr()
-        let callbackUrl: String = "\(Constants.API.verificationApiBaseUrl)ping"
-        let sessionLifetime: Int = vModel.sessionLifetime ?? Constants.API.defaultSessionLifetime
+        let callbackUrl: String = "\(VCheckSDKConstants.API.verificationApiBaseUrl)ping"
+        let sessionLifetime: Int = vModel.sessionLifetime ?? VCheckSDKConstants.API.defaultSessionLifetime
               
         self.partnerId = partnerId
         self.timestamp = Int(ts)!

@@ -1,6 +1,6 @@
 import Foundation
 
-enum Constants {
+enum VCheckSDKConstants {
     
     enum API {
         static let verificationApiBaseUrl = URL(string: "https://test-verification-new.vycheck.com/api/v1/")!

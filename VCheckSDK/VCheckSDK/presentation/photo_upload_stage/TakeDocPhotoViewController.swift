@@ -11,17 +11,18 @@ import UIKit
 class TakeDocPhotoViewController : UIViewController,
                                     UINavigationControllerDelegate,
                                     UIImagePickerControllerDelegate {
-    
+        
     @IBOutlet weak var continueButtonTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var parentCardHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var frontSideDocTitleConstraint: NSLayoutConstraint!
     @IBOutlet weak var backSideDocTitleConstraint: NSLayoutConstraint!
         
-    @IBOutlet weak var firstPhotoCard: RoundedView!
-    @IBOutlet weak var secondPhotoCard: RoundedView!
+    @IBOutlet weak var firstPhotoCard: VCheckSDKRoundedView!
+    @IBOutlet weak var secondPhotoCard: VCheckSDKRoundedView!
     
-    @IBOutlet weak var firstPhotoButton: RoundedView!
-    @IBOutlet weak var secondPhotoButton: RoundedView!
+    @IBOutlet weak var firstPhotoButton: VCheckSDKRoundedView!
+    @IBOutlet weak var secondPhotoButton: VCheckSDKRoundedView!
     
     @IBOutlet weak var docPhotoFirstImgHolder: UIImageView!
     @IBOutlet weak var docPhotoSecondImgHolder: UIImageView!
@@ -39,7 +40,6 @@ class TakeDocPhotoViewController : UIViewController,
     
     
     @IBAction func backToInstr(_ sender: UIButton) {
-        //self.dismiss(animated: true)
         navigationController?.popViewController(animated: true)
     }
     
@@ -54,13 +54,15 @@ class TakeDocPhotoViewController : UIViewController,
     
     override func viewDidLoad() {
         
-        let docTypeWithData: DocTypeData = LocalDatasource.shared.getSelectedDocTypeWithData()!
+        let docTypeWithData: DocTypeData = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData()!
         
         self.selectedDocType = DocType.docCategoryIdxToType(categoryIdx: docTypeWithData.category!)
         
         btnContinueToPreview.tintColor = UIColor(named: "borderColor", in: InternalConstants.bundle, compatibleWith: nil)
         btnContinueToPreview.titleLabel?.textColor = UIColor.gray
         btnContinueToPreview.gestureRecognizers?.forEach(btnContinueToPreview.removeGestureRecognizer)
+        btnContinueToPreview.setTitle("proceed".localized, for: .disabled)
+        btnContinueToPreview.setTitle("proceed".localized, for: .normal)
         
         deleteFirstPhotoBtn.isHidden = true
         deleteSecondPhotoBtn.isHidden = true
@@ -99,7 +101,8 @@ class TakeDocPhotoViewController : UIViewController,
                 frontSideDocTitleConstraint.constant = 16
             }
             
-            continueButtonTopConstraint.constant = 100
+            parentCardHeightConstraint.constant = parentCardHeightConstraint.constant - 250 // * - 2nd (missing) card height - 20
+            continueButtonTopConstraint.constant = continueButtonTopConstraint.constant - 250 // * - 2nd (missing) card height - 20
 
             setClickListenerForFirstPhotoBtn()
         }

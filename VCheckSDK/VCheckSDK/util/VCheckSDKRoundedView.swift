@@ -7,7 +7,7 @@
 
 import UIKit
 
-@IBDesignable public class RoundedView: UIView {
+@IBDesignable public class VCheckSDKRoundedView: UIView {
 
     @IBInspectable var borderColor: UIColor = UIColor.white {
         didSet {

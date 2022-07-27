@@ -33,7 +33,7 @@ class CheckDocInfoViewController : UIViewController {
     @IBOutlet weak var firstPhotoImageView: UIImageView!
     @IBOutlet weak var secondPhotoImageView: UIImageView!
     
-    @IBOutlet weak var secondPhotoImgCard: RoundedView!
+    @IBOutlet weak var secondPhotoImgCard: VCheckSDKRoundedView!
     
     @IBOutlet weak var parentCardHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableTopConstraint: NSLayoutConstraint!
@@ -93,9 +93,9 @@ class CheckDocInfoViewController : UIViewController {
                 || self.viewModel.currentStageResponse?.errorCode
                     == StageObstacleErrorType.USER_INTERACTED_COMPLETED.toTypeIdx()) {
                 if (self.viewModel.currentStageResponse?.data?.config != nil) {
-                    LocalDatasource.shared.setLivenessMilestonesList(list:
+                    VCheckSDKLocalDatasource.shared.setLivenessMilestonesList(list:
                         (self.viewModel.currentStageResponse?.data?.config?.gestures)!)
-                    print("GOT LIVENESS MILESTONES LIST: \(String(describing: LocalDatasource.shared.getLivenessMilestonesList()))")
+                    print("GOT LIVENESS MILESTONES LIST: \(String(describing: VCheckSDKLocalDatasource.shared.getLivenessMilestonesList()))")
                     self.performSegue(withIdentifier: "CheckInfoToLivenessInstr", sender: nil)
                 } else if (VCheckSDK.shared.verificationClientCreationModel?.verificationType == VerificationSchemeType.DOCUMENT_UPLOAD_ONLY) {
                     VCheckSDK.shared.onFinish()
@@ -362,7 +362,7 @@ extension CheckDocInfoViewController {
                 data.number = $0.autoParsedValue
             }
         }
-        return DocUserDataRequestBody(data: data, isForced: nil)
+        return DocUserDataRequestBody(data: data, isForced: self.isDocCheckForced)
     }
 
     func convertDocFieldToOptParsedData(docField: DocField,

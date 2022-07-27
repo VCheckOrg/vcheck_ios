@@ -10,14 +10,14 @@ import Foundation
 import UIKit
 
 //TODO: rename to VCheckLocalDatasource!
-struct RemoteDatasource {
+struct VCheckSDKRemoteDatasource {
     
     // MARK: - Singleton
-    static let shared = RemoteDatasource()
+    static let shared = VCheckSDKRemoteDatasource()
     
     // MARK: - URL
-    private let verifBaseUrl = Constants.API.verificationApiBaseUrl
-    private let partnerBaseUrl = Constants.API.partnerApiBaseUrl
+    private let verifBaseUrl = VCheckSDKConstants.API.verificationApiBaseUrl
+    private let partnerBaseUrl = VCheckSDKConstants.API.partnerApiBaseUrl
     
     
     // MARK: - API calls
@@ -68,6 +68,7 @@ struct RemoteDatasource {
                   return
               }
               completion(response.data, nil)
+              return
           }
     }
     
@@ -75,7 +76,7 @@ struct RemoteDatasource {
     func initVerification(completion: @escaping (VerificationInitResponseData?, VCheckApiError?) -> ()) {
         let url = "\(verifBaseUrl)verifications/init"
         
-        let token = LocalDatasource.shared.readAccessToken()
+        let token = VCheckSDKLocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
             completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
                                            errorCode: VCheckApiError.DEFAULT_CODE))
@@ -98,13 +99,14 @@ struct RemoteDatasource {
                 return
             }
             completion(response.data, nil)
+            return
           }
     }
     
     func getCurrentStage(completion: @escaping (StageResponse?, VCheckApiError?) -> ()) {
         let url = "\(verifBaseUrl)stages/current"
 
-        let token = LocalDatasource.shared.readAccessToken()
+        let token = VCheckSDKLocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
             completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
                                            errorCode: VCheckApiError.DEFAULT_CODE))
@@ -120,6 +122,7 @@ struct RemoteDatasource {
                return
               }
               completion(response, nil)
+              return
               //print("======= CLIENT:  GET CURRENT STAGE - response data: \(String(describing: response))")
           }
     }
@@ -128,7 +131,7 @@ struct RemoteDatasource {
     func getCountries(completion: @escaping ([Country]?, VCheckApiError?) -> ()) {
         let url = "\(verifBaseUrl)documents/countries"
 
-        let token = LocalDatasource.shared.readAccessToken()
+        let token = VCheckSDKLocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
             completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
                                            errorCode: VCheckApiError.DEFAULT_CODE))
@@ -150,6 +153,7 @@ struct RemoteDatasource {
                   return
               }
               completion(response.data, nil)
+              return
           }
     }
     
@@ -159,7 +163,7 @@ struct RemoteDatasource {
 
         let url = "\(verifBaseUrl)documents/types?country=\(countryCode)"
 
-        let token = LocalDatasource.shared.readAccessToken()
+        let token = VCheckSDKLocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
             completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
                                            errorCode: VCheckApiError.DEFAULT_CODE))
@@ -181,6 +185,7 @@ struct RemoteDatasource {
                   return
               }
               completion(response.data, nil)
+              return
           }
     }
     
@@ -196,7 +201,7 @@ struct RemoteDatasource {
             
             let url = "\(verifBaseUrl)documents/upload"
 
-            let token = LocalDatasource.shared.readAccessToken()
+            let token = VCheckSDKLocalDatasource.shared.readAccessToken()
             if (token.isEmpty) {
                 completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
                                                errorCode: VCheckApiError.DEFAULT_CODE))
@@ -228,8 +233,8 @@ struct RemoteDatasource {
                         return
                     }
                     completion(response, nil)
+                    return
                   }
-            
     }
     
     
@@ -237,7 +242,7 @@ struct RemoteDatasource {
                          completion: @escaping (PreProcessedDocData?, VCheckApiError?) -> ()) {
         let url = "\(verifBaseUrl)documents/\(documentId)/info"
 
-        let token = LocalDatasource.shared.readAccessToken()
+        let token = VCheckSDKLocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
             completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
                                            errorCode: VCheckApiError.DEFAULT_CODE))
@@ -259,6 +264,7 @@ struct RemoteDatasource {
                return
             }
             completion(response.data, nil)
+            return
         }
     }
     
@@ -276,7 +282,7 @@ struct RemoteDatasource {
                                              errorCode: VCheckApiError.DEFAULT_CODE))
             return
         }
-        let token = LocalDatasource.shared.readAccessToken()
+        let token = VCheckSDKLocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
             completion(false, VCheckApiError(errorText: "Error: cannot find access token",
                                              errorCode: VCheckApiError.DEFAULT_CODE))
@@ -302,7 +308,7 @@ struct RemoteDatasource {
             
             let url = "\(verifBaseUrl)liveness_challenges"
 
-            let token = LocalDatasource.shared.readAccessToken()
+            let token = VCheckSDKLocalDatasource.shared.readAccessToken()
             if (token.isEmpty) {
                 completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
                                                errorCode: VCheckApiError.DEFAULT_CODE))
@@ -328,6 +334,7 @@ struct RemoteDatasource {
                        return
                     }
                     completion(response.data, nil)
+                    return
                 }
     }
     
@@ -338,7 +345,7 @@ struct RemoteDatasource {
         
         let url = "\(verifBaseUrl)liveness_challenges/gesture"
 
-        let token = LocalDatasource.shared.readAccessToken()
+        let token = VCheckSDKLocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
             completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
                                            errorCode: VCheckApiError.DEFAULT_CODE))
@@ -352,7 +359,7 @@ struct RemoteDatasource {
                                  fileName: "image.jpg", mimeType: "image/jpeg")
         multipartFormData.append(gesture.data(using: .utf8, allowLossyConversion: false)!, withName: "gesture")
         
-        print("===== SENDING REQUEST FOR GESTURE: \(gesture)")
+        //print("===== SENDING REQUEST FOR GESTURE: \(gesture)")
         
         AF.upload(multipartFormData: multipartFormData, to: url, method: .post, headers: headers)
             .responseDecodable(of: LivenessGestureResponse.self) { (response) in
@@ -367,8 +374,9 @@ struct RemoteDatasource {
                                                   errorCode: response.errorCode))
                    return
                 }
-                print("GESTURE RESPONSE -- DATA: \(String(describing: response))")
+                //print("GESTURE RESPONSE -- DATA: \(String(describing: response))")
                 completion(response, nil)
+                return
             }
     }
     
@@ -377,9 +385,9 @@ struct RemoteDatasource {
                                       verifId: Int,
                                       partnerId: Int,
                                       partnerSecret: String,
-                                      completion: @escaping (VerificationCheckResult?, VCheckApiError?) -> ()) {
+                                      completion: @escaping (FinalVerifCheckResponseModel?, VCheckApiError?) -> ()) {
 
-        let token = LocalDatasource.shared.readAccessToken()
+        let token = VCheckSDKLocalDatasource.shared.readAccessToken()
         if (token.isEmpty) {
             completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
                                            errorCode: VCheckApiError.DEFAULT_CODE))
@@ -410,8 +418,8 @@ struct RemoteDatasource {
                                                          errorCode: response.errorCode))
                           return
                       }
-                      let result = VerificationCheckResult.init(fromData: response.data!)
-                      completion(result, nil)
+                          completion(response, nil)
+                          return
                   }
             }
             

@@ -9,7 +9,7 @@ import Foundation
 
 class DocPhotoVerifErrorViewModel {
     
-    private var dataService: RemoteDatasource = RemoteDatasource.shared
+    private var dataService: VCheckSDKRemoteDatasource = VCheckSDKRemoteDatasource.shared
     
     // MARK: - Constructor
     init() {}

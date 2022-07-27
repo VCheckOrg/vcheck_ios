@@ -17,12 +17,12 @@ class CheckDocPhotoViewController : UIViewController {
     
     var isDocCheckForced: Bool = false
         
-    @IBOutlet weak var secondPhotoCard: RoundedView!
+    @IBOutlet weak var secondPhotoCard: VCheckSDKRoundedView!
     
     @IBOutlet weak var imgViewPhotoFirst: UIImageView!
     @IBOutlet weak var imgViewPhotoSecond: UIImageView!
     
-    @IBOutlet weak var remakeDocPhotosBtn: RoundedView!
+    @IBOutlet weak var remakeDocPhotosBtn: VCheckSDKRoundedView!
     @IBOutlet weak var confirmUploadPhotosBtn: UIButton!
     
     @IBOutlet weak var zoomFirstPhotoBtn: UIImageView!
@@ -90,6 +90,8 @@ class CheckDocPhotoViewController : UIViewController {
         confirmUploadPhotosBtn.addGestureRecognizer(uploadPhotosTap)
     }
     
+    
+    //remove?
 //    func handleDocUplResponse() {
 //        self.activityIndicatorStop()
 //    }

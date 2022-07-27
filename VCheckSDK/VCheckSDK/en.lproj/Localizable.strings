@@ -78,3 +78,5 @@
 "decline" = "Decline";
 
 "declined_camera_access" = "Camera access is declined: that will make the major product features unavailable. To allow Camera acess, re-launch app or go to Settings.";
+
+"proceed" = "Proceed";

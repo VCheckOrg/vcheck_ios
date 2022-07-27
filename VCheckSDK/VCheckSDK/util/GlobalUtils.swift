@@ -19,11 +19,11 @@ public final class GlobalUtils {
     }
     
     public static func getVCheckCurrentLanguageCode() -> String {
-        return LocalDatasource.shared.getCurrentSDKLangauge()
+        return VCheckSDKLocalDatasource.shared.getCurrentSDKLangauge()
     }
     
     public static func setVCheckCurrentLanguageCode(langCode: String) {
-        LocalDatasource.shared.saveCurrentSDKLangauge(langCode: langCode)
+        VCheckSDKLocalDatasource.shared.saveCurrentSDKLangauge(langCode: langCode)
     }
     
     //TODO: make more abstract funtion to luach SDK init screen (and separated stages for later)

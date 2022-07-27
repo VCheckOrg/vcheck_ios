@@ -9,7 +9,7 @@ import Foundation
 
 class VideoProcessingViewModel {
     
-    private var dataService: RemoteDatasource = RemoteDatasource.shared
+    private var dataService: VCheckSDKRemoteDatasource = VCheckSDKRemoteDatasource.shared
     
     // MARK: - Constructor
     init() {}
@@ -47,11 +47,12 @@ class VideoProcessingViewModel {
                 return
             }
             self.isLoading = false
-            
-            self.uploadedVideoResponse = data!
-            print("LIVENESS UPLOAD - response: \(String(describing: self.uploadedVideoResponse))")
-            
-            self.didUploadVideoResponse!()
+            if let data = data {
+                self.uploadedVideoResponse = data
+                print("LIVENESS UPLOAD - response: \(String(describing: self.uploadedVideoResponse))")
+                
+                self.didUploadVideoResponse!()
+            }
         })
     }
     

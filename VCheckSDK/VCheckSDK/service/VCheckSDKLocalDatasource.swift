@@ -7,12 +7,12 @@
 
 import Foundation
 
-class LocalDatasource {
+class VCheckSDKLocalDatasource {
     
     //https://swiftsenpai.com/development/persist-data-using-keychain/
     
     // MARK: - Singleton
-    static let shared = LocalDatasource()
+    static let shared = VCheckSDKLocalDatasource()
     
     private init() {}
     
@@ -83,26 +83,26 @@ class LocalDatasource {
 
     // MARK: - Actual Local Datasource
 
-extension LocalDatasource {
+extension VCheckSDKLocalDatasource {
     
     func readAccessToken() -> String {
         return String(data: read(service: "access-token",
-                                 account: Constants.UTIL.keychainAccountName)!, encoding: .utf8) ?? ""
+                                 account: VCheckSDKConstants.UTIL.keychainAccountName)!, encoding: .utf8) ?? ""
     }
     
     func saveAccessToken(accessToken: String) {
         let data = Data(accessToken.utf8)
-        save(data, service: "access-token", account: Constants.UTIL.keychainAccountName)
+        save(data, service: "access-token", account: VCheckSDKConstants.UTIL.keychainAccountName)
     }
     
     func readSelectedCountryCode() -> String {
         return String(data: read(service: "country-code",
-                                 account: Constants.UTIL.keychainAccountName)!, encoding: .utf8) ?? ""
+                                 account: VCheckSDKConstants.UTIL.keychainAccountName)!, encoding: .utf8) ?? ""
     }
     
     func saveSelectedCountryCode(code: String) {
         let data = Data(code.utf8)
-        save(data, service: "country-code", account: Constants.UTIL.keychainAccountName)
+        save(data, service: "country-code", account: VCheckSDKConstants.UTIL.keychainAccountName)
     }
     
     func setSelectedDocTypeWithData(data: DocTypeData) {
@@ -123,12 +123,12 @@ extension LocalDatasource {
     
     func resetAccessToken() {
         let data = Data("".utf8)
-        save(data, service: "access-token", account: Constants.UTIL.keychainAccountName)
+        save(data, service: "access-token", account: VCheckSDKConstants.UTIL.keychainAccountName)
     }
     
     func resetSelectedCountryCode() {
         let data = Data("".utf8)
-        save(data, service: "country-code", account: Constants.UTIL.keychainAccountName)
+        save(data, service: "country-code", account: VCheckSDKConstants.UTIL.keychainAccountName)
     }
     
     func deleteSelectedDocTypeWithData() {
@@ -141,12 +141,12 @@ extension LocalDatasource {
     
     func getCurrentSDKLangauge() -> String {
         return String(data: read(service: "vcheck-sdk-lang",
-                                 account: Constants.UTIL.keychainAccountName)!, encoding: .utf8) ?? "en"
+                                 account: VCheckSDKConstants.UTIL.keychainAccountName)!, encoding: .utf8) ?? "en"
     }
 
     func saveCurrentSDKLangauge(langCode: String) {
         let data = Data(langCode.utf8)
-        save(data, service: "vcheck-sdk-lang", account: Constants.UTIL.keychainAccountName)
+        save(data, service: "vcheck-sdk-lang", account: VCheckSDKConstants.UTIL.keychainAccountName)
     }
 
     func setLocaleIsUserDefined() {
@@ -158,11 +158,11 @@ extension LocalDatasource {
     }
     
     func deleteAllSessionData() {
-        localeIsUserDefined = false
         resetAccessToken()
         resetSelectedCountryCode()
         deleteSelectedDocTypeWithData()
         deleteLivenessMilestonesList()
+        //localeIsUserDefined = false
     }
 }
 
@@ -170,7 +170,7 @@ extension LocalDatasource {
 
     // MARK: - Utils
 
-extension LocalDatasource {
+extension VCheckSDKLocalDatasource {
     
     func save<T>(_ item: T, service: String, account: String) where T : Codable {
         

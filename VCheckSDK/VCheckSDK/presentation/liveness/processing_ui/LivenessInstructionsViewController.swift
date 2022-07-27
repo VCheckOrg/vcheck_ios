@@ -13,10 +13,10 @@ class LivenessInstructionsViewController: UIViewController {
     
     @IBOutlet weak var arrowHolder: UIView!
     
-    @IBOutlet weak var animsHolder: RoundedView!
+    @IBOutlet weak var animsHolder: VCheckSDKRoundedView!
     
-    @IBOutlet weak var rightFadingCircle: RoundedView!
-    @IBOutlet weak var leftFadingCircle: RoundedView!
+    @IBOutlet weak var rightFadingCircle: VCheckSDKRoundedView!
+    @IBOutlet weak var leftFadingCircle: VCheckSDKRoundedView!
     
     var timer = Timer()
     

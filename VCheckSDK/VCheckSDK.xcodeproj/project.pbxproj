@@ -18,7 +18,7 @@
 		DA3BED692869A76700B15E5C /* up.json in Resources */ = {isa = PBXBuildFile; fileRef = DA3BED622869A76700B15E5C /* up.json */; };
 		DA3BED6A2869A76700B15E5C /* mouth.json in Resources */ = {isa = PBXBuildFile; fileRef = DA3BED632869A76700B15E5C /* mouth.json */; };
 		DA3BED6B2869A76700B15E5C /* right.json in Resources */ = {isa = PBXBuildFile; fileRef = DA3BED642869A76700B15E5C /* right.json */; };
-		DA3BEDC92869A8D300B15E5C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED752869A8D200B15E5C /* Constants.swift */; };
+		DA3BEDC92869A8D300B15E5C /* VCheckSDKConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED752869A8D200B15E5C /* VCheckSDKConstants.swift */; };
 		DA3BEDCA2869A8D300B15E5C /* DocumentResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED762869A8D200B15E5C /* DocumentResponseModels.swift */; };
 		DA3BEDCB2869A8D300B15E5C /* VCheckApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED772869A8D200B15E5C /* VCheckApiError.swift */; };
 		DA3BEDCC2869A8D300B15E5C /* VerificationResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED782869A8D200B15E5C /* VerificationResponseModels.swift */; };
@@ -65,12 +65,12 @@
 		DA3BEDF82869A8D300B15E5C /* PhotoInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDB02869A8D300B15E5C /* PhotoInstructionsViewController.swift */; };
 		DA3BEDF92869A8D300B15E5C /* TakeDocPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDB12869A8D300B15E5C /* TakeDocPhotoViewController.swift */; };
 		DA3BEDFD2869A8D300B15E5C /* TextFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDB92869A8D300B15E5C /* TextFieldError.swift */; };
-		DA3BEDFE2869A8D300B15E5C /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDBA2869A8D300B15E5C /* RoundedView.swift */; };
+		DA3BEDFE2869A8D300B15E5C /* VCheckSDKRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDBA2869A8D300B15E5C /* VCheckSDKRoundedView.swift */; };
 		DA3BEDFF2869A8D300B15E5C /* GlobalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDBB2869A8D300B15E5C /* GlobalUtils.swift */; };
-		DA3BEE002869A8D300B15E5C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDBC2869A8D300B15E5C /* Utils.swift */; };
+		DA3BEE002869A8D300B15E5C /* UtilsAndExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDBC2869A8D300B15E5C /* UtilsAndExtensions.swift */; };
 		DA3BEE012869A8D300B15E5C /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDBD2869A8D300B15E5C /* Debouncer.swift */; };
-		DA3BEE022869A8D300B15E5C /* RemoteDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDBF2869A8D300B15E5C /* RemoteDatasource.swift */; };
-		DA3BEE032869A8D300B15E5C /* LocalDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDC02869A8D300B15E5C /* LocalDatasource.swift */; };
+		DA3BEE022869A8D300B15E5C /* VCheckSDKRemoteDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDBF2869A8D300B15E5C /* VCheckSDKRemoteDatasource.swift */; };
+		DA3BEE032869A8D300B15E5C /* VCheckSDKLocalDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDC02869A8D300B15E5C /* VCheckSDKLocalDatasource.swift */; };
 		DA3BEE0A2869B25D00B15E5C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA3BEE0C2869B25D00B15E5C /* Localizable.strings */; };
 		DA3BEE0F2869B49100B15E5C /* VCheckFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA3BEE112869B49100B15E5C /* VCheckFlow.storyboard */; };
 		DA4D269C289198CC00C6F43A /* DocumentRequestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D269B289198CC00C6F43A /* DocumentRequestModels.swift */; };
@@ -92,7 +92,7 @@
 		DA3BED622869A76700B15E5C /* up.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = up.json; sourceTree = "<group>"; };
 		DA3BED632869A76700B15E5C /* mouth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mouth.json; sourceTree = "<group>"; };
 		DA3BED642869A76700B15E5C /* right.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = right.json; sourceTree = "<group>"; };
-		DA3BED752869A8D200B15E5C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DA3BED752869A8D200B15E5C /* VCheckSDKConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCheckSDKConstants.swift; sourceTree = "<group>"; };
 		DA3BED762869A8D200B15E5C /* DocumentResponseModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentResponseModels.swift; sourceTree = "<group>"; };
 		DA3BED772869A8D200B15E5C /* VCheckApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCheckApiError.swift; sourceTree = "<group>"; };
 		DA3BED782869A8D200B15E5C /* VerificationResponseModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationResponseModels.swift; sourceTree = "<group>"; };
@@ -139,12 +139,12 @@
 		DA3BEDB02869A8D300B15E5C /* PhotoInstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoInstructionsViewController.swift; sourceTree = "<group>"; };
 		DA3BEDB12869A8D300B15E5C /* TakeDocPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakeDocPhotoViewController.swift; sourceTree = "<group>"; };
 		DA3BEDB92869A8D300B15E5C /* TextFieldError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldError.swift; sourceTree = "<group>"; };
-		DA3BEDBA2869A8D300B15E5C /* RoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		DA3BEDBA2869A8D300B15E5C /* VCheckSDKRoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCheckSDKRoundedView.swift; sourceTree = "<group>"; };
 		DA3BEDBB2869A8D300B15E5C /* GlobalUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalUtils.swift; sourceTree = "<group>"; };
-		DA3BEDBC2869A8D300B15E5C /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		DA3BEDBC2869A8D300B15E5C /* UtilsAndExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilsAndExtensions.swift; sourceTree = "<group>"; };
 		DA3BEDBD2869A8D300B15E5C /* Debouncer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
-		DA3BEDBF2869A8D300B15E5C /* RemoteDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteDatasource.swift; sourceTree = "<group>"; };
-		DA3BEDC02869A8D300B15E5C /* LocalDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalDatasource.swift; sourceTree = "<group>"; };
+		DA3BEDBF2869A8D300B15E5C /* VCheckSDKRemoteDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCheckSDKRemoteDatasource.swift; sourceTree = "<group>"; };
+		DA3BEDC02869A8D300B15E5C /* VCheckSDKLocalDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCheckSDKLocalDatasource.swift; sourceTree = "<group>"; };
 		DA3BEE0B2869B25D00B15E5C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA3BEE0D2869B26000B15E5C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA3BEE0E2869B26100B15E5C /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -222,7 +222,7 @@
 		DA3BED742869A8D200B15E5C /* domain */ = {
 			isa = PBXGroup;
 			children = (
-				DA3BED752869A8D200B15E5C /* Constants.swift */,
+				DA3BED752869A8D200B15E5C /* VCheckSDKConstants.swift */,
 				DA3BED762869A8D200B15E5C /* DocumentResponseModels.swift */,
 				DA3BED772869A8D200B15E5C /* VCheckApiError.swift */,
 				DA3BED782869A8D200B15E5C /* VerificationResponseModels.swift */,
@@ -364,9 +364,9 @@
 			children = (
 				DA3BEDAE2869A8D300B15E5C /* CheckDocPhotoViewController.swift */,
 				DA3BEDAD2869A8D300B15E5C /* CheckDocPhotoViewModel.swift */,
+				DA3BEDB12869A8D300B15E5C /* TakeDocPhotoViewController.swift */,
 				DA3BEDAF2869A8D300B15E5C /* ZoomedDocPhotoViewController.swift */,
 				DA3BEDB02869A8D300B15E5C /* PhotoInstructionsViewController.swift */,
-				DA3BEDB12869A8D300B15E5C /* TakeDocPhotoViewController.swift */,
 			);
 			path = photo_upload_stage;
 			sourceTree = "<group>";
@@ -375,9 +375,9 @@
 			isa = PBXGroup;
 			children = (
 				DA3BEDB92869A8D300B15E5C /* TextFieldError.swift */,
-				DA3BEDBA2869A8D300B15E5C /* RoundedView.swift */,
+				DA3BEDBA2869A8D300B15E5C /* VCheckSDKRoundedView.swift */,
 				DA3BEDBB2869A8D300B15E5C /* GlobalUtils.swift */,
-				DA3BEDBC2869A8D300B15E5C /* Utils.swift */,
+				DA3BEDBC2869A8D300B15E5C /* UtilsAndExtensions.swift */,
 				DA3BEDBD2869A8D300B15E5C /* Debouncer.swift */,
 			);
 			path = util;
@@ -386,8 +386,8 @@
 		DA3BEDBE2869A8D300B15E5C /* service */ = {
 			isa = PBXGroup;
 			children = (
-				DA3BEDBF2869A8D300B15E5C /* RemoteDatasource.swift */,
-				DA3BEDC02869A8D300B15E5C /* LocalDatasource.swift */,
+				DA3BEDBF2869A8D300B15E5C /* VCheckSDKRemoteDatasource.swift */,
+				DA3BEDC02869A8D300B15E5C /* VCheckSDKLocalDatasource.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -506,13 +506,13 @@
 				DA3BEDDF2869A8D300B15E5C /* WrongGestureViewController.swift in Sources */,
 				DA3BEDEC2869A8D300B15E5C /* DocInfoViewCell.swift in Sources */,
 				DA3BEDE42869A8D300B15E5C /* MultipleFacesDetectedViewContoller.swift in Sources */,
-				DA3BEE022869A8D300B15E5C /* RemoteDatasource.swift in Sources */,
+				DA3BEE022869A8D300B15E5C /* VCheckSDKRemoteDatasource.swift in Sources */,
 				DA3BEDCB2869A8D300B15E5C /* VCheckApiError.swift in Sources */,
 				DA153774286F4FE60038A203 /* GeneralStageModels.swift in Sources */,
 				DA3BEDE62869A8D300B15E5C /* VCheckStartViewModel.swift in Sources */,
-				DA3BEDFE2869A8D300B15E5C /* RoundedView.swift in Sources */,
+				DA3BEDFE2869A8D300B15E5C /* VCheckSDKRoundedView.swift in Sources */,
 				DA3BEDDA2869A8D300B15E5C /* VideoUploadFailureViewModel.swift in Sources */,
-				DA3BEE032869A8D300B15E5C /* LocalDatasource.swift in Sources */,
+				DA3BEE032869A8D300B15E5C /* VCheckSDKLocalDatasource.swift in Sources */,
 				DA3BEDEE2869A8D300B15E5C /* CheckDocInfoViewController.swift in Sources */,
 				DA3BEDD62869A8D300B15E5C /* LivenessVideoRecorder.swift in Sources */,
 				DA3BEDE52869A8D300B15E5C /* LivenessScreenViewController.swift in Sources */,
@@ -544,10 +544,10 @@
 				DA3BEDE22869A8D300B15E5C /* SharpMovementsViewController.swift in Sources */,
 				DA3BEDED2869A8D300B15E5C /* DocPhotoVerifErrorViewController.swift in Sources */,
 				DA3BEDE12869A8D300B15E5C /* OnLivenessRepeatCommonVC.swift in Sources */,
-				DA3BEE002869A8D300B15E5C /* Utils.swift in Sources */,
+				DA3BEE002869A8D300B15E5C /* UtilsAndExtensions.swift in Sources */,
 				DA3BEDFD2869A8D300B15E5C /* TextFieldError.swift in Sources */,
 				DA3BEDD32869A8D300B15E5C /* LivenessVCExtensions.swift in Sources */,
-				DA3BEDC92869A8D300B15E5C /* Constants.swift in Sources */,
+				DA3BEDC92869A8D300B15E5C /* VCheckSDKConstants.swift in Sources */,
 				DA3BEDE82869A8D300B15E5C /* ChooseDocTypeViewController.swift in Sources */,
 				DA3BEDD02869A8D300B15E5C /* DocumentTypes.swift in Sources */,
 				DA3BEDF92869A8D300B15E5C /* TakeDocPhotoViewController.swift in Sources */,

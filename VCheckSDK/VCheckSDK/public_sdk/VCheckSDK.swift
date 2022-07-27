@@ -33,9 +33,7 @@ public class VCheckSDK {
         self.resetVerification()
         
         if (preStartChecksPassed()) {
-            
-            GlobalUtils.setVCheckCurrentLanguageCode(langCode: Locale.current.languageCode!)
-            
+                        
             self.verificationClientCreationModel = VerificationClientCreationModel.init(partnerId: self.partnerId!,
                                                                                         partnerSecret: self.partnerSecret!,
                                                                                         verificationType: self.verificationType!,
@@ -49,7 +47,7 @@ public class VCheckSDK {
     }
     
     private func resetVerification() {
-        LocalDatasource.shared.deleteAllSessionData()
+        VCheckSDKLocalDatasource.shared.deleteAllSessionData()
         self.verificationId = nil
     }
     
@@ -126,15 +124,22 @@ public class VCheckSDK {
     
     public func checkFinalVerificationStatus(completion:
                                              @escaping (VerificationCheckResult?, VCheckApiError?) -> ()) {
-        RemoteDatasource.shared.checkFinalVerificationStatus(verifToken: LocalDatasource.shared.readAccessToken(),
+        VCheckSDKRemoteDatasource.shared.checkFinalVerificationStatus(verifToken: VCheckSDKLocalDatasource.shared.readAccessToken(),
                                                              verifId: self.verificationId!,
                                                              partnerId: self.partnerId!,
                                                              partnerSecret: self.partnerSecret!,
-                                                             completion: { (result, error) in
+                                                             completion: { (response, error) in
             if let error = error {
                 completion(nil, error)
             }
-            completion(result, nil)
+            if let response = response {
+                if (response.data != nil) {
+                    let result = VerificationCheckResult.init(fromData: response.data!)
+                    completion(result, nil)
+                } else {
+                    print("VCheckSDK - error: no data response received from checkFinalVerificationStatus request!")
+                }
+            }
         })
     }
     

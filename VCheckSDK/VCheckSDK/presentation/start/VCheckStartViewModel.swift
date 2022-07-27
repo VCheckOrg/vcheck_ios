@@ -9,7 +9,7 @@ import Foundation
 
 class VCheckStartViewModel {
     
-    private var dataService: RemoteDatasource = RemoteDatasource.shared
+    private var dataService: VCheckSDKRemoteDatasource = VCheckSDKRemoteDatasource.shared
     
     // MARK: - Constructor
     init() {}
@@ -63,7 +63,8 @@ class VCheckStartViewModel {
         let languagePrefix = GlobalUtils.getVCheckCurrentLanguageCode()
         
         if (VCheckSDK.shared.verificationClientCreationModel == nil) {
-            self.error = VCheckApiError(errorText: "Client error: Verification was not created properly", VCheckApiError.DEFAULT_CODE)
+            self.error = VCheckApiError(errorText: "Client error: Verification was not created properly",
+                                        errorCode: VCheckApiError.DEFAULT_CODE)
             self.isLoading = false
             return
         }
@@ -82,7 +83,7 @@ class VCheckStartViewModel {
                     return
                 }
                 
-                LocalDatasource.shared.saveAccessToken(accessToken: data!.token!)
+                VCheckSDKLocalDatasource.shared.saveAccessToken(accessToken: data!.token!)
                 
                 print("VERIF ::: CREATE ATTEMPT SUCCESS! DATA: \(String(describing: data))")
                 

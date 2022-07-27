@@ -6,7 +6,7 @@ internal class LivenessScreenViewController: UIViewController {
 
     // MARK: Outlets/Actions
 
-    @IBOutlet weak var roundedView: RoundedView!
+    @IBOutlet weak var roundedView: VCheckSDKRoundedView!
 
     @IBOutlet weak var leftArrowAnimHolderView: UIView!
     @IBOutlet weak var rightArrowAnimHolderView: UIView!
@@ -14,7 +14,7 @@ internal class LivenessScreenViewController: UIViewController {
     @IBOutlet weak var tvLivenessInfo: UILabel!
 
     @IBOutlet weak var imgMilestoneChecked: UIImageView!
-    @IBOutlet weak var indicationFrame: RoundedView!
+    @IBOutlet weak var indicationFrame: VCheckSDKRoundedView!
 
     // MARK: - Anim properties
     private var faceAnimationView: AnimationView = AnimationView()
@@ -81,7 +81,7 @@ internal class LivenessScreenViewController: UIViewController {
     }
     
     func setMilestonesList() -> Bool {
-        guard let milestonesList = LocalDatasource.shared.getLivenessMilestonesList()
+        guard let milestonesList = VCheckSDKLocalDatasource.shared.getLivenessMilestonesList()
         else {
             self.alertWindowTitle = "Milestone list is not found"
             self.alertMessage = "Probably, milestone list was not retrieved form verification service or not cached properly."
@@ -139,7 +139,7 @@ internal class LivenessScreenViewController: UIViewController {
             return
         }
         self.blockStageChecksByRunningRequest = true
-        RemoteDatasource.shared.sendLivenessGestureAttempt(frameImage: frameImage,
+        VCheckSDKRemoteDatasource.shared.sendLivenessGestureAttempt(frameImage: frameImage,
                                 gesture: milestoneFlow.getGestureRequestFromCurrentStage(),
                                 completion: { (data, error) in
             if let error = error {
@@ -324,9 +324,6 @@ extension LivenessScreenViewController {
         } else if (forMilestoneType == GestureMilestoneType.MouthOpenMilestone) {
             faceAnimationView = AnimationView(name: "mouth", bundle: InternalConstants.bundle)
         } else {
-//            faceAnimationView = AnimationView()
-//            faceAnimationView.stop()
-//            roundedView.subviews.forEach { $0.removeFromSuperview()
             faceAnimationView = AnimationView(name: "mouth", bundle: InternalConstants.bundle)
         }
 
