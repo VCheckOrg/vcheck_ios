@@ -26,7 +26,7 @@ class VideoProcessingViewController: UIViewController {
         
         videoProcessingIndicator.isHidden = false
         
-        let token = VCheckSDKLocalDatasource.shared.readAccessToken()
+        let token = VCheckSDK.shared.getVerificationToken()
         
         viewModel.didUploadVideoResponse = {
             if (self.viewModel.uploadedVideoResponse != nil) {

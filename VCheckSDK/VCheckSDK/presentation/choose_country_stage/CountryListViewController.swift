@@ -60,7 +60,7 @@ class CountryListViewController : UIViewController {
     }
     
     func getSortedArr() -> [CountryTO] {
-        let locale = Locale(identifier: GlobalUtils.getVCheckCurrentLanguageCode())
+        let locale = Locale(identifier: VCheckSDK.shared.getSDKLangCode())
         return self.countriesDataSourceArr.sorted {
             return $0.name.compare($1.name, locale: locale) == .orderedAscending
         }
@@ -72,7 +72,7 @@ extension CountryListViewController: UITableViewDelegate {
     
     func tableView(_ countryListTable: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        VCheckSDKLocalDatasource.shared.saveSelectedCountryCode(code: self.searchResultsList[indexPath.row].code)
+        VCheckSDK.shared.setSelectedCountryCode(code: self.searchResultsList[indexPath.row].code)
 
         self.dismiss(animated: true, completion: nil)
     }

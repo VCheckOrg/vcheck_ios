@@ -76,7 +76,7 @@ struct VCheckSDKRemoteDatasource {
     func initVerification(completion: @escaping (VerificationInitResponseData?, VCheckApiError?) -> ()) {
         let url = "\(verifBaseUrl)verifications/init"
         
-        let token = VCheckSDKLocalDatasource.shared.readAccessToken()
+        let token = VCheckSDK.shared.getVerificationToken()
         if (token.isEmpty) {
             completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
                                            errorCode: VCheckApiError.DEFAULT_CODE))
@@ -106,7 +106,7 @@ struct VCheckSDKRemoteDatasource {
     func getCurrentStage(completion: @escaping (StageResponse?, VCheckApiError?) -> ()) {
         let url = "\(verifBaseUrl)stages/current"
 
-        let token = VCheckSDKLocalDatasource.shared.readAccessToken()
+        let token = VCheckSDK.shared.getVerificationToken()
         if (token.isEmpty) {
             completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
                                            errorCode: VCheckApiError.DEFAULT_CODE))
@@ -131,7 +131,7 @@ struct VCheckSDKRemoteDatasource {
     func getCountries(completion: @escaping ([Country]?, VCheckApiError?) -> ()) {
         let url = "\(verifBaseUrl)documents/countries"
 
-        let token = VCheckSDKLocalDatasource.shared.readAccessToken()
+        let token = VCheckSDK.shared.getVerificationToken()
         if (token.isEmpty) {
             completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
                                            errorCode: VCheckApiError.DEFAULT_CODE))
@@ -163,7 +163,7 @@ struct VCheckSDKRemoteDatasource {
 
         let url = "\(verifBaseUrl)documents/types?country=\(countryCode)"
 
-        let token = VCheckSDKLocalDatasource.shared.readAccessToken()
+        let token = VCheckSDK.shared.getVerificationToken()
         if (token.isEmpty) {
             completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
                                            errorCode: VCheckApiError.DEFAULT_CODE))
@@ -201,7 +201,7 @@ struct VCheckSDKRemoteDatasource {
             
             let url = "\(verifBaseUrl)documents/upload"
 
-            let token = VCheckSDKLocalDatasource.shared.readAccessToken()
+            let token = VCheckSDK.shared.getVerificationToken()
             if (token.isEmpty) {
                 completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
                                                errorCode: VCheckApiError.DEFAULT_CODE))
@@ -242,7 +242,7 @@ struct VCheckSDKRemoteDatasource {
                          completion: @escaping (PreProcessedDocData?, VCheckApiError?) -> ()) {
         let url = "\(verifBaseUrl)documents/\(documentId)/info"
 
-        let token = VCheckSDKLocalDatasource.shared.readAccessToken()
+        let token = VCheckSDK.shared.getVerificationToken()
         if (token.isEmpty) {
             completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
                                            errorCode: VCheckApiError.DEFAULT_CODE))
@@ -282,7 +282,7 @@ struct VCheckSDKRemoteDatasource {
                                              errorCode: VCheckApiError.DEFAULT_CODE))
             return
         }
-        let token = VCheckSDKLocalDatasource.shared.readAccessToken()
+        let token = VCheckSDK.shared.getVerificationToken()
         if (token.isEmpty) {
             completion(false, VCheckApiError(errorText: "Error: cannot find access token",
                                              errorCode: VCheckApiError.DEFAULT_CODE))
@@ -308,7 +308,7 @@ struct VCheckSDKRemoteDatasource {
             
             let url = "\(verifBaseUrl)liveness_challenges"
 
-            let token = VCheckSDKLocalDatasource.shared.readAccessToken()
+            let token = VCheckSDK.shared.getVerificationToken()
             if (token.isEmpty) {
                 completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
                                                errorCode: VCheckApiError.DEFAULT_CODE))
@@ -345,7 +345,7 @@ struct VCheckSDKRemoteDatasource {
         
         let url = "\(verifBaseUrl)liveness_challenges/gesture"
 
-        let token = VCheckSDKLocalDatasource.shared.readAccessToken()
+        let token = VCheckSDK.shared.getVerificationToken()
         if (token.isEmpty) {
             completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
                                            errorCode: VCheckApiError.DEFAULT_CODE))
@@ -387,7 +387,7 @@ struct VCheckSDKRemoteDatasource {
                                       partnerSecret: String,
                                       completion: @escaping (FinalVerifCheckResponseModel?, VCheckApiError?) -> ()) {
 
-        let token = VCheckSDKLocalDatasource.shared.readAccessToken()
+        let token = VCheckSDK.shared.getVerificationToken()
         if (token.isEmpty) {
             completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
                                            errorCode: VCheckApiError.DEFAULT_CODE))

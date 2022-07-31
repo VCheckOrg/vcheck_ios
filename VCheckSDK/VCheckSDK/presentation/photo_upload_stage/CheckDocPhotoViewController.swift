@@ -90,12 +90,6 @@ class CheckDocPhotoViewController : UIViewController {
         confirmUploadPhotosBtn.addGestureRecognizer(uploadPhotosTap)
     }
     
-    
-    //remove?
-//    func handleDocUplResponse() {
-//        self.activityIndicatorStop()
-//    }
-    
     func handleDocUploadResponse() {
         self.activityIndicatorStop()
         
@@ -167,6 +161,7 @@ class CheckDocPhotoViewController : UIViewController {
             if (self.secondPhoto != nil) {
                 vc.secondPhoto = self.secondPhoto
             }
+            vc.isDocCheckForced = self.isDocCheckForced
             if (self.viewModel.uploadResponse?.data?.id == nil) {
                 let errText = "Error: Cannot find document id for navigation!"
                 self.showToast(message: errText, seconds: 2.0)

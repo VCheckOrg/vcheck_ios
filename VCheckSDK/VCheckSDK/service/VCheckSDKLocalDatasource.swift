@@ -8,9 +8,7 @@
 import Foundation
 
 class VCheckSDKLocalDatasource {
-    
-    //https://swiftsenpai.com/development/persist-data-using-keychain/
-    
+        
     // MARK: - Singleton
     static let shared = VCheckSDKLocalDatasource()
     
@@ -23,87 +21,12 @@ class VCheckSDKLocalDatasource {
     private var livenessMilestonesList: [String]? = nil
     
     private var localeIsUserDefined: Bool = false
-    
-    
-    func save(_ data: Data, service: String, account: String) {
-
-        let query = [
-            kSecValueData: data,
-            kSecAttrService: service,
-            kSecAttrAccount: account,
-            kSecClass: kSecClassGenericPassword
-        ] as CFDictionary
-
-        // Add data in query to keychain
-        let status = SecItemAdd(query, nil)
-
-        if status == errSecDuplicateItem {
-            // Item already exist, thus update it.
-            let query = [
-                kSecAttrService: service,
-                kSecAttrAccount: account,
-                kSecClass: kSecClassGenericPassword,
-            ] as CFDictionary
-
-            let attributesToUpdate = [kSecValueData: data] as CFDictionary
-
-            // Update existing item
-            SecItemUpdate(query, attributesToUpdate)
-        }
-    }
-    
-    func read(service: String, account: String) -> Data? {
-        
-        let query = [
-            kSecAttrService: service,
-            kSecAttrAccount: account,
-            kSecClass: kSecClassGenericPassword,
-            kSecReturnData: true
-        ] as CFDictionary
-        
-        var result: AnyObject?
-        SecItemCopyMatching(query, &result)
-        
-        return (result as? Data)
-    }
-    
-    func delete(service: String, account: String) {
-        
-        let query = [
-            kSecAttrService: service,
-            kSecAttrAccount: account,
-            kSecClass: kSecClassGenericPassword,
-            ] as CFDictionary
-        
-        // Delete item from keychain
-        SecItemDelete(query)
-    }
 }
 
 
-    // MARK: - Actual Local Datasource
+// MARK: - Actual Local Datasource
 
 extension VCheckSDKLocalDatasource {
-    
-    func readAccessToken() -> String {
-        return String(data: read(service: "access-token",
-                                 account: VCheckSDKConstants.UTIL.keychainAccountName)!, encoding: .utf8) ?? ""
-    }
-    
-    func saveAccessToken(accessToken: String) {
-        let data = Data(accessToken.utf8)
-        save(data, service: "access-token", account: VCheckSDKConstants.UTIL.keychainAccountName)
-    }
-    
-    func readSelectedCountryCode() -> String {
-        return String(data: read(service: "country-code",
-                                 account: VCheckSDKConstants.UTIL.keychainAccountName)!, encoding: .utf8) ?? ""
-    }
-    
-    func saveSelectedCountryCode(code: String) {
-        let data = Data(code.utf8)
-        save(data, service: "country-code", account: VCheckSDKConstants.UTIL.keychainAccountName)
-    }
     
     func setSelectedDocTypeWithData(data: DocTypeData) {
         selectedDocTypeWithData = data
@@ -121,16 +44,6 @@ extension VCheckSDKLocalDatasource {
         return livenessMilestonesList
     }
     
-    func resetAccessToken() {
-        let data = Data("".utf8)
-        save(data, service: "access-token", account: VCheckSDKConstants.UTIL.keychainAccountName)
-    }
-    
-    func resetSelectedCountryCode() {
-        let data = Data("".utf8)
-        save(data, service: "country-code", account: VCheckSDKConstants.UTIL.keychainAccountName)
-    }
-    
     func deleteSelectedDocTypeWithData() {
         selectedDocTypeWithData = nil
     }
@@ -139,66 +52,8 @@ extension VCheckSDKLocalDatasource {
         livenessMilestonesList = nil
     }
     
-    func getCurrentSDKLangauge() -> String {
-        return String(data: read(service: "vcheck-sdk-lang",
-                                 account: VCheckSDKConstants.UTIL.keychainAccountName)!, encoding: .utf8) ?? "en"
-    }
-
-    func saveCurrentSDKLangauge(langCode: String) {
-        let data = Data(langCode.utf8)
-        save(data, service: "vcheck-sdk-lang", account: VCheckSDKConstants.UTIL.keychainAccountName)
-    }
-
-    func setLocaleIsUserDefined() {
-        localeIsUserDefined = true
-    }
-    
-    func isLocaleUserDefined() -> Bool {
-        return localeIsUserDefined
-    }
-    
     func deleteAllSessionData() {
-        resetAccessToken()
-        resetSelectedCountryCode()
         deleteSelectedDocTypeWithData()
         deleteLivenessMilestonesList()
-        //localeIsUserDefined = false
     }
-}
-
-
-
-    // MARK: - Utils
-
-extension VCheckSDKLocalDatasource {
-    
-    func save<T>(_ item: T, service: String, account: String) where T : Codable {
-        
-        do {
-            // Encode as JSON data and save in keychain
-            let data = try JSONEncoder().encode(item)
-            save(data, service: service, account: account)
-            
-        } catch {
-            assertionFailure("Fail to encode item for keychain: \(error)")
-        }
-    }
-    
-    func read<T>(service: String, account: String, type: T.Type) -> T? where T : Codable {
-        
-        // Read item data from keychain
-        guard let data = read(service: service, account: account) else {
-            return nil
-        }
-        
-        // Decode JSON data to object
-        do {
-            let item = try JSONDecoder().decode(type, from: data)
-            return item
-        } catch {
-            assertionFailure("Fail to decode item for keychain: \(error)")
-            return nil
-        }
-    }
-    
 }

@@ -66,9 +66,8 @@
 
 "bermuda" = "Bermuda";
 
-"invalid_doc_type_desc" = "The document does not match the selected type. We recommend to re-upload the document.";
-
-"verif_error_desc" = "Something went wrong. We recommend to re-upload the document.";
+"invalid_doc_type_desc" = "Document compliance check failed. Please, download the correct document";
+"verif_error_desc" = "Document verification is not successful";
 
 "check_doc_fields_input_message" = "Some document fields are not properly filled or empty";
 

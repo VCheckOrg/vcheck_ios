@@ -26,7 +26,7 @@ class CheckDocInfoViewController : UIViewController {
     
     var fieldsList: [DocFieldWitOptPreFilledData] = []
     
-    let currLocaleCode = GlobalUtils.getVCheckCurrentLanguageCode()
+    let currLocaleCode = VCheckSDK.shared.getSDKLangCode()
     
     @IBOutlet weak var docFieldsTableView: UITableView!
     
@@ -399,32 +399,3 @@ extension UIViewController: UITextFieldDelegate {
         return true
     }
 }
-
-
-// Deprecated fields/checks:
-
-//            if (docField.name == "date_of_expiry" && parsedDocFieldsData?.dateOfExpiry != nil) {
-//                optParsedData = (parsedDocFieldsData?.dateOfExpiry)!
-//            }
-//            if (docField.name == "og_name" && parsedDocFieldsData?.ogName != nil) {
-//                optParsedData = (parsedDocFieldsData?.ogName)!
-//            }
-//            if (docField.name == "og_surname" && parsedDocFieldsData?.ogSurname != nil) {
-//                optParsedData = (parsedDocFieldsData?.ogSurname)!
-//            }
-
-//        if(fieldName == "date_of_expiry") {
-//            cell.docTextField.addTarget(self, action: #selector(self.validateDocDateOfExpiryField(_:)),
-//                                        for: UIControl.Event.editingChanged)
-//        }
-
-//            if ($0.name == "date_of_expiry") {
-//                data.dateOfExpiry = $0.autoParsedValue
-//            }
-//            if ($0.name == "og_name") {
-//                data.ogName = $0.autoParsedValue
-//            }
-//            if ($0.name == "og_surname") {
-//                data.ogSurname = $0.autoParsedValue
-//            }
-

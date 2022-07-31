@@ -76,8 +76,7 @@ struct CountryTO {
     }
     
     static func countryName(countryCode: String) -> String {
-        let current = Locale(identifier: GlobalUtils.getVCheckCurrentLanguageCode())
-                                //Locale.current.identifier)
+        let current = Locale(identifier: VCheckSDK.shared.getSDKLangCode())
         return current.localizedString(forRegionCode: countryCode) ?? "Not Localized"
     }
     

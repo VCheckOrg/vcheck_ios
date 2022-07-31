@@ -37,7 +37,7 @@ class CheckDocPhotoViewModel {
         
         self.isLoading = true
         
-        let countryCode: String = VCheckSDKLocalDatasource.shared.readSelectedCountryCode()
+        let countryCode: String = VCheckSDK.shared.getSelectedCountryCode()
         
         let docType: Int = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData()!.category!
         

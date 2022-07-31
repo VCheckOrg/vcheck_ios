@@ -3,7 +3,6 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -562,6 +561,7 @@
                     <connections>
                         <outlet property="btnContinueToCheckDoc" destination="EaO-z6-vaI" id="NzO-pt-bFu"/>
                         <outlet property="verifErrorDescrText" destination="mhV-l1-ZoU" id="KcQ-OE-fyh"/>
+                        <outlet property="verifErrorTitleText" destination="vIo-1V-hp0" id="066-sf-3ua"/>
                         <segue destination="dcp-4c-bus" kind="show" identifier="DocPhotoVerifErrorToCheckDoc" id="MdT-K5-jp1"/>
                     </connections>
                 </viewController>
@@ -2259,7 +2259,7 @@
                                                                                 </userDefinedRuntimeAttribute>
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
-                                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Field name" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zVf-o1-mBp">
+                                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Field name" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zVf-o1-mBp">
                                                                             <rect key="frame" x="0.0" y="-3" width="181" height="21"/>
                                                                             <color key="backgroundColor" name="CardColor"/>
                                                                             <constraints>
@@ -2970,29 +2970,6 @@
                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Y2-k5-lex">
                                 <rect key="frame" x="0.0" y="44" width="390" height="56"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ca7-Xy-aCd">
-                                        <rect key="frame" x="281.66666666666669" y="10" width="68" height="34"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="s0v-LW-pJ6"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <color key="tintColor" name="DescriptionColor"/>
-                                        <state key="normal" title="English">
-                                            <color key="titleColor" name="DescriptionColor"/>
-                                            <imageReference key="image" image="globe" catalog="system" symbolScale="small"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="actionShowLangMenu:" destination="azn-ur-GOV" eventType="touchUpInside" id="fhe-9I-aWn"/>
-                                        </connections>
-                                    </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="p1L-EV-TLD">
-                                        <rect key="frame" x="352" y="24.333333333333332" width="15" height="7.3333333333333321"/>
-                                        <color key="tintColor" name="DescriptionColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="12" id="GF5-jL-nBk"/>
-                                            <constraint firstAttribute="width" constant="15" id="nWw-O0-FWh"/>
-                                        </constraints>
-                                    </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="xPw-qh-b7e">
                                         <rect key="frame" x="12" y="18" width="137" height="20"/>
                                         <constraints>
@@ -3003,8 +2980,6 @@
                                 </subviews>
                                 <color key="backgroundColor" name="BackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="p1L-EV-TLD" firstAttribute="leading" secondItem="ca7-Xy-aCd" secondAttribute="trailing" constant="2.3333333333333712" id="H1s-rf-2tN"/>
-                                    <constraint firstAttribute="trailing" secondItem="p1L-EV-TLD" secondAttribute="trailing" constant="23" id="HsW-Bz-lXT"/>
                                     <constraint firstAttribute="height" constant="56" id="LE9-h0-pSE"/>
                                 </constraints>
                             </view>
@@ -3013,7 +2988,6 @@
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="LaA-aO-G4k" firstAttribute="top" secondItem="JSc-mi-LF5" secondAttribute="top" id="53d-hG-BQ8"/>
-                            <constraint firstItem="p1L-EV-TLD" firstAttribute="top" secondItem="JSc-mi-LF5" secondAttribute="top" constant="22" id="6cH-4u-dhO"/>
                             <constraint firstItem="LaA-aO-G4k" firstAttribute="leading" secondItem="JSc-mi-LF5" secondAttribute="leading" id="GD6-hZ-jTT"/>
                             <constraint firstItem="9Y2-k5-lex" firstAttribute="trailing" secondItem="JSc-mi-LF5" secondAttribute="trailing" id="JcR-JS-4Dp"/>
                             <constraint firstItem="xPw-qh-b7e" firstAttribute="top" secondItem="JSc-mi-LF5" secondAttribute="top" constant="18" id="QQV-aL-oeT"/>
@@ -3021,14 +2995,10 @@
                             <constraint firstItem="xPw-qh-b7e" firstAttribute="leading" secondItem="JSc-mi-LF5" secondAttribute="leading" constant="12" id="eGe-rb-MIU"/>
                             <constraint firstItem="9Y2-k5-lex" firstAttribute="leading" secondItem="JSc-mi-LF5" secondAttribute="leading" id="mF1-DH-fdC"/>
                             <constraint firstItem="9Y2-k5-lex" firstAttribute="top" secondItem="JSc-mi-LF5" secondAttribute="top" id="qEl-DZ-S3K"/>
-                            <constraint firstItem="ca7-Xy-aCd" firstAttribute="top" secondItem="JSc-mi-LF5" secondAttribute="top" constant="10" id="r8v-U6-3iI"/>
                             <constraint firstAttribute="bottom" secondItem="LaA-aO-G4k" secondAttribute="bottom" id="y1U-MH-GNA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uIg-di-aDI"/>
-                    <connections>
-                        <outlet property="showButton" destination="ca7-Xy-aCd" id="iFp-Le-xWa"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vc0-A2-iRO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3544,14 +3514,13 @@
         <segue reference="6Dz-L8-h7I"/>
         <segue reference="hbx-PL-eMi"/>
         <segue reference="mdJ-XX-Wrm"/>
-        <segue reference="bvF-PB-3XP"/>
+        <segue reference="MdT-K5-jp1"/>
         <segue reference="Cj4-0s-twM"/>
         <segue reference="riI-uo-ZBO"/>
         <segue reference="thq-za-677"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Too dark" width="718" height="680"/>
-        <image name="arrowtriangle.down.fill" catalog="system" width="128" height="124"/>
         <image name="back_arrow" width="20" height="32"/>
         <image name="bio_passport_icon" width="48" height="38"/>
         <image name="delete_icon" width="88" height="88"/>
@@ -3560,7 +3529,6 @@
         <image name="fast_movement" width="728" height="728"/>
         <image name="fixed_camera_icon" width="48" height="48"/>
         <image name="frame_interference_image" width="488" height="480"/>
-        <image name="globe" catalog="system" width="128" height="121"/>
         <image name="good_light_icon" width="48" height="48"/>
         <image name="ic_success" width="156" height="156"/>
         <image name="image_color_icon" width="48" height="48"/>

@@ -22,7 +22,7 @@ class VCheckStartViewController : UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-                
+                        
         if (self.spinner.isAnimating) {
             self.spinner.stopAnimating()
         }
@@ -102,7 +102,7 @@ class VCheckStartViewController : UIViewController {
     func goToCountriesScreen(data: [CountryTO]) {
         
         if let defaultSelectedCountry = self.viewModel.countries!.first(where: { $0.code == "ua" }) {
-            VCheckSDKLocalDatasource.shared.saveSelectedCountryCode(code: defaultSelectedCountry.code)
+            VCheckSDK.shared.setSelectedCountryCode(code: defaultSelectedCountry.code)
         } else {
            print("ERROR: CANNOT SAVE DEFAULT COUNTRY TO KEYCHAIN!")
         }

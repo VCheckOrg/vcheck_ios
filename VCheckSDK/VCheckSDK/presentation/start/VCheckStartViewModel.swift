@@ -60,7 +60,7 @@ class VCheckStartViewModel {
     }
     
     func createVerifAttempt() {
-        let languagePrefix = GlobalUtils.getVCheckCurrentLanguageCode()
+        let languagePrefix = VCheckSDK.shared.getSDKLangCode()
         
         if (VCheckSDK.shared.verificationClientCreationModel == nil) {
             self.error = VCheckApiError(errorText: "Client error: Verification was not created properly",
@@ -83,7 +83,8 @@ class VCheckStartViewModel {
                     return
                 }
                 
-                VCheckSDKLocalDatasource.shared.saveAccessToken(accessToken: data!.token!)
+                //VCheckSDKLocalDatasource.shared.saveAccessToken(accessToken: data!.token!)
+                VCheckSDK.shared.setVerificationToken(token: data!.token!)
                 
                 print("VERIF ::: CREATE ATTEMPT SUCCESS! DATA: \(String(describing: data))")
                 

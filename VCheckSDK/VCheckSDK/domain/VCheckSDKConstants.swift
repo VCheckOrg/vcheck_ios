@@ -11,4 +11,10 @@ enum VCheckSDKConstants {
     enum UTIL {
         static let keychainAccountName = "vhcheck"
     }
+    
+    static let vcheckSDKAvailableLanguagesList: [String] = [
+                "uk",
+                "en",
+                "ru"
+    ]
 }

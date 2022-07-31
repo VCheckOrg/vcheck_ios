@@ -14,11 +14,16 @@ public class VCheckSDK {
     public static let shared = VCheckSDK()
     
     private var partnerEndCallback: (() -> Void)? = nil
-        
+    
     private var partnerId: Int? = nil
     private var partnerSecret: String? = nil
-    
+
     private var verificationId: Int? = nil
+    private var verificationToken: String? = nil
+    
+    private var selectedCountryCode: String? = nil
+    
+    private var sdkLanguageCode: String? = nil
     
     private var verificationType: VerificationSchemeType?
     private var partnerUserId: String? = nil
@@ -49,6 +54,8 @@ public class VCheckSDK {
     private func resetVerification() {
         VCheckSDKLocalDatasource.shared.deleteAllSessionData()
         self.verificationId = nil
+        self.verificationToken = nil
+        self.selectedCountryCode = nil
     }
     
     public func onFinish() {
@@ -71,6 +78,18 @@ public class VCheckSDK {
         if (self.partnerSecret == nil) {
            print("VCheckSDK - error: partner secret must be provided by client app | see VCheckSDK.shared.partnerSecret(secret: String)")
            return false
+        }
+        
+        if (sdkLanguageCode == nil) {
+           print("VCheckSDK - warning: sdk language code is not set; using English (en) locale as default. " +
+                            "| see VCheckSDK.sdkLanguageCode(langCode: String)")
+        }
+        if (sdkLanguageCode != nil && !VCheckSDKConstants
+                .vcheckSDKAvailableLanguagesList.contains((sdkLanguageCode?.lowercased())!)) {
+            print("VCheckSDK - error: SDK is not localized with [$sdkLanguageCode] locale yet. " +
+                    "You may set one of the next locales: ${VCheckSDKConstantsProvider.vcheckSDKAvailableLanguagesList}, " +
+                    "or check out for the recent version of the SDK library")
+            return false
         }
         if (self.partnerUserId != nil && partnerUserId!.isEmpty) {
            print("VCheckSDK - error: if provided, partner user ID must be unique to your service and not empty")
@@ -106,6 +125,11 @@ public class VCheckSDK {
         self.verificationType = type
         return self
     }
+    
+    public func languageCode(langCode: String) -> VCheckSDK {
+        self.sdkLanguageCode = langCode.lowercased()
+        return self
+    }
 
     public func partnerUserId(pUID: String) -> VCheckSDK {
         self.partnerUserId = pUID
@@ -124,7 +148,7 @@ public class VCheckSDK {
     
     public func checkFinalVerificationStatus(completion:
                                              @escaping (VerificationCheckResult?, VCheckApiError?) -> ()) {
-        VCheckSDKRemoteDatasource.shared.checkFinalVerificationStatus(verifToken: VCheckSDKLocalDatasource.shared.readAccessToken(),
+        VCheckSDKRemoteDatasource.shared.checkFinalVerificationStatus(verifToken: getVerificationToken(),
                                                              verifId: self.verificationId!,
                                                              partnerId: self.partnerId!,
                                                              partnerSecret: self.partnerSecret!,
@@ -143,10 +167,43 @@ public class VCheckSDK {
         })
     }
     
+    internal func setVerificationToken(token: String) {
+        self.verificationToken = token
+    }
+
+    internal func getVerificationToken() -> String {
+        if (verificationToken == nil) {
+            print("VCheckSDK - error: verification token is not set!")
+        }
+        return verificationToken ?? ""
+    }
+    
     internal func setVerificationId(verifId: Int) {
         self.verificationId = verifId
     }
+
+
+    private func getVerificationId() -> Int {
+        if (verificationId == nil) {
+            print("VCheckSDK - error: verification id is not set!")
+        }
+        return verificationId ?? -1
+    }
+
+    public func getSDKLangCode() -> String {
+        return sdkLanguageCode ?? "en"
+    }
+
+    internal func getSelectedCountryCode() -> String {
+        return selectedCountryCode ?? "ua"
+    }
+
+    internal func setSelectedCountryCode(code: String) {
+        self.selectedCountryCode = code
+    }
+    
 }
+
 
 
 //private var customServiceURL: String? = nil

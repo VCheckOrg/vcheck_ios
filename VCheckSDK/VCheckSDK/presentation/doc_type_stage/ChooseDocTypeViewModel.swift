@@ -28,7 +28,7 @@ class ChooseDocTypeViewModel  {
     
     func getAvailableDocTypes() {
         
-        let countryCode = VCheckSDKLocalDatasource.shared.readSelectedCountryCode()
+        let countryCode = VCheckSDK.shared.getSelectedCountryCode()
         
         self.dataService.getCountryAvailableDocTypeInfo(countryCode: countryCode, completion: { (data, error) in
             if let error = error {

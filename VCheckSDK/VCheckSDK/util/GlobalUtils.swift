@@ -17,16 +17,6 @@ public final class GlobalUtils {
         let homeVC = storyboard.instantiateInitialViewController()
         return homeVC!
     }
-    
-    public static func getVCheckCurrentLanguageCode() -> String {
-        return VCheckSDKLocalDatasource.shared.getCurrentSDKLangauge()
-    }
-    
-    public static func setVCheckCurrentLanguageCode(langCode: String) {
-        VCheckSDKLocalDatasource.shared.saveCurrentSDKLangauge(langCode: langCode)
-    }
-    
-    //TODO: make more abstract funtion to luach SDK init screen (and separated stages for later)
 }
 
 extension UIImage {

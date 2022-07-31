@@ -13,7 +13,9 @@ class DocPhotoVerifErrorViewController : UIViewController {
     
     var docId: Int? = nil
     var statusCode: Int? = nil
+    var isDocCheckForced: Bool = false
     
+    @IBOutlet weak var verifErrorTitleText: UILabel!
     @IBOutlet weak var verifErrorDescrText: UILabel!
     
     var firstPhoto: UIImage? = nil
@@ -37,11 +39,9 @@ class DocPhotoVerifErrorViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (statusCode == 4) {
-            verifErrorDescrText.text = "invalid_doc_type_desc".localized
-        } else {
-            verifErrorDescrText.text = "verif_error_desc".localized
-        }
+        verifErrorTitleText.text = "verif_error_desc".localized
+        
+        verifErrorDescrText.text = "invalid_doc_type_desc".localized
         
         btnContinueToCheckDoc.titleLabel?.textAlignment = .center
         btnContinueToCheckDoc.titleLabel?.text = "confident_in_doc_title".localized
@@ -69,6 +69,7 @@ class DocPhotoVerifErrorViewController : UIViewController {
             if (self.secondPhoto != nil) {
                 vc.secondPhoto = self.secondPhoto
             }
+            vc.isDocCheckForced = self.isDocCheckForced
         }
     }
     
