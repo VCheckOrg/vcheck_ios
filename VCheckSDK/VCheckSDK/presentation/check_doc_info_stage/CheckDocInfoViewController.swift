@@ -19,9 +19,7 @@ class CheckDocInfoViewController : UIViewController {
     var docId: Int? = nil
     
     var isDocCheckForced: Bool = false
-    
-    var isDocPreviouslyUploaded: Bool = false
-    
+        
     var regex: String?
     
     var fieldsList: [DocFieldWitOptPreFilledData] = []
@@ -60,25 +58,20 @@ class CheckDocInfoViewController : UIViewController {
         
         docFieldsTableView.dataSource = self
         
-        if (isDocPreviouslyUploaded == false) {
-            firstPhotoImageView.image = firstPhoto
-            
-            if (secondPhoto != nil) {
-                secondPhotoImageView.isHidden = false
-                secondPhotoImageView.image = secondPhoto
-            } else {
-                secondPhotoImgCard.isHidden = true
-                tableTopConstraint.constant = 30
-            }
+        firstPhotoImageView.image = firstPhoto
+        
+        if (secondPhoto != nil) {
+            secondPhotoImageView.isHidden = false
+            secondPhotoImageView.image = secondPhoto
+        } else {
+            secondPhotoImgCard.isHidden = true
+            tableTopConstraint.constant = 30
         }
         
         viewModel.didReceiveDocInfoResponse = {
             if (self.viewModel.docInfoResponse != nil) {
                 self.populateDocFields(preProcessedDocData: self.viewModel.docInfoResponse!,
                                        currentLocaleCode: self.currLocaleCode)
-            }
-            if (self.isDocPreviouslyUploaded == true) {
-                //TODO: get doc photo link from backend!
             }
         }
         
@@ -226,8 +219,7 @@ extension CheckDocInfoViewController: UITableViewDataSource {
         if (fieldName == "date_of_birth") {
             cell.docTextField.attributedPlaceholder = NSAttributedString(
                 string: "doc_date_placeholder".localized,
-                attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
-            )
+                attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
             cell.docTextField.addTarget(self, action: #selector(self.validateDocDateOfBirthField(_:)),
                                         for: UIControl.Event.editingChanged)
         }

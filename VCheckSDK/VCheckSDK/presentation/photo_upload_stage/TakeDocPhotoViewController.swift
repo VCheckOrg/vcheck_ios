@@ -253,37 +253,7 @@ class TakeDocPhotoViewController : UIViewController,
             default: print("NO CORRECT PHOTO DELETION INDEX FOUND!")
         }
     }
-    
-    /*
-     if (_docType == DocType.FOREIGN_PASSPORT) {
-                 if (_photo1Path != null) {
-                     prepareForNavigation(false)
-                 } else {
-                     _binding!!.photoUploadContinueButton.setBackgroundColor(Color.parseColor("#BFBFBF"))
-                     _binding!!.photoUploadContinueButton.setOnClickListener {}
-                     Toast.makeText(activity, R.string.error_make_at_least_one_photo, Toast.LENGTH_LONG).show()
-                 }
-             } else if (_docType == DocType.INNER_PASSPORT_OR_COMMON) {
-                 if (_photo1Path != null) {
-                     prepareForNavigation(false)
-                 } else if (_photo2Path != null && _photo1Path != null) {
-                     prepareForNavigation(false)
-                 } else {
-                     _binding!!.photoUploadContinueButton.setBackgroundColor(Color.parseColor("#BFBFBF"))
-                     _binding!!.photoUploadContinueButton.setOnClickListener {}
-                     Toast.makeText(activity, R.string.error_make_at_least_one_photo, Toast.LENGTH_LONG).show()
-                 }
-             } else {
-                 if (_photo1Path != null && _photo2Path != null) {
-                     prepareForNavigation(true)
-                 } else {
-                     _binding!!.photoUploadContinueButton.setBackgroundColor(Color.parseColor("#BFBFBF"))
-                     _binding!!.photoUploadContinueButton.setOnClickListener {}
-                 }
-             }
-     */
 
-    //TODO: check - proceed btn still active and lets navigation even if single photo is deleted!
     func checkPhotoCompletenessAndSetProceedClickListener() {
         if (selectedDocType == DocType.FOREIGN_PASSPORT) {
             if (firstPhoto != nil) {
@@ -296,6 +266,8 @@ class TakeDocPhotoViewController : UIViewController,
                 prepareForNavigation(resetSecondPhoto: false)
             } else if (secondPhoto != nil && firstPhoto != nil) {
                 prepareForNavigation(resetSecondPhoto: true)
+            } else if (secondPhoto != nil && firstPhoto == nil) {
+                showBothPhotosNeededError()
             } else {
                 showMinPhotosError()
             }
@@ -303,13 +275,17 @@ class TakeDocPhotoViewController : UIViewController,
             if (firstPhoto != nil && secondPhoto != nil) {
                 prepareForNavigation(resetSecondPhoto: true)
             } else {
-                btnContinueToPreview.tintColor = UIColor(named: "borderColor", in: InternalConstants.bundle, compatibleWith: nil)
-                btnContinueToPreview.titleLabel?.textColor = UIColor.white
-                btnContinueToPreview.gestureRecognizers?.forEach(btnContinueToPreview.removeGestureRecognizer)
-                let errText = "error_make_two_photos".localized
-                self.showToast(message: errText, seconds: 1.3)
+                showBothPhotosNeededError()
             }
         }
+    }
+    
+    func showBothPhotosNeededError() {
+        btnContinueToPreview.tintColor = UIColor(named: "borderColor", in: InternalConstants.bundle, compatibleWith: nil)
+        btnContinueToPreview.titleLabel?.textColor = UIColor.white
+        btnContinueToPreview.gestureRecognizers?.forEach(btnContinueToPreview.removeGestureRecognizer)
+        let errText = "error_make_two_photos".localized
+        self.showToast(message: errText, seconds: 1.3)
     }
     
     func showMinPhotosError() {

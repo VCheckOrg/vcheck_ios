@@ -15,7 +15,7 @@ class CheckDocPhotoViewController : UIViewController {
     var firstPhoto: UIImage? = nil
     var secondPhoto: UIImage? = nil
     
-    var isDocCheckForced: Bool = false
+    //var isDocCheckForced: Bool = false
         
     @IBOutlet weak var secondPhotoCard: VCheckSDKRoundedView!
     
@@ -93,20 +93,18 @@ class CheckDocPhotoViewController : UIViewController {
     func handleDocUploadResponse() {
         self.activityIndicatorStop()
         
-        print("RECEIVED PHOTO UPLOAD ERROR ::: \(String(describing: self.viewModel.uploadResponse))")
+        print("RECEIVED PHOTO UPLOAD DATA ::: \(String(describing: self.viewModel.uploadResponse))")
                 
         if (self.viewModel.uploadResponse?.errorCode == DocumentVerificationCode.PARSING_ERROR.toCodeIdx()
-            || self.viewModel.uploadResponse?.errorCode == DocumentVerificationCode.INVALID_PAGE.toCodeIdx()) {
-            //self.showToast(message: "Error: [\(String(describing: self.viewModel.uploadResponse?.errorCode))]", seconds: 3.0)
-            handleDocDataResponse(isDocCheckForced: true)
+                || self.viewModel.uploadResponse?.errorCode == DocumentVerificationCode.INVALID_PAGE.toCodeIdx()) {
+            self.navigateToStatusError()
         } else {
-            handleDocDataResponse(isDocCheckForced: false)
+            self.handleDocDataResponse()
         }
     }
     
-    func handleDocDataResponse(isDocCheckForced: Bool) {
+    func handleDocDataResponse() {
         if(self.viewModel.uploadResponse?.data?.id != nil) {
-            self.isDocCheckForced = true
             self.navigateToDocInfoScreen()
         } else {
             self.showToast(message: "Error: no document data in response", seconds: 3.0)
@@ -148,7 +146,7 @@ class CheckDocPhotoViewController : UIViewController {
             } else {
                 vc.docId = self.viewModel.uploadResponse?.data?.id
             }
-            vc.isDocCheckForced = self.isDocCheckForced
+            vc.isDocCheckForced = false
         }
         if (segue.identifier == "CheckPhotoToZoom") {
             let vc = segue.destination as! ZoomedDocPhotoViewController
@@ -157,11 +155,10 @@ class CheckDocPhotoViewController : UIViewController {
         if (segue.identifier == "DocPhotoCheckToError") {
             let vc = segue.destination as! DocPhotoVerifErrorViewController
             vc.firstPhoto = self.firstPhoto
-            vc.statusCode = -1
             if (self.secondPhoto != nil) {
                 vc.secondPhoto = self.secondPhoto
             }
-            vc.isDocCheckForced = self.isDocCheckForced
+            vc.isDocCheckForced = true
             if (self.viewModel.uploadResponse?.data?.id == nil) {
                 let errText = "Error: Cannot find document id for navigation!"
                 self.showToast(message: errText, seconds: 2.0)

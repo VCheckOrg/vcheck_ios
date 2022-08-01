@@ -8,6 +8,7 @@ internal class LivenessScreenViewController: UIViewController {
 
     @IBOutlet weak var roundedView: VCheckSDKRoundedView!
 
+    @IBOutlet weak var centerAnimHolderView: UIView!
     @IBOutlet weak var leftArrowAnimHolderView: UIView!
     @IBOutlet weak var rightArrowAnimHolderView: UIView!
 
@@ -220,6 +221,7 @@ internal class LivenessScreenViewController: UIViewController {
             self.arrowAnimationView.stop()
             self.rightArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
             self.leftArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
+            self.centerAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
             // General reset logic
             self.setupMilestoneFlow()
         }
@@ -342,8 +344,13 @@ extension LivenessScreenViewController {
 
         rightArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
         leftArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
+        centerAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
 
         if (forMilestoneType == GestureMilestoneType.OuterLeftHeadYawMilestone) {
+            
+            rightArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
+            centerAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
+            
             arrowAnimationView = AnimationView(name: "arrow", bundle: InternalConstants.bundle)
 
             arrowAnimationView.contentMode = .center
@@ -361,6 +368,7 @@ extension LivenessScreenViewController {
         } else if (forMilestoneType == GestureMilestoneType.OuterRightHeadYawMilestone) {
 
             leftArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
+            centerAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
 
             arrowAnimationView = AnimationView(name: "arrow", bundle: InternalConstants.bundle)
 
@@ -381,15 +389,16 @@ extension LivenessScreenViewController {
         } else if (forMilestoneType == GestureMilestoneType.UpHeadPitchMilestone) {
             
             leftArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
+            rightArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
 
             arrowAnimationView = AnimationView(name: "arrow", bundle: InternalConstants.bundle)
 
             arrowAnimationView.contentMode = .center
             arrowAnimationView.translatesAutoresizingMaskIntoConstraints = false
-            leftArrowAnimHolderView.addSubview(arrowAnimationView)
+            centerAnimHolderView.addSubview(arrowAnimationView)
 
-            arrowAnimationView.centerXAnchor.constraint(equalTo: leftArrowAnimHolderView.centerXAnchor).isActive = true
-            arrowAnimationView.centerYAnchor.constraint(equalTo: leftArrowAnimHolderView.centerYAnchor).isActive = true
+            arrowAnimationView.centerXAnchor.constraint(equalTo: centerAnimHolderView.centerXAnchor).isActive = true
+            arrowAnimationView.centerYAnchor.constraint(equalTo: centerAnimHolderView.centerYAnchor).isActive = true
 
             arrowAnimationView.heightAnchor.constraint(equalToConstant: 250).isActive = true
             arrowAnimationView.widthAnchor.constraint(equalToConstant: 250).isActive = true
@@ -406,10 +415,10 @@ extension LivenessScreenViewController {
 
             arrowAnimationView.contentMode = .center
             arrowAnimationView.translatesAutoresizingMaskIntoConstraints = false
-            leftArrowAnimHolderView.addSubview(arrowAnimationView)
+            centerAnimHolderView.addSubview(arrowAnimationView)
 
-            arrowAnimationView.centerXAnchor.constraint(equalTo: leftArrowAnimHolderView.centerXAnchor).isActive = true
-            arrowAnimationView.centerYAnchor.constraint(equalTo: leftArrowAnimHolderView.centerYAnchor).isActive = true
+            arrowAnimationView.centerXAnchor.constraint(equalTo: centerAnimHolderView.centerXAnchor).isActive = true
+            arrowAnimationView.centerYAnchor.constraint(equalTo: centerAnimHolderView.centerYAnchor).isActive = true
 
             arrowAnimationView.heightAnchor.constraint(equalToConstant: 250).isActive = true
             arrowAnimationView.widthAnchor.constraint(equalToConstant: 250).isActive = true
@@ -423,6 +432,7 @@ extension LivenessScreenViewController {
             arrowAnimationView.stop()
             rightArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
             leftArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
+            centerAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
         }
     }
 

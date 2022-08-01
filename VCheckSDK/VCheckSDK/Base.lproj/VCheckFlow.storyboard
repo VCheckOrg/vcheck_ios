@@ -2070,6 +2070,13 @@
                                     <constraint firstAttribute="width" constant="100" id="M7S-TO-TSQ"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="doR-OE-myt" userLabel="Center Arrow Anim Holder">
+                                <rect key="frame" x="145" y="400" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="TS1-TW-N2h"/>
+                                    <constraint firstAttribute="width" constant="100" id="qdE-FE-mDP"/>
+                                </constraints>
+                            </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_success" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b3f-18-ypv">
                                 <rect key="frame" x="262" y="136" width="80" height="80"/>
                                 <color key="backgroundColor" name="CardColor"/>
@@ -2086,6 +2093,7 @@
                             <constraint firstItem="Q3r-w3-pWa" firstAttribute="top" secondItem="57V-29-Is4" secondAttribute="top" constant="150" id="BAH-iw-R2o"/>
                             <constraint firstItem="NrB-hx-Tlh" firstAttribute="bottom" secondItem="57V-29-Is4" secondAttribute="bottom" constant="90" id="FaK-Gg-AFq"/>
                             <constraint firstItem="57V-29-Is4" firstAttribute="trailing" secondItem="q22-ug-4wk" secondAttribute="trailing" id="GEB-fC-PWe"/>
+                            <constraint firstItem="doR-OE-myt" firstAttribute="centerX" secondItem="57V-29-Is4" secondAttribute="centerX" id="KRf-Nq-hD8"/>
                             <constraint firstItem="8GZ-br-CdT" firstAttribute="leading" secondItem="q22-ug-4wk" secondAttribute="leading" constant="20" id="LUJ-FA-VKl"/>
                             <constraint firstItem="q22-ug-4wk" firstAttribute="trailing" secondItem="NrB-hx-Tlh" secondAttribute="trailing" constant="24" id="PkS-jT-GG4"/>
                             <constraint firstItem="q22-ug-4wk" firstAttribute="trailing" secondItem="Q3r-w3-pWa" secondAttribute="trailing" id="S6P-UZ-Obh"/>
@@ -2095,12 +2103,14 @@
                             <constraint firstItem="q22-ug-4wk" firstAttribute="trailing" secondItem="Fwi-Pr-m0O" secondAttribute="trailing" constant="20" id="i9I-qJ-OhK"/>
                             <constraint firstItem="57V-29-Is4" firstAttribute="top" secondItem="dGJ-l1-WKs" secondAttribute="top" id="kcv-W6-YuQ"/>
                             <constraint firstItem="b3f-18-ypv" firstAttribute="top" secondItem="f3n-0Y-qsf" secondAttribute="bottom" constant="36" id="wP4-kB-lsP"/>
+                            <constraint firstItem="doR-OE-myt" firstAttribute="centerY" secondItem="dGJ-l1-WKs" secondAttribute="centerY" constant="50" id="yNI-qD-Jrj"/>
                             <constraint firstItem="q22-ug-4wk" firstAttribute="bottom" secondItem="8GZ-br-CdT" secondAttribute="bottom" constant="300" id="yen-e5-w2U"/>
                             <constraint firstItem="57V-29-Is4" firstAttribute="leading" secondItem="q22-ug-4wk" secondAttribute="leading" id="zg0-KW-TQJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nhO-sD-A6d"/>
                     <connections>
+                        <outlet property="centerAnimHolderView" destination="doR-OE-myt" id="3lQ-Af-wsl"/>
                         <outlet property="imgMilestoneChecked" destination="b3f-18-ypv" id="kQI-Z8-aYP"/>
                         <outlet property="indicationFrame" destination="Q3r-w3-pWa" id="CrU-l7-wWP"/>
                         <outlet property="leftArrowAnimHolderView" destination="8GZ-br-CdT" id="f5I-Kc-LdR"/>
@@ -3511,13 +3521,13 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6Dz-L8-h7I"/>
-        <segue reference="hbx-PL-eMi"/>
+        <segue reference="GAO-QE-GuP"/>
+        <segue reference="ZOg-Lf-JSX"/>
         <segue reference="mdJ-XX-Wrm"/>
-        <segue reference="MdT-K5-jp1"/>
-        <segue reference="Cj4-0s-twM"/>
-        <segue reference="riI-uo-ZBO"/>
-        <segue reference="thq-za-677"/>
+        <segue reference="bvF-PB-3XP"/>
+        <segue reference="dMs-gB-ZC7"/>
+        <segue reference="zJe-KO-wvN"/>
+        <segue reference="HKh-3c-Vf4"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Too dark" width="718" height="680"/>

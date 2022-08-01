@@ -12,7 +12,7 @@ import UIKit
 class DocPhotoVerifErrorViewController : UIViewController {
     
     var docId: Int? = nil
-    var statusCode: Int? = nil
+    //var statusCode: Int? = nil
     var isDocCheckForced: Bool = false
     
     @IBOutlet weak var verifErrorTitleText: UILabel!
@@ -32,8 +32,8 @@ class DocPhotoVerifErrorViewController : UIViewController {
     }
     
     @IBAction func actionResumeToDocCheck(_ sender: UIButton) {
-        self.btnContinueToCheckDoc.isHidden = true //!
-        self.viewModel.setDocAsPrimary(docId: self.docId!)
+        self.btnContinueToCheckDoc.isHidden = true
+        self.performSegue(withIdentifier: "DocPhotoVerifErrorToCheckDoc", sender: nil)
     }
     
     override func viewDidLoad() {
@@ -45,15 +45,6 @@ class DocPhotoVerifErrorViewController : UIViewController {
         
         btnContinueToCheckDoc.titleLabel?.textAlignment = .center
         btnContinueToCheckDoc.titleLabel?.text = "confident_in_doc_title".localized
-        
-        viewModel.didReceiveConfirmResponse = {
-            self.performSegue(withIdentifier: "DocPhotoVerifErrorToCheckDoc", sender: nil)
-        }
-        
-        viewModel.showAlertClosure = {
-            let errText = self.viewModel.error?.errorText ?? "Error: No additional info"
-            self.showToast(message: errText, seconds: 2.0)
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
