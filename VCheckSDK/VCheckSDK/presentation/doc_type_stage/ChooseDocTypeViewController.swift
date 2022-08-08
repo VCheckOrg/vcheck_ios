@@ -69,6 +69,14 @@ class ChooseDocTypeViewController : UIViewController {
     @objc func navigateForwardOnIDCardSelected(_ sender:UITapGestureRecognizer){
         VCheckSDKLocalDatasource.shared.setSelectedDocTypeWithData(data:
                         viewModel.docTypeDataArr.first(where: { $0.category == 2 })!)
-        performSegue(withIdentifier: "ChooseDocTypeToPhotoInfo", sender: self)
+    }
+    
+    func selectDocTypeDataAndNavigateForward(docTypeData: DocTypeData) {
+        VCheckSDKLocalDatasource.shared.setSelectedDocTypeWithData(data: docTypeData)
+        if (docTypeData.isSegmentationAvailable == true) {
+            performSegue(withIdentifier: "DocTypesToSegStart", sender: self)
+        } else {
+            performSegue(withIdentifier: "ChooseDocTypeToPhotoInfo", sender: self)
+        }
     }
 }

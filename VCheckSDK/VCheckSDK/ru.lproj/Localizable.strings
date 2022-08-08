@@ -81,3 +81,22 @@
 
 "proceed" = "Продолжить";
 
+"seg_make_photo" = "Сделать фото";
+
+"segmentation_instr_inner_passport_title"="Сделайте фото паспорта";
+"segmentation_instr_foreign_passport_title"="Сделайте фото загранпаспорта";
+"segmentation_instr_id_card_title"="Сделайте фото ID карты";
+
+"segmentation_instr_inner_passport_descr"="Следуя инструкциям на экране, сделайте фото полного разворота паспорта (видны обе страницы)";
+"segmentation_instr_foreign_passport_descr"="Следуя инструкциям на экране, сделайте фото полного разворота загранпаспорта (видны обе страницы)";
+"segmentation_instr_id_card_descr"="Следуя инструкциям на экране сделайте фото лицевой, а затем обратной сторон вашей ID карты";
+
+"segmentation_general_instruction"="Приготовьте свой документ и разместите его в указанной зоне, как на примере выше.";
+"im_ready"="Я готов(а)";
+
+"segmentation_single_page_hint"="Поместите документ в указанную зону для автоматического считывания";
+"segmentation_front_side_hint"="Поместите переднюю сторону документа в указанную зону для автоматического считывания";
+"segmentation_back_side_hint"="Поместите заднюю сторону документа в указанную зону для автоматического считывания";
+"segmentation_stage_success"="Документ считан успешно!";
+
+"no_time_seg_title"="Время, отведенное на сканирование документа, истекло";

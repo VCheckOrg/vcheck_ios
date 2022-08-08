@@ -79,3 +79,23 @@
 "declined_camera_access" = "Camera access is declined: that will make the major product features unavailable. To allow Camera acess, re-launch app or go to Settings.";
 
 "proceed" = "Proceed";
+
+"seg_make_photo" = "Take a photo";
+
+"segmentation_instr_inner_passport_title"="Take a photo of your passport";
+"segmentation_instr_foreign_passport_title"="Take a photo of your foreign passport";
+"segmentation_instr_id_card_title"="Take a photo of your ID-card";
+
+"segmentation_instr_inner_passport_descr"="Follow the on-screen instructions to take a full-page photo of your passport (both pages visible)";
+"segmentation_instr_foreign_passport_descr"="Following the instructions on the screen, take a photo of a full-page spread of your passport (both pages are visible)";
+"segmentation_instr_id_card_descr"="Follow the on-screen instructions to take a photo of the front and then the back of your ID card";
+
+"segmentation_general_instruction"="Prepare your document and place it in the specified zone as in the example above.";
+"im_ready"="I'm ready";
+
+"segmentation_single_page_hint"="Put the document in the specified zone for automatic reading";
+"segmentation_front_side_hint"="Place the front side of the document in the specified zone for automatic reading";
+"segmentation_back_side_hint"="Place the back side of the document in the specified zone for automatic reading";
+"segmentation_stage_success"="Document scanned successfully!";
+
+"no_time_seg_title"="The time to take document photo(s) has expired";

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		DA153774286F4FE60038A203 /* GeneralStageModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA153773286F4FE60038A203 /* GeneralStageModels.swift */; };
 		DA33FB30288584A100B0C507 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = DA33FB2F288584A100B0C507 /* Lottie */; };
+		DA35CF88289D523E00E22914 /* SegmentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA35CF87289D523E00E22914 /* SegmentationViewController.swift */; };
+		DA35CF8A289D550D00E22914 /* SegmentationStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA35CF89289D550D00E22914 /* SegmentationStartViewController.swift */; };
 		DA3BED562869A69D00B15E5C /* VCheckSDK.docc in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED552869A69D00B15E5C /* VCheckSDK.docc */; };
 		DA3BED572869A69D00B15E5C /* VCheckSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = DA3BED542869A69D00B15E5C /* VCheckSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DA3BED652869A76700B15E5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA3BED5D2869A76700B15E5C /* Assets.xcassets */; };
@@ -73,6 +75,9 @@
 		DA3BEE032869A8D300B15E5C /* VCheckSDKLocalDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDC02869A8D300B15E5C /* VCheckSDKLocalDatasource.swift */; };
 		DA3BEE0A2869B25D00B15E5C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA3BEE0C2869B25D00B15E5C /* Localizable.strings */; };
 		DA3BEE0F2869B49100B15E5C /* VCheckFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA3BEE112869B49100B15E5C /* VCheckFlow.storyboard */; };
+		DA3FD7FA28A133A100C125F0 /* SegmentationVCExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3FD7F928A133A100C125F0 /* SegmentationVCExtensions.swift */; };
+		DA3FD7FD28A1352800C125F0 /* id_card_turn_back.json in Resources */ = {isa = PBXBuildFile; fileRef = DA3FD7FB28A1352700C125F0 /* id_card_turn_back.json */; };
+		DA3FD7FE28A1352800C125F0 /* id_card_turn_front.json in Resources */ = {isa = PBXBuildFile; fileRef = DA3FD7FC28A1352800C125F0 /* id_card_turn_front.json */; };
 		DA4D269C289198CC00C6F43A /* DocumentRequestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D269B289198CC00C6F43A /* DocumentRequestModels.swift */; };
 		DA827B1B2885852800090816 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DA827B1A2885852800090816 /* Alamofire */; };
 		DAC3C82A2877669F00B32FFC /* VerificationClientCreationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3C8292877669F00B32FFC /* VerificationClientCreationModel.swift */; };
@@ -82,6 +87,8 @@
 
 /* Begin PBXFileReference section */
 		DA153773286F4FE60038A203 /* GeneralStageModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralStageModels.swift; sourceTree = "<group>"; };
+		DA35CF87289D523E00E22914 /* SegmentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationViewController.swift; sourceTree = "<group>"; };
+		DA35CF89289D550D00E22914 /* SegmentationStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationStartViewController.swift; sourceTree = "<group>"; };
 		DA3BED512869A69D00B15E5C /* VCheckSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCheckSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA3BED542869A69D00B15E5C /* VCheckSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCheckSDK.h; sourceTree = "<group>"; };
 		DA3BED552869A69D00B15E5C /* VCheckSDK.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = VCheckSDK.docc; sourceTree = "<group>"; };
@@ -152,6 +159,9 @@
 		DA3BEE152869B4CF00B15E5C /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/VCheckFlow.strings; sourceTree = "<group>"; };
 		DA3BEE162869B4F600B15E5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/VCheckFlow.storyboard; sourceTree = "<group>"; };
 		DA3BEE172869B50000B15E5C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/VCheckFlow.strings; sourceTree = "<group>"; };
+		DA3FD7F928A133A100C125F0 /* SegmentationVCExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationVCExtensions.swift; sourceTree = "<group>"; };
+		DA3FD7FB28A1352700C125F0 /* id_card_turn_back.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = id_card_turn_back.json; sourceTree = "<group>"; };
+		DA3FD7FC28A1352800C125F0 /* id_card_turn_front.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = id_card_turn_front.json; sourceTree = "<group>"; };
 		DA4D269B289198CC00C6F43A /* DocumentRequestModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentRequestModels.swift; sourceTree = "<group>"; };
 		DAC3C8292877669F00B32FFC /* VerificationClientCreationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationClientCreationModel.swift; sourceTree = "<group>"; };
 		DAC3C82B2877695700B32FFC /* VerificationSchemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationSchemes.swift; sourceTree = "<group>"; };
@@ -171,6 +181,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA35CF86289D520700E22914 /* segmentation */ = {
+			isa = PBXGroup;
+			children = (
+				DA3FD7F828A1338100C125F0 /* flow_logic */,
+				DA35CF87289D523E00E22914 /* SegmentationViewController.swift */,
+				DA35CF89289D550D00E22914 /* SegmentationStartViewController.swift */,
+			);
+			path = segmentation;
+			sourceTree = "<group>";
+		};
 		DA3BED472869A69D00B15E5C = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +229,8 @@
 		DA3BED5E2869A76700B15E5C /* animations */ = {
 			isa = PBXGroup;
 			children = (
+				DA3FD7FB28A1352700C125F0 /* id_card_turn_back.json */,
+				DA3FD7FC28A1352800C125F0 /* id_card_turn_front.json */,
 				DA3BED5F2869A76700B15E5C /* down.json */,
 				DA3BED602869A76700B15E5C /* left.json */,
 				DA3BED612869A76700B15E5C /* arrow.json */,
@@ -251,6 +273,7 @@
 		DA3BED802869A8D300B15E5C /* presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DA35CF86289D520700E22914 /* segmentation */,
 				DA3BED812869A8D300B15E5C /* liveness */,
 				DA3BED982869A8D300B15E5C /* start */,
 				DA3BED9B2869A8D300B15E5C /* doc_type_stage */,
@@ -392,6 +415,14 @@
 			path = service;
 			sourceTree = "<group>";
 		};
+		DA3FD7F828A1338100C125F0 /* flow_logic */ = {
+			isa = PBXGroup;
+			children = (
+				DA3FD7F928A133A100C125F0 /* SegmentationVCExtensions.swift */,
+			);
+			path = flow_logic;
+			sourceTree = "<group>";
+		};
 		DAA730392869C5540056CC8D /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -478,7 +509,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA3FD7FD28A1352800C125F0 /* id_card_turn_back.json in Resources */,
 				DA3BED652869A76700B15E5C /* Assets.xcassets in Resources */,
+				DA3FD7FE28A1352800C125F0 /* id_card_turn_front.json in Resources */,
 				DA3BED682869A76700B15E5C /* arrow.json in Resources */,
 				DA3BEE0A2869B25D00B15E5C /* Localizable.strings in Resources */,
 				DA3BED692869A76700B15E5C /* up.json in Resources */,
@@ -497,6 +530,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA35CF8A289D550D00E22914 /* SegmentationStartViewController.swift in Sources */,
 				DA3BEDE02869A8D300B15E5C /* NoBrightnessViewController.swift in Sources */,
 				DA3BED562869A69D00B15E5C /* VCheckSDK.docc in Sources */,
 				DA3BEDF12869A8D300B15E5C /* ChooseCountryViewController.swift in Sources */,
@@ -523,6 +557,7 @@
 				DA3BEDF42869A8D300B15E5C /* HeaderViewController.swift in Sources */,
 				DA3BEDD42869A8D300B15E5C /* Milestones.swift in Sources */,
 				DA3BEDF62869A8D300B15E5C /* CheckDocPhotoViewController.swift in Sources */,
+				DA35CF88289D523E00E22914 /* SegmentationViewController.swift in Sources */,
 				DA3BEDCD2869A8D300B15E5C /* DocumentVerificationCodes.swift in Sources */,
 				DA3BEDCE2869A8D300B15E5C /* CountryModels.swift in Sources */,
 				DA3BEDDC2869A8D300B15E5C /* LivenessInstructionsViewController.swift in Sources */,
@@ -535,6 +570,7 @@
 				DA3BEDDB2869A8D300B15E5C /* VideoProcessingViewController.swift in Sources */,
 				DA3BEDEF2869A8D300B15E5C /* DocPhotoVerifErrorViewModel.swift in Sources */,
 				DA3BEDF22869A8D300B15E5C /* AllowedCountryViewCell.swift in Sources */,
+				DA3FD7FA28A133A100C125F0 /* SegmentationVCExtensions.swift in Sources */,
 				DA3BEDF82869A8D300B15E5C /* PhotoInstructionsViewController.swift in Sources */,
 				DA3BEDF52869A8D300B15E5C /* CheckDocPhotoViewModel.swift in Sources */,
 				DA3BEDDE2869A8D300B15E5C /* NoTimeViewController.swift in Sources */,

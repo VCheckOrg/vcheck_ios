@@ -364,7 +364,7 @@ struct VCheckSDKRemoteDatasource {
         AF.upload(multipartFormData: multipartFormData, to: url, method: .post, headers: headers)
             .responseDecodable(of: LivenessGestureResponse.self) { (response) in
                 guard let response = response.value else {
-                 completion(nil, VCheckApiError(errorText: "uploadLivenessVideo" + response.error!.localizedDescription,
+                 completion(nil, VCheckApiError(errorText: "sendLivenessGestureAttempt" + response.error!.localizedDescription,
                                                 errorCode: response.response?.statusCode))
                  return
                 }
@@ -381,8 +381,7 @@ struct VCheckSDKRemoteDatasource {
     }
     
     
-    func checkFinalVerificationStatus(verifToken: String,
-                                      verifId: Int,
+    func checkFinalVerificationStatus(verifId: Int,
                                       partnerId: Int,
                                       partnerSecret: String,
                                       completion: @escaping (FinalVerifCheckResponseModel?, VCheckApiError?) -> ()) {
@@ -424,8 +423,53 @@ struct VCheckSDKRemoteDatasource {
             }
             
         })
+    }
+    
+    
+    func sendSegmentationDocAttempt(frameImage: UIImage,
+            country: String,
+            category: String, //Int
+            index: String, //Int
+            completion: @escaping (SegmentationGestureResponse?, VCheckApiError?) -> ()
+    ) {
+        let url = "\(verifBaseUrl)documents/inspect"
+
+        let token = VCheckSDK.shared.getVerificationToken()
+        if (token.isEmpty) {
+            completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
+                                           errorCode: VCheckApiError.DEFAULT_CODE))
+            return
+        }
+        let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
+            
+        let multipartFormData = MultipartFormData.init()
         
+        multipartFormData.append(frameImage.jpegData(compressionQuality: 0.8)!, withName: "image",
+                                 fileName: "image.jpg", mimeType: "image/jpeg")
         
+        multipartFormData.append(country.data(using: .utf8, allowLossyConversion: false)!, withName: "country")
+        multipartFormData.append(category.data(using: .utf8, allowLossyConversion: false)!, withName: "category")
+        multipartFormData.append(index.data(using: .utf8, allowLossyConversion: false)!, withName: "index")
+        
+        //print("===== SENDING SEGMENTATION REQUEST: \(gesture)")
+        
+        AF.upload(multipartFormData: multipartFormData, to: url, method: .post, headers: headers)
+            .responseDecodable(of: SegmentationGestureResponse.self) { (response) in
+                guard let response = response.value else {
+                 completion(nil, VCheckApiError(errorText: "sendSegmentationDocAttempt" + response.error!.localizedDescription,
+                                                errorCode: response.response?.statusCode))
+                 return
+                }
+                if (response.errorCode != nil && response.errorCode != 0) {
+                   completion(nil, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
+                                            + "\(response.message ?? "")",
+                                                  errorCode: response.errorCode))
+                   return
+                }
+                //print("GESTURE RESPONSE -- DATA: \(String(describing: response))")
+                completion(response, nil)
+                return
+            }
     }
     
 }

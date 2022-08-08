@@ -101,6 +101,7 @@ struct DocTypeData: Codable {
   var id            : Int?      = nil
   var maxPagesCount : Int?      = nil
   var minPagesCount : Int?      = nil
+  var isSegmentationAvailable: Bool? = nil
 
   enum CodingKeys: String, CodingKey {
 
@@ -111,6 +112,7 @@ struct DocTypeData: Codable {
     case id            = "id"
     case maxPagesCount = "max_pages_count"
     case minPagesCount = "min_pages_count"
+    case isSegmentationAvailable = "is_inspection_available"
   
   }
 
@@ -124,6 +126,7 @@ struct DocTypeData: Codable {
     id            = try values.decodeIfPresent(Int.self      , forKey: .id            )
     maxPagesCount = try values.decodeIfPresent(Int.self      , forKey: .maxPagesCount )
     minPagesCount = try values.decodeIfPresent(Int.self      , forKey: .minPagesCount )
+    isSegmentationAvailable = try values.decodeIfPresent(Bool.self, forKey: .isSegmentationAvailable)
  
   }
 
@@ -294,5 +297,33 @@ struct ParsedDocFieldsData: Codable {
   }
 
   init() {}
+
+}
+
+
+struct SegmentationGestureResponse: Codable {
+
+  var success   : Bool? = nil
+  var errorCode : Int?    = nil
+  var message   : String? = nil
+
+  enum CodingKeys: String, CodingKey {
+
+    case success  = "data"
+    case errorCode = "error_code"
+    case message   = "message"
+  
+  }
+
+  init(from decoder: Decoder) throws {
+    let values = try decoder.container(keyedBy: CodingKeys.self)
+
+    success   = try values.decodeIfPresent(Bool.self , forKey: .success    )
+    errorCode = try values.decodeIfPresent(Int.self    , forKey: .errorCode )
+    message   = try values.decodeIfPresent(String.self , forKey: .message   )
+  }
+
+  init() {
+  }
 
 }
