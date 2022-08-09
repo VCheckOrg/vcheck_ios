@@ -52,18 +52,16 @@ class SegmentationViewController: UIViewController {
 
     // MARK: - Milestone flow & logic properties
 
-    private var milestoneFlow = StandardMilestoneFlow()
-
-    static let LIVENESS_TIME_LIMIT_MILLIS = 14000 //max is 15000
-    static let BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS = 900
-    static let GESTURE_REQUEST_INTERVAL = 0.25 //TODO: reduce on Android!
+    static let LIVENESS_TIME_LIMIT_MILLIS = 60000 //max is 60000
+    static let BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS = 2000
+    static let GESTURE_REQUEST_INTERVAL = 0.45 //TODO: reduce on Android!
 
     private var isLivenessSessionFinished: Bool = false
     private var hasEnoughTimeForNextGesture: Bool = true
     private var livenessSessionTimeoutTimer : DispatchSourceTimer?
     private var periodicGestureCheckTimer: Timer?
-    private var blockStageIndicationByUI: Bool = false
-    private var blockStageChecksByRunningRequest: Bool = false  //TODO: implement on Android!
+    private var blockProcessingByUI: Bool = false
+    private var blockRequestByProcessing: Bool = false  //TODO: implement on Android!
 
     // MARK: - Implementation & Lifecycle methods
     
@@ -74,10 +72,10 @@ class SegmentationViewController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
 
-        if !setMilestonesList() { return }
         if !setupCamera() { return }
 
-        setupMilestoneFlow()
+        self.setDocData()
+        self.setupInstructionStageUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -96,25 +94,42 @@ class SegmentationViewController: UIViewController {
         self.previewLayer.frame = self.view.bounds
     }
     
-    func setMilestonesList() -> Bool {
-        guard let milestonesList = VCheckSDKLocalDatasource.shared.getLivenessMilestonesList()
-        else {
-            self.alertWindowTitle = "Milestone list is not found"
-            self.alertMessage = "Probably, milestone list was not retrieved form verification service or not cached properly."
-            self.needToShowFatalError = true
-            return false
+    private func setupInstructionStageUI() {
+
+        blockProcessingByUI = true
+        blockRequestByProcessing = true
+        //binding!!.docAnimationView.isVisible = false
+        //binding!!.scalableDocHandView.isVisible = true
+        
+        switch(DocType.docCategoryIdxToType(categoryIdx: (docData?.category!)!)) {
+            case DocType.FOREIGN_PASSPORT:
+                self.animatingImage.image = UIImage.init(named: "img_hand_foreign_passport")
+            case DocType.ID_CARD:
+                self.animatingImage.image = UIImage.init(named: "img_hand_id_card")
+            default:
+                self.animatingImage.image = UIImage.init(named: "img_hand_inner_passport")
         }
-        self.milestoneFlow.setStagesList(list: milestonesList)
-        return true
+
+        //self.animateInstructionStage()
+
+        self.btnImReady.addGestureRecognizer(
+            UITapGestureRecognizer(target: self, action: #selector (self.setupDocCheckStage(_:))))
     }
     
-    func setupMilestoneFlow() {
-        
-        self.milestoneFlow.resetStages()
-        
+    @objc func setupDocCheckStage(_ sender: UITapGestureRecognizer) {
+        //binding!!.scalableDocHandView.isVisible = false
+        //binding!!.readyButton.isVisible = false
+        resetFlowForNewSession()
+        //setGestureResponsesObserver() //remove
+        setUIForNextStage()
+    }
+    
+    
+    private func resetFlowForNewSession() {
+                
         self.isLivenessSessionFinished = false
         self.hasEnoughTimeForNextGesture = true
-        self.blockStageIndicationByUI = false
+        self.blockProcessingByUI = false
         
         self.videoRecorder = LivenessVideoRecorder.init()
         self.videoStreamingPermitted = true
@@ -129,45 +144,53 @@ class SegmentationViewController: UIViewController {
                         LivenessScreenViewController.GESTURE_REQUEST_INTERVAL, target: self,
                           selector: #selector(performGestureCheck), userInfo: nil, repeats: true)
         
-        self.delayedStageIndicationRenew()
+        //self.delayedStageIndicationRenew()
     }
     
     @objc func performGestureCheck() {
         if (self.isLivenessSessionFinished == false) {
-            if (milestoneFlow.areAllStagesPassed()) {
+            if (self.areAllDocPagesChecked()) {
                 self.onAllStagesPassed()
             } else {
                 if (videoBuffer != nil
                     && self.hasEnoughTimeForNextGesture == true
-                    && self.blockStageChecksByRunningRequest == false) {
+                    && self.blockRequestByProcessing == false) {
                     self.checkStage()
                 } else { print("------ VideoBuffer is NIL!") }
             }
         }
     }
     
-    func checkStage() {
+    private func areAllDocPagesChecked() -> Bool {
+        return checkedDocIdx >= docData?.maxPagesCount ?? 0
+    }
+    
+    private func checkStage() {
         guard let frameImage: UIImage = getScreenshotFromVideoStream(videoBuffer!) else {
             print("====== Cannot perform gesture request: either frameImage is nil!")
             return
         }
-        self.blockStageChecksByRunningRequest = true
-        VCheckSDKRemoteDatasource.shared.sendDocSegmentationAttempt(frameImage: frameImage,
-                                gesture: milestoneFlow.getGestureRequestFromCurrentStage(),
-                                completion: { (data, error) in
+        
+        self.blockRequestByProcessing = true
+        
+        guard let country = docData!.country, let category = docData!.category else {
+            print("Doc segmentation request: Error - country or cate gory for request have not been set!")
+            return
+        }
+        
+        VCheckSDKRemoteDatasource.shared.sendSegmentationDocAttempt(frameImage: frameImage,
+                                                                    country: country,
+                                                                    category: "\(category)",
+                                                                    index: "\(checkedDocIdx)",
+                                                                    completion: { (data, error) in
             if let error = error {
                 print("Doc segmentation request: Error [\(error.errorText)]")
                 return
             }
             if (data?.success == true) {
-                self.milestoneFlow.incrementCurrentStage()
-                if (self.milestoneFlow.areAllStagesPassed()) {
-                    self.onAllStagesPassed()
-                } else {
-                    self.onStagePassed()
-                }
+                self.onStagePassed()
             }
-            self.blockStageChecksByRunningRequest = false
+            self.blockRequestByProcessing = false
         })
     }
     
@@ -195,23 +218,16 @@ class SegmentationViewController: UIViewController {
     
     func onStagePassed() {
         self.hapticFeedbackGenerator.notificationOccurred(.success)
-        self.delayedStageIndicationRenew()
+        self.indicateNextStage()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //TODO: add specific view controller!
         if (segue.identifier == "LivenessToNoTime") {
             let vc = segue.destination as! NoTimeViewController
-            vc.onRepeatBlock = { result in self.renewLivenessSessionOnRetry() }
-        }
-    }
-
-    func renewLivenessSessionOnRetry() {
-        DispatchQueue.main.async {
-            // reset UI
-            //TODO:
-            // General reset logic
-            self.setupMilestoneFlow()
+            vc.onRepeatBlock = { result in
+                self.resetFlowForNewSession()
+            }
         }
     }
 
@@ -257,57 +273,63 @@ class SegmentationViewController: UIViewController {
 
 extension SegmentationViewController {
 
-    func delayedStageIndicationRenew() {
+    func indicateNextStage() {
         DispatchQueue.main.async {
+            
+    //        binding!!.tvSegmentationInstruction.setMargins(
+    //            20, 45, 20, 20)
+            self.indicationText.text = "segmentation_stage_success";
 
-            self.blockStageIndicationByUI = true
+            self.blockProcessingByUI = true
 
-            self.imgMilestoneChecked.isHidden = false
-            self.indicationFrame.isHidden = false
-
-            self.fadeViewInThenOut(view: self.indicationFrame, delay: 0.0)
+            //self.indicationFrame.isHidden = false
+            //self.fadeViewInThenOut(view: self.indicationFrame, delay: 0.0)
+            
+            if (DocType.docCategoryIdxToType(categoryIdx: (self.docData?.category!)!) == DocType.ID_CARD) {
+                //binding!!.docAnimationView.isVisible = true
+                //binding!!.docAnimationView.playAnimation()
+            } else {
+                //binding!!.docAnimationView.isVisible = false
+            }
 
             DispatchQueue.main.asyncAfter(deadline:
                     .now() + .milliseconds(LivenessScreenViewController.BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS) ) {
 
-                        self.imgMilestoneChecked.isHidden = true
-                        self.indicationFrame.isHidden = true
+//              self.imgMilestoneChecked.isHidden = true
+//              self.indicationFrame.isHidden = true
 
-                        self.blockStageIndicationByUI = false
-                        
-                        self.updateLivenessInfoText(forMilestoneType: self.milestoneFlow.getCurrentStage()!)
-                        self.setupOrUpdateFaceAnimation(forMilestoneType: self.milestoneFlow.getCurrentStage()!)
-                        self.setupOrUpdateArrowAnimation(forMilestoneType: self.milestoneFlow.getCurrentStage()!)
-
+                self.blockProcessingByUI = false
+                
+                self.setUIForNextStage()
+                
+                //self.setupOrUpdateFaceAnimation(forMilestoneType: self.milestoneFlow.getCurrentStage()!)
             }
         }
     }
-
+    
+    
     func setUIForNextStage() {
         //docAnimationView.isVisible = false
 //        binding!!.tvSegmentationInstruction.setMargins(
 //            20, 45, 20, 20)
 
-        switch(DocType.docCategoryIdxToType(docData.category)) {
-            DocType.FOREIGN_PASSPORT -> {
-                binding!!.tvSegmentationInstruction.setText(R.string.segmentation_single_page_hint)
-            }
-            DocType.ID_CARD -> {
+        switch(DocType.docCategoryIdxToType(categoryIdx: (docData?.category!)!)) {
+            case DocType.FOREIGN_PASSPORT:
+                self.indicationText.text = "segmentation_single_page_hint".localized
+            case DocType.ID_CARD:
                 if (checkedDocIdx == 0) {
-                    binding!!.tvSegmentationInstruction.setText(R.string.segmentation_front_side_hint)
+                    self.indicationText.text = "segmentation_front_side_hint";
                 }
                 if (checkedDocIdx == 1) {
-                    binding!!.tvSegmentationInstruction.setText(R.string.segmentation_back_side_hint)
+                    self.indicationText.text = "segmentation_back_side_hint";
                 }
-            }
-            else -> {
+            default:
                 if (checkedDocIdx == 0) {
-                    binding!!.tvSegmentationInstruction.setText(R.string.segmentation_front_side_hint)
+                    self.indicationText.text = "segmentation_front_side_hint";
                 }
                 if (checkedDocIdx == 1) {
-                    binding!!.tvSegmentationInstruction.setText(R.string.segmentation_back_side_hint)
+                    self.indicationText.text = "segmentation_back_side_hint";
                 }
-            }
         }
         blockProcessingByUI = false
         blockRequestByProcessing = false
@@ -349,10 +371,10 @@ extension SegmentationViewController: AVCaptureVideoDataOutputSampleBufferDelega
                 self.videoRecorder.recordVideo(sampleBuffer: sampleBuffer)
             }
             
-            if (blockStageIndicationByUI == false) {
+            if (blockProcessingByUI == false) {
                 DispatchQueue.main.async {
-                    self.updateFaceAnimation()
-                    self.updateArrowAnimation()
+                    //self.updateFaceAnimation()
+                    //self.updateArrowAnimation() //TODO: update animation?
                 }
             }
         }

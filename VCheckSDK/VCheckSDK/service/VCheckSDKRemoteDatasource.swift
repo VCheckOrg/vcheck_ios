@@ -430,8 +430,7 @@ struct VCheckSDKRemoteDatasource {
             country: String,
             category: String, //Int
             index: String, //Int
-            completion: @escaping (SegmentationGestureResponse?, VCheckApiError?) -> ()
-    ) {
+            completion: @escaping (SegmentationGestureResponse?, VCheckApiError?) -> ()) {
         let url = "\(verifBaseUrl)documents/inspect"
 
         let token = VCheckSDK.shared.getVerificationToken()
