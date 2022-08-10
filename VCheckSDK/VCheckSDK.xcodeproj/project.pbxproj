@@ -41,7 +41,6 @@
 		DA3BEDDE2869A8D300B15E5C /* NoTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED902869A8D300B15E5C /* NoTimeViewController.swift */; };
 		DA3BEDDF2869A8D300B15E5C /* WrongGestureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED912869A8D300B15E5C /* WrongGestureViewController.swift */; };
 		DA3BEDE02869A8D300B15E5C /* NoBrightnessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED922869A8D300B15E5C /* NoBrightnessViewController.swift */; };
-		DA3BEDE12869A8D300B15E5C /* OnLivenessRepeatCommonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED932869A8D300B15E5C /* OnLivenessRepeatCommonVC.swift */; };
 		DA3BEDE22869A8D300B15E5C /* SharpMovementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED942869A8D300B15E5C /* SharpMovementsViewController.swift */; };
 		DA3BEDE32869A8D300B15E5C /* VideoFailureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED952869A8D300B15E5C /* VideoFailureViewController.swift */; };
 		DA3BEDE42869A8D300B15E5C /* MultipleFacesDetectedViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED962869A8D300B15E5C /* MultipleFacesDetectedViewContoller.swift */; };
@@ -78,6 +77,7 @@
 		DA3FD7FA28A133A100C125F0 /* SegmentationVCExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3FD7F928A133A100C125F0 /* SegmentationVCExtensions.swift */; };
 		DA3FD7FD28A1352800C125F0 /* id_card_turn_back.json in Resources */ = {isa = PBXBuildFile; fileRef = DA3FD7FB28A1352700C125F0 /* id_card_turn_back.json */; };
 		DA3FD7FE28A1352800C125F0 /* id_card_turn_front.json in Resources */ = {isa = PBXBuildFile; fileRef = DA3FD7FC28A1352800C125F0 /* id_card_turn_front.json */; };
+		DA48073228A3D1A700B27C72 /* SegmentationTimeoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48073128A3D1A700B27C72 /* SegmentationTimeoutViewController.swift */; };
 		DA4D269C289198CC00C6F43A /* DocumentRequestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D269B289198CC00C6F43A /* DocumentRequestModels.swift */; };
 		DA827B1B2885852800090816 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DA827B1A2885852800090816 /* Alamofire */; };
 		DAC3C82A2877669F00B32FFC /* VerificationClientCreationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3C8292877669F00B32FFC /* VerificationClientCreationModel.swift */; };
@@ -120,7 +120,6 @@
 		DA3BED902869A8D300B15E5C /* NoTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoTimeViewController.swift; sourceTree = "<group>"; };
 		DA3BED912869A8D300B15E5C /* WrongGestureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WrongGestureViewController.swift; sourceTree = "<group>"; };
 		DA3BED922869A8D300B15E5C /* NoBrightnessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoBrightnessViewController.swift; sourceTree = "<group>"; };
-		DA3BED932869A8D300B15E5C /* OnLivenessRepeatCommonVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnLivenessRepeatCommonVC.swift; sourceTree = "<group>"; };
 		DA3BED942869A8D300B15E5C /* SharpMovementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharpMovementsViewController.swift; sourceTree = "<group>"; };
 		DA3BED952869A8D300B15E5C /* VideoFailureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoFailureViewController.swift; sourceTree = "<group>"; };
 		DA3BED962869A8D300B15E5C /* MultipleFacesDetectedViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleFacesDetectedViewContoller.swift; sourceTree = "<group>"; };
@@ -162,6 +161,7 @@
 		DA3FD7F928A133A100C125F0 /* SegmentationVCExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationVCExtensions.swift; sourceTree = "<group>"; };
 		DA3FD7FB28A1352700C125F0 /* id_card_turn_back.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = id_card_turn_back.json; sourceTree = "<group>"; };
 		DA3FD7FC28A1352800C125F0 /* id_card_turn_front.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = id_card_turn_front.json; sourceTree = "<group>"; };
+		DA48073128A3D1A700B27C72 /* SegmentationTimeoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationTimeoutViewController.swift; sourceTree = "<group>"; };
 		DA4D269B289198CC00C6F43A /* DocumentRequestModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentRequestModels.swift; sourceTree = "<group>"; };
 		DAC3C8292877669F00B32FFC /* VerificationClientCreationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationClientCreationModel.swift; sourceTree = "<group>"; };
 		DAC3C82B2877695700B32FFC /* VerificationSchemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationSchemes.swift; sourceTree = "<group>"; };
@@ -184,9 +184,9 @@
 		DA35CF86289D520700E22914 /* segmentation */ = {
 			isa = PBXGroup;
 			children = (
-				DA3FD7F828A1338100C125F0 /* flow_logic */,
+				DA48073028A3D18B00B27C72 /* ui */,
+				DA3FD7F828A1338100C125F0 /* utils */,
 				DA35CF87289D523E00E22914 /* SegmentationViewController.swift */,
-				DA35CF89289D550D00E22914 /* SegmentationStartViewController.swift */,
 			);
 			path = segmentation;
 			sourceTree = "<group>";
@@ -324,7 +324,6 @@
 				DA3BED902869A8D300B15E5C /* NoTimeViewController.swift */,
 				DA3BED912869A8D300B15E5C /* WrongGestureViewController.swift */,
 				DA3BED922869A8D300B15E5C /* NoBrightnessViewController.swift */,
-				DA3BED932869A8D300B15E5C /* OnLivenessRepeatCommonVC.swift */,
 				DA3BED942869A8D300B15E5C /* SharpMovementsViewController.swift */,
 				DA3BED952869A8D300B15E5C /* VideoFailureViewController.swift */,
 				DA3BED962869A8D300B15E5C /* MultipleFacesDetectedViewContoller.swift */,
@@ -415,12 +414,21 @@
 			path = service;
 			sourceTree = "<group>";
 		};
-		DA3FD7F828A1338100C125F0 /* flow_logic */ = {
+		DA3FD7F828A1338100C125F0 /* utils */ = {
 			isa = PBXGroup;
 			children = (
 				DA3FD7F928A133A100C125F0 /* SegmentationVCExtensions.swift */,
 			);
-			path = flow_logic;
+			path = utils;
+			sourceTree = "<group>";
+		};
+		DA48073028A3D18B00B27C72 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				DA35CF89289D550D00E22914 /* SegmentationStartViewController.swift */,
+				DA48073128A3D1A700B27C72 /* SegmentationTimeoutViewController.swift */,
+			);
+			path = ui;
 			sourceTree = "<group>";
 		};
 		DAA730392869C5540056CC8D /* Recovered References */ = {
@@ -579,7 +587,6 @@
 				DA3BEDCA2869A8D300B15E5C /* DocumentResponseModels.swift in Sources */,
 				DA3BEDE22869A8D300B15E5C /* SharpMovementsViewController.swift in Sources */,
 				DA3BEDED2869A8D300B15E5C /* DocPhotoVerifErrorViewController.swift in Sources */,
-				DA3BEDE12869A8D300B15E5C /* OnLivenessRepeatCommonVC.swift in Sources */,
 				DA3BEE002869A8D300B15E5C /* UtilsAndExtensions.swift in Sources */,
 				DA3BEDFD2869A8D300B15E5C /* TextFieldError.swift in Sources */,
 				DA3BEDD32869A8D300B15E5C /* LivenessVCExtensions.swift in Sources */,
@@ -589,6 +596,7 @@
 				DA3BEDF92869A8D300B15E5C /* TakeDocPhotoViewController.swift in Sources */,
 				DA3BEDE92869A8D300B15E5C /* ChooseDocTypeViewModel.swift in Sources */,
 				DA3BEDF32869A8D300B15E5C /* CountryListViewController.swift in Sources */,
+				DA48073228A3D1A700B27C72 /* SegmentationTimeoutViewController.swift in Sources */,
 				DAC3C82C2877695700B32FFC /* VerificationSchemes.swift in Sources */,
 				DA3BEDD22869A8D300B15E5C /* VCheckSDK.swift in Sources */,
 				DA3BEDCC2869A8D300B15E5C /* VerificationResponseModels.swift in Sources */,

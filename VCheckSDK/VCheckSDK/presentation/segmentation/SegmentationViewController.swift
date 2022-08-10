@@ -13,27 +13,21 @@ import UIKit
 class SegmentationViewController: UIViewController {
      
     @IBOutlet weak var textIndicatorConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var segmentationFrame: VCheckSDKRoundedView!
-    
     @IBOutlet weak var segmentationAnimHolder: UIView!
-    
     @IBOutlet weak var closePseudoBtn: UIImageView!
-    
     @IBOutlet weak var animatingImage: UIImageView!
-    
     @IBOutlet weak var indicationText: UILabel!
-    
     @IBOutlet weak var btnImReady: UIButton!
     
+    // MARK: - Session segmentation-specific properties
     private var docData: DocTypeData? = nil
-    
     private var checkedDocIdx = 0
     
     private var frameSize: CGSize? = nil
-    
     private var firstImgToUpload: UIImage? = nil
     private var secondImgToUpload: UIImage? = nil
+    private var isBackgroundSet: Bool = false
     
     // MARK: - Anim properties
     private var docAnimationView: AnimationView = AnimationView()
@@ -45,28 +39,25 @@ class SegmentationViewController: UIViewController {
     var alertMessage = "Nothing"
     var viewDidAppearReached = false
 
-    // MARK: - Camera / Scene properties (open for ext.)
+    // MARK: - Camera / Scene / Streaming properties (open for ext.)
     var captureDevice: AVCaptureDevice?
     var captureSession: AVCaptureSession?
     var videoFieldOfView = Float(0)
     lazy var previewLayer = CALayer()
-
-    // MARK: - Video stream properties
     var videoStreamingPermitted: Bool = false
     var videoBuffer: CVImageBuffer?
 
     // MARK: - Milestone flow & logic properties
-
-    static let LIVENESS_TIME_LIMIT_MILLIS = 60000 //max is 60000
+    static let SEG_TIME_LIMIT_MILLIS = 60000 //max is 60000
     static let BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS = 2000
-    static let GESTURE_REQUEST_INTERVAL = 0.45 //TODO: reduce on Android!
+    static let GESTURE_REQUEST_INTERVAL = 0.45
 
     private var isLivenessSessionFinished: Bool = false
     private var hasEnoughTimeForNextGesture: Bool = true
     private var livenessSessionTimeoutTimer : DispatchSourceTimer?
     private var periodicGestureCheckTimer: Timer?
     private var blockProcessingByUI: Bool = false
-    private var blockRequestByProcessing: Bool = false  //TODO: implement on Android!
+    private var blockRequestByProcessing: Bool = false
 
     // MARK: - Implementation & Lifecycle methods
     
@@ -79,7 +70,7 @@ class SegmentationViewController: UIViewController {
 
         if !setupCamera() { return }
         
-        closePseudoBtn.addGestureRecognizer(
+        self.closePseudoBtn.addGestureRecognizer(
             UITapGestureRecognizer(target: self, action: #selector (self.declineSessionAndCloseVC(_:))))
 
         self.setDocData()
@@ -87,7 +78,7 @@ class SegmentationViewController: UIViewController {
     }
     
     @objc func declineSessionAndCloseVC(_ sender: UITapGestureRecognizer) {
-        self.navigationController?.dismiss(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -105,6 +96,7 @@ class SegmentationViewController: UIViewController {
         super.viewDidLayoutSubviews()
         self.previewLayer.frame = self.view.bounds
         self.setSegmentationFrameSize()
+        self.setBackground()
     }
     
     private func setupInstructionStageUI() {
@@ -126,6 +118,7 @@ class SegmentationViewController: UIViewController {
                 self.animatingImage.image = UIImage.init(named: "img_hand_inner_passport")
         }
 
+        self.btnImReady.setTitle("im_ready".localized, for: .normal)
         self.btnImReady.addGestureRecognizer(
             UITapGestureRecognizer(target: self, action: #selector (self.setupDocCheckStage(_:))))
     }
@@ -151,7 +144,7 @@ class SegmentationViewController: UIViewController {
         self.startLivenessSessionTimeoutTimer()
                 
         self.periodicGestureCheckTimer = Timer.scheduledTimer(timeInterval:
-                        LivenessScreenViewController.GESTURE_REQUEST_INTERVAL, target: self,
+                        SegmentationViewController.GESTURE_REQUEST_INTERVAL, target: self,
                           selector: #selector(performGestureCheck), userInfo: nil, repeats: true)
     }
     
@@ -199,7 +192,7 @@ class SegmentationViewController: UIViewController {
                 print("Doc segmentation request: Error [\(error.errorText)]")
                 return
             }
-            print("----- DOC SEG RESPONSE: \(String(describing: data))")
+            //print("----- DOC SEG RESPONSE: \(String(describing: data))")
             if (data?.success == true) {
                 self.onStagePassed(fullImage: fullImage)
             }
@@ -221,15 +214,11 @@ class SegmentationViewController: UIViewController {
         if (self.livenessSessionTimeoutTimer != nil) {
             self.livenessSessionTimeoutTimer!.cancel()
         }
-        
-        print("*********** ON ALL STAGES PASSED")
-        
+                
         self.performSegue(withIdentifier: "SegToCheckDocInfo", sender: nil)
     }
     
     func onStagePassed(fullImage: UIImage) {
-        print("================ ON STAGE PASSED FOR IDX: \(self.checkedDocIdx)")
-        
         if (self.checkedDocIdx == 0) {
             self.firstImgToUpload = fullImage
         } else if (self.checkedDocIdx == 1) {
@@ -242,11 +231,14 @@ class SegmentationViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //TODO: add specific view controller for timeout!
         if (segue.identifier == "SegToCheckDocInfo") {
             let vc = segue.destination as! CheckDocPhotoViewController
             vc.firstPhoto = self.firstImgToUpload
             vc.secondPhoto = self.secondImgToUpload
+        }
+        if (segue.identifier == "SegToTimeout") {
+            let vc = segue.destination as! SegmentationTimeoutViewController
+            vc.onRepeatBlock = { result in self.resetFlowForNewSession() }
         }
     }
 
@@ -265,16 +257,16 @@ class SegmentationViewController: UIViewController {
         if (self.livenessSessionTimeoutTimer != nil) {
             self.livenessSessionTimeoutTimer!.cancel()
         }
-        //self.performSegue(withIdentifier: performSegueWithIdentifier, sender: nil)
+        self.performSegue(withIdentifier: performSegueWithIdentifier, sender: nil)
     }
 
     func startLivenessSessionTimeoutTimer() {
-        let delay : DispatchTime = .now() + .milliseconds(LivenessScreenViewController.LIVENESS_TIME_LIMIT_MILLIS)
+        let delay : DispatchTime = .now() + .milliseconds(SegmentationViewController.SEG_TIME_LIMIT_MILLIS)
         if livenessSessionTimeoutTimer == nil {
             livenessSessionTimeoutTimer = DispatchSource.makeTimerSource(queue: DispatchQueue.global())
             livenessSessionTimeoutTimer!.schedule(deadline: delay, repeating: 0)
             livenessSessionTimeoutTimer!.setEventHandler {
-                //self.endSessionPrematurely(performSegueWithIdentifier: "LivenessToNoTime") //!
+                self.endSessionPrematurely(performSegueWithIdentifier: "SegToTimeout")
             }
             livenessSessionTimeoutTimer!.resume()
         } else {
@@ -284,7 +276,7 @@ class SegmentationViewController: UIViewController {
 }
 
 
-// MARK: - Animation extensions
+// MARK: - Animation and UI/UX extensions
 
 extension SegmentationViewController {
 
@@ -298,7 +290,8 @@ extension SegmentationViewController {
             
             self.segmentationAnimHolder.subviews.forEach { $0.removeFromSuperview() }
             
-            if (DocType.docCategoryIdxToType(categoryIdx: (self.docData?.category!)!) == DocType.ID_CARD) {
+            if (DocType.docCategoryIdxToType(categoryIdx: (self.docData?.category!)!) == DocType.ID_CARD
+                && self.checkedDocIdx == 1) {
                 
                 self.docAnimationView = AnimationView(name: "id_card_turn_front", bundle: InternalConstants.bundle)
         
@@ -316,7 +309,7 @@ extension SegmentationViewController {
             }
 
             DispatchQueue.main.asyncAfter(deadline:
-                    .now() + .milliseconds(LivenessScreenViewController.BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS) ) {
+                    .now() + .milliseconds(SegmentationViewController.BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS) ) {
 
                 self.segmentationAnimHolder.subviews.forEach { $0.removeFromSuperview() }
 
@@ -358,17 +351,6 @@ extension SegmentationViewController {
                 }
         }
     }
-
-    func fadeViewInThenOut(view : UIView, delay: TimeInterval) {
-        DispatchQueue.main.async {
-            let animationDuration = Double(LivenessScreenViewController.BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS) / 1000.0
-            UIView.animate(withDuration: animationDuration, delay: delay,
-                           options: [UIView.AnimationOptions.autoreverse,
-                                     UIView.AnimationOptions.repeat], animations: {
-                view.alpha = 0
-            }, completion: nil)
-        }
-    }
     
     private func setSegmentationFrameSize() {
         if (frameSize == nil) {
@@ -385,17 +367,41 @@ extension SegmentationViewController {
         self.segmentationFrame.frame = CGRect(x: 0, y: 0, width: self.frameSize!.width, height: self.frameSize!.height)
         self.segmentationFrame.center = self.view.center
         
-        self.docAnimationView.frame = CGRect(x: 0, y: 0, width: self.frameSize!.width + 20, height: self.frameSize!.height + 20) //!
+        self.docAnimationView.frame = CGRect(x: 0, y: 0, width: self.frameSize!.width + 26, height: self.frameSize!.height + 26) //!
         self.docAnimationView.center = self.view.center
     }
     
     func animateHandImg() {
         let originalTransform = self.animatingImage.transform
-        let scaledTransform = originalTransform.scaledBy(x: 6.0, y: 6.0)
+        let scaledTransform = originalTransform.scaledBy(x: 7.0, y: 7.0)
         let scaledAndTranslatedTransform = scaledTransform.translatedBy(x: -20.0, y: -20.0)
         UIView.animate(withDuration: 1.5, delay: 0.0, options: [.repeat], animations: {
             self.animatingImage.transform = scaledAndTranslatedTransform
         })
+    }
+    
+    func setBackground() {
+        if let frameSize = self.frameSize {
+            if (self.isBackgroundSet == false) {
+                let pathBigRect = UIBezierPath(rect: self.view.bounds)
+                let pathSmallRect = UIBezierPath(rect: CGRect(x: (self.view.viewWidth - frameSize.width) / 2,
+                                                              y: (self.view.viewHeight - frameSize.height) / 2,
+                                                              width: frameSize.width - 2,
+                                                              height: frameSize.height - 2))
+                pathBigRect.append(pathSmallRect)
+                
+                pathBigRect.usesEvenOddFillRule = true
+
+                let fillLayer = CAShapeLayer()
+                fillLayer.path = pathBigRect.cgPath
+                fillLayer.fillRule = CAShapeLayerFillRule.evenOdd
+                fillLayer.fillColor = UIColor.black.cgColor
+                fillLayer.opacity = 0.5
+                self.view.layer.insertSublayer(fillLayer, at: 1)
+                
+                self.isBackgroundSet = true
+            }
+        }
     }
 }
 
@@ -417,13 +423,6 @@ extension SegmentationViewController: AVCaptureVideoDataOutputSampleBufferDelega
         
         if (self.isLivenessSessionFinished == false) {
             self.videoBuffer = imgBuffer
-            
-//            if (blockProcessingByUI == false) {
-//                DispatchQueue.main.async {
-//                    //self.updateFaceAnimation()
-//                    //self.updateArrowAnimation() //TODO: remove?
-//                }
-//            }
         }
     }
     
@@ -449,101 +448,13 @@ extension SegmentationViewController: AVCaptureVideoDataOutputSampleBufferDelega
             let rotatedImage = uiImage.rotate(radians: Float(90.degreesToRadians))
             return rotatedImage
         } else {
-            print("--------------- FAILED TO CONVERT VIDEO SCREEN TO IMAGE!")
+            print("Error: FAILED TO CONVERT VIDEO SCREEN TO IMAGE!")
             return nil
         }
     }
     
 }
 
-
-//    func setupOrUpdateFaceAnimation(forMilestoneType: GestureMilestoneType) {
-//
-//        roundedView.subviews.forEach { $0.removeFromSuperview() }
-//
-//        if (forMilestoneType == GestureMilestoneType.OuterLeftHeadYawMilestone) {
-//            faceAnimationView = AnimationView(name: "left", bundle: InternalConstants.bundle)
-//        } else if (forMilestoneType == GestureMilestoneType.OuterRightHeadYawMilestone) {
-//            faceAnimationView = AnimationView(name: "right", bundle: InternalConstants.bundle)
-//        } else if (forMilestoneType == GestureMilestoneType.UpHeadPitchMilestone) {
-//            faceAnimationView = AnimationView(name: "up", bundle: InternalConstants.bundle)
-//        } else if (forMilestoneType == GestureMilestoneType.DownHeadPitchMilestone) {
-//            faceAnimationView = AnimationView(name: "down", bundle: InternalConstants.bundle)
-//        } else if (forMilestoneType == GestureMilestoneType.MouthOpenMilestone) {
-//            faceAnimationView = AnimationView(name: "mouth", bundle: InternalConstants.bundle)
-//        } else {
-//            faceAnimationView = AnimationView(name: "mouth", bundle: InternalConstants.bundle)
-//        }
-//
-//        faceAnimationView.contentMode = .scaleAspectFit
-//        faceAnimationView.translatesAutoresizingMaskIntoConstraints = false
-//        roundedView.addSubview(faceAnimationView)
-//
-//        faceAnimationView.centerXAnchor.constraint(equalTo: roundedView.centerXAnchor, constant: 4).isActive = true
-//        faceAnimationView.centerYAnchor.constraint(equalTo: roundedView.centerYAnchor).isActive = true
-//
-//        faceAnimationView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-//        faceAnimationView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-//    }
-
-
-/*
- rightArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
- leftArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
- centerAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
-
- if (forMilestoneType == GestureMilestoneType.OuterLeftHeadYawMilestone) {
-     
-     rightArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
-     centerAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
-     
-     arrowAnimationView = AnimationView(name: "arrow", bundle: InternalConstants.bundle)
-
-     arrowAnimationView.contentMode = .center
-     arrowAnimationView.translatesAutoresizingMaskIntoConstraints = false
-     leftArrowAnimHolderView.addSubview(arrowAnimationView)
-
-     arrowAnimationView.centerXAnchor.constraint(equalTo: leftArrowAnimHolderView.centerXAnchor).isActive = true
-     arrowAnimationView.centerYAnchor.constraint(equalTo: leftArrowAnimHolderView.centerYAnchor).isActive = true
-
-     arrowAnimationView.heightAnchor.constraint(equalToConstant: 250).isActive = true
-     arrowAnimationView.widthAnchor.constraint(equalToConstant: 250).isActive = true
-
-     arrowAnimationView.loopMode = .loop
-
- }
- */
-
-//    func updateFaceAnimation() {
-//        if (self.blockStageIndicationByUI == false) {
-//            if (self.milestoneFlow.getCurrentStage() != GestureMilestoneType.StraightHeadCheckMilestone) {
-//                DispatchQueue.main.async {
-//                    let toProgress = self.faceAnimationView.realtimeAnimationProgress
-//                    if (toProgress >= 0.99) {
-//                        self.faceAnimationView.play(toProgress: toProgress - 0.99)
-//                    }
-//                    if (toProgress <= 0.01) {
-//                        self.faceAnimationView.play(toProgress: toProgress + 1)
-//                    }
-//                }
-//            } else {
-//                self.faceAnimationView.play(toProgress: 0.02)
-//            }
-//        }
-//    }
-//
-//    func updateArrowAnimation() {
-//        if (self.blockStageIndicationByUI == false
-//            && self.milestoneFlow.getCurrentStage() != GestureMilestoneType.StraightHeadCheckMilestone) {
-//            DispatchQueue.main.async {
-//                let toProgress = self.arrowAnimationView.realtimeAnimationProgress
-//                if (toProgress <= 0.01) {
-//                    self.arrowAnimationView.play(toProgress: toProgress + 1)
-//                }
-//            }
-//        }
-//    }
-//
 
 
 //--------------------------------
