@@ -148,8 +148,7 @@ public class VCheckSDK {
     
     public func checkFinalVerificationStatus(completion:
                                              @escaping (VerificationCheckResult?, VCheckApiError?) -> ()) {
-        VCheckSDKRemoteDatasource.shared.checkFinalVerificationStatus(verifToken: getVerificationToken(),
-                                                             verifId: self.verificationId!,
+        VCheckSDKRemoteDatasource.shared.checkFinalVerificationStatus(verifId: self.verificationId!,
                                                              partnerId: self.partnerId!,
                                                              partnerSecret: self.partnerSecret!,
                                                              completion: { (response, error) in

@@ -46,7 +46,6 @@ class ChooseDocTypeViewController : UIViewController {
                     self.sectionIDCard.isHidden = false
                     self.sectionIDCard.addGestureRecognizer(UITapGestureRecognizer(target: self,
                                                 action: #selector (self.navigateForwardOnIDCardSelected(_:))))
-                    
                 }
             }
         }
@@ -55,25 +54,20 @@ class ChooseDocTypeViewController : UIViewController {
     }
     
     @objc func navigateForwardOnInnerPassportSelected(_ sender:UITapGestureRecognizer){
-        VCheckSDKLocalDatasource.shared.setSelectedDocTypeWithData(data:
-                        viewModel.docTypeDataArr.first(where: { $0.category == 0 })!)
-        performSegue(withIdentifier: "ChooseDocTypeToPhotoInfo", sender: self)
+        selectDocTypeDataAndNavigateForward(data: viewModel.docTypeDataArr.first(where: { $0.category == 0 })!)
     }
     
     @objc func navigateForwardOnForeginPassportSelected(_ sender:UITapGestureRecognizer){
-        VCheckSDKLocalDatasource.shared.setSelectedDocTypeWithData(data:
-                        viewModel.docTypeDataArr.first(where: { $0.category == 1 })!)
-        performSegue(withIdentifier: "ChooseDocTypeToPhotoInfo", sender: self)
+        selectDocTypeDataAndNavigateForward(data: viewModel.docTypeDataArr.first(where: { $0.category == 1 })!)
     }
     
     @objc func navigateForwardOnIDCardSelected(_ sender:UITapGestureRecognizer){
-        VCheckSDKLocalDatasource.shared.setSelectedDocTypeWithData(data:
-                        viewModel.docTypeDataArr.first(where: { $0.category == 2 })!)
+        selectDocTypeDataAndNavigateForward(data: viewModel.docTypeDataArr.first(where: { $0.category == 2 })!)
     }
     
-    func selectDocTypeDataAndNavigateForward(docTypeData: DocTypeData) {
-        VCheckSDKLocalDatasource.shared.setSelectedDocTypeWithData(data: docTypeData)
-        if (docTypeData.isSegmentationAvailable == true) {
+    func selectDocTypeDataAndNavigateForward(data: DocTypeData) {
+        VCheckSDKLocalDatasource.shared.setSelectedDocTypeWithData(data: data)
+        if (data.isSegmentationAvailable == true) {
             performSegue(withIdentifier: "DocTypesToSegStart", sender: self)
         } else {
             performSegue(withIdentifier: "ChooseDocTypeToPhotoInfo", sender: self)

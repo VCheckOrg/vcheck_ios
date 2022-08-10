@@ -20,7 +20,7 @@ extension SegmentationViewController {
     func setupCamera() -> Bool {
         guard
             let device =
-                AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front)
+                AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)
         else {
             alertWindowTitle = "A fatal error occurred."
             alertMessage = "Failed to get device from AVCaptureDevice."

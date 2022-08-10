@@ -21,7 +21,7 @@ class SegmentationStartViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        btnContinue.setTitle("seg_make_photo", for: .normal)
+        btnContinue.setTitle("seg_make_photo".localized, for: .normal)
         
         btnContinue.addGestureRecognizer(
             UITapGestureRecognizer(target: self, action: #selector (self.startSegSession(_:))))

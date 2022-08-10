@@ -214,3 +214,42 @@ extension UIImage {
         return newImage
     }
 }
+
+extension UIImage {
+    
+    func cropWithMask() -> UIImage? {
+        let originalWidth = self.size.width
+        let originalHeight = self.size.height
+        let desiredWidth = originalWidth * 0.75
+        let desiredHeight = desiredWidth * 0.63
+        let cropHeightFromEachSide = ((originalHeight - desiredHeight) / 2)
+        let cropWidthFromEachSide = ((originalWidth - desiredWidth) / 2)
+        
+        return crop(rect: CGRect(x: cropWidthFromEachSide,
+                               y: cropHeightFromEachSide,
+                               width: desiredWidth,
+                               height: desiredHeight))
+    }
+    
+    func crop(rect: CGRect) -> UIImage {
+            var rect = rect
+            rect.origin.x*=self.scale
+            rect.origin.y*=self.scale
+            rect.size.width*=self.scale
+            rect.size.height*=self.scale
+
+            let imageRef = self.cgImage!.cropping(to: rect)
+            let image = UIImage(cgImage: imageRef!, scale: self.scale, orientation: self.imageOrientation)
+            return image
+        }
+}
+
+extension UIView {
+    public var viewWidth: CGFloat {
+        return self.frame.size.width
+    }
+
+    public var viewHeight: CGFloat {
+        return self.frame.size.height
+    }
+}

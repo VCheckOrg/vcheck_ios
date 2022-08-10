@@ -11,15 +11,16 @@ import UIKit
 
 
 class SegmentationViewController: UIViewController {
- 
+     
+    @IBOutlet weak var textIndicatorConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var segmentationFrame: VCheckSDKRoundedView!
     
     @IBOutlet weak var segmentationAnimHolder: UIView!
     
-    @IBOutlet weak var animatingImage: UIImageView!
-    
     @IBOutlet weak var closePseudoBtn: UIImageView!
+    
+    @IBOutlet weak var animatingImage: UIImageView!
     
     @IBOutlet weak var indicationText: UILabel!
     
@@ -28,6 +29,11 @@ class SegmentationViewController: UIViewController {
     private var docData: DocTypeData? = nil
     
     private var checkedDocIdx = 0
+    
+    private var frameSize: CGSize? = nil
+    
+    private var firstImgToUpload: UIImage? = nil
+    private var secondImgToUpload: UIImage? = nil
     
     // MARK: - Anim properties
     private var docAnimationView: AnimationView = AnimationView()
@@ -45,8 +51,7 @@ class SegmentationViewController: UIViewController {
     var videoFieldOfView = Float(0)
     lazy var previewLayer = CALayer()
 
-    // MARK: - Video recording properties
-    var videoRecorder = LivenessVideoRecorder.init()
+    // MARK: - Video stream properties
     var videoStreamingPermitted: Bool = false
     var videoBuffer: CVImageBuffer?
 
@@ -73,9 +78,16 @@ class SegmentationViewController: UIViewController {
         super.viewDidLoad()
 
         if !setupCamera() { return }
+        
+        closePseudoBtn.addGestureRecognizer(
+            UITapGestureRecognizer(target: self, action: #selector (self.declineSessionAndCloseVC(_:))))
 
         self.setDocData()
         self.setupInstructionStageUI()
+    }
+    
+    @objc func declineSessionAndCloseVC(_ sender: UITapGestureRecognizer) {
+        self.navigationController?.dismiss(animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -92,14 +104,18 @@ class SegmentationViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.previewLayer.frame = self.view.bounds
+        self.setSegmentationFrameSize()
     }
     
     private func setupInstructionStageUI() {
 
         blockProcessingByUI = true
         blockRequestByProcessing = true
-        //binding!!.docAnimationView.isVisible = false
-        //binding!!.scalableDocHandView.isVisible = true
+        
+        animatingImage.isHidden = false
+        animateHandImg()
+        
+        setHintForStage()
         
         switch(DocType.docCategoryIdxToType(categoryIdx: (docData?.category!)!)) {
             case DocType.FOREIGN_PASSPORT:
@@ -110,17 +126,15 @@ class SegmentationViewController: UIViewController {
                 self.animatingImage.image = UIImage.init(named: "img_hand_inner_passport")
         }
 
-        //self.animateInstructionStage()
-
         self.btnImReady.addGestureRecognizer(
             UITapGestureRecognizer(target: self, action: #selector (self.setupDocCheckStage(_:))))
     }
     
     @objc func setupDocCheckStage(_ sender: UITapGestureRecognizer) {
-        //binding!!.scalableDocHandView.isVisible = false
-        //binding!!.readyButton.isVisible = false
+        
+        animatingImage.isHidden = true
+        
         resetFlowForNewSession()
-        //setGestureResponsesObserver() //remove
         setUIForNextStage()
     }
     
@@ -131,20 +145,14 @@ class SegmentationViewController: UIViewController {
         self.hasEnoughTimeForNextGesture = true
         self.blockProcessingByUI = false
         
-        self.videoRecorder = LivenessVideoRecorder.init()
         self.videoStreamingPermitted = true
-        self.videoRecorder.startRecording()
         
         self.livenessSessionTimeoutTimer = nil
         self.startLivenessSessionTimeoutTimer()
-        
-        //self.indicationText.text = "liveness_stage_check_face_pos".localized
-        
+                
         self.periodicGestureCheckTimer = Timer.scheduledTimer(timeInterval:
                         LivenessScreenViewController.GESTURE_REQUEST_INTERVAL, target: self,
                           selector: #selector(performGestureCheck), userInfo: nil, repeats: true)
-        
-        //self.delayedStageIndicationRenew()
     }
     
     @objc func performGestureCheck() {
@@ -156,29 +164,33 @@ class SegmentationViewController: UIViewController {
                     && self.hasEnoughTimeForNextGesture == true
                     && self.blockRequestByProcessing == false) {
                     self.checkStage()
-                } else { print("------ VideoBuffer is NIL!") }
+                } else { print("------ VideoBuffer is nil") }
             }
         }
     }
     
     private func areAllDocPagesChecked() -> Bool {
-        return checkedDocIdx >= docData?.maxPagesCount ?? 0
+        return checkedDocIdx >= docData!.maxPagesCount!
     }
     
     private func checkStage() {
-        guard let frameImage: UIImage = getScreenshotFromVideoStream(videoBuffer!) else {
-            print("====== Cannot perform gesture request: either frameImage is nil!")
+        guard let fullImage: UIImage = getScreenshotFromVideoStream(videoBuffer!) else {
+            print("====== Cannot perform segmentation request: frameImage is nil!")
             return
         }
         
         self.blockRequestByProcessing = true
         
         guard let country = docData!.country, let category = docData!.category else {
-            print("Doc segmentation request: Error - country or cate gory for request have not been set!")
+            print("Doc segmentation request: Error - country or category for request have not been set!")
             return
         }
-        
-        VCheckSDKRemoteDatasource.shared.sendSegmentationDocAttempt(frameImage: frameImage,
+        guard let croppedImage = fullImage.cropWithMask() else {
+            print("Doc segmentation request: Error - image was not properly cropped!")
+            return
+        }
+                
+        VCheckSDKRemoteDatasource.shared.sendSegmentationDocAttempt(frameImage: croppedImage,
                                                                     country: country,
                                                                     category: "\(category)",
                                                                     index: "\(checkedDocIdx)",
@@ -187,8 +199,9 @@ class SegmentationViewController: UIViewController {
                 print("Doc segmentation request: Error [\(error.errorText)]")
                 return
             }
+            print("----- DOC SEG RESPONSE: \(String(describing: data))")
             if (data?.success == true) {
-                self.onStagePassed()
+                self.onStagePassed(fullImage: fullImage)
             }
             self.blockRequestByProcessing = false
         })
@@ -204,53 +217,55 @@ class SegmentationViewController: UIViewController {
         self.isLivenessSessionFinished = true
         
         self.hapticFeedbackGenerator.notificationOccurred(.success)
-
-        self.videoRecorder.stopRecording(completion: { url in
-            DispatchQueue.main.async {
-                print("========== FINISHED WRITING VIDEO IN: \(url)")
-                if (self.livenessSessionTimeoutTimer != nil) {
-                    self.livenessSessionTimeoutTimer!.cancel()
-                }
-                self.performSegue(withIdentifier: "LivenessToVideoProcessing", sender: nil)
-            }
-        })
+        
+        if (self.livenessSessionTimeoutTimer != nil) {
+            self.livenessSessionTimeoutTimer!.cancel()
+        }
+        
+        print("*********** ON ALL STAGES PASSED")
+        
+        self.performSegue(withIdentifier: "SegToCheckDocInfo", sender: nil)
     }
     
-    func onStagePassed() {
+    func onStagePassed(fullImage: UIImage) {
+        print("================ ON STAGE PASSED FOR IDX: \(self.checkedDocIdx)")
+        
+        if (self.checkedDocIdx == 0) {
+            self.firstImgToUpload = fullImage
+        } else if (self.checkedDocIdx == 1) {
+            self.secondImgToUpload = fullImage
+        }
+        self.checkedDocIdx += 1
+        
         self.hapticFeedbackGenerator.notificationOccurred(.success)
         self.indicateNextStage()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //TODO: add specific view controller!
-        if (segue.identifier == "LivenessToNoTime") {
-            let vc = segue.destination as! NoTimeViewController
-            vc.onRepeatBlock = { result in
-                self.resetFlowForNewSession()
-            }
+        //TODO: add specific view controller for timeout!
+        if (segue.identifier == "SegToCheckDocInfo") {
+            let vc = segue.destination as! CheckDocPhotoViewController
+            vc.firstPhoto = self.firstImgToUpload
+            vc.secondPhoto = self.secondImgToUpload
         }
     }
 
     func endSessionPrematurely(performSegueWithIdentifier: String) {
-        self.videoRecorder.stopRecording(completion: { url in
-            print("========== FINISHED WRITING VIDEO IN: \(url)")
-            DispatchQueue.main.async {
-                self.periodicGestureCheckTimer?.invalidate()
-                
-                self.hasEnoughTimeForNextGesture = false
-                
-                self.videoStreamingPermitted = false
-                self.isLivenessSessionFinished = true
-                
-                self.periodicGestureCheckTimer?.invalidate()
-                
-                self.hapticFeedbackGenerator.notificationOccurred(.warning)
-                if (self.livenessSessionTimeoutTimer != nil) {
-                    self.livenessSessionTimeoutTimer!.cancel()
-                }
-                self.performSegue(withIdentifier: performSegueWithIdentifier, sender: nil)
-            }
-        })
+
+        self.periodicGestureCheckTimer?.invalidate()
+        
+        self.hasEnoughTimeForNextGesture = false
+        
+        self.videoStreamingPermitted = false
+        self.isLivenessSessionFinished = true
+        
+        self.periodicGestureCheckTimer?.invalidate()
+        
+        self.hapticFeedbackGenerator.notificationOccurred(.warning)
+        if (self.livenessSessionTimeoutTimer != nil) {
+            self.livenessSessionTimeoutTimer!.cancel()
+        }
+        //self.performSegue(withIdentifier: performSegueWithIdentifier, sender: nil)
     }
 
     func startLivenessSessionTimeoutTimer() {
@@ -259,7 +274,7 @@ class SegmentationViewController: UIViewController {
             livenessSessionTimeoutTimer = DispatchSource.makeTimerSource(queue: DispatchQueue.global())
             livenessSessionTimeoutTimer!.schedule(deadline: delay, repeating: 0)
             livenessSessionTimeoutTimer!.setEventHandler {
-                self.endSessionPrematurely(performSegueWithIdentifier: "LivenessToNoTime")
+                //self.endSessionPrematurely(performSegueWithIdentifier: "LivenessToNoTime") //!
             }
             livenessSessionTimeoutTimer!.resume()
         } else {
@@ -275,64 +290,73 @@ extension SegmentationViewController {
 
     func indicateNextStage() {
         DispatchQueue.main.async {
-            
-    //        binding!!.tvSegmentationInstruction.setMargins(
-    //            20, 45, 20, 20)
-            self.indicationText.text = "segmentation_stage_success";
+
+            self.indicationText.text = "segmentation_stage_success".localized;
+            self.textIndicatorConstraint.constant = 50.0
 
             self.blockProcessingByUI = true
-
-            //self.indicationFrame.isHidden = false
-            //self.fadeViewInThenOut(view: self.indicationFrame, delay: 0.0)
+            
+            self.segmentationAnimHolder.subviews.forEach { $0.removeFromSuperview() }
             
             if (DocType.docCategoryIdxToType(categoryIdx: (self.docData?.category!)!) == DocType.ID_CARD) {
-                //binding!!.docAnimationView.isVisible = true
-                //binding!!.docAnimationView.playAnimation()
-            } else {
-                //binding!!.docAnimationView.isVisible = false
+                
+                self.docAnimationView = AnimationView(name: "id_card_turn_front", bundle: InternalConstants.bundle)
+        
+                self.docAnimationView.contentMode = .scaleAspectFit
+                self.docAnimationView.translatesAutoresizingMaskIntoConstraints = false
+                self.segmentationAnimHolder.addSubview(self.docAnimationView)
+        
+                self.docAnimationView.centerXAnchor.constraint(equalTo: self.segmentationAnimHolder.centerXAnchor).isActive = true
+                self.docAnimationView.centerYAnchor.constraint(equalTo: self.segmentationAnimHolder.centerYAnchor).isActive = true
+        
+                self.docAnimationView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+                self.docAnimationView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+                
+                self.docAnimationView.play()
             }
 
             DispatchQueue.main.asyncAfter(deadline:
                     .now() + .milliseconds(LivenessScreenViewController.BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS) ) {
 
-//              self.imgMilestoneChecked.isHidden = true
-//              self.indicationFrame.isHidden = true
+                self.segmentationAnimHolder.subviews.forEach { $0.removeFromSuperview() }
 
                 self.blockProcessingByUI = false
                 
                 self.setUIForNextStage()
-                
-                //self.setupOrUpdateFaceAnimation(forMilestoneType: self.milestoneFlow.getCurrentStage()!)
             }
         }
     }
     
     
     func setUIForNextStage() {
-        //docAnimationView.isVisible = false
-//        binding!!.tvSegmentationInstruction.setMargins(
-//            20, 45, 20, 20)
-
+        
+        self.btnImReady.isHidden = true
+        
+        setHintForStage()
+        
+        blockProcessingByUI = false
+        blockRequestByProcessing = false
+    }
+    
+    func setHintForStage() {
         switch(DocType.docCategoryIdxToType(categoryIdx: (docData?.category!)!)) {
             case DocType.FOREIGN_PASSPORT:
                 self.indicationText.text = "segmentation_single_page_hint".localized
             case DocType.ID_CARD:
                 if (checkedDocIdx == 0) {
-                    self.indicationText.text = "segmentation_front_side_hint";
+                    self.indicationText.text = "segmentation_front_side_hint".localized;
                 }
                 if (checkedDocIdx == 1) {
-                    self.indicationText.text = "segmentation_back_side_hint";
+                    self.indicationText.text = "segmentation_back_side_hint".localized;
                 }
             default:
                 if (checkedDocIdx == 0) {
-                    self.indicationText.text = "segmentation_front_side_hint";
+                    self.indicationText.text = "segmentation_front_side_hint".localized;
                 }
                 if (checkedDocIdx == 1) {
-                    self.indicationText.text = "segmentation_back_side_hint";
+                    self.indicationText.text = "segmentation_back_side_hint".localized;
                 }
         }
-        blockProcessingByUI = false
-        blockRequestByProcessing = false
     }
 
     func fadeViewInThenOut(view : UIView, delay: TimeInterval) {
@@ -344,6 +368,34 @@ extension SegmentationViewController {
                 view.alpha = 0
             }, completion: nil)
         }
+    }
+    
+    private func setSegmentationFrameSize() {
+        if (frameSize == nil) {
+            let screenWidth = UIScreen.main.bounds.width
+
+            let frameWidth = screenWidth * 0.82
+            let frameHeight = frameWidth * 0.63
+            
+            self.frameSize = CGSize(width: frameWidth, height: frameHeight)
+        }
+//            print("VIEW WIDTH: \(screenWidth)")
+//            print ("FRAME WIDTH: \(frameWidth) | FRAME HEIGHT: \(frameHeight)")
+        
+        self.segmentationFrame.frame = CGRect(x: 0, y: 0, width: self.frameSize!.width, height: self.frameSize!.height)
+        self.segmentationFrame.center = self.view.center
+        
+        self.docAnimationView.frame = CGRect(x: 0, y: 0, width: self.frameSize!.width + 20, height: self.frameSize!.height + 20) //!
+        self.docAnimationView.center = self.view.center
+    }
+    
+    func animateHandImg() {
+        let originalTransform = self.animatingImage.transform
+        let scaledTransform = originalTransform.scaledBy(x: 6.0, y: 6.0)
+        let scaledAndTranslatedTransform = scaledTransform.translatedBy(x: -20.0, y: -20.0)
+        UIView.animate(withDuration: 1.5, delay: 0.0, options: [.repeat], animations: {
+            self.animatingImage.transform = scaledAndTranslatedTransform
+        })
     }
 }
 
@@ -365,18 +417,13 @@ extension SegmentationViewController: AVCaptureVideoDataOutputSampleBufferDelega
         
         if (self.isLivenessSessionFinished == false) {
             self.videoBuffer = imgBuffer
-                        
-            //MARK: Liveness Session Video Recording
-            if (self.videoRecorder.outputFileURL != nil && self.videoStreamingPermitted == true) {
-                self.videoRecorder.recordVideo(sampleBuffer: sampleBuffer)
-            }
             
-            if (blockProcessingByUI == false) {
-                DispatchQueue.main.async {
-                    //self.updateFaceAnimation()
-                    //self.updateArrowAnimation() //TODO: update animation?
-                }
-            }
+//            if (blockProcessingByUI == false) {
+//                DispatchQueue.main.async {
+//                    //self.updateFaceAnimation()
+//                    //self.updateArrowAnimation() //TODO: remove?
+//                }
+//            }
         }
     }
     
@@ -497,3 +544,19 @@ extension SegmentationViewController: AVCaptureVideoDataOutputSampleBufferDelega
 //        }
 //    }
 //
+
+
+//--------------------------------
+//    func writeImage(image: UIImage) {
+//        UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.finishWriteImage), nil)
+//    }
+//
+//    @objc private func finishWriteImage(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
+//        if (error != nil) {
+//            // Something wrong happened.
+//            print("error occurred: \(String(describing: error))")
+//        } else {
+//            // Everything is alright.
+//            print("saved success!")
+//        }
+//---------------------------------
