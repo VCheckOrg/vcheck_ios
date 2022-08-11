@@ -23,14 +23,25 @@ public class VCheckSDK {
     
     private var selectedCountryCode: String? = nil
     
-    private var sdkLanguageCode: String? = nil
-    
     private var verificationType: VerificationSchemeType?
     private var partnerUserId: String? = nil
     private var partnerVerificationId: String? = nil
     private var sessionLifetime: Int? = nil
     
     internal var verificationClientCreationModel: VerificationClientCreationModel? = nil
+    
+    private var sdkLanguageCode: String? = nil
+    
+    ///Color customization properties:
+    internal var buttonsColorHex: String? = nil
+    internal var backgroundPrimaryColorHex: String? = nil
+    internal var backgroundSecondaryColorHex: String? = nil
+    internal var backgroundTertiaryColorHex: String? = nil
+    internal var primaryTextColorHex: String? = nil
+    internal var secondaryTextColorHex: String? = nil
+    internal var borderColorHex: String? = nil
+    private let wrongColorFormatPickDescr: String = "VCheckSDK - error: if provided, " +
+            "custom buttons color should be a valid HEX string (RGB or ARGB). Ex.: '#2A2A2A' or '#abdbe3'"
     
 
     public func start(partnerAppRootWindow: UIWindow) {
@@ -39,12 +50,13 @@ public class VCheckSDK {
         
         if (preStartChecksPassed()) {
                         
-            self.verificationClientCreationModel = VerificationClientCreationModel.init(partnerId: self.partnerId!,
-                                                                                        partnerSecret: self.partnerSecret!,
-                                                                                        verificationType: self.verificationType!,
-                                                                                        partnerUserId: self.partnerUserId,
-                                                                                        partnerVerificationId: self.partnerVerificationId,
-                                                                                        sessionLifetime: self.sessionLifetime)
+            self.verificationClientCreationModel =
+                VerificationClientCreationModel.init(partnerId: self.partnerId!,
+                                                    partnerSecret: self.partnerSecret!,
+                                                    verificationType: self.verificationType!,
+                                                    partnerUserId: self.partnerUserId,
+                                                    partnerVerificationId: self.partnerVerificationId,
+                                                    sessionLifetime: self.sessionLifetime)
             
             partnerAppRootWindow.rootViewController = GlobalUtils.getVCheckHomeVC()
             partnerAppRootWindow.makeKeyAndVisible()
@@ -63,6 +75,7 @@ public class VCheckSDK {
     }
     
     private func preStartChecksPassed() -> Bool {
+        //TODO: add color checks
         if (self.verificationType == nil) {
             print("VCheckSDK - error: proper verification type must be provided | see VCheckSDK.shared.verificationType(type: VerificationSchemeType)")
             return false
@@ -79,7 +92,6 @@ public class VCheckSDK {
            print("VCheckSDK - error: partner secret must be provided by client app | see VCheckSDK.shared.partnerSecret(secret: String)")
            return false
         }
-        
         if (sdkLanguageCode == nil) {
            print("VCheckSDK - warning: sdk language code is not set; using English (en) locale as default. " +
                             "| see VCheckSDK.sdkLanguageCode(langCode: String)")
@@ -199,6 +211,53 @@ public class VCheckSDK {
 
     internal func setSelectedCountryCode(code: String) {
         self.selectedCountryCode = code
+    }
+    
+    ///Color public customization methods:
+    
+    func colorActionButtons(colorHex: String) -> VCheckSDK {
+        self.buttonsColorHex = colorHex
+        return self
+    }
+
+    func colorBackgroundPrimary(colorHex: String) -> VCheckSDK {
+        self.backgroundPrimaryColorHex = colorHex
+        return self
+    }
+
+    func colorBackgroundSecondary(colorHex: String) -> VCheckSDK {
+        self.backgroundSecondaryColorHex = colorHex
+        return self
+    }
+
+    func colorBackgroundTertiary(colorHex: String) -> VCheckSDK {
+        self.backgroundTertiaryColorHex = colorHex
+        return self
+    }
+
+    func colorTextPrimary(colorHex: String) -> VCheckSDK {
+        self.primaryTextColorHex = colorHex
+        return self
+    }
+
+    func colorTextSecondary(colorHex: String) -> VCheckSDK {
+        self.secondaryTextColorHex = colorHex
+        return self
+    }
+
+    func colorBorders(colorHex: String) -> VCheckSDK {
+        self.borderColorHex = colorHex
+        return self
+    }
+
+    func resetCustomColors() {
+        self.buttonsColorHex = nil
+        self.backgroundPrimaryColorHex = nil
+        self.backgroundSecondaryColorHex = nil
+        self.backgroundTertiaryColorHex = nil
+        self.primaryTextColorHex = nil
+        self.secondaryTextColorHex = nil
+        self.borderColorHex = nil
     }
     
 }
