@@ -10,7 +10,7 @@ import Foundation
 struct CreateVerificationRequestBody: Codable {
 
     var partnerId: Int
-    var timestamp: Int  // Int(Date().timeIntervalSince1970)
+    var timestamp: Int
     var scheme: String
     var locale: String
     var partnerUserId: String

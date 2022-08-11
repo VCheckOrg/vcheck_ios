@@ -204,6 +204,7 @@ public class VCheckSDK {
 }
 
 
+///Deprecated for now:
 
 //private var customServiceURL: String? = nil
 

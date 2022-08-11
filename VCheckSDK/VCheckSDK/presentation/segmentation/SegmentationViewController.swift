@@ -200,7 +200,7 @@ class SegmentationViewController: UIViewController {
         })
     }
     
-    func onAllStagesPassed() {
+    private func onAllStagesPassed() {
         
         self.periodicGestureCheckTimer?.invalidate()
         
@@ -218,7 +218,7 @@ class SegmentationViewController: UIViewController {
         self.performSegue(withIdentifier: "SegToCheckDocInfo", sender: nil)
     }
     
-    func onStagePassed(fullImage: UIImage) {
+    private func onStagePassed(fullImage: UIImage) {
         if (self.checkedDocIdx == 0) {
             self.firstImgToUpload = fullImage
         } else if (self.checkedDocIdx == 1) {
@@ -242,7 +242,7 @@ class SegmentationViewController: UIViewController {
         }
     }
     
-    func startLivenessSessionTimeoutTimer() {
+    private func startLivenessSessionTimeoutTimer() {
         let delay : DispatchTime = .now() + .milliseconds(SegmentationViewController.SEG_TIME_LIMIT_MILLIS)
         if livenessSessionTimeoutTimer == nil {
             livenessSessionTimeoutTimer = DispatchSource.makeTimerSource(queue: DispatchQueue.global())
@@ -265,7 +265,7 @@ class SegmentationViewController: UIViewController {
         }
     }
 
-    func endSessionPrematurely(performSegueWithIdentifier: String) {
+    private func endSessionPrematurely(performSegueWithIdentifier: String) {
         
         self.hasEnoughTimeForNextGesture = false
         
