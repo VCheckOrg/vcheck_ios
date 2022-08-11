@@ -282,7 +282,7 @@
 				DA3BED9E2869A8D300B15E5C /* check_doc_info_stage */,
 				DA3BEDA52869A8D300B15E5C /* choose_country_stage */,
 				DA3BEDAA2869A8D300B15E5C /* common */,
-				DA3BEDAC2869A8D300B15E5C /* photo_upload_stage */,
+				DA3BEDAC2869A8D300B15E5C /* photo_upload */,
 			);
 			path = presentation;
 			sourceTree = "<group>";
@@ -383,7 +383,7 @@
 			path = common;
 			sourceTree = "<group>";
 		};
-		DA3BEDAC2869A8D300B15E5C /* photo_upload_stage */ = {
+		DA3BEDAC2869A8D300B15E5C /* photo_upload */ = {
 			isa = PBXGroup;
 			children = (
 				DA3BEDAE2869A8D300B15E5C /* CheckDocPhotoViewController.swift */,
@@ -392,7 +392,7 @@
 				DA3BEDAF2869A8D300B15E5C /* ZoomedDocPhotoViewController.swift */,
 				DA3BEDB02869A8D300B15E5C /* PhotoInstructionsViewController.swift */,
 			);
-			path = photo_upload_stage;
+			path = photo_upload;
 			sourceTree = "<group>";
 		};
 		DA3BEDB82869A8D300B15E5C /* util */ = {
