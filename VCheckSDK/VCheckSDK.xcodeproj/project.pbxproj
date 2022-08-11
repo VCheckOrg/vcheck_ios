@@ -275,13 +275,13 @@
 		DA3BED802869A8D300B15E5C /* presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DA3BEDAA2869A8D300B15E5C /* common */,
 				DA35CF86289D520700E22914 /* segmentation */,
 				DA3BED812869A8D300B15E5C /* liveness */,
 				DA3BED982869A8D300B15E5C /* start */,
 				DA3BED9B2869A8D300B15E5C /* doc_type_stage */,
 				DA3BED9E2869A8D300B15E5C /* check_doc_info_stage */,
 				DA3BEDA52869A8D300B15E5C /* choose_country_stage */,
-				DA3BEDAA2869A8D300B15E5C /* common */,
 				DA3BEDAC2869A8D300B15E5C /* photo_upload */,
 			);
 			path = presentation;
