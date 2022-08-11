@@ -18,6 +18,10 @@ class SegmentationStartViewController: UIViewController {
     
     @IBOutlet weak var btnContinue: UIButton!
     
+    @IBAction func actionBack(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     
     override func viewDidLoad() {
         

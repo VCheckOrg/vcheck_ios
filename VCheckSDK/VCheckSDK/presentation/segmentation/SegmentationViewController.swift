@@ -241,37 +241,40 @@ class SegmentationViewController: UIViewController {
             vc.onRepeatBlock = { result in self.resetFlowForNewSession() }
         }
     }
-
-    func endSessionPrematurely(performSegueWithIdentifier: String) {
-
-        self.periodicGestureCheckTimer?.invalidate()
-        
-        self.hasEnoughTimeForNextGesture = false
-        
-        self.videoStreamingPermitted = false
-        self.isLivenessSessionFinished = true
-        
-        self.periodicGestureCheckTimer?.invalidate()
-        
-        self.hapticFeedbackGenerator.notificationOccurred(.warning)
-        if (self.livenessSessionTimeoutTimer != nil) {
-            self.livenessSessionTimeoutTimer!.cancel()
-        }
-        self.performSegue(withIdentifier: performSegueWithIdentifier, sender: nil)
-    }
-
+    
     func startLivenessSessionTimeoutTimer() {
         let delay : DispatchTime = .now() + .milliseconds(SegmentationViewController.SEG_TIME_LIMIT_MILLIS)
         if livenessSessionTimeoutTimer == nil {
             livenessSessionTimeoutTimer = DispatchSource.makeTimerSource(queue: DispatchQueue.global())
             livenessSessionTimeoutTimer!.schedule(deadline: delay, repeating: 0)
             livenessSessionTimeoutTimer!.setEventHandler {
-                self.endSessionPrematurely(performSegueWithIdentifier: "SegToTimeout")
+                
+                self.periodicGestureCheckTimer?.invalidate()
+                
+                if (self.livenessSessionTimeoutTimer != nil) {
+                    self.livenessSessionTimeoutTimer!.cancel()
+                }
+                
+                DispatchQueue.main.async(execute: {
+                    self.endSessionPrematurely(performSegueWithIdentifier: "SegToTimeout")
+                })
             }
             livenessSessionTimeoutTimer!.resume()
         } else {
             livenessSessionTimeoutTimer?.schedule(deadline: delay, repeating: 0)
         }
+    }
+
+    func endSessionPrematurely(performSegueWithIdentifier: String) {
+        
+        self.hasEnoughTimeForNextGesture = false
+        
+        self.videoStreamingPermitted = false
+        self.isLivenessSessionFinished = true
+                
+        self.hapticFeedbackGenerator.notificationOccurred(.warning)
+        
+        self.performSegue(withIdentifier: performSegueWithIdentifier, sender: nil)
     }
 }
 
@@ -284,7 +287,9 @@ extension SegmentationViewController {
         DispatchQueue.main.async {
 
             self.indicationText.text = "segmentation_stage_success".localized;
-            self.textIndicatorConstraint.constant = 50.0
+            
+            //self.textIndicatorConstraint.constant = 40.0 //!
+            //self.indicationText.centerYAnchor.constraint(equalTo: self.indicationText.centerYAnchor, constant: 40.0).isActive = true
 
             self.blockProcessingByUI = true
             
@@ -302,8 +307,8 @@ extension SegmentationViewController {
                 self.docAnimationView.centerXAnchor.constraint(equalTo: self.segmentationAnimHolder.centerXAnchor).isActive = true
                 self.docAnimationView.centerYAnchor.constraint(equalTo: self.segmentationAnimHolder.centerYAnchor).isActive = true
         
-                self.docAnimationView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-                self.docAnimationView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+                self.docAnimationView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+                self.docAnimationView.widthAnchor.constraint(equalToConstant: 300).isActive = true
                 
                 self.docAnimationView.play()
             }
@@ -319,7 +324,6 @@ extension SegmentationViewController {
             }
         }
     }
-    
     
     func setUIForNextStage() {
         
@@ -384,10 +388,10 @@ extension SegmentationViewController {
         if let frameSize = self.frameSize {
             if (self.isBackgroundSet == false) {
                 let pathBigRect = UIBezierPath(rect: self.view.bounds)
-                let pathSmallRect = UIBezierPath(rect: CGRect(x: (self.view.viewWidth - frameSize.width) / 2,
-                                                              y: (self.view.viewHeight - frameSize.height) / 2,
-                                                              width: frameSize.width - 2,
-                                                              height: frameSize.height - 2))
+                let pathSmallRect = UIBezierPath(rect: CGRect(x: ((self.view.viewWidth - frameSize.width) / 2) + 2,
+                                                              y: ((self.view.viewHeight - frameSize.height) / 2) + 2,
+                                                              width: frameSize.width - 4,
+                                                              height: frameSize.height - 4))
                 pathBigRect.append(pathSmallRect)
                 
                 pathBigRect.usesEvenOddFillRule = true
@@ -456,8 +460,8 @@ extension SegmentationViewController: AVCaptureVideoDataOutputSampleBufferDelega
 }
 
 
-
 //--------------------------------
+/// FOR TEST ONLY:
 //    func writeImage(image: UIImage) {
 //        UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.finishWriteImage), nil)
 //    }

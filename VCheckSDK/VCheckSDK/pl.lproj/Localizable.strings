@@ -1,0 +1,105 @@
+
+"enter_valid_dob" = "Wprowadź datę urodzenia w formacie 'RRRR-MM-DD'";
+
+"enter_valid_doc_number" = "Proszę wpisać poprawny numer dokumentu";
+
+"enter_valid_name" = "Proszę wpisać prawidłowe imię";
+
+"enter_valid_surname" = "Proszę wpisz właściwe nazwisko";
+
+/* No comment provided by engineer. */
+"error_make_at_least_one_photo" = "Zrób co najmniej jedno zdjęcie dokumentu";
+
+"error_make_one_photo" = "Proszę zrobić jedno zdjęcie dokumentu";
+
+"error_make_two_photos" = "Proszę zrobić dwa zdjęcia dokumentu";
+
+/* No comment provided by engineer. */
+"error_some_fields_are_empty" = "Proszę wypełnić wszystkie pola dokumentu";
+
+/* No comment provided by engineer. */
+"line_face_obstacle" = "Patrz przed siebie";
+
+/* No comment provided by engineer. */
+"liveness_stage_check_face_pos" = "Trzymaj głowę prosto";
+
+/* No comment provided by engineer. */
+"liveness_stage_face_left" = "Odwróć głowę w lewo";
+
+/* No comment provided by engineer. */
+"liveness_stage_face_right" = "Odwróć głowę w prawo";
+
+"liveness_stage_face_up" = "Podnieś głowę do góry";
+
+"liveness_stage_face_down" = "Opuść głowę";
+
+/* No comment provided by engineer. */
+"liveness_stage_open_mouth" = "Otwórz usta";
+
+/* No comment provided by engineer. */
+"photo_loaing_wait_discl" = "Proszę czekać. Zdjęcie Twojego dokumentu jest przesyłane i przetwarzane. Może to trwać od kilku sekund do minuty.";
+
+/* No comment provided by engineer. */
+"photo_upload_title_common_back" = "Zdjęcie ostatniej strony z Twoim zdjęciem (jeśli masz wiele zdjęć w dokumencie)";
+
+/* No comment provided by engineer. */
+"photo_upload_title_common_forward" = "Zdjęcie pierwszej strony dokumentu (z Twoim zdjęciem)";
+
+/* No comment provided by engineer. */
+"photo_upload_title_foreign" = "Pełne rozłożenie dokumentu z Twoim zdjęciem";
+
+/* No comment provided by engineer. */
+"photo_upload_title_id_card_back" = "Tylna strona dowodu osobistego";
+
+/* No comment provided by engineer. */
+"photo_upload_title_id_card_forward" = "Przednia strona dowodu osobistego";
+
+/* Default action */
+"OK" = "";
+
+/* No comment provided by engineer. */
+"no_search_data_label" = "Brak dostępnych danych";
+
+"confident_in_doc_title" = "Jestem pewny swojego dokumentu, kontynuuj proces weryfikacji";
+
+"doc_date_placeholder" = "RRRR-MM-DD";
+
+"non_available" = "Niedostępne";
+
+"bermuda" = "Bermudy";
+
+"invalid_doc_type_desc" = "Dokument nie pasuje do wybranego typu. Zalecamy ponowne pobranie dokumentu.";
+
+"verif_error_desc" = "Coś poszło nie tak. Zalecamy ponowne pobranie dokumentu.";
+
+"check_doc_fields_input_message" = "Sprawdź, czy wszystkie pola dokumentu są poprawnie wypełnione";
+
+"need_camera_access_title" = "Dostęp do aparatu";
+"need_camera_access_descr" = "Należy zapewnić dostęp do aparatu w celu sfotografowania dokumentów i przeprowadzenia sesji weryfikacji twarzy.";
+"allow" = "Udostępnić";
+"decline" = "Odrzucić";
+
+"declined_camera_access" = "Odmowa dostępu do aparatu: spowoduje to, że główne funkcje produktu będą niedostępne. Aby zezwolić na dostęp do kamery, uruchom ponownie aplikację lub przejdź do Ustawień.";
+
+"proceed" = "Kontynuować";
+
+"seg_make_photo" = "Robić zdjęcie";
+"retry" = "Spróbować ponownie";
+
+"segmentation_instr_inner_passport_title"="Zrób zdjęcie paszportu obywatela";
+"segmentation_instr_foreign_passport_title"="Zrób zdjęcie paszportu";
+"segmentation_instr_id_card_title"="Zrób zdjęcie dowodu osobistego";
+
+"segmentation_instr_inner_passport_descr"="Postępuj zgodnie z instrukcjami wyświetlanymi na ekranie, aby zrobić zdjęcie całostronicowej rozkładówki paszportu obywatela (widoczne obie strony)";
+"segmentation_instr_foreign_passport_descr"="Postępuj zgodnie z instrukcjami wyświetlanymi na ekranie, aby zrobić zdjęcie całostronicowej rozkładówki paszportu (widoczne obie strony)";
+"segmentation_instr_id_card_descr"="Postępuj zgodnie z instrukcjami wyświetlanymi na ekranie, aby zrobić zdjęcie przedniej i tylnej strony dowodu osobistego";
+
+"segmentation_general_instruction"="Przygotuj dokument i umieść go we wskazanym obszarze, jak w powyższym przykładzie.";
+"im_ready"="Jestem gotowy";
+
+"segmentation_single_page_hint"="Umieść dokument w określonej strefie do automatycznego odczytu";
+"segmentation_front_side_hint"="Umieść przednią stronę dokumentu w wyznaczonym miejscu do automatycznego odczytu";
+"segmentation_back_side_hint"="Umieść tylną stronę dokumentu w wyznaczonym miejscu do automatycznego odczytu";
+"segmentation_stage_success"="Dokument został zeskanowany pomyślnie!";
+
+"no_time_seg_title"="Czas przeznaczony na zeskanowanie dokumentu upłynął";

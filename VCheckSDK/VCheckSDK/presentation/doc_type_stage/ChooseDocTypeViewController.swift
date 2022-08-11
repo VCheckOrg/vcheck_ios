@@ -21,7 +21,6 @@ class ChooseDocTypeViewController : UIViewController {
     @IBOutlet weak var sectionIDCard: VCheckSDKRoundedView!
         
     @IBAction func backToCountriesAction(_ sender: UIButton) {
-        //self.dismiss(animated: true)
         navigationController?.popViewController(animated: true)
     }
     

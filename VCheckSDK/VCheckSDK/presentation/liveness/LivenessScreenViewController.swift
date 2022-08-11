@@ -233,17 +233,17 @@ internal class LivenessScreenViewController: UIViewController {
             DispatchQueue.main.async {
                 self.periodicGestureCheckTimer?.invalidate()
                 
+                if (self.livenessSessionTimeoutTimer != nil) {
+                    self.livenessSessionTimeoutTimer!.cancel()
+                }
+                
                 self.hasEnoughTimeForNextGesture = false
                 
                 self.videoStreamingPermitted = false
                 self.isLivenessSessionFinished = true
-                
-                self.periodicGestureCheckTimer?.invalidate()
-                
+                                
                 self.hapticFeedbackGenerator.notificationOccurred(.warning)
-                if (self.livenessSessionTimeoutTimer != nil) {
-                    self.livenessSessionTimeoutTimer!.cancel()
-                }
+                
                 self.performSegue(withIdentifier: performSegueWithIdentifier, sender: nil)
             }
         })

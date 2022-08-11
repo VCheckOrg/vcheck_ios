@@ -165,6 +165,8 @@
 		DA4D269B289198CC00C6F43A /* DocumentRequestModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentRequestModels.swift; sourceTree = "<group>"; };
 		DAC3C8292877669F00B32FFC /* VerificationClientCreationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationClientCreationModel.swift; sourceTree = "<group>"; };
 		DAC3C82B2877695700B32FFC /* VerificationSchemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationSchemes.swift; sourceTree = "<group>"; };
+		DAE5434C28A5822A00AEBC26 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/VCheckFlow.strings; sourceTree = "<group>"; };
+		DAE5434D28A5822C00AEBC26 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DAF3CC7B2890021300F72914 /* FilnalVerifCheckModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilnalVerifCheckModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -497,6 +499,7 @@
 				Base,
 				ru,
 				uk,
+				pl,
 			);
 			mainGroup = DA3BED472869A69D00B15E5C;
 			packageReferences = (
@@ -612,6 +615,7 @@
 				DA3BEE0B2869B25D00B15E5C /* en */,
 				DA3BEE0D2869B26000B15E5C /* ru */,
 				DA3BEE0E2869B26100B15E5C /* uk */,
+				DAE5434D28A5822C00AEBC26 /* pl */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -623,6 +627,7 @@
 				DA3BEE152869B4CF00B15E5C /* uk */,
 				DA3BEE162869B4F600B15E5C /* Base */,
 				DA3BEE172869B50000B15E5C /* en */,
+				DAE5434C28A5822A00AEBC26 /* pl */,
 			);
 			name = VCheckFlow.storyboard;
 			sourceTree = "<group>";

@@ -84,7 +84,7 @@
 
 "segmentation_instr_inner_passport_title"="Take a photo of your passport";
 "segmentation_instr_foreign_passport_title"="Take a photo of your foreign passport";
-"segmentation_instr_id_card_title"="Take a photo of your ID-card";
+"segmentation_instr_id_card_title"="Take a photo of your ID card";
 
 "segmentation_instr_inner_passport_descr"="Follow the on-screen instructions to take a full-page photo of your passport (both pages visible)";
 "segmentation_instr_foreign_passport_descr"="Following the instructions on the screen, take a photo of a full-page spread of your passport (both pages are visible)";
