@@ -82,6 +82,7 @@
 		DA827B1B2885852800090816 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DA827B1A2885852800090816 /* Alamofire */; };
 		DAC3C82A2877669F00B32FFC /* VerificationClientCreationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3C8292877669F00B32FFC /* VerificationClientCreationModel.swift */; };
 		DAC3C82C2877695700B32FFC /* VerificationSchemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3C82B2877695700B32FFC /* VerificationSchemes.swift */; };
+		DAE5436228A63A0300AEBC26 /* ContextWrapperUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE5436128A63A0300AEBC26 /* ContextWrapperUIViewController.swift */; };
 		DAF3CC7C2890021300F72914 /* FilnalVerifCheckModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF3CC7B2890021300F72914 /* FilnalVerifCheckModels.swift */; };
 /* End PBXBuildFile section */
 
@@ -167,6 +168,7 @@
 		DAC3C82B2877695700B32FFC /* VerificationSchemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationSchemes.swift; sourceTree = "<group>"; };
 		DAE5434C28A5822A00AEBC26 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/VCheckFlow.strings; sourceTree = "<group>"; };
 		DAE5434D28A5822C00AEBC26 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DAE5436128A63A0300AEBC26 /* ContextWrapperUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextWrapperUIViewController.swift; sourceTree = "<group>"; };
 		DAF3CC7B2890021300F72914 /* FilnalVerifCheckModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilnalVerifCheckModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -379,6 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				DA3BEDAB2869A8D300B15E5C /* HeaderViewController.swift */,
+				DAE5436128A63A0300AEBC26 /* ContextWrapperUIViewController.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				DA3BEDDA2869A8D300B15E5C /* VideoUploadFailureViewModel.swift in Sources */,
 				DA3BEE032869A8D300B15E5C /* VCheckSDKLocalDatasource.swift in Sources */,
 				DA3BEDEE2869A8D300B15E5C /* CheckDocInfoViewController.swift in Sources */,
+				DAE5436228A63A0300AEBC26 /* ContextWrapperUIViewController.swift in Sources */,
 				DA3BEDD62869A8D300B15E5C /* LivenessVideoRecorder.swift in Sources */,
 				DA3BEDE52869A8D300B15E5C /* LivenessScreenViewController.swift in Sources */,
 				DA3BEDCF2869A8D300B15E5C /* VerificationRequestModels.swift in Sources */,
