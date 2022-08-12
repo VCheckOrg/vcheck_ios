@@ -11,7 +11,7 @@ import UIKit
 import AVFoundation
 
 
-class VCheckStartViewController : UIViewController {
+class VCheckStartViewController : ContextWrapperUIViewController {
     
     private let viewModel = VCheckStartViewModel()
     
@@ -20,8 +20,17 @@ class VCheckStartViewController : UIViewController {
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     
+    override func changeColorsToCustomIfPresent() {
+        if let btnsHex = VCheckSDK.shared.buttonsColorHex {
+            retryBtn.tintColor = btnsHex.hexToUIColor()
+        }
+    }
+    
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
+        
+        changeColorsToCustomIfPresent()
                         
         if (self.spinner.isAnimating) {
             self.spinner.stopAnimating()

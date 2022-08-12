@@ -103,6 +103,11 @@ public class VCheckSDK {
                     "or check out for the recent version of the SDK library")
             return false
         }
+        
+//        if (buttonsColorHex != nil || ) {
+//             //TODO: add test check warning
+//        }
+        
         if (self.partnerUserId != nil && partnerUserId!.isEmpty) {
            print("VCheckSDK - error: if provided, partner user ID must be unique to your service and not empty")
            return false
