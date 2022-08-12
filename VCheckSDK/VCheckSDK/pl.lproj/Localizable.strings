@@ -68,9 +68,9 @@
 
 "bermuda" = "Bermudy";
 
-"invalid_doc_type_desc" = "Dokument nie pasuje do wybranego typu. Zalecamy ponowne pobranie dokumentu.";
+"invalid_doc_type_desc" = "Sprawdzenie zgodności dokumentów nie powiodło się. Proszę pobrać poprawny dokument";
 
-"verif_error_desc" = "Coś poszło nie tak. Zalecamy ponowne pobranie dokumentu.";
+"verif_error_desc" = "Weryfikacja dokumentu nie powiodła się";
 
 "check_doc_fields_input_message" = "Sprawdź, czy wszystkie pola dokumentu są poprawnie wypełnione";
 

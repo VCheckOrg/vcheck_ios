@@ -107,7 +107,8 @@ class CheckDocPhotoViewController : UIViewController {
         if(self.viewModel.uploadResponse?.data?.id != nil) {
             self.navigateToDocInfoScreen()
         } else {
-            self.showToast(message: "Error: no document data in response", seconds: 3.0)
+            self.showToast(message: "invalid_doc_type_desc".localized, seconds: 3.0)
+            self.performSegue(withIdentifier: "CheckPhotoWErrorToUploadPhoto", sender: nil)
         }
     }
     

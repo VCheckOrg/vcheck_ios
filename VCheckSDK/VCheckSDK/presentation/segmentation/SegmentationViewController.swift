@@ -295,8 +295,7 @@ extension SegmentationViewController {
             
             self.segmentationAnimHolder.subviews.forEach { $0.removeFromSuperview() }
             
-            if (DocType.docCategoryIdxToType(categoryIdx: (self.docData?.category!)!) == DocType.ID_CARD
-                && self.checkedDocIdx == 1) {
+            if (DocType.docCategoryIdxToType(categoryIdx: (self.docData?.category!)!) == DocType.ID_CARD) {
                 
                 self.docAnimationView = AnimationView(name: "id_card_turn_front", bundle: InternalConstants.bundle)
         

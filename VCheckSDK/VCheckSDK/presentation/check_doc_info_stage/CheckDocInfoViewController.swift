@@ -183,6 +183,7 @@ extension CheckDocInfoViewController: UITableViewDataSource {
         switch(currLocaleCode) {
             case "uk": title = field.title.uk!
             case "ru": title = field.title.ru!
+            case "pl": title = field.title.pl!
             default: title = field.title.en!
         }
         

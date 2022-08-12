@@ -171,12 +171,14 @@ struct DocTitle: Codable {
   var en : String? = nil
   var ru : String? = nil
   var uk : String? = nil
+  var pl: String? = nil
 
   enum CodingKeys: String, CodingKey {
 
     case en = "en"
     case ru = "ru"
     case uk = "uk"
+    case pl = "pl"
   
   }
 
@@ -186,6 +188,7 @@ struct DocTitle: Codable {
     en = try values.decodeIfPresent(String.self , forKey: .en )
     ru = try values.decodeIfPresent(String.self , forKey: .ru )
     uk = try values.decodeIfPresent(String.self , forKey: .uk )
+    pl = try values.decodeIfPresent(String.self , forKey: .pl )
  
   }
 
