@@ -68,9 +68,7 @@ class VCheckStartViewModel {
             self.isLoading = false
             return
         }
-        
-        //print("VERIF MODEL TYPE: \(String(describing: VCheckSDK.shared.verificationClientCreationModel?.verificationType))")
-        
+                
         if let timestamp = self.timestamp {
             self.dataService.createVerificationRequest(timestamp: timestamp,
                                                        locale: languagePrefix,
@@ -83,7 +81,6 @@ class VCheckStartViewModel {
                     return
                 }
                 
-                //VCheckSDKLocalDatasource.shared.saveAccessToken(accessToken: data!.token!)
                 VCheckSDK.shared.setVerificationToken(token: data!.token!)
                 
                 print("VERIF ::: CREATE ATTEMPT SUCCESS! DATA: \(String(describing: data))")

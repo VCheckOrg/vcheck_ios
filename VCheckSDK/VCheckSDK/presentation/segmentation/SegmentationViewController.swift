@@ -288,7 +288,7 @@ extension SegmentationViewController {
 
             self.indicationText.text = "segmentation_stage_success".localized;
             
-            //self.textIndicatorConstraint.constant = 40.0 //!
+            //self.textIndicatorConstraint.constant = 40.0 // was temp fix
             //self.indicationText.centerYAnchor.constraint(equalTo: self.indicationText.centerYAnchor, constant: 40.0).isActive = true
 
             self.blockProcessingByUI = true
