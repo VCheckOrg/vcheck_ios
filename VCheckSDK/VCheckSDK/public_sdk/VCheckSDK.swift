@@ -75,7 +75,10 @@ public class VCheckSDK {
     }
     
     private func preStartChecksPassed() -> Bool {
+        
         //TODO: add color checks
+        //TODO: add test check warnings for colors
+        
         if (self.verificationType == nil) {
             print("VCheckSDK - error: proper verification type must be provided | see VCheckSDK.shared.verificationType(type: VerificationSchemeType)")
             return false
@@ -103,11 +106,6 @@ public class VCheckSDK {
                     "or check out for the recent version of the SDK library")
             return false
         }
-        
-//        if (buttonsColorHex != nil || ) {
-//             //TODO: add test check warning
-//        }
-        
         if (self.partnerUserId != nil && partnerUserId!.isEmpty) {
            print("VCheckSDK - error: if provided, partner user ID must be unique to your service and not empty")
            return false
@@ -266,18 +264,3 @@ public class VCheckSDK {
     }
     
 }
-
-
-///Deprecated for now:
-
-//private var customServiceURL: String? = nil
-
-//    if (customServiceURL != nil && !customServiceURL!.isValidURL()) {
-//       print("VCheckSDK - error: if provided, custom service URL must be valid public URL")
-//       return false
-//    }
-
-//    func customServiceURL(url: String) -> VCheckSDK {
-//        self.customServiceURL = url
-//        return self
-//    }
