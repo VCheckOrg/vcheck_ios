@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-@_implementationOnly import Alamofire
 import AVFoundation
 
 
@@ -32,8 +31,6 @@ class VCheckStartViewController : UIViewController {
         requestCameraPermission()
     }
 
-    
-    // MARK: - Networking
     private func initVerification() {
         
         retryBtn.isHidden = true
@@ -123,7 +120,6 @@ class VCheckStartViewController : UIViewController {
         }
     }
     
-    // MARK: - UI Setup
     private func activityIndicatorStart() {
         self.spinner.startAnimating()
     }

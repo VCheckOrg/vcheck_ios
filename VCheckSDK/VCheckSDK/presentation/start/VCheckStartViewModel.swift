@@ -11,9 +11,7 @@ class VCheckStartViewModel {
     
     private var dataService: VCheckSDKRemoteDatasource = VCheckSDKRemoteDatasource.shared
     
-    // MARK: - Constructor
     init() {}
-    
     
     // MARK: - Properties
     private var timestamp: String?

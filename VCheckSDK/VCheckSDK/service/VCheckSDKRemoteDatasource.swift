@@ -9,7 +9,6 @@ import Foundation
 @_implementationOnly import Alamofire
 import UIKit
 
-//TODO: rename to VCheckLocalDatasource!
 struct VCheckSDKRemoteDatasource {
     
     // MARK: - Singleton
