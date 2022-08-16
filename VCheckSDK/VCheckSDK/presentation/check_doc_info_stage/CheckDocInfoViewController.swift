@@ -82,21 +82,18 @@ class CheckDocInfoViewController : UIViewController {
         }
         
         viewModel.didReceivedCurrentStage = {
-            if (self.viewModel.currentStageResponse?.errorCode == nil
-                || self.viewModel.currentStageResponse?.errorCode
-                    == StageObstacleErrorType.USER_INTERACTED_COMPLETED.toTypeIdx()) {
-                if (self.viewModel.currentStageResponse?.data?.config != nil) {
-                    VCheckSDKLocalDatasource.shared.setLivenessMilestonesList(list:
-                        (self.viewModel.currentStageResponse?.data?.config?.gestures)!)
-                    print("GOT LIVENESS MILESTONES LIST: \(String(describing: VCheckSDKLocalDatasource.shared.getLivenessMilestonesList()))")
-                    self.performSegue(withIdentifier: "CheckInfoToLivenessInstr", sender: nil)
-                } else if (VCheckSDK.shared.verificationClientCreationModel?.verificationType == VerificationSchemeType.DOCUMENT_UPLOAD_ONLY) {
-                    VCheckSDK.shared.onFinish()
-                }
-            } else {
-                let storyboard = UIStoryboard(name: "VCheckFlow", bundle: InternalConstants.bundle)
-                UIApplication.topWindow.rootViewController = storyboard.instantiateInitialViewController()
+            if (self.viewModel.currentStageResponse?.data?.config != nil) {
+                VCheckSDKLocalDatasource.shared.setLivenessMilestonesList(list:
+                    (self.viewModel.currentStageResponse?.data?.config?.gestures)!)
+                self.performSegue(withIdentifier: "CheckInfoToLivenessInstr", sender: nil)
+            } else if (VCheckSDK.shared.verificationClientCreationModel?.verificationType == VerificationSchemeType.DOCUMENT_UPLOAD_ONLY) {
+                VCheckSDK.shared.onFinish()
             }
+            // obsolete logic (?)
+//            else {
+//                let storyboard = UIStoryboard(name: "VCheckFlow", bundle: InternalConstants.bundle)
+//                UIApplication.topWindow.rootViewController = storyboard.instantiateInitialViewController()
+//            }
         }
         
         //TODO: improve UX
@@ -136,15 +133,13 @@ class CheckDocInfoViewController : UIViewController {
             
             tableViewHeightConstraint.constant = additionalHeight
             
-            print("GOT AUTO-PARSED FIELDS: \(String(describing: preProcessedDocData.type?.fields))")
             fieldsList = preProcessedDocData.type?.fields!.map { (element) -> (DocFieldWitOptPreFilledData) in
                     return convertDocFieldToOptParsedData(docField: element,
                                                           parsedDocFieldsData: preProcessedDocData.parsedData)
                 } ?? []
-            print("GOT FIELDS LIST: \(fieldsList)")
             docFieldsTableView.reloadData()
             } else {
-                print("__NO__ AVAILABLE AUTO-PARSED FIELDS!")
+                print("VCheckSDK: no available auto-parsed fields")
             }
         }
     
