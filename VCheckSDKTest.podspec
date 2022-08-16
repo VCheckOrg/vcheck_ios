@@ -20,7 +20,10 @@ Pod::Spec.new do |spec|
 
   spec.source_files  = "VCheckSDK/VCheckSDK/**/*.{swift}"
   
-  spec.resources = ["VCheckSDK/VCheckSDK/**/*.storyboard"]
+  spec.resources = ["VCheckSDK/VCheckSDK/**/*.storyboard",
+                    "VCheckSDK/VCheckSDK/**/*.imageasset",
+                    "VCheckSDK/VCheckSDK/**/*.strings",
+                    "VCheckSDK/VCheckSDK/**/*.json"]
   
   spec.dependency "Alamofire"
   spec.dependency "lottie-ios"
