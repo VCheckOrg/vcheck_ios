@@ -806,7 +806,7 @@
 				BITCODE_GENERATION_MODE = "";
 				"BITCODE_GENERATION_MODE[arch=*]" = marker;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 8X5XV4T3QP;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -820,7 +820,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vcheck.demo.app.VCheckSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -838,7 +838,7 @@
 				BITCODE_GENERATION_MODE = "";
 				"BITCODE_GENERATION_MODE[arch=*]" = release;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 8X5XV4T3QP;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -852,7 +852,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vcheck.demo.app.VCheckSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

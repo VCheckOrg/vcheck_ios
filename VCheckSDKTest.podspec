@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "VCheckSDKTest"
-  spec.version      = "1.0.2"
+  spec.version      = "1.0.6"
   spec.summary      = "VCheck SDK for iOS: test/dev environment only"
 
   spec.description  = "This SDK allows to integrate VCheck core features (documents validation, face liveness checks) into iOS projects"
@@ -21,7 +21,7 @@ Pod::Spec.new do |spec|
   spec.source_files  = "VCheckSDK/VCheckSDK/**/*.{swift}"
   
   spec.resources = ["VCheckSDK/VCheckSDK/**/*.storyboard",
-                    "VCheckSDK/VCheckSDK/**/*.imageasset",
+                    "VCheckSDK/VCheckSDK/**/*.xcassets",
                     "VCheckSDK/VCheckSDK/**/*.strings",
                     "VCheckSDK/VCheckSDK/**/*.json"]
   
