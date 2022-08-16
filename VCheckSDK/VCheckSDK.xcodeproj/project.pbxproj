@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		DA153774286F4FE60038A203 /* GeneralStageModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA153773286F4FE60038A203 /* GeneralStageModels.swift */; };
-		DA33FB30288584A100B0C507 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = DA33FB2F288584A100B0C507 /* Lottie */; };
 		DA35CF88289D523E00E22914 /* SegmentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA35CF87289D523E00E22914 /* SegmentationViewController.swift */; };
 		DA35CF8A289D550D00E22914 /* SegmentationStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA35CF89289D550D00E22914 /* SegmentationStartViewController.swift */; };
 		DA3BED562869A69D00B15E5C /* VCheckSDK.docc in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED552869A69D00B15E5C /* VCheckSDK.docc */; };
@@ -79,7 +78,6 @@
 		DA3FD7FE28A1352800C125F0 /* id_card_turn_front.json in Resources */ = {isa = PBXBuildFile; fileRef = DA3FD7FC28A1352800C125F0 /* id_card_turn_front.json */; };
 		DA48073228A3D1A700B27C72 /* SegmentationTimeoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48073128A3D1A700B27C72 /* SegmentationTimeoutViewController.swift */; };
 		DA4D269C289198CC00C6F43A /* DocumentRequestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D269B289198CC00C6F43A /* DocumentRequestModels.swift */; };
-		DA827B1B2885852800090816 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DA827B1A2885852800090816 /* Alamofire */; };
 		DAC3C82A2877669F00B32FFC /* VerificationClientCreationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3C8292877669F00B32FFC /* VerificationClientCreationModel.swift */; };
 		DAC3C82C2877695700B32FFC /* VerificationSchemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3C82B2877695700B32FFC /* VerificationSchemes.swift */; };
 		DAF3CC7C2890021300F72914 /* FilnalVerifCheckModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF3CC7B2890021300F72914 /* FilnalVerifCheckModels.swift */; };
@@ -175,8 +173,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA33FB30288584A100B0C507 /* Lottie in Frameworks */,
-				DA827B1B2885852800090816 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,8 +465,6 @@
 			);
 			name = VCheckSDK;
 			packageProductDependencies = (
-				DA33FB2F288584A100B0C507 /* Lottie */,
-				DA827B1A2885852800090816 /* Alamofire */,
 			);
 			productName = VCheckSDK;
 			productReference = DA3BED512869A69D00B15E5C /* VCheckSDK.framework */;
@@ -503,8 +497,6 @@
 			);
 			mainGroup = DA3BED472869A69D00B15E5C;
 			packageReferences = (
-				DA33FB2E288584A100B0C507 /* XCRemoteSwiftPackageReference "lottie-ios.git" */,
-				DA827B192885852800090816 /* XCRemoteSwiftPackageReference "Alamofire.git" */,
 			);
 			productRefGroup = DA3BED522869A69D00B15E5C /* Products */;
 			projectDirPath = "";
@@ -845,38 +837,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		DA33FB2E288584A100B0C507 /* XCRemoteSwiftPackageReference "lottie-ios.git" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		DA827B192885852800090816 /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		DA33FB2F288584A100B0C507 /* Lottie */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DA33FB2E288584A100B0C507 /* XCRemoteSwiftPackageReference "lottie-ios.git" */;
-			productName = Lottie;
-		};
-		DA827B1A2885852800090816 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DA827B192885852800090816 /* XCRemoteSwiftPackageReference "Alamofire.git" */;
-			productName = Alamofire;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DA3BED482869A69D00B15E5C /* Project object */;
 }
