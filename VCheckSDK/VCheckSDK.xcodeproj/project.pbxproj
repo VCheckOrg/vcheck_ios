@@ -503,8 +503,8 @@
 			);
 			mainGroup = DA3BED472869A69D00B15E5C;
 			packageReferences = (
-				DA33FB2E288584A100B0C507 /* XCRemoteSwiftPackageReference "lottie-ios" */,
-				DA827B192885852800090816 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				DA33FB2E288584A100B0C507 /* XCRemoteSwiftPackageReference "lottie-ios.git" */,
+				DA827B192885852800090816 /* XCRemoteSwiftPackageReference "Alamofire.git" */,
 			);
 			productRefGroup = DA3BED522869A69D00B15E5C /* Products */;
 			projectDirPath = "";
@@ -847,7 +847,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		DA33FB2E288584A100B0C507 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+		DA33FB2E288584A100B0C507 /* XCRemoteSwiftPackageReference "lottie-ios.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
 			requirement = {
@@ -855,7 +855,7 @@
 				kind = branch;
 			};
 		};
-		DA827B192885852800090816 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		DA827B192885852800090816 /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -868,12 +868,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		DA33FB2F288584A100B0C507 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DA33FB2E288584A100B0C507 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			package = DA33FB2E288584A100B0C507 /* XCRemoteSwiftPackageReference "lottie-ios.git" */;
 			productName = Lottie;
 		};
 		DA827B1A2885852800090816 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DA827B192885852800090816 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = DA827B192885852800090816 /* XCRemoteSwiftPackageReference "Alamofire.git" */;
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
