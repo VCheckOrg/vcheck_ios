@@ -4,7 +4,7 @@ Pod::Spec.new do |spec|
   spec.version      = "1.0.2"
   spec.summary      = "VCheck SDK for iOS: test/dev environment only"
 
-  spec.description  = "iOS SDK (test/dev environment only)"
+  spec.description  = "This SDK allows to integrate VCheck core features (documents validation, face liveness checks) into iOS projects"
 
   spec.homepage     = "https://vycheck.com/"
 
@@ -19,5 +19,10 @@ Pod::Spec.new do |spec|
   spec.source       = { :git => "https://github.com/VCheckOrg/vcheck_ios_sdk_test.git", :tag => "#{spec.version}" }
 
   spec.source_files  = "VCheckSDK/VCheckSDK/**/*.{swift}"
+  
+  spec.dependency "Alamofire"
+  spec.dependency "lottie-ios"
+  
+  spec.swift_version = "5.6"
 
 end

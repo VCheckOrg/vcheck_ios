@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D9B3411C4803F11306AFDC8 /* libPods-VCheckSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8684CB6363ACD92E4B1E4E0A /* libPods-VCheckSDK.a */; };
 		DA153774286F4FE60038A203 /* GeneralStageModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA153773286F4FE60038A203 /* GeneralStageModels.swift */; };
 		DA35CF88289D523E00E22914 /* SegmentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA35CF87289D523E00E22914 /* SegmentationViewController.swift */; };
 		DA35CF8A289D550D00E22914 /* SegmentationStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA35CF89289D550D00E22914 /* SegmentationStartViewController.swift */; };
@@ -84,6 +85,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4477A6D7EAE2B82C2841CC26 /* Pods-VCheckSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCheckSDK.release.xcconfig"; path = "Target Support Files/Pods-VCheckSDK/Pods-VCheckSDK.release.xcconfig"; sourceTree = "<group>"; };
+		8684CB6363ACD92E4B1E4E0A /* libPods-VCheckSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VCheckSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABCF8F55960CED9BD0D87C85 /* Pods-VCheckSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCheckSDK.debug.xcconfig"; path = "Target Support Files/Pods-VCheckSDK/Pods-VCheckSDK.debug.xcconfig"; sourceTree = "<group>"; };
 		DA153773286F4FE60038A203 /* GeneralStageModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralStageModels.swift; sourceTree = "<group>"; };
 		DA35CF87289D523E00E22914 /* SegmentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationViewController.swift; sourceTree = "<group>"; };
 		DA35CF89289D550D00E22914 /* SegmentationStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationStartViewController.swift; sourceTree = "<group>"; };
@@ -173,12 +177,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D9B3411C4803F11306AFDC8 /* libPods-VCheckSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B2266784090F5ED8C230FBE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ABCF8F55960CED9BD0D87C85 /* Pods-VCheckSDK.debug.xcconfig */,
+				4477A6D7EAE2B82C2841CC26 /* Pods-VCheckSDK.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		3178C0118D4B8B40DB7A7637 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8684CB6363ACD92E4B1E4E0A /* libPods-VCheckSDK.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DA35CF86289D520700E22914 /* segmentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +218,8 @@
 				DA3BED532869A69D00B15E5C /* VCheckSDK */,
 				DA3BED522869A69D00B15E5C /* Products */,
 				DAA730392869C5540056CC8D /* Recovered References */,
+				2B2266784090F5ED8C230FBE /* Pods */,
+				3178C0118D4B8B40DB7A7637 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -454,6 +479,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA3BED5A2869A69D00B15E5C /* Build configuration list for PBXNativeTarget "VCheckSDK" */;
 			buildPhases = (
+				966355D3E25117CC7E1518B5 /* [CP] Check Pods Manifest.lock */,
 				DA3BED4C2869A69D00B15E5C /* Headers */,
 				DA3BED4D2869A69D00B15E5C /* Sources */,
 				DA3BED4E2869A69D00B15E5C /* Frameworks */,
@@ -464,8 +490,6 @@
 			dependencies = (
 			);
 			name = VCheckSDK;
-			packageProductDependencies = (
-			);
 			productName = VCheckSDK;
 			productReference = DA3BED512869A69D00B15E5C /* VCheckSDK.framework */;
 			productType = "com.apple.product-type.framework";
@@ -496,8 +520,6 @@
 				pl,
 			);
 			mainGroup = DA3BED472869A69D00B15E5C;
-			packageReferences = (
-			);
 			productRefGroup = DA3BED522869A69D00B15E5C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -527,6 +549,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		966355D3E25117CC7E1518B5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VCheckSDK-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DA3BED4D2869A69D00B15E5C /* Sources */ = {
@@ -755,6 +802,7 @@
 		};
 		DA3BED5B2869A69D00B15E5C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABCF8F55960CED9BD0D87C85 /* Pods-VCheckSDK.debug.xcconfig */;
 			buildSettings = {
 				BITCODE_GENERATION_MODE = "";
 				"BITCODE_GENERATION_MODE[arch=*]" = marker;
@@ -786,6 +834,7 @@
 		};
 		DA3BED5C2869A69D00B15E5C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4477A6D7EAE2B82C2841CC26 /* Pods-VCheckSDK.release.xcconfig */;
 			buildSettings = {
 				BITCODE_GENERATION_MODE = "";
 				"BITCODE_GENERATION_MODE[arch=*]" = release;
