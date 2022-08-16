@@ -18,6 +18,6 @@ Pod::Spec.new do |spec|
 
   spec.source       = { :git => "https://github.com/VCheckOrg/vcheck_ios_sdk_test.git", :tag => "#{spec.version}" }
 
-  spec.source_files  = «VCheckSDK/VCheckSDK/**/*.{swift}"
+  spec.source_files  = "VCheckSDK/VCheckSDK/**/*.{swift}"
 
 end
