@@ -32,6 +32,8 @@ public class VCheckSDK {
     
     private var sdkLanguageCode: String? = nil
     
+    private var partnerAppViewController: UIViewController? = nil
+    
     ///Color customization properties:
     internal var buttonsColorHex: String? = nil
     internal var backgroundPrimaryColorHex: String? = nil
@@ -58,8 +60,13 @@ public class VCheckSDK {
                                                     partnerVerificationId: self.partnerVerificationId,
                                                     sessionLifetime: self.sessionLifetime)
             
-            partnerAppRootWindow.rootViewController = GlobalUtils.getVCheckHomeVC()
-            partnerAppRootWindow.makeKeyAndVisible()
+            //TODO: test on FLutter properly
+            if (partnerAppViewController != nil) {
+                partnerAppViewController?.present(GlobalUtils.getVCheckHomeVC(), animated: true)
+            } else {
+                partnerAppRootWindow.rootViewController = GlobalUtils.getVCheckHomeVC()
+                partnerAppRootWindow.makeKeyAndVisible()
+            }
         }
     }
     
@@ -218,37 +225,37 @@ public class VCheckSDK {
     
     ///Color public customization methods:
     
-    func colorActionButtons(colorHex: String) -> VCheckSDK {
+    public func colorActionButtons(colorHex: String) -> VCheckSDK {
         self.buttonsColorHex = colorHex
         return self
     }
 
-    func colorBackgroundPrimary(colorHex: String) -> VCheckSDK {
+    public func colorBackgroundPrimary(colorHex: String) -> VCheckSDK {
         self.backgroundPrimaryColorHex = colorHex
         return self
     }
 
-    func colorBackgroundSecondary(colorHex: String) -> VCheckSDK {
+    public func colorBackgroundSecondary(colorHex: String) -> VCheckSDK {
         self.backgroundSecondaryColorHex = colorHex
         return self
     }
 
-    func colorBackgroundTertiary(colorHex: String) -> VCheckSDK {
+    public func colorBackgroundTertiary(colorHex: String) -> VCheckSDK {
         self.backgroundTertiaryColorHex = colorHex
         return self
     }
 
-    func colorTextPrimary(colorHex: String) -> VCheckSDK {
+    public func colorTextPrimary(colorHex: String) -> VCheckSDK {
         self.primaryTextColorHex = colorHex
         return self
     }
 
-    func colorTextSecondary(colorHex: String) -> VCheckSDK {
+    public func colorTextSecondary(colorHex: String) -> VCheckSDK {
         self.secondaryTextColorHex = colorHex
         return self
     }
 
-    func colorBorders(colorHex: String) -> VCheckSDK {
+    public func colorBorders(colorHex: String) -> VCheckSDK {
         self.borderColorHex = colorHex
         return self
     }
@@ -263,4 +270,12 @@ public class VCheckSDK {
         self.borderColorHex = nil
     }
     
+    public func partnerAppViewController(vc: UIViewController) -> VCheckSDK {
+        self.partnerAppViewController = vc
+        return self
+    }
+    
+    public func getPartnerAppViewController() -> UIViewController? {
+        return self.partnerAppViewController
+    }
 }
