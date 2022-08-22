@@ -13,12 +13,13 @@ class ChooseDocTypeViewController : UIViewController {
     private let viewModel = ChooseDocTypeViewModel()
     
     @IBOutlet weak var backArrow: UIImageView!
+        
+    @IBOutlet weak var sectionDefaultInnerPassport: SmallRoundedView!
     
-    @IBOutlet weak var sectionDefaultInnerPassport: VCheckSDKRoundedView!
+    @IBOutlet weak var sectionForeignPasspot: SmallRoundedView!
     
-    @IBOutlet weak var sectionForeignPasspot: VCheckSDKRoundedView!
-    
-    @IBOutlet weak var sectionIDCard: VCheckSDKRoundedView!
+    @IBOutlet weak var sectionIDCard: SmallRoundedView!
+
         
     @IBAction func backToCountriesAction(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)

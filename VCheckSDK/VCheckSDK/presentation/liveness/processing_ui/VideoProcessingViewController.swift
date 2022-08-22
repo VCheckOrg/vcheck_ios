@@ -30,7 +30,6 @@ class VideoProcessingViewController: UIViewController {
         
         viewModel.didUploadVideoResponse = {
             if (self.viewModel.uploadedVideoResponse != nil) {
-                print("DATA: \(String(describing: self.viewModel.uploadedVideoResponse))")
                 if (statusCodeToLivenessChallengeStatus(code: self.viewModel.uploadedVideoResponse!.status!)
                         == LivenessChallengeStatus.FAIL) {
                     if (self.viewModel.uploadedVideoResponse!.reason != nil
@@ -57,10 +56,9 @@ class VideoProcessingViewController: UIViewController {
         if (!token.isEmpty && videoFileURL != nil) {
             uploadVideo()
         } else {
+            print("VCheckSDK - Error: token or video file is nil!")
             //FOR TESTS
             //if (videoFileURL != nil) {
-                print("VCheckSDK - Error: TOKEN/VIDEO FILE IS NIL")
-                //VIDEO FILE SIZE: \(String(describing: self.viewModel.fileSize(forURL: videoFileURL))) MB")
                 //playLivenessVideoPreview()
             //}
         }

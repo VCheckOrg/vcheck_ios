@@ -43,14 +43,11 @@ class VideoProcessingViewModel {
             if let error = error {
                 self.isLoading = false
                 self.error = error
-                print("VCHeckSDK - Error: \(error)")
                 return
             }
             self.isLoading = false
             if let data = data {
                 self.uploadedVideoResponse = data
-                print("LIVENESS UPLOAD - response: \(String(describing: self.uploadedVideoResponse))")
-                
                 self.didUploadVideoResponse!()
             }
         })
@@ -62,11 +59,8 @@ class VideoProcessingViewModel {
             if let error = error {
                 self.error = error
                 self.isLoading = false
-                print("VCHeckSDK - Error: \(error)")
                 return
             }
-            
-            print("VCHeckSDK - Error: \(String(describing: self.currentStageResponse))")
             if (data!.data != nil || data!.errorCode != nil) {
                 self.currentStageResponse = data
                 self.didReceivedCurrentStage!()
@@ -75,18 +69,18 @@ class VideoProcessingViewModel {
     }
     
     
-    func fileSize(forURL: URL?) -> Double {
-        guard let filePath = forURL?.path else {
-            return 0.0
-        }
-        do {
-            let attribute = try FileManager.default.attributesOfItem(atPath: filePath)
-            if let size = attribute[FileAttributeKey.size] as? NSNumber {
-                return size.doubleValue / 1000000.0
-            }
-        } catch {
-            print("Error: \(error)")
-        }
-        return 0.0
-    }
+//    func fileSize(forURL: URL?) -> Double {
+//        guard let filePath = forURL?.path else {
+//            return 0.0
+//        }
+//        do {
+//            let attribute = try FileManager.default.attributesOfItem(atPath: filePath)
+//            if let size = attribute[FileAttributeKey.size] as? NSNumber {
+//                return size.doubleValue / 1000000.0
+//            }
+//        } catch {
+//            print("Error: \(error)")
+//        }
+//        return 0.0
+//    }
 }

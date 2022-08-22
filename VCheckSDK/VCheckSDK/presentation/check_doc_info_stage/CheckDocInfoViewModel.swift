@@ -76,7 +76,6 @@ class CheckDocInfoViewModel {
             if let error = error {
                 self.error = error
                 self.isLoading = false
-                print("======== GET CURRENT STAGE ERROR: \(error)")
                 return
             }
             

@@ -12,11 +12,14 @@ import UIKit
 
 class ChooseCountryViewController : UIViewController {
     
-    @IBOutlet weak var preSelectedCountryView: UIView!
+    @IBOutlet weak var preSelectedCountryView: SmallRoundedView!
     
-    @IBOutlet weak var tvSelectedCountryName: UILabel!
+    @IBOutlet weak var tvSelectedCountryName: SecondaryTextView!
     
-    @IBOutlet weak var tvSelectedCountryFlag: UITextView!
+    @IBOutlet weak var tvSelectedCountryFlag: FlagView!
+    
+    @IBOutlet var continueButton: UIButton!
+    
     
     @IBAction func navToDocType(_ sender: Any) {
         //TODO: remove obsolete action?
@@ -49,7 +52,6 @@ class ChooseCountryViewController : UIViewController {
             }
             
        } else {
-           print("COUNTRY NOT FOUND IN KEYCHAIN")
            tvSelectedCountryName.text = countries[0].name
            tvSelectedCountryFlag.text = countries[0].flag
        }

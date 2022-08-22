@@ -122,7 +122,6 @@ struct VCheckSDKRemoteDatasource {
               }
               completion(response, nil)
               return
-              //print("======= CLIENT:  GET CURRENT STAGE - response data: \(String(describing: response))")
           }
     }
     
@@ -216,8 +215,6 @@ struct VCheckSDKRemoteDatasource {
             if (photo2 != nil) {
                 multipartFormData.append(photo2!.jpegData(compressionQuality: 0.9)!, withName: "1",
                                          fileName: "1.jpg", mimeType: "image/jpeg")
-            } else {
-                print("CLIENT: PHOTO 2 IS NIL")
             }
             multipartFormData.append(category.data(using: .utf8, allowLossyConversion: false)!, withName: "category")
             multipartFormData.append(countryCode.data(using: .utf8, allowLossyConversion: false)!, withName: "country")
@@ -357,9 +354,7 @@ struct VCheckSDKRemoteDatasource {
         multipartFormData.append(frameImage.jpegData(compressionQuality: 0.5)!, withName: "image",
                                  fileName: "image.jpg", mimeType: "image/jpeg")
         multipartFormData.append(gesture.data(using: .utf8, allowLossyConversion: false)!, withName: "gesture")
-        
-        //print("===== SENDING REQUEST FOR GESTURE: \(gesture)")
-        
+                
         AF.upload(multipartFormData: multipartFormData, to: url, method: .post, headers: headers)
             .responseDecodable(of: LivenessGestureResponse.self) { (response) in
                 guard let response = response.value else {
@@ -373,7 +368,6 @@ struct VCheckSDKRemoteDatasource {
                                                   errorCode: response.errorCode))
                    return
                 }
-                //print("GESTURE RESPONSE -- DATA: \(String(describing: response))")
                 completion(response, nil)
                 return
             }
@@ -448,9 +442,7 @@ struct VCheckSDKRemoteDatasource {
         multipartFormData.append(country.data(using: .utf8, allowLossyConversion: false)!, withName: "country")
         multipartFormData.append(category.data(using: .utf8, allowLossyConversion: false)!, withName: "category")
         multipartFormData.append(index.data(using: .utf8, allowLossyConversion: false)!, withName: "index")
-        
-        //print("===== SENDING SEGMENTATION REQUEST: \(gesture)")
-        
+                
         AF.upload(multipartFormData: multipartFormData, to: url, method: .post, headers: headers)
             .responseDecodable(of: SegmentationGestureResponse.self) { (response) in
                 guard let response = response.value else {
@@ -464,7 +456,6 @@ struct VCheckSDKRemoteDatasource {
                                                   errorCode: response.errorCode))
                    return
                 }
-                //print("GESTURE RESPONSE -- DATA: \(String(describing: response))")
                 completion(response, nil)
                 return
             }

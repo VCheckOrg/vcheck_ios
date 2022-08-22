@@ -36,10 +36,8 @@ class LivenessVideoRecorder {
         let outputFileName = NSUUID().uuidString
         
         outputFileURL = URL(fileURLWithPath: NSTemporaryDirectory())
-            .appendingPathComponent(outputFileName).appendingPathExtension("MP4") //MOV
-        
-        print("======= OUTPUT FILE URL: \(String(describing: outputFileURL))")
-        
+            .appendingPathComponent(outputFileName).appendingPathExtension("MP4")
+                
         guard let assetWriter = try? AVAssetWriter(url: outputFileURL!, fileType: .mp4) else {
             return
         }
@@ -74,8 +72,6 @@ class LivenessVideoRecorder {
             let assetWriter = assetWriter else {
                 return
         }
-        
-        //print("VIDEO RECORDER - STATUS \(assetWriter.status)")
         if assetWriter.status == .unknown {
             assetWriter.startWriting()
             assetWriter.startSession(atSourceTime: CMSampleBufferGetPresentationTimeStamp(sampleBuffer))

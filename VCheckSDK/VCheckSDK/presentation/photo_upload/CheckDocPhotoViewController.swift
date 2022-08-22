@@ -92,9 +92,7 @@ class CheckDocPhotoViewController : UIViewController {
     
     func handleDocUploadResponse() {
         self.activityIndicatorStop()
-        
-        print("RECEIVED PHOTO UPLOAD DATA ::: \(String(describing: self.viewModel.uploadResponse))")
-                
+                        
         if (self.viewModel.uploadResponse?.errorCode == DocumentVerificationCode.PARSING_ERROR.toCodeIdx()
                 || self.viewModel.uploadResponse?.errorCode == DocumentVerificationCode.INVALID_PAGE.toCodeIdx()) {
             self.navigateToStatusError()

@@ -32,6 +32,9 @@ public class VCheckSDK {
     
     private var sdkLanguageCode: String? = nil
     
+    internal var showPartnerLogo: Bool = false
+    internal var showCloseSDKButton: Bool = true
+    
     private var partnerAppViewController: UIViewController? = nil
     
     ///Color customization properties:
@@ -43,7 +46,7 @@ public class VCheckSDK {
     internal var secondaryTextColorHex: String? = nil
     internal var borderColorHex: String? = nil
     private let wrongColorFormatPickDescr: String = "VCheckSDK - error: if provided, " +
-            "custom buttons color should be a valid HEX string (RGB or ARGB). Ex.: '#2A2A2A' or '#abdbe3'"
+            "custom color should be a valid HEX string (RGB or ARGB). Ex.: '#2A2A2A' or '#abdbe3'"
     
 
     public func start(partnerAppRootWindow: UIWindow) {
@@ -82,10 +85,6 @@ public class VCheckSDK {
     }
     
     private func preStartChecksPassed() -> Bool {
-        
-        //TODO: add color checks
-        //TODO: add test check warnings for colors
-        
         if (self.verificationType == nil) {
             print("VCheckSDK - error: proper verification type must be provided | see VCheckSDK.shared.verificationType(type: VerificationSchemeType)")
             return false
@@ -124,6 +123,34 @@ public class VCheckSDK {
         if (self.sessionLifetime != nil && sessionLifetime! < 300) {
            print("VCheckSDK - error: if provided, custom session lifetime should not be less than 300 seconds")
            return false
+        }
+        if (buttonsColorHex != nil && !buttonsColorHex!.isValidHexColor()) {
+            print(wrongColorFormatPickDescr)
+            return false
+        }
+        if (backgroundPrimaryColorHex != nil && !backgroundPrimaryColorHex!.isValidHexColor()) {
+            print(wrongColorFormatPickDescr)
+            return false
+        }
+        if (backgroundSecondaryColorHex != nil && !backgroundSecondaryColorHex!.isValidHexColor()) {
+            print(wrongColorFormatPickDescr)
+            return false
+        }
+        if (backgroundTertiaryColorHex != nil && !backgroundTertiaryColorHex!.isValidHexColor()) {
+            print(wrongColorFormatPickDescr)
+            return false
+        }
+        if (primaryTextColorHex != nil && !primaryTextColorHex!.isValidHexColor()) {
+            print(wrongColorFormatPickDescr)
+            return false
+        }
+        if (secondaryTextColorHex != nil && !secondaryTextColorHex!.isValidHexColor()) {
+            print(wrongColorFormatPickDescr)
+            return false
+        }
+        if (borderColorHex != nil && !borderColorHex!.isValidHexColor()) {
+            print(wrongColorFormatPickDescr)
+            return false
         }
         return true
     }
@@ -270,6 +297,8 @@ public class VCheckSDK {
         self.borderColorHex = nil
     }
     
+    /// Other public methods for customization
+    
     public func partnerAppViewController(vc: UIViewController) -> VCheckSDK {
         self.partnerAppViewController = vc
         return self
@@ -277,5 +306,15 @@ public class VCheckSDK {
     
     public func getPartnerAppViewController() -> UIViewController? {
         return self.partnerAppViewController
+    }
+    
+    func showPartnerLogo(show: Bool) -> VCheckSDK {
+        self.showPartnerLogo = show
+        return self
+    }
+
+    func showCloseSDKButton(show: Bool) -> VCheckSDK {
+        self.showCloseSDKButton = show
+        return self
     }
 }

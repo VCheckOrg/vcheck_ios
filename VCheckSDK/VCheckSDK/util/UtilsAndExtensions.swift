@@ -277,6 +277,15 @@ extension String {
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
             alpha: CGFloat(1.0))
     }
+    
+    func isValidHexColor() -> Bool {
+        let rgbRegEx = "^#(?:[0-9a-fA-F]{3}){1,2}\\$"; //TODO: test regex
+        let argbRegEx = "^#(?:[0-9a-fA-F]{3,4}){1,2}\\$"; //TODO: test regex
+        let predicate = NSPredicate(format: "SELF MATCHES %@", argumentArray: [
+            rgbRegEx, argbRegEx
+        ])
+        return predicate.evaluate(with: self)
+    }
 }
 
 

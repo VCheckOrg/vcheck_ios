@@ -157,7 +157,7 @@ class SegmentationViewController: UIViewController {
                     && self.hasEnoughTimeForNextGesture == true
                     && self.blockRequestByProcessing == false) {
                     self.checkStage()
-                } else { print("------ VideoBuffer is nil") }
+                } else { print("VCheckSDK: VideoBuffer is nil") }
             }
         }
     }
@@ -168,18 +168,18 @@ class SegmentationViewController: UIViewController {
     
     private func checkStage() {
         guard let fullImage: UIImage = getScreenshotFromVideoStream(videoBuffer!) else {
-            print("====== Cannot perform segmentation request: frameImage is nil!")
+            print("VCheckSDK - Error: Cannot perform segmentation request: frameImage is nil!")
             return
         }
         
         self.blockRequestByProcessing = true
         
         guard let country = docData!.country, let category = docData!.category else {
-            print("Doc segmentation request: Error - country or category for request have not been set!")
+            print("VCheckSDK - Error: Doc segmentation request: Error - country or category for request have not been set!")
             return
         }
         guard let croppedImage = fullImage.cropWithMask() else {
-            print("Doc segmentation request: Error - image was not properly cropped!")
+            print("VCheckSDK - Error: Doc segmentation request: Error - image was not properly cropped!")
             return
         }
                 
@@ -189,10 +189,9 @@ class SegmentationViewController: UIViewController {
                                                                     index: "\(checkedDocIdx)",
                                                                     completion: { (data, error) in
             if let error = error {
-                print("Doc segmentation request: Error [\(error.errorText)]")
+                print("VCheckSDK - Error: Doc segmentation request: Error [\(error.errorText)]")
                 return
             }
-            //print("----- DOC SEG RESPONSE: \(String(describing: data))")
             if (data?.success == true) {
                 self.onStagePassed(fullImage: fullImage)
             }
@@ -364,8 +363,6 @@ extension SegmentationViewController {
             
             self.frameSize = CGSize(width: frameWidth, height: frameHeight)
         }
-//            print("VIEW WIDTH: \(screenWidth)")
-//            print ("FRAME WIDTH: \(frameWidth) | FRAME HEIGHT: \(frameHeight)")
         
         self.segmentationFrame.frame = CGRect(x: 0, y: 0, width: self.frameSize!.width, height: self.frameSize!.height)
         self.segmentationFrame.center = self.view.center
@@ -451,26 +448,9 @@ extension SegmentationViewController: AVCaptureVideoDataOutputSampleBufferDelega
             let rotatedImage = uiImage.rotate(radians: Float(90.degreesToRadians))
             return rotatedImage
         } else {
-            print("Error: FAILED TO CONVERT VIDEO SCREEN TO IMAGE!")
+            print("VCheckSDK - Error: failed to convert video screen to image!")
             return nil
         }
     }
     
 }
-
-
-//--------------------------------
-/// FOR TEST ONLY:
-//    func writeImage(image: UIImage) {
-//        UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.finishWriteImage), nil)
-//    }
-//
-//    @objc private func finishWriteImage(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
-//        if (error != nil) {
-//            // Something wrong happened.
-//            print("error occurred: \(String(describing: error))")
-//        } else {
-//            // Everything is alright.
-//            print("saved success!")
-//        }
-//---------------------------------

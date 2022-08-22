@@ -129,14 +129,14 @@ internal class LivenessScreenViewController: UIViewController {
                     && self.hasEnoughTimeForNextGesture == true
                     && self.blockStageChecksByRunningRequest == false) {
                     self.checkStage()
-                } else { print("------ VideoBuffer is NIL!") }
+                } else { print("VCheckSDK - Error: VideoBuffer is nil") }
             }
         }
     }
     
     func checkStage() {
         guard let frameImage: UIImage = getScreenshotFromVideoStream(videoBuffer!) else {
-            print("====== Cannot perform gesture request: either frameImage is nil!")
+            print("VCheckSDK - Error: Cannot perform gesture request: either frameImage is nil!")
             return
         }
         self.blockStageChecksByRunningRequest = true
@@ -144,7 +144,7 @@ internal class LivenessScreenViewController: UIViewController {
                                 gesture: milestoneFlow.getGestureRequestFromCurrentStage(),
                                 completion: { (data, error) in
             if let error = error {
-                print("Gesture request: Error [\(error.errorText)]")
+                print("VCheckSDK - Error: Gesture request: Error [\(error.errorText)]")
                 return
             }
             if (data?.success == true) {
@@ -172,7 +172,6 @@ internal class LivenessScreenViewController: UIViewController {
 
         self.videoRecorder.stopRecording(completion: { url in
             DispatchQueue.main.async {
-                print("========== FINISHED WRITING VIDEO IN: \(url)")
                 if (self.livenessSessionTimeoutTimer != nil) {
                     self.livenessSessionTimeoutTimer!.cancel()
                 }
@@ -229,7 +228,6 @@ internal class LivenessScreenViewController: UIViewController {
 
     func endSessionPrematurely(performSegueWithIdentifier: String) {
         self.videoRecorder.stopRecording(completion: { url in
-            print("========== FINISHED WRITING VIDEO IN: \(url)")
             DispatchQueue.main.async {
                 self.periodicGestureCheckTimer?.invalidate()
                 
@@ -533,7 +531,7 @@ extension LivenessScreenViewController: AVCaptureVideoDataOutputSampleBufferDele
             let rotatedImage = uiImage.rotate(radians: Float(90.degreesToRadians))
             return rotatedImage
         } else {
-            print("--------------- FAILED TO CONVERT VIDEO SCREEN TO IMAGE!")
+            print("VCheckSDK - Error: Failed to convert screen into image!")
             return nil
         }
     }

@@ -42,9 +42,7 @@ class CheckDocPhotoViewModel {
         let docType: Int = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData()!.category!
         
         let docTypeStr: String = "\(docType)"
-        
-        print("DOC TYPE / CATEGORY: \(docTypeStr)")
-    
+            
         dataService.uploadVerificationDocuments(photo1: photo1,
                                                 photo2: photo2,
                                                 countryCode: countryCode,

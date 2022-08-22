@@ -11,7 +11,7 @@ import UIKit
 class DocInfoViewCell: UITableViewCell {
     
     
-    @IBOutlet weak var docFieldTitle: UITextView!
+    @IBOutlet weak var docFieldTitle: SecondaryTextView!
     
     @IBOutlet weak var docTextField: UITextField!
 }

@@ -18,11 +18,11 @@ class TakeDocPhotoViewController : UIViewController,
     @IBOutlet weak var frontSideDocTitleConstraint: NSLayoutConstraint!
     @IBOutlet weak var backSideDocTitleConstraint: NSLayoutConstraint!
         
-    @IBOutlet weak var firstPhotoCard: VCheckSDKRoundedView!
-    @IBOutlet weak var secondPhotoCard: VCheckSDKRoundedView!
+    @IBOutlet weak var firstPhotoCard: SmallRoundedView!
+    @IBOutlet weak var secondPhotoCard: SmallRoundedView!
     
-    @IBOutlet weak var firstPhotoButton: VCheckSDKRoundedView!
-    @IBOutlet weak var secondPhotoButton: VCheckSDKRoundedView!
+    @IBOutlet weak var firstPhotoButton: SmallRoundedView!
+    @IBOutlet weak var secondPhotoButton: SmallRoundedView!
     
     @IBOutlet weak var docPhotoFirstImgHolder: UIImageView!
     @IBOutlet weak var docPhotoSecondImgHolder: UIImageView!
@@ -168,7 +168,7 @@ class TakeDocPhotoViewController : UIViewController,
                 takePhoto(recognizer)
             case PhotoTakeCase.SECOND:
                 takePhoto(recognizer)
-            default: print("NO PHOTO TAKE CASE WAS SET!")
+            default: print("VCheckSDK: No photo take case was set")
         }
     }
     
@@ -191,7 +191,7 @@ class TakeDocPhotoViewController : UIViewController,
         picker.dismiss(animated: true)
 
         guard let image = info[.originalImage] as? UIImage else {
-            print("No image found")
+            print("VCheckSDK - Error: No image found with UIImagePickerController")
             return
         }
         
@@ -222,12 +222,9 @@ class TakeDocPhotoViewController : UIViewController,
         }
         
         checkPhotoCompletenessAndSetProceedClickListener()
-
-        print("--- TOOK A PHOTO SUCCESFULLY FOR CASE: \(currentPhotoTakeCase)")
     }
     
     @objc func handlePhotoDeleteTap(recognizer: PhotoDeleteTapGesture) {
-        print("CLICKED FOR DELETION - FOR PHOTO IDX: \(recognizer.photoIdx)")
         
         switch(recognizer.photoIdx) {
             case 1:
@@ -250,7 +247,8 @@ class TakeDocPhotoViewController : UIViewController,
                 secondPhoto = nil
                 setClickListenerForSecondPhotoBtn()
                 checkPhotoCompletenessAndSetProceedClickListener()
-            default: print("NO CORRECT PHOTO DELETION INDEX FOUND!")
+            default:
+                checkPhotoCompletenessAndSetProceedClickListener()
         }
     }
 
@@ -281,8 +279,17 @@ class TakeDocPhotoViewController : UIViewController,
     }
     
     func showBothPhotosNeededError() {
-        btnContinueToPreview.tintColor = UIColor(named: "borderColor", in: InternalConstants.bundle, compatibleWith: nil)
-        btnContinueToPreview.titleLabel?.textColor = UIColor.white
+        if let buttonColor = VCheckSDK.shared.buttonsColorHex {
+            btnContinueToPreview.tintColor = buttonColor.hexToUIColor()
+        } else {
+            btnContinueToPreview.tintColor = UIColor(named: "Default", in: InternalConstants.bundle, compatibleWith: nil)
+        }
+        if let textColor = VCheckSDK.shared.primaryTextColorHex {
+            btnContinueToPreview.titleLabel?.textColor = textColor.hexToUIColor()
+        } else {
+            btnContinueToPreview.titleLabel?.textColor = UIColor.white
+        }
+
         btnContinueToPreview.gestureRecognizers?.forEach(btnContinueToPreview.removeGestureRecognizer)
         let errText = "error_make_two_photos".localized
         self.showToast(message: errText, seconds: 1.3)

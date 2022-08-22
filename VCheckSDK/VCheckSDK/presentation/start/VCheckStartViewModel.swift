@@ -80,13 +80,11 @@ class VCheckStartViewModel {
                 }
                 
                 VCheckSDK.shared.setVerificationToken(token: data!.token!)
-                
-                print("VERIF ::: CREATE ATTEMPT SUCCESS! DATA: \(String(describing: data))")
-                
+                                
                 self.initVerif()
             })
         } else {
-            print("Error: server timestamp not set!")
+            print("VCheckSDK - Error: server timestamp not set!")
         }
     }
     
@@ -99,9 +97,7 @@ class VCheckStartViewModel {
                 self.isLoading = false
                 return
             }
-            
-            print("VERIF ::: INIT SUCCESS! DATA: \(String(describing: data))")
-            
+                        
             VCheckSDK.shared.setVerificationId(verifId: data!.id!)
             
             self.getCurrentStage()
@@ -116,9 +112,7 @@ class VCheckStartViewModel {
                 self.isLoading = false
                 return
             }
-            
-            print("VERIF ::: GOT CURRENT STAGE! DATA: \(String(describing: data))")
-            
+                        
             if (data!.data != nil || data!.errorCode != nil) {
                 self.currentStageResponse = data
                 self.didReceivedCurrentStage!()
@@ -134,9 +128,7 @@ class VCheckStartViewModel {
                 self.isLoading = false
                 return
             }
-            
-            //print("VERIF ::: GOT COUNTRIES! DATA: \(String(describing: data))")
-                        
+                                    
             if (data!.count > 0) {
                 self.isLoading = false
                 self.countries = data

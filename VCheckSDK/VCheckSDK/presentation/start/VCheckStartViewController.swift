@@ -44,7 +44,6 @@ class VCheckStartViewController : UIViewController {
                 self.performSegue(withIdentifier: "StartToLivenessInstructions", sender: nil)
             } else {
                 if (self.viewModel.currentStageResponse?.data != nil) {
-                    print("STAGING", "----- CURRENT STAGE TYPE: \(self.viewModel.currentStageResponse!.data!.type!)")
                     if (self.viewModel.currentStageResponse?.data?.uploadedDocId != nil) {
                         self.performSegue(withIdentifier: "StartToCheckDocInfo", sender: self.viewModel.currentStageResponse?.data?.uploadedDocId)
                         return
@@ -100,8 +99,6 @@ class VCheckStartViewController : UIViewController {
         
         if let defaultSelectedCountry = self.viewModel.countries!.first(where: { $0.code == "ua" }) {
             VCheckSDK.shared.setSelectedCountryCode(code: defaultSelectedCountry.code)
-        } else {
-           print("ERROR: CANNOT SAVE DEFAULT COUNTRY TO KEYCHAIN!")
         }
         
         self.performSegue(withIdentifier: "StartToCountries", sender: data)

@@ -19,9 +19,7 @@ public struct VerificationCheckResult {
     private(set) var rejectionReasons: [String]?
     
     init(fromData: FinalVerifCheckResponseData) {
-        
-        print("--- CHECK VERIF STATUS RESPONSE: \(fromData)")
-        
+                
         let isFinalizedAndSuccess: Bool = (fromData.status?.lowercased() == "finalized" && fromData.isSuccess == true)
         let isFinalizedAndFailed: Bool = (fromData.status?.lowercased() == "finalized" && fromData.isSuccess == false)
         let waitingForManualCheck: Bool = fromData.status?.lowercased() == "waiting_manual_check"
