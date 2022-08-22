@@ -49,7 +49,7 @@ class SegmentationViewController: UIViewController {
 
     // MARK: - Milestone flow & logic properties
     static let SEG_TIME_LIMIT_MILLIS = 60000 //max is 60000
-    static let BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS = 2000
+    static let BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS = 4000
     static let GESTURE_REQUEST_INTERVAL = 0.45
 
     private var isLivenessSessionFinished: Bool = false
@@ -308,7 +308,13 @@ extension SegmentationViewController {
                 self.docAnimationView.heightAnchor.constraint(equalToConstant: 300).isActive = true
                 self.docAnimationView.widthAnchor.constraint(equalToConstant: 300).isActive = true
                 
-                self.docAnimationView.play()
+                self.docAnimationView.play(completion: {_ in
+                    self.docAnimationView = AnimationView(name: "id_card_turn_back", bundle: InternalConstants.bundle)
+                    
+                    self.docAnimationView.play()
+                })
+                
+                //TODO: test 2nd animation stage!
             }
 
             DispatchQueue.main.asyncAfter(deadline:

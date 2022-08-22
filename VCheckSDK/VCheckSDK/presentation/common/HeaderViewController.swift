@@ -11,10 +11,32 @@ import UIKit
 
 class HeaderViewContoller: UIViewController {
     
+    
+    @IBAction func actionCloseSDKFlow(_ sender: Any) {
+        if (VCheckSDK.shared.showCloseSDKButton) {
+            VCheckSDK.shared.finish(executePartnerCallback: false)
+        }
+    }
+    
+    @IBOutlet weak var closeSDKFlowTitle: SecondaryTextView!
+    
+    @IBOutlet weak var logo: UIImageView!
+    
+    @IBOutlet weak var icBackArrow: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         Bundle.setLanguage(VCheckSDK.shared.getSDKLangCode())
+        
+        if (VCheckSDK.shared.showCloseSDKButton == true) {
+            closeSDKFlowTitle.isHidden = false
+            icBackArrow.isHidden = false
+        } else {
+            closeSDKFlowTitle.isHidden = true
+            icBackArrow.isHidden = true
+        }
+        logo.isHidden = !VCheckSDK.shared.showPartnerLogo
         
         self.changeColorsToCustomIfPresent()
      }
@@ -27,7 +49,6 @@ class HeaderViewContoller: UIViewController {
              VCheckSDKRoundedView.appearance().backgroundColor = backgroundSecondaryHex.hexToUIColor()
              DocInfoViewCell.appearance().backgroundColor = backgroundSecondaryHex.hexToUIColor()
              UIView.appearance(whenContainedInInstancesOf: [DocInfoViewCell.self]).backgroundColor = UIColor.clear
-
              UITableView.appearance().backgroundColor = UIColor.clear
              UITableView.appearance().separatorColor = UIColor.clear
          }

@@ -35,7 +35,9 @@ public class VCheckSDK {
     internal var showPartnerLogo: Bool = false
     internal var showCloseSDKButton: Bool = true
     
+    ///Nav properties:
     private var partnerAppViewController: UIViewController? = nil
+    private var changeRootViewController: Bool? = nil
     
     ///Color customization properties:
     internal var buttonsColorHex: String? = nil
@@ -49,9 +51,14 @@ public class VCheckSDK {
             "custom color should be a valid HEX string (RGB or ARGB). Ex.: '#2A2A2A' or '#abdbe3'"
     
 
-    public func start(partnerAppRootWindow: UIWindow) {
+    public func start(partnerAppRootWindow: UIWindow,
+                      partnerAppVC: UIViewController,
+                      replaceRootVC: Bool) {
         
         self.resetVerification()
+        
+        self.partnerAppViewController = partnerAppVC
+        self.changeRootViewController = replaceRootVC
         
         if (preStartChecksPassed()) {
                         
@@ -63,9 +70,8 @@ public class VCheckSDK {
                                                     partnerVerificationId: self.partnerVerificationId,
                                                     sessionLifetime: self.sessionLifetime)
             
-            //TODO: test on FLutter properly
-            if (partnerAppViewController != nil) {
-                partnerAppViewController?.present(GlobalUtils.getVCheckHomeVC(), animated: true)
+            if (self.changeRootViewController == false) {
+                partnerAppViewController!.present(GlobalUtils.getVCheckHomeVC(), animated: true)
             } else {
                 partnerAppRootWindow.rootViewController = GlobalUtils.getVCheckHomeVC()
                 partnerAppRootWindow.makeKeyAndVisible()
@@ -80,8 +86,20 @@ public class VCheckSDK {
         self.selectedCountryCode = nil
     }
     
-    public func onFinish() {
-        self.partnerEndCallback!()
+    private func getPartnerAppSceneDelegate() -> SceneDelegate? {
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        return windowScene!.delegate as? SceneDelegate ?? nil
+    }
+    
+    internal func finish(executePartnerCallback: Bool) {
+        if (self.changeRootViewController == true) {
+            let sceneDelegate = getPartnerAppSceneDelegate()!
+            sceneDelegate.window!.rootViewController = partnerAppViewController
+            sceneDelegate.window!.makeKeyAndVisible()
+        }
+        if (executePartnerCallback == true) {
+            self.partnerEndCallback!()
+        }
     }
     
     private func preStartChecksPassed() -> Bool {
@@ -298,11 +316,6 @@ public class VCheckSDK {
     }
     
     /// Other public methods for customization
-    
-    public func partnerAppViewController(vc: UIViewController) -> VCheckSDK {
-        self.partnerAppViewController = vc
-        return self
-    }
     
     public func getPartnerAppViewController() -> UIViewController? {
         return self.partnerAppViewController

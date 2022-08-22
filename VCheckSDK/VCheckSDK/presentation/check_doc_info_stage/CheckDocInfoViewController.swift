@@ -87,13 +87,8 @@ class CheckDocInfoViewController : UIViewController {
                     (self.viewModel.currentStageResponse?.data?.config?.gestures)!)
                 self.performSegue(withIdentifier: "CheckInfoToLivenessInstr", sender: nil)
             } else if (VCheckSDK.shared.verificationClientCreationModel?.verificationType == VerificationSchemeType.DOCUMENT_UPLOAD_ONLY) {
-                VCheckSDK.shared.onFinish()
+                VCheckSDK.shared.finish(executePartnerCallback: true)
             }
-            // obsolete logic (?)
-//            else {
-//                let storyboard = UIStoryboard(name: "VCheckFlow", bundle: InternalConstants.bundle)
-//                UIApplication.topWindow.rootViewController = storyboard.instantiateInitialViewController()
-//            }
         }
         
         //TODO: improve UX
@@ -308,8 +303,6 @@ extension CheckDocInfoViewController: UITableViewDataSource {
         self.docInfoScrollView.contentInset = contentInsets
         self.docInfoScrollView.scrollIndicatorInsets = contentInsets
         
-        
-        //TODO: test on more devices!
         var diff = 0.0
         if (secondPhoto != nil) {
             diff = keyboardSize.height - 130.0

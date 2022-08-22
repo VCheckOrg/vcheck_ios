@@ -99,7 +99,9 @@
 "segmentation_stage_success"="Document scanned successfully!";
 
 "no_time_seg_title"="The time to take document photo(s) has expired";
+"no_time_seg_descr"="We could not find the document in the given zone. Make sure you have selected the correct document type and that it's clearly visible in the camera.";
 
+"make_photo_by_hand" = "Make photo by hand";
 "retry" = "Retry";
 
 "pop_sdk_title" = "To verification start";

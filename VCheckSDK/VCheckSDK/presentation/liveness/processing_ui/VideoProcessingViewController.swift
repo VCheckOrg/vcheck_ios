@@ -127,7 +127,7 @@ class VideoProcessingViewController: UIViewController {
     func livenessSuccessAction() {
         self.viewModel.didReceivedCurrentStage = {
             if (self.viewModel.currentStageResponse?.errorCode != nil && self.viewModel.currentStageResponse?.errorCode == StageObstacleErrorType.USER_INTERACTED_COMPLETED.toTypeIdx()) {
-                VCheckSDK.shared.onFinish()
+                VCheckSDK.shared.finish(executePartnerCallback: true)
             } else {
                 self.showToast(message: "Stage Error", seconds: 3.0)
             }

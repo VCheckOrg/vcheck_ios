@@ -79,6 +79,7 @@
 		DA48073228A3D1A700B27C72 /* SegmentationTimeoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48073128A3D1A700B27C72 /* SegmentationTimeoutViewController.swift */; };
 		DA4D269C289198CC00C6F43A /* DocumentRequestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D269B289198CC00C6F43A /* DocumentRequestModels.swift */; };
 		DABB5FC228B3C73500BBACC0 /* ThemeClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB5FC128B3C73500BBACC0 /* ThemeClasses.swift */; };
+		DAC2DF3E28B40E330049B8B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC2DF3D28B40E330049B8B0 /* SceneDelegate.swift */; };
 		DAC3C82A2877669F00B32FFC /* VerificationClientCreationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3C8292877669F00B32FFC /* VerificationClientCreationModel.swift */; };
 		DAC3C82C2877695700B32FFC /* VerificationSchemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3C82B2877695700B32FFC /* VerificationSchemes.swift */; };
 		DAF3CC7C2890021300F72914 /* FilnalVerifCheckModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF3CC7B2890021300F72914 /* FilnalVerifCheckModels.swift */; };
@@ -165,6 +166,7 @@
 		DA48073128A3D1A700B27C72 /* SegmentationTimeoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationTimeoutViewController.swift; sourceTree = "<group>"; };
 		DA4D269B289198CC00C6F43A /* DocumentRequestModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentRequestModels.swift; sourceTree = "<group>"; };
 		DABB5FC128B3C73500BBACC0 /* ThemeClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeClasses.swift; sourceTree = "<group>"; };
+		DAC2DF3D28B40E330049B8B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DAC3C8292877669F00B32FFC /* VerificationClientCreationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationClientCreationModel.swift; sourceTree = "<group>"; };
 		DAC3C82B2877695700B32FFC /* VerificationSchemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationSchemes.swift; sourceTree = "<group>"; };
 		DAE5434C28A5822A00AEBC26 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/VCheckFlow.strings; sourceTree = "<group>"; };
@@ -400,6 +402,7 @@
 			children = (
 				DA3BEDAB2869A8D300B15E5C /* HeaderViewController.swift */,
 				DABB5FC128B3C73500BBACC0 /* ThemeClasses.swift */,
+				DAC2DF3D28B40E330049B8B0 /* SceneDelegate.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -608,6 +611,7 @@
 				DA35CF88289D523E00E22914 /* SegmentationViewController.swift in Sources */,
 				DA3BEDCD2869A8D300B15E5C /* DocumentVerificationCodes.swift in Sources */,
 				DA3BEDCE2869A8D300B15E5C /* CountryModels.swift in Sources */,
+				DAC2DF3E28B40E330049B8B0 /* SceneDelegate.swift in Sources */,
 				DA3BEDDC2869A8D300B15E5C /* LivenessInstructionsViewController.swift in Sources */,
 				DA3BEDD12869A8D300B15E5C /* LivenessUploadModels.swift in Sources */,
 				DA3BEDEB2869A8D300B15E5C /* DocInfoTextField.swift in Sources */,
@@ -815,6 +819,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -847,6 +852,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
