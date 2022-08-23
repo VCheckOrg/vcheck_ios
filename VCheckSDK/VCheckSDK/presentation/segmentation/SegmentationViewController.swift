@@ -204,7 +204,7 @@ class SegmentationViewController: UIViewController {
                             return
                         }
                         if (data?.success == true) {
-                            self.onStagePassed(fullImage: fullImage)
+                            self.onStagePassed(fullImage: rotatedImage)
                         }
                         self.blockRequestByProcessing = false
                     })

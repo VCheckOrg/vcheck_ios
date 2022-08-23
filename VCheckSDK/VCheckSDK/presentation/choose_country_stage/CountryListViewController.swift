@@ -15,6 +15,8 @@ class CountryListViewController : UIViewController {
     
     @IBOutlet weak var noSearchDataLabel: UILabel!
     
+    @IBOutlet weak var backBtn: UIButton!
+    
     @IBAction func navBackFromCountryList(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -43,12 +45,14 @@ class CountryListViewController : UIViewController {
         
         self.searchResultsList = countriesDataSourceArr
         
-        noSearchDataLabel.text = "no_search_data_label".localized
-        noSearchDataLabel.isHidden = true
+        self.backBtn.setTitle("cancel".localized, for: .normal)
         
-        searchBar.delegate = self
-        countryListTable.delegate = self
-        countryListTable.dataSource = self
+        self.noSearchDataLabel.text = "no_search_data_label".localized
+        self.noSearchDataLabel.isHidden = true
+        
+        self.searchBar.delegate = self
+        self.countryListTable.delegate = self
+        self.countryListTable.dataSource = self
         
         self.searchResultsList = getSortedArr()
     }
@@ -56,7 +60,7 @@ class CountryListViewController : UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        parentVC!.reloadData()
+        self.parentVC!.reloadData()
     }
     
     func getSortedArr() -> [CountryTO] {

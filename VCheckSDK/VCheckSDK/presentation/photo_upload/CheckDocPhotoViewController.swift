@@ -102,7 +102,7 @@ class CheckDocPhotoViewController : UIViewController {
     }
     
     func handleDocDataResponse() {
-        if(self.viewModel.uploadResponse?.data?.id != nil) {
+        if (self.viewModel.uploadResponse?.data?.id != nil) {
             self.navigateToDocInfoScreen()
         } else {
             self.showToast(message: "invalid_doc_type_desc".localized, seconds: 3.0)

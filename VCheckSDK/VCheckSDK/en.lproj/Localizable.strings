@@ -105,3 +105,7 @@
 "retry" = "Retry";
 
 "pop_sdk_title" = "To verification start";
+
+"cancel" = "Cancel";
+
+"fatal_error_seg_descr"="We were unable to do a full scan of the document. To continue, you need to take a photo manually.";

@@ -105,8 +105,8 @@ class CheckDocInfoViewController : UIViewController {
         }
         
         if (self.docId == nil) {
-            let errText = "Error: Cannot find document id for navigation!"
-            self.showToast(message: errText, seconds: 2.0)
+            let errText = "fatal_error_seg_descr".localized
+            self.showToast(message: errText, seconds: 3.0)
         } else {
             viewModel.getDocumentInfo(docId: self.docId!)
         }

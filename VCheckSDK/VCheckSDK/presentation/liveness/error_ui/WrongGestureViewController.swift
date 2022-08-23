@@ -18,4 +18,12 @@ class WrongGestureViewController : UIViewController {
             self.onRepeatBlock!(true)
         }
     }
+    
+    @IBOutlet weak var retryBtn: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.retryBtn.setTitle("retry".localized, for: .normal)
+    }
 }

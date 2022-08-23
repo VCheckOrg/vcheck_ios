@@ -112,7 +112,6 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Продолжить"/>
                                         <connections>
-                                            <action selector="navToDocType:" destination="VHf-Vf-Dha" eventType="touchUpInside" id="BZH-Qu-3qD"/>
                                             <segue destination="EIw-6d-l49" kind="show" identifier="CountryToChooseDocType" id="ehe-Ka-KVL"/>
                                         </connections>
                                     </button>
@@ -189,6 +188,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Kir-LD-vHt"/>
                     <connections>
+                        <outlet property="continueButton" destination="W64-Ne-sgD" id="v8M-xh-2zx"/>
                         <outlet property="preSelectedCountryView" destination="3jc-tS-jTS" id="eeT-8t-v9b"/>
                         <outlet property="tvSelectedCountryFlag" destination="zr2-kK-wWI" id="tQN-8u-8Vs"/>
                         <outlet property="tvSelectedCountryName" destination="cY3-cf-m9e" id="oFj-jP-YAK"/>
@@ -334,6 +334,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="XJG-NF-1Mm"/>
                     <connections>
+                        <outlet property="backBtn" destination="wM8-4G-pEK" id="Yh7-oZ-xPh"/>
                         <outlet property="countryListTable" destination="XZT-Se-5L6" id="s7r-qg-6pt"/>
                         <outlet property="noSearchDataLabel" destination="IUM-aR-pey" id="6nk-Mk-bz7"/>
                         <outlet property="searchBar" destination="fVU-YR-D7u" id="Q3r-f6-h8Z"/>
@@ -456,11 +457,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="q0J-YZ-DjP" userLabel="No Time View Controller" customClass="NoTimeViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZyN-xs-PfW">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m0Q-96-Yyt">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fzN-Vs-aSf">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="704"/>
@@ -550,6 +551,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="y9R-jw-tLY"/>
+                    <connections>
+                        <outlet property="retryBtn" destination="QxK-2h-Je3" id="E6o-xx-2wc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qfn-YN-ja4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -560,11 +564,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="cnD-L5-BuD" userLabel="Doc Photo Verif Error View Controller" customClass="DocPhotoVerifErrorViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Flg-BI-YSQ">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cc7-bg-eLX">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbU-iz-0Pd">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="708"/>
@@ -602,11 +606,11 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EaO-z6-vaI">
-                                                        <rect key="frame" x="16" y="483" width="334" height="51"/>
+                                                        <rect key="frame" x="16" y="481.66666666666663" width="334" height="52.333333333333371"/>
                                                         <color key="tintColor" name="DescriptionColor"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="I am confident in my document, continue the verification process" titleAlignment="automatic">
-                                                            <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="actionResumeToDocCheck:" destination="cnD-L5-BuD" eventType="touchUpInside" id="XmS-OB-0gZ"/>
@@ -669,6 +673,7 @@
                     <navigationItem key="navigationItem" id="tG7-Ec-Tvq"/>
                     <connections>
                         <outlet property="btnContinueToCheckDoc" destination="EaO-z6-vaI" id="NzO-pt-bFu"/>
+                        <outlet property="retryBtn" destination="v87-W5-vbC" id="00B-TC-3nX"/>
                         <outlet property="verifErrorDescrText" destination="mhV-l1-ZoU" id="KcQ-OE-fyh"/>
                         <outlet property="verifErrorTitleText" destination="vIo-1V-hp0" id="066-sf-3ua"/>
                         <segue destination="dcp-4c-bus" kind="show" identifier="DocPhotoVerifErrorToCheckDoc" id="MdT-K5-jp1"/>
@@ -683,11 +688,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="Gk4-E0-G28" userLabel="Wrong Movement View Controller" customClass="WrongGestureViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fgq-Xq-dWc">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6VX-2e-eOs">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVD-jQ-X6f">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="707.33333333333337"/>
@@ -777,6 +782,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WWf-Yp-nn9"/>
+                    <connections>
+                        <outlet property="retryBtn" destination="3fM-Ho-q55" id="iwh-c5-9Ut"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zHf-q0-bDL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -787,11 +795,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="K4l-kg-dQj" userLabel="Frame Interference View Controller" customClass="MultipleFacesDetectedViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A4u-iE-GYT">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IzY-vQ-XSx">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ukX-sd-Tsb">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="707.33333333333337"/>
@@ -881,6 +889,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DNd-Pf-u5N"/>
+                    <connections>
+                        <outlet property="retryBtn" destination="gCO-14-vPo" id="zPd-w4-07U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8gM-ZB-E9W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -891,11 +902,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="YIZ-ih-eAP" userLabel="Look Stratight Error View Controller" customClass="NoFaceDetectedViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gxe-ll-VhG">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aFq-Qd-30Y">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rM6-bw-Dy6">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="707.33333333333337"/>
@@ -985,6 +996,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jWq-fK-CSr"/>
+                    <connections>
+                        <outlet property="retryBtn" destination="LeA-wx-gAE" id="jq8-bS-5y3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ykM-VE-rLX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -995,11 +1009,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="Drf-gg-cCY" userLabel="Fail Verification View Controller" customClass="VideoFailureViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lcl-Oh-GBb">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E14-XS-PWS">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qpX-jZ-Jb0">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="729.66666666666663"/>
@@ -1113,6 +1127,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fsL-c4-37a"/>
+                    <connections>
+                        <outlet property="closeBtn" destination="WXG-eJ-qvn" id="6np-GF-Pdm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xp3-NL-myv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1172,7 +1189,7 @@
                                                         <rect key="frame" x="8" y="16" width="71" height="40"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="  "/>
                                                         <connections>
                                                             <action selector="actionBack:" destination="cCh-W4-UZx" eventType="touchUpInside" id="SmD-AV-2a6"/>
                                                             <action selector="backToCountriesAction:" destination="EIw-6d-l49" eventType="touchUpInside" id="4x3-Xw-rdx"/>
@@ -1392,11 +1409,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="IiJ-Ck-Dhz" userLabel="In Process View Controller" customClass="VideoProcessingViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A97-HY-J1Q">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z9q-rn-yU5">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIj-7X-oeY">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="637"/>
@@ -1478,11 +1495,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="btG-18-IMq" userLabel="Photo Instructions View Controller" customClass="PhotoInstructionsViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="URt-vI-atd">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yz5-ex-IJd">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YxH-7y-FzT">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="634.66666666666663"/>
@@ -1589,7 +1606,7 @@
                                                         <rect key="frame" x="8" y="8" width="76" height="40"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="  "/>
                                                         <connections>
                                                             <action selector="backToDocType:" destination="btG-18-IMq" eventType="touchUpInside" id="YWD-EV-fDv"/>
                                                         </connections>
@@ -1692,10 +1709,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qbJ-bC-qOy"/>
+                    <connections>
+                        <outlet property="proceedBtn" destination="YYe-al-bEj" id="lDl-XC-zXf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Un7-D0-vQR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2216.9230769230767" y="858.05687203791467"/>
+            <point key="canvasLocation" x="2249" y="874"/>
         </scene>
         <!--Choose Doc Method View Controller-->
         <scene sceneID="taE-BH-axR">
@@ -1864,7 +1884,7 @@
                                                         <rect key="frame" x="8" y="8" width="71" height="40"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="  "/>
                                                         <connections>
                                                             <action selector="backToCountriesAction:" destination="EIw-6d-l49" eventType="touchUpInside" id="HeC-SB-7uv"/>
                                                         </connections>
@@ -1946,11 +1966,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="2Ob-Di-bza" userLabel="Liveness Screen View Controller" customClass="LivenessScreenViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dGJ-l1-WKs">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q3r-w3-pWa" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="150" width="390" height="650"/>
+                                <rect key="frame" x="0.0" y="150" width="390" height="660"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="10"/>
@@ -1998,21 +2018,21 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fwi-Pr-m0O">
-                                <rect key="frame" x="270" y="400" width="100" height="100"/>
+                                <rect key="frame" x="270" y="410" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="aXr-XI-cmW"/>
                                     <constraint firstAttribute="width" constant="100" id="ue9-Pq-qCU"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8GZ-br-CdT">
-                                <rect key="frame" x="20" y="400" width="100" height="100"/>
+                                <rect key="frame" x="20" y="410" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="FDO-cJ-PSa"/>
                                     <constraint firstAttribute="width" constant="100" id="M7S-TO-TSQ"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="doR-OE-myt" userLabel="Center Arrow Anim Holder">
-                                <rect key="frame" x="145" y="400" width="100" height="100"/>
+                                <rect key="frame" x="145" y="422" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="TS1-TW-N2h"/>
                                     <constraint firstAttribute="width" constant="100" id="qdE-FE-mDP"/>
@@ -2076,11 +2096,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="dcp-4c-bus" userLabel="Check Doc Info View Controller" customClass="CheckDocInfoViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SNh-eB-9EL">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZq-tw-zcH">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBt-rb-JKa">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="1058"/>
@@ -2337,11 +2357,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="ZEj-uY-1Rn" userLabel="Photo Upload View Controller" customClass="TakeDocPhotoViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MMb-ku-R2l">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KJu-a3-gx9">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VT8-7V-8px">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="884.66666666666663"/>
@@ -2563,7 +2583,7 @@
                                                         <rect key="frame" x="8" y="13" width="76" height="41"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="  "/>
                                                         <connections>
                                                             <action selector="backToInstr:" destination="ZEj-uY-1Rn" eventType="touchUpInside" id="dUV-kC-4Ua"/>
                                                         </connections>
@@ -2653,18 +2673,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RWM-l4-bDf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3275.3846153846152" y="858.05687203791467"/>
+            <point key="canvasLocation" x="3326" y="876"/>
         </scene>
         <!--Check Photo View Controller-->
         <scene sceneID="zJy-By-c23">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="OYj-MX-icL" userLabel="Check Photo View Controller" customClass="CheckDocPhotoViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ncW-VQ-0Po">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DXO-ku-gkK">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xJI-uw-YK5">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="1013"/>
@@ -2895,11 +2915,12 @@
                         <segue destination="dcp-4c-bus" kind="show" identifier="DocPhotosPreviewToCheckDocInfo" id="bvF-PB-3XP"/>
                         <segue destination="WJ2-QY-Hl3" kind="presentation" identifier="CheckPhotoToZoom" id="CN3-fL-m8u"/>
                         <segue destination="cnD-L5-BuD" kind="show" identifier="DocPhotoCheckToError" id="2fa-cK-aUP"/>
+                        <segue destination="btG-18-IMq" kind="show" identifier="CheckPhotoWErrorToUploadPhoto" id="OU6-Cd-ci0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lZZ-dF-Dd4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4280" y="858.76777251184831"/>
+            <point key="canvasLocation" x="4405" y="876"/>
         </scene>
         <!--Header View Contoller-->
         <scene sceneID="o2A-bL-inV">
@@ -2999,11 +3020,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="vMJ-Fv-l4l" userLabel="Liveness Instructions View Controller" customClass="LivenessInstructionsViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mSN-jW-hCq">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRx-Bb-ohi">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qjd-Rt-rZ6">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="841"/>
@@ -3256,11 +3277,11 @@
             <objects>
                 <viewController id="WJ2-QY-Hl3" customClass="ZoomedDocPhotoViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="44V-am-ckB">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="746"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aBI-ct-SYg">
-                                <rect key="frame" x="0.0" y="144" width="390" height="552"/>
+                                <rect key="frame" x="0.0" y="144" width="390" height="596"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmI-2b-PrY">
                                 <rect key="frame" x="311" y="24" width="61" height="80"/>
@@ -3298,11 +3319,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="cii-CZ-O8e" userLabel="Fast Movemetns View Controller" customClass="SharpMovementsViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KLd-hr-QbN">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0In-kd-3PX">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FtZ-Fe-fHe">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="674"/>
@@ -3391,6 +3412,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="C6d-ZD-RVp"/>
+                    <connections>
+                        <outlet property="retryBtn" destination="Rsg-z4-gbq" id="qw7-qz-oCL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jBQ-Ye-Bo8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3401,11 +3425,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="MMF-sr-RPg" userLabel="Too Dark View Controller" customClass="NoBrightnessViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eCL-fk-PA8">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3sh-ue-lm4">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MjI-9Q-v7Q">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="690.66666666666663"/>
@@ -3494,6 +3518,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ms4-cf-YZ9"/>
+                    <connections>
+                        <outlet property="retryBtn" destination="J06-xe-Wnh" id="Fzv-KH-OH5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PpY-7q-UNJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3504,9 +3531,9 @@
         <segue reference="GAO-QE-GuP"/>
         <segue reference="ZOg-Lf-JSX"/>
         <segue reference="mdJ-XX-Wrm"/>
-        <segue reference="jgI-ud-yDM"/>
+        <segue reference="KgJ-x7-YV2"/>
         <segue reference="bvF-PB-3XP"/>
-        <segue reference="53f-vN-88d"/>
+        <segue reference="OU6-Cd-ci0"/>
         <segue reference="dMs-gB-ZC7"/>
         <segue reference="zJe-KO-wvN"/>
         <segue reference="HKh-3c-Vf4"/>

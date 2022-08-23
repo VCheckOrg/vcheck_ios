@@ -8,8 +8,6 @@
 import Foundation
 import UIKit
 
-//TODO: cleanup domain directory!
-
 class ChooseCountryViewController : UIViewController {
     
     @IBOutlet weak var preSelectedCountryView: SmallRoundedView!
@@ -18,20 +16,19 @@ class ChooseCountryViewController : UIViewController {
     
     @IBOutlet weak var tvSelectedCountryFlag: FlagView!
     
-    @IBOutlet var continueButton: UIButton!
-    
-    
-    @IBAction func navToDocType(_ sender: Any) {
-        //TODO: remove obsolete action?
-    }
+    @IBOutlet weak var continueButton: UIButton!
     
     var countries: [CountryTO] = []
     
+    
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
+
         reloadData()
         
-        preSelectedCountryView.addGestureRecognizer(
+        self.continueButton.setTitle("proceed".localized, for: .normal)
+        
+        self.preSelectedCountryView.addGestureRecognizer(
             UITapGestureRecognizer(target: self, action: #selector (self.navigateToList (_:))))
     }
     

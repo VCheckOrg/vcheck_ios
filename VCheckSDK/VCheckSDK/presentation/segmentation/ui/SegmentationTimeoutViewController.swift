@@ -48,6 +48,7 @@ class SegmentationTimeoutViewController: UIViewController {
     }
     
     @objc func makePhotoByHand(_ sender: UITapGestureRecognizer) {
+        VCheckSDKLocalDatasource.shared.setManualPhotoUpload()
         self.performSegue(withIdentifier: "SegTimeoutToManualUpload", sender: nil)
     }
 }

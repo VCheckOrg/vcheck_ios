@@ -12,7 +12,6 @@ import UIKit
 class DocPhotoVerifErrorViewController : UIViewController {
     
     var docId: Int? = nil
-    //var statusCode: Int? = nil
     var isDocCheckForced: Bool = false
     
     @IBOutlet weak var verifErrorTitleText: UILabel!
@@ -24,6 +23,8 @@ class DocPhotoVerifErrorViewController : UIViewController {
     private let viewModel = DocPhotoVerifErrorViewModel()
 
     @IBOutlet weak var btnContinueToCheckDoc: UIButton!
+    
+    @IBOutlet weak var retryBtn: UIButton!
     
     @IBAction func actionReloadDocPhotos(_ sender: UIButton) {
         let viewController = self.navigationController?.viewControllers.first { $0 is ChooseDocTypeViewController }
@@ -39,19 +40,23 @@ class DocPhotoVerifErrorViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        verifErrorTitleText.text = "verif_error_desc".localized
+        self.retryBtn.setTitle("retry".localized, for: .normal)
         
-        verifErrorDescrText.text = "invalid_doc_type_desc".localized
+        self.verifErrorTitleText.text = "verif_error_desc".localized
         
-        btnContinueToCheckDoc.titleLabel?.textAlignment = .center
-        btnContinueToCheckDoc.titleLabel?.text = "confident_in_doc_title".localized
+        self.verifErrorDescrText.text = "invalid_doc_type_desc".localized
+        
+        self.btnContinueToCheckDoc.setTitle("confident_in_doc_title".localized, for: .normal)
+        self.btnContinueToCheckDoc.titleLabel?.text = "confident_in_doc_title".localized
+        self.btnContinueToCheckDoc.titleLabel?.textAlignment = .center
+        self.btnContinueToCheckDoc.titleLabel?.textColor = UIColor.white
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "DocPhotoVerifErrorToCheckDoc") {
             let vc = segue.destination as! CheckDocInfoViewController
             if (self.docId == nil) {
-                let errText = "Error: Cannot find document id for navigation!"
+                let errText = "Error: Cannot receive document id! Need to take manual photos"
                 self.showToast(message: errText, seconds: 2.0)
             } else {
                 vc.docId = self.docId

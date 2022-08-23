@@ -12,7 +12,8 @@ class VideoFailureViewController: UIViewController {
     
     var videoProcessingViewController: VideoProcessingViewController? = nil
     
-    //TODO: test
+    @IBOutlet weak var closeBtn: UIButton!
+    
     @IBAction func actionRetry(_ sender: UIButton) {
         self.navigationController?.dismiss(animated: false, completion: nil)
         self.videoProcessingViewController?.uploadVideo()
@@ -21,5 +22,11 @@ class VideoFailureViewController: UIViewController {
     @IBAction func contactSupport(_ sender: UIButton) {
         let appURL = URL(string: "mailto:info@vycheck.com")!
         UIApplication.shared.open(appURL, options: [:], completionHandler: nil)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.closeBtn.setTitle("retry".localized, for: .normal)
     }
 }

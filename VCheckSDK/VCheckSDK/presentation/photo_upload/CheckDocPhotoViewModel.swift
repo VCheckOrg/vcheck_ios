@@ -42,11 +42,14 @@ class CheckDocPhotoViewModel {
         let docType: Int = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData()!.category!
         
         let docTypeStr: String = "\(docType)"
+        
+        let isManual: Bool = VCheckSDKLocalDatasource.shared.isPhotoUploadManual()
             
         dataService.uploadVerificationDocuments(photo1: photo1,
                                                 photo2: photo2,
                                                 countryCode: countryCode,
                                                 category: docTypeStr,
+                                                manual: isManual,
                                                 completion: { (data, error) in
             if let error = error {
                 self.isLoading = false

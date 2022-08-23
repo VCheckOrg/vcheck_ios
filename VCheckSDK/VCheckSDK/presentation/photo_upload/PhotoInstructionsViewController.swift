@@ -10,13 +10,14 @@ import UIKit
 
 class PhotoInstructionsViewController : UIViewController {
     
+    @IBOutlet weak var proceedBtn: UIButton!
     
     @IBAction func backToDocType(_ sender: Any) {
-        //self.dismiss(animated: true)
         navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {
         
+        self.proceedBtn.setTitle("proceed".localized, for: .normal)
     }
 }

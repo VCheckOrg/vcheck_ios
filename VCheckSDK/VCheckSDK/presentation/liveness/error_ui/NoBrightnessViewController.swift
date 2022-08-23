@@ -12,10 +12,18 @@ class NoBrightnessViewController : UIViewController {
     
     var onRepeatBlock : ((Bool) -> Void)?
     
+    @IBOutlet weak var retryBtn: UIButton!
+    
     @IBAction func nvRepeatAction(_ sender: UIButton) {
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(700) ) {
             self.navigationController?.popViewController(animated: true)
             self.onRepeatBlock!(true)
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.retryBtn.setTitle("retry".localized, for: .normal)
     }
 }

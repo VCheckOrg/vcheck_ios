@@ -195,6 +195,7 @@ struct VCheckSDKRemoteDatasource {
         photo2: UIImage?,
         countryCode: String,
         category: String,
+        manual: Bool,
         completion: @escaping (DocumentUploadResponse?, VCheckApiError?) -> ()) {
             
             let url = "\(verifBaseUrl)documents/upload"
@@ -218,6 +219,7 @@ struct VCheckSDKRemoteDatasource {
             }
             multipartFormData.append(category.data(using: .utf8, allowLossyConversion: false)!, withName: "category")
             multipartFormData.append(countryCode.data(using: .utf8, allowLossyConversion: false)!, withName: "country")
+            multipartFormData.append(String(manual).data(using: .utf8, allowLossyConversion: false)!, withName: "manual")
                 
             AF.upload(multipartFormData: multipartFormData, to: url, method: .post, headers: headers,
                       requestModifier: { $0.timeoutInterval = .infinity })

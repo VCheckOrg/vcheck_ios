@@ -14,13 +14,14 @@ class VCheckSDKLocalDatasource {
     
     private init() {}
     
-    
     //cached selected doc type with data
     private var selectedDocTypeWithData: DocTypeData? = nil
     
     private var livenessMilestonesList: [String]? = nil
     
     private var localeIsUserDefined: Bool = false
+    
+    private var manualPhotoUpload: Bool = false
 }
 
 
@@ -44,16 +45,17 @@ extension VCheckSDKLocalDatasource {
         return livenessMilestonesList
     }
     
-    func deleteSelectedDocTypeWithData() {
+    func setManualPhotoUpload() {
+        manualPhotoUpload = true
+    }
+    
+    func isPhotoUploadManual() -> Bool {
+        return manualPhotoUpload
+    }
+    
+    func resetSessionData() {
         selectedDocTypeWithData = nil
-    }
-    
-    func deleteLivenessMilestonesList() {
         livenessMilestonesList = nil
-    }
-    
-    func deleteAllSessionData() {
-        deleteSelectedDocTypeWithData()
-        deleteLivenessMilestonesList()
+        manualPhotoUpload = false
     }
 }

@@ -322,9 +322,8 @@ struct ImageCompressor {
                 iterationCompression -= percantageDecrease
             }
             
-            //TODO: comment!
-            let imgData = NSData(data: iterationImage!.jpegData(compressionQuality: 1)!)
-            print("VCheck - compression: actual size of image in KB: ", Double(imgData.count) / 1000.0)
+//            let imgData = NSData(data: iterationImage!.jpegData(compressionQuality: 1)!)
+//            print("VCheck - compression: actual size of image in KB: ", Double(imgData.count) / 1000.0)
             
             completion(iterationImage)
         }

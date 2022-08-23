@@ -82,7 +82,7 @@ public class VCheckSDK {
     }
     
     private func resetVerification() {
-        VCheckSDKLocalDatasource.shared.deleteAllSessionData()
+        VCheckSDKLocalDatasource.shared.resetSessionData()
         self.verificationId = nil
         self.verificationToken = nil
         self.selectedCountryCode = nil
