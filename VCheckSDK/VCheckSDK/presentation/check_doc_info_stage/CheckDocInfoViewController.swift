@@ -105,13 +105,19 @@ class CheckDocInfoViewController : UIViewController {
         }
         
         if (self.docId == nil) {
-            let errText = "fatal_error_seg_descr".localized
-            self.showToast(message: errText, seconds: 3.0)
+            self.performSegue(withIdentifier: "CheckDocToFatalSegErr", sender: nil)
         } else {
             viewModel.getDocumentInfo(docId: self.docId!)
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "CheckDocToFatalSegErr") {
+            let vc = segue.destination as! SegmentationTimeoutViewController
+            vc.isInvalidDocError = true
+            vc.onRepeatBlock = { result in }
+        }
+    }
     
     private func populateDocFields(preProcessedDocData: PreProcessedDocData, currentLocaleCode: String) {
         if ((preProcessedDocData.type?.fields?.count)! > 0) {

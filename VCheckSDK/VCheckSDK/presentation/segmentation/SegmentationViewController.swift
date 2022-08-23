@@ -49,7 +49,7 @@ class SegmentationViewController: UIViewController {
 
     // MARK: - Milestone flow & logic properties
     static let SEG_TIME_LIMIT_MILLIS = 60000 //max is 60000
-    static let BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS = 7000
+    static let BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS = 2000
     static let GESTURE_REQUEST_INTERVAL = 0.45
 
     private var isLivenessSessionFinished: Bool = false
@@ -254,6 +254,7 @@ class SegmentationViewController: UIViewController {
         if (segue.identifier == "SegToTimeout") {
             let vc = segue.destination as! SegmentationTimeoutViewController
             vc.onRepeatBlock = { result in self.resetFlowForNewSession() }
+            vc.isInvalidDocError = false
         }
     }
     

@@ -22,20 +22,32 @@ class SegmentationTimeoutViewController: UIViewController {
     
     var onRepeatBlock : ((Bool) -> Void)?
     
+    var isInvalidDocError: Bool = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tvTimeoutTitle.text = "no_time_seg_title".localized
-        tvTimeoutDescr.text = "no_time_seg_descr".localized
+        if (isInvalidDocError == false) {
+            self.tvTimeoutTitle.isHidden = false
+            self.tvTimeoutTitle.text = "no_time_seg_title".localized
+            self.tvTimeoutDescr.text = "no_time_seg_descr".localized
+        } else {
+            self.tvTimeoutTitle.isHidden = true
+            self.tvTimeoutDescr.text = "fatal_error_seg_descr".localized
+        }
         
-        btnRetry.setTitle("retry".localized, for: .normal)
-        makePhotoByHandText.text = "make_photo_by_hand".localized
+        self.btnRetry.setTitle("retry".localized, for: .normal)
+        self.makePhotoByHandText.text = "make_photo_by_hand".localized
         
-        btnRetry.addGestureRecognizer(
-            UITapGestureRecognizer(target: self, action: #selector (self.declineSessionAndCloseVC(_:))))
+        if (isInvalidDocError == false) {
+            btnRetry.addGestureRecognizer(
+                UITapGestureRecognizer(target: self, action: #selector (self.declineSessionAndCloseVC(_:))))
+        } else {
+            btnRetry.addGestureRecognizer(
+                UITapGestureRecognizer(target: self, action: #selector (self.reopenSegVC(_:))))
+        }
         
-        //TODO test and add 'manual' param
         pseudoBtnMakePhotoByHand.addGestureRecognizer(
             UITapGestureRecognizer(target: self, action: #selector (self.makePhotoByHand(_:))))
     }
@@ -45,6 +57,10 @@ class SegmentationTimeoutViewController: UIViewController {
             self.navigationController?.popViewController(animated: true)
             self.onRepeatBlock!(true)
         }
+    }
+    
+    @objc func reopenSegVC(_ sender: UITapGestureRecognizer) {
+        self.performSegue(withIdentifier: "SegErrToRecreateSeg", sender: nil)
     }
     
     @objc func makePhotoByHand(_ sender: UITapGestureRecognizer) {
