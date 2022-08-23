@@ -34,6 +34,10 @@ class SegmentationTimeoutViewController: UIViewController {
         
         btnRetry.addGestureRecognizer(
             UITapGestureRecognizer(target: self, action: #selector (self.declineSessionAndCloseVC(_:))))
+        
+        //TODO test and add 'manual' param
+        pseudoBtnMakePhotoByHand.addGestureRecognizer(
+            UITapGestureRecognizer(target: self, action: #selector (self.makePhotoByHand(_:))))
     }
     
     @objc func declineSessionAndCloseVC(_ sender: UITapGestureRecognizer) {
@@ -43,7 +47,6 @@ class SegmentationTimeoutViewController: UIViewController {
         }
     }
     
-    //TODO: test
     @objc func makePhotoByHand(_ sender: UITapGestureRecognizer) {
         self.performSegue(withIdentifier: "SegTimeoutToManualUpload", sender: nil)
     }

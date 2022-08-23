@@ -43,9 +43,9 @@ internal class LivenessScreenViewController: UIViewController {
 
     private var milestoneFlow = StandardMilestoneFlow()
 
-    static let LIVENESS_TIME_LIMIT_MILLIS = 14000 //max is 15000
+    static let LIVENESS_TIME_LIMIT_MILLIS = 14500 //max is 15000
     static let BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS = 900
-    static let GESTURE_REQUEST_INTERVAL = 0.25 //TODO: reduce on Android!
+    static let GESTURE_REQUEST_INTERVAL = 0.1 //TODO: reduce on Android!
 
     private var isLivenessSessionFinished: Bool = false
     private var hasEnoughTimeForNextGesture: Bool = true
@@ -58,6 +58,9 @@ internal class LivenessScreenViewController: UIViewController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.indicationFrame.backgroundColor = UIColor.clear
+        self.indicationFrame.borderColor = UIColor.systemGreen
 
         if !setMilestonesList() { return }
         if !setupCamera() { return }
@@ -140,22 +143,36 @@ internal class LivenessScreenViewController: UIViewController {
             return
         }
         self.blockStageChecksByRunningRequest = true
-        VCheckSDKRemoteDatasource.shared.sendLivenessGestureAttempt(frameImage: frameImage,
-                                gesture: milestoneFlow.getGestureRequestFromCurrentStage(),
-                                completion: { (data, error) in
-            if let error = error {
-                print("VCheckSDK - Error: Gesture request: Error [\(error.errorText)]")
+        
+        ImageCompressor.compressFrame(image: frameImage, completion: { (compressedImage) in
+            
+            if (compressedImage == nil) {
+                print("VCheckSDK - Error: Failed to compress image!")
                 return
-            }
-            if (data?.success == true) {
-                self.milestoneFlow.incrementCurrentStage()
-                if (self.milestoneFlow.areAllStagesPassed()) {
-                    self.onAllStagesPassed()
+            } else {
+                if let rotatedImage = compressedImage!.rotate(radians: Float(90.degreesToRadians)) {
+                    
+                    VCheckSDKRemoteDatasource.shared.sendLivenessGestureAttempt(frameImage: rotatedImage,
+                                            gesture: self.milestoneFlow.getGestureRequestFromCurrentStage(),
+                                            completion: { (data, error) in
+                        if let error = error {
+                            print("VCheckSDK - Error: Gesture request: Error [\(error.errorText)]")
+                            return
+                        }
+                        if (data?.success == true) {
+                            self.milestoneFlow.incrementCurrentStage()
+                            if (self.milestoneFlow.areAllStagesPassed()) {
+                                self.onAllStagesPassed()
+                            } else {
+                                self.onStagePassed()
+                            }
+                        }
+                        self.blockStageChecksByRunningRequest = false
+                    })
                 } else {
-                    self.onStagePassed()
+                    print("VCheckSDK - Error: Failed to rotate image as needed!")
                 }
             }
-            self.blockStageChecksByRunningRequest = false
         })
     }
     
@@ -527,9 +544,7 @@ extension LivenessScreenViewController: AVCaptureVideoDataOutputSampleBufferDele
                     height: CGFloat(CVPixelBufferGetHeight(imageBuffer))))
         }
         if let cgImage = videoImage {
-            let uiImage = UIImage(cgImage: cgImage)
-            let rotatedImage = uiImage.rotate(radians: Float(90.degreesToRadians))
-            return rotatedImage
+            return UIImage(cgImage: cgImage)
         } else {
             print("VCheckSDK - Error: Failed to convert screen into image!")
             return nil

@@ -39,6 +39,8 @@ class HeaderViewContoller: UIViewController {
         logo.isHidden = !VCheckSDK.shared.showPartnerLogo
         
         self.changeColorsToCustomIfPresent()
+        
+        closeSDKFlowTitle.text = "pop_sdk_title".localized
      }
      
      func changeColorsToCustomIfPresent() {

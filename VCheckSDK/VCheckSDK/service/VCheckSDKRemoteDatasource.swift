@@ -351,7 +351,9 @@ struct VCheckSDKRemoteDatasource {
             
         let multipartFormData = MultipartFormData.init()
         
-        multipartFormData.append(frameImage.jpegData(compressionQuality: 0.5)!, withName: "image",
+        
+        
+        multipartFormData.append(frameImage.jpegData(compressionQuality: 1.0)!, withName: "image",
                                  fileName: "image.jpg", mimeType: "image/jpeg")
         multipartFormData.append(gesture.data(using: .utf8, allowLossyConversion: false)!, withName: "gesture")
                 
@@ -436,7 +438,7 @@ struct VCheckSDKRemoteDatasource {
             
         let multipartFormData = MultipartFormData.init()
         
-        multipartFormData.append(frameImage.jpegData(compressionQuality: 0.8)!, withName: "image",
+        multipartFormData.append(frameImage.jpegData(compressionQuality: 1.0)!, withName: "image",
                                  fileName: "image.jpg", mimeType: "image/jpeg")
         
         multipartFormData.append(country.data(using: .utf8, allowLossyConversion: false)!, withName: "country")

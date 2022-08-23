@@ -49,7 +49,7 @@ class SegmentationViewController: UIViewController {
 
     // MARK: - Milestone flow & logic properties
     static let SEG_TIME_LIMIT_MILLIS = 60000 //max is 60000
-    static let BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS = 4000
+    static let BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS = 7000
     static let GESTURE_REQUEST_INTERVAL = 0.45
 
     private var isLivenessSessionFinished: Bool = false
@@ -67,6 +67,9 @@ class SegmentationViewController: UIViewController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.segmentationFrame.backgroundColor = UIColor.clear
+        self.segmentationFrame.borderColor = UIColor.white
 
         if !setupCamera() { return }
         
@@ -178,25 +181,38 @@ class SegmentationViewController: UIViewController {
             print("VCheckSDK - Error: Doc segmentation request: Error - country or category for request have not been set!")
             return
         }
-        guard let croppedImage = fullImage.cropWithMask() else {
-            print("VCheckSDK - Error: Doc segmentation request: Error - image was not properly cropped!")
-            return
-        }
-                
-        VCheckSDKRemoteDatasource.shared.sendSegmentationDocAttempt(frameImage: croppedImage,
-                                                                    country: country,
-                                                                    category: "\(category)",
-                                                                    index: "\(checkedDocIdx)",
-                                                                    completion: { (data, error) in
-            if let error = error {
-                print("VCheckSDK - Error: Doc segmentation request: Error [\(error.errorText)]")
+        
+        if let rotatedImage = fullImage.rotate(radians: Float(90.degreesToRadians)) {
+            
+            guard let croppedImage = rotatedImage.cropWithMask() else {
+                print("VCheckSDK - Error: Doc segmentation request: Error - image was not properly cropped!")
                 return
             }
-            if (data?.success == true) {
-                self.onStagePassed(fullImage: fullImage)
-            }
-            self.blockRequestByProcessing = false
-        })
+            ImageCompressor.compressFrame(image: croppedImage, completion: { (compressedImage) in
+                
+                if (compressedImage == nil) {
+                    print("VCheckSDK - Error: Failed to compress image!")
+                    return
+                } else {
+                    VCheckSDKRemoteDatasource.shared.sendSegmentationDocAttempt(frameImage: compressedImage!,
+                                                                                country: country,
+                                                                                category: "\(category)",
+                                                                                index: "\(self.checkedDocIdx)",
+                                                                                completion: { (data, error) in
+                        if let error = error {
+                            print("VCheckSDK - Error: Doc segmentation request: Error [\(error.errorText)]")
+                            return
+                        }
+                        if (data?.success == true) {
+                            self.onStagePassed(fullImage: fullImage)
+                        }
+                        self.blockRequestByProcessing = false
+                    })
+                }
+            })
+        } else {
+            print("VCheckSDK - Error: Failed to rotate image as needed!")
+        }
     }
     
     private func onAllStagesPassed() {
@@ -305,18 +321,15 @@ extension SegmentationViewController {
                 self.docAnimationView.centerXAnchor.constraint(equalTo: self.segmentationAnimHolder.centerXAnchor).isActive = true
                 self.docAnimationView.centerYAnchor.constraint(equalTo: self.segmentationAnimHolder.centerYAnchor).isActive = true
         
-                self.docAnimationView.heightAnchor.constraint(equalToConstant: 300).isActive = true
-                self.docAnimationView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+                self.docAnimationView.heightAnchor.constraint(equalToConstant: 400).isActive = true
+                self.docAnimationView.widthAnchor.constraint(equalToConstant: 400).isActive = true
                 
-                self.docAnimationView.play(completion: {_ in
-                    self.docAnimationView = AnimationView(name: "id_card_turn_back", bundle: InternalConstants.bundle)
-                    
-                    self.docAnimationView.play()
+                self.docAnimationView.play(fromFrame: 0, toFrame: 200, loopMode: .playOnce, completion: {_ in
+                    print("COMPLETION CAUGHT!")
+                    //TODO: fix anim and add proper anim file! Not playing till the end on iOS + Android
                 })
-                
-                //TODO: test 2nd animation stage!
             }
-
+            
             DispatchQueue.main.asyncAfter(deadline:
                     .now() + .milliseconds(SegmentationViewController.BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS) ) {
 
@@ -325,6 +338,17 @@ extension SegmentationViewController {
                 self.blockProcessingByUI = false
                 
                 self.setUIForNextStage()
+            }
+        }
+    }
+    
+    func updateDocAnimation() {
+        if (self.blockProcessingByUI == true) {
+            DispatchQueue.main.async {
+                let toProgress = self.docAnimationView.realtimeAnimationProgress
+                if (toProgress <= 0.01) {
+                    self.docAnimationView.play(toProgress: toProgress + 1)
+                }
             }
         }
     }
@@ -450,11 +474,9 @@ extension SegmentationViewController: AVCaptureVideoDataOutputSampleBufferDelega
                     height: CGFloat(CVPixelBufferGetHeight(imageBuffer))))
         }
         if let cgImage = videoImage {
-            let uiImage = UIImage(cgImage: cgImage)
-            let rotatedImage = uiImage.rotate(radians: Float(90.degreesToRadians))
-            return rotatedImage
+            return UIImage(cgImage: cgImage)
         } else {
-            print("VCheckSDK - Error: failed to convert video screen to image!")
+            print("VCheckSDK - Error: Failed to convert screen into image!")
             return nil
         }
     }

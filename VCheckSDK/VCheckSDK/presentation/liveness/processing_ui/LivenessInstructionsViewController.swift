@@ -30,6 +30,9 @@ class LivenessInstructionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        rightFadingCircle.backgroundColor = UIColor.systemGreen
+        leftFadingCircle.backgroundColor = UIColor.systemGreen
+        
         updateAnimsCycle()
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { _ in

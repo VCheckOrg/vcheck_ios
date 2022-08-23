@@ -36,6 +36,7 @@ public class VCheckSDK {
     internal var showCloseSDKButton: Bool = true
     
     ///Nav properties:
+    private var partnerAppRootWindow: UIWindow? = nil
     private var partnerAppViewController: UIViewController? = nil
     private var changeRootViewController: Bool? = nil
     
@@ -51,12 +52,13 @@ public class VCheckSDK {
             "custom color should be a valid HEX string (RGB or ARGB). Ex.: '#2A2A2A' or '#abdbe3'"
     
 
-    public func start(partnerAppRootWindow: UIWindow,
+    public func start(partnerAppRW: UIWindow,
                       partnerAppVC: UIViewController,
                       replaceRootVC: Bool) {
         
         self.resetVerification()
         
+        self.partnerAppRootWindow = partnerAppRW
         self.partnerAppViewController = partnerAppVC
         self.changeRootViewController = replaceRootVC
         
@@ -73,8 +75,8 @@ public class VCheckSDK {
             if (self.changeRootViewController == false) {
                 partnerAppViewController!.present(GlobalUtils.getVCheckHomeVC(), animated: true)
             } else {
-                partnerAppRootWindow.rootViewController = GlobalUtils.getVCheckHomeVC()
-                partnerAppRootWindow.makeKeyAndVisible()
+                partnerAppRootWindow!.rootViewController = GlobalUtils.getVCheckHomeVC()
+                partnerAppRootWindow!.makeKeyAndVisible()
             }
         }
     }
@@ -86,16 +88,10 @@ public class VCheckSDK {
         self.selectedCountryCode = nil
     }
     
-    private func getPartnerAppSceneDelegate() -> SceneDelegate? {
-        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-        return windowScene!.delegate as? SceneDelegate ?? nil
-    }
-    
     internal func finish(executePartnerCallback: Bool) {
         if (self.changeRootViewController == true) {
-            let sceneDelegate = getPartnerAppSceneDelegate()!
-            sceneDelegate.window!.rootViewController = partnerAppViewController
-            sceneDelegate.window!.makeKeyAndVisible()
+            partnerAppRootWindow!.rootViewController = partnerAppViewController
+            partnerAppRootWindow!.makeKeyAndVisible()
         }
         if (executePartnerCallback == true) {
             self.partnerEndCallback!()

@@ -2918,14 +2918,14 @@
                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Y2-k5-lex">
                                 <rect key="frame" x="0.0" y="44" width="390" height="56"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qG-hm-ex8">
+                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qG-hm-ex8">
                                         <rect key="frame" x="12" y="8" width="190" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="190" id="B5b-Re-eTM"/>
                                             <constraint firstAttribute="height" constant="40" id="vb4-ZT-G0i"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="  " subtitle=" "/>
                                         <connections>
                                             <action selector="actionCloseSDKFlow:" destination="azn-ur-GOV" eventType="touchUpInside" id="YMT-bJ-mn3"/>
                                             <action selector="backToCountriesAction:" destination="EIw-6d-l49" eventType="touchUpInside" id="Udr-8K-VFK"/>
@@ -3132,7 +3132,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XxC-da-209" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
+                                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XxC-da-209" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="28" y="235" width="24" height="24"/>
                                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                         <constraints>
