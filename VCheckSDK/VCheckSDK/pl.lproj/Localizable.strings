@@ -101,6 +101,7 @@
 "segmentation_front_side_hint"="Umieść przednią stronę dokumentu w wyznaczonym miejscu do automatycznego odczytu";
 "segmentation_back_side_hint"="Umieść tylną stronę dokumentu w wyznaczonym miejscu do automatycznego odczytu";
 "segmentation_stage_success"="Dokument został zeskanowany pomyślnie!";
+"segmentation_stage_success_first_page"="Przednia strona została pomyślnie odczytana. Proszę odwrócić dokument/stronę.";
 
 "no_time_seg_title"="Czas przeznaczony na zeskanowanie dokumentu upłynął";
 "no_time_seg_descr"="Nie mogliśmy znaleźć dokumentu w danej strefie. Upewnij się, że wybrałeś właściwy typ dokumentu i że jest on wyraźnie widoczny w aparacie.";

@@ -330,6 +330,7 @@ class TakeDocPhotoViewController : UIViewController,
             if (self.secondPhoto != nil) {
                 vc.secondPhoto = self.secondPhoto
             }
+            vc.isFromSegmentation = false
         }
     }
 }
@@ -351,10 +352,3 @@ enum PhotoTakeCase {
     case FIRST
     case SECOND
 }
-
-
-//!
-//    override func didReceiveMemoryWarning() {
-//         super.didReceiveMemoryWarning()
-//         // Dispose of any resources that can be recreated.
-//     }

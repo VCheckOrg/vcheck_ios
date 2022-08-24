@@ -389,6 +389,10 @@
                                     <constraint firstAttribute="bottom" secondItem="Msk-Md-5yG" secondAttribute="bottom" constant="52" id="zXR-0e-fBL"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="paN-05-ugC">
+                                <rect key="frame" x="75" y="292" width="240" height="270"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="81r-ny-a50" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                 <rect key="frame" x="75" y="292" width="240" height="270"/>
                                 <userDefinedRuntimeAttributes>
@@ -403,8 +407,23 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CMr-OP-Klu">
-                                <rect key="frame" x="99" y="314" width="192" height="226"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaj-6U-LQ7" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
+                                <rect key="frame" x="75" y="292" width="240" height="270"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" systemColor="systemGreenColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CMr-OP-Klu">
+                                <rect key="frame" x="99" y="309" width="192" height="226"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </view>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="action_close" translatesAutoresizingMaskIntoConstraints="NO" id="qNd-ck-lfv">
                                 <rect key="frame" x="332" y="119" width="28" height="28"/>
@@ -419,10 +438,12 @@
                         <constraints>
                             <constraint firstItem="81r-ny-a50" firstAttribute="centerX" secondItem="RgA-c8-66L" secondAttribute="centerX" id="Bek-M1-OGL"/>
                             <constraint firstItem="3gL-2I-WZf" firstAttribute="top" secondItem="81r-ny-a50" secondAttribute="bottom" constant="45" id="DvJ-2e-EsD"/>
-                            <constraint firstItem="81r-ny-a50" firstAttribute="centerX" secondItem="CMr-OP-Klu" secondAttribute="centerX" id="LDp-2b-XgH"/>
+                            <constraint firstItem="gaj-6U-LQ7" firstAttribute="leading" secondItem="RgA-c8-66L" secondAttribute="leading" priority="900" constant="75" id="Krw-3W-ewO"/>
                             <constraint firstItem="81r-ny-a50" firstAttribute="centerY" secondItem="RgA-c8-66L" secondAttribute="centerY" id="Nhc-nG-X2w"/>
                             <constraint firstItem="81r-ny-a50" firstAttribute="top" secondItem="RgA-c8-66L" secondAttribute="top" priority="100" constant="248" id="O7E-hh-PXH"/>
-                            <constraint firstItem="CMr-OP-Klu" firstAttribute="centerY" secondItem="81r-ny-a50" secondAttribute="centerY" id="QKC-6m-EqZ"/>
+                            <constraint firstItem="gaj-6U-LQ7" firstAttribute="centerX" secondItem="RgA-c8-66L" secondAttribute="centerX" id="PPY-SK-gpP"/>
+                            <constraint firstItem="gaj-6U-LQ7" firstAttribute="top" secondItem="RgA-c8-66L" secondAttribute="top" priority="900" constant="248" id="TCH-fm-KCd"/>
+                            <constraint firstItem="gaj-6U-LQ7" firstAttribute="centerY" secondItem="RgA-c8-66L" secondAttribute="centerY" id="Wqa-xc-FPE"/>
                             <constraint firstItem="qNd-ck-lfv" firstAttribute="top" secondItem="RgA-c8-66L" secondAttribute="top" constant="75" id="YV2-Kh-i3T"/>
                             <constraint firstItem="Z4S-Mf-KG1" firstAttribute="top" relation="lessThanOrEqual" secondItem="nU6-VQ-05u" secondAttribute="top" priority="100" constant="690" id="axU-lq-bz3"/>
                             <constraint firstItem="RgA-c8-66L" firstAttribute="trailing" secondItem="Z4S-Mf-KG1" secondAttribute="trailing" id="bPP-n7-Xvo"/>
@@ -431,8 +452,6 @@
                             <constraint firstItem="RgA-c8-66L" firstAttribute="trailing" secondItem="qNd-ck-lfv" secondAttribute="trailing" constant="30" id="gXa-GZ-hM7"/>
                             <constraint firstItem="81r-ny-a50" firstAttribute="leading" secondItem="RgA-c8-66L" secondAttribute="leading" priority="100" constant="75" id="oaz-E8-P1s"/>
                             <constraint firstItem="RgA-c8-66L" firstAttribute="bottom" secondItem="Z4S-Mf-KG1" secondAttribute="bottom" constant="-35" id="pwE-B0-7cd"/>
-                            <constraint firstItem="CMr-OP-Klu" firstAttribute="leading" secondItem="RgA-c8-66L" secondAttribute="leading" priority="100" constant="99" id="t69-Rg-MXr"/>
-                            <constraint firstItem="CMr-OP-Klu" firstAttribute="top" secondItem="RgA-c8-66L" secondAttribute="top" priority="100" constant="270" id="xRY-Rp-a4W"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Cfr-Pk-j5W"/>
@@ -440,9 +459,11 @@
                         <outlet property="animatingImage" destination="3gL-2I-WZf" id="8dR-ac-iiK"/>
                         <outlet property="btnImReady" destination="Msk-Md-5yG" id="Fk1-8r-K4B"/>
                         <outlet property="closePseudoBtn" destination="qNd-ck-lfv" id="3LC-pr-X2K"/>
+                        <outlet property="darkFrameOverlay" destination="paN-05-ugC" id="YtB-us-TIz"/>
                         <outlet property="indicationText" destination="j6n-0n-UgP" id="QvF-KF-BEb"/>
                         <outlet property="segmentationAnimHolder" destination="CMr-OP-Klu" id="uPZ-Sf-Uom"/>
                         <outlet property="segmentationFrame" destination="81r-ny-a50" id="qIH-0G-Pdm"/>
+                        <outlet property="successFrame" destination="gaj-6U-LQ7" id="A1A-bR-Cwn"/>
                         <outlet property="textIndicatorConstraint" destination="Skb-4z-q08" id="50e-UU-MXu"/>
                         <segue destination="OYj-MX-icL" kind="show" identifier="SegToCheckDocInfo" id="jgI-ud-yDM"/>
                         <segue destination="NuA-3X-Mhz" kind="show" identifier="SegToTimeout" id="Sim-Fk-0cQ"/>
@@ -450,7 +471,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4aT-CG-KZo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2711" y="1654"/>
+            <point key="canvasLocation" x="2709.2307692307691" y="1653.5545023696682"/>
         </scene>
         <!--No Time View Controller-->
         <scene sceneID="6ZM-lh-nBu">
@@ -2916,7 +2937,7 @@
                         <segue destination="dcp-4c-bus" kind="show" identifier="DocPhotosPreviewToCheckDocInfo" id="bvF-PB-3XP"/>
                         <segue destination="WJ2-QY-Hl3" kind="presentation" identifier="CheckPhotoToZoom" id="CN3-fL-m8u"/>
                         <segue destination="cnD-L5-BuD" kind="show" identifier="DocPhotoCheckToError" id="2fa-cK-aUP"/>
-                        <segue destination="NuA-3X-Mhz" kind="show" identifier="CheckDocToFatalSegErr" id="7xP-6J-6ZS"/>
+                        <segue destination="NuA-3X-Mhz" kind="show" identifier="CheckPhotoToFatalSegErr" id="7xP-6J-6ZS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lZZ-dF-Dd4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3535,7 +3556,7 @@
         <segue reference="jgI-ud-yDM"/>
         <segue reference="bvF-PB-3XP"/>
         <segue reference="53f-vN-88d"/>
-        <segue reference="7xP-6J-6ZS"/>
+        <segue reference="Sim-Fk-0cQ"/>
         <segue reference="dMs-gB-ZC7"/>
         <segue reference="zJe-KO-wvN"/>
         <segue reference="HKh-3c-Vf4"/>

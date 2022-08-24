@@ -105,17 +105,10 @@ class CheckDocInfoViewController : UIViewController {
         }
         
         if (self.docId == nil) {
-            self.performSegue(withIdentifier: "CheckDocToFatalSegErr", sender: nil)
+            self.showToast(message: "invalid_doc_type_desc".localized, seconds: 3.0)
+            //self.performSegue(withIdentifier: "CheckPhotoWErrorToUploadPhoto", sender: nil) //remove
         } else {
             viewModel.getDocumentInfo(docId: self.docId!)
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "CheckDocToFatalSegErr") {
-            let vc = segue.destination as! SegmentationTimeoutViewController
-            vc.isInvalidDocError = true
-            vc.onRepeatBlock = { result in }
         }
     }
     

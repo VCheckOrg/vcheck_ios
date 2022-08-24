@@ -292,7 +292,7 @@ extension LivenessScreenViewController {
             self.imgMilestoneChecked.isHidden = false
             self.indicationFrame.isHidden = false
 
-            self.fadeViewInThenOut(view: self.indicationFrame, delay: 0.0)
+            self.fadeSuccessFrameInThenOut(view: self.indicationFrame, delay: 0.0)
 
             DispatchQueue.main.asyncAfter(deadline:
                     .now() + .milliseconds(LivenessScreenViewController.BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS) ) {
@@ -481,7 +481,7 @@ extension LivenessScreenViewController {
         }
     }
 
-    func fadeViewInThenOut(view : UIView, delay: TimeInterval) {
+    func fadeSuccessFrameInThenOut(view : UIView, delay: TimeInterval) {
         DispatchQueue.main.async {
             let animationDuration = Double(LivenessScreenViewController.BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS) / 1000.0
             UIView.animate(withDuration: animationDuration, delay: delay,

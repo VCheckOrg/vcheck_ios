@@ -14,6 +14,8 @@ class SegmentationViewController: UIViewController {
      
     @IBOutlet weak var textIndicatorConstraint: NSLayoutConstraint!
     @IBOutlet weak var segmentationFrame: VCheckSDKRoundedView!
+    @IBOutlet weak var successFrame: VCheckSDKRoundedView!
+    @IBOutlet weak var darkFrameOverlay: UIView!
     @IBOutlet weak var segmentationAnimHolder: UIView!
     @IBOutlet weak var closePseudoBtn: UIImageView!
     @IBOutlet weak var animatingImage: UIImageView!
@@ -49,7 +51,7 @@ class SegmentationViewController: UIViewController {
 
     // MARK: - Milestone flow & logic properties
     static let SEG_TIME_LIMIT_MILLIS = 60000 //max is 60000
-    static let BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS = 2000
+    static let BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS = 4000
     static let GESTURE_REQUEST_INTERVAL = 0.45
 
     private var isLivenessSessionFinished: Bool = false
@@ -70,6 +72,13 @@ class SegmentationViewController: UIViewController {
         
         self.segmentationFrame.backgroundColor = UIColor.clear
         self.segmentationFrame.borderColor = UIColor.white
+        
+        self.successFrame.backgroundColor = UIColor.clear
+        self.successFrame.borderColor = UIColor.systemGreen
+        self.successFrame.isHidden = true
+        
+        self.darkFrameOverlay.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        self.darkFrameOverlay.isHidden = true
 
         if !setupCamera() { return }
         
@@ -110,15 +119,16 @@ class SegmentationViewController: UIViewController {
         animatingImage.isHidden = false
         animateHandImg()
         
-        setHintForStage()
-        
         switch(DocType.docCategoryIdxToType(categoryIdx: (docData?.category!)!)) {
             case DocType.FOREIGN_PASSPORT:
                 self.animatingImage.image = UIImage.init(named: "img_hand_foreign_passport")
+                self.indicationText.text = "segmentation_instr_foreign_passport_descr".localized
             case DocType.ID_CARD:
                 self.animatingImage.image = UIImage.init(named: "img_hand_id_card")
+                self.indicationText.text = "segmentation_instr_id_card_descr".localized
             default:
                 self.animatingImage.image = UIImage.init(named: "img_hand_inner_passport")
+                self.indicationText.text = "segmentation_instr_inner_passport_descr".localized
         }
 
         self.btnImReady.setTitle("im_ready".localized, for: .normal)
@@ -127,16 +137,19 @@ class SegmentationViewController: UIViewController {
     }
     
     @objc func setupDocCheckStage(_ sender: UITapGestureRecognizer) {
-        
-        animatingImage.isHidden = true
-        
         resetFlowForNewSession()
         setUIForNextStage()
     }
     
     
     private func resetFlowForNewSession() {
-                
+        
+        self.animatingImage.isHidden = true
+        self.darkFrameOverlay.alpha = 1
+        self.darkFrameOverlay.isHidden = true
+        
+        checkedDocIdx = 0
+
         self.isLivenessSessionFinished = false
         self.hasEnoughTimeForNextGesture = true
         self.blockProcessingByUI = false
@@ -250,12 +263,28 @@ class SegmentationViewController: UIViewController {
             let vc = segue.destination as! CheckDocPhotoViewController
             vc.firstPhoto = self.firstImgToUpload
             vc.secondPhoto = self.secondImgToUpload
+            vc.isFromSegmentation = true
         }
         if (segue.identifier == "SegToTimeout") {
             let vc = segue.destination as! SegmentationTimeoutViewController
-            vc.onRepeatBlock = { result in self.resetFlowForNewSession() }
+            vc.onRepeatBlock = { result in
+                self.onRepeatSessionAfterTimeout()
+            }
             vc.isInvalidDocError = false
         }
+    }
+    
+    private func onRepeatSessionAfterTimeout() {
+        self.checkedDocIdx = 0
+        self.setHintForStage()
+        self.darkFrameOverlay.alpha = 1
+        self.darkFrameOverlay.isHidden = true
+        self.successFrame.isHidden = true
+        self.darkFrameOverlay.isHidden = true
+        self.btnImReady.isHidden = false
+        self.animatingImage.transform = .identity
+        self.animatingImage.layer.removeAllAnimations()
+        self.setupInstructionStageUI()
     }
     
     private func startLivenessSessionTimeoutTimer() {
@@ -301,38 +330,40 @@ extension SegmentationViewController {
 
     func indicateNextStage() {
         DispatchQueue.main.async {
+            
+            self.blockProcessingByUI = true
+            
+            self.segmentationFrame.isHidden = true
+            self.successFrame.isHidden = false
+            self.darkFrameOverlay.isHidden = false
 
             self.indicationText.text = "segmentation_stage_success".localized;
             
-            //self.textIndicatorConstraint.constant = 40.0 // was temp fix
-            //self.indicationText.centerYAnchor.constraint(equalTo: self.indicationText.centerYAnchor, constant: 40.0).isActive = true
-
-            self.blockProcessingByUI = true
-            
-            self.segmentationAnimHolder.subviews.forEach { $0.removeFromSuperview() }
-            
-            if (DocType.docCategoryIdxToType(categoryIdx: (self.docData?.category!)!) == DocType.ID_CARD) {
-                
-                self.docAnimationView = AnimationView(name: "id_card_turn_front", bundle: InternalConstants.bundle)
-        
-                self.docAnimationView.contentMode = .scaleAspectFit
-                self.docAnimationView.translatesAutoresizingMaskIntoConstraints = false
-                self.segmentationAnimHolder.addSubview(self.docAnimationView)
-        
-                self.docAnimationView.centerXAnchor.constraint(equalTo: self.segmentationAnimHolder.centerXAnchor).isActive = true
-                self.docAnimationView.centerYAnchor.constraint(equalTo: self.segmentationAnimHolder.centerYAnchor).isActive = true
-        
-                self.docAnimationView.heightAnchor.constraint(equalToConstant: 400).isActive = true
-                self.docAnimationView.widthAnchor.constraint(equalToConstant: 400).isActive = true
-                
-                self.docAnimationView.play(fromFrame: 0, toFrame: 200, loopMode: .playOnce, completion: {_ in
-                    print("COMPLETION CAUGHT!")
-                    //TODO: fix anim and add proper anim file! Not playing till the end on iOS + Android
-                })
+            if (DocType.docCategoryIdxToType(categoryIdx: (self.docData?.category!)!) == DocType.ID_CARD
+                && self.checkedDocIdx == 1) {
+                self.indicationText.text = "segmentation_stage_success_first_page".localized
+            } else {
+                self.indicationText.text = "segmentation_stage_success".localized;
             }
+
+            //self.textIndicatorConstraint.constant = 40.0 // was temp fix
+            //self.indicationText.centerYAnchor.constraint(equalTo: self.indicationText.centerYAnchor, constant: 40.0).isActive = true // was temp fix
+            
+            self.fadeFrameInThenOut(view: self.successFrame, delay: 0.0)
+            
+            self.fadeViewIn(view: self.darkFrameOverlay, delay: 0.0, animationDuration: 0.5)
             
             DispatchQueue.main.asyncAfter(deadline:
-                    .now() + .milliseconds(SegmentationViewController.BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS) ) {
+                    .now() + .milliseconds(900)) { //length of full fade animation cycle
+                self.successFrame.isHidden = true
+                self.playStageSuccessAnimation()
+            }
+            DispatchQueue.main.asyncAfter(deadline:
+                    .now() + .milliseconds(3500)) { //BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS - 500
+                self.fadeViewOut(view: self.darkFrameOverlay, delay: 0.0, animationDuration: 0.5)
+            }
+            DispatchQueue.main.asyncAfter(deadline:
+                    .now() + .milliseconds(SegmentationViewController.BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS)) {
 
                 self.segmentationAnimHolder.subviews.forEach { $0.removeFromSuperview() }
 
@@ -340,6 +371,26 @@ extension SegmentationViewController {
                 
                 self.setUIForNextStage()
             }
+        }
+    }
+    
+    func playStageSuccessAnimation() {
+        self.segmentationAnimHolder.subviews.forEach { $0.removeFromSuperview() }
+        
+        if (DocType.docCategoryIdxToType(categoryIdx: (self.docData?.category!)!) == DocType.ID_CARD) {
+            
+            self.docAnimationView = AnimationView(name: "id_card_turn_side", bundle: InternalConstants.bundle)
+    
+            self.docAnimationView.contentMode = .scaleAspectFill
+            self.docAnimationView.translatesAutoresizingMaskIntoConstraints = false
+            self.segmentationAnimHolder.addSubview(self.docAnimationView)
+    
+            self.docAnimationView.centerXAnchor.constraint(equalTo: self.segmentationAnimHolder.centerXAnchor).isActive = true
+            self.docAnimationView.centerYAnchor.constraint(equalTo: self.segmentationAnimHolder.centerYAnchor).isActive = true
+                        
+            self.docAnimationView.loopMode = .playOnce
+            
+            self.docAnimationView.play()
         }
     }
     
@@ -355,6 +406,10 @@ extension SegmentationViewController {
     }
     
     func setUIForNextStage() {
+        
+        self.segmentationFrame.isHidden = false
+        
+        self.darkFrameOverlay.isHidden = true
         
         self.btnImReady.isHidden = true
         
@@ -398,15 +453,21 @@ extension SegmentationViewController {
         self.segmentationFrame.frame = CGRect(x: 0, y: 0, width: self.frameSize!.width, height: self.frameSize!.height)
         self.segmentationFrame.center = self.view.center
         
-        self.docAnimationView.frame = CGRect(x: 0, y: 0, width: self.frameSize!.width + 26, height: self.frameSize!.height + 26) //!
-        self.docAnimationView.center = self.view.center
+        self.successFrame.frame = CGRect(x: 0, y: 0, width: self.frameSize!.width, height: self.frameSize!.height)
+        self.successFrame.center = self.view.center
+        
+        self.darkFrameOverlay.frame = CGRect(x: 0, y: 0, width: self.frameSize!.width, height: self.frameSize!.height)
+        self.darkFrameOverlay.center = self.view.center
+        
+        self.segmentationAnimHolder.frame = CGRect(x: 0, y: 0, width: self.frameSize!.width + 60, height: self.frameSize!.height + 60) //!
+        self.segmentationAnimHolder.center = self.view.center
     }
     
     func animateHandImg() {
         let originalTransform = self.animatingImage.transform
         let scaledTransform = originalTransform.scaledBy(x: 7.0, y: 7.0)
         let scaledAndTranslatedTransform = scaledTransform.translatedBy(x: -20.0, y: -20.0)
-        UIView.animate(withDuration: 1.5, delay: 0.0, options: [.repeat], animations: {
+        UIView.animate(withDuration: 1.4, delay: 0.0, options: [.repeat], animations: {
             self.animatingImage.transform = scaledAndTranslatedTransform
         })
     }
@@ -432,6 +493,37 @@ extension SegmentationViewController {
                 
                 self.isBackgroundSet = true
             }
+        }
+    }
+    
+    func fadeFrameInThenOut(view : UIView, delay: TimeInterval) {
+        DispatchQueue.main.async {
+            let animationDuration = Double(0.9)
+            UIView.animate(withDuration: animationDuration, delay: delay,
+                           options: [UIView.AnimationOptions.autoreverse,
+                                     UIView.AnimationOptions.repeat], animations: {
+                view.alpha = 0
+            }, completion: nil)
+        }
+    }
+    
+    func fadeViewIn(view : UIView, delay: TimeInterval, animationDuration: Double) {
+        DispatchQueue.main.async {
+            view.alpha = 0
+            UIView.animate(withDuration: animationDuration, delay: delay,
+                           options: [], animations: {
+                view.alpha = 1
+            }, completion: nil)
+        }
+    }
+    
+    func fadeViewOut(view : UIView, delay: TimeInterval, animationDuration: Double) {
+        DispatchQueue.main.async {
+            view.alpha = 1
+            UIView.animate(withDuration: animationDuration, delay: delay,
+                           options: [], animations: {
+                view.alpha = 0
+            }, completion: nil)
         }
     }
 }

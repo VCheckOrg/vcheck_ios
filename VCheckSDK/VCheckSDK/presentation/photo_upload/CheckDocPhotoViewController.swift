@@ -15,7 +15,7 @@ class CheckDocPhotoViewController : UIViewController {
     var firstPhoto: UIImage? = nil
     var secondPhoto: UIImage? = nil
     
-    //var isDocCheckForced: Bool = false
+    var isFromSegmentation: Bool = false
         
     @IBOutlet weak var secondPhotoCard: VCheckSDKRoundedView!
     
@@ -105,8 +105,11 @@ class CheckDocPhotoViewController : UIViewController {
         if (self.viewModel.uploadResponse?.data?.id != nil) {
             self.navigateToDocInfoScreen()
         } else {
-            self.showToast(message: "invalid_doc_type_desc".localized, seconds: 3.0)
-            self.performSegue(withIdentifier: "CheckPhotoWErrorToUploadPhoto", sender: nil)
+            if (self.isFromSegmentation) {
+                self.performSegue(withIdentifier: "CheckPhotoToFatalSegErr", sender: nil) //TODO: test!
+            } else {
+                print("VCheck - error: document id is nil while doing manual photo upload!")
+            }
         }
     }
     
@@ -164,6 +167,11 @@ class CheckDocPhotoViewController : UIViewController {
             } else {
                 vc.docId = self.viewModel.uploadResponse?.data?.id
             }
+        }
+        if (segue.identifier == "CheckPhotoToFatalSegErr") {
+            let vc = segue.destination as! SegmentationTimeoutViewController
+            vc.isInvalidDocError = true
+            vc.onRepeatBlock = { result in }
         }
     }
     
