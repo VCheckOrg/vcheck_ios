@@ -131,14 +131,6 @@ extension CountryListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
-    
-    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
-        if let footer = view as? UITableViewHeaderFooterView {
-            if let bc = VCheckSDK.shared.backgroundSecondaryColorHex {
-                footer.contentView.backgroundColor = bc.hexToUIColor()
-            }
-        }
-    }
 }
 
 // MARK: - UISearchBarDelegate

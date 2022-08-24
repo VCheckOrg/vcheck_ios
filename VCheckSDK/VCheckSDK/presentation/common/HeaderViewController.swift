@@ -45,46 +45,44 @@ class HeaderViewContoller: UIViewController {
      
      private func changeColorsToCustomIfPresent() {
          
-         if let btnsHex = VCheckSDK.shared.buttonsColorHex {
-             UIButton.appearance().tintColor = btnsHex.hexToUIColor()
-         }
          if let backgroundHex = VCheckSDK.shared.backgroundPrimaryColorHex {
              BackgroundView.appearance().backgroundColor = backgroundHex.hexToUIColor()
          }
+         if let btnsHex = VCheckSDK.shared.buttonsColorHex {
+             UIButton.appearance(whenContainedInInstancesOf: [BackgroundView.self]).tintColor = btnsHex.hexToUIColor()
+         }
          if let backgroundSecondaryHex = VCheckSDK.shared.backgroundSecondaryColorHex {
-             VCheckSDKRoundedView.appearance().backgroundColor = backgroundSecondaryHex.hexToUIColor()
-             DocInfoViewCell.appearance().backgroundColor = backgroundSecondaryHex.hexToUIColor()
+             VCheckSDKRoundedView.appearance(whenContainedInInstancesOf: [BackgroundView.self]).backgroundColor = backgroundSecondaryHex.hexToUIColor()
+             DocInfoViewCell.appearance(whenContainedInInstancesOf: [BackgroundView.self]).backgroundColor = backgroundSecondaryHex.hexToUIColor()
              UIView.appearance(whenContainedInInstancesOf: [DocInfoViewCell.self]).backgroundColor = UIColor.clear
-//             UITableView.appearance().backgroundColor = UIColor.clear
-//             UITableView.appearance().separatorColor = UIColor.clear
          }
          if let backgroundTertiaryHex = VCheckSDK.shared.backgroundTertiaryColorHex {
-             SmallRoundedView.appearance().backgroundColor = backgroundTertiaryHex.hexToUIColor()
+             SmallRoundedView.appearance(whenContainedInInstancesOf: [BackgroundView.self]).backgroundColor = backgroundTertiaryHex.hexToUIColor()
              SmallRoundedView.appearance(whenContainedInInstancesOf: [DocInfoViewCell.self]).backgroundColor = backgroundTertiaryHex.hexToUIColor()
-             UITextField.appearance().backgroundColor = backgroundTertiaryHex.hexToUIColor()
-             FlagView.appearance().backgroundColor = backgroundTertiaryHex.hexToUIColor()
-             CustomizableTableView.appearance().backgroundColor = backgroundTertiaryHex.hexToUIColor()
-             CustomBackgroundTextView.appearance().backgroundColor = backgroundTertiaryHex.hexToUIColor()
-             AllowedCountryViewCell.appearance().backgroundColor = backgroundTertiaryHex.hexToUIColor()
-             BlockedCountryViewCell.appearance().backgroundColor = backgroundTertiaryHex.hexToUIColor()
+             UITextField.appearance(whenContainedInInstancesOf: [BackgroundView.self, CustomizableTableView.self]).backgroundColor = backgroundTertiaryHex.hexToUIColor()
+             FlagView.appearance(whenContainedInInstancesOf: [BackgroundView.self]).backgroundColor = backgroundTertiaryHex.hexToUIColor()
+             CustomizableTableView.appearance(whenContainedInInstancesOf: [BackgroundView.self]).backgroundColor = backgroundTertiaryHex.hexToUIColor()
+             CustomBackgroundTextView.appearance(whenContainedInInstancesOf: [BackgroundView.self]).backgroundColor = backgroundTertiaryHex.hexToUIColor()
+             AllowedCountryViewCell.appearance(whenContainedInInstancesOf: [BackgroundView.self]).backgroundColor = backgroundTertiaryHex.hexToUIColor()
+             BlockedCountryViewCell.appearance(whenContainedInInstancesOf: [BackgroundView.self]).backgroundColor = backgroundTertiaryHex.hexToUIColor()
          }
          if let borderColorHex = VCheckSDK.shared.borderColorHex {
-             SmallRoundedView.appearance().borderColor = borderColorHex.hexToUIColor()
-             VCheckSDKRoundedView.appearance().borderColor = borderColorHex.hexToUIColor()
+             SmallRoundedView.appearance(whenContainedInInstancesOf: [BackgroundView.self]).borderColor = borderColorHex.hexToUIColor()
+             VCheckSDKRoundedView.appearance(whenContainedInInstancesOf: [BackgroundView.self]).borderColor = borderColorHex.hexToUIColor()
          }
          if let primaryTextHex = VCheckSDK.shared.primaryTextColorHex {
-             PrimaryTextView.appearance().textColor = primaryTextHex.hexToUIColor()
-             UITextField.appearance().textColor = primaryTextHex.hexToUIColor()
-             UIImageView.appearance().tintColor = primaryTextHex.hexToUIColor()
+             PrimaryTextView.appearance(whenContainedInInstancesOf: [BackgroundView.self]).textColor = primaryTextHex.hexToUIColor()
+             UITextField.appearance(whenContainedInInstancesOf: [BackgroundView.self, CustomizableTableView.self]).textColor = primaryTextHex.hexToUIColor()
+             UIImageView.appearance(whenContainedInInstancesOf: [BackgroundView.self]).tintColor = primaryTextHex.hexToUIColor()
              UITextView.appearance(whenContainedInInstancesOf: [DocInfoViewCell.self]).textColor = primaryTextHex.hexToUIColor()
-             CustomBackgroundTextView.appearance().textColor = primaryTextHex.hexToUIColor()
+             CustomBackgroundTextView.appearance(whenContainedInInstancesOf: [BackgroundView.self]).textColor = primaryTextHex.hexToUIColor()
          }
          if let secondaryTextHex = VCheckSDK.shared.secondaryTextColorHex {
-             SecondaryTextView.appearance().textColor = secondaryTextHex.hexToUIColor()
-             NonCustomizableIconView.appearance().tintColor = secondaryTextHex.hexToUIColor()
+             SecondaryTextView.appearance(whenContainedInInstancesOf: [BackgroundView.self]).textColor = secondaryTextHex.hexToUIColor()
+             NonCustomizableIconView.appearance(whenContainedInInstancesOf: [BackgroundView.self]).tintColor = secondaryTextHex.hexToUIColor()
          }
          if let iconsColorHex = VCheckSDK.shared.iconsColorHex {
-             CustomizableIconView.appearance().tintColor = iconsColorHex.hexToUIColor()
+             CustomizableIconView.appearance(whenContainedInInstancesOf: [BackgroundView.self]).tintColor = iconsColorHex.hexToUIColor()
          }
      }
 }

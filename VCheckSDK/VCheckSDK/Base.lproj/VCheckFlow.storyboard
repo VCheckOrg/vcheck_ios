@@ -295,7 +295,6 @@
                             <searchBar contentMode="redraw" preservesSuperviewLayoutMargins="YES" placeholder="Search" id="fVU-YR-D7u">
                                 <rect key="frame" x="0.0" y="49" width="390" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" name="BackgroundColor"/>
                                 <color key="barTintColor" name="BackgroundColor"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
@@ -2215,7 +2214,7 @@
                                                         <color key="sectionIndexBackgroundColor" name="CardColor"/>
                                                         <color key="sectionIndexTrackingBackgroundColor" name="CardColor"/>
                                                         <view key="tableFooterView" contentMode="scaleToFill" id="QdH-jc-smc" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="149.33333206176758" width="334" height="44"/>
+                                                            <rect key="frame" x="0.0" y="149.33333206176758" width="334" height="77"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         </view>
@@ -2377,7 +2376,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJX-PN-ae8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5532" y="481"/>
+            <point key="canvasLocation" x="5530.7692307692305" y="480.5687203791469"/>
         </scene>
         <!--Photo Upload View Controller-->
         <scene sceneID="TOh-Z3-wqv">

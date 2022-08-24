@@ -238,14 +238,6 @@ extension CheckDocInfoViewController: UITableViewDataSource {
         return 82
     }
     
-    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
-        if let footer = view as? UITableViewHeaderFooterView {
-            if let bc = VCheckSDK.shared.backgroundSecondaryColorHex {
-                footer.contentView.backgroundColor = bc.hexToUIColor()
-            }
-        }
-    }
-    
     @objc final private func validateDocNameField(_ textField: UITextField) {
         if (textField.text!.count < 2 || (self.regex != nil && (!textField.text!.isMatchedBy(regex: self.regex!)))) {
             textField.setError("enter_valid_name".localized)

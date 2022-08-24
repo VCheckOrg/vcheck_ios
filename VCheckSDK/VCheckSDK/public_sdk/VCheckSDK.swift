@@ -52,13 +52,6 @@ public class VCheckSDK {
     
     private let wrongColorFormatPickDescr: String = "VCheckSDK - error: if provided, " +
             "custom color should be a valid HEX string (RGB or ARGB). Ex.: '#2A2A2A' or '#abdbe3'"
-    
-    ///Partner app properties to restore after color modifications
-    private var partnerAppUILabelAppearance: UIAppearance? = nil
-    private var partnerAppUIViewAppearance: UIAppearance? = nil
-    private var partnerAppUITextViewAppearance: UIAppearance? = nil
-    private var partnerAppUiImageViewAppearance: UIAppearance? = nil
-    private var partnerAppUITableViewAppearance: UIAppearance? = nil
      
 
     public func start(partnerAppRW: UIWindow,
@@ -98,9 +91,6 @@ public class VCheckSDK {
     }
     
     internal func finish(executePartnerCallback: Bool) {
-        if (self.isAnyCustomColorPresent()) {
-
-        }
         if (self.changeRootViewController == true) {
             partnerAppRootWindow!.rootViewController = partnerAppViewController
             partnerAppRootWindow!.makeKeyAndVisible()
@@ -343,43 +333,5 @@ public class VCheckSDK {
     func showCloseSDKButton(show: Bool) -> VCheckSDK {
         self.showCloseSDKButton = show
         return self
-    }
-    
-    /// Setters for partner app appearance to restore
-    internal func setPartnerAppUILabelAppearance(a: UIAppearance?) {
-        if let ap = a {
-            self.partnerAppUILabelAppearance = ap
-        }
-    }
-    internal func setPartnerAppUIViewAppearance(a: UIAppearance?) {
-        if let ap = a {
-            self.partnerAppUIViewAppearance = ap
-        }
-    }
-    internal func setPartnerAppUITextViewAppearance(a: UIAppearance?) {
-        if let ap = a {
-            self.partnerAppUITextViewAppearance = ap
-        }
-    }
-    internal func setPartnerAppUiImageViewAppearance(a: UIAppearance?) {
-        if let ap = a {
-            self.partnerAppUiImageViewAppearance = ap
-        }
-    }
-    internal func setPartnerAppUITableViewAppearance(a: UIAppearance?) {
-        if let ap = a {
-            self.partnerAppUITableViewAppearance = ap
-        }
-    }
-    
-    internal func isAnyCustomColorPresent() -> Bool {
-        return (self.iconsColorHex != nil ||
-        self.buttonsColorHex != nil ||
-        self.backgroundPrimaryColorHex != nil ||
-        self.backgroundSecondaryColorHex != nil ||
-        self.backgroundTertiaryColorHex != nil ||
-        self.primaryTextColorHex != nil ||
-        self.secondaryTextColorHex != nil ||
-        self.borderColorHex != nil)
     }
 }
