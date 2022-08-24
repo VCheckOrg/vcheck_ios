@@ -43,7 +43,8 @@ class HeaderViewContoller: UIViewController {
         closeSDKFlowTitle.text = "pop_sdk_title".localized
      }
      
-     func changeColorsToCustomIfPresent() {
+     private func changeColorsToCustomIfPresent() {
+         
          if let btnsHex = VCheckSDK.shared.buttonsColorHex {
              UIButton.appearance().tintColor = btnsHex.hexToUIColor()
          }
@@ -54,14 +55,18 @@ class HeaderViewContoller: UIViewController {
              VCheckSDKRoundedView.appearance().backgroundColor = backgroundSecondaryHex.hexToUIColor()
              DocInfoViewCell.appearance().backgroundColor = backgroundSecondaryHex.hexToUIColor()
              UIView.appearance(whenContainedInInstancesOf: [DocInfoViewCell.self]).backgroundColor = UIColor.clear
-             UITableView.appearance().backgroundColor = UIColor.clear
-             UITableView.appearance().separatorColor = UIColor.clear
+//             UITableView.appearance().backgroundColor = UIColor.clear
+//             UITableView.appearance().separatorColor = UIColor.clear
          }
          if let backgroundTertiaryHex = VCheckSDK.shared.backgroundTertiaryColorHex {
              SmallRoundedView.appearance().backgroundColor = backgroundTertiaryHex.hexToUIColor()
              SmallRoundedView.appearance(whenContainedInInstancesOf: [DocInfoViewCell.self]).backgroundColor = backgroundTertiaryHex.hexToUIColor()
              UITextField.appearance().backgroundColor = backgroundTertiaryHex.hexToUIColor()
              FlagView.appearance().backgroundColor = backgroundTertiaryHex.hexToUIColor()
+             CustomizableTableView.appearance().backgroundColor = backgroundTertiaryHex.hexToUIColor()
+             CustomBackgroundTextView.appearance().backgroundColor = backgroundTertiaryHex.hexToUIColor()
+             AllowedCountryViewCell.appearance().backgroundColor = backgroundTertiaryHex.hexToUIColor()
+             BlockedCountryViewCell.appearance().backgroundColor = backgroundTertiaryHex.hexToUIColor()
          }
          if let borderColorHex = VCheckSDK.shared.borderColorHex {
              SmallRoundedView.appearance().borderColor = borderColorHex.hexToUIColor()
@@ -72,24 +77,14 @@ class HeaderViewContoller: UIViewController {
              UITextField.appearance().textColor = primaryTextHex.hexToUIColor()
              UIImageView.appearance().tintColor = primaryTextHex.hexToUIColor()
              UITextView.appearance(whenContainedInInstancesOf: [DocInfoViewCell.self]).textColor = primaryTextHex.hexToUIColor()
+             CustomBackgroundTextView.appearance().textColor = primaryTextHex.hexToUIColor()
          }
          if let secondaryTextHex = VCheckSDK.shared.secondaryTextColorHex {
              SecondaryTextView.appearance().textColor = secondaryTextHex.hexToUIColor()
+             NonCustomizableIconView.appearance().tintColor = secondaryTextHex.hexToUIColor()
+         }
+         if let iconsColorHex = VCheckSDK.shared.iconsColorHex {
+             CustomizableIconView.appearance().tintColor = iconsColorHex.hexToUIColor()
          }
      }
 }
-
-extension UIApplication {
-
-  static var topWindow: UIWindow {
-    if #available(iOS 15.0, *) {
-      let scenes = UIApplication.shared.connectedScenes
-      let windowScene = scenes.first as? UIWindowScene
-      return windowScene!.windows.first!
-    } else {
-        return UIApplication.shared.windows.filter { $0.isKeyWindow }.first!
-    }
-  }
-}
-
-

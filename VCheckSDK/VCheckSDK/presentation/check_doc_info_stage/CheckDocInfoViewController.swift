@@ -58,6 +58,10 @@ class CheckDocInfoViewController : UIViewController {
         
         docFieldsTableView.dataSource = self
         
+        if let bc = VCheckSDK.shared.backgroundSecondaryColorHex {
+            self.docFieldsTableView.setValue(bc.hexToUIColor() , forKey: "tableHeaderBackgroundColor")
+        }
+        
         firstPhotoImageView.image = firstPhoto
         
         if (secondPhoto != nil) {
@@ -232,6 +236,14 @@ extension CheckDocInfoViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 82
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        if let footer = view as? UITableViewHeaderFooterView {
+            if let bc = VCheckSDK.shared.backgroundSecondaryColorHex {
+                footer.contentView.backgroundColor = bc.hexToUIColor()
+            }
+        }
     }
     
     @objc final private func validateDocNameField(_ textField: UITextField) {

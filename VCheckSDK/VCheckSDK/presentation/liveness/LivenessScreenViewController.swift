@@ -59,6 +59,9 @@ internal class LivenessScreenViewController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         
+        if let bc = VCheckSDK.shared.backgroundSecondaryColorHex {
+            self.imgMilestoneChecked.backgroundColor = bc.hexToUIColor()
+        }
         self.indicationFrame.backgroundColor = UIColor.clear
         self.indicationFrame.borderColor = UIColor.systemGreen
 
@@ -349,7 +352,13 @@ extension LivenessScreenViewController {
         roundedView.addSubview(faceAnimationView)
 
         faceAnimationView.centerXAnchor.constraint(equalTo: roundedView.centerXAnchor, constant: 4).isActive = true
-        faceAnimationView.centerYAnchor.constraint(equalTo: roundedView.centerYAnchor).isActive = true
+        if (forMilestoneType == GestureMilestoneType.DownHeadPitchMilestone) {
+            faceAnimationView.centerYAnchor.constraint(equalTo: roundedView.centerYAnchor, constant: 4).isActive = true
+        } else if (forMilestoneType == GestureMilestoneType.UpHeadPitchMilestone) {
+            faceAnimationView.centerYAnchor.constraint(equalTo: roundedView.centerYAnchor, constant: -4).isActive = true
+        } else {
+            faceAnimationView.centerYAnchor.constraint(equalTo: roundedView.centerYAnchor).isActive = true
+        }
 
         faceAnimationView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         faceAnimationView.widthAnchor.constraint(equalToConstant: 200).isActive = true

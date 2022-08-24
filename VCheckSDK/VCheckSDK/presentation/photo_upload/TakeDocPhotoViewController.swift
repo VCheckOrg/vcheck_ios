@@ -279,17 +279,8 @@ class TakeDocPhotoViewController : UIViewController,
     }
     
     func showBothPhotosNeededError() {
-        if let buttonColor = VCheckSDK.shared.buttonsColorHex {
-            btnContinueToPreview.tintColor = buttonColor.hexToUIColor()
-        } else {
-            btnContinueToPreview.tintColor = UIColor(named: "Default", in: InternalConstants.bundle, compatibleWith: nil)
-        }
-        if let textColor = VCheckSDK.shared.primaryTextColorHex {
-            btnContinueToPreview.titleLabel?.textColor = textColor.hexToUIColor()
-        } else {
-            btnContinueToPreview.titleLabel?.textColor = UIColor.white
-        }
-
+        btnContinueToPreview.tintColor = UIColor(named: "borderColor", in: InternalConstants.bundle, compatibleWith: nil)
+        btnContinueToPreview.titleLabel?.textColor = UIColor.gray
         btnContinueToPreview.gestureRecognizers?.forEach(btnContinueToPreview.removeGestureRecognizer)
         let errText = "error_make_two_photos".localized
         self.showToast(message: errText, seconds: 1.3)
@@ -304,9 +295,17 @@ class TakeDocPhotoViewController : UIViewController,
     }
     
     func prepareForNavigation(resetSecondPhoto: Bool) {
-        btnContinueToPreview.tintColor = UIColor(named: "Default", in: InternalConstants.bundle, compatibleWith: nil)
-        btnContinueToPreview.titleLabel?.textColor = UIColor.white
-
+        if let buttonColor = VCheckSDK.shared.buttonsColorHex {
+            btnContinueToPreview.tintColor = buttonColor.hexToUIColor()
+        } else {
+            btnContinueToPreview.tintColor = UIColor(named: "Default", in: InternalConstants.bundle, compatibleWith: nil)
+        }
+        if let textColor = VCheckSDK.shared.primaryTextColorHex {
+            btnContinueToPreview.titleLabel?.textColor = textColor.hexToUIColor()
+        } else {
+            btnContinueToPreview.titleLabel?.textColor = UIColor.white
+        }
+        
         let tapGesture = NavGestureRecognizer.init(target: self, action: #selector(navigateToCheckScreen(_:)))
         tapGesture.numberOfTapsRequired = 1
         tapGesture.resetSecondPhoto = resetSecondPhoto

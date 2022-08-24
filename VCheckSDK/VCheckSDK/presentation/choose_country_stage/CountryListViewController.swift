@@ -11,7 +11,7 @@ import UIKit
 
 class CountryListViewController : UIViewController {
     
-    @IBOutlet var countryListTable: UITableView!
+    @IBOutlet var countryListTable: CustomizableTableView!
     
     @IBOutlet weak var noSearchDataLabel: UILabel!
     
@@ -22,13 +22,16 @@ class CountryListViewController : UIViewController {
     }
     
     @IBOutlet weak var searchBar: UISearchBar! {
-        didSet{
+        didSet {
             if let searchTextfield = self.searchBar.value(forKey: "searchField") as? UITextField  {
                 searchTextfield.layer.borderColor = UIColor.lightGray.cgColor
                 searchTextfield.layer.borderWidth = 1
                 searchTextfield.layer.cornerRadius = 10
                 searchTextfield.textColor = .white
                 searchTextfield.leftView?.tintColor = .white
+                if let bc = VCheckSDK.shared.backgroundSecondaryColorHex {
+                    searchTextfield.backgroundColor = bc.hexToUIColor()
+                }
             }
         }
     }
@@ -53,6 +56,10 @@ class CountryListViewController : UIViewController {
         self.searchBar.delegate = self
         self.countryListTable.delegate = self
         self.countryListTable.dataSource = self
+        
+        if let bc = VCheckSDK.shared.backgroundSecondaryColorHex {
+            self.countryListTable.setValue(bc.hexToUIColor() , forKey: "tableHeaderBackgroundColor")
+        }
         
         self.searchResultsList = getSortedArr()
     }
@@ -123,6 +130,14 @@ extension CountryListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        if let footer = view as? UITableViewHeaderFooterView {
+            if let bc = VCheckSDK.shared.backgroundSecondaryColorHex {
+                footer.contentView.backgroundColor = bc.hexToUIColor()
+            }
+        }
     }
 }
 

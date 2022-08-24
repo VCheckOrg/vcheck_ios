@@ -400,6 +400,7 @@
 				DA3BEDAB2869A8D300B15E5C /* HeaderViewController.swift */,
 				DABB5FC128B3C73500BBACC0 /* ThemeClasses.swift */,
 				DAC2DF3D28B40E330049B8B0 /* SceneDelegate.swift */,
+				DA3BEDB92869A8D300B15E5C /* TextFieldError.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -419,7 +420,6 @@
 		DA3BEDB82869A8D300B15E5C /* util */ = {
 			isa = PBXGroup;
 			children = (
-				DA3BEDB92869A8D300B15E5C /* TextFieldError.swift */,
 				DA3BEDBB2869A8D300B15E5C /* GlobalUtils.swift */,
 				DA3BEDBC2869A8D300B15E5C /* UtilsAndExtensions.swift */,
 				DA3BEDBD2869A8D300B15E5C /* Debouncer.swift */,
