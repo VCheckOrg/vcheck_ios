@@ -30,7 +30,7 @@
         <scene sceneID="5BM-mo-2Xp">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="3HI-Lp-Qj3" customClass="VCheckStartViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="A7h-UM-Lh9">
+                    <view key="view" contentMode="scaleToFill" id="A7h-UM-Lh9" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -78,27 +78,27 @@
         <scene sceneID="QoB-W8-5k4">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="VHf-Vf-Dha" customClass="ChooseCountryViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qVF-Xu-QWL">
+                    <view key="view" contentMode="scaleToFill" id="qVF-Xu-QWL" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7h-cr-WsJ" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                 <rect key="frame" x="12" y="128" width="366" height="604"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите страну" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFZ-MA-crE">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите страну" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFZ-MA-crE" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="16" y="24" width="157" height="22"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMS-X5-1mQ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMS-X5-1mQ" customClass="SecondaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="16" y="62" width="334" height="67"/>
                                         <string key="text">Значимость этих проблем настолько очевидна, что новая модель организационной деятельности требуют определения и уточнения направлений прогрессивного развития. </string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" name="DescriptionColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Страна" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZV-5H-szz">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Страна" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZV-5H-szz" customClass="SecondaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="16" y="157" width="46" height="15"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -115,16 +115,16 @@
                                             <segue destination="EIw-6d-l49" kind="show" identifier="CountryToChooseDocType" id="ehe-Ka-KVL"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jc-tS-jTS" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jc-tS-jTS" customClass="SmallRoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="16" y="178" width="334" height="54.333333333333343"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Україна" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cY3-cf-m9e">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Україна" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cY3-cf-m9e" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                 <rect key="frame" x="76" y="17" width="245" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="FLAG" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zr2-kK-wWI">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="FLAG" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zr2-kK-wWI" customClass="FlagView" customModule="VCheckSDK" customModuleProvider="target">
                                                 <rect key="frame" x="15" y="3" width="60" height="39"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" name="CountryCardColor"/>
@@ -203,7 +203,7 @@
         <scene sceneID="O7v-PE-izR">
             <objects>
                 <viewController modalPresentationStyle="pageSheet" id="G2c-Yg-Bx4" userLabel="Country List View Controller" customClass="CountryListViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7Gx-nu-ywK">
+                    <view key="view" contentMode="scaleToFill" id="7Gx-nu-ywK" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="746"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -212,7 +212,7 @@
                                 <color key="backgroundColor" name="BackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="allowedCountryCell" rowHeight="70" id="onm-ZM-hCL" customClass="AllowedCountryViewCell" customModule="VCheckSDK" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="45" width="390" height="70"/>
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="onm-ZM-hCL" id="xmW-dM-7uI">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="70"/>
@@ -226,7 +226,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="FLAG" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irG-6P-v79">
+                                                <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="FLAG" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irG-6P-v79" customClass="FlagView" customModule="VCheckSDK" customModuleProvider="target">
                                                     <rect key="frame" x="11" y="4" width="67" height="51"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="backgroundColor" name="BackgroundColor"/>
@@ -250,13 +250,13 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="blockedCountryCell" rowHeight="70" id="FYf-d5-FD0" customClass="BlockedCountryViewCell" customModule="VCheckSDK" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="115" width="390" height="70"/>
+                                        <rect key="frame" x="0.0" y="114.66666603088379" width="390" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FYf-d5-FD0" id="tuM-nP-JaI">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="70"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="FLAG" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RyQ-vN-b5X">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="FLAG" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RyQ-vN-b5X" customClass="FlagView" customModule="VCheckSDK" customModuleProvider="target">
                                                     <rect key="frame" x="11" y="4" width="67" height="51"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" name="BackgroundColor"/>
@@ -349,18 +349,18 @@
             <objects>
                 <viewController id="O79-4Z-3ia" userLabel="Segmentation View Controller" customClass="SegmentationViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nU6-VQ-05u">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_hand_id_card" translatesAutoresizingMaskIntoConstraints="NO" id="3gL-2I-WZf">
-                                <rect key="frame" x="364" y="607" width="46" height="46"/>
+                                <rect key="frame" x="364" y="597" width="46" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="8Cm-8t-czT"/>
                                     <constraint firstAttribute="height" constant="46" id="Liz-zS-bMN"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z4S-Mf-KG1">
-                                <rect key="frame" x="0.0" y="665" width="390" height="180"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z4S-Mf-KG1" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="655" width="390" height="180"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Msk-Md-5yG">
                                         <rect key="frame" x="29" y="72" width="333" height="56"/>
@@ -370,7 +370,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Сделать фото"/>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Следуя инструкциям на экране сделайте фото лицевой, а затем обратной сторон вашей ID карты" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6n-0n-UgP">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Следуя инструкциям на экране сделайте фото лицевой, а затем обратной сторон вашей ID карты" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6n-0n-UgP" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="29" y="8" width="334" height="59"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" name="DescriptionColor"/>
@@ -394,7 +394,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="81r-ny-a50" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
-                                <rect key="frame" x="75" y="292" width="240" height="270"/>
+                                <rect key="frame" x="75" y="292" width="240" height="260"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" name="DescriptionColor"/>
@@ -408,7 +408,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaj-6U-LQ7" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
-                                <rect key="frame" x="75" y="292" width="240" height="270"/>
+                                <rect key="frame" x="75" y="292" width="240" height="260"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" systemColor="systemGreenColor"/>
@@ -477,14 +477,14 @@
         <scene sceneID="6ZM-lh-nBu">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="q0J-YZ-DjP" userLabel="No Time View Controller" customClass="NoTimeViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ZyN-xs-PfW">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                    <view key="view" contentMode="scaleToFill" id="ZyN-xs-PfW" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m0Q-96-Yyt">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fzN-Vs-aSf">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fzN-Vs-aSf" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="704"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6B9-Ep-e0R" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
@@ -496,13 +496,13 @@
                                                             <constraint firstAttribute="height" constant="240" id="ipg-2m-RJo"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Время на выполнение движения истекло" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="939-B9-Kfj">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Время на выполнение движения истекло" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="939-B9-Kfj" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="276" width="334" height="73"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы не успели выполнить корректное движение. Старайтесь четко придерживаться инструкций в момент прохождения проверки." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLu-gA-21w">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы не успели выполнить корректное движение. Старайтесь четко придерживаться инструкций в момент прохождения проверки." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLu-gA-21w" customClass="SecondaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="365" width="334" height="50.333333333333314"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
@@ -584,14 +584,14 @@
         <scene sceneID="944-w0-g7d">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="cnD-L5-BuD" userLabel="Doc Photo Verif Error View Controller" customClass="DocPhotoVerifErrorViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Flg-BI-YSQ">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                    <view key="view" contentMode="scaleToFill" id="Flg-BI-YSQ" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cc7-bg-eLX">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbU-iz-0Pd">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbU-iz-0Pd" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="708"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0aw-qs-CO4" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
@@ -603,13 +603,13 @@
                                                             <constraint firstAttribute="height" constant="240" id="DkI-Ho-nZW"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Что-то пошло не так :(" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIo-1V-hp0">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Что-то пошло не так :(" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIo-1V-hp0" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="276" width="334" height="21.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="По какой-то причине мы не смогли загрузить контент данной страницы. Попробуйте перезагрузить страницу" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhV-l1-ZoU">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="По какой-то причине мы не смогли загрузить контент данной страницы. Попробуйте перезагрузить страницу" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhV-l1-ZoU" customClass="SecondaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="313.66666666666669" width="334" height="50.333333333333314"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
@@ -708,14 +708,14 @@
         <scene sceneID="SBe-W2-Czb">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="Gk4-E0-G28" userLabel="Wrong Movement View Controller" customClass="WrongGestureViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Fgq-Xq-dWc">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                    <view key="view" contentMode="scaleToFill" id="Fgq-Xq-dWc" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6VX-2e-eOs">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVD-jQ-X6f">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVD-jQ-X6f" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="707.33333333333337"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9J1-LU-ygA" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
@@ -727,13 +727,13 @@
                                                             <constraint firstAttribute="height" constant="240" id="CyK-dn-i20"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Неверное движение" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uol-az-Qka">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Неверное движение" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uol-az-Qka" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="276" width="334" height="21.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVd-GC-ULM">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVd-GC-ULM" customClass="SecondaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="313.66666666666669" width="334" height="83.666666666666686"/>
                                                         <string key="text">Движение, которое запрашивалось не было выполнено корректно. Старайтесь делать именно те движения, которые запрашиваются. Движения должны быть плавными и своевременными.</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -815,12 +815,12 @@
         <scene sceneID="fXR-d2-LtU">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="K4l-kg-dQj" userLabel="Frame Interference View Controller" customClass="MultipleFacesDetectedViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="A4u-iE-GYT">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                    <view key="view" contentMode="scaleToFill" id="A4u-iE-GYT" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IzY-vQ-XSx">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ukX-sd-Tsb">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="707.33333333333337"/>
@@ -834,13 +834,13 @@
                                                             <constraint firstAttribute="height" constant="240" id="Cu2-rR-Ihb"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="В кадре много помех" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdZ-WF-NIV">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="В кадре много помех" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdZ-WF-NIV" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="276" width="334" height="21.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNj-4j-beg">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNj-4j-beg" customClass="SecondaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="313.66666666666669" width="334" height="83.666666666666686"/>
                                                         <string key="text">В кадре могло быть несколько людей, либо посторонние предметы. При повторной проверке постарайтесь, что бы в кадре было только ваше лицо и его было видно как можно четче.</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -922,14 +922,14 @@
         <scene sceneID="3my-jL-PW1">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="YIZ-ih-eAP" userLabel="Look Stratight Error View Controller" customClass="NoFaceDetectedViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Gxe-ll-VhG">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                    <view key="view" contentMode="scaleToFill" id="Gxe-ll-VhG" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aFq-Qd-30Y">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rM6-bw-Dy6">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rM6-bw-Dy6" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="707.33333333333337"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s5b-A1-M5a" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
@@ -941,13 +941,13 @@
                                                             <constraint firstAttribute="height" constant="240" id="lDw-lS-7JZ"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы не смотрели прямо" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPz-op-RyB">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы не смотрели прямо" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPz-op-RyB" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="276" width="334" height="21.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQC-lw-w5d">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQC-lw-w5d" customClass="SecondaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="313.66666666666669" width="334" height="67"/>
                                                         <string key="text">Лицо не было зафиксировано прямо в кадре в необходимый для этого момент. Старайтесь четко придерживаться инструкций в момент прохождения проверки. Попробуйте снова. </string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1029,14 +1029,14 @@
         <scene sceneID="ARG-lg-EGv">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="Drf-gg-cCY" userLabel="Fail Verification View Controller" customClass="VideoFailureViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="lcl-Oh-GBb">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                    <view key="view" contentMode="scaleToFill" id="lcl-Oh-GBb" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E14-XS-PWS">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qpX-jZ-Jb0">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qpX-jZ-Jb0" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="729.66666666666663"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UL1-KP-CLj" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
@@ -1048,13 +1048,13 @@
                                                             <constraint firstAttribute="height" constant="240" id="BOW-mP-HLp"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Верификация неуспешна" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8MH-tb-Ixh">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Верификация неуспешна" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8MH-tb-Ixh" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="276" width="334" height="21.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ip-f7-uZ5">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ip-f7-uZ5" customClass="SecondaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="313.66666666666669" width="334" height="67"/>
                                                         <string key="text">К сожалению, нам не удалось верифицировать вашу заявку. Если вы не согласны с данным решением, просьба обратиться в службу поддержки</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1160,7 +1160,7 @@
         <scene sceneID="eyy-0l-iIB">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="cCh-W4-UZx" userLabel="Segmantation Start View Controller" customClass="SegmentationStartViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="27o-fB-i1E">
+                    <view key="view" contentMode="scaleToFill" id="27o-fB-i1E" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1186,13 +1186,13 @@
                                                             <constraint firstAttribute="height" constant="16" id="meQ-gX-XWn"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сделайте фото ID карты" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJr-ZK-4ZA">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сделайте фото ID карты" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJr-ZK-4ZA" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="276" width="334" height="21.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Следуя инструкциям на экране сделайте фото лицевой, а затем обратной сторон вашей ID карты" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2I-Vr-HHn">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Следуя инструкциям на экране сделайте фото лицевой, а затем обратной сторон вашей ID карты" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2I-Vr-HHn" customClass="SecondaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="322.66666666666669" width="334" height="50.333333333333314"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
@@ -1286,14 +1286,14 @@
         <scene sceneID="eTh-NG-ulS">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="NuA-3X-Mhz" userLabel="Seg Timeout View Controller" customClass="SegmentationTimeoutViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="phk-u4-k2h">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                    <view key="view" contentMode="scaleToFill" id="phk-u4-k2h" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MlN-Qo-aJ1">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aWk-uq-Y5y">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aWk-uq-Y5y" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MUn-T6-9LL" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
@@ -1305,7 +1305,7 @@
                                                             <constraint firstAttribute="height" constant="240" id="3wp-Vs-bKW"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Время на считывание документа истекло" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bn8-gv-ckR">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Время на считывание документа истекло" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bn8-gv-ckR" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="294" width="334" height="56"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1319,7 +1319,7 @@
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Попробовать снова"/>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы не успели выполнить корректное движение. Старайтесь четко придерживаться инструкций в момент прохождения проверки." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDF-o0-aGT">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы не успели выполнить корректное движение. Старайтесь четко придерживаться инструкций в момент прохождения проверки." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDF-o0-aGT" customClass="SecondaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="354" width="334" height="126"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
@@ -1328,7 +1328,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3NM-Co-smH" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="496" width="334" height="58"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сделать фото вручную" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDb-Xl-8OF">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сделать фото вручную" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDb-Xl-8OF" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                                 <rect key="frame" x="60" y="19" width="214" height="20"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1430,14 +1430,14 @@
         <scene sceneID="Y29-ti-guP">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="IiJ-Ck-Dhz" userLabel="In Process View Controller" customClass="VideoProcessingViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="A97-HY-J1Q">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                    <view key="view" contentMode="scaleToFill" id="A97-HY-J1Q" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z9q-rn-yU5">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIj-7X-oeY">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIj-7X-oeY" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="637"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fk7-0l-cCW" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
@@ -1516,14 +1516,14 @@
         <scene sceneID="HTG-Kf-TQP">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="btG-18-IMq" userLabel="Photo Instructions View Controller" customClass="PhotoInstructionsViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="URt-vI-atd">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                    <view key="view" contentMode="scaleToFill" id="URt-vI-atd" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yz5-ex-IJd">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YxH-7y-FzT">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YxH-7y-FzT" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="634.66666666666663"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mdb-Ax-DBB" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
@@ -1540,7 +1540,7 @@
                                                             <segue destination="ZEj-uY-1Rn" kind="show" identifier="PhotoInstructionsToUpload" id="t3d-vg-bIt"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Требования к фото" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgH-RH-Doo">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Требования к фото" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgH-RH-Doo" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="55.999999999999993" width="170.66666666666666" height="21.666666666666664"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1553,7 +1553,7 @@
                                                             <constraint firstAttribute="height" constant="16" id="Eq7-EG-9yT"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Фото вашего документа должно отвечать следующим требованиям:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2W7-Jm-sUy">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Фото вашего документа должно отвечать следующим требованиям:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2W7-Jm-sUy" customClass="SecondaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="93.666666666666657" width="334" height="33.666666666666657"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
@@ -1566,7 +1566,7 @@
                                                             <constraint firstAttribute="width" constant="20" id="6XF-8L-7hX"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="изображение должно быть цветным" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZr-qg-h72">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="изображение должно быть цветным" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZr-qg-h72" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="46" y="159.33333333333331" width="284" height="13.333333333333343"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1579,25 +1579,25 @@
                                                             <constraint firstAttribute="height" constant="22" id="WFz-U6-8Qs"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="видны все защитные элементы" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqU-VZ-pLL">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="видны все защитные элементы" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqU-VZ-pLL" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="45" y="194.66666666666669" width="301" height="13.666666666666657"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="полностью видны все 4 угла документа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUd-yM-LbS">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="полностью видны все 4 угла документа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUd-yM-LbS" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="45" y="231.33333333333331" width="305" height="13.333333333333343"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="действительны на момент отправки" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3O-6X-MdF">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="действительны на момент отправки" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3O-6X-MdF" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="45" y="267.66666666666669" width="301" height="13.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="нет посторонних объектов: обложки, пальцев, скрепок и т.п." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EY3-6C-cJ9">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="нет посторонних объектов: обложки, пальцев, скрепок и т.п." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EY3-6C-cJ9" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="45" y="296.33333333333331" width="301" height="37"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1633,7 +1633,7 @@
                                                             <action selector="backToDocType:" destination="btG-18-IMq" eventType="touchUpInside" id="YWD-EV-fDv"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="сфотографированы или отсканированы с оригиналов" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACV-UJ-hZv">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="сфотографированы или отсканированы с оригиналов" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACV-UJ-hZv" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="45" y="343.33333333333331" width="305" height="26.333333333333314"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1711,7 +1711,6 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" name="BackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="YxH-7y-FzT" secondAttribute="trailing" id="3Or-Fx-MSa"/>
                                     <constraint firstItem="YxH-7y-FzT" firstAttribute="top" secondItem="Yz5-ex-IJd" secondAttribute="top" id="7vw-x7-NcA"/>
@@ -1743,14 +1742,14 @@
         <scene sceneID="taE-BH-axR">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="EIw-6d-l49" userLabel="Choose Doc Method View Controller" customClass="ChooseDocTypeViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="cZa-Gb-1mn">
+                    <view key="view" contentMode="scaleToFill" id="cZa-Gb-1mn" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D9J-fv-ygv">
                                 <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RpV-lq-24o">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RpV-lq-24o" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="615.66666666666663"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1P2-W0-56G" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
@@ -1763,17 +1762,17 @@
                                                             <constraint firstAttribute="width" constant="10" id="5uc-E7-QSe"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73Y-G0-L4X">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73Y-G0-L4X" customClass="SecondaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="93.666666666666657" width="334" height="67"/>
                                                         <string key="text">Не следует, однако забывать, что консультация с широким активом обеспечивает широкому кругу (специалистов) участие в формировании систем массового участия.</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G3p-Gh-F6E" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G3p-Gh-F6E" customClass="SmallRoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="188.66666666666669" width="334" height="74"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Внутренний гражданский паспорт" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPH-Ay-ydn">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Внутренний гражданский паспорт" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPH-Ay-ydn" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                                 <rect key="frame" x="59" y="13" width="259" height="48"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1812,16 +1811,16 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите тип документа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJJ-7D-hfl">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите тип документа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJJ-7D-hfl" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="15.999999999999986" y="55.999999999999993" width="227.66666666666663" height="21.666666666666664"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Df-Ew-TxF" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Df-Ew-TxF" customClass="SmallRoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="278.66666666666669" width="334" height="74"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Загранпаспорт" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gZ-MQ-puZ">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Загранпаспорт" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gZ-MQ-puZ" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                                 <rect key="frame" x="59" y="13" width="259" height="48"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1860,10 +1859,10 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AcB-eO-u3b" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AcB-eO-u3b" customClass="SmallRoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="368.66666666666669" width="334" height="74"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Биометрический паспорт (ID-карта)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5B-Kh-Vep">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Биометрический паспорт (ID-карта)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5B-Kh-Vep" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                                 <rect key="frame" x="59" y="13" width="259" height="48"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1988,11 +1987,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="2Ob-Di-bza" userLabel="Liveness Screen View Controller" customClass="LivenessScreenViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dGJ-l1-WKs">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q3r-w3-pWa" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="150" width="390" height="660"/>
+                                <rect key="frame" x="0.0" y="150" width="390" height="650"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="10"/>
@@ -2002,10 +2001,10 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57V-29-Is4">
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57V-29-Is4" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="150"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLEASE WAIT..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3n-0Y-qsf">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLEASE WAIT..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3n-0Y-qsf" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="50" y="79.666666666666671" width="290" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" name="DescriptionColor"/>
@@ -2040,21 +2039,21 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fwi-Pr-m0O">
-                                <rect key="frame" x="270" y="410" width="100" height="100"/>
+                                <rect key="frame" x="270" y="400" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="aXr-XI-cmW"/>
                                     <constraint firstAttribute="width" constant="100" id="ue9-Pq-qCU"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8GZ-br-CdT">
-                                <rect key="frame" x="20" y="410" width="100" height="100"/>
+                                <rect key="frame" x="20" y="400" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="FDO-cJ-PSa"/>
                                     <constraint firstAttribute="width" constant="100" id="M7S-TO-TSQ"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="doR-OE-myt" userLabel="Center Arrow Anim Holder">
-                                <rect key="frame" x="145" y="422" width="100" height="100"/>
+                                <rect key="frame" x="145" y="400" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="TS1-TW-N2h"/>
                                     <constraint firstAttribute="width" constant="100" id="qdE-FE-mDP"/>
@@ -2117,20 +2116,20 @@
         <scene sceneID="ljs-xk-7FC">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="dcp-4c-bus" userLabel="Check Doc Info View Controller" customClass="CheckDocInfoViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="SNh-eB-9EL">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                    <view key="view" contentMode="scaleToFill" id="SNh-eB-9EL" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZq-tw-zcH">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBt-rb-JKa">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBt-rb-JKa" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="1058"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kzh-Vj-yGm" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="84" width="366" height="909"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проверьте, все ли данные по документу были распознаны корректно?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgk-ad-nWW">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проверьте, все ли данные по документу были распознаны корректно?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgk-ad-nWW" customClass="SecondaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="65" width="334" height="43"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="43" id="bmq-XP-yhI"/>
@@ -2139,7 +2138,7 @@
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Сверка заполнение данных" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNT-ys-lqv">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Сверка заполнение данных" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNT-ys-lqv" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="15.999999999999986" y="18" width="249.66666666666663" height="21.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2378,20 +2377,20 @@
         <scene sceneID="TOh-Z3-wqv">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="ZEj-uY-1Rn" userLabel="Photo Upload View Controller" customClass="TakeDocPhotoViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="MMb-ku-R2l">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                    <view key="view" contentMode="scaleToFill" id="MMb-ku-R2l" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KJu-a3-gx9">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VT8-7V-8px">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VT8-7V-8px" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="884.66666666666663"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hhc-oa-FC6" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="84" width="366" height="735.66666666666663"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Загрузите фото документа" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCm-VK-XhF">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Загрузите фото документа" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCm-VK-XhF" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16.000000000000014" y="55.999999999999993" width="242.33333333333337" height="21.666666666666664"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2404,7 +2403,7 @@
                                                             <constraint firstAttribute="width" constant="10" id="mvS-oa-aaY"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QAk-dG-hue" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QAk-dG-hue" customClass="SmallRoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="97.666666666666657" width="334" height="249.99999999999997"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JoJ-Ks-g2F">
@@ -2424,10 +2423,10 @@
                                                                     <constraint firstAttribute="width" constant="42" id="ijS-Vi-hPh"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAe-re-A91" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAe-re-A91" customClass="SmallRoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                                 <rect key="frame" x="43" y="160.00000000000003" width="248" height="46"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сделать фото" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGK-zu-Dsf">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сделать фото" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGK-zu-Dsf" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                                         <rect key="frame" x="82" y="11" width="115" height="24"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2464,7 +2463,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6v6-eK-T1j">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6v6-eK-T1j" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                                 <rect key="frame" x="90" y="65.000000000000028" width="228" height="28.666666666666671"/>
                                                                 <string key="text">Загрузите фото лицевого разворота
 (разворот с вашим фото).</string>
@@ -2502,7 +2501,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hWN-ru-b13" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hWN-ru-b13" customClass="SmallRoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="375.66666666666669" width="334" height="250.00000000000006"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="shV-i7-dlB">
@@ -2515,7 +2514,7 @@
                                                                     <constraint firstAttribute="height" constant="80" id="PeT-sJ-iAJ"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Загрузите фото обратного разворота." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0x-f9-qUL">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Загрузите фото обратного разворота." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0x-f9-qUL" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                                 <rect key="frame" x="90" y="64.999999999999943" width="228" height="28.666666666666671"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2528,10 +2527,10 @@
                                                                     <constraint firstAttribute="width" constant="42" id="emx-Jk-ocE"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OaU-0r-EKr" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OaU-0r-EKr" customClass="SmallRoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                                 <rect key="frame" x="43" y="159.99999999999994" width="248" height="46"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сделать фото" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRM-vS-6wd">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сделать фото" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRM-vS-6wd" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                                         <rect key="frame" x="82" y="11" width="115" height="24"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2701,14 +2700,14 @@
         <scene sceneID="zJy-By-c23">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="OYj-MX-icL" userLabel="Check Photo View Controller" customClass="CheckDocPhotoViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ncW-VQ-0Po">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                    <view key="view" contentMode="scaleToFill" id="ncW-VQ-0Po" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DXO-ku-gkK">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xJI-uw-YK5">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xJI-uw-YK5" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="1013"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Cm-GH-i0e" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
@@ -2722,13 +2721,13 @@
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Подтвердить"/>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проверьте свое фото" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goj-ZF-231">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проверьте свое фото" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goj-ZF-231" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="18" width="191" height="21.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проверьте читаемость информации на фото. Убедитесь, что на фото видны все 4 угла документа" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQx-HL-SS1">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проверьте читаемость информации на фото. Убедитесь, что на фото видны все 4 угла документа" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQx-HL-SS1" customClass="SecondaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="55.666666666666657" width="334" height="50.333333333333343"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
@@ -2820,7 +2819,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQv-f5-Kf7" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="706" width="334" height="58"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Заменить фото" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgy-0K-AbA">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Заменить фото" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgy-0K-AbA" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                                 <rect key="frame" x="60" y="19" width="214" height="20"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2850,7 +2849,7 @@
                                                         <rect key="frame" x="147" y="763" width="72" height="72"/>
                                                         <color key="color" name="borderColor"/>
                                                     </activityIndicatorView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please, wait. The photo of your document is being loaded and processed. This may take from a few seconds to a minute." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UHg-90-OJN">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please, wait. The photo of your document is being loaded and processed. This may take from a few seconds to a minute." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UHg-90-OJN" customClass="SecondaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="30" y="693" width="306" height="54"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2948,7 +2947,7 @@
         <scene sceneID="o2A-bL-inV">
             <objects>
                 <viewController storyboardIdentifier="HeaderVC" modalPresentationStyle="fullScreen" id="azn-ur-GOV" customClass="HeaderViewContoller" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="CDb-h4-4mS">
+                    <view key="view" contentMode="scaleToFill" id="CDb-h4-4mS" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -2958,7 +2957,7 @@
                                     <segue destination="Rhv-qW-7Sw" kind="embed" id="b9a-99-KOn"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Y2-k5-lex">
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Y2-k5-lex" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="390" height="56"/>
                                 <subviews>
                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qG-hm-ex8">
@@ -2988,7 +2987,7 @@
                                             <constraint firstAttribute="width" constant="10" id="rMj-Og-K59"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="К началу верификации" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgN-eM-qdj">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="К началу верификации" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgN-eM-qdj" customClass="SecondaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="37" y="11" width="189" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="189" id="sZj-V5-smA"/>
@@ -3041,14 +3040,14 @@
         <scene sceneID="PsH-Bt-cWC">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="vMJ-Fv-l4l" userLabel="Liveness Instructions View Controller" customClass="LivenessInstructionsViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="mSN-jW-hCq">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                    <view key="view" contentMode="scaleToFill" id="mSN-jW-hCq" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRx-Bb-ohi">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qjd-Rt-rZ6">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qjd-Rt-rZ6" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="841"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDm-lD-KGj" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
@@ -3090,38 +3089,38 @@
                                                             <segue destination="2Ob-Di-bza" kind="show" id="tkN-ME-NFK"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Проверка лица" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1c6-jq-Hxi">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Проверка лица" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1c6-jq-Hxi" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="18" width="136.66666666666666" height="21.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ato-ly-woq">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ato-ly-woq" customClass="SecondaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="55.666666666666657" width="334" height="67"/>
                                                         <string key="text">Сначала разместите лицо по центру кадра, затем двигайте головой в заданом направлении, как на примере ниже, чтобы показать свое лицо со всех углов.</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="выполнятей только запрашиваемые движения" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOe-mg-i3J">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="выполнятей только запрашиваемые движения" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOe-mg-i3J" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="46" y="369" width="304" height="32"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="движения должны быть четкими и плавными" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilv-19-slf">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="движения должны быть четкими и плавными" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilv-19-slf" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="45" y="421" width="305" height="29"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="в кадре не должно быть помех" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAt-oD-4Mb">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="в кадре не должно быть помех" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAt-oD-4Mb" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="45" y="470" width="305" height="31"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="зафиксированная камера (старайтесь не двигать камерой)" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATp-gm-vMv">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="зафиксированная камера (старайтесь не двигать камерой)" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATp-gm-vMv" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="45" y="571" width="305" height="29"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3188,7 +3187,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="найдите место с хорошим освещением (светло, но без ярких засветов)" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8c-XH-tNZ">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="найдите место с хорошим освещением (светло, но без ярких засветов)" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8c-XH-tNZ" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="45" y="516" width="305" height="37"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3298,12 +3297,12 @@
         <scene sceneID="ClG-Je-hUm">
             <objects>
                 <viewController id="WJ2-QY-Hl3" customClass="ZoomedDocPhotoViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="44V-am-ckB">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                    <view key="view" contentMode="scaleToFill" id="44V-am-ckB" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="746"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aBI-ct-SYg">
-                                <rect key="frame" x="0.0" y="144" width="390" height="596"/>
+                                <rect key="frame" x="0.0" y="144" width="390" height="552"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmI-2b-PrY">
                                 <rect key="frame" x="311" y="24" width="61" height="80"/>
@@ -3340,14 +3339,14 @@
         <scene sceneID="2bB-1I-fRl">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="cii-CZ-O8e" userLabel="Fast Movemetns View Controller" customClass="SharpMovementsViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="KLd-hr-QbN">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                    <view key="view" contentMode="scaleToFill" id="KLd-hr-QbN" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0In-kd-3PX">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FtZ-Fe-fHe">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FtZ-Fe-fHe" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="674"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D9J-RU-7XW" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
@@ -3359,13 +3358,13 @@
                                                             <constraint firstAttribute="height" constant="240" id="8WX-WU-0t5"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Слишком резкие движения" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IDl-aE-NPd">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Слишком резкие движения" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IDl-aE-NPd" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="276" width="334" height="21.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Старайтесь выполнять движения плавно. Попробуйте снова." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eta-Xk-i4x">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Старайтесь выполнять движения плавно. Попробуйте снова." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eta-Xk-i4x" customClass="SecondaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="313.66666666666669" width="334" height="33.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
@@ -3446,14 +3445,14 @@
         <scene sceneID="yq9-UK-vOG">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="MMF-sr-RPg" userLabel="Too Dark View Controller" customClass="NoBrightnessViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="eCL-fk-PA8">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                    <view key="view" contentMode="scaleToFill" id="eCL-fk-PA8" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3sh-ue-lm4">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MjI-9Q-v7Q">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MjI-9Q-v7Q" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="690.66666666666663"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xZk-P1-DKL" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
@@ -3465,13 +3464,13 @@
                                                             <constraint firstAttribute="height" constant="240" id="gSv-Xe-loW"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Слишком темно" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhH-7f-gBD">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Слишком темно" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhH-7f-gBD" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="276" width="334" height="21.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проверка не может выполниться, так как в кадре слишком темно. Пройдите проверку повторно с хорошим освещением." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqs-Cd-Nh9">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проверка не может выполниться, так как в кадре слишком темно. Пройдите проверку повторно с хорошим освещением." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqs-Cd-Nh9" customClass="SecondaryTextView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="313.66666666666669" width="334" height="50.333333333333314"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="DescriptionColor"/>
@@ -3549,18 +3548,197 @@
             <point key="canvasLocation" x="2711" y="-1798"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="1c6-jq-Hxi">
+            <size key="intrinsicContentSize" width="136.33333333333334" height="21.666666666666668"/>
+        </designable>
+        <designable name="2Ip-f7-uZ5">
+            <size key="intrinsicContentSize" width="987" height="17"/>
+        </designable>
+        <designable name="2W7-Jm-sUy">
+            <size key="intrinsicContentSize" width="464.33333333333331" height="17"/>
+        </designable>
+        <designable name="3gZ-MQ-puZ">
+            <size key="intrinsicContentSize" width="122.66666666666667" height="19.333333333333332"/>
+        </designable>
+        <designable name="6v6-eK-T1j">
+            <size key="intrinsicContentSize" width="228" height="28.666666666666668"/>
+        </designable>
+        <designable name="73Y-G0-L4X">
+            <size key="intrinsicContentSize" width="1146.3333333333333" height="17"/>
+        </designable>
+        <designable name="8MH-tb-Ixh">
+            <size key="intrinsicContentSize" width="228" height="21.666666666666668"/>
+        </designable>
+        <designable name="939-B9-Kfj">
+            <size key="intrinsicContentSize" width="371" height="21.666666666666668"/>
+        </designable>
+        <designable name="ACV-UJ-hZv">
+            <size key="intrinsicContentSize" width="313.33333333333331" height="13.333333333333334"/>
+        </designable>
+        <designable name="ATp-gm-vMv">
+            <size key="intrinsicContentSize" width="375" height="14.333333333333334"/>
+        </designable>
+        <designable name="Bn8-gv-ckR">
+            <size key="intrinsicContentSize" width="375.66666666666669" height="21.666666666666668"/>
+        </designable>
+        <designable name="EY3-6C-cJ9">
+            <size key="intrinsicContentSize" width="355.33333333333331" height="13.333333333333334"/>
+        </designable>
+        <designable name="FNT-ys-lqv">
+            <size key="intrinsicContentSize" width="249.66666666666666" height="21.666666666666668"/>
+        </designable>
+        <designable name="GCm-VK-XhF">
+            <size key="intrinsicContentSize" width="242.33333333333334" height="21.666666666666668"/>
+        </designable>
+        <designable name="IDl-aE-NPd">
+            <size key="intrinsicContentSize" width="248" height="21.666666666666668"/>
+        </designable>
+        <designable name="NhH-7f-gBD">
+            <size key="intrinsicContentSize" width="144.66666666666666" height="21.666666666666668"/>
+        </designable>
+        <designable name="OPz-op-RyB">
+            <size key="intrinsicContentSize" width="205.33333333333334" height="21.666666666666668"/>
+        </designable>
+        <designable name="QOe-mg-i3J">
+            <size key="intrinsicContentSize" width="295" height="14.333333333333334"/>
+        </designable>
+        <designable name="S8c-XH-tNZ">
+            <size key="intrinsicContentSize" width="450" height="14.333333333333334"/>
+        </designable>
+        <designable name="SQC-lw-w5d">
+            <size key="intrinsicContentSize" width="1233.6666666666667" height="17"/>
+        </designable>
+        <designable name="TdZ-WF-NIV">
+            <size key="intrinsicContentSize" width="189.66666666666666" height="21.666666666666668"/>
+        </designable>
+        <designable name="UHg-90-OJN">
+            <size key="intrinsicContentSize" width="823.66666666666663" height="18"/>
+        </designable>
+        <designable name="UJr-ZK-4ZA">
+            <size key="intrinsicContentSize" width="216.33333333333334" height="21.666666666666668"/>
+        </designable>
+        <designable name="VQx-HL-SS1">
+            <size key="intrinsicContentSize" width="662.33333333333337" height="17"/>
+        </designable>
+        <designable name="Wgk-ad-nWW">
+            <size key="intrinsicContentSize" width="480" height="17"/>
+        </designable>
+        <designable name="XJJ-7D-hfl">
+            <size key="intrinsicContentSize" width="227.66666666666666" height="21.666666666666668"/>
+        </designable>
+        <designable name="aNj-4j-beg">
+            <size key="intrinsicContentSize" width="1246" height="17"/>
+        </designable>
+        <designable name="ato-ly-woq">
+            <size key="intrinsicContentSize" width="1064.3333333333333" height="17"/>
+        </designable>
+        <designable name="bPH-Ay-ydn">
+            <size key="intrinsicContentSize" width="280.66666666666669" height="19.333333333333332"/>
+        </designable>
+        <designable name="bVd-GC-ULM">
+            <size key="intrinsicContentSize" width="1287" height="17"/>
+        </designable>
+        <designable name="cY3-cf-m9e">
+            <size key="intrinsicContentSize" width="60.666666666666664" height="20.333333333333332"/>
+        </designable>
+        <designable name="dgN-eM-qdj">
+            <size key="intrinsicContentSize" width="155" height="17"/>
+        </designable>
+        <designable name="eta-Xk-i4x">
+            <size key="intrinsicContentSize" width="412.66666666666669" height="17"/>
+        </designable>
+        <designable name="f3n-0Y-qsf">
+            <size key="intrinsicContentSize" width="126.66666666666667" height="20.333333333333332"/>
+        </designable>
+        <designable name="fFZ-MA-crE">
+            <size key="intrinsicContentSize" width="156.66666666666666" height="21.666666666666668"/>
+        </designable>
+        <designable name="fRM-vS-6wd">
+            <size key="intrinsicContentSize" width="98.666666666666671" height="17"/>
+        </designable>
+        <designable name="gDb-Xl-8OF">
+            <size key="intrinsicContentSize" width="181.33333333333334" height="19.333333333333332"/>
+        </designable>
+        <designable name="gGK-zu-Dsf">
+            <size key="intrinsicContentSize" width="98.666666666666671" height="17"/>
+        </designable>
+        <designable name="goj-ZF-231">
+            <size key="intrinsicContentSize" width="191" height="21.666666666666668"/>
+        </designable>
+        <designable name="hgH-RH-Doo">
+            <size key="intrinsicContentSize" width="170.66666666666666" height="21.666666666666668"/>
+        </designable>
+        <designable name="ilv-19-slf">
+            <size key="intrinsicContentSize" width="286.66666666666669" height="14.333333333333334"/>
+        </designable>
+        <designable name="iqs-Cd-Nh9">
+            <size key="intrinsicContentSize" width="825.66666666666663" height="17"/>
+        </designable>
+        <designable name="j6n-0n-UgP">
+            <size key="intrinsicContentSize" width="662.66666666666663" height="17"/>
+        </designable>
+        <designable name="k0x-f9-qUL">
+            <size key="intrinsicContentSize" width="238.66666666666666" height="14.333333333333334"/>
+        </designable>
+        <designable name="k3O-6X-MdF">
+            <size key="intrinsicContentSize" width="211.33333333333334" height="13.333333333333334"/>
+        </designable>
+        <designable name="lZr-qg-h72">
+            <size key="intrinsicContentSize" width="213" height="13.333333333333334"/>
+        </designable>
+        <designable name="lqU-VZ-pLL">
+            <size key="intrinsicContentSize" width="184.33333333333334" height="13.333333333333334"/>
+        </designable>
+        <designable name="mhV-l1-ZoU">
+            <size key="intrinsicContentSize" width="749.33333333333337" height="17"/>
+        </designable>
+        <designable name="o5B-Kh-Vep">
+            <size key="intrinsicContentSize" width="294.33333333333331" height="19.333333333333332"/>
+        </designable>
+        <designable name="rDF-o0-aGT">
+            <size key="intrinsicContentSize" width="882" height="17"/>
+        </designable>
+        <designable name="sAt-oD-4Mb">
+            <size key="intrinsicContentSize" width="194" height="14.333333333333334"/>
+        </designable>
+        <designable name="tZV-5H-szz">
+            <size key="intrinsicContentSize" width="45.333333333333336" height="14.333333333333334"/>
+        </designable>
+        <designable name="uLu-gA-21w">
+            <size key="intrinsicContentSize" width="882" height="17"/>
+        </designable>
+        <designable name="uol-az-Qka">
+            <size key="intrinsicContentSize" width="184.33333333333334" height="21.666666666666668"/>
+        </designable>
+        <designable name="vIo-1V-hp0">
+            <size key="intrinsicContentSize" width="200.33333333333334" height="21.666666666666668"/>
+        </designable>
+        <designable name="vUd-yM-LbS">
+            <size key="intrinsicContentSize" width="231.66666666666666" height="13.333333333333334"/>
+        </designable>
+        <designable name="w2I-Vr-HHn">
+            <size key="intrinsicContentSize" width="662.66666666666663" height="17"/>
+        </designable>
+        <designable name="wgy-0K-AbA">
+            <size key="intrinsicContentSize" width="119.66666666666667" height="19.333333333333332"/>
+        </designable>
+        <designable name="zMS-X5-1mQ">
+            <size key="intrinsicContentSize" width="1183.3333333333333" height="17"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="GAO-QE-GuP"/>
-        <segue reference="ZOg-Lf-JSX"/>
+        <segue reference="6Dz-L8-h7I"/>
+        <segue reference="hbx-PL-eMi"/>
         <segue reference="mdJ-XX-Wrm"/>
-        <segue reference="jgI-ud-yDM"/>
+        <segue reference="KgJ-x7-YV2"/>
         <segue reference="bvF-PB-3XP"/>
-        <segue reference="53f-vN-88d"/>
-        <segue reference="Sim-Fk-0cQ"/>
-        <segue reference="dMs-gB-ZC7"/>
-        <segue reference="zJe-KO-wvN"/>
-        <segue reference="HKh-3c-Vf4"/>
-        <segue reference="uEa-i0-BJV"/>
+        <segue reference="LrT-uT-odh"/>
+        <segue reference="7xP-6J-6ZS"/>
+        <segue reference="Cj4-0s-twM"/>
+        <segue reference="riI-uo-ZBO"/>
+        <segue reference="thq-za-677"/>
+        <segue reference="1rZ-kp-9ka"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Too dark" width="718" height="680"/>

@@ -57,7 +57,7 @@ struct CreateVerificationRequestBody: Codable {
         let sessionLifetime: Int = vModel.sessionLifetime ?? VCheckSDKConstants.API.defaultSessionLifetime
               
         self.partnerId = partnerId
-        self.timestamp = Int(ts)!
+        self.timestamp = Int(ts)! //TODO: handle wrong format
         self.scheme = scheme
         self.locale = locale
         self.partnerUserId = partnerUserId

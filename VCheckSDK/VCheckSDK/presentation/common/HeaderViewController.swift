@@ -47,15 +47,15 @@ class HeaderViewContoller: UIViewController {
          if let btnsHex = VCheckSDK.shared.buttonsColorHex {
              UIButton.appearance().tintColor = btnsHex.hexToUIColor()
          }
+         if let backgroundHex = VCheckSDK.shared.backgroundPrimaryColorHex {
+             BackgroundView.appearance().backgroundColor = backgroundHex.hexToUIColor()
+         }
          if let backgroundSecondaryHex = VCheckSDK.shared.backgroundSecondaryColorHex {
              VCheckSDKRoundedView.appearance().backgroundColor = backgroundSecondaryHex.hexToUIColor()
              DocInfoViewCell.appearance().backgroundColor = backgroundSecondaryHex.hexToUIColor()
              UIView.appearance(whenContainedInInstancesOf: [DocInfoViewCell.self]).backgroundColor = UIColor.clear
              UITableView.appearance().backgroundColor = UIColor.clear
              UITableView.appearance().separatorColor = UIColor.clear
-         }
-         if let backgroundHex = VCheckSDK.shared.backgroundPrimaryColorHex {
-             BackgroundView.appearance().backgroundColor = backgroundHex.hexToUIColor()
          }
          if let backgroundTertiaryHex = VCheckSDK.shared.backgroundTertiaryColorHex {
              SmallRoundedView.appearance().backgroundColor = backgroundTertiaryHex.hexToUIColor()
