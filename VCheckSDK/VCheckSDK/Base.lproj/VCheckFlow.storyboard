@@ -479,11 +479,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="q0J-YZ-DjP" userLabel="No Time View Controller" customClass="NoTimeViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZyN-xs-PfW" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m0Q-96-Yyt">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fzN-Vs-aSf" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="704"/>
@@ -586,11 +586,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="cnD-L5-BuD" userLabel="Doc Photo Verif Error View Controller" customClass="DocPhotoVerifErrorViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Flg-BI-YSQ" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cc7-bg-eLX">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbU-iz-0Pd" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="708"/>
@@ -710,11 +710,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="Gk4-E0-G28" userLabel="Wrong Movement View Controller" customClass="WrongGestureViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fgq-Xq-dWc" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6VX-2e-eOs">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVD-jQ-X6f" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="707.33333333333337"/>
@@ -817,11 +817,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="K4l-kg-dQj" userLabel="Frame Interference View Controller" customClass="MultipleFacesDetectedViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A4u-iE-GYT" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IzY-vQ-XSx">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ukX-sd-Tsb">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="707.33333333333337"/>
@@ -924,11 +924,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="YIZ-ih-eAP" userLabel="Look Stratight Error View Controller" customClass="NoFaceDetectedViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gxe-ll-VhG" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aFq-Qd-30Y">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rM6-bw-Dy6" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="707.33333333333337"/>
@@ -1031,11 +1031,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="Drf-gg-cCY" userLabel="Fail Verification View Controller" customClass="VideoFailureViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lcl-Oh-GBb" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E14-XS-PWS">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qpX-jZ-Jb0" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="729.66666666666663"/>
@@ -1289,11 +1289,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="NuA-3X-Mhz" userLabel="Seg Timeout View Controller" customClass="SegmentationTimeoutViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="phk-u4-k2h" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MlN-Qo-aJ1">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aWk-uq-Y5y" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
@@ -1394,7 +1394,6 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" name="BackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="aWk-uq-Y5y" secondAttribute="trailing" id="QUU-0y-ilZ"/>
                                     <constraint firstItem="aWk-uq-Y5y" firstAttribute="width" secondItem="MlN-Qo-aJ1" secondAttribute="width" id="aZA-79-0UC"/>
@@ -1433,11 +1432,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="IiJ-Ck-Dhz" userLabel="In Process View Controller" customClass="VideoProcessingViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A97-HY-J1Q" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z9q-rn-yU5">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIj-7X-oeY" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="637"/>
@@ -1519,11 +1518,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="btG-18-IMq" userLabel="Photo Instructions View Controller" customClass="PhotoInstructionsViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="URt-vI-atd" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yz5-ex-IJd">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YxH-7y-FzT" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="634.66666666666663"/>
@@ -2000,11 +1999,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="2Ob-Di-bza" userLabel="Liveness Screen View Controller" customClass="LivenessScreenViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dGJ-l1-WKs">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q3r-w3-pWa" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="150" width="390" height="650"/>
+                                <rect key="frame" x="0.0" y="150" width="390" height="660"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="10"/>
@@ -2052,21 +2051,21 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fwi-Pr-m0O">
-                                <rect key="frame" x="270" y="400" width="100" height="100"/>
+                                <rect key="frame" x="270" y="410" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="aXr-XI-cmW"/>
                                     <constraint firstAttribute="width" constant="100" id="ue9-Pq-qCU"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8GZ-br-CdT">
-                                <rect key="frame" x="20" y="400" width="100" height="100"/>
+                                <rect key="frame" x="20" y="410" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="FDO-cJ-PSa"/>
                                     <constraint firstAttribute="width" constant="100" id="M7S-TO-TSQ"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="doR-OE-myt" userLabel="Center Arrow Anim Holder">
-                                <rect key="frame" x="145" y="400" width="100" height="100"/>
+                                <rect key="frame" x="145" y="422" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="TS1-TW-N2h"/>
                                     <constraint firstAttribute="width" constant="100" id="qdE-FE-mDP"/>
@@ -2130,11 +2129,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="dcp-4c-bus" userLabel="Check Doc Info View Controller" customClass="CheckDocInfoViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SNh-eB-9EL" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZq-tw-zcH">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBt-rb-JKa" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="1058"/>
@@ -2230,7 +2229,7 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </view>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="docFieldCell" rowHeight="82" id="Jcf-Ms-xcs" customClass="DocInfoViewCell" customModule="VCheckSDK" customModuleProvider="target">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="docFieldCell" rowHeight="82" id="Jcf-Ms-xcs" customClass="DocInfoViewCell" customModule="VCheckSDK" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="44.666666030883789" width="334" height="82"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jcf-Ms-xcs" id="dqy-io-axa">
@@ -2396,11 +2395,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="ZEj-uY-1Rn" userLabel="Photo Upload View Controller" customClass="TakeDocPhotoViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MMb-ku-R2l" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KJu-a3-gx9">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VT8-7V-8px" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="884.66666666666663"/>
@@ -2722,11 +2721,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="OYj-MX-icL" userLabel="Check Photo View Controller" customClass="CheckDocPhotoViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ncW-VQ-0Po" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DXO-ku-gkK">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xJI-uw-YK5" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="1013"/>
@@ -3063,11 +3062,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="vMJ-Fv-l4l" userLabel="Liveness Instructions View Controller" customClass="LivenessInstructionsViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mSN-jW-hCq" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRx-Bb-ohi">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qjd-Rt-rZ6" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="841"/>
@@ -3325,11 +3324,11 @@
             <objects>
                 <viewController id="WJ2-QY-Hl3" customClass="ZoomedDocPhotoViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="44V-am-ckB" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="746"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aBI-ct-SYg">
-                                <rect key="frame" x="0.0" y="144" width="390" height="552"/>
+                                <rect key="frame" x="0.0" y="144" width="390" height="596"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmI-2b-PrY">
                                 <rect key="frame" x="311" y="24" width="61" height="80"/>
@@ -3367,11 +3366,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="cii-CZ-O8e" userLabel="Fast Movemetns View Controller" customClass="SharpMovementsViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KLd-hr-QbN" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0In-kd-3PX">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FtZ-Fe-fHe" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="674"/>
@@ -3473,11 +3472,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="MMF-sr-RPg" userLabel="Too Dark View Controller" customClass="NoBrightnessViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eCL-fk-PA8" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3sh-ue-lm4">
-                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MjI-9Q-v7Q" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="690.66666666666663"/>
@@ -3821,16 +3820,16 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="GAO-QE-GuP"/>
-        <segue reference="ZOg-Lf-JSX"/>
+        <segue reference="6Dz-L8-h7I"/>
+        <segue reference="hbx-PL-eMi"/>
         <segue reference="mdJ-XX-Wrm"/>
         <segue reference="KgJ-x7-YV2"/>
-        <segue reference="bvF-PB-3XP"/>
-        <segue reference="LrT-uT-odh"/>
+        <segue reference="MdT-K5-jp1"/>
+        <segue reference="53f-vN-88d"/>
         <segue reference="JS7-Qf-uuL"/>
-        <segue reference="dMs-gB-ZC7"/>
-        <segue reference="zJe-KO-wvN"/>
-        <segue reference="HKh-3c-Vf4"/>
+        <segue reference="Cj4-0s-twM"/>
+        <segue reference="riI-uo-ZBO"/>
+        <segue reference="thq-za-677"/>
         <segue reference="1rZ-kp-9ka"/>
     </inferredMetricsTieBreakers>
     <resources>
