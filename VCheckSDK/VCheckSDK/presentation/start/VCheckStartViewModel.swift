@@ -53,41 +53,9 @@ class VCheckStartViewModel {
                 return
             }
             self.timestamp = timestamp
-            self.createVerifAttempt()
+            self.initVerif()
         })
     }
-    
-    func createVerifAttempt() {
-        let languagePrefix = VCheckSDK.shared.getSDKLangCode()
-        
-        if (VCheckSDK.shared.verificationClientCreationModel == nil) {
-            self.error = VCheckApiError(errorText: "Client error: Verification was not created properly",
-                                        errorCode: VCheckApiError.DEFAULT_CODE)
-            self.isLoading = false
-            return
-        }
-                
-        if let timestamp = self.timestamp {
-            self.dataService.createVerificationRequest(timestamp: timestamp,
-                                                       locale: languagePrefix,
-                                                       verificationClientCreationModel:
-                                                            VCheckSDK.shared.verificationClientCreationModel!,
-                                                       completion: { (data, error) in
-                if let error = error {
-                    self.error = error
-                    self.isLoading = false
-                    return
-                }
-                
-                VCheckSDK.shared.setVerificationToken(token: data!.token!)
-                                
-                self.initVerif()
-            })
-        } else {
-            print("VCheckSDK - Error: server timestamp not set!")
-        }
-    }
-    
     
     func initVerif() {
         
@@ -97,9 +65,6 @@ class VCheckStartViewModel {
                 self.isLoading = false
                 return
             }
-                        
-            VCheckSDK.shared.setVerificationId(verifId: data!.id!)
-            
             self.getCurrentStage()
         })
     }

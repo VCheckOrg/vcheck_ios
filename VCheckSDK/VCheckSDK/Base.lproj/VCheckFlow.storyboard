@@ -295,6 +295,7 @@
                             <searchBar contentMode="redraw" preservesSuperviewLayoutMargins="YES" placeholder="Search" id="fVU-YR-D7u">
                                 <rect key="frame" x="0.0" y="49" width="390" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="DescriptionColor"/>
                                 <color key="barTintColor" name="BackgroundColor"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
@@ -2205,18 +2206,16 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Zhd-T3-QWa" customClass="CustomizableTableView" customModule="VCheckSDK" customModuleProvider="target">
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Zhd-T3-QWa" customClass="CustomizableTableView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="645.66666666666663" width="334" height="175.33333333333337"/>
                                                         <color key="backgroundColor" name="CardColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="175.5" id="HJe-os-lcS"/>
                                                         </constraints>
                                                         <color key="sectionIndexBackgroundColor" name="CardColor"/>
-                                                        <color key="sectionIndexTrackingBackgroundColor" name="CardColor"/>
                                                         <view key="tableFooterView" contentMode="scaleToFill" id="QdH-jc-smc" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="149.33333206176758" width="334" height="77"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         </view>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="docFieldCell" rowHeight="82" id="Jcf-Ms-xcs" customClass="DocInfoViewCell" customModule="VCheckSDK" customModuleProvider="target">
@@ -2369,6 +2368,7 @@
                         <outlet property="parentCardHeightConstraint" destination="1Py-Yb-KBE" id="abr-Xq-MwX"/>
                         <outlet property="secondPhotoImageView" destination="87H-j0-OXZ" id="blw-es-Ov1"/>
                         <outlet property="secondPhotoImgCard" destination="4Cf-tI-RPy" id="iDg-bI-bqT"/>
+                        <outlet property="tableFooterView" destination="QdH-jc-smc" id="tMn-jH-eUA"/>
                         <outlet property="tableTopConstraint" destination="KAZ-qg-0Iu" id="Zpc-E9-dKZ"/>
                         <outlet property="tableViewHeightConstraint" destination="HJe-os-lcS" id="r0x-97-9dg"/>
                         <segue destination="vMJ-Fv-l4l" kind="show" identifier="CheckInfoToLivenessInstr" id="mdJ-XX-Wrm"/>

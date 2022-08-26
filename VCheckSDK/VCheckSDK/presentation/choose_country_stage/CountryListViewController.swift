@@ -23,6 +23,9 @@ class CountryListViewController : UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
+            if let bc = VCheckSDK.shared.backgroundSecondaryColorHex {
+                self.searchBar.barTintColor = bc.hexToUIColor()
+            }
             if let searchTextfield = self.searchBar.value(forKey: "searchField") as? UITextField  {
                 searchTextfield.layer.borderColor = UIColor.lightGray.cgColor
                 searchTextfield.layer.borderWidth = 1
@@ -31,6 +34,7 @@ class CountryListViewController : UIViewController {
                 searchTextfield.leftView?.tintColor = .white
                 if let bc = VCheckSDK.shared.backgroundSecondaryColorHex {
                     searchTextfield.backgroundColor = bc.hexToUIColor()
+                    //searchTextfield.tintColor = bc.hexToUIColor()
                 }
             }
         }

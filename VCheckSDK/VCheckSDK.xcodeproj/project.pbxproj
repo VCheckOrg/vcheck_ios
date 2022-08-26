@@ -26,7 +26,6 @@
 		DA3BEDCC2869A8D300B15E5C /* VerificationResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED782869A8D200B15E5C /* VerificationResponseModels.swift */; };
 		DA3BEDCD2869A8D300B15E5C /* DocumentVerificationCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED792869A8D200B15E5C /* DocumentVerificationCodes.swift */; };
 		DA3BEDCE2869A8D300B15E5C /* CountryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED7A2869A8D200B15E5C /* CountryModels.swift */; };
-		DA3BEDCF2869A8D300B15E5C /* VerificationRequestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED7B2869A8D200B15E5C /* VerificationRequestModels.swift */; };
 		DA3BEDD02869A8D300B15E5C /* DocumentTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED7C2869A8D200B15E5C /* DocumentTypes.swift */; };
 		DA3BEDD12869A8D300B15E5C /* LivenessUploadModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED7D2869A8D200B15E5C /* LivenessUploadModels.swift */; };
 		DA3BEDD22869A8D300B15E5C /* VCheckSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED7F2869A8D200B15E5C /* VCheckSDK.swift */; };
@@ -79,9 +78,7 @@
 		DAA986CC28B61CAC007811F9 /* id_card_turn_side.json in Resources */ = {isa = PBXBuildFile; fileRef = DAA986CB28B61CAC007811F9 /* id_card_turn_side.json */; };
 		DABB5FC228B3C73500BBACC0 /* ThemeClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB5FC128B3C73500BBACC0 /* ThemeClasses.swift */; };
 		DAC2DF3E28B40E330049B8B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC2DF3D28B40E330049B8B0 /* SceneDelegate.swift */; };
-		DAC3C82A2877669F00B32FFC /* VerificationClientCreationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3C8292877669F00B32FFC /* VerificationClientCreationModel.swift */; };
 		DAC3C82C2877695700B32FFC /* VerificationSchemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3C82B2877695700B32FFC /* VerificationSchemes.swift */; };
-		DAF3CC7C2890021300F72914 /* FilnalVerifCheckModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF3CC7B2890021300F72914 /* FilnalVerifCheckModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,7 +104,6 @@
 		DA3BED782869A8D200B15E5C /* VerificationResponseModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationResponseModels.swift; sourceTree = "<group>"; };
 		DA3BED792869A8D200B15E5C /* DocumentVerificationCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentVerificationCodes.swift; sourceTree = "<group>"; };
 		DA3BED7A2869A8D200B15E5C /* CountryModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryModels.swift; sourceTree = "<group>"; };
-		DA3BED7B2869A8D200B15E5C /* VerificationRequestModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationRequestModels.swift; sourceTree = "<group>"; };
 		DA3BED7C2869A8D200B15E5C /* DocumentTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentTypes.swift; sourceTree = "<group>"; };
 		DA3BED7D2869A8D200B15E5C /* LivenessUploadModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LivenessUploadModels.swift; sourceTree = "<group>"; };
 		DA3BED7F2869A8D200B15E5C /* VCheckSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCheckSDK.swift; sourceTree = "<group>"; };
@@ -165,11 +161,9 @@
 		DAA986CB28B61CAC007811F9 /* id_card_turn_side.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = id_card_turn_side.json; sourceTree = "<group>"; };
 		DABB5FC128B3C73500BBACC0 /* ThemeClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeClasses.swift; sourceTree = "<group>"; };
 		DAC2DF3D28B40E330049B8B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DAC3C8292877669F00B32FFC /* VerificationClientCreationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationClientCreationModel.swift; sourceTree = "<group>"; };
 		DAC3C82B2877695700B32FFC /* VerificationSchemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationSchemes.swift; sourceTree = "<group>"; };
 		DAE5434C28A5822A00AEBC26 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/VCheckFlow.strings; sourceTree = "<group>"; };
 		DAE5434D28A5822C00AEBC26 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
-		DAF3CC7B2890021300F72914 /* FilnalVerifCheckModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilnalVerifCheckModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,13 +265,10 @@
 				DA3BED782869A8D200B15E5C /* VerificationResponseModels.swift */,
 				DA3BED792869A8D200B15E5C /* DocumentVerificationCodes.swift */,
 				DA3BED7A2869A8D200B15E5C /* CountryModels.swift */,
-				DA3BED7B2869A8D200B15E5C /* VerificationRequestModels.swift */,
 				DA3BED7C2869A8D200B15E5C /* DocumentTypes.swift */,
 				DA3BED7D2869A8D200B15E5C /* LivenessUploadModels.swift */,
 				DA153773286F4FE60038A203 /* GeneralStageModels.swift */,
-				DAC3C8292877669F00B32FFC /* VerificationClientCreationModel.swift */,
 				DAC3C82B2877695700B32FFC /* VerificationSchemes.swift */,
-				DAF3CC7B2890021300F72914 /* FilnalVerifCheckModels.swift */,
 				DA4D269B289198CC00C6F43A /* DocumentRequestModels.swift */,
 			);
 			path = domain;
@@ -597,7 +588,6 @@
 				DA3BEDEE2869A8D300B15E5C /* CheckDocInfoViewController.swift in Sources */,
 				DA3BEDD62869A8D300B15E5C /* LivenessVideoRecorder.swift in Sources */,
 				DA3BEDE52869A8D300B15E5C /* LivenessScreenViewController.swift in Sources */,
-				DA3BEDCF2869A8D300B15E5C /* VerificationRequestModels.swift in Sources */,
 				DA3BEDF72869A8D300B15E5C /* ZoomedDocPhotoViewController.swift in Sources */,
 				DA3BEDFF2869A8D300B15E5C /* GlobalUtils.swift in Sources */,
 				DA3BEDEA2869A8D300B15E5C /* CheckDocInfoViewModel.swift in Sources */,
@@ -614,7 +604,6 @@
 				DA3BEDDD2869A8D300B15E5C /* NoFaceDetectedViewController.swift in Sources */,
 				DA4D269C289198CC00C6F43A /* DocumentRequestModels.swift in Sources */,
 				DA3BEE012869A8D300B15E5C /* Debouncer.swift in Sources */,
-				DAF3CC7C2890021300F72914 /* FilnalVerifCheckModels.swift in Sources */,
 				DA3BEDDB2869A8D300B15E5C /* VideoProcessingViewController.swift in Sources */,
 				DA3BEDEF2869A8D300B15E5C /* DocPhotoVerifErrorViewModel.swift in Sources */,
 				DA3BEDF22869A8D300B15E5C /* AllowedCountryViewCell.swift in Sources */,
@@ -622,7 +611,6 @@
 				DA3BEDF82869A8D300B15E5C /* PhotoInstructionsViewController.swift in Sources */,
 				DA3BEDF52869A8D300B15E5C /* CheckDocPhotoViewModel.swift in Sources */,
 				DA3BEDDE2869A8D300B15E5C /* NoTimeViewController.swift in Sources */,
-				DAC3C82A2877669F00B32FFC /* VerificationClientCreationModel.swift in Sources */,
 				DA3BEDD82869A8D300B15E5C /* VideoProcessingViewModel.swift in Sources */,
 				DABB5FC228B3C73500BBACC0 /* ThemeClasses.swift in Sources */,
 				DA3BEDCA2869A8D300B15E5C /* DocumentResponseModels.swift in Sources */,

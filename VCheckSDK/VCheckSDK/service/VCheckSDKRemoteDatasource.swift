@@ -16,7 +16,6 @@ struct VCheckSDKRemoteDatasource {
     
     // MARK: - URL
     private let verifBaseUrl = VCheckSDKConstants.API.verificationApiBaseUrl
-    private let partnerBaseUrl = VCheckSDKConstants.API.partnerApiBaseUrl
     
     
     // MARK: - API calls
@@ -35,42 +34,6 @@ struct VCheckSDKRemoteDatasource {
               return
           })
     }
-
-    func createVerificationRequest(timestamp: String,
-                                   locale: String,
-                                   verificationClientCreationModel: VerificationClientCreationModel,
-                                   completion: @escaping (VerificationCreateAttemptResponseData?, VCheckApiError?) -> ()) {
-        let url = "\(partnerBaseUrl)verifications"
-        
-        let model = CreateVerificationRequestBody.init(ts: timestamp, locale: locale, vModel: verificationClientCreationModel)
-                
-        var jsonData: Dictionary<String, Any>?
-        do {
-            jsonData = try model.toDictionary()
-        } catch {
-            completion(nil, VCheckApiError(errorText: "Error: Failed to convert model!",
-                                           errorCode: VCheckApiError.DEFAULT_CODE))
-            return
-        }
-        
-        AF.request(url, method: .post, parameters: jsonData, encoding: JSONEncoding.default)
-          .responseDecodable(of: VerificationCreateAttemptResponse.self) { (response) in
-            guard let response = response.value else {
-                completion(nil, VCheckApiError(errorText: "createVerificationRequest: " + response.error!.localizedDescription,
-                                               errorCode: response.response?.statusCode))
-                return
-            }
-              if (response.errorCode != nil && response.errorCode != 0) {
-                  completion(nil, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
-                                           + "\(response.message ?? "")",
-                                                 errorCode: response.errorCode))
-                  return
-              }
-              completion(response.data, nil)
-              return
-          }
-    }
-    
     
     func initVerification(completion: @escaping (VerificationInitResponseData?, VCheckApiError?) -> ()) {
         let url = "\(verifBaseUrl)verifications/init"
@@ -375,51 +338,6 @@ struct VCheckSDKRemoteDatasource {
                 completion(response, nil)
                 return
             }
-    }
-    
-    
-    func checkFinalVerificationStatus(verifId: Int,
-                                      partnerId: Int,
-                                      partnerSecret: String,
-                                      completion: @escaping (FinalVerifCheckResponseModel?, VCheckApiError?) -> ()) {
-
-        let token = VCheckSDK.shared.getVerificationToken()
-        if (token.isEmpty) {
-            completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
-                                           errorCode: VCheckApiError.DEFAULT_CODE))
-            return
-        }
-        let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
-        
-        requestServerTimestamp(completion: { (timestamp, error) in
-            if error != nil {
-                completion(nil, VCheckApiError(errorText: "Error: Service timestamp was not retrieved",
-                                               errorCode: VCheckApiError.DEFAULT_CODE))
-                return
-            } else {
-                let sign = "\(partnerId)\(timestamp!)\(verifId)\(partnerSecret)".sha256()
-                let url = "\(partnerBaseUrl)verifications/\(verifId)?partner_id=\(partnerId)&timestamp=\(timestamp!)&sign=\(sign)"
-                
-                AF.request(url, method: .get, headers: headers)
-                  .responseDecodable(of: FinalVerifCheckResponseModel.self) { (response) in
-                    guard let response = response.value else {
-                        completion(nil, VCheckApiError(errorText: "getCountryAvailableDocTypeInfo: "
-                                                       + response.error!.localizedDescription,
-                                                       errorCode: response.response?.statusCode))
-                        return
-                    }
-                      if (response.errorCode != nil && response.errorCode != 0) {
-                          completion(nil, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
-                                                   + "\(response.message ?? "")",
-                                                         errorCode: response.errorCode))
-                          return
-                      }
-                          completion(response, nil)
-                          return
-                  }
-            }
-            
-        })
     }
     
     

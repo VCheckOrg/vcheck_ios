@@ -10,64 +10,6 @@ import Foundation
 
 import Foundation
 
-struct VerificationCreateAttemptResponse: Codable {
-
-  var data      : VerificationCreateAttemptResponseData?   = VerificationCreateAttemptResponseData()
-  var errorCode : Int?    = nil
-  var message   : String? = nil
-
-  enum CodingKeys: String, CodingKey {
-
-    case data      = "data"
-    case errorCode = "error_code"
-    case message   = "message"
-  
-  }
-
-  init(from decoder: Decoder) throws {
-    let values = try decoder.container(keyedBy: CodingKeys.self)
-
-    data      = try values.decodeIfPresent(VerificationCreateAttemptResponseData.self   , forKey: .data      )
-    errorCode = try values.decodeIfPresent(Int.self    , forKey: .errorCode )
-    message   = try values.decodeIfPresent(String.self , forKey: .message   )
- 
-  }
-
-  init() {}
-
-}
-
-
-struct VerificationCreateAttemptResponseData: Codable {
-
-  var applicationId : Int?    = nil
-  var createTime    : String? = nil
-  var redirectUrl   : String? = nil
-  var token         : String? = nil
-
-  enum CodingKeys: String, CodingKey {
-
-    case applicationId = "application_id"
-    case createTime    = "create_time"
-    case redirectUrl   = "redirect_url"
-    case token = "token"
-  }
-
-  init(from decoder: Decoder) throws {
-    let values = try decoder.container(keyedBy: CodingKeys.self)
-
-    applicationId = try values.decodeIfPresent(Int.self    , forKey: .applicationId )
-    createTime    = try values.decodeIfPresent(String.self , forKey: .createTime    )
-    redirectUrl   = try values.decodeIfPresent(String.self , forKey: .redirectUrl   )
-    token         = try values.decodeIfPresent(String.self , forKey: .token   )
- 
-  }
-
-  init() {}
-
-}
-
-
 
 struct VerificationInitResponse: Codable {
 

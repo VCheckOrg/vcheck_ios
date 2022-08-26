@@ -39,6 +39,8 @@ class CheckDocInfoViewController : UIViewController {
     
     @IBOutlet weak var docInfoScrollView: UIScrollView!
     
+    @IBOutlet weak var tableFooterView: BackgroundView!
+    
     
     @IBAction func submitDocAction(_ sender: UIButton) {
         self.checkDocFieldsAndPerformConfirmation()
@@ -56,10 +58,11 @@ class CheckDocInfoViewController : UIViewController {
     
     override func viewDidLoad() {
         
-        docFieldsTableView.dataSource = self
+        self.docFieldsTableView.dataSource = self
         
         if let bc = VCheckSDK.shared.backgroundSecondaryColorHex {
             self.docFieldsTableView.setValue(bc.hexToUIColor() , forKey: "tableHeaderBackgroundColor")
+            self.tableFooterView.backgroundColor = bc.hexToUIColor()
         }
         
         firstPhotoImageView.image = firstPhoto
@@ -90,7 +93,7 @@ class CheckDocInfoViewController : UIViewController {
                 VCheckSDKLocalDatasource.shared.setLivenessMilestonesList(list:
                     (self.viewModel.currentStageResponse?.data?.config?.gestures)!)
                 self.performSegue(withIdentifier: "CheckInfoToLivenessInstr", sender: nil)
-            } else if (VCheckSDK.shared.verificationClientCreationModel?.verificationType == VerificationSchemeType.DOCUMENT_UPLOAD_ONLY) {
+            } else if (VCheckSDK.shared.getVerificationType() == VerificationSchemeType.DOCUMENT_UPLOAD_ONLY) {
                 VCheckSDK.shared.finish(executePartnerCallback: true)
             }
         }
@@ -172,6 +175,10 @@ extension CheckDocInfoViewController: UITableViewDataSource {
                 
         let field: DocFieldWitOptPreFilledData = fieldsList[indexPath.row]
         
+        if let pct = (VCheckSDK.shared.primaryTextColorHex) {
+            cell.docTextField.textColor = pct.hexToUIColor()
+        }
+        
         var title = ""
         switch(currLocaleCode) {
             case "uk": title = field.title.uk!
@@ -211,9 +218,15 @@ extension CheckDocInfoViewController: UITableViewDataSource {
                                         for: UIControl.Event.editingChanged)
         }
         if (fieldName == "date_of_birth") {
+            var hintColor: UIColor? = nil
+            if let pc = VCheckSDK.shared.secondaryTextColorHex {
+                hintColor = pc.hexToUIColor()
+            } else {
+                hintColor = UIColor.white
+            }
             cell.docTextField.attributedPlaceholder = NSAttributedString(
                 string: "doc_date_placeholder".localized,
-                attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+                attributes: [NSAttributedString.Key.foregroundColor: hintColor!])
             cell.docTextField.addTarget(self, action: #selector(self.validateDocDateOfBirthField(_:)),
                                         for: UIControl.Event.editingChanged)
         }

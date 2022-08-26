@@ -354,7 +354,7 @@ extension SegmentationViewController {
             self.fadeViewIn(view: self.darkFrameOverlay, delay: 0.0, animationDuration: 0.5)
             
             DispatchQueue.main.asyncAfter(deadline:
-                    .now() + .milliseconds(900)) { //length of full fade animation cycle
+                    .now() + .milliseconds(900)) { //duration of full fade animation cycle
                 self.successFrame.isHidden = true
                 self.playStageSuccessAnimation()
             }
