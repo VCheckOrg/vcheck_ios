@@ -106,7 +106,7 @@ class CheckDocPhotoViewController : UIViewController {
             self.navigateToDocInfoScreen()
         } else {
             if (self.isFromSegmentation) {
-                self.performSegue(withIdentifier: "CheckPhotoToFatalSegErr", sender: nil) //TODO: test!
+                self.performSegue(withIdentifier: "CheckPhotoToFatalSegErr", sender: nil)
             } else {
                 print("VCheck - error: document id is nil while doing manual photo upload!")
             }
@@ -176,9 +176,11 @@ class CheckDocPhotoViewController : UIViewController {
     }
     
     func moveToChooseDocTypeViewController() {
-        let viewController = self.navigationController?.viewControllers.first { $0 is ChooseDocTypeViewController }
-        guard let destinationVC = viewController else { return }
-        self.navigationController?.popToViewController(destinationVC, animated: true)
+        self.navigationController?.popViewController(animated: true)
+        //deprecated:
+//        let viewController = self.navigationController?.viewControllers.first { $0 is ChooseDocTypeViewController }
+//        guard let destinationVC = viewController else { return }
+//        self.navigationController?.popToViewController(destinationVC, animated: true)
     }
     
     

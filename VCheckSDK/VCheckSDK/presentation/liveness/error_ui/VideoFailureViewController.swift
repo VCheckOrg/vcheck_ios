@@ -15,7 +15,7 @@ class VideoFailureViewController: UIViewController {
     @IBOutlet weak var closeBtn: UIButton!
     
     @IBAction func actionRetry(_ sender: UIButton) {
-        self.navigationController?.dismiss(animated: false, completion: nil)
+        self.navigationController?.popViewController(animated: true)
         self.videoProcessingViewController?.uploadVideo()
     }
     

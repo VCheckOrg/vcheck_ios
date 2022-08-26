@@ -209,7 +209,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XZT-Se-5L6" customClass="CustomizableTableView" customModule="VCheckSDK" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="100" width="390" height="646"/>
-                                <color key="backgroundColor" name="BackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="j1v-ZJ-M5A" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="207.33333206176758" width="390" height="98"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1182,6 +1182,7 @@
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="aWn-lH-7FU" customClass="NonCustomizableIconView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="23" y="28" width="10" height="16"/>
+                                                        <color key="tintColor" name="DescriptionColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="10" id="Wom-05-EbZ"/>
                                                             <constraint firstAttribute="height" constant="16" id="meQ-gX-XWn"/>
@@ -1549,6 +1550,7 @@
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="MVi-yI-7fe" customClass="NonCustomizableIconView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="23" y="28" width="10" height="16"/>
+                                                        <color key="tintColor" name="DescriptionColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="10" id="Bvc-o6-xXI"/>
                                                             <constraint firstAttribute="height" constant="16" id="Eq7-EG-9yT"/>
@@ -1562,6 +1564,7 @@
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_color_icon" translatesAutoresizingMaskIntoConstraints="NO" id="NWF-SG-8uJ" customClass="CustomizableIconView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="157.33333333333331" width="20" height="19"/>
+                                                        <color key="tintColor" name="DescriptionColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="19" id="00X-TT-AgI"/>
                                                             <constraint firstAttribute="width" constant="20" id="6XF-8L-7hX"/>
@@ -1575,6 +1578,7 @@
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seen_all_icon" translatesAutoresizingMaskIntoConstraints="NO" id="z6X-ds-J81" customClass="CustomizableIconView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="191.33333333333331" width="18" height="22"/>
+                                                        <color key="tintColor" name="DescriptionColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="18" id="97T-VZ-P4o"/>
                                                             <constraint firstAttribute="height" constant="22" id="WFz-U6-8Qs"/>
@@ -1606,6 +1610,7 @@
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seen_four_corners_icon" translatesAutoresizingMaskIntoConstraints="NO" id="exS-3e-TaC" customClass="CustomizableIconView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="229.33333333333331" width="18" height="18"/>
+                                                        <color key="tintColor" name="DescriptionColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="18" id="K41-8D-cYR"/>
                                                             <constraint firstAttribute="height" constant="18" id="ZzL-tm-fKG"/>
@@ -1613,6 +1618,7 @@
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valid_dispatch_icon" translatesAutoresizingMaskIntoConstraints="NO" id="F2m-Px-5Fn" customClass="CustomizableIconView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="264.33333333333331" width="18" height="20"/>
+                                                        <color key="tintColor" name="DescriptionColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="18" id="I2D-QG-1cv"/>
                                                             <constraint firstAttribute="height" constant="20" id="IKE-rs-Fmi"/>
@@ -1620,6 +1626,7 @@
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_foreign_objects_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Q6s-EJ-AA9" customClass="CustomizableIconView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="302.33333333333331" width="18" height="22"/>
+                                                        <color key="tintColor" name="DescriptionColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="ejZ-7M-FSm"/>
                                                             <constraint firstAttribute="width" constant="18" id="gqP-8j-CNw"/>
@@ -1642,6 +1649,7 @@
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="original_doc_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Ltx-aS-t28" customClass="CustomizableIconView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="345.33333333333331" width="18" height="22"/>
+                                                        <color key="tintColor" name="DescriptionColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="cub-Cg-eMw"/>
                                                             <constraint firstAttribute="width" constant="18" id="tkK-Dp-hvr"/>
@@ -1758,6 +1766,7 @@
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="XKg-SM-GGZ" customClass="NonCustomizableIconView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="23" y="28" width="10" height="16"/>
+                                                        <color key="tintColor" name="DescriptionColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="16" id="3pp-EF-5WZ"/>
                                                             <constraint firstAttribute="width" constant="10" id="5uc-E7-QSe"/>
@@ -1781,6 +1790,7 @@
                                                             </label>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_icon" translatesAutoresizingMaskIntoConstraints="NO" id="AlH-QF-e5f" customClass="CustomizableIconView" customModule="VCheckSDK" customModuleProvider="target">
                                                                 <rect key="frame" x="16" y="23" width="28" height="28"/>
+                                                                <color key="tintColor" name="DescriptionColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="28" id="1c8-gR-o1u"/>
                                                                     <constraint firstAttribute="width" constant="28" id="flA-R0-zlk"/>
@@ -1829,6 +1839,7 @@
                                                             </label>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="inter_passport_icon" translatesAutoresizingMaskIntoConstraints="NO" id="KzD-Jh-bvl" customClass="CustomizableIconView" customModule="VCheckSDK" customModuleProvider="target">
                                                                 <rect key="frame" x="16" y="23" width="28" height="28"/>
+                                                                <color key="tintColor" name="DescriptionColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="28" id="96C-e0-fdo"/>
                                                                     <constraint firstAttribute="width" constant="28" id="bkI-na-2jY"/>
@@ -1871,6 +1882,7 @@
                                                             </label>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bio_passport_icon" translatesAutoresizingMaskIntoConstraints="NO" id="bp1-Gp-Wm1" customClass="CustomizableIconView" customModule="VCheckSDK" customModuleProvider="target">
                                                                 <rect key="frame" x="16" y="22.999999999999943" width="28" height="28"/>
+                                                                <color key="tintColor" name="DescriptionColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="28" id="2kZ-y7-140"/>
                                                                     <constraint firstAttribute="height" constant="28" id="RxO-jT-Pn2"/>
@@ -2206,7 +2218,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Zhd-T3-QWa" customClass="CustomizableTableView" customModule="VCheckSDK" customModuleProvider="target">
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Zhd-T3-QWa" customClass="CustomizableTableView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="645.66666666666663" width="334" height="175.33333333333337"/>
                                                         <color key="backgroundColor" name="CardColor"/>
                                                         <constraints>
@@ -2266,7 +2278,8 @@
                                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                         </textView>
                                                                     </subviews>
-                                                                    <color key="backgroundColor" name="CardColor"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="tintColor" name="CardColor"/>
                                                                     <constraints>
                                                                         <constraint firstItem="GLw-Ck-Zxn" firstAttribute="leading" secondItem="dqy-io-axa" secondAttribute="leading" id="0b7-q9-8T1"/>
                                                                         <constraint firstItem="GLw-Ck-Zxn" firstAttribute="top" secondItem="zVf-o1-mBp" secondAttribute="bottom" constant="8" id="0mL-YD-Si8"/>
@@ -2403,6 +2416,7 @@
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="AM5-Tn-EH1" customClass="NonCustomizableIconView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="23" y="28" width="10" height="16"/>
+                                                        <color key="tintColor" name="DescriptionColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="16" id="7Bj-hV-u4e"/>
                                                             <constraint firstAttribute="width" constant="10" id="mvS-oa-aaY"/>
@@ -2439,6 +2453,7 @@
                                                                     </label>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="make_photo_icon" translatesAutoresizingMaskIntoConstraints="NO" id="mL8-2u-bmd" customClass="CustomizableIconView" customModule="VCheckSDK" customModuleProvider="target">
                                                                         <rect key="frame" x="50" y="11" width="24" height="24"/>
+                                                                        <color key="tintColor" name="DescriptionColor"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="24" id="C1G-We-g71"/>
                                                                             <constraint firstAttribute="height" constant="24" id="P8b-Fl-MIc"/>
@@ -2543,6 +2558,7 @@
                                                                     </label>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="make_photo_icon" translatesAutoresizingMaskIntoConstraints="NO" id="3Uf-0k-sYq" customClass="CustomizableIconView" customModule="VCheckSDK" customModuleProvider="target">
                                                                         <rect key="frame" x="50" y="11" width="24" height="24"/>
+                                                                        <color key="tintColor" name="DescriptionColor"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="24" id="Axq-oC-Ddd"/>
                                                                             <constraint firstAttribute="width" constant="24" id="LGr-Zd-8L8"/>
@@ -2941,7 +2957,7 @@
                         <segue destination="dcp-4c-bus" kind="show" identifier="DocPhotosPreviewToCheckDocInfo" id="bvF-PB-3XP"/>
                         <segue destination="WJ2-QY-Hl3" kind="presentation" identifier="CheckPhotoToZoom" id="CN3-fL-m8u"/>
                         <segue destination="cnD-L5-BuD" kind="show" identifier="DocPhotoCheckToError" id="2fa-cK-aUP"/>
-                        <segue destination="NuA-3X-Mhz" kind="show" identifier="CheckPhotoToFatalSegErr" id="7xP-6J-6ZS"/>
+                        <segue destination="NuA-3X-Mhz" kind="show" identifier="CheckPhotoToFatalSegErr" id="JS7-Qf-uuL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lZZ-dF-Dd4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2987,6 +3003,7 @@
                                     </imageView>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="67V-bW-zDg" customClass="NonCustomizableIconView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="16" y="20" width="10" height="16"/>
+                                        <color key="tintColor" name="DescriptionColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="pgk-Vh-1Ic"/>
                                             <constraint firstAttribute="width" constant="10" id="rMj-Og-K59"/>
@@ -3133,6 +3150,7 @@
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="requested_movements_icon" translatesAutoresizingMaskIntoConstraints="NO" id="bCY-XI-wsl" customClass="CustomizableIconView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="375.66666666666669" width="20" height="19"/>
+                                                        <color key="tintColor" name="DescriptionColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="BpG-pX-vd1"/>
                                                             <constraint firstAttribute="height" constant="19" id="coK-Me-YXd"/>
@@ -3140,6 +3158,7 @@
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smooth_movements_icon" translatesAutoresizingMaskIntoConstraints="NO" id="fIc-s3-Bdh" customClass="CustomizableIconView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="424.66666666666663" width="18" height="22"/>
+                                                        <color key="tintColor" name="DescriptionColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="AHU-ga-0qe"/>
                                                             <constraint firstAttribute="width" constant="18" id="DCp-s9-nsj"/>
@@ -3147,6 +3166,7 @@
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_interference_icon" translatesAutoresizingMaskIntoConstraints="NO" id="FAq-ZT-TYG" customClass="CustomizableIconView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="476.66666666666663" width="18" height="18"/>
+                                                        <color key="tintColor" name="DescriptionColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="18" id="95c-Ij-YCI"/>
                                                             <constraint firstAttribute="width" constant="18" id="rnj-px-VPn"/>
@@ -3154,6 +3174,7 @@
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="good_light_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Rkf-kC-tcK" customClass="CustomizableIconView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="524.66666666666663" width="18" height="20"/>
+                                                        <color key="tintColor" name="DescriptionColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="18" id="Ox1-5Z-Cbf"/>
                                                             <constraint firstAttribute="height" constant="20" id="XWH-Dv-COU"/>
@@ -3161,6 +3182,7 @@
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fixed_camera_icon" translatesAutoresizingMaskIntoConstraints="NO" id="KiT-vF-PGZ" customClass="CustomizableIconView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="574.66666666666663" width="18" height="22"/>
+                                                        <color key="tintColor" name="DescriptionColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="BiP-DI-pK4"/>
                                                             <constraint firstAttribute="width" constant="18" id="tbU-cr-StF"/>
@@ -3722,9 +3744,6 @@
         <designable name="fRM-vS-6wd">
             <size key="intrinsicContentSize" width="98.666666666666671" height="17"/>
         </designable>
-        <designable name="fVU-YR-D7u">
-            <size key="intrinsicContentSize" width="-1" height="51"/>
-        </designable>
         <designable name="gDb-Xl-8OF">
             <size key="intrinsicContentSize" width="181.33333333333334" height="19.333333333333332"/>
         </designable>
@@ -3805,10 +3824,10 @@
         <segue reference="GAO-QE-GuP"/>
         <segue reference="ZOg-Lf-JSX"/>
         <segue reference="mdJ-XX-Wrm"/>
-        <segue reference="jgI-ud-yDM"/>
-        <segue reference="MdT-K5-jp1"/>
+        <segue reference="KgJ-x7-YV2"/>
+        <segue reference="bvF-PB-3XP"/>
         <segue reference="LrT-uT-odh"/>
-        <segue reference="Sim-Fk-0cQ"/>
+        <segue reference="JS7-Qf-uuL"/>
         <segue reference="dMs-gB-ZC7"/>
         <segue reference="zJe-KO-wvN"/>
         <segue reference="HKh-3c-Vf4"/>

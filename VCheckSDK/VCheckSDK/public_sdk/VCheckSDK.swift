@@ -167,7 +167,7 @@ public class VCheckSDK {
         if (verificationToken == nil) {
             print("VCheckSDK - error: verification token is not set!")
         }
-        return "Bearer \(verificationToken!)"
+        return verificationToken!
     }
 
     public func getSDKLangCode() -> String {
