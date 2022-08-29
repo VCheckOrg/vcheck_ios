@@ -350,18 +350,18 @@
             <objects>
                 <viewController id="O79-4Z-3ia" userLabel="Segmentation View Controller" customClass="SegmentationViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nU6-VQ-05u">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_hand_id_card" translatesAutoresizingMaskIntoConstraints="NO" id="3gL-2I-WZf">
-                                <rect key="frame" x="364" y="597" width="46" height="46"/>
+                                <rect key="frame" x="364" y="607" width="46" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="8Cm-8t-czT"/>
                                     <constraint firstAttribute="height" constant="46" id="Liz-zS-bMN"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z4S-Mf-KG1" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="655" width="390" height="180"/>
+                                <rect key="frame" x="0.0" y="665" width="390" height="180"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Msk-Md-5yG">
                                         <rect key="frame" x="29" y="72" width="333" height="56"/>
@@ -395,7 +395,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="81r-ny-a50" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
-                                <rect key="frame" x="75" y="292" width="240" height="260"/>
+                                <rect key="frame" x="75" y="292" width="240" height="270"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" name="DescriptionColor"/>
@@ -409,7 +409,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaj-6U-LQ7" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
-                                <rect key="frame" x="75" y="292" width="240" height="260"/>
+                                <rect key="frame" x="75" y="292" width="240" height="270"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" systemColor="systemGreenColor"/>
@@ -1038,10 +1038,10 @@
                                 <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qpX-jZ-Jb0" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="729.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="724"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UL1-KP-CLj" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="84" width="366" height="580.66666666666663"/>
+                                                <rect key="frame" x="12" y="84" width="366" height="575"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fail_verification_image" translatesAutoresizingMaskIntoConstraints="NO" id="UVD-3C-SnY">
                                                         <rect key="frame" x="28" y="24" width="310" height="240"/>
@@ -1063,7 +1063,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXG-eJ-qvn">
-                                                        <rect key="frame" x="16" y="500.66666666666663" width="334" height="56"/>
+                                                        <rect key="frame" x="16" y="495" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="b0n-rK-u1K"/>
                                                         </constraints>
@@ -1073,43 +1073,51 @@
                                                             <action selector="actionRetry:" destination="Drf-gg-cCY" eventType="touchUpInside" id="dEy-bj-8so"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBN-xJ-7O7">
-                                                        <rect key="frame" x="16" y="424.66666666666663" width="334" height="56"/>
-                                                        <color key="backgroundColor" name="borderColor"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="waq-bo-zFL" customClass="SmallRoundedView" customModule="VCheckSDK" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="423" width="334" height="52.333333333333314"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Обратиться в службу поддержки" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VT8-N5-Z3F" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
+                                                                <rect key="frame" x="20" y="19" width="294" height="14.333333333333336"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" name="CardColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="56" id="rgT-P8-2qa"/>
+                                                            <constraint firstItem="VT8-N5-Z3F" firstAttribute="top" secondItem="waq-bo-zFL" secondAttribute="top" constant="19" id="6hA-iM-hZw"/>
+                                                            <constraint firstItem="VT8-N5-Z3F" firstAttribute="leading" secondItem="waq-bo-zFL" secondAttribute="leading" constant="20" id="Fjh-8K-4Hh"/>
+                                                            <constraint firstAttribute="trailing" secondItem="VT8-N5-Z3F" secondAttribute="trailing" constant="20" id="Kxd-Nd-XAe"/>
+                                                            <constraint firstAttribute="bottom" secondItem="VT8-N5-Z3F" secondAttribute="bottom" constant="19" id="s0H-Mh-uts"/>
                                                         </constraints>
-                                                        <color key="tintColor" name="borderColor"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="filled" title="Обратиться в службу поддержки"/>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="4"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                                <integer key="value" value="1"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="4"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="contactSupport:" destination="Drf-gg-cCY" eventType="touchUpInside" id="ItX-wu-mlL"/>
-                                                        </connections>
-                                                    </button>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" name="CardColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="rBN-xJ-7O7" firstAttribute="leading" secondItem="UL1-KP-CLj" secondAttribute="leading" constant="16" id="3Kh-jD-37c"/>
+                                                    <constraint firstItem="waq-bo-zFL" firstAttribute="leading" secondItem="UL1-KP-CLj" secondAttribute="leading" constant="16" id="3nc-n3-vKa"/>
                                                     <constraint firstItem="8MH-tb-Ixh" firstAttribute="leading" secondItem="UL1-KP-CLj" secondAttribute="leading" constant="16" id="3pa-nZ-v62"/>
                                                     <constraint firstAttribute="trailing" secondItem="WXG-eJ-qvn" secondAttribute="trailing" constant="16" id="68B-Te-Hhz"/>
                                                     <constraint firstAttribute="trailing" secondItem="2Ip-f7-uZ5" secondAttribute="trailing" constant="16" id="AoU-mX-ocz"/>
                                                     <constraint firstItem="2Ip-f7-uZ5" firstAttribute="top" secondItem="8MH-tb-Ixh" secondAttribute="bottom" constant="16" id="B50-TJ-Qbr"/>
                                                     <constraint firstAttribute="bottom" secondItem="WXG-eJ-qvn" secondAttribute="bottom" constant="24" id="BAR-Yp-Tfe"/>
                                                     <constraint firstItem="2Ip-f7-uZ5" firstAttribute="leading" secondItem="UL1-KP-CLj" secondAttribute="leading" constant="16" id="BIV-eE-aTr"/>
-                                                    <constraint firstItem="rBN-xJ-7O7" firstAttribute="top" secondItem="2Ip-f7-uZ5" secondAttribute="bottom" constant="44" id="EDn-O7-wbH"/>
+                                                    <constraint firstItem="WXG-eJ-qvn" firstAttribute="top" secondItem="waq-bo-zFL" secondAttribute="bottom" constant="19.666666666666629" id="Ioc-eS-n0m"/>
                                                     <constraint firstItem="UVD-3C-SnY" firstAttribute="top" secondItem="UL1-KP-CLj" secondAttribute="top" constant="24" id="ViT-ds-8gB"/>
-                                                    <constraint firstAttribute="trailing" secondItem="rBN-xJ-7O7" secondAttribute="trailing" constant="16" id="b99-qg-ktz"/>
+                                                    <constraint firstAttribute="trailing" secondItem="waq-bo-zFL" secondAttribute="trailing" constant="16" id="WQw-yJ-x4e"/>
                                                     <constraint firstAttribute="trailing" secondItem="8MH-tb-Ixh" secondAttribute="trailing" constant="16" id="cn9-jO-IJJ"/>
-                                                    <constraint firstItem="WXG-eJ-qvn" firstAttribute="top" secondItem="rBN-xJ-7O7" secondAttribute="bottom" constant="20" id="dSX-Ut-DWa"/>
                                                     <constraint firstItem="UVD-3C-SnY" firstAttribute="leading" secondItem="UL1-KP-CLj" secondAttribute="leading" constant="28" id="eCM-D9-N5j"/>
+                                                    <constraint firstItem="waq-bo-zFL" firstAttribute="top" secondItem="2Ip-f7-uZ5" secondAttribute="bottom" constant="42.333333333333314" id="fS6-Us-sdr"/>
                                                     <constraint firstItem="8MH-tb-Ixh" firstAttribute="top" secondItem="UVD-3C-SnY" secondAttribute="bottom" constant="12" id="jYf-ih-7Xp"/>
                                                     <constraint firstAttribute="trailing" secondItem="UVD-3C-SnY" secondAttribute="trailing" constant="28" id="mcD-2P-3l1"/>
                                                     <constraint firstItem="WXG-eJ-qvn" firstAttribute="leading" secondItem="UL1-KP-CLj" secondAttribute="leading" constant="16" id="xea-EG-EvV"/>
@@ -1151,6 +1159,8 @@
                     <navigationItem key="navigationItem" id="fsL-c4-37a"/>
                     <connections>
                         <outlet property="closeBtn" destination="WXG-eJ-qvn" id="6np-GF-Pdm"/>
+                        <outlet property="contactSupportPseudoBtn" destination="waq-bo-zFL" id="nmh-Ov-flY"/>
+                        <outlet property="contactSupportText" destination="VT8-N5-Z3F" id="UYP-lY-S04"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xp3-NL-myv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3689,6 +3699,9 @@
         <designable name="VQx-HL-SS1">
             <size key="intrinsicContentSize" width="662.33333333333337" height="17"/>
         </designable>
+        <designable name="VT8-N5-Z3F">
+            <size key="intrinsicContentSize" width="204.33333333333334" height="14.333333333333334"/>
+        </designable>
         <designable name="Wgk-ad-nWW">
             <size key="intrinsicContentSize" width="480" height="17"/>
         </designable>
@@ -3823,14 +3836,14 @@
         <segue reference="6Dz-L8-h7I"/>
         <segue reference="hbx-PL-eMi"/>
         <segue reference="mdJ-XX-Wrm"/>
-        <segue reference="KgJ-x7-YV2"/>
+        <segue reference="jgI-ud-yDM"/>
         <segue reference="MdT-K5-jp1"/>
         <segue reference="53f-vN-88d"/>
         <segue reference="JS7-Qf-uuL"/>
         <segue reference="Cj4-0s-twM"/>
         <segue reference="riI-uo-ZBO"/>
         <segue reference="thq-za-677"/>
-        <segue reference="1rZ-kp-9ka"/>
+        <segue reference="uEa-i0-BJV"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Too dark" width="718" height="680"/>

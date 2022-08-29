@@ -32,9 +32,16 @@ class CountryListViewController : UIViewController {
                 searchTextfield.layer.cornerRadius = 10
                 searchTextfield.textColor = .white
                 searchTextfield.leftView?.tintColor = .white
+                if let tc1 = VCheckSDK.shared.secondaryTextColorHex {
+                    searchTextfield.textColor = tc1.hexToUIColor()
+                    searchTextfield.leftView?.tintColor = tc1.hexToUIColor()
+                }
+                if let tc2 = VCheckSDK.shared.primaryTextColorHex {
+                    searchTextfield.textColor = tc2.hexToUIColor()
+                    searchTextfield.leftView?.tintColor = tc2.hexToUIColor()
+                }
                 if let bc = VCheckSDK.shared.backgroundSecondaryColorHex {
                     searchTextfield.backgroundColor = bc.hexToUIColor()
-                    //searchTextfield.tintColor = bc.hexToUIColor()
                 }
             }
         }

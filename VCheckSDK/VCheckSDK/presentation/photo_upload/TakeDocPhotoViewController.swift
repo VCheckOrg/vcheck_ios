@@ -38,11 +38,9 @@ class TakeDocPhotoViewController : UIViewController,
     
     @IBOutlet weak var btnContinueToPreview: UIButton!
     
-    
     @IBAction func backToInstr(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
-    
     
     var selectedDocType: DocType? = nil
     
@@ -58,14 +56,20 @@ class TakeDocPhotoViewController : UIViewController,
         
         self.selectedDocType = DocType.docCategoryIdxToType(categoryIdx: docTypeWithData.category!)
         
-        btnContinueToPreview.tintColor = UIColor(named: "borderColor", in: InternalConstants.bundle, compatibleWith: nil)
-        btnContinueToPreview.titleLabel?.textColor = UIColor.gray
-        btnContinueToPreview.gestureRecognizers?.forEach(btnContinueToPreview.removeGestureRecognizer)
-        btnContinueToPreview.setTitle("proceed".localized, for: .disabled)
-        btnContinueToPreview.setTitle("proceed".localized, for: .normal)
+        self.btnContinueToPreview.tintColor = UIColor(named: "borderColor", in: InternalConstants.bundle, compatibleWith: nil)
+        self.btnContinueToPreview.titleLabel?.textColor = UIColor.gray
+        self.btnContinueToPreview.gestureRecognizers?.forEach(btnContinueToPreview.removeGestureRecognizer)
+        self.btnContinueToPreview.setTitle("proceed".localized, for: .disabled)
+        self.btnContinueToPreview.setTitle("proceed".localized, for: .normal)
         
-        deleteFirstPhotoBtn.isHidden = true
-        deleteSecondPhotoBtn.isHidden = true
+        self.deleteFirstPhotoBtn.isHidden = true
+        self.deleteSecondPhotoBtn.isHidden = true
+        
+        self.tvFirstCardTitle.isHidden = false
+        self.tvSecondCardTitle.isHidden = false
+        
+        self.firstPhotoButton.isHidden = false
+        self.secondPhotoButton.isHidden = false
         
         if (self.selectedDocType == DocType.INNER_PASSPORT_OR_COMMON) {
             
@@ -103,6 +107,8 @@ class TakeDocPhotoViewController : UIViewController,
             
             parentCardHeightConstraint.constant = parentCardHeightConstraint.constant - 250 // * - 2nd (missing) card height - 20
             continueButtonTopConstraint.constant = continueButtonTopConstraint.constant - 250 // * - 2nd (missing) card height - 20
+            
+            self.secondPhotoButton.isHidden = true
 
             setClickListenerForFirstPhotoBtn()
         }
@@ -316,10 +322,8 @@ class TakeDocPhotoViewController : UIViewController,
         
         self.performSegue(withIdentifier: "TakeToCheckPhoto", sender: nil)
         
-        firstPhoto = nil
-        if (sender.resetSecondPhoto) {
-            secondPhoto = nil
-        }
+        self.firstPhoto = nil
+        self.secondPhoto = nil
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -330,6 +334,25 @@ class TakeDocPhotoViewController : UIViewController,
                 vc.secondPhoto = self.secondPhoto
             }
             vc.isFromSegmentation = false
+            
+            vc.onRepeatBlock = { result in
+                                
+                self.currentPhotoTakeCase = PhotoTakeCase.NONE
+                
+                if (self.selectedDocType == DocType.FOREIGN_PASSPORT) {
+                    self.parentCardHeightConstraint.constant = self.parentCardHeightConstraint.constant + 250
+                    self.continueButtonTopConstraint.constant = self.continueButtonTopConstraint.constant + 250
+                }
+                
+                self.firstPhoto = nil
+                self.secondPhoto = nil
+        
+                self.docPhotoFirstImgHolder.image = nil
+                self.docPhotoSecondImgHolder.image = nil
+                
+                self.viewDidLoad()
+                self.checkPhotoCompletenessAndSetProceedClickListener()
+            }
         }
     }
 }

@@ -37,6 +37,8 @@ class CheckDocPhotoViewController : UIViewController {
     
     @IBOutlet weak var uplSpinnerTopConstraint: NSLayoutConstraint!
     
+    var onRepeatBlock : ((Bool) -> Void)?
+    
     
     override func viewDidLoad() {
         
@@ -114,7 +116,7 @@ class CheckDocPhotoViewController : UIViewController {
     }
     
     @objc func replacePhotoClicked(_ sender: NavGestureRecognizer) {
-        moveToChooseDocTypeViewController()
+        changePhoto()
     }
     
     @objc func performDocUploadRequest(_ sender: NavGestureRecognizer) {
@@ -175,12 +177,9 @@ class CheckDocPhotoViewController : UIViewController {
         }
     }
     
-    func moveToChooseDocTypeViewController() {
+    func changePhoto() {
         self.navigationController?.popViewController(animated: true)
-        //deprecated:
-//        let viewController = self.navigationController?.viewControllers.first { $0 is ChooseDocTypeViewController }
-//        guard let destinationVC = viewController else { return }
-//        self.navigationController?.popToViewController(destinationVC, animated: true)
+        self.onRepeatBlock!(true)
     }
     
     

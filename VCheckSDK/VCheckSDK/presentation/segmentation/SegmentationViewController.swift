@@ -97,6 +97,9 @@ class SegmentationViewController: UIViewController {
         super.viewDidAppear(animated)
 
         self.viewDidAppearReached = true
+        
+        self.onRepeatSessionAfterTimeout()
+        self.setupInstructionStageUI()
 
         if needToShowFatalError {
             popupAlertWindowOnError(alertWindowTitle: alertWindowTitle, alertMessage: alertMessage)
@@ -113,11 +116,14 @@ class SegmentationViewController: UIViewController {
     
     private func setupInstructionStageUI() {
 
-        blockProcessingByUI = true
-        blockRequestByProcessing = true
+        self.blockProcessingByUI = true
+        self.blockRequestByProcessing = true
         
-        animatingImage.isHidden = false
-        animateHandImg()
+        self.animatingImage.transform = .identity
+        self.animatingImage.layer.removeAllAnimations()
+        self.animatingImage.isHidden = false
+        
+        self.animateHandImg()
         
         switch(DocType.docCategoryIdxToType(categoryIdx: (docData?.category!)!)) {
             case DocType.FOREIGN_PASSPORT:
@@ -144,11 +150,14 @@ class SegmentationViewController: UIViewController {
     
     private func resetFlowForNewSession() {
         
+        self.btnImReady.isHidden = true
+        
         self.animatingImage.isHidden = true
+        
         self.darkFrameOverlay.alpha = 1
         self.darkFrameOverlay.isHidden = true
         
-        checkedDocIdx = 0
+        self.checkedDocIdx = 0
 
         self.isLivenessSessionFinished = false
         self.hasEnoughTimeForNextGesture = true
@@ -255,7 +264,9 @@ class SegmentationViewController: UIViewController {
         self.checkedDocIdx += 1
         
         self.hapticFeedbackGenerator.notificationOccurred(.success)
-        self.indicateNextStage()
+        if (!self.areAllDocPagesChecked()) {
+            self.indicateNextStage()
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -264,18 +275,17 @@ class SegmentationViewController: UIViewController {
             vc.firstPhoto = self.firstImgToUpload
             vc.secondPhoto = self.secondImgToUpload
             vc.isFromSegmentation = true
+            vc.onRepeatBlock = { result in }
         }
         if (segue.identifier == "SegToTimeout") {
             let vc = segue.destination as! SegmentationTimeoutViewController
-            vc.onRepeatBlock = { result in
-                self.onRepeatSessionAfterTimeout()
-            }
+            vc.onRepeatBlock = { result in }
             vc.isInvalidDocError = false
         }
     }
     
     private func onRepeatSessionAfterTimeout() {
-        self.checkedDocIdx = 0
+        //self.checkedDocIdx = 0
         self.setHintForStage()
         self.darkFrameOverlay.alpha = 1
         self.darkFrameOverlay.isHidden = true

@@ -22,7 +22,7 @@ internal class LivenessScreenViewController: UIViewController {
     private var arrowAnimationView: AnimationView = AnimationView()
     private let hapticFeedbackGenerator = UINotificationFeedbackGenerator()
 
-   // MARK: - Member Variables (open for ext.)
+    // MARK: - Member Variables (open for ext.)
     var needToShowFatalError = false
     var alertWindowTitle = "Nothing"
     var alertMessage = "Nothing"

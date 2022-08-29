@@ -19,14 +19,26 @@ class VideoFailureViewController: UIViewController {
         self.videoProcessingViewController?.uploadVideo()
     }
     
-    @IBAction func contactSupport(_ sender: UIButton) {
-        let appURL = URL(string: "mailto:info@vycheck.com")!
-        UIApplication.shared.open(appURL, options: [:], completionHandler: nil)
-    }
+    
+    @IBOutlet weak var contactSupportPseudoBtn: SmallRoundedView!
+    
+    @IBOutlet weak var contactSupportText: PrimaryTextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.closeBtn.setTitle("retry".localized, for: .normal)
+        
+        self.contactSupportText.text = "contact_support".localized
+        
+        let contact = UITapGestureRecognizer(target: self, action: #selector(contactSupport(_:)))
+        
+        self.contactSupportPseudoBtn.addGestureRecognizer(contact)
     }
+    
+    @objc func contactSupport(_ sender: NavGestureRecognizer) {
+        let appURL = URL(string: "mailto:info@vycheck.com")!
+        UIApplication.shared.open(appURL, options: [:], completionHandler: nil)
+    }
+    
 }
