@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "VCheckSDKTest"
-  spec.version      = "1.0.11"
+  spec.version      = "1.0.12"
   spec.summary      = "VCheck SDK for iOS: test/dev environment only"
 
   spec.description  = "This SDK allows to integrate VCheck core features (documents validation, face liveness checks) into iOS projects"
@@ -14,7 +14,7 @@ Pod::Spec.new do |spec|
   spec.author       = { "vycheck" => "info@vycheck.com" }
 
   spec.platform     = :ios
-  spec.platform     = :ios, "15.2"
+  spec.platform     = :ios, "14.0"
 
   spec.source       = { :git => "https://github.com/VCheckOrg/vcheck_ios_sdk_test.git", :tag => "#{spec.version}" }
 
