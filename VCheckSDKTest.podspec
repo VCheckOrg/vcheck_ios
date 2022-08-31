@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "VCheckSDKTest"
-  spec.version      = "1.0.15"
+  spec.version      = "1.0.16"
   spec.summary      = "VCheck SDK for iOS: test/dev environment only"
 
   spec.description  = "This SDK allows to integrate VCheck core features (documents validation, face liveness checks) into iOS projects"
