@@ -18,3 +18,8 @@ public enum VerificationSchemeType: String, CustomStringConvertible {
         }
     }
 }
+
+public enum VCheckEnvironment {
+    case PARTNER
+    case DEV
+}

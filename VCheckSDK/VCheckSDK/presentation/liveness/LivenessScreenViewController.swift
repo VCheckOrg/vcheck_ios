@@ -45,13 +45,13 @@ internal class LivenessScreenViewController: UIViewController {
 
     static let LIVENESS_TIME_LIMIT_MILLIS = 14500 //max is 15000
     static let BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS = 900
-    static let GESTURE_REQUEST_INTERVAL = 0.1 //TODO: reduce on Android!
+    static let GESTURE_REQUEST_INTERVAL = 0.05
 
     private var isLivenessSessionFinished: Bool = false
     private var hasEnoughTimeForNextGesture: Bool = true
     private var livenessSessionTimeoutTimer : DispatchSourceTimer?
     private var periodicGestureCheckTimer: Timer?
-    private var blockStageIndicationByUI: Bool = false
+    private var blockStageIndicationByUI: Bool = true
     private var blockStageChecksByRunningRequest: Bool = false  //TODO: implement on Android!
 
     // MARK: - Implementation & Lifecycle methods
@@ -59,22 +59,29 @@ internal class LivenessScreenViewController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         
+        self.indicationFrame.backgroundColor = UIColor.clear
+        self.indicationFrame.borderColor = UIColor.systemGreen
+        
         if let bc = VCheckSDK.shared.backgroundSecondaryColorHex {
             self.imgMilestoneChecked.backgroundColor = bc.hexToUIColor()
         }
-        self.indicationFrame.backgroundColor = UIColor.clear
-        self.indicationFrame.borderColor = UIColor.systemGreen
+        
+        self.imgMilestoneChecked.isHidden = true
+        self.indicationFrame.isHidden = true
 
         if !setMilestonesList() { return }
         if !setupCamera() { return }
 
-        setupMilestoneFlow()
+        self.setupMilestoneFlow()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         self.viewDidAppearReached = true
+                
+        self.imgMilestoneChecked.isHidden = true
+        self.indicationFrame.isHidden = true
 
         if needToShowFatalError {
             popupAlertWindowOnError(alertWindowTitle: alertWindowTitle, alertMessage: alertMessage)
@@ -101,6 +108,9 @@ internal class LivenessScreenViewController: UIViewController {
     
     func setupMilestoneFlow() {
         
+        self.imgMilestoneChecked.isHidden = true
+        self.indicationFrame.isHidden = true
+        
         self.milestoneFlow.resetStages()
         
         self.isLivenessSessionFinished = false
@@ -114,16 +124,13 @@ internal class LivenessScreenViewController: UIViewController {
         self.livenessSessionTimeoutTimer = nil
         self.startLivenessSessionTimeoutTimer()
         
-        self.imgMilestoneChecked.isHidden = true
-        self.indicationFrame.isHidden = true
-        
         self.tvLivenessInfo.text = "liveness_stage_check_face_pos".localized
         
         self.periodicGestureCheckTimer = Timer.scheduledTimer(timeInterval:
                         LivenessScreenViewController.GESTURE_REQUEST_INTERVAL, target: self,
                           selector: #selector(performGestureCheck), userInfo: nil, repeats: true)
         
-        self.delayedStageIndicationRenew()
+        self.setupOrUpdateFaceAnimation(forMilestoneType: self.milestoneFlow.getCurrentStage()!)
     }
     
     @objc func performGestureCheck() {
@@ -135,7 +142,9 @@ internal class LivenessScreenViewController: UIViewController {
                     && self.hasEnoughTimeForNextGesture == true
                     && self.blockStageChecksByRunningRequest == false) {
                     self.checkStage()
-                } else { print("VCheckSDK - Error: VideoBuffer is nil") }
+                } else {
+                    //print("VCheckSDK - Error: VideoBuffer is nil") //Stub
+                }
             }
         }
     }
@@ -160,6 +169,7 @@ internal class LivenessScreenViewController: UIViewController {
                                             completion: { (data, error) in
                         if let error = error {
                             print("VCheckSDK - Error: Gesture request: Error [\(error.errorText)]")
+                            self.blockStageChecksByRunningRequest = false
                             return
                         }
                         if (data?.success == true) {
@@ -180,21 +190,25 @@ internal class LivenessScreenViewController: UIViewController {
     }
     
     func onAllStagesPassed() {
-        
-        self.periodicGestureCheckTimer?.invalidate()
-        
-        self.hasEnoughTimeForNextGesture = false
-        
-        self.videoStreamingPermitted = false
-        self.isLivenessSessionFinished = true
-        
-        self.hapticFeedbackGenerator.notificationOccurred(.success)
-
         self.videoRecorder.stopRecording(completion: { url in
             DispatchQueue.main.async {
+                
+                self.imgMilestoneChecked.isHidden = true
+                self.indicationFrame.isHidden = true
+                
+                self.periodicGestureCheckTimer?.invalidate()
+                
                 if (self.livenessSessionTimeoutTimer != nil) {
                     self.livenessSessionTimeoutTimer!.cancel()
                 }
+                
+                self.hasEnoughTimeForNextGesture = false
+                
+                self.videoStreamingPermitted = false
+                self.isLivenessSessionFinished = true
+                                        
+                self.hapticFeedbackGenerator.notificationOccurred(.success)
+    
                 self.performSegue(withIdentifier: "LivenessToVideoProcessing", sender: nil)
             }
         })
@@ -206,20 +220,8 @@ internal class LivenessScreenViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "LivenessToNoFaceDetected") {
-            let vc = segue.destination as! NoFaceDetectedViewController
-            vc.onRepeatBlock = { result in self.renewLivenessSessionOnRetry() }
-        }
         if (segue.identifier == "LivenessToNoTime") {
             let vc = segue.destination as! NoTimeViewController
-            vc.onRepeatBlock = { result in self.renewLivenessSessionOnRetry() }
-        }
-        if (segue.identifier == "LivenessToMultipleFaces") {
-            let vc = segue.destination as! MultipleFacesDetectedViewController
-            vc.onRepeatBlock = { result in self.renewLivenessSessionOnRetry() }
-        }
-        if (segue.identifier == "LivenessToTooDark") {
-            let vc = segue.destination as! NoBrightnessViewController
             vc.onRepeatBlock = { result in self.renewLivenessSessionOnRetry() }
         }
         if (segue.identifier == "LivenessToVideoProcessing") {
@@ -249,6 +251,10 @@ internal class LivenessScreenViewController: UIViewController {
     func endSessionPrematurely(performSegueWithIdentifier: String) {
         self.videoRecorder.stopRecording(completion: { url in
             DispatchQueue.main.async {
+                
+                self.imgMilestoneChecked.isHidden = true
+                self.indicationFrame.isHidden = true
+                
                 self.periodicGestureCheckTimer?.invalidate()
                 
                 if (self.livenessSessionTimeoutTimer != nil) {
@@ -283,7 +289,7 @@ internal class LivenessScreenViewController: UIViewController {
 }
 
 
-// MARK: - Animation extensions
+// MARK: - UI & Animation extensions
 
 extension LivenessScreenViewController {
 
@@ -292,10 +298,7 @@ extension LivenessScreenViewController {
 
             self.blockStageIndicationByUI = true
 
-            self.imgMilestoneChecked.isHidden = false
-            self.indicationFrame.isHidden = false
-
-            self.fadeSuccessFrameInThenOut(view: self.indicationFrame, delay: 0.0)
+            self.fadeSuccessFrameInThenOut(delay: 0.0)
 
             DispatchQueue.main.asyncAfter(deadline:
                     .now() + .milliseconds(LivenessScreenViewController.BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS) ) {
@@ -490,14 +493,23 @@ extension LivenessScreenViewController {
         }
     }
 
-    func fadeSuccessFrameInThenOut(view : UIView, delay: TimeInterval) {
-        DispatchQueue.main.async {
-            let animationDuration = Double(LivenessScreenViewController.BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS) / 1000.0
-            UIView.animate(withDuration: animationDuration, delay: delay,
-                           options: [UIView.AnimationOptions.autoreverse,
-                                     UIView.AnimationOptions.repeat], animations: {
-                view.alpha = 0
-            }, completion: nil)
+    func fadeSuccessFrameInThenOut(delay: TimeInterval) {
+        self.imgMilestoneChecked.isHidden = true
+        self.indicationFrame.isHidden = true
+        
+        if (self.blockStageIndicationByUI == true) {
+            
+            self.imgMilestoneChecked.isHidden = false
+            self.indicationFrame.isHidden = false
+            self.indicationFrame.alpha = 1
+            DispatchQueue.main.async {
+                let animationDuration = Double(LivenessScreenViewController.BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS) / 1000.0
+                UIView.animate(withDuration: animationDuration, delay: delay,
+                               options: [UIView.AnimationOptions.autoreverse,
+                                         UIView.AnimationOptions.repeat], animations: {
+                    self.indicationFrame.alpha = 0
+                }, completion: nil)
+            }
         }
     }
 }

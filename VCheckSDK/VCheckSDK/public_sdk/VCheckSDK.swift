@@ -22,10 +22,12 @@ public class VCheckSDK {
     
     private var sdkLanguageCode: String? = nil
     
+    private var environment: VCheckEnvironment? = nil
+    
     ///iOS nav properties:
     private var partnerAppRootWindow: UIWindow? = nil
-    private var partnerAppViewController: UIViewController? = nil
-    private var changeRootViewController: Bool? = nil
+    internal var partnerAppViewController: UIViewController? = nil
+    internal var changeRootViewController: Bool? = nil
     
     ///Color and UI customization properties:
     internal var showPartnerLogo: Bool = false
@@ -74,6 +76,9 @@ public class VCheckSDK {
         if (self.changeRootViewController == true) {
             partnerAppRootWindow!.rootViewController = partnerAppViewController
             partnerAppRootWindow!.makeKeyAndVisible()
+        } else {
+            partnerAppRootWindow!.rootViewController?.dismiss(animated: true, completion: {})
+            partnerAppRootWindow!.rootViewController?.navigationController?.popViewController(animated: true)
         }
         if (executePartnerCallback == true) {
             self.partnerEndCallback!()
@@ -95,13 +100,18 @@ public class VCheckSDK {
         }
         if (self.sdkLanguageCode == nil) {
            print("VCheckSDK - warning: sdk language code is not set; using English (en) locale as default. " +
-                            "| see VCheckSDK.sdkLanguageCode(langCode: String)")
+                            "| see VCheckSDK.shared.sdkLanguageCode(langCode: String)")
         }
         if (self.sdkLanguageCode != nil && !VCheckSDKConstants
                 .vcheckSDKAvailableLanguagesList.contains((self.sdkLanguageCode?.lowercased())!)) {
             print("VCheckSDK - error: SDK is not localized with [$sdkLanguageCode] locale yet. " +
                     "You may set one of the next locales: ${VCheckSDKConstantsProvider.vcheckSDKAvailableLanguagesList}, " +
                     "or check out for the recent version of the SDK library")
+            return false
+        }
+        if (environment == nil) {
+            print("VCheckSDK - warning: sdk environment is not set; using DEV environment by default " +
+                             "| see VCheckSDK.shared.environment(env: VCheckEnvironment)")
             return false
         }
         if (self.buttonsColorHex != nil && !self.buttonsColorHex!.isValidHexColor()) {
@@ -241,13 +251,22 @@ public class VCheckSDK {
         return self.partnerAppViewController
     }
     
-    func showPartnerLogo(show: Bool) -> VCheckSDK {
+    public func showPartnerLogo(show: Bool) -> VCheckSDK {
         self.showPartnerLogo = show
         return self
     }
 
-    func showCloseSDKButton(show: Bool) -> VCheckSDK {
+    public func showCloseSDKButton(show: Bool) -> VCheckSDK {
         self.showCloseSDKButton = show
         return self
+    }
+    
+    public func environment(env: VCheckEnvironment) -> VCheckSDK {
+        self.environment = env
+        return self
+    }
+    
+    internal func getEnvironment() -> VCheckEnvironment {
+        return self.environment ?? VCheckEnvironment.DEV
     }
 }

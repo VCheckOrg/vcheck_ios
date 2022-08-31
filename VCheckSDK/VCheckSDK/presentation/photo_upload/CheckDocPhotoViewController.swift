@@ -46,6 +46,9 @@ class CheckDocPhotoViewController : UIViewController {
         
         imgViewPhotoFirst.image = firstPhoto
         
+        confirmUploadPhotosBtn.setTitle("confirm".localized, for: .normal)
+        confirmUploadPhotosBtn.setTitle("confirm".localized, for: .disabled)
+        
         let zoomFirstPhotoTap = UITapGestureRecognizer(target: self, action: #selector(zoomFirstPhoto(_:)))
         zoomFirstPhotoBtn.addGestureRecognizer(zoomFirstPhotoTap)
         

@@ -112,3 +112,5 @@
 "fatal_error_seg_descr"="We were unable to do a full scan of the document. To continue, you need to take a photo manually.";
 
 "contact_support" = "Contact support";
+
+"confirm" = "Confirm";

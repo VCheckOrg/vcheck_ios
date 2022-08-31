@@ -213,7 +213,6 @@
                                 <view key="tableFooterView" contentMode="scaleToFill" id="j1v-ZJ-M5A" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="207.33333206176758" width="390" height="98"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="allowedCountryCell" rowHeight="70" id="onm-ZM-hCL" customClass="AllowedCountryViewCell" customModule="VCheckSDK" customModuleProvider="target">
@@ -823,7 +822,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IzY-vQ-XSx">
                                 <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ukX-sd-Tsb">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ukX-sd-Tsb" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="707.33333333333337"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3fp-M1-0nX" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
@@ -2012,7 +2011,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q3r-w3-pWa" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q3r-w3-pWa" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="150" width="390" height="660"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -2081,7 +2080,7 @@
                                     <constraint firstAttribute="width" constant="100" id="qdE-FE-mDP"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_success" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b3f-18-ypv">
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_success" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b3f-18-ypv">
                                 <rect key="frame" x="262" y="136" width="80" height="80"/>
                                 <color key="backgroundColor" name="CardColor"/>
                                 <constraints>
@@ -3833,16 +3832,16 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="6Dz-L8-h7I"/>
-        <segue reference="hbx-PL-eMi"/>
+        <segue reference="GAO-QE-GuP"/>
+        <segue reference="ZOg-Lf-JSX"/>
         <segue reference="mdJ-XX-Wrm"/>
         <segue reference="jgI-ud-yDM"/>
-        <segue reference="MdT-K5-jp1"/>
+        <segue reference="bvF-PB-3XP"/>
         <segue reference="53f-vN-88d"/>
         <segue reference="JS7-Qf-uuL"/>
-        <segue reference="Cj4-0s-twM"/>
-        <segue reference="riI-uo-ZBO"/>
-        <segue reference="thq-za-677"/>
+        <segue reference="dMs-gB-ZC7"/>
+        <segue reference="zJe-KO-wvN"/>
+        <segue reference="HKh-3c-Vf4"/>
         <segue reference="uEa-i0-BJV"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -3898,9 +3897,6 @@
         <namedColor name="borderColor">
             <color red="0.49799999594688416" green="0.49799999594688416" blue="0.49799999594688416" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

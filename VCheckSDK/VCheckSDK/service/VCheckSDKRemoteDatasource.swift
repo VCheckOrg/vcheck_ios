@@ -15,8 +15,15 @@ struct VCheckSDKRemoteDatasource {
     static let shared = VCheckSDKRemoteDatasource()
     
     // MARK: - URL
-    private let verifBaseUrl = VCheckSDKConstants.API.verificationApiBaseUrl
+    private var verifBaseUrl: URL
     
+    init() {
+        if (VCheckSDK.shared.getEnvironment() == VCheckEnvironment.DEV) {
+            verifBaseUrl = VCheckSDKConstants.API.devVerificationApiBaseUrl
+        } else {
+            verifBaseUrl = VCheckSDKConstants.API.partnerVerificationApiBaseUrl
+        }
+    }
     
     // MARK: - API calls
     
@@ -288,6 +295,7 @@ struct VCheckSDKRemoteDatasource {
                                                     errorCode: response.response?.statusCode))
                      return
                     }
+                    print("----- LIVENESS UPLOAD RESPONSE: \(response)")
                     if (response.errorCode != nil && response.errorCode != 0) {
                        completion(nil, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
                                                 + "\(response.message ?? "")",

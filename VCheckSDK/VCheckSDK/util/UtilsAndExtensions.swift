@@ -231,10 +231,12 @@ extension UIImage {
 extension UIImage {
     
     func cropWithMask() -> UIImage? {
+        let maskDimens = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData()!.maskDimensions!
+        
         let originalWidth = self.size.width
         let originalHeight = self.size.height
-        let desiredWidth = originalWidth * 0.75
-        let desiredHeight = desiredWidth * 0.63
+        let desiredWidth = originalWidth * (maskDimens.widthPercent! / 100)
+        let desiredHeight = desiredWidth * (maskDimens.ratio!)
         let cropHeightFromEachSide = ((originalHeight - desiredHeight) / 2)
         let cropWidthFromEachSide = ((originalWidth - desiredWidth) / 2)
         
@@ -305,7 +307,7 @@ extension String {
 
 struct ImageCompressor {
     
-    static let maxAPIFrameSizeBytes = 99500 //99.5 kb
+    static let maxAPIFrameSizeBytes = 97000 //~98 kb
     
     static func compressFrame(image: UIImage, maxByte: Int = maxAPIFrameSizeBytes,
                          completion: @escaping (UIImage?) -> ()) {

@@ -30,17 +30,21 @@ class VideoProcessingViewController: UIViewController {
         
         viewModel.didUploadVideoResponse = {
             if (self.viewModel.uploadedVideoResponse != nil) {
-                if (statusCodeToLivenessChallengeStatus(code: self.viewModel.uploadedVideoResponse!.status!)
+                if (self.viewModel.uploadedVideoResponse!.isFinal == true) {
+                    self.livenessSuccessAction()
+                } else {
+                    if (statusCodeToLivenessChallengeStatus(code: self.viewModel.uploadedVideoResponse!.status!)
                         == LivenessChallengeStatus.FAIL) {
-                    if (self.viewModel.uploadedVideoResponse!.reason != nil
-                        && !self.viewModel.uploadedVideoResponse!.reason!.isEmpty) {
-                        self.onBackendObstacleMet(reason: strCodeToLivenessFailureReason(
-                            strCode: (self.viewModel.uploadedVideoResponse?.reason!)!))
+                        if (self.viewModel.uploadedVideoResponse!.reason != nil
+                            && !self.viewModel.uploadedVideoResponse!.reason!.isEmpty) {
+                                self.onBackendObstacleMet(reason: strCodeToLivenessFailureReason(
+                                    strCode: (self.viewModel.uploadedVideoResponse?.reason!)!))
+                        } else {
+                            self.livenessSuccessAction()
+                        }
                     } else {
                         self.livenessSuccessAction()
                     }
-                } else {
-                    self.livenessSuccessAction()
                 }
             }
         }
@@ -56,8 +60,8 @@ class VideoProcessingViewController: UIViewController {
         if (!token.isEmpty && videoFileURL != nil) {
             uploadVideo()
         } else {
-            print("VCheckSDK - Error: token or video file is nil!")
-            //FOR TESTS
+            print("VCheckSDK - Error: token or video file is nil")
+            //FOR TESTS:
             //if (videoFileURL != nil) {
                 //playLivenessVideoPreview()
             //}
@@ -138,42 +142,4 @@ class VideoProcessingViewController: UIViewController {
     func uploadVideo() {
         viewModel.uploadVideo(videoFileURL: videoFileURL!)
     }
-    
-    
-   // FOR TESTS ONLY
-//    func playLivenessVideoPreview() {
-//        //let videoURL = URL.init(string: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
-//
-//        let playerController = AVPlayerViewController()
-//        let player = AVPlayer(url: self.videoFileURL!)
-//        playerController.player = player
-//
-//        self.addChild(playerController)
-//        playerController.view.frame = self.view.frame
-//        self.view.addSubview(playerController.view)
-//
-//        player.play()
-//
-//        //ONLY FOR TESTS:
-////        PHPhotoLibrary.requestAuthorization(for: .readWrite) { [unowned self] (status) in
-////            DispatchQueue.main.async { [unowned self] in
-////                saveVideoToGallery(url: self.videoFileURL!)
-////            }
-////        }
-//     }
-    
-    
-    //TODO: only for tests; remove
-//    private func saveVideoToGallery(url: URL) {
-//        PHPhotoLibrary.shared().performChanges({
-//            PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: url)
-//        }) { saved, error in
-//            if saved {
-//                let alertController = UIAlertController(title: "Your video was successfully saved", message: nil, preferredStyle: .alert)
-//                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-//                alertController.addAction(defaultAction)
-//                self.present(alertController, animated: true, completion: nil)
-//            }
-//        }
-//    }
 }

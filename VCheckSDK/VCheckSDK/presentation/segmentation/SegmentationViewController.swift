@@ -53,6 +53,7 @@ class SegmentationViewController: UIViewController {
     static let SEG_TIME_LIMIT_MILLIS = 60000 //max is 60000
     static let BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS = 4000
     static let GESTURE_REQUEST_INTERVAL = 0.45
+    static let MASK_UI_MULTIPLY_FACTOR: Double = 1.1
 
     private var isLivenessSessionFinished: Bool = false
     private var hasEnoughTimeForNextGesture: Bool = true
@@ -289,6 +290,7 @@ class SegmentationViewController: UIViewController {
         self.setHintForStage()
         self.darkFrameOverlay.alpha = 1
         self.darkFrameOverlay.isHidden = true
+        self.successFrame.alpha = 1
         self.successFrame.isHidden = true
         self.darkFrameOverlay.isHidden = true
         self.btnImReady.isHidden = false
@@ -451,26 +453,32 @@ extension SegmentationViewController {
     }
     
     private func setSegmentationFrameSize() {
-        if (frameSize == nil) {
-            let screenWidth = UIScreen.main.bounds.width
-
-            let frameWidth = screenWidth * 0.82
-            let frameHeight = frameWidth * 0.63
+        if let maskDimens = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData()?.maskDimensions {
             
-            self.frameSize = CGSize(width: frameWidth, height: frameHeight)
+            if (frameSize == nil) {
+                let screenWidth = UIScreen.main.bounds.width
+
+                let frameWidth = (screenWidth * (maskDimens.widthPercent! / 100) * SegmentationViewController.MASK_UI_MULTIPLY_FACTOR)
+                let frameHeight = frameWidth * (maskDimens.ratio!)
+                
+                self.frameSize = CGSize(width: frameWidth, height: frameHeight)
+            }
+            
+            self.segmentationFrame.frame = CGRect(x: 0, y: 0, width: self.frameSize!.width, height: self.frameSize!.height)
+            self.segmentationFrame.center = self.view.center
+            
+            self.successFrame.frame = CGRect(x: 0, y: 0, width: self.frameSize!.width, height: self.frameSize!.height)
+            self.successFrame.center = self.view.center
+            
+            self.darkFrameOverlay.frame = CGRect(x: 0, y: 0, width: self.frameSize!.width, height: self.frameSize!.height)
+            self.darkFrameOverlay.center = self.view.center
+            
+            self.segmentationAnimHolder.frame = CGRect(x: 0, y: 0, width: self.frameSize!.width + 60, height: self.frameSize!.height + 60) //!
+            self.segmentationAnimHolder.center = self.view.center
+            
+        } else {
+            showToast(message: "Error: cannot retrieve mask dimensions from document type info", seconds: 3.0)
         }
-        
-        self.segmentationFrame.frame = CGRect(x: 0, y: 0, width: self.frameSize!.width, height: self.frameSize!.height)
-        self.segmentationFrame.center = self.view.center
-        
-        self.successFrame.frame = CGRect(x: 0, y: 0, width: self.frameSize!.width, height: self.frameSize!.height)
-        self.successFrame.center = self.view.center
-        
-        self.darkFrameOverlay.frame = CGRect(x: 0, y: 0, width: self.frameSize!.width, height: self.frameSize!.height)
-        self.darkFrameOverlay.center = self.view.center
-        
-        self.segmentationAnimHolder.frame = CGRect(x: 0, y: 0, width: self.frameSize!.width + 60, height: self.frameSize!.height + 60) //!
-        self.segmentationAnimHolder.center = self.view.center
     }
     
     func animateHandImg() {

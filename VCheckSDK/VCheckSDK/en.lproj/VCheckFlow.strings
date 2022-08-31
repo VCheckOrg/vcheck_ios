@@ -221,7 +221,7 @@
 "r7D-Nn-4Ql.configuration.title" = "All clear. Start verification";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "r7D-Nn-4Ql"; */
-"r7D-Nn-4Ql.normalTitle" = "Button";
+"r7D-Nn-4Ql.normalTitle" = "All clear. Start verification";
 
 /* Class = "UIButton"; configuration.title = "Обратиться в службу поддержки"; ObjectID = "rBN-xJ-7O7"; */
 "rBN-xJ-7O7.configuration.title" = "Contact support";
@@ -248,7 +248,7 @@
 "t8n-y7-cdZ.configuration.title" = "Confirm";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "t8n-y7-cdZ"; */
-"t8n-y7-cdZ.normalTitle" = "Button";
+//"t8n-y7-cdZ.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "В кадре много помех"; ObjectID = "TdZ-WF-NIV"; */
 "TdZ-WF-NIV.text" = "There are a lot of obstacles in the frame";

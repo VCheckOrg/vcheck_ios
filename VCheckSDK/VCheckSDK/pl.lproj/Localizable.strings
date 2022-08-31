@@ -116,3 +116,5 @@
 "fatal_error_seg_descr"="Nie byliśmy w stanie wykonać pełnego skanu dokumentu. Aby kontynuować, musisz zrobić zdjęcie ręcznie.";
 
 "contact_support" = "Skontaktuj się z działem pomocy technicznej";
+
+"confirm" = "Potwierdzić";

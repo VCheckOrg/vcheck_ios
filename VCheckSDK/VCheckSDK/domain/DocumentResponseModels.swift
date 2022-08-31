@@ -102,6 +102,7 @@ struct DocTypeData: Codable {
   var maxPagesCount : Int?      = nil
   var minPagesCount : Int?      = nil
   var isSegmentationAvailable: Bool? = nil
+  var maskDimensions: MaskDimensions? = nil
 
   enum CodingKeys: String, CodingKey {
 
@@ -113,6 +114,7 @@ struct DocTypeData: Codable {
     case maxPagesCount = "max_pages_count"
     case minPagesCount = "min_pages_count"
     case isSegmentationAvailable = "is_inspection_available"
+    case maskDimensions = "mask"
   
   }
 
@@ -127,6 +129,31 @@ struct DocTypeData: Codable {
     maxPagesCount = try values.decodeIfPresent(Int.self      , forKey: .maxPagesCount )
     minPagesCount = try values.decodeIfPresent(Int.self      , forKey: .minPagesCount )
     isSegmentationAvailable = try values.decodeIfPresent(Bool.self, forKey: .isSegmentationAvailable)
+    maskDimensions = try values.decodeIfPresent(MaskDimensions.self, forKey: .maskDimensions)
+  }
+
+  init() {}
+
+}
+
+
+struct MaskDimensions: Codable {
+
+  var ratio  : Double? = nil
+  var widthPercent : Double? = nil
+
+  enum CodingKeys: String, CodingKey {
+
+    case ratio = "ratio"
+    case widthPercent = "width_percent"
+  
+  }
+
+  init(from decoder: Decoder) throws {
+    let values = try decoder.container(keyedBy: CodingKeys.self)
+
+    ratio  = try values.decodeIfPresent(Double.self , forKey: .ratio  )
+    widthPercent = try values.decodeIfPresent(Double.self , forKey: .widthPercent )
  
   }
 
