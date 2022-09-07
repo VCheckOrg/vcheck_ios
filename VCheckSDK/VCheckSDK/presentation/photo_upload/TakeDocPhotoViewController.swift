@@ -306,11 +306,7 @@ class TakeDocPhotoViewController : UIViewController,
         } else {
             btnContinueToPreview.tintColor = UIColor(named: "Default", in: InternalConstants.bundle, compatibleWith: nil)
         }
-        if let textColor = VCheckSDK.shared.primaryTextColorHex {
-            btnContinueToPreview.titleLabel?.textColor = textColor.hexToUIColor()
-        } else {
-            btnContinueToPreview.titleLabel?.textColor = UIColor.white
-        }
+        btnContinueToPreview.titleLabel?.textColor = UIColor.white
         
         let tapGesture = NavGestureRecognizer.init(target: self, action: #selector(navigateToCheckScreen(_:)))
         tapGesture.numberOfTapsRequired = 1

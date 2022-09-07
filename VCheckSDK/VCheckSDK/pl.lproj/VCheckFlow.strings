@@ -5,7 +5,7 @@
 "2Ip-f7-uZ5.text" = "Podczas ładowania filmu wystąpił problem. Sprawdź połączenie internetowe i spróbuj ponownie bez przenoszenia aplikacji w tle.";
 
 /* Class = "UILabel"; text = "Фото вашего документа должно отвечать следующим требованиям:"; ObjectID = "2W7-Jm-sUy"; */
-"2W7-Jm-sUy.text" = "Zdjęcie Twojego dokumentu musi spełniać następujące wymagania:";
+"2W7-Jm-sUy.text" = "Przesłany dokument musi spełniać następujące wymagania:";
 
 /* Class = "UIButton"; configuration.title = "Попробовать снова"; ObjectID = "3fM-Ho-q55"; */
 "3fM-Ho-q55.configuration.title" = "Spróbuj ponownie";
@@ -110,10 +110,10 @@
 "goj-ZF-231.text" = "Sprawdź swoje zdjęcie";
 
 /* Class = "UILabel"; text = "сфотографированы или отсканированы с оригиналов"; ObjectID = "hfh-Nr-Lyd"; */
-"ACV-UJ-hZv.text" = "sfotografowany lub zeskanowany z oryginałów";
+"ACV-UJ-hZv.text" = "oryginał (nie kserokopia, nie zdjęcie)";
 
 /* Class = "UILabel"; text = "Требования к фото"; ObjectID = "hgH-RH-Doo"; */
-"hgH-RH-Doo.text" = "Wymagania dotyczące zdjęć";
+"hgH-RH-Doo.text" = "Wymagania dotyczące dokumentów";
 
 /* Class = "UILabel"; text = "Текст по факту успешной верификации"; ObjectID = "hJ9-Ol-hHi"; */
 "hJ9-Ol-hHi.text" = "Wszystkie niezbędne dane do aplikacji o weryfikację zostały przesłane do naszych służb i są w końcowej fazie przetwarzania. Możesz wrócić do serwisu partnerskiego.";

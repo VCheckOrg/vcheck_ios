@@ -16,8 +16,17 @@ class PhotoInstructionsViewController : UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    
+    @IBAction func proceedAction(_ sender: UIButton) {
+        let data = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData()
+        if (data?.isSegmentationAvailable == true) {
+            performSegue(withIdentifier: "PhotoInstructionsToSegStart", sender: nil)
+        } else {
+            performSegue(withIdentifier: "PhotoInstructionsToUpload", sender: nil)
+        }
+    }
+    
     override func viewDidLoad() {
-        
         self.proceedBtn.setTitle("proceed".localized, for: .normal)
     }
 }

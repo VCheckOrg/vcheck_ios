@@ -5,7 +5,7 @@
 "2Ip-f7-uZ5.text" = "There was an issue while uploading a video. Please check your internet connection and try again without moving an app to the background.";
 
 /* Class = "UILabel"; text = "Фото вашего документа должно отвечать следующим требованиям:"; ObjectID = "2W7-Jm-sUy"; */
-"2W7-Jm-sUy.text" = "The photo of your document must face the following requirements:";
+"2W7-Jm-sUy.text" = "Submitted document must meet the following requirements:";
 
 /* Class = "UIButton"; configuration.title = "Попробовать снова"; ObjectID = "3fM-Ho-q55"; */
 "3fM-Ho-q55.configuration.title" = "Try again";
@@ -116,10 +116,10 @@
 "goj-ZF-231.text" = "Check your photo";
 
 /* Class = "UILabel"; text = "сфотографированы или отсканированы с оригиналов"; ObjectID = "hfh-Nr-Lyd"; */
-"ACV-UJ-hZv.text" = "photographed or scanned from originals";
+"ACV-UJ-hZv.text" = "original (not a photocopy, not a photo)";
 
 /* Class = "UILabel"; text = "Требования к фото"; ObjectID = "hgH-RH-Doo"; */
-"hgH-RH-Doo.text" = "Photo requirements";
+"hgH-RH-Doo.text" = "Document requirements";
 
 /* Class = "UILabel"; text = "Текст по факту успешной верификации"; ObjectID = "hJ9-Ol-hHi"; */
 "hJ9-Ol-hHi.text" = "While all application data sent to our services is being processed, you may return to the partner service.";

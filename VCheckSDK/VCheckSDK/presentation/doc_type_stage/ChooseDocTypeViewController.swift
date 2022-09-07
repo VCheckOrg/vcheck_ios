@@ -67,10 +67,6 @@ class ChooseDocTypeViewController : UIViewController {
     
     func selectDocTypeDataAndNavigateForward(data: DocTypeData) {
         VCheckSDKLocalDatasource.shared.setSelectedDocTypeWithData(data: data)
-        if (data.isSegmentationAvailable == true) {
-            performSegue(withIdentifier: "DocTypesToSegStart", sender: self)
-        } else {
-            performSegue(withIdentifier: "ChooseDocTypeToPhotoInfo", sender: self)
-        }
+        performSegue(withIdentifier: "ChooseDocTypeToPhotoInfo", sender: self)
     }
 }
