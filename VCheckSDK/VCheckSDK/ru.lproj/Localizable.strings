@@ -115,3 +115,7 @@
 "contact_support" = "Обратиться в службу поддержки";
 
 "confirm" = "Подтвердить";
+
+"got_it" = "Понятно";
+"verification_in_process_title"="Ваша заявка уже находится в обработке";
+"verification_in_process_subtitle"="Это может занять некоторое время.";

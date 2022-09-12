@@ -37,6 +37,10 @@ class VCheckStartViewController : UIViewController {
         
         self.activityIndicatorStart()
         
+        viewModel.verificationIsAlreadyCompleted = {
+            
+        }
+        
         viewModel.didReceivedCurrentStage = {
             if (self.viewModel.currentStageResponse?.errorCode != nil
                 && self.viewModel.currentStageResponse?.errorCode ==

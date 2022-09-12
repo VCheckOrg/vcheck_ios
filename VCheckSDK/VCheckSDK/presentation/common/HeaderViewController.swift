@@ -15,7 +15,6 @@ class HeaderViewContoller: UIViewController {
     @IBAction func actionCloseSDKFlow(_ sender: Any) {
         if (VCheckSDK.shared.showCloseSDKButton) {
             VCheckSDK.shared.finish(executePartnerCallback: false)
-            //VCheckSDK.shared.changeRootViewController != true)
         }
     }
     

@@ -75,6 +75,8 @@
 		DA48073228A3D1A700B27C72 /* SegmentationTimeoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48073128A3D1A700B27C72 /* SegmentationTimeoutViewController.swift */; };
 		DA4D269C289198CC00C6F43A /* DocumentRequestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D269B289198CC00C6F43A /* DocumentRequestModels.swift */; };
 		DAA986CC28B61CAC007811F9 /* id_card_turn_side.json in Resources */ = {isa = PBXBuildFile; fileRef = DAA986CB28B61CAC007811F9 /* id_card_turn_side.json */; };
+		DAB57AEF28CF3D7700115FA6 /* VerificationStatuses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB57AEE28CF3D7700115FA6 /* VerificationStatuses.swift */; };
+		DAB57AF128CF492D00115FA6 /* VerificationSentViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB57AF028CF492D00115FA6 /* VerificationSentViewControler.swift */; };
 		DABB5FC228B3C73500BBACC0 /* ThemeClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB5FC128B3C73500BBACC0 /* ThemeClasses.swift */; };
 		DAC2DF3E28B40E330049B8B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC2DF3D28B40E330049B8B0 /* SceneDelegate.swift */; };
 		DAC3C82C2877695700B32FFC /* VerificationSchemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3C82B2877695700B32FFC /* VerificationSchemes.swift */; };
@@ -157,6 +159,8 @@
 		DA48073128A3D1A700B27C72 /* SegmentationTimeoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationTimeoutViewController.swift; sourceTree = "<group>"; };
 		DA4D269B289198CC00C6F43A /* DocumentRequestModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentRequestModels.swift; sourceTree = "<group>"; };
 		DAA986CB28B61CAC007811F9 /* id_card_turn_side.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = id_card_turn_side.json; sourceTree = "<group>"; };
+		DAB57AEE28CF3D7700115FA6 /* VerificationStatuses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationStatuses.swift; sourceTree = "<group>"; };
+		DAB57AF028CF492D00115FA6 /* VerificationSentViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationSentViewControler.swift; sourceTree = "<group>"; };
 		DABB5FC128B3C73500BBACC0 /* ThemeClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeClasses.swift; sourceTree = "<group>"; };
 		DAC2DF3D28B40E330049B8B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DAC3C82B2877695700B32FFC /* VerificationSchemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationSchemes.swift; sourceTree = "<group>"; };
@@ -268,6 +272,7 @@
 				DA153773286F4FE60038A203 /* GeneralStageModels.swift */,
 				DAC3C82B2877695700B32FFC /* VerificationSchemes.swift */,
 				DA4D269B289198CC00C6F43A /* DocumentRequestModels.swift */,
+				DAB57AEE28CF3D7700115FA6 /* VerificationStatuses.swift */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 			children = (
 				DA3BED992869A8D300B15E5C /* VCheckStartViewModel.swift */,
 				DA3BED9A2869A8D300B15E5C /* VCheckStartViewController.swift */,
+				DAB57AF028CF492D00115FA6 /* VerificationSentViewControler.swift */,
 			);
 			path = start;
 			sourceTree = "<group>";
@@ -581,6 +587,7 @@
 				DA153774286F4FE60038A203 /* GeneralStageModels.swift in Sources */,
 				DA3BEDE62869A8D300B15E5C /* VCheckStartViewModel.swift in Sources */,
 				DA3BEE032869A8D300B15E5C /* VCheckSDKLocalDatasource.swift in Sources */,
+				DAB57AF128CF492D00115FA6 /* VerificationSentViewControler.swift in Sources */,
 				DA3BEDEE2869A8D300B15E5C /* CheckDocInfoViewController.swift in Sources */,
 				DA3BEDD62869A8D300B15E5C /* LivenessVideoRecorder.swift in Sources */,
 				DA3BEDE52869A8D300B15E5C /* LivenessScreenViewController.swift in Sources */,
@@ -590,6 +597,7 @@
 				DA3BEDF42869A8D300B15E5C /* HeaderViewController.swift in Sources */,
 				DA3BEDD42869A8D300B15E5C /* Milestones.swift in Sources */,
 				DA3BEDF62869A8D300B15E5C /* CheckDocPhotoViewController.swift in Sources */,
+				DAB57AEF28CF3D7700115FA6 /* VerificationStatuses.swift in Sources */,
 				DA35CF88289D523E00E22914 /* SegmentationViewController.swift in Sources */,
 				DA3BEDCD2869A8D300B15E5C /* DocumentVerificationCodes.swift in Sources */,
 				DA3BEDCE2869A8D300B15E5C /* CountryModels.swift in Sources */,
@@ -791,7 +799,7 @@
 				BITCODE_GENERATION_MODE = "";
 				"BITCODE_GENERATION_MODE[arch=*]" = marker;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 8X5XV4T3QP;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -806,7 +814,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.20;
+				MARKETING_VERSION = 1.0.21;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vcheck.demo.app.VCheckSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -824,7 +832,7 @@
 				BITCODE_GENERATION_MODE = "";
 				"BITCODE_GENERATION_MODE[arch=*]" = release;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 8X5XV4T3QP;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -839,7 +847,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.20;
+				MARKETING_VERSION = 1.0.21;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vcheck.demo.app.VCheckSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

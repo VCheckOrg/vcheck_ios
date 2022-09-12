@@ -33,9 +33,8 @@ class VCheckStartViewModel {
     
     var didCreateVerif: (() -> ())?
     
-    var didInitVerif: (() -> ())?
+    var verificationIsAlreadyCompleted: (() -> ())?
     
-    var didFinishFetch: (() -> ())?
     var gotCountries: (() -> ())?
     
     var didReceivedCurrentStage: (() -> ())?
@@ -65,7 +64,18 @@ class VCheckStartViewModel {
                 self.isLoading = false
                 return
             }
-            self.getCurrentStage()
+            if let status = data?.status {
+                if (status > VerificationStatuses.WAITING_POSTPROCESSING) {
+                    self.isLoading = false
+                    self.verificationIsAlreadyCompleted!()
+                } else {
+                    self.getCurrentStage()
+                }
+            } else {
+                self.isLoading = false
+                self.error = VCheckApiError(errorText: "Unknown error: Failed to initialize verification",
+                                            errorCode: 0)
+            }
         })
     }
     
