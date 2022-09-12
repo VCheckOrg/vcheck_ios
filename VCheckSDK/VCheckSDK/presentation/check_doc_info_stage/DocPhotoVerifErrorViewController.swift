@@ -61,10 +61,10 @@ class DocPhotoVerifErrorViewController : UIViewController {
             } else {
                 vc.docId = self.docId
             }
-            vc.firstPhoto = self.firstPhoto
-            if (self.secondPhoto != nil) {
-                vc.secondPhoto = self.secondPhoto
-            }
+//            vc.firstPhoto = self.firstPhoto
+//            if (self.secondPhoto != nil) {
+//                vc.secondPhoto = self.secondPhoto
+//            }
             vc.isDocCheckForced = self.isDocCheckForced
         }
     }

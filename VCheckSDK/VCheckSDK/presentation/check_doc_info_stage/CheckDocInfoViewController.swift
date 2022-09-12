@@ -14,9 +14,6 @@ class CheckDocInfoViewController : UIViewController {
     
     private let viewModel = CheckDocInfoViewModel()
     
-    var firstPhoto: UIImage? = nil
-    var secondPhoto: UIImage? = nil
-    
     var docId: Int? = nil
     
     var isDocCheckForced: Bool = false
@@ -70,9 +67,6 @@ class CheckDocInfoViewController : UIViewController {
             if (self.viewModel.docInfoResponse != nil) {
                 
                 self.populateDocImages(data: self.viewModel.docInfoResponse!)
-                
-                self.populateDocFields(preProcessedDocData: self.viewModel.docInfoResponse!,
-                                       currentLocaleCode: self.currLocaleCode)
             }
         }
         
@@ -118,7 +112,6 @@ class CheckDocInfoViewController : UIViewController {
             self.requestDocImageForResult(imgIdx: 0, imgURL: data.images![0], baseURL: baseURL)
             if (data.images!.count > 1) {
                 self.secondPhotoImageView.isHidden = false
-                self.secondPhotoImageView.image = secondPhoto
                 self.requestDocImageForResult(imgIdx: 1, imgURL: data.images![1], baseURL: baseURL)
             } else {
                 self.secondPhotoImgCard.isHidden = true
@@ -138,10 +131,12 @@ class CheckDocInfoViewController : UIViewController {
         AF.request(baseURL + imgURL, method: .get, headers: headers).response{ response in
            switch response.result {
             case .success(let responseData):
+               self.populateDocFields(preProcessedDocData: self.viewModel.docInfoResponse!,
+                                      currentLocaleCode: self.currLocaleCode)
                if (imgIdx == 0) {
-                   self.firstPhotoImageView.image = UIImage(data: responseData!, scale: 1)
+                   self.firstPhotoImageView.image = UIImage(data: responseData!, scale: 0.8)
                } else {
-                   self.secondPhotoImageView.image = UIImage(data: responseData!, scale: 1)
+                   self.secondPhotoImageView.image = UIImage(data: responseData!, scale: 0.8)
                }
             case .failure(let error):
                 print("VCheck SDK - Error: ",error)
@@ -155,7 +150,7 @@ class CheckDocInfoViewController : UIViewController {
                         
             let additionalHeight = CGFloat((preProcessedDocData.type?.fields?.count)! * 82)
             
-            if (secondPhoto == nil) {
+            if (preProcessedDocData.images?.count == 1) {
                 parentCardHeightConstraint.constant = parentCardHeightConstraint.constant + additionalHeight
                     - tableViewHeightConstraint.constant - 250 // * - 2nd (missing) card height - 20
             } else {
@@ -351,7 +346,7 @@ extension CheckDocInfoViewController: UITableViewDataSource {
         self.docInfoScrollView.scrollIndicatorInsets = contentInsets
         
         var diff = 0.0
-        if (secondPhoto != nil) {
+        if (self.viewModel.docInfoResponse?.images?.count ?? 1 > 1) {
             diff = keyboardSize.height - 130.0
         } else {
             diff = keyboardSize.height - 270.0
