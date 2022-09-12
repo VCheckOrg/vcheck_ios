@@ -266,7 +266,7 @@ struct PreProcessedDocData: Codable {
   enum CodingKeys: String, CodingKey {
 
     case id         = "id"
-    case images     = "images"
+    case images     = "pages"
     case isPrimary  = "is_primary"
     case parsedData = "parsed_data"
     case status     = "status"

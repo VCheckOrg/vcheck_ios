@@ -5,7 +5,9 @@ enum VCheckSDKConstants {
     enum API {
         static let devVerificationApiBaseUrl = URL(string: "https://test-verification.vycheck.com/api/v1/")!
         static let partnerVerificationApiBaseUrl = URL(string: "https://verification.vycheck.com/api/v1/")!
-        //static let defaultSessionLifetime = 3600
+        
+        static let devVerificationServiceUrl = "https://test-verification.vycheck.com"
+        static let partnerVerificationServiceUrl = "https://verification.vycheck.com"
     }
     
     enum UTIL {

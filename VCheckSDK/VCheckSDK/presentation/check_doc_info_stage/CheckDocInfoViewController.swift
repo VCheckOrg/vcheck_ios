@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+@_implementationOnly import Alamofire
 
 
 class CheckDocInfoViewController : UIViewController {
@@ -64,19 +65,12 @@ class CheckDocInfoViewController : UIViewController {
             self.docFieldsTableView.setValue(bc.hexToUIColor() , forKey: "tableHeaderBackgroundColor")
             self.tableFooterView.backgroundColor = bc.hexToUIColor()
         }
-        
-        firstPhotoImageView.image = firstPhoto
-        
-        if (secondPhoto != nil) {
-            secondPhotoImageView.isHidden = false
-            secondPhotoImageView.image = secondPhoto
-        } else {
-            secondPhotoImgCard.isHidden = true
-            tableTopConstraint.constant = 30
-        }
-        
+
         viewModel.didReceiveDocInfoResponse = {
             if (self.viewModel.docInfoResponse != nil) {
+                
+                self.populateDocImages(data: self.viewModel.docInfoResponse!)
+                
                 self.populateDocFields(preProcessedDocData: self.viewModel.docInfoResponse!,
                                        currentLocaleCode: self.currLocaleCode)
             }
@@ -99,13 +93,13 @@ class CheckDocInfoViewController : UIViewController {
         }
         
         //TODO: improve UX
-        viewModel.updateLoadingStatus = {
-            if (self.viewModel.isLoading == true) {
-                //self.activityIndicatorStart()
-            } else {
-               // self.activityIndicatorStop()
-            }
-        }
+//        viewModel.updateLoadingStatus = {
+//            if (self.viewModel.isLoading == true) {
+//                //self.activityIndicatorStart()
+//            } else {
+//               // self.activityIndicatorStop()
+//            }
+//        }
         
         viewModel.showAlertClosure = {
             self.showToast(message: "check_doc_fields_input_message".localized, seconds: 2.0)
@@ -118,6 +112,52 @@ class CheckDocInfoViewController : UIViewController {
             viewModel.getDocumentInfo(docId: self.docId!)
         }
     }
+    
+    private func populateDocImages(data: PreProcessedDocData) {
+        
+        var baseURL: String = ""
+        
+        if (VCheckSDK.shared.getEnvironment() == VCheckEnvironment.DEV) {
+            baseURL = VCheckSDKConstants.API.devVerificationServiceUrl
+        } else {
+            baseURL = VCheckSDKConstants.API.partnerVerificationServiceUrl
+        }
+                
+        if (data.images != nil && !data.images!.isEmpty) {
+            self.requestDocImageForResult(imgIdx: 0, imgURL: data.images![0], baseURL: baseURL)
+            if (data.images!.count > 1) {
+                self.secondPhotoImageView.isHidden = false
+                self.secondPhotoImageView.image = secondPhoto
+                self.requestDocImageForResult(imgIdx: 1, imgURL: data.images![1], baseURL: baseURL)
+            } else {
+                self.secondPhotoImgCard.isHidden = true
+                self.tableTopConstraint.constant = 30
+            }
+        }
+    }
+    
+    private func requestDocImageForResult(imgIdx: Int, imgURL: String, baseURL: String) {
+        
+        let token = VCheckSDK.shared.getVerificationToken()
+        if (token.isEmpty) {
+            return
+        }
+        let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
+        
+        AF.request(baseURL + imgURL, method: .get, headers: headers).response{ response in
+           switch response.result {
+            case .success(let responseData):
+               if (imgIdx == 0) {
+                   self.firstPhotoImageView.image = UIImage(data: responseData!, scale: 1)
+               } else {
+                   self.secondPhotoImageView.image = UIImage(data: responseData!, scale: 1)
+               }
+            case .failure(let error):
+                print("VCheck SDK - Error: ",error)
+            }
+        }
+    }
+    
     
     private func populateDocFields(preProcessedDocData: PreProcessedDocData, currentLocaleCode: String) {
         if ((preProcessedDocData.type?.fields?.count)! > 0) {
