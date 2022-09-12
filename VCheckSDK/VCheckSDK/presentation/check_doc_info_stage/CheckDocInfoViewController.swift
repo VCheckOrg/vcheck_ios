@@ -66,6 +66,9 @@ class CheckDocInfoViewController : UIViewController {
         viewModel.didReceiveDocInfoResponse = {
             if (self.viewModel.docInfoResponse != nil) {
                 
+                self.populateDocFields(preProcessedDocData: self.viewModel.docInfoResponse!,
+                                       currentLocaleCode: self.currLocaleCode)
+                
                 self.populateDocImages(data: self.viewModel.docInfoResponse!)
             }
         }
@@ -131,12 +134,10 @@ class CheckDocInfoViewController : UIViewController {
         AF.request(baseURL + imgURL, method: .get, headers: headers).response{ response in
            switch response.result {
             case .success(let responseData):
-               self.populateDocFields(preProcessedDocData: self.viewModel.docInfoResponse!,
-                                      currentLocaleCode: self.currLocaleCode)
                if (imgIdx == 0) {
-                   self.firstPhotoImageView.image = UIImage(data: responseData!, scale: 0.8)
+                   self.firstPhotoImageView.image = UIImage(data: responseData!, scale: 1)
                } else {
-                   self.secondPhotoImageView.image = UIImage(data: responseData!, scale: 0.8)
+                   self.secondPhotoImageView.image = UIImage(data: responseData!, scale: 1)
                }
             case .failure(let error):
                 print("VCheck SDK - Error: ",error)

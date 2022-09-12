@@ -181,10 +181,10 @@ struct VCheckSDKRemoteDatasource {
                 
             let multipartFormData = MultipartFormData.init()
                 
-            multipartFormData.append(photo1.jpegData(compressionQuality: 0.9)!, withName: "0",
+            multipartFormData.append(photo1.jpegData(compressionQuality: 0.8)!, withName: "0",
                                      fileName: "0.jpg", mimeType: "image/jpeg")
             if (photo2 != nil) {
-                multipartFormData.append(photo2!.jpegData(compressionQuality: 0.9)!, withName: "1",
+                multipartFormData.append(photo2!.jpegData(compressionQuality: 0.8)!, withName: "1",
                                          fileName: "1.jpg", mimeType: "image/jpeg")
             }
             multipartFormData.append(category.data(using: .utf8, allowLossyConversion: false)!, withName: "category")
