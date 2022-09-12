@@ -2153,6 +2153,10 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3Y-Ya-7BQ" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="122" width="334" height="250"/>
                                                         <subviews>
+                                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="a1M-v9-elR">
+                                                                <rect key="frame" x="157" y="115" width="20" height="20"/>
+                                                                <color key="color" name="borderColor"/>
+                                                            </activityIndicatorView>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2NZ-jG-pb9">
                                                                 <rect key="frame" x="18" y="0.0" width="298" height="250"/>
                                                             </imageView>
@@ -2161,10 +2165,12 @@
                                                         <constraints>
                                                             <constraint firstItem="2NZ-jG-pb9" firstAttribute="top" secondItem="q3Y-Ya-7BQ" secondAttribute="top" id="4Eg-44-NOg"/>
                                                             <constraint firstAttribute="bottom" secondItem="2NZ-jG-pb9" secondAttribute="bottom" id="DfY-95-0Fj"/>
+                                                            <constraint firstItem="a1M-v9-elR" firstAttribute="centerY" secondItem="q3Y-Ya-7BQ" secondAttribute="centerY" id="IPB-p8-heq"/>
                                                             <constraint firstItem="2NZ-jG-pb9" firstAttribute="top" secondItem="q3Y-Ya-7BQ" secondAttribute="top" id="NlO-Xm-Hob"/>
                                                             <constraint firstItem="2NZ-jG-pb9" firstAttribute="leading" secondItem="q3Y-Ya-7BQ" secondAttribute="leading" constant="18" id="XYM-1D-1Xj"/>
                                                             <constraint firstAttribute="trailing" secondItem="2NZ-jG-pb9" secondAttribute="trailing" constant="18" id="jdR-5w-UTQ"/>
                                                             <constraint firstAttribute="height" constant="250" id="mS5-A4-0HQ"/>
+                                                            <constraint firstItem="a1M-v9-elR" firstAttribute="centerX" secondItem="q3Y-Ya-7BQ" secondAttribute="centerX" id="zdg-X3-oe4"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -2184,6 +2190,10 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Cf-tI-RPy" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="388" width="334" height="250"/>
                                                         <subviews>
+                                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="9qD-YV-zPk">
+                                                                <rect key="frame" x="157" y="115" width="20" height="20"/>
+                                                                <color key="color" name="borderColor"/>
+                                                            </activityIndicatorView>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="87H-j0-OXZ">
                                                                 <rect key="frame" x="18" y="0.0" width="298" height="250"/>
                                                             </imageView>
@@ -2195,6 +2205,8 @@
                                                             <constraint firstAttribute="trailing" secondItem="87H-j0-OXZ" secondAttribute="trailing" constant="18" id="BcN-Pa-B8v"/>
                                                             <constraint firstAttribute="bottom" secondItem="87H-j0-OXZ" secondAttribute="bottom" id="IOw-hT-EUe"/>
                                                             <constraint firstItem="87H-j0-OXZ" firstAttribute="top" secondItem="4Cf-tI-RPy" secondAttribute="top" id="P8U-kA-waa"/>
+                                                            <constraint firstItem="9qD-YV-zPk" firstAttribute="centerY" secondItem="4Cf-tI-RPy" secondAttribute="centerY" id="YPK-zt-qlf"/>
+                                                            <constraint firstItem="9qD-YV-zPk" firstAttribute="centerX" secondItem="4Cf-tI-RPy" secondAttribute="centerX" id="zTB-BV-GTH"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -3929,9 +3941,9 @@
     <inferredMetricsTieBreakers>
         <segue reference="GAO-QE-GuP"/>
         <segue reference="ZOg-Lf-JSX"/>
-        <segue reference="mdJ-XX-Wrm"/>
+        <segue reference="dMv-If-cud"/>
         <segue reference="KgJ-x7-YV2"/>
-        <segue reference="bvF-PB-3XP"/>
+        <segue reference="Apu-Tu-38V"/>
         <segue reference="LrT-uT-odh"/>
         <segue reference="JS7-Qf-uuL"/>
         <segue reference="dMs-gB-ZC7"/>

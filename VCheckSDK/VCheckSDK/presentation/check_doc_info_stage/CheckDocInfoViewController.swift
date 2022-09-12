@@ -92,22 +92,13 @@ class CheckDocInfoViewController : UIViewController {
             }
         }
         
-        //TODO: improve UX
-//        viewModel.updateLoadingStatus = {
-//            if (self.viewModel.isLoading == true) {
-//                //self.activityIndicatorStart()
-//            } else {
-//               // self.activityIndicatorStop()
-//            }
-//        }
-        
         viewModel.showAlertClosure = {
             self.showToast(message: "check_doc_fields_input_message".localized, seconds: 2.0)
         }
         
         if (self.docId == nil) {
             self.showToast(message: "invalid_doc_type_desc".localized, seconds: 3.0)
-            //self.performSegue(withIdentifier: "CheckPhotoWErrorToUploadPhoto", sender: nil) //remove
+            //self.performSegue(withIdentifier: "CheckPhotoWErrorToUploadPhoto", sender: nil) //obsolete
         } else {
             viewModel.getDocumentInfo(docId: self.docId!)
         }
@@ -436,3 +427,12 @@ extension UIViewController: UITextFieldDelegate {
         return true
     }
 }
+
+//TODO: improve UX
+//        viewModel.updateLoadingStatus = {
+//            if (self.viewModel.isLoading == true) {
+//                //self.activityIndicatorStart()
+//            } else {
+//               // self.activityIndicatorStop()
+//            }
+//        }
