@@ -51,8 +51,10 @@ class VCheckStartViewController : UIViewController {
                     if (self.viewModel.currentStageResponse?.data?.uploadedDocId != nil) {
                         self.performSegue(withIdentifier: "StartToCheckDocInfo", sender: self.viewModel.currentStageResponse?.data?.uploadedDocId)
                         return
-                    }
-                    if (self.viewModel.currentStageResponse!.data!.type! == StageType.DOCUMENT_UPLOAD.toTypeIdx()) {
+                    } else if (self.viewModel.currentStageResponse?.data?.primaryDocId != nil) {
+                        self.performSegue(withIdentifier: "StartToCheckDocInfo", sender: self.viewModel.currentStageResponse?.data?.primaryDocId)
+                        return
+                    } else if (self.viewModel.currentStageResponse!.data!.type! == StageType.DOCUMENT_UPLOAD.toTypeIdx()) {
                         self.viewModel.getCountries()
                     } else {
                         if (self.viewModel.currentStageResponse?.data?.config != nil) {
