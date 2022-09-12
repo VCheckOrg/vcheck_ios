@@ -217,7 +217,7 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="allowedCountryCell" rowHeight="70" id="onm-ZM-hCL" customClass="AllowedCountryViewCell" customModule="VCheckSDK" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="70"/>
+                                        <rect key="frame" x="0.0" y="45" width="390" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="onm-ZM-hCL" id="xmW-dM-7uI" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="70"/>
@@ -253,7 +253,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="blockedCountryCell" rowHeight="70" id="FYf-d5-FD0" customClass="BlockedCountryViewCell" customModule="VCheckSDK" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="114.66666603088379" width="390" height="70"/>
+                                        <rect key="frame" x="0.0" y="115" width="390" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FYf-d5-FD0" id="tuM-nP-JaI" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="70"/>
@@ -2153,7 +2153,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3Y-Ya-7BQ" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="122" width="334" height="250"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_photo_1" translatesAutoresizingMaskIntoConstraints="NO" id="2NZ-jG-pb9">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2NZ-jG-pb9">
                                                                 <rect key="frame" x="18" y="0.0" width="298" height="250"/>
                                                             </imageView>
                                                         </subviews>
@@ -2184,7 +2184,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Cf-tI-RPy" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="388" width="334" height="250"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_photo" translatesAutoresizingMaskIntoConstraints="NO" id="87H-j0-OXZ">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="87H-j0-OXZ">
                                                                 <rect key="frame" x="18" y="0.0" width="298" height="250"/>
                                                             </imageView>
                                                         </subviews>
@@ -2750,7 +2750,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Crw-Dx-4qz" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="134" width="334" height="250"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_photo_1" translatesAutoresizingMaskIntoConstraints="NO" id="ZWJ-nl-6Jb">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZWJ-nl-6Jb">
                                                                 <rect key="frame" x="18" y="0.0" width="298" height="250"/>
                                                             </imageView>
                                                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zoom_icon" translatesAutoresizingMaskIntoConstraints="NO" id="4hs-UV-sBw">
@@ -2791,7 +2791,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gtp-7i-H4k" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="412" width="334" height="250"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport_photo" translatesAutoresizingMaskIntoConstraints="NO" id="4ET-0K-fh8">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4ET-0K-fh8">
                                                                 <rect key="frame" x="18" y="0.0" width="298" height="250"/>
                                                                 <color key="tintColor" name="CountryCardColor"/>
                                                             </imageView>
@@ -3929,9 +3929,9 @@
     <inferredMetricsTieBreakers>
         <segue reference="GAO-QE-GuP"/>
         <segue reference="ZOg-Lf-JSX"/>
-        <segue reference="dMv-If-cud"/>
+        <segue reference="mdJ-XX-Wrm"/>
         <segue reference="KgJ-x7-YV2"/>
-        <segue reference="Apu-Tu-38V"/>
+        <segue reference="bvF-PB-3XP"/>
         <segue reference="LrT-uT-odh"/>
         <segue reference="JS7-Qf-uuL"/>
         <segue reference="dMs-gB-ZC7"/>
@@ -3964,8 +3964,6 @@
         <image name="no_time_image" width="480" height="480"/>
         <image name="original_doc_icon" width="48" height="48"/>
         <image name="passport_icon" width="42" height="48"/>
-        <image name="passport_photo" width="524" height="494"/>
-        <image name="passport_photo_1" width="524" height="494"/>
         <image name="requested_movements_icon" width="48" height="48"/>
         <image name="seen_all_icon" width="48" height="48"/>
         <image name="seen_four_corners_icon" width="48" height="48"/>
