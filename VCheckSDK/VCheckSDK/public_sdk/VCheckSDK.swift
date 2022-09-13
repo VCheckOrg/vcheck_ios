@@ -68,13 +68,12 @@ public class VCheckSDK {
     }
     
     private func resetVerification() {
-        VCheckSDKLocalDatasource.shared.resetSessionData()
+        //VCheckSDKLocalDatasource.shared.resetSessionData()
         self.selectedCountryCode = nil
     }
     
     internal func finish(executePartnerCallback: Bool) {
-        
-        VCheckSDKLocalDatasource.shared.resetSessionData()
+        //VCheckSDKLocalDatasource.shared.resetSessionData()
         self.selectedCountryCode = nil
         
         if (self.changeRootViewController == true) {
