@@ -12,9 +12,8 @@ class VCheckSDKLocalDatasource {
     // MARK: - Singleton
     static let shared = VCheckSDKLocalDatasource()
     
-    let cache = NSCache<NSString, StructWrapper<Any>>()
+    static let cache = NSCache<NSString, StructWrapper<Any>>()
     
-
 //    //cached selected doc type with data
 //    private var selectedDocTypeWithData: DocTypeData? = nil
     
@@ -26,13 +25,14 @@ class VCheckSDKLocalDatasource {
     
     func setSelectedDocTypeWithData(data: DocTypeData) {
         //self.selectedDocTypeWithData = data
-        cache.setObject(StructWrapper.init(data), forKey: "DocTypeData")
+        
+        VCheckSDKLocalDatasource.cache.setObject(StructWrapper.init(data), forKey: "DocTypeData")
     }
 
-    func getSelectedDocTypeWithData() -> DocTypeData {
+    func getSelectedDocTypeWithData() -> DocTypeData? {
         //print("--- DOC TYPE DATA: \(String(describing: self.selectedDocTypeWithData))")
         //return self.selectedDocTypeWithData!
-        return cache.object(forKey: "DocTypeData")!.value as! DocTypeData
+        return VCheckSDKLocalDatasource.cache.object(forKey: "DocTypeData")?.value as! DocTypeData?
     }
     
     func setLivenessMilestonesList(list: [String]) {
@@ -59,11 +59,25 @@ class VCheckSDKLocalDatasource {
 }
 
 
-class StructWrapper<T>: NSObject {
-
+class StructWrapper<T>: NSObject, NSDiscardableContent {
+    
     let value: T
 
     init(_ _struct: T) {
         self.value = _struct
+    }
+    
+    func beginContentAccess() -> Bool {
+        return true
+    }
+    
+    func endContentAccess() {
+    }
+    
+    func discardContentIfPossible() {
+    }
+    
+    func isContentDiscarded() -> Bool {
+        return false
     }
 }

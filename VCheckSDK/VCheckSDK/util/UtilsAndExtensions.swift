@@ -231,19 +231,23 @@ extension UIImage {
 extension UIImage {
     
     func cropWithMask() -> UIImage? {
-        let maskDimens = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData().maskDimensions!
         
-        let originalWidth = self.size.width
-        let originalHeight = self.size.height
-        let desiredWidth = originalWidth * (maskDimens.widthPercent! / 100)
-        let desiredHeight = desiredWidth * (maskDimens.ratio!)
-        let cropHeightFromEachSide = ((originalHeight - desiredHeight) / 2)
-        let cropWidthFromEachSide = ((originalWidth - desiredWidth) / 2)
-        
-        return crop(rect: CGRect(x: cropWidthFromEachSide,
-                               y: cropHeightFromEachSide,
-                               width: desiredWidth,
-                               height: desiredHeight))
+        if let maskDimens = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData()?.maskDimensions {
+            let originalWidth = self.size.width
+            let originalHeight = self.size.height
+            let desiredWidth = originalWidth * (maskDimens.widthPercent! / 100)
+            let desiredHeight = desiredWidth * (maskDimens.ratio!)
+            let cropHeightFromEachSide = ((originalHeight - desiredHeight) / 2)
+            let cropWidthFromEachSide = ((originalWidth - desiredWidth) / 2)
+            
+            return crop(rect: CGRect(x: cropWidthFromEachSide,
+                                   y: cropHeightFromEachSide,
+                                   width: desiredWidth,
+                                   height: desiredHeight))
+        } else {
+            print("VCheck SDK - error: no Selected Doc Type With Data provided for cropping with mask")
+            return nil
+        }
     }
     
     func crop(rect: CGRect) -> UIImage {

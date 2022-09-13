@@ -39,27 +39,32 @@ class CheckDocPhotoViewModel {
         
         let countryCode: String = VCheckSDK.shared.getSelectedCountryCode()
         
-        let docType: Int = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData().category!
-        
-        let docTypeStr: String = "\(docType)"
-        
-        let isManual: Bool = VCheckSDKLocalDatasource.shared.isPhotoUploadManual()
+        if let docType = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData()?.category {
+            let docTypeStr: String = "\(docType)"
             
-        dataService.uploadVerificationDocuments(photo1: photo1,
-                                                photo2: photo2,
-                                                countryCode: countryCode,
-                                                category: docTypeStr,
-                                                manual: isManual,
-                                                completion: { (data, error) in
-            if let error = error {
+            let isManual: Bool = VCheckSDKLocalDatasource.shared.isPhotoUploadManual()
+                
+            dataService.uploadVerificationDocuments(photo1: photo1,
+                                                    photo2: photo2,
+                                                    countryCode: countryCode,
+                                                    category: docTypeStr,
+                                                    manual: isManual,
+                                                    completion: { (data, error) in
+                if let error = error {
+                    self.isLoading = false
+                    self.error = error
+                    return
+                }
+                            
                 self.isLoading = false
-                self.error = error
-                return
-            }
-                        
-            self.isLoading = false
-            self.uploadResponse = data
-            self.didReceiveDocUploadResponse!()
-        })
+                self.uploadResponse = data
+                self.didReceiveDocUploadResponse!()
+            })
+        } else {
+            self.error = VCheckApiError(errorText:
+                "Error: no Selected Doc Type With Data provided for seg start view controller",
+                errorCode: nil)
+            return
+        }
     }
 }

@@ -19,7 +19,7 @@ class PhotoInstructionsViewController : UIViewController {
     
     @IBAction func proceedAction(_ sender: UIButton) {
         let data = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData()
-        if (data.isSegmentationAvailable == true) {
+        if (data?.isSegmentationAvailable == true) {
             performSegue(withIdentifier: "PhotoInstructionsToSegStart", sender: nil)
         } else {
             performSegue(withIdentifier: "PhotoInstructionsToUpload", sender: nil)

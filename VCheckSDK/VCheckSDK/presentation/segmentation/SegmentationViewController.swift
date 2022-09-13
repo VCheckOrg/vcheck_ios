@@ -458,7 +458,7 @@ extension SegmentationViewController {
     }
     
     private func setSegmentationFrameSize() {
-        if let maskDimens = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData().maskDimensions {
+        if let maskDimens = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData()?.maskDimensions {
             
             if (frameSize == nil) {
                 let screenWidth = UIScreen.main.bounds.width

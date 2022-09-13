@@ -50,98 +50,100 @@ class TakeDocPhotoViewController : UIViewController,
     var currentPhotoTakeCase: PhotoTakeCase = PhotoTakeCase.NONE
     
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        self.viewDidLoad()
+        self.initOrRefreshState()
     }
     
-    
-    override func viewDidLoad() {
+    func initOrRefreshState() {
         
-        let docTypeWithData: DocTypeData = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData()
+        if let docTypeWithData = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData() {
         
-        self.selectedDocType = DocType.docCategoryIdxToType(categoryIdx: docTypeWithData.category!)
-        
-        self.btnContinueToPreview.tintColor = UIColor(named: "borderColor", in: InternalConstants.bundle, compatibleWith: nil)
-        self.btnContinueToPreview.titleLabel?.textColor = UIColor.gray
-        self.btnContinueToPreview.gestureRecognizers?.forEach(btnContinueToPreview.removeGestureRecognizer)
-        self.btnContinueToPreview.setTitle("proceed".localized, for: .disabled)
-        self.btnContinueToPreview.setTitle("proceed".localized, for: .normal)
-        
-        self.deleteFirstPhotoBtn.isHidden = true
-        self.deleteSecondPhotoBtn.isHidden = true
-        
-        self.tvFirstCardTitle.isHidden = false
-        self.tvSecondCardTitle.isHidden = false
-        
-        self.firstPhotoButton.isHidden = false
-        self.secondPhotoButton.isHidden = false
-        
-        if (self.selectedDocType == DocType.INNER_PASSPORT_OR_COMMON) {
+            self.selectedDocType = DocType.docCategoryIdxToType(categoryIdx: docTypeWithData.category!)
             
-            firstPhotoCard.isHidden = false
-            secondPhotoCard.isHidden = false
+            self.btnContinueToPreview.tintColor = UIColor(named: "borderColor", in: InternalConstants.bundle, compatibleWith: nil)
+            self.btnContinueToPreview.titleLabel?.textColor = UIColor.gray
+            self.btnContinueToPreview.gestureRecognizers?.forEach(self.btnContinueToPreview.removeGestureRecognizer)
+            self.btnContinueToPreview.setTitle("proceed".localized, for: .disabled)
+            self.btnContinueToPreview.setTitle("proceed".localized, for: .normal)
             
-            imgViewIconFirst.isHidden = true
-            imgViewIconSecond.isHidden = true
+            self.deleteFirstPhotoBtn.isHidden = true
+            self.deleteSecondPhotoBtn.isHidden = true
             
-            frontSideDocTitleConstraint.constant = 16
-            backSideDocTitleConstraint.constant = 16
+            self.tvFirstCardTitle.isHidden = false
+            self.tvSecondCardTitle.isHidden = false
             
-            tvFirstCardTitle.text = "photo_upload_title_common_forward".localized
-            tvSecondCardTitle.text = "photo_upload_title_common_back".localized
+            self.firstPhotoButton.isHidden = false
+            self.secondPhotoButton.isHidden = false
             
-            setClickListenerForFirstPhotoBtn()
-            setClickListenerForSecondPhotoBtn()
-        }
-        if (self.selectedDocType == DocType.FOREIGN_PASSPORT) {
-            
-            firstPhotoCard.isHidden = false
-            secondPhotoCard.isHidden = true
-            
-            imgViewIconFirst.isHidden = false
-            imgViewIconSecond.isHidden = true
-            
-            tvFirstCardTitle.text = "photo_upload_title_foreign".localized
-            
-            if (docTypeWithData.country == "ua") {
-                imgViewIconFirst.image = UIImage.init(named: "doc_ua_international_passport")
-            } else {
-                imgViewIconFirst.isHidden = true
-                frontSideDocTitleConstraint.constant = 16
-            }
-            
-            parentCardHeightConstraint.constant = parentCardHeightConstraint.constant - 250 // * - 2nd (missing) card height - 20
-            continueButtonTopConstraint.constant = continueButtonTopConstraint.constant - 250 // * - 2nd (missing) card height - 20
-            
-            self.secondPhotoButton.isHidden = true
-
-            setClickListenerForFirstPhotoBtn()
-        }
-        if (self.selectedDocType == DocType.ID_CARD) {
-            
-            firstPhotoCard.isHidden = false
-            secondPhotoCard.isHidden = false
-            
-            if (docTypeWithData.country == "ua") {
-                imgViewIconFirst.isHidden = false
-                imgViewIconSecond.isHidden = false
-                imgViewIconFirst.image = UIImage.init(named: "doc_id_card_front")
-                imgViewIconSecond.image = UIImage.init(named: "doc_id_card_back")
-            } else {
-                imgViewIconFirst.isHidden = true
-                imgViewIconSecond.isHidden = true
+            if (self.selectedDocType == DocType.INNER_PASSPORT_OR_COMMON) {
                 
-                frontSideDocTitleConstraint.constant = 16
-                backSideDocTitleConstraint.constant = 16
+                self.firstPhotoCard.isHidden = false
+                self.secondPhotoCard.isHidden = false
+                
+                self.imgViewIconFirst.isHidden = true
+                self.imgViewIconSecond.isHidden = true
+                
+                self.frontSideDocTitleConstraint.constant = 16
+                self.backSideDocTitleConstraint.constant = 16
+                
+                self.tvFirstCardTitle.text = "photo_upload_title_common_forward".localized
+                self.tvSecondCardTitle.text = "photo_upload_title_common_back".localized
+                
+                self.setClickListenerForFirstPhotoBtn()
+                self.setClickListenerForSecondPhotoBtn()
             }
-            
-            tvFirstCardTitle.text = "photo_upload_title_id_card_forward".localized
-            tvSecondCardTitle.text = "photo_upload_title_id_card_back".localized
- 
-            setClickListenerForFirstPhotoBtn()
-            setClickListenerForSecondPhotoBtn()
+            if (self.selectedDocType == DocType.FOREIGN_PASSPORT) {
+                
+                self.firstPhotoCard.isHidden = false
+                self.secondPhotoCard.isHidden = true
+                
+                self.imgViewIconFirst.isHidden = false
+                self.imgViewIconSecond.isHidden = true
+                
+                self.tvFirstCardTitle.text = "photo_upload_title_foreign".localized
+                
+                if (docTypeWithData.country == "ua") {
+                    self.imgViewIconFirst.image = UIImage.init(named: "doc_ua_international_passport")
+                } else {
+                    self.imgViewIconFirst.isHidden = true
+                    self.frontSideDocTitleConstraint.constant = 16
+                }
+                
+                self.parentCardHeightConstraint.constant = self.parentCardHeightConstraint.constant - 250 // * - 2nd (missing) card height - 20
+                self.continueButtonTopConstraint.constant = self.continueButtonTopConstraint.constant - 250 // * - 2nd (missing) card height - 20
+                
+                self.secondPhotoButton.isHidden = true
+
+                self.setClickListenerForFirstPhotoBtn()
+            }
+            if (self.selectedDocType == DocType.ID_CARD) {
+                
+                self.firstPhotoCard.isHidden = false
+                self.secondPhotoCard.isHidden = false
+                
+                if (docTypeWithData.country == "ua") {
+                    self.imgViewIconFirst.isHidden = false
+                    self.imgViewIconSecond.isHidden = false
+                    self.imgViewIconFirst.image = UIImage.init(named: "doc_id_card_front")
+                    self.imgViewIconSecond.image = UIImage.init(named: "doc_id_card_back")
+                } else {
+                    self.imgViewIconFirst.isHidden = true
+                    self.imgViewIconSecond.isHidden = true
+                    
+                    self.frontSideDocTitleConstraint.constant = 16
+                    self.backSideDocTitleConstraint.constant = 16
+                }
+                
+                self.tvFirstCardTitle.text = "photo_upload_title_id_card_forward".localized
+                self.tvSecondCardTitle.text = "photo_upload_title_id_card_back".localized
+     
+                self.setClickListenerForFirstPhotoBtn()
+                self.setClickListenerForSecondPhotoBtn()
+            }
+        } else {
+            print("VCheck SDK - error: no Selected Doc Type With Data provided for take-photo screen")
         }
     }
     
@@ -353,7 +355,10 @@ class TakeDocPhotoViewController : UIViewController,
                 self.docPhotoFirstImgHolder.image = nil
                 self.docPhotoSecondImgHolder.image = nil
                 
-                self.checkPhotoCompletenessAndSetProceedClickListener()
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(250) ) {
+                    self.initOrRefreshState()
+                    self.checkPhotoCompletenessAndSetProceedClickListener()
+                }
             }
         }
     }
