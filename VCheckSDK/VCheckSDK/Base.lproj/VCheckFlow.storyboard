@@ -3623,7 +3623,6 @@
                                                         <buttonConfiguration key="configuration" style="filled" title="Понятно"/>
                                                         <connections>
                                                             <action selector="actionBackToPartner:" destination="Ih3-Z6-VZy" eventType="touchUpInside" id="vkl-Gh-0cU"/>
-                                                            <action selector="nfRetryAction:" destination="Ih3-Z6-VZy" eventType="touchUpInside" id="q1R-LT-8g9"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -3680,7 +3679,6 @@
                     <navigationItem key="navigationItem" id="c5P-g8-8FR"/>
                     <connections>
                         <outlet property="btnBack" destination="xkF-gP-gKB" id="Ya9-i3-IYf"/>
-                        <outlet property="retryBtn" destination="xkF-gP-gKB" id="a5K-Eh-4To"/>
                         <outlet property="tvSubtitle" destination="EwB-Bo-occ" id="qCk-af-Zqw"/>
                         <outlet property="tvTitle" destination="kFc-OF-2hM" id="vXX-c7-d1g"/>
                     </connections>
