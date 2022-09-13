@@ -50,6 +50,13 @@ class TakeDocPhotoViewController : UIViewController,
     var currentPhotoTakeCase: PhotoTakeCase = PhotoTakeCase.NONE
     
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.viewDidLoad()
+    }
+    
+    
     override func viewDidLoad() {
         
         let docTypeWithData: DocTypeData = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData()
@@ -346,7 +353,6 @@ class TakeDocPhotoViewController : UIViewController,
                 self.docPhotoFirstImgHolder.image = nil
                 self.docPhotoSecondImgHolder.image = nil
                 
-                self.viewDidLoad()
                 self.checkPhotoCompletenessAndSetProceedClickListener()
             }
         }
