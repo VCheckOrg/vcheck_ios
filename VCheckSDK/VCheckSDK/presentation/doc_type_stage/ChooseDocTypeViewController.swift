@@ -28,7 +28,7 @@ class ChooseDocTypeViewController : UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.resolveCardsTopConstraints()
+        self.viewModel.getAvailableDocTypes()
     }
     
     override func viewDidLoad() {

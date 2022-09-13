@@ -68,7 +68,7 @@
                         <segue destination="VHf-Vf-Dha" kind="show" identifier="StartToCountries" id="Hnt-iA-CAy"/>
                         <segue destination="vMJ-Fv-l4l" kind="show" identifier="StartToLivenessInstructions" id="dMv-If-cud"/>
                         <segue destination="dcp-4c-bus" kind="show" identifier="StartToCheckDocInfo" id="Apu-Tu-38V"/>
-                        <segue destination="Ih3-Z6-VZy" kind="show" id="97O-mG-xT5"/>
+                        <segue destination="Ih3-Z6-VZy" kind="show" identifier="StartToVerifAlreadyCompleted" id="97O-mG-xT5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rSP-2F-feb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

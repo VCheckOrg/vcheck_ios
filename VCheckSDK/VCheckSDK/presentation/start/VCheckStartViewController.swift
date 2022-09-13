@@ -38,7 +38,7 @@ class VCheckStartViewController : UIViewController {
         self.activityIndicatorStart()
         
         viewModel.verificationIsAlreadyCompleted = {
-            
+            self.performSegue(withIdentifier: "StartToVerifAlreadyCompleted", sender: nil)
         }
         
         viewModel.didReceivedCurrentStage = {

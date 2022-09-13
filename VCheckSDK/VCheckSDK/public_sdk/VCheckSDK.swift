@@ -73,6 +73,10 @@ public class VCheckSDK {
     }
     
     internal func finish(executePartnerCallback: Bool) {
+        
+        VCheckSDKLocalDatasource.shared.resetSessionData()
+        self.selectedCountryCode = nil
+        
         if (self.changeRootViewController == true) {
             partnerAppRootWindow!.rootViewController = partnerAppViewController
             partnerAppRootWindow!.makeKeyAndVisible()

@@ -91,6 +91,11 @@ class SegmentationViewController: UIViewController {
     }
     
     @objc func declineSessionAndCloseVC(_ sender: UITapGestureRecognizer) {
+        self.hasEnoughTimeForNextGesture = false
+        
+        self.videoStreamingPermitted = false
+        self.isLivenessSessionFinished = true
+                        
         navigationController?.popViewController(animated: true)
     }
     
