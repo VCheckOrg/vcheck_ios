@@ -12,8 +12,6 @@ class VCheckSDKLocalDatasource {
     // MARK: - Singleton
     static let shared = VCheckSDKLocalDatasource()
     
-    private init() {}
-    
     //cached selected doc type with data
     private var selectedDocTypeWithData: DocTypeData? = nil
     
@@ -30,32 +28,33 @@ class VCheckSDKLocalDatasource {
 extension VCheckSDKLocalDatasource {
     
     func setSelectedDocTypeWithData(data: DocTypeData) {
-        selectedDocTypeWithData = data
+        self.selectedDocTypeWithData = data
     }
 
-    func getSelectedDocTypeWithData() -> DocTypeData? {
-        return selectedDocTypeWithData
+    func getSelectedDocTypeWithData() -> DocTypeData {
+        print("--- DOC TYPE DATA: \(String(describing: self.selectedDocTypeWithData))")
+        return self.selectedDocTypeWithData!
     }
     
     func setLivenessMilestonesList(list: [String]) {
-        livenessMilestonesList = list
+        self.livenessMilestonesList = list
     }
     
     func getLivenessMilestonesList() -> [String]? {
-        return livenessMilestonesList
+        return self.livenessMilestonesList
     }
     
     func setManualPhotoUpload() {
-        manualPhotoUpload = true
+        self.manualPhotoUpload = true
     }
     
     func isPhotoUploadManual() -> Bool {
-        return manualPhotoUpload
+        return self.manualPhotoUpload
     }
     
     func resetSessionData() {
-        selectedDocTypeWithData = nil
-        livenessMilestonesList = nil
-        manualPhotoUpload = false
+        self.selectedDocTypeWithData = nil
+        self.livenessMilestonesList = nil
+        self.manualPhotoUpload = false
     }
 }

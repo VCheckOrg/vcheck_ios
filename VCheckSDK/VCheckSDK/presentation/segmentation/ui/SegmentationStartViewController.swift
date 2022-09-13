@@ -31,7 +31,7 @@ class SegmentationStartViewController: UIViewController {
             UITapGestureRecognizer(target: self, action: #selector (self.startSegSession(_:))))
         
         switch (DocType.docCategoryIdxToType(categoryIdx:
-                    (VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData()?.category!)!)) {
+                                (VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData().category!))) {
             case DocType.ID_CARD:
                 imgDocumentType.image = UIImage.init(named: "img_id_card_large")
                 tvInstrTtile.text = "segmentation_instr_id_card_title".localized

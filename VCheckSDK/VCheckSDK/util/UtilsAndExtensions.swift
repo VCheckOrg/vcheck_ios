@@ -231,7 +231,7 @@ extension UIImage {
 extension UIImage {
     
     func cropWithMask() -> UIImage? {
-        let maskDimens = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData()!.maskDimensions!
+        let maskDimens = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData().maskDimensions!
         
         let originalWidth = self.size.width
         let originalHeight = self.size.height

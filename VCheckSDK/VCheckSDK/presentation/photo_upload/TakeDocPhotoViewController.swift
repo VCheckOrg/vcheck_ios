@@ -52,7 +52,7 @@ class TakeDocPhotoViewController : UIViewController,
     
     override func viewDidLoad() {
         
-        let docTypeWithData: DocTypeData = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData()!
+        let docTypeWithData: DocTypeData = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData()
         
         self.selectedDocType = DocType.docCategoryIdxToType(categoryIdx: docTypeWithData.category!)
         

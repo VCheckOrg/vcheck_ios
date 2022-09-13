@@ -39,7 +39,7 @@ class CheckDocPhotoViewModel {
         
         let countryCode: String = VCheckSDK.shared.getSelectedCountryCode()
         
-        let docType: Int = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData()!.category!
+        let docType: Int = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData().category!
         
         let docTypeStr: String = "\(docType)"
         

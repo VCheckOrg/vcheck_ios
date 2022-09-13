@@ -116,5 +116,5 @@
 "confirm" = "Confirm";
 
 "got_it" = "Excellent!";
-"verification_in_process_title"="You application is already processing";
+"verification_in_process_title"="Your application is already processing";
 "verification_in_process_subtitle"="This may take some time.";

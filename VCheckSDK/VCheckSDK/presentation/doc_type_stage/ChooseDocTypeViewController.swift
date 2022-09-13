@@ -85,19 +85,19 @@ class ChooseDocTypeViewController : UIViewController {
         
     }
     
-    @objc func navigateForwardOnInnerPassportSelected(_ sender:UITapGestureRecognizer){
+    @objc func navigateForwardOnInnerPassportSelected(_ sender:UITapGestureRecognizer) {
         selectDocTypeDataAndNavigateForward(data: viewModel.docTypeDataArr.first(where: { $0.category == 0 })!)
     }
     
-    @objc func navigateForwardOnForeginPassportSelected(_ sender:UITapGestureRecognizer){
+    @objc func navigateForwardOnForeginPassportSelected(_ sender:UITapGestureRecognizer) {
         selectDocTypeDataAndNavigateForward(data: viewModel.docTypeDataArr.first(where: { $0.category == 1 })!)
     }
     
-    @objc func navigateForwardOnIDCardSelected(_ sender:UITapGestureRecognizer){
+    @objc func navigateForwardOnIDCardSelected(_ sender:UITapGestureRecognizer) {
         selectDocTypeDataAndNavigateForward(data: viewModel.docTypeDataArr.first(where: { $0.category == 2 })!)
     }
     
-    func selectDocTypeDataAndNavigateForward(data: DocTypeData) {
+    private func selectDocTypeDataAndNavigateForward(data: DocTypeData) {
         VCheckSDKLocalDatasource.shared.setSelectedDocTypeWithData(data: data)
         performSegue(withIdentifier: "ChooseDocTypeToPhotoInfo", sender: self)
     }
