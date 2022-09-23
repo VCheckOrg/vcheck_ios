@@ -19,7 +19,13 @@ public enum VerificationSchemeType: String, CustomStringConvertible {
     }
 }
 
-public enum VCheckEnvironment {
+public enum VCheckEnvironment: String, CustomStringConvertible {
     case PARTNER
     case DEV
+    
+    public var description: String {
+        get {
+            return self.rawValue.lowercased()
+        }
+    }
 }

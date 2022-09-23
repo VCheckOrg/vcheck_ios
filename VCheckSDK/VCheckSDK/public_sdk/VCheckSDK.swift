@@ -89,6 +89,13 @@ public class VCheckSDK {
     }
     
     private func preStartChecksPassed() -> Bool {
+        if (self.environment == nil) {
+            print("VCheckSDK - warning: sdk environment is not set | see VCheckSDK.shared.environment(env: VCheckEnvironment)")
+            self.environment = VCheckEnvironment.DEV
+        }
+        if (self.environment == VCheckEnvironment.DEV) {
+            print("VCheckSDK - warning: using DEV environment | see VCheckSDK.shared.environment(env: VCheckEnvironment)")
+        }
         if (verificationToken == nil) {
             print("VCheckSDK - error: proper verification token must be provided | see VCheckSDK.shared.verificationToken(token: String)")
             return false
@@ -110,11 +117,6 @@ public class VCheckSDK {
             print("VCheckSDK - error: SDK is not localized with [$sdkLanguageCode] locale yet. " +
                     "You may set one of the next locales: ${VCheckSDKConstantsProvider.vcheckSDKAvailableLanguagesList}, " +
                     "or check out for the recent version of the SDK library")
-            return false
-        }
-        if (environment == nil) {
-            print("VCheckSDK - warning: sdk environment is not set; using DEV environment by default " +
-                             "| see VCheckSDK.shared.environment(env: VCheckEnvironment)")
             return false
         }
         if (self.buttonsColorHex != nil && !self.buttonsColorHex!.isValidHexColor()) {
