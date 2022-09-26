@@ -8,7 +8,7 @@
 - Document data recognition: The data of the loaded document is automatically parsed
 - Liveliness check: Determining that a real person is being verified
 - Face matching: Validate that the document owner is the user being verified
-- Easy integration to your service's Flutter app out-of-the-box
+- Easy integration to your service's iOS app out-of-the-box
 
 ## How to use
 #### Installing via CocoaPods
