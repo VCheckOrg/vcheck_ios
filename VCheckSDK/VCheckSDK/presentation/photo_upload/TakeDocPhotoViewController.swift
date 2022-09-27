@@ -59,10 +59,6 @@ class TakeDocPhotoViewController : UIViewController,
     func initOrRefreshState() {
         
         if let docTypeWithData = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData() {
-            
-            if (docTypeWithData.country != VCheckSDK.shared.getSelectedCountryCode()) {
-                VCheckSDK.shared.setSelectedCountryCode(code: docTypeWithData.country!)
-            }
         
             self.selectedDocType = DocType.docCategoryIdxToType(categoryIdx: docTypeWithData.category!)
             
