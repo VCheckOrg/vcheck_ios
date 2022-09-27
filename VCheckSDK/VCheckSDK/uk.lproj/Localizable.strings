@@ -6,57 +6,40 @@
 
 "enter_valid_surname" = "Введіть валідне прізвище";
 
-/* No comment provided by engineer. */
 "error_make_at_least_one_photo" = "Будь ласка, зробіть щонайменше одну фотографію документа";
 
 "error_make_one_photo" = "Будь ласка, зробіть одну фотографію документа";
 
-"error_make_two_photos" = "Будь ласка, зробіть дві фотографії документа";
+"error_make_two_photos" = "Будь ласка, зробіть усі необхідні фото документа";
 
-/* No comment provided by engineer. */
 "error_some_fields_are_empty" = "Будь ласка, заповніть всі поля документа";
 
-/* No comment provided by engineer. */
 "line_face_obstacle" = "Дивіться прямо";
 
-/* No comment provided by engineer. */
 "liveness_stage_check_face_pos" = "Тримайте голову прямо";
 
-/* No comment provided by engineer. */
 "liveness_stage_face_left" = "Поверніть голову ліворуч";
 
-/* No comment provided by engineer. */
 "liveness_stage_face_right" = "Поверніть голову праворуч";
 
 "liveness_stage_face_up" = "Підніміть голову вгору";
 
 "liveness_stage_face_down" = "Опустіть голову вниз";
 
-/* No comment provided by engineer. */
 "liveness_stage_open_mouth" = "Відкрийте рота";
 
-/* No comment provided by engineer. */
 "photo_loaing_wait_discl" = "Будь ласка, зачекайте. Йде завантаження та обробка фото вашого документа. Це може тривати від кількох секунд до хвилини.";
 
-/* No comment provided by engineer. */
 "photo_upload_title_common_back" = "Фотографія останньої сторінки/сторони з вашою фотографією (якщо у вас є кілька фотографій у документі)";
 
-/* No comment provided by engineer. */
 "photo_upload_title_common_forward" = "Фотографія першої сторінки/сторони документа (з вашим фото)";
 
-/* No comment provided by engineer. */
 "photo_upload_title_foreign" = "Повний розворот документа з вашим фото";
 
-/* No comment provided by engineer. */
 "photo_upload_title_id_card_back" = "Задня сторона ID-картки";
 
-/* No comment provided by engineer. */
 "photo_upload_title_id_card_forward" = "Передня сторона ID-картки";
 
-/* Default action */
-"OK" = "";
-
-/* No comment provided by engineer. */
 "no_search_data_label" = "Немає даних";
 
 "confident_in_doc_title" = "Я впевнений(-а) в своєму документі, продовжити процес верифікації";
@@ -119,3 +102,6 @@
 "got_it" = "Чудово";
 "verification_in_process_title"="Ваша заявка вже знаходиться в обробці";
 "verification_in_process_subtitle"="Це може зайняти деякий час.";
+
+/* Default action */
+"OK" = "";

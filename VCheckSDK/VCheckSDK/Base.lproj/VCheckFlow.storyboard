@@ -217,7 +217,7 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="allowedCountryCell" rowHeight="70" id="onm-ZM-hCL" customClass="AllowedCountryViewCell" customModule="VCheckSDK" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="45" width="390" height="70"/>
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="onm-ZM-hCL" id="xmW-dM-7uI" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="70"/>
@@ -253,7 +253,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="blockedCountryCell" rowHeight="70" id="FYf-d5-FD0" customClass="BlockedCountryViewCell" customModule="VCheckSDK" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="115" width="390" height="70"/>
+                                        <rect key="frame" x="0.0" y="114.66666603088379" width="390" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FYf-d5-FD0" id="tuM-nP-JaI" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="70"/>

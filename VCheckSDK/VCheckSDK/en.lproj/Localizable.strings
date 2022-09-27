@@ -6,57 +6,40 @@
 
 "enter_valid_surname" = "Enter valid surname";
 
-/* No comment provided by engineer. */
 "error_make_at_least_one_photo" = "Please make at least one photo of the document";
 
 "error_make_one_photo" = "Please make one photo of the document";
 
-"error_make_two_photos" = "Please make two photos of the document";
+"error_make_two_photos" = "Please make all required photos of the document";
 
-/* No comment provided by engineer. */
 "error_some_fields_are_empty" = "Please fill all empty document fields";
 
-/* No comment provided by engineer. */
 "line_face_obstacle" = "Don't look up or down";
 
-/* No comment provided by engineer. */
 "liveness_stage_check_face_pos" = "Keep your head straight";
 
-/* No comment provided by engineer. */
 "liveness_stage_face_left" = "Turn your head to the left";
 
-/* No comment provided by engineer. */
 "liveness_stage_face_right" = "Turn your head to the right";
 
 "liveness_stage_face_up" = "Lift your head up";
 
 "liveness_stage_face_down" = "Put your head down";
 
-/* No comment provided by engineer. */
 "liveness_stage_open_mouth" = "Open your mouth";
 
-/* No comment provided by engineer. */
 "photo_loaing_wait_discl" = "Please, wait. The photo of your document is being loaded and processed. This may take from a few seconds to a minute.";
 
-/* No comment provided by engineer. */
 "photo_upload_title_common_back" = "Photo of the last page / side with your photo (if you have multiple photos in the document)";
 
-/* No comment provided by engineer. */
 "photo_upload_title_common_forward" = "Photo of the first page / side of the document (with your photo)";
 
-/* No comment provided by engineer. */
 "photo_upload_title_foreign" = "Full spread of the document with your photo";
 
-/* No comment provided by engineer. */
 "photo_upload_title_id_card_back" = "Back side of the ID card";
 
-/* No comment provided by engineer. */
 "photo_upload_title_id_card_forward" = "Front side of the ID card";
 
-/* Default action */
-"OK" = "";
-
-/* No comment provided by engineer. */
 "no_search_data_label" = "No data available";
 "confident_in_doc_title" = "I am confident in my document, continue the verification process";
 

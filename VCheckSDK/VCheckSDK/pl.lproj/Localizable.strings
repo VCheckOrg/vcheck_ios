@@ -7,57 +7,40 @@
 
 "enter_valid_surname" = "Proszę wpisz właściwe nazwisko";
 
-/* No comment provided by engineer. */
 "error_make_at_least_one_photo" = "Zrób co najmniej jedno zdjęcie dokumentu";
 
 "error_make_one_photo" = "Proszę zrobić jedno zdjęcie dokumentu";
 
-"error_make_two_photos" = "Proszę zrobić dwa zdjęcia dokumentu";
+"error_make_two_photos" = "Proszę zrobić wszystkie niezbędne dokumenty fotograficzne";
 
-/* No comment provided by engineer. */
 "error_some_fields_are_empty" = "Proszę wypełnić wszystkie pola dokumentu";
 
-/* No comment provided by engineer. */
 "line_face_obstacle" = "Patrz przed siebie";
 
-/* No comment provided by engineer. */
 "liveness_stage_check_face_pos" = "Trzymaj głowę prosto";
 
-/* No comment provided by engineer. */
 "liveness_stage_face_left" = "Odwróć głowę w lewo";
 
-/* No comment provided by engineer. */
 "liveness_stage_face_right" = "Odwróć głowę w prawo";
 
 "liveness_stage_face_up" = "Podnieś głowę do góry";
 
 "liveness_stage_face_down" = "Opuść głowę";
 
-/* No comment provided by engineer. */
 "liveness_stage_open_mouth" = "Otwórz usta";
 
-/* No comment provided by engineer. */
 "photo_loaing_wait_discl" = "Proszę czekać. Zdjęcie Twojego dokumentu jest przesyłane i przetwarzane. Może to trwać od kilku sekund do minuty.";
 
-/* No comment provided by engineer. */
 "photo_upload_title_common_back" = "Zdjęcie ostatniej strony z Twoim zdjęciem (jeśli masz wiele zdjęć w dokumencie)";
 
-/* No comment provided by engineer. */
 "photo_upload_title_common_forward" = "Zdjęcie pierwszej strony dokumentu (z Twoim zdjęciem)";
 
-/* No comment provided by engineer. */
 "photo_upload_title_foreign" = "Pełne rozłożenie dokumentu z Twoim zdjęciem";
 
-/* No comment provided by engineer. */
 "photo_upload_title_id_card_back" = "Tylna strona dowodu osobistego";
 
-/* No comment provided by engineer. */
 "photo_upload_title_id_card_forward" = "Przednia strona dowodu osobistego";
 
-/* Default action */
-"OK" = "";
-
-/* No comment provided by engineer. */
 "no_search_data_label" = "Brak dostępnych danych";
 
 "confident_in_doc_title" = "Jestem pewny swojego dokumentu, kontynuuj proces weryfikacji";
@@ -122,3 +105,6 @@
 "got_it" = "Doskonale";
 "verification_in_process_title"="Twoja aplikacja już jest na etapie przetwarzania";
 "verification_in_process_subtitle"="To może zająć troche czasu.";
+
+/* Default action */
+"OK" = "";

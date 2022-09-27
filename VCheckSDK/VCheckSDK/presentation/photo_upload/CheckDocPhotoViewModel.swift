@@ -37,9 +37,8 @@ class CheckDocPhotoViewModel {
         
         self.isLoading = true
         
-        let countryCode: String = VCheckSDK.shared.getSelectedCountryCode()
-        
-        if let docType = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData()?.category {
+        if let docType = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData()?.category,
+           let countryCode = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData()?.country {
             let docTypeStr: String = "\(docType)"
             
             let isManual: Bool = VCheckSDKLocalDatasource.shared.isPhotoUploadManual()

@@ -103,10 +103,6 @@ class VCheckStartViewController : UIViewController {
     
     func goToCountriesScreen(data: [CountryTO]) {
         
-        if let defaultSelectedCountry = self.viewModel.countries!.first(where: { $0.code == "ua" }) {
-            VCheckSDK.shared.setSelectedCountryCode(code: defaultSelectedCountry.code)
-        }
-        
         self.performSegue(withIdentifier: "StartToCountries", sender: data)
     }
     

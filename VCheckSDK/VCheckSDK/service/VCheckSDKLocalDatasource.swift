@@ -14,9 +14,6 @@ class VCheckSDKLocalDatasource {
     
     static let cache = NSCache<NSString, StructWrapper<Any>>()
     
-//    //cached selected doc type with data
-//    private var selectedDocTypeWithData: DocTypeData? = nil
-    
     private var livenessMilestonesList: [String]? = nil
 
     private var localeIsUserDefined: Bool = false
@@ -24,14 +21,10 @@ class VCheckSDKLocalDatasource {
     private var manualPhotoUpload: Bool = false
     
     func setSelectedDocTypeWithData(data: DocTypeData) {
-        //self.selectedDocTypeWithData = data
-        
         VCheckSDKLocalDatasource.cache.setObject(StructWrapper.init(data), forKey: "DocTypeData")
     }
 
     func getSelectedDocTypeWithData() -> DocTypeData? {
-        //print("--- DOC TYPE DATA: \(String(describing: self.selectedDocTypeWithData))")
-        //return self.selectedDocTypeWithData!
         return VCheckSDKLocalDatasource.cache.object(forKey: "DocTypeData")?.value as! DocTypeData?
     }
     
@@ -51,11 +44,10 @@ class VCheckSDKLocalDatasource {
         return self.manualPhotoUpload
     }
     
-//    func resetSessionData() {
-//        self.selectedDocTypeWithData = nil
-//        self.livenessMilestonesList = nil
-//        self.manualPhotoUpload = false
-//    }
+    func resetCache() {
+        self.livenessMilestonesList = nil
+        self.manualPhotoUpload = false
+    }
 }
 
 

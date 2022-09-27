@@ -36,7 +36,7 @@ class ChooseCountryViewController : UIViewController {
         if let selectedCountry = countries.first(where: { $0.code == VCheckSDK.shared.getSelectedCountryCode() }) {
             
             if (selectedCountry.code == "bm") {
-                tvSelectedCountryName.text = NSLocalizedString("bermuda", comment: "") //!
+                tvSelectedCountryName.text = "bermuda".localized
                 tvSelectedCountryFlag.text = selectedCountry.flag
             } else {
                 if (selectedCountry.name.lowercased().contains("&")) {

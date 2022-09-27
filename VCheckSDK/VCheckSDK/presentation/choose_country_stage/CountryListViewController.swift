@@ -119,7 +119,7 @@ extension CountryListViewController: UITableViewDataSource {
         
         if (cell is AllowedCountryViewCell) {
             if (self.searchResultsList[indexPath.row].code == "bm") {
-                (cell as! AllowedCountryViewCell).setCountryName(name: NSLocalizedString("bermuda", comment: "")) //!
+                (cell as! AllowedCountryViewCell).setCountryName(name: "bermuda".localized)
                 (cell as! AllowedCountryViewCell).setCountryFlag(flag: self.searchResultsList[indexPath.row].flag)
             } else {
                 if (self.searchResultsList[indexPath.row].name.lowercased().contains("&")) {
