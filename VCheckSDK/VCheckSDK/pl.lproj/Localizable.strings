@@ -106,5 +106,8 @@
 "verification_in_process_title"="Twoja aplikacja już jest na etapie przetwarzania";
 "verification_in_process_subtitle"="To może zająć troche czasu.";
 
+"good_camera_text"="nakręcony dobrym aparatem";
+"good_doc_light_text"="dobrze oświetlony";
+
 /* Default action */
 "OK" = "";

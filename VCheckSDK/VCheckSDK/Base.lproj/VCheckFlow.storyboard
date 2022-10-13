@@ -586,11 +586,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="cnD-L5-BuD" userLabel="Doc Photo Verif Error View Controller" customClass="DocPhotoVerifErrorViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Flg-BI-YSQ" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cc7-bg-eLX">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbU-iz-0Pd" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="708"/>
@@ -1299,11 +1299,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="NuA-3X-Mhz" userLabel="Seg Timeout View Controller" customClass="SegmentationTimeoutViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="phk-u4-k2h" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MlN-Qo-aJ1">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aWk-uq-Y5y" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
@@ -1535,13 +1535,13 @@
                                 <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YxH-7y-FzT" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="587.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="651"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mdb-Ax-DBB" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="84.000000000000028" width="366" height="438.66666666666674"/>
+                                                <rect key="frame" x="12" y="84" width="366" height="502"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YYe-al-bEj">
-                                                        <rect key="frame" x="16" y="358.66666666666669" width="334" height="56"/>
+                                                        <rect key="frame" x="16" y="422" width="334" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="jdY-ee-IYm"/>
                                                         </constraints>
@@ -1598,7 +1598,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="нет посторонних объектов: обложки, пальцев, скрепок и т.п." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EY3-6C-cJ9" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
-                                                        <rect key="frame" x="45" y="249.33333333333331" width="301" height="37"/>
+                                                        <rect key="frame" x="45" y="249.33333333333334" width="301" height="43.333333333333343"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -1636,8 +1636,8 @@
                                                             <action selector="backToDocType:" destination="btG-18-IMq" eventType="touchUpInside" id="YWD-EV-fDv"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="сфотографированы или отсканированы с оригиналов" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACV-UJ-hZv" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
-                                                        <rect key="frame" x="45" y="296.33333333333331" width="305" height="26.333333333333314"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="оригинал (не ксерокопия, не фото)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACV-UJ-hZv" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
+                                                        <rect key="frame" x="45" y="302.66666666666669" width="305" height="13.333333333333314"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -1650,10 +1650,39 @@
                                                             <constraint firstAttribute="width" constant="18" id="tkK-Dp-hvr"/>
                                                         </constraints>
                                                     </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="снято на хорошую камеру" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgc-RZ-BKb" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
+                                                        <rect key="frame" x="45" y="340.66666666666669" width="152" height="13.333333333333314"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="make_photo_icon" translatesAutoresizingMaskIntoConstraints="NO" id="vQg-ox-36J" customClass="CustomizableIconView" customModule="VCheckSDK" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="336.33333333333331" width="18" height="22"/>
+                                                        <color key="tintColor" name="DescriptionColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="18" id="guF-eE-fLa"/>
+                                                            <constraint firstAttribute="height" constant="22" id="ri3-Gb-mny"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="хорошо освещенный" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46v-1C-6LO" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
+                                                        <rect key="frame" x="45" y="378.66666666666669" width="122" height="13.333333333333314"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="good_light_icon" translatesAutoresizingMaskIntoConstraints="NO" id="xOS-lK-HFr" customClass="CustomizableIconView" customModule="VCheckSDK" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="374.33333333333331" width="18" height="22"/>
+                                                        <color key="tintColor" name="DescriptionColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="22" id="obl-9m-aAR"/>
+                                                            <constraint firstAttribute="width" constant="18" id="zsa-z5-wNu"/>
+                                                        </constraints>
+                                                    </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" name="CardColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="k3O-6X-MdF" secondAttribute="trailing" constant="20" id="1xY-9p-xIG"/>
+                                                    <constraint firstItem="xOS-lK-HFr" firstAttribute="leading" secondItem="Mdb-Ax-DBB" secondAttribute="leading" constant="16" id="2SR-X3-gcj"/>
                                                     <constraint firstAttribute="trailing" secondItem="2W7-Jm-sUy" secondAttribute="trailing" constant="16" id="2yP-si-aLD"/>
                                                     <constraint firstAttribute="trailing" secondItem="lqU-VZ-pLL" secondAttribute="trailing" constant="20" id="43o-5E-Rg9"/>
                                                     <constraint firstAttribute="trailing" secondItem="vUd-yM-LbS" secondAttribute="trailing" constant="16" id="510-MP-3kg"/>
@@ -1662,34 +1691,41 @@
                                                     <constraint firstItem="F2m-Px-5Fn" firstAttribute="leading" secondItem="Mdb-Ax-DBB" secondAttribute="leading" constant="16" id="8oQ-3e-x8Z"/>
                                                     <constraint firstAttribute="trailing" secondItem="YYe-al-bEj" secondAttribute="trailing" constant="16" id="C3A-7n-pHi"/>
                                                     <constraint firstItem="MVi-yI-7fe" firstAttribute="leading" secondItem="Mdb-Ax-DBB" secondAttribute="leading" constant="23" id="C6a-Sc-nJx"/>
+                                                    <constraint firstItem="xOS-lK-HFr" firstAttribute="top" secondItem="vQg-ox-36J" secondAttribute="bottom" constant="16" id="C9a-BU-6T3"/>
                                                     <constraint firstItem="lqU-VZ-pLL" firstAttribute="top" secondItem="2W7-Jm-sUy" secondAttribute="bottom" constant="20" id="Dhk-o7-j96"/>
                                                     <constraint firstAttribute="trailing" secondItem="EY3-6C-cJ9" secondAttribute="trailing" constant="20" id="EvJ-Sc-1uX"/>
                                                     <constraint firstItem="EY3-6C-cJ9" firstAttribute="leading" secondItem="Q6s-EJ-AA9" secondAttribute="trailing" constant="11" id="Hz1-4W-l2Z"/>
                                                     <constraint firstItem="k3O-6X-MdF" firstAttribute="leading" secondItem="F2m-Px-5Fn" secondAttribute="trailing" constant="11" id="Iba-8g-eoc"/>
                                                     <constraint firstItem="2W7-Jm-sUy" firstAttribute="top" secondItem="hgH-RH-Doo" secondAttribute="bottom" constant="16" id="LPL-Wu-99l"/>
                                                     <constraint firstItem="F2m-Px-5Fn" firstAttribute="top" secondItem="exS-3e-TaC" secondAttribute="bottom" constant="17" id="NhI-bT-hxE"/>
+                                                    <constraint firstItem="vQg-ox-36J" firstAttribute="leading" secondItem="Mdb-Ax-DBB" secondAttribute="leading" constant="16" id="OHk-kh-5lu"/>
                                                     <constraint firstItem="YYe-al-bEj" firstAttribute="leading" secondItem="Mdb-Ax-DBB" secondAttribute="leading" constant="16" id="PXS-Lr-c1m"/>
+                                                    <constraint firstItem="xOS-lK-HFr" firstAttribute="centerY" secondItem="46v-1C-6LO" secondAttribute="centerY" id="Pvq-1P-fo9"/>
                                                     <constraint firstItem="k3O-6X-MdF" firstAttribute="top" secondItem="vUd-yM-LbS" secondAttribute="bottom" constant="23" id="QFR-vH-eWd"/>
                                                     <constraint firstItem="exS-3e-TaC" firstAttribute="leading" secondItem="Mdb-Ax-DBB" secondAttribute="leading" constant="16" id="Shx-l1-qh0"/>
+                                                    <constraint firstItem="YYe-al-bEj" firstAttribute="top" secondItem="46v-1C-6LO" secondAttribute="bottom" constant="30" id="WHv-Km-dg2"/>
                                                     <constraint firstItem="Ltx-aS-t28" firstAttribute="centerY" secondItem="ACV-UJ-hZv" secondAttribute="centerY" id="WIn-8S-c5a"/>
                                                     <constraint firstItem="2W7-Jm-sUy" firstAttribute="leading" secondItem="Mdb-Ax-DBB" secondAttribute="leading" constant="16" id="YJ6-54-z8n"/>
+                                                    <constraint firstItem="vQg-ox-36J" firstAttribute="centerY" secondItem="Hgc-RZ-BKb" secondAttribute="centerY" id="YUS-kw-Jhl"/>
                                                     <constraint firstItem="vUd-yM-LbS" firstAttribute="leading" secondItem="exS-3e-TaC" secondAttribute="trailing" constant="11" id="ZD5-91-JSl"/>
                                                     <constraint firstItem="Q6s-EJ-AA9" firstAttribute="top" secondItem="F2m-Px-5Fn" secondAttribute="bottom" constant="18" id="a3V-jy-8KT"/>
                                                     <constraint firstItem="EY3-6C-cJ9" firstAttribute="top" secondItem="k3O-6X-MdF" secondAttribute="bottom" constant="15" id="cDN-eS-vEv"/>
                                                     <constraint firstItem="Q6s-EJ-AA9" firstAttribute="leading" secondItem="Mdb-Ax-DBB" secondAttribute="leading" constant="16" id="dFZ-m2-KJV"/>
+                                                    <constraint firstItem="46v-1C-6LO" firstAttribute="leading" secondItem="xOS-lK-HFr" secondAttribute="trailing" constant="11" id="dJP-hw-Q6H"/>
                                                     <constraint firstItem="hgH-RH-Doo" firstAttribute="leading" secondItem="Mdb-Ax-DBB" secondAttribute="leading" constant="16" id="f9N-ey-YQL"/>
                                                     <constraint firstItem="ACV-UJ-hZv" firstAttribute="top" secondItem="EY3-6C-cJ9" secondAttribute="bottom" constant="10" id="glU-xm-Jii"/>
                                                     <constraint firstItem="lqU-VZ-pLL" firstAttribute="leading" secondItem="z6X-ds-J81" secondAttribute="trailing" constant="11" id="gxI-Mb-9SV"/>
-                                                    <constraint firstItem="YYe-al-bEj" firstAttribute="top" secondItem="ACV-UJ-hZv" secondAttribute="bottom" constant="36" id="kUk-pL-a3S"/>
                                                     <constraint firstAttribute="trailing" secondItem="ACV-UJ-hZv" secondAttribute="trailing" constant="16" id="lL4-wB-7mV"/>
                                                     <constraint firstItem="Ltx-aS-t28" firstAttribute="leading" secondItem="Mdb-Ax-DBB" secondAttribute="leading" constant="16" id="ndn-Ow-4zb"/>
                                                     <constraint firstItem="hgH-RH-Doo" firstAttribute="top" secondItem="MVi-yI-7fe" secondAttribute="bottom" constant="12" id="oZa-T3-gZ5"/>
+                                                    <constraint firstItem="Hgc-RZ-BKb" firstAttribute="leading" secondItem="vQg-ox-36J" secondAttribute="trailing" constant="11" id="ohz-Pi-Y1S"/>
                                                     <constraint firstItem="MVi-yI-7fe" firstAttribute="top" secondItem="Mdb-Ax-DBB" secondAttribute="top" constant="28" id="pvI-os-G4Z"/>
                                                     <constraint firstItem="Ltx-aS-t28" firstAttribute="top" secondItem="Q6s-EJ-AA9" secondAttribute="bottom" constant="21" id="pzV-UB-yXn"/>
                                                     <constraint firstItem="z6X-ds-J81" firstAttribute="top" secondItem="2W7-Jm-sUy" secondAttribute="bottom" constant="17" id="uNQ-AK-kMO"/>
                                                     <constraint firstItem="vUd-yM-LbS" firstAttribute="top" secondItem="lqU-VZ-pLL" secondAttribute="bottom" constant="23" id="weV-qT-ZCS"/>
                                                     <constraint firstItem="exS-3e-TaC" firstAttribute="top" secondItem="z6X-ds-J81" secondAttribute="bottom" constant="16" id="ylh-Qc-tSn"/>
                                                     <constraint firstAttribute="bottom" secondItem="YYe-al-bEj" secondAttribute="bottom" constant="24" id="yp8-60-fLl"/>
+                                                    <constraint firstItem="vQg-ox-36J" firstAttribute="top" secondItem="Ltx-aS-t28" secondAttribute="bottom" constant="16" id="zgt-Xh-F4Y"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -1731,6 +1767,8 @@
                     <navigationItem key="navigationItem" id="qbJ-bC-qOy"/>
                     <connections>
                         <outlet property="proceedBtn" destination="YYe-al-bEj" id="lDl-XC-zXf"/>
+                        <outlet property="tvGoodCamera" destination="Hgc-RZ-BKb" id="WEf-1F-Zrb"/>
+                        <outlet property="tvGoodLight" destination="46v-1C-6LO" id="TMF-Sm-32i"/>
                         <segue destination="cCh-W4-UZx" kind="show" identifier="PhotoInstructionsToSegStart" id="Nwy-9Y-i5j"/>
                         <segue destination="ZEj-uY-1Rn" kind="show" identifier="PhotoInstructionsToUpload" id="Ca4-u8-MMh"/>
                     </connections>
@@ -2401,11 +2439,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="ZEj-uY-1Rn" userLabel="Photo Upload View Controller" customClass="TakeDocPhotoViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MMb-ku-R2l" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KJu-a3-gx9">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VT8-7V-8px" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="884.66666666666663"/>
@@ -2727,11 +2765,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="OYj-MX-icL" userLabel="Check Photo View Controller" customClass="CheckDocPhotoViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ncW-VQ-0Po" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DXO-ku-gkK">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xJI-uw-YK5" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="1013"/>
@@ -3330,11 +3368,11 @@
             <objects>
                 <viewController id="WJ2-QY-Hl3" customClass="ZoomedDocPhotoViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="44V-am-ckB" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="746"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aBI-ct-SYg">
-                                <rect key="frame" x="0.0" y="144" width="390" height="596"/>
+                                <rect key="frame" x="0.0" y="144" width="390" height="552"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmI-2b-PrY">
                                 <rect key="frame" x="311" y="24" width="61" height="80"/>
@@ -3704,6 +3742,9 @@
         <designable name="3gZ-MQ-puZ">
             <size key="intrinsicContentSize" width="122.66666666666667" height="19.333333333333332"/>
         </designable>
+        <designable name="46v-1C-6LO">
+            <size key="intrinsicContentSize" width="122" height="13.333333333333334"/>
+        </designable>
         <designable name="67V-bW-zDg">
             <size key="intrinsicContentSize" width="20" height="32"/>
         </designable>
@@ -3720,7 +3761,7 @@
             <size key="intrinsicContentSize" width="371" height="21.666666666666668"/>
         </designable>
         <designable name="ACV-UJ-hZv">
-            <size key="intrinsicContentSize" width="313.33333333333331" height="13.333333333333334"/>
+            <size key="intrinsicContentSize" width="204.66666666666666" height="13.333333333333334"/>
         </designable>
         <designable name="AM5-Tn-EH1">
             <size key="intrinsicContentSize" width="20" height="32"/>
@@ -3751,6 +3792,9 @@
         </designable>
         <designable name="GCm-VK-XhF">
             <size key="intrinsicContentSize" width="242.33333333333334" height="21.666666666666668"/>
+        </designable>
+        <designable name="Hgc-RZ-BKb">
+            <size key="intrinsicContentSize" width="152" height="13.333333333333334"/>
         </designable>
         <designable name="IDl-aE-NPd">
             <size key="intrinsicContentSize" width="248" height="21.666666666666668"/>
@@ -3920,6 +3964,9 @@
         <designable name="vIo-1V-hp0">
             <size key="intrinsicContentSize" width="200.33333333333334" height="21.666666666666668"/>
         </designable>
+        <designable name="vQg-ox-36J">
+            <size key="intrinsicContentSize" width="48" height="48"/>
+        </designable>
         <designable name="vUd-yM-LbS">
             <size key="intrinsicContentSize" width="231.66666666666666" height="13.333333333333334"/>
         </designable>
@@ -3928,6 +3975,9 @@
         </designable>
         <designable name="wgy-0K-AbA">
             <size key="intrinsicContentSize" width="119.66666666666667" height="19.333333333333332"/>
+        </designable>
+        <designable name="xOS-lK-HFr">
+            <size key="intrinsicContentSize" width="48" height="48"/>
         </designable>
         <designable name="z6X-ds-J81">
             <size key="intrinsicContentSize" width="48" height="48"/>
@@ -3941,7 +3991,7 @@
         <segue reference="ZOg-Lf-JSX"/>
         <segue reference="dMv-If-cud"/>
         <segue reference="KgJ-x7-YV2"/>
-        <segue reference="aNL-NU-f9y"/>
+        <segue reference="Ca4-u8-MMh"/>
         <segue reference="Apu-Tu-38V"/>
         <segue reference="JS7-Qf-uuL"/>
         <segue reference="dMs-gB-ZC7"/>

@@ -103,5 +103,8 @@
 "verification_in_process_title"="Ваша заявка вже знаходиться в обробці";
 "verification_in_process_subtitle"="Це може зайняти деякий час.";
 
+"good_camera_text"="знятий на хорошу камеру";
+"good_doc_light_text"="добре освітлений";
+
 /* Default action */
 "OK" = "";

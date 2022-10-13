@@ -101,3 +101,9 @@
 "got_it" = "Excellent!";
 "verification_in_process_title"="Your application is already processing";
 "verification_in_process_subtitle"="This may take some time.";
+
+"good_camera_text"="filmed with a good camera";
+"good_doc_light_text"="well lit";
+
+/* Default action */
+"OK" = "";
