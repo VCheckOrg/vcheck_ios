@@ -304,7 +304,7 @@ struct ParsedDocFieldsData: Codable {
   enum CodingKeys: String, CodingKey {
 
     case dateOfBirth  = "date_of_birth"
-    case dateOfExpiry = "date_of_expiry"
+    case dateOfExpiry = "expiration_date"
     case name         = "name"
     case number       = "number"
     case ogName       = "og_name"

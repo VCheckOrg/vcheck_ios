@@ -109,5 +109,7 @@
 "good_camera_text"="nakręcony dobrym aparatem";
 "good_doc_light_text"="dobrze oświetlony";
 
+"enter_valid_exp_date"="Proszę wpisać prawidłowy termin ważności dokumentu";
+
 /* Default action */
 "OK" = "";

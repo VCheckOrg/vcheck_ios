@@ -105,5 +105,7 @@
 "good_camera_text"="filmed with a good camera";
 "good_doc_light_text"="well lit";
 
+"enter_valid_exp_date"="Please, enter a valid expiration date of your document";
+
 /* Default action */
 "OK" = "";

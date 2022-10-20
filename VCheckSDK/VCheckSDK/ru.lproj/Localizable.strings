@@ -106,5 +106,7 @@
 "good_camera_text"="снято на хорошую камеру";
 "good_doc_light_text"="хорошо освещенный";
 
+"enter_valid_exp_date"="Пожалуйста, введите валидный срок действия Вашего документа";
+
 /* Default action */
 "OK" = "";

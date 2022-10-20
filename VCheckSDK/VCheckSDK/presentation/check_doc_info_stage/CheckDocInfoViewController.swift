@@ -222,7 +222,7 @@ extension CheckDocInfoViewController: UITableViewDataSource {
         
         let fieldName = fieldsList[indexPath.row].name
         
-        if (fieldName == "date_of_birth") {
+        if (fieldName == "date_of_birth" || fieldName == "expiration_date") {
             cell.docTextField.keyboardType = .numberPad
         } else {
             cell.docTextField.keyboardType = .default
@@ -240,10 +240,12 @@ extension CheckDocInfoViewController: UITableViewDataSource {
             cell.docTextField.addTarget(self, action: #selector(self.validateDocNameField(_:)),
                                         for: UIControl.Event.editingChanged)
         }
+        
         if (fieldName == "surname") {
             cell.docTextField.addTarget(self, action: #selector(self.validateDocSurnameField(_:)),
                                         for: UIControl.Event.editingChanged)
         }
+        
         if (fieldName == "date_of_birth") {
             var hintColor: UIColor? = nil
             if let pc = VCheckSDK.shared.secondaryTextColorHex {
@@ -257,6 +259,21 @@ extension CheckDocInfoViewController: UITableViewDataSource {
             cell.docTextField.addTarget(self, action: #selector(self.validateDocDateOfBirthField(_:)),
                                         for: UIControl.Event.editingChanged)
         }
+        
+        if (fieldName == "expiration_date") {
+            var hintColor: UIColor? = nil
+            if let pc = VCheckSDK.shared.secondaryTextColorHex {
+                hintColor = pc.hexToUIColor()
+            } else {
+                hintColor = UIColor.white
+            }
+            cell.docTextField.attributedPlaceholder = NSAttributedString(
+                string: "doc_date_placeholder".localized,
+                attributes: [NSAttributedString.Key.foregroundColor: hintColor!])
+            cell.docTextField.addTarget(self, action: #selector(self.validateDocExpirationDate(_:)),
+                                        for: UIControl.Event.editingChanged)
+        }
+        
         if (fieldName == "number") {
             self.regex = field.regex
             cell.docTextField.addTarget(self, action: #selector(self.validateDocNumberField(_:)),
@@ -266,8 +283,10 @@ extension CheckDocInfoViewController: UITableViewDataSource {
         let setMaskedDate = UIAction { _ in
             cell.docTextField.text = self.formattedNumber(number: cell.docTextField.text)
         }
-
         if (fieldName == "date_of_birth") {
+            cell.docTextField.addAction(setMaskedDate, for: .editingChanged)
+        }
+        if (fieldName == "expiration_date") {
             cell.docTextField.addAction(setMaskedDate, for: .editingChanged)
         }
         
@@ -294,6 +313,14 @@ extension CheckDocInfoViewController: UITableViewDataSource {
         }
     }
     
+    @objc final private func validateDocExpirationDate(_ textField: UITextField) {
+        if (!String(textField.text!.prefix(10)).checkIfValidDocDateFormat()) {
+            textField.setError("enter_valid_exp_date".localized)
+        } else {
+            textField.setError(show: false)
+        }
+    }
+    
     @objc final private func validateDocDateOfBirthField(_ textField: UITextField) {
         if (!String(textField.text!.prefix(10)).checkIfValidDocDateFormat()) {
             textField.setError("enter_valid_dob".localized)
@@ -308,18 +335,17 @@ extension CheckDocInfoViewController: UITableViewDataSource {
         } else {
             textField.setError(show: false)
         }
-    
     }
     
     func formattedNumber(number: String?) -> String {
-                    let cleanPhoneNumber = number!.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+                    let cleanNumber = number!.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
                     let mask = "####-##-##"
                     var result = ""
-                    var index = cleanPhoneNumber.startIndex
-        for ch in mask where index < cleanPhoneNumber.endIndex {
+                    var index = cleanNumber.startIndex
+        for ch in mask where index < cleanNumber.endIndex {
                         if ch == "#" {
-                            result.append(cleanPhoneNumber[index])
-                            index = cleanPhoneNumber.index(after: index)
+                            result.append(cleanNumber[index])
+                            index = cleanNumber.index(after: index)
                         } else {
                             result.append(ch)
                         }
@@ -376,6 +402,9 @@ extension CheckDocInfoViewController {
             if ($0.name == "date_of_birth") {
                 data.dateOfBirth = String($0.autoParsedValue.prefix(10))
             }
+            if ($0.name == "expiration_date") {
+                data.dateOfBirth = String($0.autoParsedValue.prefix(10))
+            }
             if ($0.name == "name") {
                 data.name = $0.autoParsedValue
             }
@@ -400,6 +429,9 @@ extension CheckDocInfoViewController {
         } else {
             if (docField.name == "date_of_birth" && parsedDocFieldsData?.dateOfBirth != nil) {
                 optParsedData = (parsedDocFieldsData?.dateOfBirth)!
+            }
+            if (docField.name == "expiration_date" && parsedDocFieldsData?.dateOfExpiry != nil) {
+                optParsedData = (parsedDocFieldsData?.dateOfExpiry)!
             }
             if (docField.name == "name" && parsedDocFieldsData?.name != nil) {
                 optParsedData = (parsedDocFieldsData?.name)!
