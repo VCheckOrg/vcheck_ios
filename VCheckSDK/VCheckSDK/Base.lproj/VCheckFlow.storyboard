@@ -2263,15 +2263,10 @@
                                                     </view>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Zhd-T3-QWa" customClass="CustomizableTableView" customModule="VCheckSDK" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="645.66666666666663" width="334" height="175.33333333333337"/>
-                                                        <color key="backgroundColor" name="CardColor"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="175.5" id="HJe-os-lcS"/>
                                                         </constraints>
-                                                        <color key="sectionIndexBackgroundColor" name="CardColor"/>
-                                                        <view key="tableFooterView" opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" id="QdH-jc-smc" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="149.33333206176758" width="334" height="1"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        </view>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="docFieldCell" rowHeight="82" id="Jcf-Ms-xcs" customClass="DocInfoViewCell" customModule="VCheckSDK" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="44.666666030883789" width="334" height="82"/>
@@ -2424,7 +2419,6 @@
                         <outlet property="parentCardHeightConstraint" destination="1Py-Yb-KBE" id="abr-Xq-MwX"/>
                         <outlet property="secondPhotoImageView" destination="87H-j0-OXZ" id="blw-es-Ov1"/>
                         <outlet property="secondPhotoImgCard" destination="4Cf-tI-RPy" id="iDg-bI-bqT"/>
-                        <outlet property="tableFooterView" destination="QdH-jc-smc" id="tMn-jH-eUA"/>
                         <outlet property="tableTopConstraint" destination="KAZ-qg-0Iu" id="Zpc-E9-dKZ"/>
                         <outlet property="tableViewHeightConstraint" destination="HJe-os-lcS" id="r0x-97-9dg"/>
                         <segue destination="vMJ-Fv-l4l" kind="show" identifier="CheckInfoToLivenessInstr" id="mdJ-XX-Wrm"/>
@@ -4049,6 +4043,9 @@
         <namedColor name="borderColor">
             <color red="0.49799999594688416" green="0.49799999594688416" blue="0.49799999594688416" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
