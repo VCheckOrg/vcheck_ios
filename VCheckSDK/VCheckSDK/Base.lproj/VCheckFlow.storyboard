@@ -2269,8 +2269,9 @@
                                                         </constraints>
                                                         <color key="sectionIndexBackgroundColor" name="CardColor"/>
                                                         <view key="tableFooterView" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" id="QdH-jc-smc" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="149.33333206176758" width="334" height="77"/>
+                                                            <rect key="frame" x="0.0" y="149.33333206176758" width="334" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" name="DescriptionColor"/>
                                                         </view>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="docFieldCell" rowHeight="82" id="Jcf-Ms-xcs" customClass="DocInfoViewCell" customModule="VCheckSDK" customModuleProvider="target">
