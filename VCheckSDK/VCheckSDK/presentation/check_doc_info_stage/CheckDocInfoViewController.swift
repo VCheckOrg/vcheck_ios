@@ -37,7 +37,7 @@ class CheckDocInfoViewController : UIViewController {
     
     @IBOutlet weak var docInfoScrollView: UIScrollView!
     
-    @IBOutlet weak var tableFooterView: BackgroundView!
+    //@IBOutlet weak var tableFooterView: BackgroundView!
     
     
     @IBAction func submitDocAction(_ sender: UIButton) {
@@ -60,7 +60,7 @@ class CheckDocInfoViewController : UIViewController {
         
         if let bc = VCheckSDK.shared.backgroundSecondaryColorHex {
             self.docFieldsTableView.setValue(bc.hexToUIColor() , forKey: "tableHeaderBackgroundColor")
-            self.tableFooterView.backgroundColor = bc.hexToUIColor()
+            //self.tableFooterView.backgroundColor = bc.hexToUIColor()
         }
 
         viewModel.didReceiveDocInfoResponse = {
