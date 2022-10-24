@@ -2268,8 +2268,8 @@
                                                             <constraint firstAttribute="height" constant="175.5" id="HJe-os-lcS"/>
                                                         </constraints>
                                                         <color key="sectionIndexBackgroundColor" name="CardColor"/>
-                                                        <view key="tableFooterView" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" id="QdH-jc-smc" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="149.33333206176758" width="334" height="100"/>
+                                                        <view key="tableFooterView" opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" id="QdH-jc-smc" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="149.33333206176758" width="334" height="1"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </view>
                                                         <prototypes>
