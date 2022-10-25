@@ -95,7 +95,6 @@ class CheckDocInfoViewController : UIViewController {
         
         if (self.docId == nil) {
             self.showToast(message: "invalid_doc_type_desc".localized, seconds: 3.0)
-            //self.performSegue(withIdentifier: "CheckPhotoWErrorToUploadPhoto", sender: nil) //obsolete
         } else {
             viewModel.getDocumentInfo(docId: self.docId!)
         }
@@ -149,7 +148,14 @@ class CheckDocInfoViewController : UIViewController {
     private func populateDocFields(preProcessedDocData: PreProcessedDocData, currentLocaleCode: String) {
         if ((preProcessedDocData.type?.fields?.count)! > 0) {
             
-            let additionalHeight = CGFloat((preProcessedDocData.type?.fields?.count)! * 82)
+            var additionalHeight = 0.0
+            
+            if ((preProcessedDocData.type?.fields?.count)! <= 4) {
+                additionalHeight = CGFloat((preProcessedDocData.type?.fields?.count)! * 82) + 15
+            } else {
+                additionalHeight = CGFloat((preProcessedDocData.type?.fields?.count)! * 82)
+            }
+            
             
             if (preProcessedDocData.images?.count == 1) {
                 parentCardHeightConstraint.constant = parentCardHeightConstraint.constant + additionalHeight
@@ -172,6 +178,7 @@ class CheckDocInfoViewController : UIViewController {
         }
     
     func checkDocFieldsAndPerformConfirmation() {
+        
         var noEmptyFields: Bool = true
         
         fieldsList.forEach {
@@ -179,6 +186,8 @@ class CheckDocInfoViewController : UIViewController {
                 noEmptyFields = false
             }
         }
+        
+        print("fieldsList: \(fieldsList)")
         
         if (noEmptyFields == true) {
             let composedFieldsData = self.composeConfirmedDocFieldsData()
@@ -403,7 +412,7 @@ extension CheckDocInfoViewController {
                 data.dateOfBirth = String($0.autoParsedValue.prefix(10))
             }
             if ($0.name == "expiration_date") {
-                data.dateOfBirth = String($0.autoParsedValue.prefix(10))
+                data.dateOfExpiry = String($0.autoParsedValue.prefix(10))
             }
             if ($0.name == "name") {
                 data.name = $0.autoParsedValue
