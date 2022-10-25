@@ -148,8 +148,8 @@ class CheckDocInfoViewController : UIViewController {
     
     private func populateDocFields(preProcessedDocData: PreProcessedDocData, currentLocaleCode: String) {
         if ((preProcessedDocData.type?.fields?.count)! > 0) {
-                        
-            let additionalHeight = CGFloat((preProcessedDocData.type?.fields?.count)! * 82) - 82
+            
+            let additionalHeight = CGFloat((preProcessedDocData.type?.fields?.count)! * 82)
             
             if (preProcessedDocData.images?.count == 1) {
                 parentCardHeightConstraint.constant = parentCardHeightConstraint.constant + additionalHeight

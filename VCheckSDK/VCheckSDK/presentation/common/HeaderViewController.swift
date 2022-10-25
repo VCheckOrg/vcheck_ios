@@ -55,6 +55,7 @@ class HeaderViewContoller: UIViewController {
              VCheckSDKRoundedView.appearance(whenContainedInInstancesOf: [BackgroundView.self]).backgroundColor = backgroundSecondaryHex.hexToUIColor()
              DocInfoViewCell.appearance(whenContainedInInstancesOf: [BackgroundView.self]).backgroundColor = backgroundSecondaryHex.hexToUIColor()
              UIView.appearance(whenContainedInInstancesOf: [DocInfoViewCell.self]).backgroundColor = UIColor.clear
+             CustomizableTableView.appearance(whenContainedInInstancesOf: [VCheckSDKRoundedView.self]).backgroundColor = backgroundSecondaryHex.hexToUIColor()
          }
          if let backgroundTertiaryHex = VCheckSDK.shared.backgroundTertiaryColorHex {
              SmallRoundedView.appearance(whenContainedInInstancesOf: [BackgroundView.self]).backgroundColor = backgroundTertiaryHex.hexToUIColor()
