@@ -7,7 +7,6 @@ target 'VCheckSDK' do
 
   # Pods for VCheckSDK
   pod 'Alamofire', '~> 5.4.0'
-  pod 'lottie-ios'
-  
+  pod 'lottie-ios', '3.3.0'
 
 end

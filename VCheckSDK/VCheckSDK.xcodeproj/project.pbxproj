@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8D9B3411C4803F11306AFDC8 /* libPods-VCheckSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8684CB6363ACD92E4B1E4E0A /* libPods-VCheckSDK.a */; };
+		7DE0A700E93FC81C3C4CBE8F /* libPods-VCheckSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC0D2AF8863BAE23ACD5425 /* libPods-VCheckSDK.a */; };
+		DA09A3462947A61D00CEAD4E /* passport_flip.json in Resources */ = {isa = PBXBuildFile; fileRef = DA09A3452947A61D00CEAD4E /* passport_flip.json */; };
 		DA153774286F4FE60038A203 /* GeneralStageModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA153773286F4FE60038A203 /* GeneralStageModels.swift */; };
 		DA35CF88289D523E00E22914 /* SegmentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA35CF87289D523E00E22914 /* SegmentationViewController.swift */; };
 		DA35CF8A289D550D00E22914 /* SegmentationStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA35CF89289D550D00E22914 /* SegmentationStartViewController.swift */; };
@@ -96,9 +97,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4477A6D7EAE2B82C2841CC26 /* Pods-VCheckSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCheckSDK.release.xcconfig"; path = "Target Support Files/Pods-VCheckSDK/Pods-VCheckSDK.release.xcconfig"; sourceTree = "<group>"; };
-		8684CB6363ACD92E4B1E4E0A /* libPods-VCheckSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VCheckSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ABCF8F55960CED9BD0D87C85 /* Pods-VCheckSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCheckSDK.debug.xcconfig"; path = "Target Support Files/Pods-VCheckSDK/Pods-VCheckSDK.debug.xcconfig"; sourceTree = "<group>"; };
+		3AC0D2AF8863BAE23ACD5425 /* libPods-VCheckSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VCheckSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6077F041A7F14DABE678493F /* Pods-VCheckSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCheckSDK.release.xcconfig"; path = "Target Support Files/Pods-VCheckSDK/Pods-VCheckSDK.release.xcconfig"; sourceTree = "<group>"; };
+		77D92EBD67143AFF3F13555E /* Pods-VCheckSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCheckSDK.debug.xcconfig"; path = "Target Support Files/Pods-VCheckSDK/Pods-VCheckSDK.debug.xcconfig"; sourceTree = "<group>"; };
+		DA09A3452947A61D00CEAD4E /* passport_flip.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = passport_flip.json; sourceTree = "<group>"; };
 		DA153773286F4FE60038A203 /* GeneralStageModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralStageModels.swift; sourceTree = "<group>"; };
 		DA35CF87289D523E00E22914 /* SegmentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationViewController.swift; sourceTree = "<group>"; };
 		DA35CF89289D550D00E22914 /* SegmentationStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationStartViewController.swift; sourceTree = "<group>"; };
@@ -186,7 +188,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D9B3411C4803F11306AFDC8 /* libPods-VCheckSDK.a in Frameworks */,
+				7DE0A700E93FC81C3C4CBE8F /* libPods-VCheckSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,18 +198,10 @@
 		2B2266784090F5ED8C230FBE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				ABCF8F55960CED9BD0D87C85 /* Pods-VCheckSDK.debug.xcconfig */,
-				4477A6D7EAE2B82C2841CC26 /* Pods-VCheckSDK.release.xcconfig */,
+				77D92EBD67143AFF3F13555E /* Pods-VCheckSDK.debug.xcconfig */,
+				6077F041A7F14DABE678493F /* Pods-VCheckSDK.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		3178C0118D4B8B40DB7A7637 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				8684CB6363ACD92E4B1E4E0A /* libPods-VCheckSDK.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		DA35CF86289D520700E22914 /* segmentation */ = {
@@ -227,7 +221,7 @@
 				DA3BED522869A69D00B15E5C /* Products */,
 				DAA730392869C5540056CC8D /* Recovered References */,
 				2B2266784090F5ED8C230FBE /* Pods */,
-				3178C0118D4B8B40DB7A7637 /* Frameworks */,
+				FC76F161369B8E8316F65888 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -260,6 +254,7 @@
 		DA3BED5E2869A76700B15E5C /* animations */ = {
 			isa = PBXGroup;
 			children = (
+				DA09A3452947A61D00CEAD4E /* passport_flip.json */,
 				DAA986CB28B61CAC007811F9 /* id_card_turn_side.json */,
 				DA3BED5F2869A76700B15E5C /* down.json */,
 				DA3BED602869A76700B15E5C /* left.json */,
@@ -467,6 +462,14 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		FC76F161369B8E8316F65888 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3AC0D2AF8863BAE23ACD5425 /* libPods-VCheckSDK.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -485,7 +488,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA3BED5A2869A69D00B15E5C /* Build configuration list for PBXNativeTarget "VCheckSDK" */;
 			buildPhases = (
-				966355D3E25117CC7E1518B5 /* [CP] Check Pods Manifest.lock */,
+				B1031532F6AE75F0E3D8AB89 /* [CP] Check Pods Manifest.lock */,
 				DA3BED4C2869A69D00B15E5C /* Headers */,
 				DA3BED4D2869A69D00B15E5C /* Sources */,
 				DA3BED4E2869A69D00B15E5C /* Frameworks */,
@@ -551,13 +554,14 @@
 				DA3BED672869A76700B15E5C /* left.json in Resources */,
 				DA3BED6A2869A76700B15E5C /* mouth.json in Resources */,
 				DA3BED6B2869A76700B15E5C /* right.json in Resources */,
+				DA09A3462947A61D00CEAD4E /* passport_flip.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		966355D3E25117CC7E1518B5 /* [CP] Check Pods Manifest.lock */ = {
+		B1031532F6AE75F0E3D8AB89 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -685,6 +689,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BITCODE_GENERATION_MODE = "";
 				"BITCODE_GENERATION_MODE[arch=*]" = marker;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -751,6 +756,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BITCODE_GENERATION_MODE = "";
 				"BITCODE_GENERATION_MODE[arch=*]" = release;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -808,7 +814,7 @@
 		};
 		DA3BED5B2869A69D00B15E5C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ABCF8F55960CED9BD0D87C85 /* Pods-VCheckSDK.debug.xcconfig */;
+			baseConfigurationReference = 77D92EBD67143AFF3F13555E /* Pods-VCheckSDK.debug.xcconfig */;
 			buildSettings = {
 				BITCODE_GENERATION_MODE = "";
 				"BITCODE_GENERATION_MODE[arch=*]" = marker;
@@ -845,7 +851,7 @@
 		};
 		DA3BED5C2869A69D00B15E5C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4477A6D7EAE2B82C2841CC26 /* Pods-VCheckSDK.release.xcconfig */;
+			baseConfigurationReference = 6077F041A7F14DABE678493F /* Pods-VCheckSDK.release.xcconfig */;
 			buildSettings = {
 				BITCODE_GENERATION_MODE = "";
 				"BITCODE_GENERATION_MODE[arch=*]" = release;

@@ -370,11 +370,23 @@ extension SegmentationViewController {
             
             self.fadeViewIn(view: self.darkFrameOverlay, delay: 0.0, animationDuration: 0.5)
             
-            DispatchQueue.main.asyncAfter(deadline:
-                    .now() + .milliseconds(900)) { //duration of full fade animation cycle
-                self.successFrame.isHidden = true
-                self.playStageSuccessAnimation()
+            let isInnerUaPassport = DocType.docCategoryIdxToType(categoryIdx: (self.docData?.category)!) == DocType.INNER_PASSPORT_OR_COMMON && self.docData?.country == "ua"
+            
+            if (DocType.docCategoryIdxToType(categoryIdx: (self.docData?.category!)!) == DocType.ID_CARD) {
+                DispatchQueue.main.asyncAfter(deadline:
+                        .now() + .milliseconds(900)) { //duration of full fade animation cycle
+                    self.successFrame.isHidden = true
+                    self.playStageSuccessAnimation(animName: "id_card_turn_side")
+                }
             }
+            if (isInnerUaPassport && self.checkedDocIdx == 1) {
+                DispatchQueue.main.asyncAfter(deadline:
+                        .now() + .milliseconds(900)) { //duration of full fade animation cycle
+                    self.successFrame.isHidden = true
+                    self.playStageSuccessAnimation(animName: "passport_flip")
+                }
+            }
+            
             DispatchQueue.main.asyncAfter(deadline:
                     .now() + .milliseconds(3500)) { //BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS - 500
                 self.fadeViewOut(view: self.darkFrameOverlay, delay: 0.0, animationDuration: 0.5)
@@ -391,24 +403,21 @@ extension SegmentationViewController {
         }
     }
     
-    func playStageSuccessAnimation() {
+    func playStageSuccessAnimation(animName: String) {
         self.segmentationAnimHolder.subviews.forEach { $0.removeFromSuperview() }
+            
+        self.docAnimationView = AnimationView(name: animName, bundle: InternalConstants.bundle)
+
+        self.docAnimationView.contentMode = .scaleAspectFill
+        self.docAnimationView.translatesAutoresizingMaskIntoConstraints = false
+        self.segmentationAnimHolder.addSubview(self.docAnimationView)
+
+        self.docAnimationView.centerXAnchor.constraint(equalTo: self.segmentationAnimHolder.centerXAnchor).isActive = true
+        self.docAnimationView.centerYAnchor.constraint(equalTo: self.segmentationAnimHolder.centerYAnchor).isActive = true
+                    
+        self.docAnimationView.loopMode = .playOnce
         
-        if (DocType.docCategoryIdxToType(categoryIdx: (self.docData?.category!)!) == DocType.ID_CARD) {
-            
-            self.docAnimationView = AnimationView(name: "id_card_turn_side", bundle: InternalConstants.bundle)
-    
-            self.docAnimationView.contentMode = .scaleAspectFill
-            self.docAnimationView.translatesAutoresizingMaskIntoConstraints = false
-            self.segmentationAnimHolder.addSubview(self.docAnimationView)
-    
-            self.docAnimationView.centerXAnchor.constraint(equalTo: self.segmentationAnimHolder.centerXAnchor).isActive = true
-            self.docAnimationView.centerYAnchor.constraint(equalTo: self.segmentationAnimHolder.centerYAnchor).isActive = true
-                        
-            self.docAnimationView.loopMode = .playOnce
-            
-            self.docAnimationView.play()
-        }
+        self.docAnimationView.play()
     }
     
     func updateDocAnimation() {
