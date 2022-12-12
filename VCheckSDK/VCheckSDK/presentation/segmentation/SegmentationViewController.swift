@@ -32,7 +32,7 @@ class SegmentationViewController: UIViewController {
     private var isBackgroundSet: Bool = false
     
     // MARK: - Anim properties
-    private var docAnimationView: AnimationView = AnimationView()
+    private var docAnimationView: LottieAnimationView = LottieAnimationView()
     private let hapticFeedbackGenerator = UINotificationFeedbackGenerator()
 
    // MARK: - Member Variables (open for ext.)
@@ -406,7 +406,7 @@ extension SegmentationViewController {
     func playStageSuccessAnimation(animName: String) {
         self.segmentationAnimHolder.subviews.forEach { $0.removeFromSuperview() }
             
-        self.docAnimationView = AnimationView(name: animName, bundle: InternalConstants.bundle)
+        self.docAnimationView = LottieAnimationView(name: animName, bundle: InternalConstants.bundle)
 
         self.docAnimationView.contentMode = .scaleAspectFill
         self.docAnimationView.translatesAutoresizingMaskIntoConstraints = false

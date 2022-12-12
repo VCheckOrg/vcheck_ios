@@ -24,8 +24,8 @@ class LivenessInstructionsViewController: UIViewController {
 
     
     // MARK: - Anim properties
-    private var faceAnimationView: AnimationView = AnimationView()
-    private var arrowAnimationView: AnimationView = AnimationView()
+    private var faceAnimationView: LottieAnimationView = LottieAnimationView()
+    private var arrowAnimationView: LottieAnimationView = LottieAnimationView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,9 +52,9 @@ class LivenessInstructionsViewController: UIViewController {
         animsHolder.subviews.forEach { $0.removeFromSuperview() }
             
         if (forLeftCycle == true) {
-            faceAnimationView = AnimationView(name: "left", bundle: InternalConstants.bundle)
+            faceAnimationView = LottieAnimationView(name: "left", bundle: InternalConstants.bundle)
         } else {
-            faceAnimationView = AnimationView(name: "right", bundle: InternalConstants.bundle)
+            faceAnimationView = LottieAnimationView(name: "right", bundle: InternalConstants.bundle)
         }
         
         faceAnimationView.contentMode = .scaleAspectFit
@@ -77,7 +77,7 @@ class LivenessInstructionsViewController: UIViewController {
         arrowHolder.subviews.forEach { $0.removeFromSuperview() }
 
         if (forLeftCycle) {
-            arrowAnimationView = AnimationView(name: "arrow", bundle: InternalConstants.bundle)
+            arrowAnimationView = LottieAnimationView(name: "arrow", bundle: InternalConstants.bundle)
             
             arrowAnimationView.contentMode = .scaleAspectFill
             arrowAnimationView.translatesAutoresizingMaskIntoConstraints = false
@@ -92,7 +92,7 @@ class LivenessInstructionsViewController: UIViewController {
             arrowAnimationView.loopMode = .loop
             
         } else {
-            arrowAnimationView = AnimationView(name: "arrow", bundle: InternalConstants.bundle)
+            arrowAnimationView = LottieAnimationView(name: "arrow", bundle: InternalConstants.bundle)
             
             arrowAnimationView.contentMode = .scaleAspectFill
             arrowAnimationView.translatesAutoresizingMaskIntoConstraints = false

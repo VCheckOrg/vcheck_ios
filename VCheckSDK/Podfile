@@ -6,7 +6,7 @@ target 'VCheckSDK' do
   # use_frameworks!
 
   # Pods for VCheckSDK
-  pod 'Alamofire', '~> 5.4.0'
-  pod 'lottie-ios', '3.3.0'
+  pod 'Alamofire'
+  pod 'lottie-ios'
 
 end

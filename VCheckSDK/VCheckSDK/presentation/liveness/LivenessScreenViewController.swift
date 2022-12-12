@@ -18,8 +18,8 @@ internal class LivenessScreenViewController: UIViewController {
     @IBOutlet weak var indicationFrame: VCheckSDKRoundedView!
 
     // MARK: - Anim properties
-    private var faceAnimationView: AnimationView = AnimationView()
-    private var arrowAnimationView: AnimationView = AnimationView()
+    private var faceAnimationView: LottieAnimationView = LottieAnimationView()
+    private var arrowAnimationView: LottieAnimationView = LottieAnimationView()
     private let hapticFeedbackGenerator = UINotificationFeedbackGenerator()
 
     // MARK: - Member Variables (open for ext.)
@@ -237,8 +237,8 @@ internal class LivenessScreenViewController: UIViewController {
             self.indicationFrame.alpha = 1
             self.imgMilestoneChecked.isHidden = true
             self.indicationFrame.isHidden = true
-            self.faceAnimationView = AnimationView()
-            self.arrowAnimationView = AnimationView()
+            self.faceAnimationView = LottieAnimationView()
+            self.arrowAnimationView = LottieAnimationView()
             self.arrowAnimationView.stop()
             self.rightArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
             self.leftArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
@@ -337,17 +337,17 @@ extension LivenessScreenViewController {
         roundedView.subviews.forEach { $0.removeFromSuperview() }
 
         if (forMilestoneType == GestureMilestoneType.OuterLeftHeadYawMilestone) {
-            faceAnimationView = AnimationView(name: "left", bundle: InternalConstants.bundle)
+            faceAnimationView = LottieAnimationView(name: "left", bundle: InternalConstants.bundle)
         } else if (forMilestoneType == GestureMilestoneType.OuterRightHeadYawMilestone) {
-            faceAnimationView = AnimationView(name: "right", bundle: InternalConstants.bundle)
+            faceAnimationView = LottieAnimationView(name: "right", bundle: InternalConstants.bundle)
         } else if (forMilestoneType == GestureMilestoneType.UpHeadPitchMilestone) {
-            faceAnimationView = AnimationView(name: "up", bundle: InternalConstants.bundle)
+            faceAnimationView = LottieAnimationView(name: "up", bundle: InternalConstants.bundle)
         } else if (forMilestoneType == GestureMilestoneType.DownHeadPitchMilestone) {
-            faceAnimationView = AnimationView(name: "down", bundle: InternalConstants.bundle)
+            faceAnimationView = LottieAnimationView(name: "down", bundle: InternalConstants.bundle)
         } else if (forMilestoneType == GestureMilestoneType.MouthOpenMilestone) {
-            faceAnimationView = AnimationView(name: "mouth", bundle: InternalConstants.bundle)
+            faceAnimationView = LottieAnimationView(name: "mouth", bundle: InternalConstants.bundle)
         } else {
-            faceAnimationView = AnimationView(name: "mouth", bundle: InternalConstants.bundle)
+            faceAnimationView = LottieAnimationView(name: "mouth", bundle: InternalConstants.bundle)
         }
 
         faceAnimationView.contentMode = .scaleAspectFit
@@ -378,7 +378,7 @@ extension LivenessScreenViewController {
             rightArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
             centerAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
             
-            arrowAnimationView = AnimationView(name: "arrow", bundle: InternalConstants.bundle)
+            arrowAnimationView = LottieAnimationView(name: "arrow", bundle: InternalConstants.bundle)
 
             arrowAnimationView.contentMode = .center
             arrowAnimationView.translatesAutoresizingMaskIntoConstraints = false
@@ -397,7 +397,7 @@ extension LivenessScreenViewController {
             leftArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
             centerAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
 
-            arrowAnimationView = AnimationView(name: "arrow", bundle: InternalConstants.bundle)
+            arrowAnimationView = LottieAnimationView(name: "arrow", bundle: InternalConstants.bundle)
 
             arrowAnimationView.contentMode = .center
             arrowAnimationView.translatesAutoresizingMaskIntoConstraints = false
@@ -418,7 +418,7 @@ extension LivenessScreenViewController {
             leftArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
             rightArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
 
-            arrowAnimationView = AnimationView(name: "arrow", bundle: InternalConstants.bundle)
+            arrowAnimationView = LottieAnimationView(name: "arrow", bundle: InternalConstants.bundle)
 
             arrowAnimationView.contentMode = .center
             arrowAnimationView.translatesAutoresizingMaskIntoConstraints = false
@@ -438,7 +438,7 @@ extension LivenessScreenViewController {
             
             leftArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
 
-            arrowAnimationView = AnimationView(name: "arrow", bundle: InternalConstants.bundle)
+            arrowAnimationView = LottieAnimationView(name: "arrow", bundle: InternalConstants.bundle)
 
             arrowAnimationView.contentMode = .center
             arrowAnimationView.translatesAutoresizingMaskIntoConstraints = false
@@ -455,7 +455,7 @@ extension LivenessScreenViewController {
             arrowAnimationView.loopMode = .loop
         }
         else {
-            arrowAnimationView = AnimationView()
+            arrowAnimationView = LottieAnimationView()
             arrowAnimationView.stop()
             rightArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
             leftArrowAnimHolderView.subviews.forEach { $0.removeFromSuperview() }
