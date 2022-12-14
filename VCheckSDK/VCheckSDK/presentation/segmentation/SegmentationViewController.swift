@@ -360,7 +360,7 @@ extension SegmentationViewController {
                 && self.checkedDocIdx == 1) {
                 self.indicationText.text = "segmentation_stage_success_first_page".localized
             } else {
-                self.indicationText.text = "segmentation_stage_success".localized;
+                self.indicationText.text = "segmentation_stage_success".localized
             }
 
             //self.textIndicatorConstraint.constant = 40.0 // was temp fix

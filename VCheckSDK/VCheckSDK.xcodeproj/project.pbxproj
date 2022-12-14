@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7DE0A700E93FC81C3C4CBE8F /* libPods-VCheckSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC0D2AF8863BAE23ACD5425 /* libPods-VCheckSDK.a */; };
-		DA09A3462947A61D00CEAD4E /* passport_flip.json in Resources */ = {isa = PBXBuildFile; fileRef = DA09A3452947A61D00CEAD4E /* passport_flip.json */; };
 		DA153774286F4FE60038A203 /* GeneralStageModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA153773286F4FE60038A203 /* GeneralStageModels.swift */; };
+		DA2207192949FB230027C4B4 /* passport_flip.json in Resources */ = {isa = PBXBuildFile; fileRef = DA2207182949FB230027C4B4 /* passport_flip.json */; };
 		DA35CF88289D523E00E22914 /* SegmentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA35CF87289D523E00E22914 /* SegmentationViewController.swift */; };
 		DA35CF8A289D550D00E22914 /* SegmentationStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA35CF89289D550D00E22914 /* SegmentationStartViewController.swift */; };
 		DA3BED562869A69D00B15E5C /* VCheckSDK.docc in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED552869A69D00B15E5C /* VCheckSDK.docc */; };
@@ -100,8 +100,8 @@
 		3AC0D2AF8863BAE23ACD5425 /* libPods-VCheckSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VCheckSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6077F041A7F14DABE678493F /* Pods-VCheckSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCheckSDK.release.xcconfig"; path = "Target Support Files/Pods-VCheckSDK/Pods-VCheckSDK.release.xcconfig"; sourceTree = "<group>"; };
 		77D92EBD67143AFF3F13555E /* Pods-VCheckSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCheckSDK.debug.xcconfig"; path = "Target Support Files/Pods-VCheckSDK/Pods-VCheckSDK.debug.xcconfig"; sourceTree = "<group>"; };
-		DA09A3452947A61D00CEAD4E /* passport_flip.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = passport_flip.json; sourceTree = "<group>"; };
 		DA153773286F4FE60038A203 /* GeneralStageModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralStageModels.swift; sourceTree = "<group>"; };
+		DA2207182949FB230027C4B4 /* passport_flip.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = passport_flip.json; sourceTree = "<group>"; };
 		DA35CF87289D523E00E22914 /* SegmentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationViewController.swift; sourceTree = "<group>"; };
 		DA35CF89289D550D00E22914 /* SegmentationStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationStartViewController.swift; sourceTree = "<group>"; };
 		DA3BED512869A69D00B15E5C /* VCheckSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCheckSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -254,7 +254,7 @@
 		DA3BED5E2869A76700B15E5C /* animations */ = {
 			isa = PBXGroup;
 			children = (
-				DA09A3452947A61D00CEAD4E /* passport_flip.json */,
+				DA2207182949FB230027C4B4 /* passport_flip.json */,
 				DAA986CB28B61CAC007811F9 /* id_card_turn_side.json */,
 				DA3BED5F2869A76700B15E5C /* down.json */,
 				DA3BED602869A76700B15E5C /* left.json */,
@@ -554,7 +554,7 @@
 				DA3BED672869A76700B15E5C /* left.json in Resources */,
 				DA3BED6A2869A76700B15E5C /* mouth.json in Resources */,
 				DA3BED6B2869A76700B15E5C /* right.json in Resources */,
-				DA09A3462947A61D00CEAD4E /* passport_flip.json in Resources */,
+				DA2207192949FB230027C4B4 /* passport_flip.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
