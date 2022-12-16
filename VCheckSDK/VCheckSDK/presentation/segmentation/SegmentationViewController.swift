@@ -407,13 +407,22 @@ extension SegmentationViewController {
         self.segmentationAnimHolder.subviews.forEach { $0.removeFromSuperview() }
             
         self.docAnimationView = LottieAnimationView(name: animName, bundle: InternalConstants.bundle)
+        
+//        self.docAnimationView.frame = CGRect(x: 0, y: 0, width: self.frameSize!.width - 10, height: self.frameSize!.height - 10)
+//        self.docAnimationView.center = self.view.center
 
-        self.docAnimationView.contentMode = .scaleAspectFill
+        self.docAnimationView.contentMode = .scaleAspectFit //.scaleAspectFit
         self.docAnimationView.translatesAutoresizingMaskIntoConstraints = false
         self.segmentationAnimHolder.addSubview(self.docAnimationView)
 
         self.docAnimationView.centerXAnchor.constraint(equalTo: self.segmentationAnimHolder.centerXAnchor).isActive = true
         self.docAnimationView.centerYAnchor.constraint(equalTo: self.segmentationAnimHolder.centerYAnchor).isActive = true
+        
+        //-------
+        //test!
+        self.docAnimationView.heightAnchor.constraint(equalToConstant: self.segmentationAnimHolder.viewHeight).isActive = true
+        self.docAnimationView.widthAnchor.constraint(equalToConstant: self.segmentationAnimHolder.viewWidth).isActive = true
+        //-------
                     
         self.docAnimationView.loopMode = .playOnce
         
