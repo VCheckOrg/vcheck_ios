@@ -14,9 +14,9 @@
 
 "error_some_fields_are_empty" = "Please fill all empty document fields";
 
-"line_face_obstacle" = "Don't look up or down";
+"line_face_obstacle" = "Hold phone at eye level";
 
-"liveness_stage_check_face_pos" = "Keep your head straight";
+"liveness_stage_check_face_pos" = "Hold phone at eye level";
 
 "liveness_stage_face_left" = "Turn your head to the left";
 

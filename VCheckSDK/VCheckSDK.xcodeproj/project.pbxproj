@@ -74,6 +74,7 @@
 		DA3FD7FA28A133A100C125F0 /* SegmentationVCExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3FD7F928A133A100C125F0 /* SegmentationVCExtensions.swift */; };
 		DA48073228A3D1A700B27C72 /* SegmentationTimeoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48073128A3D1A700B27C72 /* SegmentationTimeoutViewController.swift */; };
 		DA4D269C289198CC00C6F43A /* DocumentRequestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D269B289198CC00C6F43A /* DocumentRequestModels.swift */; };
+		DA6ACE39296720F7000D25C2 /* face_plus_phone.json in Resources */ = {isa = PBXBuildFile; fileRef = DA6ACE38296720F7000D25C2 /* face_plus_phone.json */; };
 		DA9C507E294B92D500D8A61B /* passport_flip.json in Resources */ = {isa = PBXBuildFile; fileRef = DA9C507D294B92D500D8A61B /* passport_flip.json */; };
 		DAA986CC28B61CAC007811F9 /* id_card_turn_side.json in Resources */ = {isa = PBXBuildFile; fileRef = DAA986CB28B61CAC007811F9 /* id_card_turn_side.json */; };
 		DAB57AEF28CF3D7700115FA6 /* VerificationStatuses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB57AEE28CF3D7700115FA6 /* VerificationStatuses.swift */; };
@@ -172,6 +173,7 @@
 		DA3FD7F928A133A100C125F0 /* SegmentationVCExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationVCExtensions.swift; sourceTree = "<group>"; };
 		DA48073128A3D1A700B27C72 /* SegmentationTimeoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationTimeoutViewController.swift; sourceTree = "<group>"; };
 		DA4D269B289198CC00C6F43A /* DocumentRequestModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentRequestModels.swift; sourceTree = "<group>"; };
+		DA6ACE38296720F7000D25C2 /* face_plus_phone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = face_plus_phone.json; sourceTree = "<group>"; };
 		DA9C507D294B92D500D8A61B /* passport_flip.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = passport_flip.json; sourceTree = "<group>"; };
 		DAA986CB28B61CAC007811F9 /* id_card_turn_side.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = id_card_turn_side.json; sourceTree = "<group>"; };
 		DAB57AEE28CF3D7700115FA6 /* VerificationStatuses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationStatuses.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 		DA3BED5E2869A76700B15E5C /* animations */ = {
 			isa = PBXGroup;
 			children = (
+				DA6ACE38296720F7000D25C2 /* face_plus_phone.json */,
 				DA9C507D294B92D500D8A61B /* passport_flip.json */,
 				DAA986CB28B61CAC007811F9 /* id_card_turn_side.json */,
 				DA3BED5F2869A76700B15E5C /* down.json */,
@@ -555,6 +558,7 @@
 				DA3BED6A2869A76700B15E5C /* mouth.json in Resources */,
 				DA3BED6B2869A76700B15E5C /* right.json in Resources */,
 				DA9C507E294B92D500D8A61B /* passport_flip.json in Resources */,
+				DA6ACE39296720F7000D25C2 /* face_plus_phone.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

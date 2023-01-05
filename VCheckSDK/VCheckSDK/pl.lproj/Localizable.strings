@@ -15,9 +15,9 @@
 
 "error_some_fields_are_empty" = "Proszę wypełnić wszystkie pola dokumentu";
 
-"line_face_obstacle" = "Patrz przed siebie";
+"line_face_obstacle" = "Trzymaj telefon na wysokości wzroku";
 
-"liveness_stage_check_face_pos" = "Trzymaj głowę prosto";
+"liveness_stage_check_face_pos" = "Trzymaj telefon na wysokości wzroku";
 
 "liveness_stage_face_left" = "Odwróć głowę w lewo";
 

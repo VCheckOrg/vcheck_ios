@@ -301,17 +301,16 @@ extension LivenessScreenViewController {
             self.fadeSuccessFrameInThenOut(delay: 0.0)
 
             DispatchQueue.main.asyncAfter(deadline:
-                    .now() + .milliseconds(LivenessScreenViewController.BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS) ) {
+                .now() + .milliseconds(LivenessScreenViewController.BLOCK_PIPELINE_ON_ST_SUCCESS_TIME_MILLIS) ) {
 
-                        self.imgMilestoneChecked.isHidden = true
-                        self.indicationFrame.isHidden = true
+                    self.imgMilestoneChecked.isHidden = true
+                    self.indicationFrame.isHidden = true
 
-                        self.blockStageIndicationByUI = false
-                        
-                        self.updateLivenessInfoText(forMilestoneType: self.milestoneFlow.getCurrentStage()!)
-                        self.setupOrUpdateFaceAnimation(forMilestoneType: self.milestoneFlow.getCurrentStage()!)
-                        self.setupOrUpdateArrowAnimation(forMilestoneType: self.milestoneFlow.getCurrentStage()!)
-
+                    self.blockStageIndicationByUI = false
+                    
+                    self.updateLivenessInfoText(forMilestoneType: self.milestoneFlow.getCurrentStage()!)
+                    self.setupOrUpdateFaceAnimation(forMilestoneType: self.milestoneFlow.getCurrentStage()!)
+                    self.setupOrUpdateArrowAnimation(forMilestoneType: self.milestoneFlow.getCurrentStage()!)
             }
         }
     }
@@ -347,7 +346,7 @@ extension LivenessScreenViewController {
         } else if (forMilestoneType == GestureMilestoneType.MouthOpenMilestone) {
             faceAnimationView = LottieAnimationView(name: "mouth", bundle: InternalConstants.bundle)
         } else {
-            faceAnimationView = LottieAnimationView(name: "mouth", bundle: InternalConstants.bundle)
+            faceAnimationView = LottieAnimationView(name: "face_plus_phone", bundle: InternalConstants.bundle)
         }
 
         faceAnimationView.contentMode = .scaleAspectFit
@@ -465,18 +464,14 @@ extension LivenessScreenViewController {
 
     func updateFaceAnimation() {
         if (self.blockStageIndicationByUI == false) {
-            if (self.milestoneFlow.getCurrentStage() != GestureMilestoneType.StraightHeadCheckMilestone) {
-                DispatchQueue.main.async {
-                    let toProgress = self.faceAnimationView.realtimeAnimationProgress
-                    if (toProgress >= 0.99) {
-                        self.faceAnimationView.play(toProgress: toProgress - 0.99)
-                    }
-                    if (toProgress <= 0.01) {
-                        self.faceAnimationView.play(toProgress: toProgress + 1)
-                    }
+            DispatchQueue.main.async {
+                let toProgress = self.faceAnimationView.realtimeAnimationProgress
+                if (toProgress >= 0.99) {
+                    self.faceAnimationView.play(toProgress: toProgress - 0.99)
                 }
-            } else {
-                self.faceAnimationView.play(toProgress: 0.02)
+                if (toProgress <= 0.01) {
+                    self.faceAnimationView.play(toProgress: toProgress + 1)
+                }
             }
         }
     }

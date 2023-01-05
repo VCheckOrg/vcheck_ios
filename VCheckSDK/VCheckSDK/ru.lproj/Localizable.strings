@@ -14,9 +14,9 @@
 
 "error_some_fields_are_empty" = "Пожалуйста, заполните все поля документа";
 
-"line_face_obstacle" = "Смотрите прямо";
+"line_face_obstacle" = "Держите телефон на уровне глаз";
 
-"liveness_stage_check_face_pos" = "Держите голову прямо";
+"liveness_stage_check_face_pos" = "Держите телефон на уровне глаз";
 
 "liveness_stage_face_left" = "Поверните голову влево";
 
