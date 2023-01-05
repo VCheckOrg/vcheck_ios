@@ -362,8 +362,13 @@ extension LivenessScreenViewController {
             faceAnimationView.centerYAnchor.constraint(equalTo: roundedView.centerYAnchor).isActive = true
         }
 
-        faceAnimationView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        faceAnimationView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        if (forMilestoneType == GestureMilestoneType.StraightHeadCheckMilestone) {
+            faceAnimationView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+            faceAnimationView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        } else {
+            faceAnimationView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+            faceAnimationView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        }
     }
 
     func setupOrUpdateArrowAnimation(forMilestoneType: GestureMilestoneType) {
