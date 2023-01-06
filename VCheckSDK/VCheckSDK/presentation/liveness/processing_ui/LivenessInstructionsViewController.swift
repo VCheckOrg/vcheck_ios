@@ -20,8 +20,10 @@ class LivenessInstructionsViewController: UIViewController {
     
     var timer = Timer()
     
-    private var playAnimForLeftCycle: Bool = true
-
+    private var currentCycleIdx = 1
+    
+    private var isLeftTurnSubCycle: Bool = true
+    
     
     // MARK: - Anim properties
     private var faceAnimationView: LottieAnimationView = LottieAnimationView()
@@ -32,19 +34,53 @@ class LivenessInstructionsViewController: UIViewController {
         
         rightFadingCircle.backgroundColor = UIColor.systemGreen
         leftFadingCircle.backgroundColor = UIColor.systemGreen
-        
-        updateAnimsCycle()
-        
+                
         self.timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { _ in
-            self.updateAnimsCycle()
+            if (self.currentCycleIdx == 1) {
+                self.startPhoneAnimCycle()
+            } else if (self.currentCycleIdx == 2) {
+                self.isLeftTurnSubCycle = true
+                self.startFaceSidesAnimation()
+            } else {
+                self.isLeftTurnSubCycle = false
+                self.startFaceSidesAnimation()
+            }
         })
     }
     
-    func updateAnimsCycle() {
-        self.setupOrUpdateFaceAnimation(forLeftCycle: self.playAnimForLeftCycle)
-        self.setupOrUpdateArrowAnimation(forLeftCycle: self.playAnimForLeftCycle)
-        self.fadeInOutCircles(forLeftCycle: !self.playAnimForLeftCycle)
-        self.playAnimForLeftCycle = !self.playAnimForLeftCycle
+    func startPhoneAnimCycle() {
+        
+        animsHolder.subviews.forEach { $0.removeFromSuperview() }
+        
+        faceAnimationView = LottieAnimationView(name: "face_plus_phone", bundle: InternalConstants.bundle)
+        
+        faceAnimationView.contentMode = .scaleAspectFit
+        faceAnimationView.translatesAutoresizingMaskIntoConstraints = false
+        animsHolder.addSubview(faceAnimationView)
+        
+        faceAnimationView.centerXAnchor.constraint(equalTo: animsHolder.centerXAnchor, constant: 4).isActive = true
+        faceAnimationView.centerYAnchor.constraint(equalTo: animsHolder.centerYAnchor).isActive = true
+        
+        faceAnimationView.heightAnchor.constraint(equalToConstant: 180).isActive = true
+        faceAnimationView.widthAnchor.constraint(equalToConstant: 180).isActive = true
+        
+        faceAnimationView.loopMode = .loop
+        
+        faceAnimationView.play()
+        
+        self.currentCycleIdx += 1
+    }
+    
+    func startFaceSidesAnimation() {
+        self.setupOrUpdateFaceAnimation(forLeftCycle: self.isLeftTurnSubCycle)
+        self.setupOrUpdateArrowAnimation(forLeftCycle: self.isLeftTurnSubCycle)
+        self.fadeInOutCircles(forLeftCycle: !self.isLeftTurnSubCycle)
+        self.isLeftTurnSubCycle = !self.isLeftTurnSubCycle
+        if (self.currentCycleIdx >= 3) {
+            self.currentCycleIdx = 1
+        } else {
+            self.currentCycleIdx += 1
+        }
     }
     
     func setupOrUpdateFaceAnimation(forLeftCycle: Bool) {

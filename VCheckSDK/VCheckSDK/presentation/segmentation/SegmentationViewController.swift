@@ -131,16 +131,18 @@ class SegmentationViewController: UIViewController {
         
         self.animateHandImg()
         
+        self.indicationText.text = "segmentation_general_instruction".localized
+        
         switch(DocType.docCategoryIdxToType(categoryIdx: (docData?.category!)!)) {
             case DocType.FOREIGN_PASSPORT:
                 self.animatingImage.image = UIImage.init(named: "img_hand_foreign_passport")
-                self.indicationText.text = "segmentation_instr_foreign_passport_descr".localized
+                // segmentation_instr_foreign_passport_descr
             case DocType.ID_CARD:
                 self.animatingImage.image = UIImage.init(named: "img_hand_id_card")
-                self.indicationText.text = "segmentation_instr_id_card_descr".localized
+                //segmentation_instr_id_card_descr
             default:
                 self.animatingImage.image = UIImage.init(named: "img_hand_inner_passport")
-                self.indicationText.text = "segmentation_instr_inner_passport_descr".localized
+                // segmentation_instr_inner_passport_descr
         }
 
         self.btnImReady.setTitle("im_ready".localized, for: .normal)
