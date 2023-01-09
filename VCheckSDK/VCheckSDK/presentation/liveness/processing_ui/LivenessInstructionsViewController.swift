@@ -50,6 +50,11 @@ class LivenessInstructionsViewController: UIViewController {
     
     func startPhoneAnimCycle() {
         
+        rightFadingCircle.isHidden = true
+        leftFadingCircle.isHidden = true
+        arrowAnimationView.isHidden = true
+        arrowHolder.subviews.forEach { $0.removeFromSuperview() }
+        
         animsHolder.subviews.forEach { $0.removeFromSuperview() }
         
         faceAnimationView = LottieAnimationView(name: "face_plus_phone", bundle: InternalConstants.bundle)
@@ -61,8 +66,8 @@ class LivenessInstructionsViewController: UIViewController {
         faceAnimationView.centerXAnchor.constraint(equalTo: animsHolder.centerXAnchor, constant: 4).isActive = true
         faceAnimationView.centerYAnchor.constraint(equalTo: animsHolder.centerYAnchor).isActive = true
         
-        faceAnimationView.heightAnchor.constraint(equalToConstant: 180).isActive = true
-        faceAnimationView.widthAnchor.constraint(equalToConstant: 180).isActive = true
+        faceAnimationView.heightAnchor.constraint(equalToConstant: 164).isActive = true
+        faceAnimationView.widthAnchor.constraint(equalToConstant: 164).isActive = true
         
         faceAnimationView.loopMode = .loop
         
@@ -72,6 +77,9 @@ class LivenessInstructionsViewController: UIViewController {
     }
     
     func startFaceSidesAnimation() {
+        rightFadingCircle.isHidden = false
+        leftFadingCircle.isHidden = false
+        arrowAnimationView.isHidden = false
         self.setupOrUpdateFaceAnimation(forLeftCycle: self.isLeftTurnSubCycle)
         self.setupOrUpdateArrowAnimation(forLeftCycle: self.isLeftTurnSubCycle)
         self.fadeInOutCircles(forLeftCycle: !self.isLeftTurnSubCycle)
