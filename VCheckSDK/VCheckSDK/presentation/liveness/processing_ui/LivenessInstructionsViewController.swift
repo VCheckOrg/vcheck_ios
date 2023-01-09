@@ -46,6 +46,7 @@ class LivenessInstructionsViewController: UIViewController {
                 self.startFaceSidesAnimation()
             }
         })
+        self.timer.fire()
     }
     
     func startPhoneAnimCycle() {
