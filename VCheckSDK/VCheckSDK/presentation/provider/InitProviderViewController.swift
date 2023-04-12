@@ -14,14 +14,18 @@ class InitProviderViewController : UIViewController {
     
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         
-        viewModel.didReceivedCurrentStage = {
+        self.viewModel.didReceivedCurrentStage = {
             self.processStageData(response: self.viewModel.currentStageResponse!)
         }
+
+        let initProviderRequestBody = InitProviderRequestBody.init(
+            providerId: VCheckSDK.shared.getSelectedProvider().id,
+            country: VCheckSDK.shared.getOptSelectedCountryCode()) // country is optional here, may be nullable
         
-        self.viewModel.initProvider()
+        self.viewModel.initProvider(initProviderRequestBody: initProviderRequestBody)
     }
-    
     
     private func processStageData(response: StageResponse) {
         if (response.errorCode != nil
@@ -53,6 +57,13 @@ class InitProviderViewController : UIViewController {
         } else {
             docId = nil
             self.performSegue(withIdentifier: "InitProviderToChooseDocType", sender: nil)
+        }
+    }
+    
+    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "InitProviderToCheckDocInfo") {
+            let vc = segue.destination as! CheckDocInfoViewController
+            vc.docId = sender as? Int
         }
     }
 

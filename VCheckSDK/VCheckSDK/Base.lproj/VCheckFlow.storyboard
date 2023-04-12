@@ -292,7 +292,7 @@
                                 </prototypes>
                             </tableView>
                             <searchBar contentMode="redraw" preservesSuperviewLayoutMargins="YES" placeholder="Search" id="fVU-YR-D7u">
-                                <rect key="frame" x="-1" y="49" width="392" height="51"/>
+                                <rect key="frame" x="-2" y="49" width="394" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" name="DescriptionColor"/>
                                 <color key="barTintColor" name="BackgroundColor"/>
@@ -3726,15 +3726,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="797"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="O3i-fp-9O0">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="O3i-fp-9O0">
                                 <rect key="frame" x="0.0" y="47" width="390" height="654"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <color key="color" name="borderColor"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Xvx-Qr-sJ7"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Xvx-Qr-sJ7" firstAttribute="bottom" secondItem="O3i-fp-9O0" secondAttribute="bottom" constant="96" id="QUS-0y-Lpq"/>
+                            <constraint firstItem="O3i-fp-9O0" firstAttribute="top" secondItem="Xvx-Qr-sJ7" secondAttribute="top" id="fyB-7u-WvF"/>
+                            <constraint firstItem="O3i-fp-9O0" firstAttribute="leading" secondItem="Xvx-Qr-sJ7" secondAttribute="leading" id="lBs-dr-caK"/>
+                            <constraint firstItem="Xvx-Qr-sJ7" firstAttribute="trailing" secondItem="O3i-fp-9O0" secondAttribute="trailing" id="lw6-zJ-7KL"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="RH7-tp-C7z"/>
                     <connections>
@@ -3778,21 +3783,21 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ILK-9y-6iw" customClass="CustomizableTableView" customModule="VCheckSDK" customModuleProvider="target">
-                                <rect key="frame" x="16" y="247" width="358" height="550"/>
+                                <rect key="frame" x="16" y="279" width="358" height="518"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="74" id="Afw-pl-9wX" userLabel="Provider Cell" customClass="ProviderViewCell" customModule="VCheckSDK" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="358" height="74"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="providerViewCell" rowHeight="94" id="Afw-pl-9wX" userLabel="Provider Cell" customClass="ProviderViewCell" customModule="VCheckSDK" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="358" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Afw-pl-9wX" id="J3f-EN-zeS">
-                                            <rect key="frame" x="0.0" y="0.0" width="358" height="74"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="358" height="94"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7LN-Ie-u1J" customClass="SmallRoundedView" customModule="VCheckSDK" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="0.0" width="326" height="74"/>
+                                                    <rect key="frame" x="14" y="10" width="330" height="74"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VCHECK" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41A-8s-pP6" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
-                                                            <rect key="frame" x="60" y="10" width="250" height="34"/>
+                                                            <rect key="frame" x="60" y="10" width="254" height="34"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -3806,7 +3811,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Верификация с загрузкой документов" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wst-eH-Teo" customClass="SecondaryTextView" customModule="VCheckSDK" customModuleProvider="target">
-                                                            <rect key="frame" x="60" y="35" width="250" height="31"/>
+                                                            <rect key="frame" x="60" y="35" width="254" height="31"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -3843,14 +3848,13 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="7LN-Ie-u1J" firstAttribute="leading" secondItem="J3f-EN-zeS" secondAttribute="leading" constant="16" id="gJA-b1-Fx9"/>
+                                                <constraint firstItem="7LN-Ie-u1J" firstAttribute="leading" secondItem="J3f-EN-zeS" secondAttribute="leading" constant="14" id="gJA-b1-Fx9"/>
                                                 <constraint firstItem="7LN-Ie-u1J" firstAttribute="centerY" secondItem="J3f-EN-zeS" secondAttribute="centerY" id="hxi-hF-fkK"/>
                                                 <constraint firstItem="7LN-Ie-u1J" firstAttribute="centerX" secondItem="J3f-EN-zeS" secondAttribute="centerX" id="iX6-yf-QUk"/>
-                                                <constraint firstAttribute="trailing" secondItem="7LN-Ie-u1J" secondAttribute="trailing" constant="16" id="owe-Ov-Uts"/>
+                                                <constraint firstAttribute="trailing" secondItem="7LN-Ie-u1J" secondAttribute="trailing" constant="14" id="owe-Ov-Uts"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="providerViewCell"/>
                                         <connections>
                                             <outlet property="providerSubTitle" destination="Wst-eH-Teo" id="Sk7-Az-nL5"/>
                                             <outlet property="providerTitle" destination="41A-8s-pP6" id="aRi-Ch-COq"/>
@@ -3882,7 +3886,7 @@
                         <viewLayoutGuide key="safeArea" id="QeP-x5-zoG"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ILK-9y-6iw" firstAttribute="top" secondItem="QeP-x5-zoG" secondAttribute="top" constant="200" id="1gC-kq-sM8"/>
+                            <constraint firstItem="ILK-9y-6iw" firstAttribute="top" secondItem="QeP-x5-zoG" secondAttribute="top" constant="232" id="1gC-kq-sM8"/>
                             <constraint firstItem="uBq-Vy-P81" firstAttribute="top" secondItem="QeP-x5-zoG" secondAttribute="top" constant="84" id="4yw-LF-r85"/>
                             <constraint firstItem="TF0-U4-bSj" firstAttribute="leading" secondItem="QeP-x5-zoG" secondAttribute="leading" constant="34" id="9gg-HA-XJN"/>
                             <constraint firstItem="QeP-x5-zoG" firstAttribute="bottom" secondItem="ILK-9y-6iw" secondAttribute="bottom" id="C0t-dq-2Hi"/>
@@ -4193,7 +4197,7 @@
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="sYd-LP-AM2"/>
-        <segue reference="6BS-Ni-Xz3"/>
+        <segue reference="gQf-Uj-Uvk"/>
         <segue reference="GAO-QE-GuP"/>
         <segue reference="ZOg-Lf-JSX"/>
         <segue reference="akg-O3-g9F"/>

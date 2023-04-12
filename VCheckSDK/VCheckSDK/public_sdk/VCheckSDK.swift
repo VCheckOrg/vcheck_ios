@@ -235,8 +235,8 @@ public class VCheckSDK {
         return providerLogicCase!
     }
 
-    internal func getOptSelectedCountryCode() -> String {
-        return optSelectedCountryCode ?? "ua"
+    internal func getOptSelectedCountryCode() -> String? {
+        return optSelectedCountryCode
     }
 
     internal func setOptSelectedCountryCode(code: String) {

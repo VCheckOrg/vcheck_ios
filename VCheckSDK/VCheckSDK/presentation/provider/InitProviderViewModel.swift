@@ -29,9 +29,10 @@ class InitProviderViewModel {
     var didReceivedCurrentStage: (() -> ())?
     
     
-    func initProvider() {
+    func initProvider(initProviderRequestBody: InitProviderRequestBody) {
         
-        self.dataService.initProvider(completion: { (success, error) in
+        self.dataService.initProvider(initProviderRequestBody: initProviderRequestBody,
+                                      completion: { (success, error) in
             if let error = error {
                 self.error = error
                 self.isLoading = false

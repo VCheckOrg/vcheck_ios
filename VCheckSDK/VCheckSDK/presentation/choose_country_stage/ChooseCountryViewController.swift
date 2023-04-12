@@ -30,10 +30,23 @@ class ChooseCountryViewController : UIViewController {
         
         self.preSelectedCountryView.addGestureRecognizer(
             UITapGestureRecognizer(target: self, action: #selector (self.navigateToList (_:))))
+        
+        self.continueButton.addGestureRecognizer(
+            UITapGestureRecognizer(target: self, action: #selector (self.navigateToProviderLogic (_:))))
     }
     
     func reloadData() {
-        if let selectedCountry = countries.first(where: { $0.code == VCheckSDK.shared.getOptSelectedCountryCode() }) {
+        if let selectedCountry = countries.first(where: {
+            if (VCheckSDK.shared.getOptSelectedCountryCode() != nil) {
+                return $0.code == VCheckSDK.shared.getOptSelectedCountryCode()
+            } else if (countries.contains(where: { $0.code == "ua" })) {
+                return $0.code == "ua"
+            } else {
+                return true
+            }
+        }) {
+            
+            VCheckSDK.shared.setOptSelectedCountryCode(code: selectedCountry.code)
             
             if (selectedCountry.code == "bm") {
                 tvSelectedCountryName.text = "bermuda".localized
@@ -58,11 +71,32 @@ class ChooseCountryViewController : UIViewController {
        performSegue(withIdentifier: "CountryToList", sender: self)
     }
     
+    @objc func navigateToProviderLogic(_ sender:UITapGestureRecognizer){
+        switch VCheckSDK.shared.getProviderLogicCase() {
+            case ProviderLogicCase.ONE_PROVIDER_MULTIPLE_COUNTRIES:
+                self.performSegue(withIdentifier: "CountriesToInitProvider", sender: nil)
+            case ProviderLogicCase.MULTIPLE_PROVIDERS_PRESENT_COUNTRIES:
+                let countryCode = VCheckSDK.shared.getOptSelectedCountryCode()!
+                let distinctProvidersList: [Provider] = VCheckSDK.shared.getAllAvailableProviders().filter {
+                    $0.countries?.contains(countryCode) ?? false
+                }
+                self.performSegue(withIdentifier: "CountriesToChooseProvider", sender: distinctProvidersList)
+            default:
+                showToast(message: "Error: country options should not be available for that provider", seconds: 4.0)
+                break
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "CountryToList") {
             let vc = segue.destination as! CountryListViewController
             vc.countriesDataSourceArr = self.countries
             vc.parentVC = self
         }
+        if (segue.identifier == "CountriesToChooseProvider") {
+            let vc = segue.destination as! ChooseProviderViewController
+            vc.providersList = sender as? [Provider]
+        }
     }
+
 }

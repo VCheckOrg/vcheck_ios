@@ -65,8 +65,18 @@ struct VCheckSDKRemoteDatasource {
           }
     }
     
-    func initProvider(completion: @escaping (Bool, VCheckApiError?) -> ()) {
+    func initProvider(initProviderRequestBody: InitProviderRequestBody,
+                      completion: @escaping (Bool, VCheckApiError?) -> ()) {
         let url = "\(verifBaseUrl)providers/init"
+        
+        var jsonData: Dictionary<String, Any>?
+        do {
+            jsonData = try initProviderRequestBody.toDictionary()
+        } catch {
+            completion(false, VCheckApiError(errorText: "Error: Failed to convert model!",
+                                             errorCode: VCheckApiError.DEFAULT_CODE))
+            return
+        }
         
         let token = VCheckSDK.shared.getVerificationToken()
         if (token.isEmpty) {
@@ -76,7 +86,7 @@ struct VCheckSDKRemoteDatasource {
         }
         let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
         
-        AF.request(url, method: .put, headers: headers)
+        AF.request(url, method: .put, parameters: jsonData, encoding: JSONEncoding.default, headers: headers)
           .validate()  //response returned an HTTP status code in the range 200–299
           .responseDecodable(of: VerificationInitResponse.self) { (response) in
             guard let response = response.value else {

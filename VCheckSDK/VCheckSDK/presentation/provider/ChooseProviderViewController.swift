@@ -30,6 +30,7 @@ class ChooseProviderViewController : UIViewController {
     var providersList: [Provider]? = nil
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         self.tvTitle.text = "choose_provider_title".localized
         self.tvSubtitle.text = "choose_provider_description".localized
@@ -84,6 +85,6 @@ extension ChooseProviderViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 74
+        return 94
     }
 }
