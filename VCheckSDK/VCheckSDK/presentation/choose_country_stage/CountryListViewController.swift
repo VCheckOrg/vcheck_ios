@@ -94,7 +94,7 @@ extension CountryListViewController: UITableViewDelegate {
     
     func tableView(_ countryListTable: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        VCheckSDK.shared.setSelectedCountryCode(code: self.searchResultsList[indexPath.row].code)
+        VCheckSDK.shared.setOptSelectedCountryCode(code: self.searchResultsList[indexPath.row].code)
 
         self.dismiss(animated: true, completion: nil)
     }

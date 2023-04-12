@@ -33,7 +33,7 @@ class ChooseCountryViewController : UIViewController {
     }
     
     func reloadData() {
-        if let selectedCountry = countries.first(where: { $0.code == VCheckSDK.shared.getSelectedCountryCode() }) {
+        if let selectedCountry = countries.first(where: { $0.code == VCheckSDK.shared.getOptSelectedCountryCode() }) {
             
             if (selectedCountry.code == "bm") {
                 tvSelectedCountryName.text = "bermuda".localized

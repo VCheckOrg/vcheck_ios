@@ -149,38 +149,7 @@ struct VCheckSDKRemoteDatasource {
           }
     }
     
-    
-    func getCountries(completion: @escaping ([Country]?, VCheckApiError?) -> ()) {
-        let url = "\(verifBaseUrl)documents/countries"
-
-        let token = VCheckSDK.shared.getVerificationToken()
-        if (token.isEmpty) {
-            completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
-                                           errorCode: VCheckApiError.DEFAULT_CODE))
-            return
-        }
-        let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
-        
-        AF.request(url, method: .get, headers: headers)
-          .responseDecodable(of: CountriesResponse.self) { (response) in
-            guard let response = response.value else {
-                completion(nil, VCheckApiError(errorText: "getCountries: " +  response.error!.localizedDescription,
-                                               errorCode: response.response?.statusCode))
-                return
-            }
-              if (response.errorCode != nil && response.errorCode != 0) {
-                  completion(nil, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
-                                           + "\(response.message ?? "")",
-                                                 errorCode: response.errorCode))
-                  return
-              }
-              completion(response.data, nil)
-              return
-          }
-    }
-    
-    
-    func getCountryAvailableDocTypeInfo(countryCode: String,
+    func getAvailableDocTypes(countryCode: String,
                                         completion: @escaping ([DocTypeData]?, VCheckApiError?) -> ()) {
 
         let url = "\(verifBaseUrl)documents/types?country=\(countryCode)"

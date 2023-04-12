@@ -82,6 +82,7 @@
 		DABB5FC228B3C73500BBACC0 /* ThemeClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB5FC128B3C73500BBACC0 /* ThemeClasses.swift */; };
 		DAC2DF3E28B40E330049B8B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC2DF3D28B40E330049B8B0 /* SceneDelegate.swift */; };
 		DAC3C82C2877695700B32FFC /* VerificationSchemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3C82B2877695700B32FFC /* VerificationSchemes.swift */; };
+		DACFA8FA29E741F100499EB9 /* ProviderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACFA8F929E741F100499EB9 /* ProviderViewCell.swift */; };
 		DAD302EB29E446CF0057C58E /* ProviderModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD302EA29E446CF0057C58E /* ProviderModels.swift */; };
 		DAD302ED29E6E4770057C58E /* ProviderLogicCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD302EC29E6E4770057C58E /* ProviderLogicCase.swift */; };
 		DAD302F029E6E9440057C58E /* ChooseProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD302EF29E6E9440057C58E /* ChooseProviderViewController.swift */; };
@@ -186,6 +187,7 @@
 		DABB5FC128B3C73500BBACC0 /* ThemeClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeClasses.swift; sourceTree = "<group>"; };
 		DAC2DF3D28B40E330049B8B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DAC3C82B2877695700B32FFC /* VerificationSchemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationSchemes.swift; sourceTree = "<group>"; };
+		DACFA8F929E741F100499EB9 /* ProviderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderViewCell.swift; sourceTree = "<group>"; };
 		DAD302EA29E446CF0057C58E /* ProviderModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderModels.swift; sourceTree = "<group>"; };
 		DAD302EC29E6E4770057C58E /* ProviderLogicCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderLogicCase.swift; sourceTree = "<group>"; };
 		DAD302EF29E6E9440057C58E /* ChooseProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseProviderViewController.swift; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 				DAD302EF29E6E9440057C58E /* ChooseProviderViewController.swift */,
 				DAD302F129E6E9800057C58E /* InitProviderViewController.swift */,
 				DAD302F329E6E98F0057C58E /* InitProviderViewModel.swift */,
+				DACFA8F929E741F100499EB9 /* ProviderViewCell.swift */,
 			);
 			path = provider;
 			sourceTree = "<group>";
@@ -651,6 +654,7 @@
 				DA3BEDCE2869A8D300B15E5C /* CountryModels.swift in Sources */,
 				DAD302F229E6E9800057C58E /* InitProviderViewController.swift in Sources */,
 				DAC2DF3E28B40E330049B8B0 /* SceneDelegate.swift in Sources */,
+				DACFA8FA29E741F100499EB9 /* ProviderViewCell.swift in Sources */,
 				DA3BEDDC2869A8D300B15E5C /* LivenessInstructionsViewController.swift in Sources */,
 				DA3BEDD12869A8D300B15E5C /* LivenessUploadModels.swift in Sources */,
 				DA3BEDEB2869A8D300B15E5C /* DocInfoTextField.swift in Sources */,
