@@ -41,7 +41,7 @@ struct Provider: Codable {
     var id      : Int
     var name : String
     var pRotocol: String
-    var countries: [Country]? = []
+    var countries: [String]? = []
 
   enum CodingKeys: String, CodingKey {
 
@@ -58,7 +58,7 @@ struct Provider: Codable {
     id      = try values.decodeIfPresent(Int.self , forKey: .id      )!
     name = try values.decodeIfPresent(String.self   , forKey: .name ) ?? ""
     pRotocol = try values.decodeIfPresent(String.self   , forKey: .pRotocol )!
-    countries = try values.decodeIfPresent([Country].self , forKey: .countries ) ?? []
+    countries = try values.decodeIfPresent([String].self , forKey: .countries ) ?? []
  
   }
 }

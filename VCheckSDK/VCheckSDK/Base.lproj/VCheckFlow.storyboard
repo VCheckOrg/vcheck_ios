@@ -68,7 +68,8 @@
                         <segue destination="VHf-Vf-Dha" kind="show" identifier="StartToCountries" id="Hnt-iA-CAy"/>
                         <segue destination="vMJ-Fv-l4l" kind="show" identifier="StartToLivenessInstructions" id="dMv-If-cud"/>
                         <segue destination="Ih3-Z6-VZy" kind="show" identifier="StartToVerifAlreadyCompleted" id="97O-mG-xT5"/>
-                        <segue destination="C9g-2u-RcW" kind="show" id="sYd-LP-AM2"/>
+                        <segue destination="C9g-2u-RcW" kind="show" identifier="StartToChooseProvider" id="sYd-LP-AM2"/>
+                        <segue destination="aeP-nV-ary" kind="show" identifier="StartToInitProvider" id="6BS-Ni-Xz3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rSP-2F-feb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -191,6 +192,8 @@
                         <outlet property="tvSelectedCountryFlag" destination="zr2-kK-wWI" id="tQN-8u-8Vs"/>
                         <outlet property="tvSelectedCountryName" destination="cY3-cf-m9e" id="oFj-jP-YAK"/>
                         <segue destination="G2c-Yg-Bx4" kind="presentation" identifier="CountryToList" id="yUX-Na-bzN"/>
+                        <segue destination="C9g-2u-RcW" kind="show" identifier="CountriesToChooseProvider" id="RFh-rd-SoL"/>
+                        <segue destination="aeP-nV-ary" kind="show" identifier="CountriesToInitProvider" id="kXI-2G-rjV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="djO-C6-qbE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3352,7 +3355,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QZI-Sx-Sq4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-418" y="-295"/>
+            <point key="canvasLocation" x="-329" y="-376"/>
         </scene>
         <!--Zoomed Doc Photo View Controller-->
         <scene sceneID="ClG-Je-hUm">
@@ -3741,7 +3744,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ReB-rR-NY4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="223" y="645"/>
+            <point key="canvasLocation" x="251" y="1018"/>
         </scene>
         <!--Choose Provider View Controller-->
         <scene sceneID="Tcm-gq-Ans">
@@ -3751,22 +3754,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="797"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uBq-Vy-P81" customClass="VCheckSDKRoundedView" customModule="VCheckSDK" customModuleProvider="target">
+                                <rect key="frame" x="12" y="107" width="366" height="529"/>
+                                <color key="backgroundColor" name="CardColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ILK-9y-6iw" customClass="CustomizableTableView" customModule="VCheckSDK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="197" width="390" height="600"/>
+                                <rect key="frame" x="16" y="237" width="358" height="560"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Afw-pl-9wX" userLabel="Provider Cell">
-                                        <rect key="frame" x="0.0" y="50" width="390" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="50" width="358" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Afw-pl-9wX" id="J3f-EN-zeS">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="358" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7LN-Ie-u1J" customClass="SmallRoundedView" customModule="VCheckSDK" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="-15.333333333333336" width="358" height="74.333333333333329"/>
+                                                    <rect key="frame" x="16" y="-15.333333333333336" width="326" height="74.333333333333329"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Загранпаспорт" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41A-8s-pP6" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
-                                                            <rect key="frame" x="59" y="13.000000000000004" width="283" height="48.333333333333343"/>
+                                                            <rect key="frame" x="59" y="13.000000000000004" width="251" height="48.333333333333343"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -3818,13 +3833,13 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Требования к фото" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3e-BN-iyB" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
-                                <rect key="frame" x="16" y="101" width="170.66666666666666" height="21.666666666666671"/>
+                                <rect key="frame" x="28" y="167" width="170.66666666666666" height="21.666666666666657"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="TF0-U4-bSj" customClass="NonCustomizableIconView" customModule="VCheckSDK" customModuleProvider="target">
-                                <rect key="frame" x="23" y="73" width="10" height="16"/>
+                                <rect key="frame" x="34" y="135" width="10" height="16"/>
                                 <color key="tintColor" name="DescriptionColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="10" id="SEa-ee-mwg"/>
@@ -3832,7 +3847,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Фото вашего документа должно отвечать следующим требованиям:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2c0-OZ-1eD" customClass="SecondaryTextView" customModule="VCheckSDK" customModuleProvider="target">
-                                <rect key="frame" x="16" y="138.66666666666666" width="358" height="33.666666666666657"/>
+                                <rect key="frame" x="28" y="204.66666666666666" width="346" height="33.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" name="DescriptionColor"/>
                                 <nil key="highlightedColor"/>
@@ -3841,17 +3856,21 @@
                         <viewLayoutGuide key="safeArea" id="QeP-x5-zoG"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ILK-9y-6iw" firstAttribute="top" secondItem="QeP-x5-zoG" secondAttribute="top" constant="150" id="1gC-kq-sM8"/>
-                            <constraint firstItem="TF0-U4-bSj" firstAttribute="leading" secondItem="QeP-x5-zoG" secondAttribute="leading" constant="23" id="9gg-HA-XJN"/>
+                            <constraint firstItem="ILK-9y-6iw" firstAttribute="top" secondItem="QeP-x5-zoG" secondAttribute="top" constant="190" id="1gC-kq-sM8"/>
+                            <constraint firstItem="uBq-Vy-P81" firstAttribute="top" secondItem="QeP-x5-zoG" secondAttribute="top" constant="60" id="4yw-LF-r85"/>
+                            <constraint firstItem="TF0-U4-bSj" firstAttribute="leading" secondItem="QeP-x5-zoG" secondAttribute="leading" constant="34" id="9gg-HA-XJN"/>
                             <constraint firstItem="QeP-x5-zoG" firstAttribute="bottom" secondItem="ILK-9y-6iw" secondAttribute="bottom" id="C0t-dq-2Hi"/>
-                            <constraint firstItem="ILK-9y-6iw" firstAttribute="leading" secondItem="QeP-x5-zoG" secondAttribute="leading" id="EA2-YN-eyg"/>
-                            <constraint firstItem="2c0-OZ-1eD" firstAttribute="leading" secondItem="QeP-x5-zoG" secondAttribute="leading" constant="16" id="F5b-9K-S0e"/>
+                            <constraint firstItem="uBq-Vy-P81" firstAttribute="leading" secondItem="QeP-x5-zoG" secondAttribute="leading" constant="12" id="D9T-Co-Sey"/>
+                            <constraint firstItem="ILK-9y-6iw" firstAttribute="leading" secondItem="QeP-x5-zoG" secondAttribute="leading" constant="16" id="EA2-YN-eyg"/>
+                            <constraint firstItem="2c0-OZ-1eD" firstAttribute="leading" secondItem="QeP-x5-zoG" secondAttribute="leading" constant="28" id="F5b-9K-S0e"/>
+                            <constraint firstItem="QeP-x5-zoG" firstAttribute="bottom" secondItem="uBq-Vy-P81" secondAttribute="bottom" constant="161" id="GoR-ci-KoR"/>
                             <constraint firstItem="QeP-x5-zoG" firstAttribute="trailing" secondItem="2c0-OZ-1eD" secondAttribute="trailing" constant="16" id="Hh6-wW-NeP"/>
-                            <constraint firstItem="TF0-U4-bSj" firstAttribute="top" secondItem="QeP-x5-zoG" secondAttribute="top" constant="26" id="MyD-EW-QoH"/>
-                            <constraint firstItem="E3e-BN-iyB" firstAttribute="top" secondItem="TF0-U4-bSj" secondAttribute="bottom" constant="12" id="TDq-sN-mWe"/>
+                            <constraint firstItem="TF0-U4-bSj" firstAttribute="top" secondItem="QeP-x5-zoG" secondAttribute="top" constant="88" id="MyD-EW-QoH"/>
+                            <constraint firstItem="QeP-x5-zoG" firstAttribute="trailing" secondItem="uBq-Vy-P81" secondAttribute="trailing" constant="12" id="QEc-VS-i2t"/>
+                            <constraint firstItem="E3e-BN-iyB" firstAttribute="top" secondItem="TF0-U4-bSj" secondAttribute="bottom" constant="16" id="TDq-sN-mWe"/>
                             <constraint firstItem="2c0-OZ-1eD" firstAttribute="top" secondItem="E3e-BN-iyB" secondAttribute="bottom" constant="16" id="ZwF-db-9pM"/>
-                            <constraint firstItem="E3e-BN-iyB" firstAttribute="leading" secondItem="QeP-x5-zoG" secondAttribute="leading" constant="16" id="eaV-51-r8N"/>
-                            <constraint firstItem="QeP-x5-zoG" firstAttribute="trailing" secondItem="ILK-9y-6iw" secondAttribute="trailing" id="ih3-Hz-Dbs"/>
+                            <constraint firstItem="E3e-BN-iyB" firstAttribute="leading" secondItem="QeP-x5-zoG" secondAttribute="leading" constant="28" id="eaV-51-r8N"/>
+                            <constraint firstItem="QeP-x5-zoG" firstAttribute="trailing" secondItem="ILK-9y-6iw" secondAttribute="trailing" constant="16" id="ih3-Hz-Dbs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zpU-Hi-MCW"/>
@@ -3860,12 +3879,12 @@
                         <outlet property="providersTableView" destination="ILK-9y-6iw" id="dyP-eP-Y5T"/>
                         <outlet property="tvSubtitle" destination="2c0-OZ-1eD" id="Bow-gS-J4N"/>
                         <outlet property="tvTitle" destination="E3e-BN-iyB" id="84y-na-Eta"/>
-                        <segue destination="aeP-nV-ary" kind="show" id="gQf-Uj-Uvk"/>
+                        <segue destination="aeP-nV-ary" kind="show" identifier="ChooseProviderToInitProvider" id="gQf-Uj-Uvk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eki-v1-eOt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-726.15384615384608" y="497.98578199052133"/>
+            <point key="canvasLocation" x="-595" y="399"/>
         </scene>
     </scenes>
     <designables>
@@ -4144,6 +4163,8 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
+        <segue reference="sYd-LP-AM2"/>
+        <segue reference="6BS-Ni-Xz3"/>
         <segue reference="GAO-QE-GuP"/>
         <segue reference="ZOg-Lf-JSX"/>
         <segue reference="dMv-If-cud"/>

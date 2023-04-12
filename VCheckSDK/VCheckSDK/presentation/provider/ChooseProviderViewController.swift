@@ -19,6 +19,12 @@ class ChooseProviderViewController : UIViewController {
     
     @IBOutlet weak var providersTableView: CustomizableTableView!
     
+    var providersList: [Provider]? = nil
     
     
+    
+    override func viewDidLoad() {
+        
+        
+    }
 }

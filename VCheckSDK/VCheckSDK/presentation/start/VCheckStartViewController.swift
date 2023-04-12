@@ -69,21 +69,73 @@ class VCheckStartViewController : UIViewController {
         self.initVerification()
     }
     
-//obsolete
-//    func goToCountriesScreen(data: [CountryTO]) {
-//        self.performSegue(withIdentifier: "StartToCountries", sender: data)
-//    }
+    private func processProvidersData(response: ProvidersResponse) {
+        if (response.data != nil) {
+            let providersList = response.data!
+            VCheckSDK.shared.setAllAvailableProviders(providers: providersList)
+
+            if (!(providersList.isEmpty) && providersList.count == 1) { // 1 provider
+                if (providersList[0].countries == nil) {
+                    VCheckSDK.shared.setProviderLogicCase(providerLC: ProviderLogicCase.ONE_PROVIDER_NO_COUNTRIES)
+                    VCheckSDK.shared.setSelectedProvider(provider: providersList[0])
+                    navigateToInitProvider()
+                } else if (providersList[0].countries!.isEmpty) {
+                    VCheckSDK.shared.setProviderLogicCase(providerLC: ProviderLogicCase.ONE_PROVIDER_NO_COUNTRIES)
+                    VCheckSDK.shared.setSelectedProvider(provider: providersList[0])
+                    navigateToInitProvider()
+                } else if (providersList[0].countries!.count == 1) {
+                    VCheckSDK.shared.setProviderLogicCase(providerLC: ProviderLogicCase.ONE_PROVIDER_ONE_COUNTRY)
+                    VCheckSDK.shared.setSelectedProvider(provider: providersList[0])
+                    VCheckSDK.shared.setOptSelectedCountryCode(code: providersList[0].countries![0])
+                    navigateToInitProvider()
+                } else {
+                    VCheckSDK.shared.setProviderLogicCase(providerLC: ProviderLogicCase.ONE_PROVIDER_MULTIPLE_COUNTRIES)
+                    VCheckSDK.shared.setSelectedProvider(provider: providersList[0])
+                    navigateToCountrySelection(countryCodes: providersList[0].countries!)
+                }
+            } else if (!(providersList.isEmpty)) { // more than 1 provider
+                if providersList.contains(where: { $0.countries != nil && !$0.countries!.isEmpty }) {
+                    VCheckSDK.shared.setProviderLogicCase(providerLC: ProviderLogicCase.MULTIPLE_PROVIDERS_PRESENT_COUNTRIES)
+                    var joinedCountriesSet = Set<String>()
+                    for provider in providersList {
+                        if let countries = provider.countries, !countries.isEmpty {
+                            joinedCountriesSet.formUnion(countries)
+                        }
+                    }
+                    navigateToCountrySelection(countryCodes: Array(joinedCountriesSet))
+                } else {
+                    VCheckSDK.shared.setProviderLogicCase(providerLC: ProviderLogicCase.MULTIPLE_PROVIDERS_NO_COUNTRIES)
+                    navigateToProviderSelection(providersList: providersList)
+                }
+            } else {
+                showToast(message: "Could not retrieve one or more valid providers", seconds: 5.0)
+            }
+        }
+    }
+    
+    private func navigateToInitProvider() {
+        self.performSegue(withIdentifier: "StartToInitProvider", sender: nil)
+    }
+
+    private func navigateToProviderSelection(providersList: [Provider]) {
+        self.performSegue(withIdentifier: "StartToChooseProvider", sender: providersList)
+    }
+
+    private func navigateToCountrySelection(countryCodes: [String]) {
+        self.performSegue(withIdentifier: "StartToCountries", sender: countryCodes)
+    }
     
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "StartToCountries") {
-            print ("Navigating to Countries")
             let vc = segue.destination as! ChooseCountryViewController
-            vc.countries = sender as! [CountryTO]
+            let countryList = (sender as! [String]).map { (code) -> (CountryTO) in
+                return CountryTO.init(from: code)
+            }
+            vc.countries = countryList
         }
-        if (segue.identifier == "StartToCheckDocInfo") {
-            print ("Navigating to Check Doc Info")
-            let vc = segue.destination as! CheckDocInfoViewController
-            vc.docId = sender as? Int
+        if (segue.identifier == "StartToChooseProvider") {
+            let vc = segue.destination as! ChooseProviderViewController
+            vc.providersList = sender as? [Provider]
         }
     }
     
@@ -153,15 +205,3 @@ extension UIViewController {
         remove(from: view)
     }
 }
-
-
-// obsolete
-//        viewModel.gotCountries = {
-//            let countryTOArr: [CountryTO] = self.viewModel.countries!.map { (element) -> (CountryTO) in
-//                let to: CountryTO = CountryTO.init(from: element)
-//                return to
-//            }
-//
-//            self.goToCountriesScreen(data: countryTOArr)
-//        }
-//

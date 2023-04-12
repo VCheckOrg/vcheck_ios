@@ -7,60 +7,6 @@
 
 import Foundation
 
-
-struct CountriesResponse: Codable {
-
-  var data      : [Country]? = []
-  var errorCode : Int?    = nil
-  var message   : String? = nil
-
-  enum CodingKeys: String, CodingKey {
-
-    case data      = "data"
-    case errorCode = "error_code"
-    case message   = "message"
-  
-  }
-
-  init(from decoder: Decoder) throws {
-    let values = try decoder.container(keyedBy: CodingKeys.self)
-
-    data      = try values.decodeIfPresent([Country].self , forKey: .data      )
-    errorCode = try values.decodeIfPresent(Int.self    , forKey: .errorCode )
-    message   = try values.decodeIfPresent(String.self , forKey: .message   )
- 
-  }
-
-  init() {
-
-  }
-
-}
-
-
-struct Country: Codable {
-
-  var code      : String
-  var isBlocked : Bool = false
-
-  enum CodingKeys: String, CodingKey {
-
-    case code      = "code"
-    case isBlocked = "is_blocked"
-  
-  }
-
-  init(from decoder: Decoder) throws {
-    let values = try decoder.container(keyedBy: CodingKeys.self)
-
-    code      = try values.decodeIfPresent(String.self , forKey: .code      )!
-    isBlocked = try values.decodeIfPresent(Bool.self   , forKey: .isBlocked ) ?? false
- 
-  }
-
-}
-
-
 struct CountryTO {
     
     var name: String
@@ -68,11 +14,11 @@ struct CountryTO {
     var flag: String
     var isBlocked: Bool
     
-    init(from country: Country) {
-        self.isBlocked = country.isBlocked
-        self.code = country.code
-        self.name = CountryTO.countryName(countryCode: country.code)
-        self.flag = CountryTO.strToFlagEmoji(from: country.code)
+    init(from countryCode: String) {
+        self.isBlocked = false
+        self.code = countryCode
+        self.name = CountryTO.countryName(countryCode: countryCode)
+        self.flag = CountryTO.strToFlagEmoji(from: countryCode)
     }
     
     static func countryName(countryCode: String) -> String {
