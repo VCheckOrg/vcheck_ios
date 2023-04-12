@@ -108,5 +108,9 @@
 
 "enter_valid_exp_date"="Введіть валідний термін дії документу";
 
+"choose_provider_title" = "Оберіть метод верифікації";
+"choose_provider_description" = "Для продовження верифікації оберіть провайдера зі списку доступних для вашої країни.";
+"vcheck_provider_description" = "Верифікація із підвантаженням документів";
+
 /* Default action */
 "OK" = "";

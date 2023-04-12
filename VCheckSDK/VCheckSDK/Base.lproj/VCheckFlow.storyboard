@@ -24,7 +24,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N0L-li-myX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2094" y="498"/>
+            <point key="canvasLocation" x="-2965" y="498"/>
         </scene>
         <!--Check Start View Controller-->
         <scene sceneID="5BM-mo-2Xp">
@@ -67,13 +67,13 @@
                         <outlet property="spinner" destination="eXt-L9-GpI" id="oni-yL-zbX"/>
                         <segue destination="VHf-Vf-Dha" kind="show" identifier="StartToCountries" id="Hnt-iA-CAy"/>
                         <segue destination="vMJ-Fv-l4l" kind="show" identifier="StartToLivenessInstructions" id="dMv-If-cud"/>
-                        <segue destination="dcp-4c-bus" kind="show" identifier="StartToCheckDocInfo" id="Apu-Tu-38V"/>
                         <segue destination="Ih3-Z6-VZy" kind="show" identifier="StartToVerifAlreadyCompleted" id="97O-mG-xT5"/>
+                        <segue destination="C9g-2u-RcW" kind="show" id="sYd-LP-AM2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rSP-2F-feb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1103" y="498"/>
+            <point key="canvasLocation" x="-1860" y="498"/>
         </scene>
         <!--Choose Country View Controller-->
         <scene sceneID="QoB-W8-5k4">
@@ -112,9 +112,6 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Продолжить"/>
-                                        <connections>
-                                            <segue destination="EIw-6d-l49" kind="show" identifier="CountryToChooseDocType" id="ehe-Ka-KVL"/>
-                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jc-tS-jTS" customClass="SmallRoundedView" customModule="VCheckSDK" customModuleProvider="target">
                                         <rect key="frame" x="16" y="178" width="334" height="54.333333333333343"/>
@@ -198,7 +195,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="djO-C6-qbE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="55.38461538461538" y="860.18957345971558"/>
+            <point key="canvasLocation" x="-1860" y="1409"/>
         </scene>
         <!--Country List View Controller-->
         <scene sceneID="O7v-PE-izR">
@@ -293,7 +290,7 @@
                                 </prototypes>
                             </tableView>
                             <searchBar contentMode="redraw" preservesSuperviewLayoutMargins="YES" placeholder="Search" id="fVU-YR-D7u">
-                                <rect key="frame" x="-1" y="49" width="391" height="51"/>
+                                <rect key="frame" x="0.0" y="49" width="392" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" name="DescriptionColor"/>
                                 <color key="barTintColor" name="BackgroundColor"/>
@@ -304,7 +301,7 @@
                                 </scopeButtonTitles>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wM8-4G-pEK">
-                                <rect key="frame" x="0.0" y="6" width="76" height="31"/>
+                                <rect key="frame" x="0.0" y="6" width="96" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Отмена"/>
                                 <connections>
@@ -343,7 +340,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpl-4N-OOI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="55.38461538461538" y="1654.9763033175354"/>
+            <point key="canvasLocation" x="-595.38461538461536" y="1517.4170616113743"/>
         </scene>
         <!--Segmentation View Controller-->
         <scene sceneID="5bb-Iv-tX7">
@@ -3093,7 +3090,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vc0-A2-iRO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3046.1538461538462" y="497.63033175355446"/>
+            <point key="canvasLocation" x="-4015" y="498"/>
         </scene>
         <!--Liveness Instructions View Controller-->
         <scene sceneID="PsH-Bt-cWC">
@@ -3355,7 +3352,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QZI-Sx-Sq4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53.271028037383175" y="92.656587473002162"/>
+            <point key="canvasLocation" x="-418" y="-295"/>
         </scene>
         <!--Zoomed Doc Photo View Controller-->
         <scene sceneID="ClG-Je-hUm">
@@ -3717,7 +3714,158 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="19Q-kl-x5T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-346" y="-696"/>
+            <point key="canvasLocation" x="-791" y="-1106"/>
+        </scene>
+        <!--Init Provider View Controller-->
+        <scene sceneID="TQv-sh-yO5">
+            <objects>
+                <viewController id="aeP-nV-ary" customClass="InitProviderViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bhg-La-cfu">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="797"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="O3i-fp-9O0">
+                                <rect key="frame" x="0.0" y="47" width="390" height="654"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="AccentColor"/>
+                                <color key="color" name="borderColor"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Xvx-Qr-sJ7"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="RH7-tp-C7z"/>
+                    <connections>
+                        <segue destination="EIw-6d-l49" kind="show" id="6Pl-0K-DiM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ReB-rR-NY4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="223" y="645"/>
+        </scene>
+        <!--Choose Provider View Controller-->
+        <scene sceneID="Tcm-gq-Ans">
+            <objects>
+                <viewController id="C9g-2u-RcW" customClass="ChooseProviderViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SSx-U2-AZ2">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="797"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ILK-9y-6iw" customClass="CustomizableTableView" customModule="VCheckSDK" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="197" width="390" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Afw-pl-9wX" userLabel="Provider Cell">
+                                        <rect key="frame" x="0.0" y="50" width="390" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Afw-pl-9wX" id="J3f-EN-zeS">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7LN-Ie-u1J" customClass="SmallRoundedView" customModule="VCheckSDK" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="-15.333333333333336" width="358" height="74.333333333333329"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Загранпаспорт" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41A-8s-pP6" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
+                                                            <rect key="frame" x="59" y="13.000000000000004" width="283" height="48.333333333333343"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="inter_passport_icon" translatesAutoresizingMaskIntoConstraints="NO" id="o1R-yz-ty5" customClass="CustomizableIconView" customModule="VCheckSDK" customModuleProvider="target">
+                                                            <rect key="frame" x="16" y="23.333333333333336" width="28" height="28"/>
+                                                            <color key="tintColor" name="DescriptionColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="28" id="Px8-Ru-voB"/>
+                                                                <constraint firstAttribute="height" constant="28" id="pxM-au-103"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" name="CountryCardColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="41A-8s-pP6" firstAttribute="leading" secondItem="o1R-yz-ty5" secondAttribute="trailing" constant="15" id="7UC-df-eG8"/>
+                                                        <constraint firstItem="o1R-yz-ty5" firstAttribute="leading" secondItem="7LN-Ie-u1J" secondAttribute="leading" constant="16" id="80L-Mf-rEX"/>
+                                                        <constraint firstAttribute="bottom" secondItem="41A-8s-pP6" secondAttribute="bottom" constant="13" id="CEU-Nt-waS"/>
+                                                        <constraint firstAttribute="trailing" secondItem="41A-8s-pP6" secondAttribute="trailing" constant="16" id="SYw-Ue-TPr"/>
+                                                        <constraint firstItem="o1R-yz-ty5" firstAttribute="top" secondItem="7LN-Ie-u1J" secondAttribute="top" constant="23" id="VUp-N8-aSv"/>
+                                                        <constraint firstItem="41A-8s-pP6" firstAttribute="top" secondItem="7LN-Ie-u1J" secondAttribute="top" constant="13" id="ZqW-Px-B49"/>
+                                                        <constraint firstAttribute="bottom" secondItem="o1R-yz-ty5" secondAttribute="bottom" constant="23" id="vdc-Sc-G41"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="12"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="12"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                            <color key="value" name="DescriptionColor"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                            <real key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7LN-Ie-u1J" firstAttribute="leading" secondItem="J3f-EN-zeS" secondAttribute="leading" constant="16" id="gJA-b1-Fx9"/>
+                                                <constraint firstItem="7LN-Ie-u1J" firstAttribute="centerY" secondItem="J3f-EN-zeS" secondAttribute="centerY" id="hxi-hF-fkK"/>
+                                                <constraint firstItem="7LN-Ie-u1J" firstAttribute="centerX" secondItem="J3f-EN-zeS" secondAttribute="centerX" id="iX6-yf-QUk"/>
+                                                <constraint firstAttribute="trailing" secondItem="7LN-Ie-u1J" secondAttribute="trailing" constant="16" id="owe-Ov-Uts"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Требования к фото" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3e-BN-iyB" customClass="PrimaryTextView" customModule="VCheckSDK" customModuleProvider="target">
+                                <rect key="frame" x="16" y="101" width="170.66666666666666" height="21.666666666666671"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="TF0-U4-bSj" customClass="NonCustomizableIconView" customModule="VCheckSDK" customModuleProvider="target">
+                                <rect key="frame" x="23" y="73" width="10" height="16"/>
+                                <color key="tintColor" name="DescriptionColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="10" id="SEa-ee-mwg"/>
+                                    <constraint firstAttribute="height" constant="16" id="gNL-bd-gwP"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Фото вашего документа должно отвечать следующим требованиям:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2c0-OZ-1eD" customClass="SecondaryTextView" customModule="VCheckSDK" customModuleProvider="target">
+                                <rect key="frame" x="16" y="138.66666666666666" width="358" height="33.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" name="DescriptionColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QeP-x5-zoG"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ILK-9y-6iw" firstAttribute="top" secondItem="QeP-x5-zoG" secondAttribute="top" constant="150" id="1gC-kq-sM8"/>
+                            <constraint firstItem="TF0-U4-bSj" firstAttribute="leading" secondItem="QeP-x5-zoG" secondAttribute="leading" constant="23" id="9gg-HA-XJN"/>
+                            <constraint firstItem="QeP-x5-zoG" firstAttribute="bottom" secondItem="ILK-9y-6iw" secondAttribute="bottom" id="C0t-dq-2Hi"/>
+                            <constraint firstItem="ILK-9y-6iw" firstAttribute="leading" secondItem="QeP-x5-zoG" secondAttribute="leading" id="EA2-YN-eyg"/>
+                            <constraint firstItem="2c0-OZ-1eD" firstAttribute="leading" secondItem="QeP-x5-zoG" secondAttribute="leading" constant="16" id="F5b-9K-S0e"/>
+                            <constraint firstItem="QeP-x5-zoG" firstAttribute="trailing" secondItem="2c0-OZ-1eD" secondAttribute="trailing" constant="16" id="Hh6-wW-NeP"/>
+                            <constraint firstItem="TF0-U4-bSj" firstAttribute="top" secondItem="QeP-x5-zoG" secondAttribute="top" constant="26" id="MyD-EW-QoH"/>
+                            <constraint firstItem="E3e-BN-iyB" firstAttribute="top" secondItem="TF0-U4-bSj" secondAttribute="bottom" constant="12" id="TDq-sN-mWe"/>
+                            <constraint firstItem="2c0-OZ-1eD" firstAttribute="top" secondItem="E3e-BN-iyB" secondAttribute="bottom" constant="16" id="ZwF-db-9pM"/>
+                            <constraint firstItem="E3e-BN-iyB" firstAttribute="leading" secondItem="QeP-x5-zoG" secondAttribute="leading" constant="16" id="eaV-51-r8N"/>
+                            <constraint firstItem="QeP-x5-zoG" firstAttribute="trailing" secondItem="ILK-9y-6iw" secondAttribute="trailing" id="ih3-Hz-Dbs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="zpU-Hi-MCW"/>
+                    <connections>
+                        <outlet property="backArrow" destination="TF0-U4-bSj" id="GGD-Ru-uNR"/>
+                        <outlet property="providersTableView" destination="ILK-9y-6iw" id="dyP-eP-Y5T"/>
+                        <outlet property="tvSubtitle" destination="2c0-OZ-1eD" id="Bow-gS-J4N"/>
+                        <outlet property="tvTitle" destination="E3e-BN-iyB" id="84y-na-Eta"/>
+                        <segue destination="aeP-nV-ary" kind="show" id="gQf-Uj-Uvk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eki-v1-eOt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-726.15384615384608" y="497.98578199052133"/>
         </scene>
     </scenes>
     <designables>
@@ -3730,10 +3878,16 @@
         <designable name="2W7-Jm-sUy">
             <size key="intrinsicContentSize" width="464.33333333333331" height="17"/>
         </designable>
+        <designable name="2c0-OZ-1eD">
+            <size key="intrinsicContentSize" width="464.33333333333331" height="17"/>
+        </designable>
         <designable name="3Uf-0k-sYq">
             <size key="intrinsicContentSize" width="48" height="48"/>
         </designable>
         <designable name="3gZ-MQ-puZ">
+            <size key="intrinsicContentSize" width="122.66666666666667" height="19.333333333333332"/>
+        </designable>
+        <designable name="41A-8s-pP6">
             <size key="intrinsicContentSize" width="122.66666666666667" height="19.333333333333332"/>
         </designable>
         <designable name="46v-1C-6LO">
@@ -3768,6 +3922,9 @@
         </designable>
         <designable name="Bn8-gv-ckR">
             <size key="intrinsicContentSize" width="375.66666666666669" height="21.666666666666668"/>
+        </designable>
+        <designable name="E3e-BN-iyB">
+            <size key="intrinsicContentSize" width="170.66666666666666" height="21.666666666666668"/>
         </designable>
         <designable name="EY3-6C-cJ9">
             <size key="intrinsicContentSize" width="355.33333333333331" height="13.333333333333334"/>
@@ -3828,6 +3985,9 @@
         </designable>
         <designable name="SQC-lw-w5d">
             <size key="intrinsicContentSize" width="1233.6666666666667" height="17"/>
+        </designable>
+        <designable name="TF0-U4-bSj">
+            <size key="intrinsicContentSize" width="20" height="32"/>
         </designable>
         <designable name="TdZ-WF-NIV">
             <size key="intrinsicContentSize" width="189.66666666666666" height="21.666666666666668"/>
@@ -3937,6 +4097,9 @@
         <designable name="mhV-l1-ZoU">
             <size key="intrinsicContentSize" width="749.33333333333337" height="17"/>
         </designable>
+        <designable name="o1R-yz-ty5">
+            <size key="intrinsicContentSize" width="38" height="48"/>
+        </designable>
         <designable name="o5B-Kh-Vep">
             <size key="intrinsicContentSize" width="294.33333333333331" height="19.333333333333332"/>
         </designable>
@@ -3983,7 +4146,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="GAO-QE-GuP"/>
         <segue reference="ZOg-Lf-JSX"/>
-        <segue reference="mdJ-XX-Wrm"/>
+        <segue reference="dMv-If-cud"/>
         <segue reference="KgJ-x7-YV2"/>
         <segue reference="Ca4-u8-MMh"/>
         <segue reference="bvF-PB-3XP"/>

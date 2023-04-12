@@ -18,7 +18,14 @@ public class VCheckSDK {
 
     private var verificationType: VerificationSchemeType?
     
-    private var selectedCountryCode: String? = nil
+    private var selectedProvider: Provider? = nil
+    private var providerLogicCase: ProviderLogicCase? = nil
+    private var allAvailableProviders: [Provider]? = nil
+
+    // optional; only when provider allows document check stage!
+    //private var optSelectedCountryCode: String? = nil
+    
+    private var optSelectedCountryCode: String? = nil
     
     private var sdkLanguageCode: String? = nil
     
@@ -69,12 +76,12 @@ public class VCheckSDK {
     
     private func resetVerification() {
         VCheckSDKLocalDatasource.shared.resetCache()
-        self.selectedCountryCode = nil
+        self.optSelectedCountryCode = nil
     }
     
     internal func finish(executePartnerCallback: Bool) {
         VCheckSDKLocalDatasource.shared.resetCache()
-        self.selectedCountryCode = nil
+        self.optSelectedCountryCode = nil
         
         if (self.changeRootViewController == true) {
             partnerAppRootWindow!.rootViewController = partnerAppViewController
@@ -188,13 +195,52 @@ public class VCheckSDK {
     public func getSDKLangCode() -> String {
         return sdkLanguageCode ?? "en"
     }
+    
+    /// Internal caching functions
+
+    internal func getEnvironment() -> VCheckEnvironment {
+        return self.environment ?? VCheckEnvironment.DEV
+    }
+    
+    internal func getSelectedProvider() -> Provider {
+        if (selectedProvider == nil) {
+            print("VCheckSDK - error: provider is not set!")
+        }
+        return selectedProvider!
+    }
+
+    internal func setSelectedProvider(provider: Provider) {
+        self.selectedProvider = provider
+    }
+
+    internal func setAllAvailableProviders(providers: [Provider]) {
+        self.allAvailableProviders = providers
+    }
+
+    internal func getAllAvailableProviders() -> [Provider] {
+        if (allAvailableProviders == nil) {
+            print("VCheckSDK - error: no providers were cached properly!")
+        }
+        return allAvailableProviders!
+    }
+
+    internal func setProviderLogicCase(providerLC: ProviderLogicCase) {
+        self.providerLogicCase = providerLC
+    }
+
+    internal func getProviderLogicCase() -> ProviderLogicCase {
+        if (providerLogicCase == nil) {
+            print("VCheckSDK - error: no provider logic case was set!")
+        }
+        return providerLogicCase!
+    }
 
     internal func getSelectedCountryCode() -> String {
-        return selectedCountryCode ?? "ua"
+        return optSelectedCountryCode ?? "ua"
     }
 
     internal func setSelectedCountryCode(code: String) {
-        self.selectedCountryCode = code
+        self.optSelectedCountryCode = code
     }
     
     ///Color public customization methods:
@@ -269,9 +315,5 @@ public class VCheckSDK {
     public func environment(env: VCheckEnvironment) -> VCheckSDK {
         self.environment = env
         return self
-    }
-    
-    internal func getEnvironment() -> VCheckEnvironment {
-        return self.environment ?? VCheckEnvironment.DEV
     }
 }

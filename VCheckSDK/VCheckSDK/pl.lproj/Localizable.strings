@@ -111,5 +111,9 @@
 
 "enter_valid_exp_date"="Proszę wpisać prawidłowy termin ważności dokumentu";
 
+"choose_provider_title" = "Wybierz metodę weryfikacji";
+"choose_provider_description" = "Aby kontynuować weryfikację, wybierz dostawcę z listy dostępnej dla Twojego kraju.";
+"vcheck_provider_description" = "Weryfikacja z wgrywaniem dokumentów";
+
 /* Default action */
 "OK" = "";

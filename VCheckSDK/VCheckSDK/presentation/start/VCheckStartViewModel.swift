@@ -18,7 +18,7 @@ class VCheckStartViewModel {
     
     var currentStageResponse: StageResponse?
     
-    var countries: [Country]?
+    var providers: [Provider]?
 
     var error: VCheckApiError? {
         didSet { self.showAlertClosure?() }
@@ -31,13 +31,11 @@ class VCheckStartViewModel {
     var showAlertClosure: (() -> ())?
     var updateLoadingStatus: (() -> ())?
     
-    var didCreateVerif: (() -> ())?
+    //var didCreateVerif: (() -> ())?
     
     var verificationIsAlreadyCompleted: (() -> ())?
     
-    var gotCountries: (() -> ())?
-    
-    var didReceivedCurrentStage: (() -> ())?
+    var gotProviders: (() -> ())?
     
     
     // MARK: - Data calls
@@ -69,7 +67,7 @@ class VCheckStartViewModel {
                     self.isLoading = false
                     self.verificationIsAlreadyCompleted!()
                 } else {
-                    self.getCurrentStage()
+                    self.getProviders()
                 }
             } else {
                 self.isLoading = false
@@ -79,37 +77,22 @@ class VCheckStartViewModel {
         })
     }
     
-    func getCurrentStage() {
+    func getProviders() {
         
-        self.dataService.getCurrentStage(completion: { (data, error) in
+        self.dataService.getProviders(completion: { (data, error) in
             if let error = error {
                 self.error = error
                 self.isLoading = false
                 return
             }
-                        
-            if (data!.data != nil || data!.errorCode != nil) {
-                self.currentStageResponse = data
-                self.didReceivedCurrentStage!()
+            if let d = data?.data {
+                self.providers = d
+                self.gotProviders!()
+            } else {
+                self.isLoading = false
+                self.error = VCheckApiError(errorText: "Unknown error: Failed to get providers",
+                                            errorCode: 0)
             }
         })
     }
-    
-    func getCountries() {
-        
-        self.dataService.getCountries(completion: { (data, error) in
-            if let error = error {
-                self.error = error
-                self.isLoading = false
-                return
-            }
-                                    
-            if (data!.count > 0) {
-                self.isLoading = false
-                self.countries = data
-                self.gotCountries!()
-            }
-        })
-    }
-    
 }

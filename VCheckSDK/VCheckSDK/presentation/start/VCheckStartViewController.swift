@@ -37,43 +37,12 @@ class VCheckStartViewController : UIViewController {
         
         self.activityIndicatorStart()
         
+        viewModel.gotProviders = {
+            
+        }
+        
         viewModel.verificationIsAlreadyCompleted = {
             self.performSegue(withIdentifier: "StartToVerifAlreadyCompleted", sender: nil)
-        }
-        
-        viewModel.didReceivedCurrentStage = {
-            if (self.viewModel.currentStageResponse?.errorCode != nil
-                && self.viewModel.currentStageResponse?.errorCode ==
-                    StageObstacleErrorType.USER_INTERACTED_COMPLETED.toTypeIdx()) {
-                self.performSegue(withIdentifier: "StartToLivenessInstructions", sender: nil)
-            } else {
-                if (self.viewModel.currentStageResponse?.data != nil) {
-                    if (self.viewModel.currentStageResponse?.data?.uploadedDocId != nil) {
-                        self.performSegue(withIdentifier: "StartToCheckDocInfo", sender: self.viewModel.currentStageResponse?.data?.uploadedDocId)
-                        return
-                    } else if (self.viewModel.currentStageResponse?.data?.primaryDocId != nil) {
-                        self.performSegue(withIdentifier: "StartToCheckDocInfo", sender: self.viewModel.currentStageResponse?.data?.primaryDocId)
-                        return
-                    } else if (self.viewModel.currentStageResponse!.data!.type! == StageType.DOCUMENT_UPLOAD.toTypeIdx()) {
-                        self.viewModel.getCountries()
-                    } else {
-                        if (self.viewModel.currentStageResponse?.data?.config != nil) {
-                            VCheckSDKLocalDatasource.shared.setLivenessMilestonesList(list:
-                                (self.viewModel.currentStageResponse?.data?.config!.gestures)!)
-                        }
-                        self.performSegue(withIdentifier: "StartToLivenessInstructions", sender: nil)
-                    }
-                }
-            }
-        }
-        
-        viewModel.gotCountries = {
-            let countryTOArr: [CountryTO] = self.viewModel.countries!.map { (element) -> (CountryTO) in
-                let to: CountryTO = CountryTO.init(from: element)
-                return to
-            }
-            
-            self.goToCountriesScreen(data: countryTOArr)
         }
         
         viewModel.updateLoadingStatus = {
@@ -100,11 +69,10 @@ class VCheckStartViewController : UIViewController {
         self.initVerification()
     }
     
-    
-    func goToCountriesScreen(data: [CountryTO]) {
-        
-        self.performSegue(withIdentifier: "StartToCountries", sender: data)
-    }
+//obsolete
+//    func goToCountriesScreen(data: [CountryTO]) {
+//        self.performSegue(withIdentifier: "StartToCountries", sender: data)
+//    }
     
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "StartToCountries") {
@@ -185,3 +153,15 @@ extension UIViewController {
         remove(from: view)
     }
 }
+
+
+// obsolete
+//        viewModel.gotCountries = {
+//            let countryTOArr: [CountryTO] = self.viewModel.countries!.map { (element) -> (CountryTO) in
+//                let to: CountryTO = CountryTO.init(from: element)
+//                return to
+//            }
+//
+//            self.goToCountriesScreen(data: countryTOArr)
+//        }
+//

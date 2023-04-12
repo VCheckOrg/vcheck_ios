@@ -42,6 +42,60 @@ struct VCheckSDKRemoteDatasource {
           })
     }
     
+    func getProviders(completion: @escaping (ProvidersResponse?, VCheckApiError?) -> ()) {
+        let url = "\(verifBaseUrl)providers"
+
+        let token = VCheckSDK.shared.getVerificationToken()
+        if (token.isEmpty) {
+            completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
+                                           errorCode: VCheckApiError.DEFAULT_CODE))
+            return
+        }
+        let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
+
+        AF.request(url, method: .get, headers: headers)
+          .responseDecodable(of: ProvidersResponse.self) { (response) in
+              guard let response = response.value else {
+               completion(nil, VCheckApiError(errorText: "getProviders: " +  response.error!.localizedDescription,
+                                              errorCode: response.response?.statusCode))
+               return
+              }
+              completion(response, nil)
+              return
+          }
+    }
+    
+    func initProvider(completion: @escaping (Bool, VCheckApiError?) -> ()) {
+        let url = "\(verifBaseUrl)providers/init"
+        
+        let token = VCheckSDK.shared.getVerificationToken()
+        if (token.isEmpty) {
+            completion(false, VCheckApiError(errorText: "Error: cannot find access token",
+                                           errorCode: VCheckApiError.DEFAULT_CODE))
+            return
+        }
+        let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
+        
+        AF.request(url, method: .put, headers: headers)
+          .validate()  //response returned an HTTP status code in the range 200–299
+          .responseDecodable(of: VerificationInitResponse.self) { (response) in
+            guard let response = response.value else {
+                completion(false, VCheckApiError(errorText: "initProvider: " + response.error!.localizedDescription,
+                                               errorCode: response.response?.statusCode))
+                return
+            }
+            if (response.errorCode != nil && response.errorCode != 0) {
+                  completion(false, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
+                                            + "\(response.message ?? "")",
+                                                 errorCode: response.errorCode))
+                return
+            }
+            completion(true, nil)
+            return
+          }
+    }
+    
+    
     func initVerification(completion: @escaping (VerificationInitResponseData?, VCheckApiError?) -> ()) {
         let url = "\(verifBaseUrl)verifications/init"
         

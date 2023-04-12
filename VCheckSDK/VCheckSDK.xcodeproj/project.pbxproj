@@ -82,6 +82,11 @@
 		DABB5FC228B3C73500BBACC0 /* ThemeClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB5FC128B3C73500BBACC0 /* ThemeClasses.swift */; };
 		DAC2DF3E28B40E330049B8B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC2DF3D28B40E330049B8B0 /* SceneDelegate.swift */; };
 		DAC3C82C2877695700B32FFC /* VerificationSchemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3C82B2877695700B32FFC /* VerificationSchemes.swift */; };
+		DAD302EB29E446CF0057C58E /* ProviderModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD302EA29E446CF0057C58E /* ProviderModels.swift */; };
+		DAD302ED29E6E4770057C58E /* ProviderLogicCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD302EC29E6E4770057C58E /* ProviderLogicCase.swift */; };
+		DAD302F029E6E9440057C58E /* ChooseProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD302EF29E6E9440057C58E /* ChooseProviderViewController.swift */; };
+		DAD302F229E6E9800057C58E /* InitProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD302F129E6E9800057C58E /* InitProviderViewController.swift */; };
+		DAD302F429E6E98F0057C58E /* InitProviderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD302F329E6E98F0057C58E /* InitProviderViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -181,6 +186,11 @@
 		DABB5FC128B3C73500BBACC0 /* ThemeClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeClasses.swift; sourceTree = "<group>"; };
 		DAC2DF3D28B40E330049B8B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DAC3C82B2877695700B32FFC /* VerificationSchemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationSchemes.swift; sourceTree = "<group>"; };
+		DAD302EA29E446CF0057C58E /* ProviderModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderModels.swift; sourceTree = "<group>"; };
+		DAD302EC29E6E4770057C58E /* ProviderLogicCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderLogicCase.swift; sourceTree = "<group>"; };
+		DAD302EF29E6E9440057C58E /* ChooseProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseProviderViewController.swift; sourceTree = "<group>"; };
+		DAD302F129E6E9800057C58E /* InitProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitProviderViewController.swift; sourceTree = "<group>"; };
+		DAD302F329E6E98F0057C58E /* InitProviderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitProviderViewModel.swift; sourceTree = "<group>"; };
 		DAE5434C28A5822A00AEBC26 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/VCheckFlow.strings; sourceTree = "<group>"; };
 		DAE5434D28A5822C00AEBC26 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -284,6 +294,8 @@
 				DA3BED762869A8D200B15E5C /* DocumentResponseModels.swift */,
 				DAC3C82B2877695700B32FFC /* VerificationSchemes.swift */,
 				DAB57AEE28CF3D7700115FA6 /* VerificationStatuses.swift */,
+				DAD302EA29E446CF0057C58E /* ProviderModels.swift */,
+				DAD302EC29E6E4770057C58E /* ProviderLogicCase.swift */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -299,6 +311,7 @@
 		DA3BED802869A8D300B15E5C /* presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DAD302EE29E6E9150057C58E /* provider */,
 				DA3BEDAA2869A8D300B15E5C /* common */,
 				DA35CF86289D520700E22914 /* segmentation */,
 				DA3BED812869A8D300B15E5C /* liveness */,
@@ -359,8 +372,8 @@
 		DA3BED982869A8D300B15E5C /* start */ = {
 			isa = PBXGroup;
 			children = (
-				DA3BED992869A8D300B15E5C /* VCheckStartViewModel.swift */,
 				DA3BED9A2869A8D300B15E5C /* VCheckStartViewController.swift */,
+				DA3BED992869A8D300B15E5C /* VCheckStartViewModel.swift */,
 				DAB57AF028CF492D00115FA6 /* VerificationSentViewControler.swift */,
 			);
 			path = start;
@@ -463,6 +476,16 @@
 			children = (
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		DAD302EE29E6E9150057C58E /* provider */ = {
+			isa = PBXGroup;
+			children = (
+				DAD302EF29E6E9440057C58E /* ChooseProviderViewController.swift */,
+				DAD302F129E6E9800057C58E /* InitProviderViewController.swift */,
+				DAD302F329E6E98F0057C58E /* InitProviderViewModel.swift */,
+			);
+			path = provider;
 			sourceTree = "<group>";
 		};
 		FC76F161369B8E8316F65888 /* Frameworks */ = {
@@ -602,6 +625,7 @@
 				DA3BEDE32869A8D300B15E5C /* VideoFailureViewController.swift in Sources */,
 				DA3BEDE72869A8D300B15E5C /* VCheckStartViewController.swift in Sources */,
 				DA3BEDDF2869A8D300B15E5C /* WrongGestureViewController.swift in Sources */,
+				DAD302F029E6E9440057C58E /* ChooseProviderViewController.swift in Sources */,
 				DA3BEDEC2869A8D300B15E5C /* DocInfoViewCell.swift in Sources */,
 				DA3BEDE42869A8D300B15E5C /* MultipleFacesDetectedViewContoller.swift in Sources */,
 				DA3BEE022869A8D300B15E5C /* VCheckSDKRemoteDatasource.swift in Sources */,
@@ -622,7 +646,10 @@
 				DAB57AEF28CF3D7700115FA6 /* VerificationStatuses.swift in Sources */,
 				DA35CF88289D523E00E22914 /* SegmentationViewController.swift in Sources */,
 				DA3BEDCD2869A8D300B15E5C /* DocumentVerificationCodes.swift in Sources */,
+				DAD302F429E6E98F0057C58E /* InitProviderViewModel.swift in Sources */,
+				DAD302ED29E6E4770057C58E /* ProviderLogicCase.swift in Sources */,
 				DA3BEDCE2869A8D300B15E5C /* CountryModels.swift in Sources */,
+				DAD302F229E6E9800057C58E /* InitProviderViewController.swift in Sources */,
 				DAC2DF3E28B40E330049B8B0 /* SceneDelegate.swift in Sources */,
 				DA3BEDDC2869A8D300B15E5C /* LivenessInstructionsViewController.swift in Sources */,
 				DA3BEDD12869A8D300B15E5C /* LivenessUploadModels.swift in Sources */,
@@ -654,6 +681,7 @@
 				DA48073228A3D1A700B27C72 /* SegmentationTimeoutViewController.swift in Sources */,
 				DAC3C82C2877695700B32FFC /* VerificationSchemes.swift in Sources */,
 				DA3BEDD22869A8D300B15E5C /* VCheckSDK.swift in Sources */,
+				DAD302EB29E446CF0057C58E /* ProviderModels.swift in Sources */,
 				DA3BEDCC2869A8D300B15E5C /* VerificationResponseModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
