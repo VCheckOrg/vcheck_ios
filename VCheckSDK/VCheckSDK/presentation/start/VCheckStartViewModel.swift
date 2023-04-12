@@ -16,9 +16,7 @@ class VCheckStartViewModel {
     // MARK: - Properties
     private var timestamp: String?
     
-    var currentStageResponse: StageResponse?
-    
-    var providers: [Provider]?
+    var providersResponse: ProvidersResponse?
 
     var error: VCheckApiError? {
         didSet { self.showAlertClosure?() }
@@ -30,9 +28,7 @@ class VCheckStartViewModel {
     // MARK: - Closures for callback, since we are not using the ViewModel to the View.
     var showAlertClosure: (() -> ())?
     var updateLoadingStatus: (() -> ())?
-    
-    //var didCreateVerif: (() -> ())?
-    
+        
     var verificationIsAlreadyCompleted: (() -> ())?
     
     var gotProviders: (() -> ())?
@@ -50,11 +46,11 @@ class VCheckStartViewModel {
                 return
             }
             self.timestamp = timestamp
-            self.initVerif()
+            self.initVerification()
         })
     }
     
-    func initVerif() {
+    func initVerification() {
         
         self.dataService.initVerification(completion: { (data, error) in
             if let error = error {
@@ -85,8 +81,8 @@ class VCheckStartViewModel {
                 self.isLoading = false
                 return
             }
-            if let d = data?.data {
-                self.providers = d
+            if let r = data {
+                self.providersResponse = r
                 self.gotProviders!()
             } else {
                 self.isLoading = false

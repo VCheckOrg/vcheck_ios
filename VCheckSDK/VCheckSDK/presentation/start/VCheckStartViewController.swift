@@ -38,7 +38,7 @@ class VCheckStartViewController : UIViewController {
         self.activityIndicatorStart()
         
         viewModel.gotProviders = {
-            
+            self.processProvidersData(response: self.viewModel.providersResponse!)
         }
         
         viewModel.verificationIsAlreadyCompleted = {
@@ -78,20 +78,20 @@ class VCheckStartViewController : UIViewController {
                 if (providersList[0].countries == nil) {
                     VCheckSDK.shared.setProviderLogicCase(providerLC: ProviderLogicCase.ONE_PROVIDER_NO_COUNTRIES)
                     VCheckSDK.shared.setSelectedProvider(provider: providersList[0])
-                    navigateToInitProvider()
+                    self.navigateToInitProvider()
                 } else if (providersList[0].countries!.isEmpty) {
                     VCheckSDK.shared.setProviderLogicCase(providerLC: ProviderLogicCase.ONE_PROVIDER_NO_COUNTRIES)
                     VCheckSDK.shared.setSelectedProvider(provider: providersList[0])
-                    navigateToInitProvider()
+                    self.navigateToInitProvider()
                 } else if (providersList[0].countries!.count == 1) {
                     VCheckSDK.shared.setProviderLogicCase(providerLC: ProviderLogicCase.ONE_PROVIDER_ONE_COUNTRY)
                     VCheckSDK.shared.setSelectedProvider(provider: providersList[0])
                     VCheckSDK.shared.setOptSelectedCountryCode(code: providersList[0].countries![0])
-                    navigateToInitProvider()
+                    self.navigateToInitProvider()
                 } else {
                     VCheckSDK.shared.setProviderLogicCase(providerLC: ProviderLogicCase.ONE_PROVIDER_MULTIPLE_COUNTRIES)
                     VCheckSDK.shared.setSelectedProvider(provider: providersList[0])
-                    navigateToCountrySelection(countryCodes: providersList[0].countries!)
+                    self.navigateToCountrySelection(countryCodes: providersList[0].countries!)
                 }
             } else if (!(providersList.isEmpty)) { // more than 1 provider
                 if providersList.contains(where: { $0.countries != nil && !$0.countries!.isEmpty }) {
@@ -102,10 +102,10 @@ class VCheckStartViewController : UIViewController {
                             joinedCountriesSet.formUnion(countries)
                         }
                     }
-                    navigateToCountrySelection(countryCodes: Array(joinedCountriesSet))
+                    self.navigateToCountrySelection(countryCodes: Array(joinedCountriesSet))
                 } else {
                     VCheckSDK.shared.setProviderLogicCase(providerLC: ProviderLogicCase.MULTIPLE_PROVIDERS_NO_COUNTRIES)
-                    navigateToProviderSelection(providersList: providersList)
+                    self.navigateToProviderSelection(providersList: providersList)
                 }
             } else {
                 showToast(message: "Could not retrieve one or more valid providers", seconds: 5.0)

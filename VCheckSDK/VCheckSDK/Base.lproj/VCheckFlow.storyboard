@@ -343,7 +343,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpl-4N-OOI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-595.38461538461536" y="1517.4170616113743"/>
+            <point key="canvasLocation" x="-446" y="1654"/>
         </scene>
         <!--Segmentation View Controller-->
         <scene sceneID="5bb-Iv-tX7">
@@ -3739,12 +3739,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="RH7-tp-C7z"/>
                     <connections>
-                        <segue destination="EIw-6d-l49" kind="show" id="6Pl-0K-DiM"/>
+                        <segue destination="EIw-6d-l49" kind="show" identifier="InitProviderToChooseDocType" id="6Pl-0K-DiM"/>
+                        <segue destination="vMJ-Fv-l4l" kind="show" identifier="InitProviderToLivenessInstructions" id="akg-O3-g9F"/>
+                        <segue destination="dcp-4c-bus" kind="show" identifier="InitProviderToCheckDocInfo" id="edt-Wd-zNK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ReB-rR-NY4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="251" y="1018"/>
+            <point key="canvasLocation" x="94" y="380"/>
         </scene>
         <!--Choose Provider View Controller-->
         <scene sceneID="Tcm-gq-Ans">
@@ -3884,7 +3886,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eki-v1-eOt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-595" y="399"/>
+            <point key="canvasLocation" x="-926" y="858"/>
         </scene>
     </scenes>
     <designables>
@@ -4164,13 +4166,13 @@
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="sYd-LP-AM2"/>
-        <segue reference="6BS-Ni-Xz3"/>
+        <segue reference="gQf-Uj-Uvk"/>
         <segue reference="GAO-QE-GuP"/>
         <segue reference="ZOg-Lf-JSX"/>
-        <segue reference="dMv-If-cud"/>
+        <segue reference="akg-O3-g9F"/>
         <segue reference="KgJ-x7-YV2"/>
         <segue reference="Ca4-u8-MMh"/>
-        <segue reference="bvF-PB-3XP"/>
+        <segue reference="edt-Wd-zNK"/>
         <segue reference="JS7-Qf-uuL"/>
         <segue reference="dMs-gB-ZC7"/>
         <segue reference="zJe-KO-wvN"/>
