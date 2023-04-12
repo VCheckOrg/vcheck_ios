@@ -18,6 +18,15 @@ class ChooseProviderViewController : UIViewController {
     
     @IBOutlet weak var providersTableView: CustomizableTableView!
     
+    @IBAction func backAction(_ sender: Any) {
+        if (VCheckSDK.shared.getProviderLogicCase() == ProviderLogicCase.ONE_PROVIDER_MULTIPLE_COUNTRIES ||
+            VCheckSDK.shared.getProviderLogicCase() == ProviderLogicCase.MULTIPLE_PROVIDERS_PRESENT_COUNTRIES) {
+            navigationController?.popViewController(animated: true) //?
+        } else {
+            // Stub; no back action required
+        }
+    }
+    
     var providersList: [Provider]? = nil
     
     override func viewDidLoad() {
@@ -27,6 +36,13 @@ class ChooseProviderViewController : UIViewController {
         
         if let bc = VCheckSDK.shared.backgroundSecondaryColorHex {
             self.providersTableView.setValue(bc.hexToUIColor() , forKey: "tableHeaderBackgroundColor")
+        }
+        
+        if (VCheckSDK.shared.getProviderLogicCase() == ProviderLogicCase.ONE_PROVIDER_MULTIPLE_COUNTRIES ||
+            VCheckSDK.shared.getProviderLogicCase() == ProviderLogicCase.MULTIPLE_PROVIDERS_PRESENT_COUNTRIES) {
+            self.backArrow.isHidden = false
+        } else {
+            self.backArrow.isHidden = true
         }
         
         self.providersTableView.delegate = self

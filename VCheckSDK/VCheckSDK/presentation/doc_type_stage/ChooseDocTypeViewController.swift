@@ -23,6 +23,7 @@ class ChooseDocTypeViewController : UIViewController {
     
     @IBAction func backToCountriesAction(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true) //?
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -66,7 +66,6 @@
                         <outlet property="retryBtn" destination="LjI-UZ-ZrL" id="IH6-hO-Arb"/>
                         <outlet property="spinner" destination="eXt-L9-GpI" id="oni-yL-zbX"/>
                         <segue destination="VHf-Vf-Dha" kind="show" identifier="StartToCountries" id="Hnt-iA-CAy"/>
-                        <segue destination="vMJ-Fv-l4l" kind="show" identifier="StartToLivenessInstructions" id="dMv-If-cud"/>
                         <segue destination="Ih3-Z6-VZy" kind="show" identifier="StartToVerifAlreadyCompleted" id="97O-mG-xT5"/>
                         <segue destination="C9g-2u-RcW" kind="show" identifier="StartToChooseProvider" id="sYd-LP-AM2"/>
                         <segue destination="aeP-nV-ary" kind="show" identifier="StartToInitProvider" id="6BS-Ni-Xz3"/>
@@ -2024,7 +2023,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bXq-t7-eLH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1166.1538461538462" y="858.05687203791467"/>
+            <point key="canvasLocation" x="1015" y="858"/>
         </scene>
         <!--Liveness Screen View Controller-->
         <scene sceneID="cHE-UQ-Euf">
@@ -3355,7 +3354,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QZI-Sx-Sq4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-329" y="-376"/>
+            <point key="canvasLocation" x="432" y="-961"/>
         </scene>
         <!--Zoomed Doc Photo View Controller-->
         <scene sceneID="ClG-Je-hUm">
@@ -3717,7 +3716,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="19Q-kl-x5T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-791" y="-1106"/>
+            <point key="canvasLocation" x="-926" y="-782"/>
         </scene>
         <!--Init Provider View Controller-->
         <scene sceneID="TQv-sh-yO5">
@@ -3746,7 +3745,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ReB-rR-NY4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="94" y="380"/>
+            <point key="canvasLocation" x="-68" y="241"/>
         </scene>
         <!--Choose Provider View Controller-->
         <scene sceneID="Tcm-gq-Ans">
@@ -3768,6 +3767,16 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AN6-nK-sLA">
+                                <rect key="frame" x="22" y="141" width="71" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="  "/>
+                                <connections>
+                                    <action selector="backAction:" destination="C9g-2u-RcW" eventType="touchUpInside" id="fPY-iU-zUO"/>
+                                    <action selector="backToCountriesAction:" destination="EIw-6d-l49" eventType="touchUpInside" id="ARp-0j-LXv"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ILK-9y-6iw" customClass="CustomizableTableView" customModule="VCheckSDK" customModuleProvider="target">
                                 <rect key="frame" x="16" y="247" width="358" height="550"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3841,6 +3850,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="providerViewCell"/>
                                         <connections>
                                             <outlet property="providerSubTitle" destination="Wst-eH-Teo" id="Sk7-Az-nL5"/>
                                             <outlet property="providerTitle" destination="41A-8s-pP6" id="aRi-Ch-COq"/>
@@ -4183,7 +4193,7 @@
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="sYd-LP-AM2"/>
-        <segue reference="gQf-Uj-Uvk"/>
+        <segue reference="6BS-Ni-Xz3"/>
         <segue reference="GAO-QE-GuP"/>
         <segue reference="ZOg-Lf-JSX"/>
         <segue reference="akg-O3-g9F"/>
