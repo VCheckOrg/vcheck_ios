@@ -16,7 +16,9 @@ internal class LivenessScreenViewController: UIViewController {
 
     @IBOutlet weak var imgMilestoneChecked: UIImageView!
     @IBOutlet weak var indicationFrame: VCheckSDKRoundedView!
-
+    
+    @IBOutlet weak var utilMeasureLayout: UIView!
+    
     // MARK: - Anim properties
     private var faceAnimationView: LottieAnimationView = LottieAnimationView()
     private var arrowAnimationView: LottieAnimationView = LottieAnimationView()
@@ -72,6 +74,8 @@ internal class LivenessScreenViewController: UIViewController {
         if !setMilestonesList() { return }
         if !setupCamera() { return }
 
+        self.setCircleFaceOverlay()
+        
         self.setupMilestoneFlow()
     }
     
@@ -292,6 +296,42 @@ internal class LivenessScreenViewController: UIViewController {
 // MARK: - UI & Animation extensions
 
 extension LivenessScreenViewController {
+    
+    func setCircleFaceOverlay() {
+        let frameSize = CGSize(width: self.indicationFrame.viewWidth, height: self.indicationFrame.viewHeight)
+        
+        let pathBigRect = UIBezierPath(rect: self.view.bounds)
+        let circleCenter = CGPoint(x: self.view.viewWidth / 2, y: self.view.viewHeight / 2)
+        let circleRadius = (min(frameSize.width, frameSize.height) / 2) - 12
+        
+        let pathSmallCircle = UIBezierPath(arcCenter: circleCenter,
+                                           radius: circleRadius,
+                                           startAngle: 0,
+                                           endAngle: CGFloat.pi * 2,
+                                           clockwise: true)
+        pathBigRect.append(pathSmallCircle)
+        
+        let fillLayer = CAShapeLayer()
+        fillLayer.path = pathBigRect.cgPath
+        fillLayer.fillRule = CAShapeLayerFillRule.evenOdd
+        fillLayer.fillColor = UIColor(named: "CardColor", in: InternalConstants.bundle, compatibleWith: nil)?.cgColor
+        fillLayer.opacity = 1
+        self.view.layer.insertSublayer(fillLayer, at: 1)
+
+        let circlePath = UIBezierPath(arcCenter: circleCenter,
+                                      radius: circleRadius - 3,
+                                      startAngle: 0,
+                                      endAngle: CGFloat.pi * 2,
+                                      clockwise: true)
+
+        let shapeCircleLayer = CAShapeLayer()
+        shapeCircleLayer.path = circlePath.cgPath
+        shapeCircleLayer.fillColor = UIColor.clear.cgColor
+        shapeCircleLayer.strokeColor = UIColor(named: "borderColor", in: InternalConstants.bundle, compatibleWith: nil)?.cgColor
+        shapeCircleLayer.lineWidth = 6
+        self.view.layer.insertSublayer(shapeCircleLayer, at: 2)
+        
+    }
 
     func delayedStageIndicationRenew() {
         DispatchQueue.main.async {

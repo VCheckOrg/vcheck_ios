@@ -197,6 +197,28 @@ class CheckDocInfoViewController : UIViewController {
             self.showToast(message: "error_some_fields_are_empty".localized, seconds: 2.0)
         }
     }
+    
+//    private func hasValidationErrors() {
+//        //TODO:
+//    }
+    
+    //TODO: finish translation from Kotlin
+//    private func isFieldValid(fieldInfo: DocFieldWitOptPreFilledData): Boolean {
+//        if (fieldInfo.regex != nil
+//            && !fieldInfo.autoParsedValue.matches(Regex(fieldInfo.regex))) {
+//            return false
+//        } else {
+//            if ((fieldInfo.name == "date_of_birth" || fieldInfo.name == "expiration_date")
+//                && !isValidDocRelatedDate(fieldInfo.autoParsedValue)) {
+//                return false
+//            } else {
+//                if (fieldInfo.autoParsedValue.length < 3) {
+//                    return false
+//                }
+//            }
+//        }
+//        return true
+//    }
 }
 
 // MARK: - UITableViewDataSource
