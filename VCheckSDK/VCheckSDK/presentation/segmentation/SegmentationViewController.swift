@@ -293,13 +293,12 @@ class SegmentationViewController: UIViewController {
     }
     
     private func onRepeatSessionAfterTimeout() {
-        //self.checkedDocIdx = 0
         self.setHintForStage()
         self.darkFrameOverlay.alpha = 1
         self.darkFrameOverlay.isHidden = true
         self.successFrame.alpha = 1
         self.successFrame.isHidden = true
-        self.darkFrameOverlay.isHidden = true
+        self.darkFrameOverlay.isHidden = true //?
         self.btnImReady.isHidden = false
         self.animatingImage.transform = .identity
         self.animatingImage.layer.removeAllAnimations()
