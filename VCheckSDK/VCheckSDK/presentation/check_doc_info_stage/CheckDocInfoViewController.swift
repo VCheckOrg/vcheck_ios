@@ -36,9 +36,7 @@ class CheckDocInfoViewController : UIViewController {
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var docInfoScrollView: UIScrollView!
-    
-    //@IBOutlet weak var tableFooterView: BackgroundView!
-    
+        
     
     @IBAction func submitDocAction(_ sender: UIButton) {
         self.checkDocFieldsAndPerformConfirmation()
@@ -179,17 +177,10 @@ class CheckDocInfoViewController : UIViewController {
     
     func checkDocFieldsAndPerformConfirmation() {
         
-        var noEmptyFields: Bool = true
+        let noInvalidFields: Bool = checkIfAnyFieldIsNotValid()
+        //print("fieldsList: \(fieldsList)")
         
-        fieldsList.forEach {
-            if ($0.autoParsedValue.isEmpty) {
-                noEmptyFields = false
-            }
-        }
-        
-        print("fieldsList: \(fieldsList)")
-        
-        if (noEmptyFields == true) {
+        if (noInvalidFields == false) {
             let composedFieldsData = self.composeConfirmedDocFieldsData()
             self.viewModel.updateAndConfirmDocument(docId: self.docId!,
                                                     parsedDocFieldsData: composedFieldsData)
@@ -198,27 +189,34 @@ class CheckDocInfoViewController : UIViewController {
         }
     }
     
-//    private func hasValidationErrors() {
-//        //TODO:
-//    }
-    
-    //TODO: finish translation from Kotlin
-//    private func isFieldValid(fieldInfo: DocFieldWitOptPreFilledData): Boolean {
-//        if (fieldInfo.regex != nil
-//            && !fieldInfo.autoParsedValue.matches(Regex(fieldInfo.regex))) {
-//            return false
-//        } else {
-//            if ((fieldInfo.name == "date_of_birth" || fieldInfo.name == "expiration_date")
-//                && !isValidDocRelatedDate(fieldInfo.autoParsedValue)) {
-//                return false
-//            } else {
-//                if (fieldInfo.autoParsedValue.length < 3) {
-//                    return false
-//                }
-//            }
-//        }
-//        return true
-//    }
+    private func checkIfAnyFieldIsNotValid() -> Bool {
+        var hasValidationErrors: Bool = false
+        for item in self.fieldsList {
+            if item.autoParsedValue.count < 2 {
+                hasValidationErrors = true
+            }
+            if !isFieldValid(fieldInfo: item) {
+                hasValidationErrors = true
+            }
+        }
+        return hasValidationErrors
+    }
+
+    private func isFieldValid(fieldInfo: DocFieldWitOptPreFilledData) -> Bool {
+        if let regex = fieldInfo.regex, !NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: fieldInfo.autoParsedValue) {
+            return false
+        } else {
+            if (fieldInfo.name == "date_of_birth" || fieldInfo.name == "expiration_date")
+                && !(fieldInfo.autoParsedValue).checkIfValidDocDateFormat() {
+                return false
+            } else {
+                if fieldInfo.autoParsedValue.count < 3 {
+                    return false
+                }
+            }
+        }
+        return true
+    }
 }
 
 // MARK: - UITableViewDataSource

@@ -51,6 +51,9 @@ class HeaderViewContoller: UIViewController {
          if let btnsHex = VCheckSDK.shared.buttonsColorHex {
              UIButton.appearance(whenContainedInInstancesOf: [BackgroundView.self]).tintColor = btnsHex.hexToUIColor()
          }
+//         if let buttonsColorHex = VCheckSDK.shared.buttonsColorHex {
+//             UIButton.appearance(whenContainedInInstancesOf: [BackgroundView.self, SmallRoundedView.self, VCheckSDKRoundedView.self]).titleLabel?.textColor = buttonsColorHex.hexToUIColor()
+//         }
          if let backgroundSecondaryHex = VCheckSDK.shared.backgroundSecondaryColorHex {
              VCheckSDKRoundedView.appearance(whenContainedInInstancesOf: [BackgroundView.self]).backgroundColor = backgroundSecondaryHex.hexToUIColor()
              DocInfoViewCell.appearance(whenContainedInInstancesOf: [BackgroundView.self]).backgroundColor = backgroundSecondaryHex.hexToUIColor()
