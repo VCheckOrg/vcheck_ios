@@ -115,5 +115,7 @@
 "choose_provider_description" = "Aby kontynuować weryfikację, wybierz dostawcę z listy dostępnej dla Twojego kraju.";
 "vcheck_provider_description" = "Weryfikacja z wgrywaniem dokumentów";
 
+"verification_expired" = "Sesja weryfikacyjna wygasła. Proszę spróbuj ponownie.";
+
 /* Default action */
 "OK" = "";

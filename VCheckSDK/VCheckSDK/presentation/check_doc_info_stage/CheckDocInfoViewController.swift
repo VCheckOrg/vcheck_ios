@@ -178,7 +178,6 @@ class CheckDocInfoViewController : UIViewController {
     func checkDocFieldsAndPerformConfirmation() {
         
         let noInvalidFields: Bool = checkIfAnyFieldIsNotValid()
-        //print("fieldsList: \(fieldsList)")
         
         if (noInvalidFields == false) {
             let composedFieldsData = self.composeConfirmedDocFieldsData()

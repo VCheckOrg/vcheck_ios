@@ -30,7 +30,10 @@ class InitProviderViewController : UIViewController {
     private func processStageData(response: StageResponse) {
         if (response.errorCode != nil
             && response.errorCode == StageObstacleErrorType.USER_INTERACTED_COMPLETED.toTypeIdx()) {
-            self.performSegue(withIdentifier: "InitProviderToLivenessInstructions", sender: nil) //?
+            self.performSegue(withIdentifier: "InitProviderToLivenessInstructions", sender: nil)
+        } else if (response.errorCode != nil && response.errorCode == StageObstacleErrorType.VERIFICATION_EXPIRED.toTypeIdx()) {
+            showToast(message: "verification_expired".localized, seconds: 4.0)
+            VCheckSDK.shared.finish(executePartnerCallback: false)
         } else {
             if (response.data != nil) {
                 let stageData = response.data!

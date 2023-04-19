@@ -132,8 +132,12 @@ class VideoProcessingViewController: UIViewController {
         self.viewModel.didReceivedCurrentStage = {
             if (self.viewModel.currentStageResponse?.errorCode != nil && self.viewModel.currentStageResponse?.errorCode == StageObstacleErrorType.USER_INTERACTED_COMPLETED.toTypeIdx()) {
                 VCheckSDK.shared.finish(executePartnerCallback: true)
+            } else if (self.viewModel.currentStageResponse?.errorCode != nil
+                       && self.viewModel.currentStageResponse?.errorCode == StageObstacleErrorType.VERIFICATION_EXPIRED.toTypeIdx()) {
+                self.showToast(message: "verification_expired".localized, seconds: 4.0)
+                VCheckSDK.shared.finish(executePartnerCallback: false)
             } else {
-                self.showToast(message: "Stage Error", seconds: 3.0)
+                self.showToast(message: "Unexpected Stage Error", seconds: 3.0)
             }
         }
         self.viewModel.getCurrentStage()

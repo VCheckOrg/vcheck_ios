@@ -19,18 +19,16 @@ class ChooseProviderViewController : UIViewController {
     @IBOutlet weak var providersTableView: CustomizableTableView!
     
     @IBAction func backAction(_ sender: Any) {
-        print("=========== BACK ACTION - PROVIDER CASE:")
-        print(VCheckSDK.shared.getProviderLogicCase())
-
         if (VCheckSDK.shared.getProviderLogicCase() == ProviderLogicCase.ONE_PROVIDER_MULTIPLE_COUNTRIES ||
             VCheckSDK.shared.getProviderLogicCase() == ProviderLogicCase.MULTIPLE_PROVIDERS_PRESENT_COUNTRIES) {
-            self.navigationController?.popViewController(animated: true) //?
+            self.navigationController?.popViewController(animated: true)
         } else {
             // Stub; no back action required
         }
     }
     
     var providersList: [Provider]? = nil
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

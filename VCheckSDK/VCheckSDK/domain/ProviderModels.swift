@@ -52,15 +52,22 @@ struct Provider: Codable {
   
   }
 
-  init(from decoder: Decoder) throws {
-    let values = try decoder.container(keyedBy: CodingKeys.self)
+    init(from decoder: Decoder) throws {
+      let values = try decoder.container(keyedBy: CodingKeys.self)
 
-    id      = try values.decodeIfPresent(Int.self , forKey: .id      )!
-    name = try values.decodeIfPresent(String.self   , forKey: .name ) ?? ""
-    pRotocol = try values.decodeIfPresent(String.self   , forKey: .pRotocol )!
-    countries = try values.decodeIfPresent([String].self , forKey: .countries ) ?? []
+      self.id      = try values.decodeIfPresent(Int.self , forKey: .id      )!
+      self.name = try values.decodeIfPresent(String.self   , forKey: .name ) ?? ""
+      self.pRotocol = try values.decodeIfPresent(String.self   , forKey: .pRotocol )!
+      self.countries = try values.decodeIfPresent([String].self , forKey: .countries ) ?? []
  
-  }
+    }
+    
+    init(id: Int, name : String, pRotocol: String, countries: [String]? = []) {
+        self.id = id
+        self.name = name
+        self.pRotocol = pRotocol
+        self.countries = countries
+    }
 }
 
 

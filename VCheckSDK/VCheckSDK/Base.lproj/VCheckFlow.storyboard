@@ -3784,7 +3784,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ILK-9y-6iw" customClass="CustomizableTableView" customModule="VCheckSDK" customModuleProvider="target">
-                                <rect key="frame" x="16" y="244" width="343" height="423"/>
+                                <rect key="frame" x="16" y="244" width="343" height="251"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="providerViewCell" rowHeight="94" id="Afw-pl-9wX" userLabel="Provider Cell" customClass="ProviderViewCell" customModule="VCheckSDK" customModuleProvider="target">
@@ -3902,7 +3902,7 @@
                             <constraint firstItem="AN6-nK-sLA" firstAttribute="leading" secondItem="QeP-x5-zoG" secondAttribute="leading" constant="28" id="2gE-PI-S5A"/>
                             <constraint firstItem="uBq-Vy-P81" firstAttribute="top" secondItem="QeP-x5-zoG" secondAttribute="top" constant="84" id="4yw-LF-r85"/>
                             <constraint firstItem="TF0-U4-bSj" firstAttribute="leading" secondItem="QeP-x5-zoG" secondAttribute="leading" constant="34" id="9gg-HA-XJN"/>
-                            <constraint firstItem="QeP-x5-zoG" firstAttribute="bottom" secondItem="ILK-9y-6iw" secondAttribute="bottom" id="C0t-dq-2Hi"/>
+                            <constraint firstItem="QeP-x5-zoG" firstAttribute="bottom" secondItem="ILK-9y-6iw" secondAttribute="bottom" constant="172" id="C0t-dq-2Hi"/>
                             <constraint firstItem="uBq-Vy-P81" firstAttribute="leading" secondItem="QeP-x5-zoG" secondAttribute="leading" constant="12" id="D9T-Co-Sey"/>
                             <constraint firstItem="ILK-9y-6iw" firstAttribute="leading" secondItem="QeP-x5-zoG" secondAttribute="leading" constant="16" id="EA2-YN-eyg"/>
                             <constraint firstItem="2c0-OZ-1eD" firstAttribute="leading" secondItem="QeP-x5-zoG" secondAttribute="leading" constant="28" id="F5b-9K-S0e"/>

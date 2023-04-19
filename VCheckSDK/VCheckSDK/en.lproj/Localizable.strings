@@ -111,5 +111,7 @@
 "choose_provider_description" = "To proceed with verification, choose the provider from the list of available for your country.";
 "vcheck_provider_description" = "Verification with document upload";
 
+"verification_expired" = "Verification session expired. Please, try again.";
+
 /* Default action */
 "OK" = "";

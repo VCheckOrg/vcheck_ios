@@ -21,9 +21,6 @@ public class VCheckSDK {
     private var selectedProvider: Provider? = nil
     private var providerLogicCase: ProviderLogicCase? = nil
     private var allAvailableProviders: [Provider]? = nil
-
-    // optional; only when provider allows document check stage!
-    //private var optSelectedCountryCode: String? = nil
     
     private var optSelectedCountryCode: String? = nil
     
@@ -48,7 +45,7 @@ public class VCheckSDK {
     internal var primaryTextColorHex: String? = nil
     internal var secondaryTextColorHex: String? = nil
     internal var borderColorHex: String? = nil
-    internal var colorButtonsText: String? = nil
+    //internal var colorButtonsText: String? = nil
     
     private let wrongColorFormatPickDescr: String = "VCheckSDK - error: if provided, " +
             "custom color should be a valid HEX string (RGB or ARGB). Ex.: '#2A2A2A' or '#abdbe3'"
@@ -286,14 +283,15 @@ public class VCheckSDK {
         return self
     }
     
-    public func colorButtonsText(colorHex: String) -> VCheckSDK {
-        self.colorButtonsText = colorHex
-        return self
-    }
+    //TODO: test
+//    public func colorButtonsText(colorHex: String) -> VCheckSDK {
+//        self.colorButtonsText = colorHex
+//        return self
+//    }
 
     func resetCustomColors() {
         self.iconsColorHex = nil
-        self.colorButtonsText = nil
+        //self.colorButtonsText = nil
         self.buttonsColorHex = nil
         self.backgroundPrimaryColorHex = nil
         self.backgroundSecondaryColorHex = nil
