@@ -123,7 +123,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="FLAG" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zr2-kK-wWI" customClass="FlagView" customModule="VCheckSDK" customModuleProvider="target">
-                                                <rect key="frame" x="14" y="2" width="60" height="39"/>
+                                                <rect key="frame" x="14" y="1" width="60" height="39"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" name="CountryCardColor"/>
                                                 <color key="textColor" name="DescriptionColor"/>
@@ -292,7 +292,7 @@
                                 </prototypes>
                             </tableView>
                             <searchBar contentMode="redraw" preservesSuperviewLayoutMargins="YES" placeholder="Search" id="fVU-YR-D7u">
-                                <rect key="frame" x="-1" y="49" width="393" height="51"/>
+                                <rect key="frame" x="0.0" y="49" width="393" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" name="DescriptionColor"/>
                                 <color key="barTintColor" name="BackgroundColor"/>
@@ -3733,7 +3733,7 @@
         <scene sceneID="TQv-sh-yO5">
             <objects>
                 <viewController id="aeP-nV-ary" customClass="InitProviderViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bhg-La-cfu">
+                    <view key="view" contentMode="scaleToFill" id="bhg-La-cfu" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -3767,7 +3767,7 @@
         <scene sceneID="Tcm-gq-Ans">
             <objects>
                 <viewController id="C9g-2u-RcW" customClass="ChooseProviderViewController" customModule="VCheckSDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="SSx-U2-AZ2">
+                    <view key="view" contentMode="scaleToFill" id="SSx-U2-AZ2" customClass="BackgroundView" customModule="VCheckSDK" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -3783,7 +3783,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ILK-9y-6iw" customClass="CustomizableTableView" customModule="VCheckSDK" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ILK-9y-6iw" customClass="CustomizableTableView" customModule="VCheckSDK" customModuleProvider="target">
                                 <rect key="frame" x="16" y="244" width="343" height="251"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
