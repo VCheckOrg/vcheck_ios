@@ -314,7 +314,13 @@ extension LivenessScreenViewController {
         let fillLayer = CAShapeLayer()
         fillLayer.path = pathBigRect.cgPath
         fillLayer.fillRule = CAShapeLayerFillRule.evenOdd
-        fillLayer.fillColor = UIColor(named: "CardColor", in: InternalConstants.bundle, compatibleWith: nil)?.cgColor
+        
+        if let bgColor = VCheckSDK.shared.backgroundSecondaryColorHex {
+            fillLayer.fillColor = bgColor.hexToUIColor().cgColor
+        } else {
+            fillLayer.fillColor = UIColor(named: "CardColor", in: InternalConstants.bundle, compatibleWith: nil)?.cgColor
+        }
+        
         fillLayer.opacity = 1
         self.view.layer.insertSublayer(fillLayer, at: 1)
 
@@ -327,8 +333,14 @@ extension LivenessScreenViewController {
         let shapeCircleLayer = CAShapeLayer()
         shapeCircleLayer.path = circlePath.cgPath
         shapeCircleLayer.fillColor = UIColor.clear.cgColor
-        shapeCircleLayer.strokeColor = UIColor(named: "borderColor", in: InternalConstants.bundle, compatibleWith: nil)?.cgColor
+        
+        if let shapeColor = VCheckSDK.shared.borderColorHex {
+            shapeCircleLayer.strokeColor = shapeColor.hexToUIColor().cgColor
+        } else {
+            shapeCircleLayer.strokeColor = UIColor(named: "borderColor", in: InternalConstants.bundle, compatibleWith: nil)?.cgColor
+        }
         shapeCircleLayer.lineWidth = 6
+        
         self.view.layer.insertSublayer(shapeCircleLayer, at: 2)
         
     }
