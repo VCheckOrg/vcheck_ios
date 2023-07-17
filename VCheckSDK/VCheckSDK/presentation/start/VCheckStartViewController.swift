@@ -131,7 +131,7 @@ class VCheckStartViewController : UIViewController {
             let countryList = (sender as! [String]).map { (code) -> (CountryTO) in
                 return CountryTO.init(from: code)
             }
-            vc.countries = countryList
+            vc.initialCountries = countryList
         }
         if (segue.identifier == "StartToChooseProvider") {
             let vc = segue.destination as! ChooseProviderViewController
