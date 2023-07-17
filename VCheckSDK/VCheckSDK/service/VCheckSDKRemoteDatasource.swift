@@ -60,6 +60,7 @@ struct VCheckSDKRemoteDatasource {
                                               errorCode: response.response?.statusCode))
                return
               }
+              checkIfUserInteractionCompleted(errorCode: response.errorCode)
               completion(response, nil)
               return
           }
@@ -94,14 +95,41 @@ struct VCheckSDKRemoteDatasource {
                                                errorCode: response.response?.statusCode))
                 return
             }
-            if (response.errorCode != nil && response.errorCode != 0) {
-                  completion(false, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
+            if (response.errorCode != nil && response.errorCode != BaseClientErrors.INVALID_STAGE_TYPE) {
+                completion(false, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
                                             + "\(response.message ?? "")",
                                                  errorCode: response.errorCode))
                 return
+            } else {
+                checkIfUserInteractionCompleted(errorCode: response.errorCode)
+                completion(true, nil)
+                return
             }
-            completion(true, nil)
+            
+          }
+    }
+    
+    func getPriorityCountries(completion: @escaping (PriorityCountries?, VCheckApiError?) -> ()) {
+        let url = "\(verifBaseUrl)providers/priority_countries"
+
+        let token = VCheckSDK.shared.getVerificationToken()
+        if (token.isEmpty) {
+            completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
+                                           errorCode: VCheckApiError.DEFAULT_CODE))
             return
+        }
+        let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
+
+        AF.request(url, method: .get, headers: headers)
+          .responseDecodable(of: PriorityCountries.self) { (response) in
+              guard let response = response.value else {
+               completion(nil, VCheckApiError(errorText: "getProviders: " +  response.error!.localizedDescription,
+                                              errorCode: response.response?.statusCode))
+               return
+              }
+              checkIfUserInteractionCompleted(errorCode: response.errorCode)
+              completion(response, nil)
+              return
           }
     }
     
@@ -131,6 +159,7 @@ struct VCheckSDKRemoteDatasource {
                                                  errorCode: response.errorCode))
                 return
             }
+            checkIfUserInteractionCompleted(errorCode: response.errorCode)
             completion(response.data, nil)
             return
           }
@@ -154,6 +183,7 @@ struct VCheckSDKRemoteDatasource {
                                               errorCode: response.response?.statusCode))
                return
               }
+              checkIfUserInteractionCompleted(errorCode: response.errorCode)
               completion(response, nil)
               return
           }
@@ -185,6 +215,7 @@ struct VCheckSDKRemoteDatasource {
                                                  errorCode: response.errorCode))
                   return
               }
+              checkIfUserInteractionCompleted(errorCode: response.errorCode)
               completion(response.data, nil)
               return
           }
@@ -233,6 +264,7 @@ struct VCheckSDKRemoteDatasource {
                                                        errorCode: response.response?.statusCode))
                         return
                     }
+                    checkIfUserInteractionCompleted(errorCode: response.errorCode)
                     completion(response, nil)
                     return
                   }
@@ -264,6 +296,7 @@ struct VCheckSDKRemoteDatasource {
                                               errorCode: response.errorCode))
                return
             }
+            checkIfUserInteractionCompleted(errorCode: response.errorCode)
             completion(response.data, nil)
             return
         }
@@ -298,6 +331,7 @@ struct VCheckSDKRemoteDatasource {
                                               errorCode: response.response?.statusCode))
              return
             }
+            //checkIfUserInteractionCompleted(errorCode: response.errorCode)
             completion(true, nil)
             return
         })
@@ -328,13 +362,14 @@ struct VCheckSDKRemoteDatasource {
                                                     errorCode: response.response?.statusCode))
                      return
                     }
-                    print("----- LIVENESS UPLOAD RESPONSE: \(response)")
+                    //print("----- LIVENESS UPLOAD RESPONSE: \(response)")
                     if (response.errorCode != nil && response.errorCode != 0) {
                        completion(nil, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
                                                 + "\(response.message ?? "")",
                                                       errorCode: response.errorCode))
                        return
                     }
+                    // here, we're not checking result with checkIfUserInteractionCompleted(errorCode: response.errorCode)
                     completion(response.data, nil)
                     return
                 }
@@ -376,6 +411,7 @@ struct VCheckSDKRemoteDatasource {
                                                   errorCode: response.errorCode))
                    return
                 }
+                // here, we're not checking result with checkIfUserInteractionCompleted(errorCode: response.errorCode)
                 completion(response, nil)
                 return
             }
@@ -419,11 +455,19 @@ struct VCheckSDKRemoteDatasource {
                                                   errorCode: response.errorCode))
                    return
                 }
+                // here, we're not checking result with checkIfUserInteractionCompleted(errorCode: response.errorCode)
                 completion(response, nil)
                 return
             }
     }
     
+    //if global 400, then close SDK
+    //otherwise, depends on specific case
+    func checkIfUserInteractionCompleted(errorCode: Int?) {
+        if (errorCode == BaseClientErrors.USER_INTERACTED_COMPLETED) {
+            VCheckSDK.shared.finish(executePartnerCallback: true)
+        }
+    }
 }
 
 

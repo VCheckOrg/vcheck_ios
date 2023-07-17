@@ -75,6 +75,8 @@
 		DA48073228A3D1A700B27C72 /* SegmentationTimeoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48073128A3D1A700B27C72 /* SegmentationTimeoutViewController.swift */; };
 		DA4D269C289198CC00C6F43A /* DocumentRequestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D269B289198CC00C6F43A /* DocumentRequestModels.swift */; };
 		DA6ACE39296720F7000D25C2 /* face_plus_phone.json in Resources */ = {isa = PBXBuildFile; fileRef = DA6ACE38296720F7000D25C2 /* face_plus_phone.json */; };
+		DA7AD2332A58BB0B007E7C63 /* ChooseCountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7AD2322A58BB0B007E7C63 /* ChooseCountryViewModel.swift */; };
+		DA7AD2352A61A549007E7C63 /* BaseClientErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7AD2342A61A549007E7C63 /* BaseClientErrors.swift */; };
 		DA9C507E294B92D500D8A61B /* passport_flip.json in Resources */ = {isa = PBXBuildFile; fileRef = DA9C507D294B92D500D8A61B /* passport_flip.json */; };
 		DAA986CC28B61CAC007811F9 /* id_card_turn_side.json in Resources */ = {isa = PBXBuildFile; fileRef = DAA986CB28B61CAC007811F9 /* id_card_turn_side.json */; };
 		DAB57AEF28CF3D7700115FA6 /* VerificationStatuses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB57AEE28CF3D7700115FA6 /* VerificationStatuses.swift */; };
@@ -180,6 +182,8 @@
 		DA48073128A3D1A700B27C72 /* SegmentationTimeoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationTimeoutViewController.swift; sourceTree = "<group>"; };
 		DA4D269B289198CC00C6F43A /* DocumentRequestModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentRequestModels.swift; sourceTree = "<group>"; };
 		DA6ACE38296720F7000D25C2 /* face_plus_phone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = face_plus_phone.json; sourceTree = "<group>"; };
+		DA7AD2322A58BB0B007E7C63 /* ChooseCountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCountryViewModel.swift; sourceTree = "<group>"; };
+		DA7AD2342A61A549007E7C63 /* BaseClientErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseClientErrors.swift; sourceTree = "<group>"; };
 		DA9C507D294B92D500D8A61B /* passport_flip.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = passport_flip.json; sourceTree = "<group>"; };
 		DAA986CB28B61CAC007811F9 /* id_card_turn_side.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = id_card_turn_side.json; sourceTree = "<group>"; };
 		DAB57AEE28CF3D7700115FA6 /* VerificationStatuses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationStatuses.swift; sourceTree = "<group>"; };
@@ -286,6 +290,7 @@
 			children = (
 				DA3BED752869A8D200B15E5C /* VCheckSDKConstants.swift */,
 				DA3BED772869A8D200B15E5C /* VCheckApiError.swift */,
+				DA7AD2342A61A549007E7C63 /* BaseClientErrors.swift */,
 				DA3BED782869A8D200B15E5C /* VerificationResponseModels.swift */,
 				DA3BED7A2869A8D200B15E5C /* CountryModels.swift */,
 				DA3BED7C2869A8D200B15E5C /* DocumentTypes.swift */,
@@ -410,6 +415,7 @@
 				DA3BEDA72869A8D300B15E5C /* ChooseCountryViewController.swift */,
 				DA3BEDA82869A8D300B15E5C /* AllowedCountryViewCell.swift */,
 				DA3BEDA92869A8D300B15E5C /* CountryListViewController.swift */,
+				DA7AD2322A58BB0B007E7C63 /* ChooseCountryViewModel.swift */,
 			);
 			path = choose_country_stage;
 			sourceTree = "<group>";
@@ -620,6 +626,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA7AD2332A58BB0B007E7C63 /* ChooseCountryViewModel.swift in Sources */,
 				DA35CF8A289D550D00E22914 /* SegmentationStartViewController.swift in Sources */,
 				DA3BEDE02869A8D300B15E5C /* NoBrightnessViewController.swift in Sources */,
 				DA3BED562869A69D00B15E5C /* VCheckSDK.docc in Sources */,
@@ -685,6 +692,7 @@
 				DA48073228A3D1A700B27C72 /* SegmentationTimeoutViewController.swift in Sources */,
 				DAC3C82C2877695700B32FFC /* VerificationSchemes.swift in Sources */,
 				DA3BEDD22869A8D300B15E5C /* VCheckSDK.swift in Sources */,
+				DA7AD2352A61A549007E7C63 /* BaseClientErrors.swift in Sources */,
 				DAD302EB29E446CF0057C58E /* ProviderModels.swift in Sources */,
 				DA3BEDCC2869A8D300B15E5C /* VerificationResponseModels.swift in Sources */,
 			);

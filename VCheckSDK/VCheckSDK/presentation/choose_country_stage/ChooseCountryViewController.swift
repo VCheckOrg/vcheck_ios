@@ -10,6 +10,8 @@ import UIKit
 
 class ChooseCountryViewController : UIViewController {
     
+    private let viewModel = ChooseCountryViewModel()
+    
     @IBOutlet weak var preSelectedCountryView: SmallRoundedView!
     
     @IBOutlet weak var tvSelectedCountryName: SecondaryTextView!
@@ -18,12 +20,43 @@ class ChooseCountryViewController : UIViewController {
     
     @IBOutlet weak var continueButton: UIButton!
     
-    var countries: [CountryTO] = []
+    var initialCountries: [CountryTO] = []
+    
+    var allCountries: [CountryTO] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewModel.didReceivePriorityCountriesResponse = {
+            self.setContent(priorityCountries: self.viewModel.priorityCountriesResponse?.data ?? [])
+        }
+        
+        viewModel.getPriorityCountries()
+    }
+    
+    func setContent(priorityCountries: [String]) {
+        
+        //?
+        //       let providerCountries = initialCountryList.sortedWith { s1, s2 ->
+        //           Collator.getInstance(Locale("")).compare(s1.name, s2.name)
+        //       }.toList()
 
+        var bottomCountries: [CountryTO] = []
+        var topCountryItems: [CountryTO] = []
+        
+        for countryTO in initialCountries {
+           if (priorityCountries.contains(countryTO.code)) {
+               topCountryItems.append(countryTO)
+           } else {
+               bottomCountries.append(countryTO)
+           }
+        }
+
+        topCountryItems.append(contentsOf: bottomCountries)
+        
+        allCountries = topCountryItems
+        
         reloadData()
         
         self.continueButton.setTitle("proceed".localized, for: .normal)
@@ -36,10 +69,10 @@ class ChooseCountryViewController : UIViewController {
     }
     
     func reloadData() {
-        if let selectedCountry = countries.first(where: {
+        if let selectedCountry = allCountries.first(where: {
             if (VCheckSDK.shared.getOptSelectedCountryCode() != nil) {
                 return $0.code == VCheckSDK.shared.getOptSelectedCountryCode()
-            } else if (countries.contains(where: { $0.code == "ua" })) {
+            } else if (allCountries.contains(where: { $0.code == "ua" })) {
                 return $0.code == "ua"
             } else {
                 return true
@@ -62,8 +95,8 @@ class ChooseCountryViewController : UIViewController {
             }
             
        } else {
-           tvSelectedCountryName.text = countries[0].name
-           tvSelectedCountryFlag.text = countries[0].flag
+           //tvSelectedCountryName.text = countries[0].name
+           //tvSelectedCountryFlag.text = countries[0].flag
        }
     }
     
@@ -90,7 +123,7 @@ class ChooseCountryViewController : UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "CountryToList") {
             let vc = segue.destination as! CountryListViewController
-            vc.countriesDataSourceArr = self.countries
+            vc.countriesDataSourceArr = self.allCountries
             vc.parentVC = self
         }
         if (segue.identifier == "CountriesToChooseProvider") {
