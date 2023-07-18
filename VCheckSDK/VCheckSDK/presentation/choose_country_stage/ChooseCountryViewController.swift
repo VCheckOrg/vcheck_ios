@@ -37,25 +37,23 @@ class ChooseCountryViewController : UIViewController {
     
     func setContent(priorityCountries: [String]) {
         
-        //?
-        //       let providerCountries = initialCountryList.sortedWith { s1, s2 ->
-        //           Collator.getInstance(Locale("")).compare(s1.name, s2.name)
-        //       }.toList()
-
-        var bottomCountries: [CountryTO] = []
+        var bottomCountryItems: [CountryTO] = []
         var topCountryItems: [CountryTO] = []
         
         for countryTO in initialCountries {
            if (priorityCountries.contains(countryTO.code)) {
                topCountryItems.append(countryTO)
            } else {
-               bottomCountries.append(countryTO)
+               bottomCountryItems.append(countryTO)
            }
         }
-
-        topCountryItems.append(contentsOf: bottomCountries)
         
-        allCountries = topCountryItems
+        var fullArr = getSortedArr(initialArr: topCountryItems)
+        let suffixArr = getSortedArr(initialArr: bottomCountryItems)
+        
+        fullArr.append(contentsOf: suffixArr)
+        
+        self.allCountries = fullArr
         
         reloadData()
         
@@ -95,6 +93,7 @@ class ChooseCountryViewController : UIViewController {
             }
             
        } else {
+           // obsolete logic:
            //tvSelectedCountryName.text = countries[0].name
            //tvSelectedCountryFlag.text = countries[0].flag
        }
@@ -129,6 +128,13 @@ class ChooseCountryViewController : UIViewController {
         if (segue.identifier == "CountriesToChooseProvider") {
             let vc = segue.destination as! ChooseProviderViewController
             vc.providersList = sender as? [Provider]
+        }
+    }
+    
+    func getSortedArr(initialArr: [CountryTO]) -> [CountryTO] {
+        let locale = Locale(identifier: VCheckSDK.shared.getSDKLangCode())
+        return initialArr.sorted {
+            return $0.name.compare($1.name, locale: locale) == .orderedAscending
         }
     }
 

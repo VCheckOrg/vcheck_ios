@@ -70,6 +70,8 @@ struct VCheckSDKRemoteDatasource {
                       completion: @escaping (Bool, VCheckApiError?) -> ()) {
         let url = "\(verifBaseUrl)providers/init"
         
+        print("INIT PROVIDER")
+        
         var jsonData: Dictionary<String, Any>?
         do {
             jsonData = try initProviderRequestBody.toDictionary()
@@ -93,14 +95,23 @@ struct VCheckSDKRemoteDatasource {
             guard let response = response.value else {
                 completion(false, VCheckApiError(errorText: "initProvider: " + response.error!.localizedDescription,
                                                errorCode: response.response?.statusCode))
+                print("CASE 1")
                 return
             }
-            if (response.errorCode != nil && response.errorCode != BaseClientErrors.INVALID_STAGE_TYPE) {
-                completion(false, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
-                                            + "\(response.message ?? "")",
-                                                 errorCode: response.errorCode))
-                return
+            if (response.errorCode != nil) {
+                if (response.errorCode == BaseClientErrors.INVALID_STAGE_TYPE) {
+                    print("CASE 2 (SUCCESS)")
+                    completion(true, nil)
+                    return
+                } else {
+                    print("CASE 2.1 (FAILURE)")
+                    completion(false, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
+                                                + "\(response.message ?? "")",
+                                                     errorCode: response.errorCode))
+                    return
+                }
             } else {
+                print("CASE 3 : SUCCESS")
                 checkIfUserInteractionCompleted(errorCode: response.errorCode)
                 completion(true, nil)
                 return
@@ -136,7 +147,7 @@ struct VCheckSDKRemoteDatasource {
     
     func initVerification(completion: @escaping (VerificationInitResponseData?, VCheckApiError?) -> ()) {
         let url = "\(verifBaseUrl)verifications/init"
-        
+                
         let token = VCheckSDK.shared.getVerificationToken()
         if (token.isEmpty) {
             completion(nil, VCheckApiError(errorText: "Error: cannot find access token",
@@ -466,6 +477,8 @@ struct VCheckSDKRemoteDatasource {
     func checkIfUserInteractionCompleted(errorCode: Int?) {
         if (errorCode == BaseClientErrors.USER_INTERACTED_COMPLETED) {
             VCheckSDK.shared.finish(executePartnerCallback: true)
+        } else {
+            return
         }
     }
 }

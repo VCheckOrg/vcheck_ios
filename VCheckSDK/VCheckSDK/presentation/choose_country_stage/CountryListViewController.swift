@@ -72,20 +72,13 @@ class CountryListViewController : UIViewController {
             self.countryListTable.setValue(bc.hexToUIColor() , forKey: "tableHeaderBackgroundColor")
         }
         
-        self.searchResultsList = getSortedArr()
+        self.searchResultsList = countriesDataSourceArr
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         self.parentVC!.reloadData()
-    }
-    
-    func getSortedArr() -> [CountryTO] {
-        let locale = Locale(identifier: VCheckSDK.shared.getSDKLangCode())
-        return self.countriesDataSourceArr.sorted {
-            return $0.name.compare($1.name, locale: locale) == .orderedAscending
-        }
     }
 }
 
@@ -160,7 +153,7 @@ extension CountryListViewController: UISearchBarDelegate {
     func searchCountries(forFragment: String) {
         
         if (forFragment.isEmpty) {
-            self.searchResultsList = getSortedArr()
+            self.searchResultsList = self.countriesDataSourceArr
             self.noSearchDataLabel.isHidden = true
         } else {
             self.searchResultsList = self.countriesDataSourceArr.filter { $0.name.lowercased().contains(forFragment.lowercased())
