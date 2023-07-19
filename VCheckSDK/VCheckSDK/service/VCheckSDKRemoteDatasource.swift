@@ -69,9 +69,7 @@ struct VCheckSDKRemoteDatasource {
     func initProvider(initProviderRequestBody: InitProviderRequestBody,
                       completion: @escaping (Bool, VCheckApiError?) -> ()) {
         let url = "\(verifBaseUrl)providers/init"
-        
-        print("INIT PROVIDER")
-        
+                
         var jsonData: Dictionary<String, Any>?
         do {
             jsonData = try initProviderRequestBody.toDictionary()
@@ -95,23 +93,19 @@ struct VCheckSDKRemoteDatasource {
             guard let response = response.value else {
                 completion(false, VCheckApiError(errorText: "initProvider: " + response.error!.localizedDescription,
                                                errorCode: response.response?.statusCode))
-                print("CASE 1")
                 return
             }
             if (response.errorCode != nil) {
-                if (response.errorCode == BaseClientErrors.INVALID_STAGE_TYPE) {
-                    print("CASE 2 (SUCCESS)")
+                if (response.errorCode == 0 || response.errorCode == BaseClientErrors.INVALID_STAGE_TYPE) {
                     completion(true, nil)
                     return
                 } else {
-                    print("CASE 2.1 (FAILURE)")
                     completion(false, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
                                                 + "\(response.message ?? "")",
                                                      errorCode: response.errorCode))
                     return
                 }
             } else {
-                print("CASE 3 : SUCCESS")
                 checkIfUserInteractionCompleted(errorCode: response.errorCode)
                 completion(true, nil)
                 return
@@ -373,7 +367,6 @@ struct VCheckSDKRemoteDatasource {
                                                     errorCode: response.response?.statusCode))
                      return
                     }
-                    //print("----- LIVENESS UPLOAD RESPONSE: \(response)")
                     if (response.errorCode != nil && response.errorCode != 0) {
                        completion(nil, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
                                                 + "\(response.message ?? "")",
