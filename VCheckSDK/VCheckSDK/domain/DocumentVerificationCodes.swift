@@ -21,6 +21,8 @@ enum DocumentVerificationCode {
     case PHOTO_TOO_LARGE // = 9
     case PARSING_ERROR // = 10
     case INVALID_PAGE // = 11
+    case FRAUD // = 12
+    case BLUR // = 13
 }
 
 extension DocumentVerificationCode {
@@ -38,6 +40,8 @@ extension DocumentVerificationCode {
             case DocumentVerificationCode.PHOTO_TOO_LARGE: return 9
             case DocumentVerificationCode.PARSING_ERROR: return 10
             case DocumentVerificationCode.INVALID_PAGE: return 11
+            case DocumentVerificationCode.FRAUD: return 12
+            case DocumentVerificationCode.BLUR: return 12
         }
     }
 }
@@ -55,6 +59,8 @@ func codeIdxToVerificationCode(codeIdx: Int) -> DocumentVerificationCode {
         case 8: return DocumentVerificationCode.INVALID_FILES
         case 9: return DocumentVerificationCode.PHOTO_TOO_LARGE
         case 10: return DocumentVerificationCode.PARSING_ERROR
-        default: return DocumentVerificationCode.INVALID_PAGE
+        case 11: return DocumentVerificationCode.INVALID_PAGE
+        case 12: return DocumentVerificationCode.FRAUD
+        default: return DocumentVerificationCode.BLUR
     }
 }

@@ -52,7 +52,6 @@
 		DA3BEDEC2869A8D300B15E5C /* DocInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDA12869A8D300B15E5C /* DocInfoViewCell.swift */; };
 		DA3BEDED2869A8D300B15E5C /* DocPhotoVerifErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDA22869A8D300B15E5C /* DocPhotoVerifErrorViewController.swift */; };
 		DA3BEDEE2869A8D300B15E5C /* CheckDocInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDA32869A8D300B15E5C /* CheckDocInfoViewController.swift */; };
-		DA3BEDEF2869A8D300B15E5C /* DocPhotoVerifErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDA42869A8D300B15E5C /* DocPhotoVerifErrorViewModel.swift */; };
 		DA3BEDF02869A8D300B15E5C /* BlockedCountryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDA62869A8D300B15E5C /* BlockedCountryViewCell.swift */; };
 		DA3BEDF12869A8D300B15E5C /* ChooseCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDA72869A8D300B15E5C /* ChooseCountryViewController.swift */; };
 		DA3BEDF22869A8D300B15E5C /* AllowedCountryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDA82869A8D300B15E5C /* AllowedCountryViewCell.swift */; };
@@ -154,7 +153,6 @@
 		DA3BEDA12869A8D300B15E5C /* DocInfoViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocInfoViewCell.swift; sourceTree = "<group>"; };
 		DA3BEDA22869A8D300B15E5C /* DocPhotoVerifErrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocPhotoVerifErrorViewController.swift; sourceTree = "<group>"; };
 		DA3BEDA32869A8D300B15E5C /* CheckDocInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckDocInfoViewController.swift; sourceTree = "<group>"; };
-		DA3BEDA42869A8D300B15E5C /* DocPhotoVerifErrorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocPhotoVerifErrorViewModel.swift; sourceTree = "<group>"; };
 		DA3BEDA62869A8D300B15E5C /* BlockedCountryViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockedCountryViewCell.swift; sourceTree = "<group>"; };
 		DA3BEDA72869A8D300B15E5C /* ChooseCountryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCountryViewController.swift; sourceTree = "<group>"; };
 		DA3BEDA82869A8D300B15E5C /* AllowedCountryViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllowedCountryViewCell.swift; sourceTree = "<group>"; };
@@ -403,7 +401,6 @@
 				DA3BEDA02869A8D300B15E5C /* DocInfoTextField.swift */,
 				DA3BEDA12869A8D300B15E5C /* DocInfoViewCell.swift */,
 				DA3BEDA22869A8D300B15E5C /* DocPhotoVerifErrorViewController.swift */,
-				DA3BEDA42869A8D300B15E5C /* DocPhotoVerifErrorViewModel.swift */,
 			);
 			path = check_doc_info_stage;
 			sourceTree = "<group>";
@@ -669,7 +666,6 @@
 				DA4D269C289198CC00C6F43A /* DocumentRequestModels.swift in Sources */,
 				DA3BEE012869A8D300B15E5C /* Debouncer.swift in Sources */,
 				DA3BEDDB2869A8D300B15E5C /* VideoProcessingViewController.swift in Sources */,
-				DA3BEDEF2869A8D300B15E5C /* DocPhotoVerifErrorViewModel.swift in Sources */,
 				DA3BEDF22869A8D300B15E5C /* AllowedCountryViewCell.swift in Sources */,
 				DA3FD7FA28A133A100C125F0 /* SegmentationVCExtensions.swift in Sources */,
 				DA3BEDF82869A8D300B15E5C /* PhotoInstructionsViewController.swift in Sources */,

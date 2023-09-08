@@ -113,5 +113,29 @@
 
 "verification_expired" = "Verification session expired. Please, try again.";
 
+"doc_verif_camera_timeout_title" = "We weren't able to locate your document";
+"doc_verif_camera_timeout_text" = "We could not find your document in time. Make sure you have selected the correct document type and that it is clearly visible on the camera.";
+"doc_verif_not_scanned_title" = "Could not scan document";
+"doc_verif_not_scanned_text" = "If you have problems scanning a document, we advise you to pass verification on another device with a good camera. You can also try to take a manual photo of your document (without auto-detection of the framed document)";
+"doc_verif_invalid_document_type_title" = "Document verification is not successful";
+"doc_verif_invalid_document_type_text" = "The document does not match the selected type. We recommend to re-upload the document.";
+"doc_verif_invalid_pages_count_title" = "Document verification is not successful";
+"doc_verif_invalid_pages_count_text" = "Incorrect number of loaded images. Reload the document.";
+"doc_verif_invalid_files_title" = "Document verification is not successful";
+"doc_verif_invalid_files_text" = "The uploaded photos of document are too large or have the wrong file type. Please, try again.";
+"doc_verif_primary_already_exists_title" = "Another document has already been uploaded";
+"doc_verif_primary_already_exists_text" = "There is no possibility to upload several documents within one verification. Continue checking the data on the previously uploaded document";
+"doc_verif_upload_attempts_exceeded_title" = "Another document has already been uploaded";
+"doc_verif_upload_attempts_exceeded_text" = "There is no possibility to upload several documents within one verification. Continue checking the data on the previously uploaded document";
+"doc_verif_invalid_page_title" = "Document verification is not successful";
+"doc_verif_invalid_page_text" = "Document compliance check failed. Please, download the correct document";
+"doc_verif_fraud_title" = "Photo from screen detected";
+"doc_verif_fraud_text" = "To pass verification, you must upload a photo of the original document";
+"doc_verif_blur_title" = "Blurred photo";
+"doc_verif_blur_text" = "Sorry, we can't verify due to blurry photo. Please take a clear picture of the document to continue.";
+"doc_verif_default_title" = "Document verification is not successful";
+"doc_verif_default_text" = "For some reason, we were unable to download the content of this page. Try reloading the page.";
+
 /* Default action */
 "OK" = "";
+

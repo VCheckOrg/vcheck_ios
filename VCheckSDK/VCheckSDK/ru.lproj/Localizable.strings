@@ -114,5 +114,43 @@
 
 "verification_expired" = "Сеанс верификации истек. Пожалуйста, попробуйте еще раз.";
 
+"doc_verification_verification_not_initialized" = "Верификация не инициализирована.";
+"doc_verification_user_interacted_completed" = "Пользователь взаимодействовал завершено.";
+"doc_verification_stage_not_found" = "Этап не найден.";
+"doc_verification_invalid_stage_type" = "Недопустимый тип этапа.";
+"doc_verification_primary_document_exists" = "Основной документ существует.";
+"doc_verification_upload_attempts_exceeded" = "Превышено количество попыток загрузки.";
+"doc_verification_invalid_document_type" = "Недопустимый тип документа.";
+"doc_verification_invalid_pages_count" = "Недопустимое количество страниц.";
+"doc_verification_invalid_files" = "Недопустимые файлы.";
+"doc_verification_photo_too_large" = "Фотография слишком большая.";
+"doc_verification_parsing_error" = "Ошибка разбора.";
+"doc_verification_invalid_page" = "Недопустимая страница.";
+"doc_verification_fraud" = "Мошенничество.";
+"doc_verification_blur" = "Размытие.";
+
+"doc_verif_camera_timeout_title" = "Мы не смогли обнаружить документ в заданной зоне";
+"doc_verif_camera_timeout_text" = "Время на считывание документа истекло. Убедитесь, что вы выбрали правильный тип документа и он хорошо виден в камеру";
+"doc_verif_not_scanned_title" = "Не получается отсканировать документ";
+"doc_verif_not_scanned_text" = "Если у вас возникли проблемы при сканировании документа, советуем пройти верификацию на другом устройстве с хорошей камерой. Также вы можете попробовать сделать обычное фото своего документа (без автоопределения документа в рамке)";
+"doc_verif_invalid_document_type_title" = "Верификация документа неуспешна";
+"doc_verif_invalid_document_type_text" = "Документ не соответствует выбранному типу. Рекомендуем повторить загрузку документа";
+"doc_verif_invalid_pages_count_title" = "Верификация документа неуспешна";
+"doc_verif_invalid_pages_count_text" = "Не корректное количество подгруженных изображений. Повторите загрузку документа";
+"doc_verif_invalid_files_title" = "Верификация документа неуспешна";
+"doc_verif_invalid_files_text" = "Загруженные фотографии документа слишком велики или имеют неверный тип файла. Пожалуйста, попробуйте еще раз.";
+"doc_verif_primary_already_exists_title" = "Другой документ ранее уже был загружен";
+"doc_verif_primary_already_exists_text" = "В рамках одной верификации отсутствует возможность загружать несколько документов. Продолжите проверку данных по ранее подгруженному документу";
+"doc_verif_upload_attempts_exceeded_title" = "Другой документ ранее уже был загружен";
+"doc_verif_upload_attempts_exceeded_text" = "В рамках однй верификации отсутствует возможность загружать несколько документов. Продолжите проверку данных по ранее подгруженному документу";
+"doc_verif_invalid_page_title" = "Верификация документа неуспешна";
+"doc_verif_invalid_page_text" = "Не пройдена проверка соответствия данных документа. Пожалуйста, загрузите корректный документ";
+"doc_verif_fraud_title" = "Обнаружено фото с экрана";
+"doc_verif_fraud_text" = "Для прохождения верификации необходимо загрузить фото оригинала документа";
+"doc_verif_blur_title" = "Неострое фото";
+"doc_verif_blur_text" = "Извините, мы не можем провести верификацию из-за размытости фотографии. Пожалуйста, сделайте четкое изображение документа для продолжения";
+"doc_verif_default_title" = "Верификация документа неуспешна";
+"doc_verif_default_text" = "По какой-то причине мы не смогли загрузить контент данной страницы. Попробуйте перезагрузить страницу";
+
 /* Default action */
 "OK" = "";

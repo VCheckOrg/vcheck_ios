@@ -157,10 +157,12 @@ class CheckDocPhotoViewController : UIViewController {
         }
         if (segue.identifier == "DocPhotoCheckToError") {
             let vc = segue.destination as! DocPhotoVerifErrorViewController
-            vc.firstPhoto = self.firstPhoto
-            if (self.secondPhoto != nil) {
-                vc.secondPhoto = self.secondPhoto
-            }
+//            vc.firstPhoto = self.firstPhoto
+//            if (self.secondPhoto != nil) {
+//                vc.secondPhoto = self.secondPhoto
+//            }
+            //TODO: check
+            vc.errorCode = codeIdxToVerificationCode(codeIdx: (self.viewModel.uploadResponse?.errorCode ?? 0))
             vc.isDocCheckForced = true
             if (self.viewModel.uploadResponse?.data?.id == nil) {
                 let errText = "Error: Cannot find document id for navigation!"

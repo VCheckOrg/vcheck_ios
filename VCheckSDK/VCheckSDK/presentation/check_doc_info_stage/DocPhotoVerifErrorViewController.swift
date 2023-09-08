@@ -14,13 +14,10 @@ class DocPhotoVerifErrorViewController : UIViewController {
     var docId: Int? = nil
     var isDocCheckForced: Bool = false
     
+    var errorCode: DocumentVerificationCode? = nil
+    
     @IBOutlet weak var verifErrorTitleText: UILabel!
     @IBOutlet weak var verifErrorDescrText: UILabel!
-    
-    var firstPhoto: UIImage? = nil
-    var secondPhoto: UIImage? = nil
-    
-    private let viewModel = DocPhotoVerifErrorViewModel()
 
     @IBOutlet weak var btnContinueToCheckDoc: UIButton!
     
@@ -42,9 +39,8 @@ class DocPhotoVerifErrorViewController : UIViewController {
         
         self.retryBtn.setTitle("retry".localized, for: .normal)
         
-        self.verifErrorTitleText.text = "verif_error_desc".localized
-        
-        self.verifErrorDescrText.text = "invalid_doc_type_desc".localized
+        self.verifErrorTitleText.text = getCodeStringTitleResource(code: errorCode)
+        self.verifErrorDescrText.text = getCodeStringDescriptionResource(code: errorCode)
         
         self.btnContinueToCheckDoc.setTitle("confident_in_doc_title".localized, for: .normal)
         self.btnContinueToCheckDoc.titleLabel?.text = "confident_in_doc_title".localized
@@ -61,12 +57,77 @@ class DocPhotoVerifErrorViewController : UIViewController {
             } else {
                 vc.docId = self.docId
             }
-//            vc.firstPhoto = self.firstPhoto
-//            if (self.secondPhoto != nil) {
-//                vc.secondPhoto = self.secondPhoto
-//            }
             vc.isDocCheckForced = self.isDocCheckForced
         }
     }
     
+    private func getCodeStringTitleResource(code: DocumentVerificationCode?) -> String {
+        switch code {
+        case .VERIFICATION_NOT_INITIALIZED:
+            return "doc_verif_default_title".localized
+        case .USER_INTERACTED_COMPLETED:
+            return "doc_verif_default_title".localized
+        case .STAGE_NOT_FOUND:
+            return "doc_verif_default_title".localized
+        case .INVALID_STAGE_TYPE:
+            return "doc_verif_default_title".localized
+        case .PRIMARY_DOCUMENT_EXISTS:
+            return "doc_verif_primary_already_exists_title".localized
+        case .UPLOAD_ATTEMPTS_EXCEEDED:
+            return "doc_verif_upload_attempts_exceeded_title".localized
+        case .INVALID_DOCUMENT_TYPE:
+            return "doc_verif_invalid_document_type_title".localized
+        case .INVALID_PAGES_COUNT:
+            return "doc_verif_invalid_pages_count_title".localized
+        case .INVALID_FILES:
+            return "doc_verif_invalid_files_title".localized
+        case .PHOTO_TOO_LARGE:
+            return "doc_verif_invalid_files_title".localized
+        case .PARSING_ERROR:
+            return "doc_verif_not_scanned_title".localized
+        case .INVALID_PAGE:
+            return "doc_verif_invalid_page_title".localized
+        case .FRAUD:
+            return "doc_verif_fraud_title".localized
+        case .BLUR:
+            return "doc_verif_blur_title".localized
+        default:
+            return "Document Verification Error"
+        }
+    }
+    
+    private func getCodeStringDescriptionResource(code: DocumentVerificationCode?) -> String {
+        switch code {
+        case .VERIFICATION_NOT_INITIALIZED:
+            return "doc_verif_default_text".localized
+        case .USER_INTERACTED_COMPLETED:
+            return "doc_verif_default_text".localized
+        case .STAGE_NOT_FOUND:
+            return "doc_verif_default_text".localized
+        case .INVALID_STAGE_TYPE:
+            return "doc_verif_default_text".localized
+        case .PRIMARY_DOCUMENT_EXISTS:
+            return "doc_verif_primary_already_exists_text".localized
+        case .UPLOAD_ATTEMPTS_EXCEEDED:
+            return "doc_verif_upload_attempts_exceeded_text".localized
+        case .INVALID_DOCUMENT_TYPE:
+            return "doc_verif_invalid_document_type_text".localized
+        case .INVALID_PAGES_COUNT:
+            return "doc_verif_invalid_pages_count_text".localized
+        case .INVALID_FILES:
+            return "doc_verif_invalid_files_text".localized
+        case .PHOTO_TOO_LARGE:
+            return "doc_verif_invalid_files_text".localized
+        case .PARSING_ERROR:
+            return "doc_verif_not_scanned_text".localized
+        case .INVALID_PAGE:
+            return "doc_verif_invalid_page_text".localized
+        case .FRAUD:
+            return "doc_verif_fraud_text".localized
+        case .BLUR:
+            return "doc_verif_blur_text".localized
+        default:
+            return "Document Verification Error"
+        }
+    }
 }

@@ -117,5 +117,43 @@
 
 "verification_expired" = "Sesja weryfikacyjna wygasła. Proszę spróbuj ponownie.";
 
+"doc_verification_verification_not_initialized" = "Weryfikacja nie została zainicjowana.";
+"doc_verification_user_interacted_completed" = "Użytkownik zakończył interakcję.";
+"doc_verification_stage_not_found" = "Nie znaleziono etapu.";
+"doc_verification_invalid_stage_type" = "Nieprawidłowy typ etapu.";
+"doc_verification_primary_document_exists" = "Istnieje dokument podstawowy.";
+"doc_verification_upload_attempts_exceeded" = "Przekroczono limit prób przesłania.";
+"doc_verification_invalid_document_type" = "Nieprawidłowy typ dokumentu.";
+"doc_verification_invalid_pages_count" = "Nieprawidłowa liczba stron.";
+"doc_verification_invalid_files" = "Nieprawidłowe pliki.";
+"doc_verification_photo_too_large" = "Zdjęcie jest zbyt duże.";
+"doc_verification_parsing_error" = "Błąd analizy.";
+"doc_verification_invalid_page" = "Nieprawidłowa strona.";
+"doc_verification_fraud" = "Oszustwo.";
+"doc_verification_blur" = "Rozmycie.";
+
+"doc_verif_camera_timeout_title" = "Nie zmogliśmy znaleźć dokumentu w określonym obszarze";
+"doc_verif_camera_timeout_text" = "Czas na przetworzenie dokumentu upłynął. Upewnij się, że wybrałeś właściwy rodzaj dokumentu i że jest on wyraźnie widoczny dla kamery";
+"doc_verif_not_scanned_title" = "Nie można zeskanować dokumentu";
+"doc_verif_not_scanned_text" = "Jeśli masz problemy ze skanowaniem dokumentu, radzimy przejść weryfikację na innym urządzeniu z dobrym aparatem. Możesz także spróbować zrobić zwykłe zdjęcie swojego dokumentu (bez automatycznego wykrywania dokumentu w ramce)";
+"doc_verif_invalid_document_type_title" = "Weryfikacja dokumentu nie powiodła się";
+"doc_verif_invalid_document_type_text" = "Dokument nie pasuje do wybranego typu. Zalecamy ponowne pobranie dokumentu";
+"doc_verif_invalid_pages_count_title" = "Weryfikacja dokumentu nie powiodła się";
+"doc_verif_invalid_pages_count_text" = "Nieprawidłowa liczba przesłanych obrazów. Spróbuj ponownie przesłać dokument";
+"doc_verif_invalid_files_title" = "Weryfikacja dokumentu nie powiodła się";
+"doc_verif_invalid_files_text" = "Przesłane zdjęcia dokumentu są zbyt duże lub mają niewłaściwy typ pliku. Proszę spróbuj ponownie.";
+"doc_verif_primary_already_exists_title" = "Inny dokument został już przesłany";
+"doc_verif_primary_already_exists_text" = "W ramach jednej weryfikacji nie ma możliwości wgrania kilku dokumentów. Kontynuuj weryfikację danych względem wcześniej przesłanego dokumentu";
+"doc_verif_upload_attempts_exceeded_title" = "Inny dokument został już przesłany";
+"doc_verif_upload_attempts_exceeded_text" = "W ramach jednej weryfikacji nie ma możliwości wgrania kilku dokumentów. Kontynuuj weryfikację danych względem wcześniej przesłanego dokumentu lub zakończ proces weryfikacji na urządzeniu mobilnym";
+"doc_verif_invalid_page_title" = "Weryfikacja dokumentu nie powiodła się";
+"doc_verif_invalid_page_text" = "Nie przeszła próba zgodności dokumentów. Proszę, pobierz poprawny dokument";
+"doc_verif_fraud_title" = "Zdjęcie z ekranu wykryte";
+"doc_verif_fraud_text" = "Aby przejść weryfikację, musisz przesłać zdjęcie oryginalnego dokumentu";
+"doc_verif_blur_title" = "Rozmyte zdjęcie";
+"doc_verif_blur_text" = "Przepraszamy, nie możemy zweryfikować z powodu rozmazanego zdjęcia. Zrób proszę wyraźne zdjęcie dokumentu, aby kontynuować";
+"doc_verif_default_title" = "Weryfikacja dokumentu nie powiodła się";
+"doc_verif_default_text" = "Z jakiegoś powodu nie mogliśmy załadować zawartości tej strony. Spróbuj ponownie załadować stronę";
+
 /* Default action */
 "OK" = "";

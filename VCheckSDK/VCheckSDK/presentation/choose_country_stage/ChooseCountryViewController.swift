@@ -48,7 +48,7 @@ class ChooseCountryViewController : UIViewController {
            }
         }
         
-        var fullArr = getSortedArr(initialArr: topCountryItems)
+        var fullArr = topCountryItems
         let suffixArr = getSortedArr(initialArr: bottomCountryItems)
         
         fullArr.append(contentsOf: suffixArr)
