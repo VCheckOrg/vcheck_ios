@@ -41,7 +41,7 @@ extension DocumentVerificationCode {
             case DocumentVerificationCode.PARSING_ERROR: return 10
             case DocumentVerificationCode.INVALID_PAGE: return 11
             case DocumentVerificationCode.FRAUD: return 12
-            case DocumentVerificationCode.BLUR: return 12
+            case DocumentVerificationCode.BLUR: return 13
         }
     }
 }
@@ -61,6 +61,7 @@ func codeIdxToVerificationCode(codeIdx: Int) -> DocumentVerificationCode {
         case 10: return DocumentVerificationCode.PARSING_ERROR
         case 11: return DocumentVerificationCode.INVALID_PAGE
         case 12: return DocumentVerificationCode.FRAUD
-        default: return DocumentVerificationCode.BLUR
+        case 13: return DocumentVerificationCode.BLUR
+        default: return DocumentVerificationCode.VERIFICATION_NOT_INITIALIZED
     }
 }

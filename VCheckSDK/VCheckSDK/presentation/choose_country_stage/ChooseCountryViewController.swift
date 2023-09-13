@@ -37,23 +37,31 @@ class ChooseCountryViewController : UIViewController {
     
     func setContent(priorityCountries: [String]) {
         
-        var bottomCountryItems: [CountryTO] = []
-        var topCountryItems: [CountryTO] = []
+        var allCountryItems = [CountryTO]()
+        var bottomCountryItems = [CountryTO]()
         
         for countryTO in initialCountries {
-           if (priorityCountries.contains(countryTO.code)) {
-               topCountryItems.append(countryTO)
-           } else {
-               bottomCountryItems.append(countryTO)
-           }
+            if !priorityCountries.contains(countryTO.code) {
+                bottomCountryItems.append(countryTO)
+            }
         }
         
-        var fullArr = topCountryItems
-        let suffixArr = getSortedArr(initialArr: bottomCountryItems)
+        let bottomCountryItemsSorted = bottomCountryItems.sorted { (s1, s2) in
+            let comparisonResult = s1.name.compare(s2.name, options: .caseInsensitive, range: nil, locale: Locale(identifier: ""))
+            return comparisonResult == .orderedAscending
+        }
         
-        fullArr.append(contentsOf: suffixArr)
+        var topCountryItems = [CountryTO]()
         
-        self.allCountries = fullArr
+        topCountryItems = priorityCountries.map { code in
+            let country = initialCountries.first(where: { $0.code == code }) ?? nil
+            return country ?? CountryTO(from: "uk")
+        }
+        
+        allCountryItems.append(contentsOf: topCountryItems)
+        allCountryItems.append(contentsOf: bottomCountryItemsSorted)
+                
+        self.allCountries = allCountryItems
         
         reloadData()
         
