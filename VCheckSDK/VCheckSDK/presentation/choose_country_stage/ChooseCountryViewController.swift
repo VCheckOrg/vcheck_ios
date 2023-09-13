@@ -55,7 +55,7 @@ class ChooseCountryViewController : UIViewController {
         
         topCountryItems = priorityCountries.map { code in
             let country = initialCountries.first(where: { $0.code == code }) ?? nil
-            return country ?? CountryTO(from: "uk")
+            return country ?? CountryTO(from: "uk") //?
         }
         
         allCountryItems.append(contentsOf: topCountryItems)

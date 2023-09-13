@@ -339,7 +339,7 @@ extension LivenessScreenViewController {
         } else {
             shapeCircleLayer.strokeColor = UIColor(named: "borderColor", in: InternalConstants.bundle, compatibleWith: nil)?.cgColor
         }
-        shapeCircleLayer.lineWidth = 6
+        shapeCircleLayer.lineWidth = 4
         
         self.view.layer.insertSublayer(shapeCircleLayer, at: 2)
         
