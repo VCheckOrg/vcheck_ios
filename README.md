@@ -33,6 +33,9 @@ VCheckSDK.shared
             .partnerEndCallback(callback: {
                 self.onSDKFlowFinished()
             })
+            .onVerificationExpired(callback: {
+                self.onVerificationExpired()
+            })
             .colorBackgroundSecondary(colorHex: self.backSecondaryColorHex)
             .colorBackgroundPrimary(colorHex: self.backPrimaryColorHex)
             .colorBackgroundTertiary(colorHex: self.backTertiaryColorHex)
