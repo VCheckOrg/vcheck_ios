@@ -357,3 +357,28 @@ struct SegmentationGestureResponse: Codable {
   }
 
 }
+
+
+struct ConfirmDocumentResponse: Codable {
+
+  var errorCode : Int?    = nil
+  var message   : String? = nil
+
+  enum CodingKeys: String, CodingKey {
+
+    case errorCode = "error_code"
+    case message   = "message"
+  
+  }
+
+  init(from decoder: Decoder) throws {
+    let values = try decoder.container(keyedBy: CodingKeys.self)
+
+    errorCode = try values.decodeIfPresent(Int.self    , forKey: .errorCode )
+    message   = try values.decodeIfPresent(String.self , forKey: .message   )
+ 
+  }
+
+  init() {}
+
+}

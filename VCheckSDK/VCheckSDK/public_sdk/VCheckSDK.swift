@@ -14,6 +14,9 @@ public class VCheckSDK {
     
     private var partnerEndCallback: (() -> Void)? = nil
     
+    private var onVerificationExpired: (() -> Void)? = nil
+    private var isVerifExpired: Bool = false
+    
     private var verificationToken: String? = nil
 
     private var verificationType: VerificationSchemeType?
@@ -75,6 +78,7 @@ public class VCheckSDK {
     private func resetVerification() {
         VCheckSDKLocalDatasource.shared.resetCache()
         self.optSelectedCountryCode = nil
+        self.isVerifExpired = false
     }
     
     internal func finish(executePartnerCallback: Bool) {
@@ -88,8 +92,12 @@ public class VCheckSDK {
             partnerAppRootWindow!.rootViewController?.dismiss(animated: true, completion: {})
             partnerAppRootWindow!.rootViewController?.navigationController?.popViewController(animated: true)
         }
-        if (executePartnerCallback == true) {
-            self.partnerEndCallback!()
+        if (self.isVerifExpired == true) {
+            self.onVerificationExpired!()
+        } else {
+            if (executePartnerCallback == true) {
+                self.partnerEndCallback!()
+            }
         }
     }
     
@@ -101,7 +109,7 @@ public class VCheckSDK {
         if (self.environment == VCheckEnvironment.DEV) {
             print("VCheckSDK - warning: using DEV environment | see VCheckSDK.shared.environment(env: VCheckEnvironment)")
         }
-        if (verificationToken == nil) {
+        if (self.verificationToken == nil) {
             print("VCheckSDK - error: proper verification token must be provided | see VCheckSDK.shared.verificationToken(token: String)")
             return false
         }
@@ -110,7 +118,13 @@ public class VCheckSDK {
             return false
         }
         if (self.partnerEndCallback == nil) {
-           print("VCheckSDK - error: partner application's callback function (invoked on SDK flow finish) must be provided | see VCheckSDK.shared.partnerSecret(secret: String)")
+           print("VCheckSDK - error: partner application's callback function (invoked on SDK flow finish) must be provided | see VCheckSDK.shared.partnerEndCallback(callback: (() -> Void))")
+           return false
+        }
+        if (self.onVerificationExpired == nil) {
+           print("VCheckSDK - error: partner application's onVerificationExpired function " +
+                 "(invoked on SDK's current verification expiration case) must be provided by partner app | " +
+                 "see VCheckSDK.shared.onVerificationExpired(callback: (() -> Void))")
            return false
         }
         if (self.sdkLanguageCode == nil) {
@@ -161,6 +175,11 @@ public class VCheckSDK {
     
     public func partnerEndCallback(callback: (() -> Void)?) -> VCheckSDK {
         self.partnerEndCallback = callback
+        return self
+    }
+    
+    public func onVerificationExpired(callback: (() -> Void)?) -> VCheckSDK {
+        self.onVerificationExpired = callback
         return self
     }
     
@@ -239,6 +258,14 @@ public class VCheckSDK {
 
     internal func setOptSelectedCountryCode(code: String) {
         self.optSelectedCountryCode = code
+    }
+    
+    internal func setIsVerificationExpired(isExpired: Bool) {
+        self.isVerifExpired = isExpired
+    }
+
+    internal func isVerificationExpired() -> Bool {
+        return self.isVerifExpired
     }
     
     ///Color public customization methods:

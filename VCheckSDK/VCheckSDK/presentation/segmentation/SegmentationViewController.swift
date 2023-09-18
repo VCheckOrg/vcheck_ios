@@ -497,7 +497,7 @@ extension SegmentationViewController {
             self.segmentationAnimHolder.center = self.view.center
             
         } else {
-            showToast(message: "Error: cannot retrieve mask dimensions from document type info", seconds: 3.0)
+            self.showToast(message: "Error: cannot retrieve mask dimensions from document type info", seconds: 3.0)
         }
     }
     

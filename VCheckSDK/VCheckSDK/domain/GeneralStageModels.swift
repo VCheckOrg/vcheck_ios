@@ -79,28 +79,28 @@ struct StageResponseData: Codable {
 }
 
 
-enum StageObstacleErrorType {
+enum StageErrorType {
     case VERIFICATION_NOT_INITIALIZED
     case USER_INTERACTED_COMPLETED
     case VERIFICATION_EXPIRED
 }
 
-extension StageObstacleErrorType {
+extension StageErrorType {
     
     func toTypeIdx() -> Int {
         switch(self) {
-            case StageObstacleErrorType.VERIFICATION_NOT_INITIALIZED: return 0
-            case StageObstacleErrorType.USER_INTERACTED_COMPLETED: return 1
-            case StageObstacleErrorType.VERIFICATION_EXPIRED: return 2
+            case StageErrorType.VERIFICATION_NOT_INITIALIZED: return 0
+            case StageErrorType.USER_INTERACTED_COMPLETED: return 1
+            case StageErrorType.VERIFICATION_EXPIRED: return 2
         }
     }
 
-    static func idxToType(categoryIdx: Int) -> StageObstacleErrorType {
+    static func idxToType(categoryIdx: Int) -> StageErrorType {
         switch(categoryIdx) {
-            case 0: return StageObstacleErrorType.VERIFICATION_NOT_INITIALIZED
-            case 1: return StageObstacleErrorType.USER_INTERACTED_COMPLETED
-            case 2: return StageObstacleErrorType.VERIFICATION_EXPIRED
-            default: return StageObstacleErrorType.VERIFICATION_NOT_INITIALIZED
+            case 0: return StageErrorType.VERIFICATION_NOT_INITIALIZED
+            case 1: return StageErrorType.USER_INTERACTED_COMPLETED
+            case 2: return StageErrorType.VERIFICATION_EXPIRED
+            default: return StageErrorType.VERIFICATION_NOT_INITIALIZED
         }
     }
 }

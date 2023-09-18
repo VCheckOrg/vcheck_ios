@@ -60,7 +60,7 @@ struct VCheckSDKRemoteDatasource {
                                               errorCode: response.response?.statusCode))
                return
               }
-              checkIfUserInteractionCompleted(errorCode: response.errorCode)
+              checkIfUserInteractionCompletedForResult(errorCode: response.errorCode)
               completion(response, nil)
               return
           }
@@ -88,30 +88,19 @@ struct VCheckSDKRemoteDatasource {
         let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
         
         AF.request(url, method: .put, parameters: jsonData, encoding: JSONEncoding.default, headers: headers)
-          .validate()  //response returned an HTTP status code in the range 200–299
-          .responseDecodable(of: VerificationInitResponse.self) { (response) in
-            guard let response = response.value else {
+        //.validate()  //response returned an HTTP status code in the range 200–299
+        //validation (check for 200 code) is removed for logical reasons
+            .response(completionHandler: { (response) in
+            guard response.value != nil else {
                 completion(false, VCheckApiError(errorText: "initProvider: " + response.error!.localizedDescription,
                                                errorCode: response.response?.statusCode))
                 return
             }
-            if (response.errorCode != nil) {
-                if (response.errorCode == 0 || response.errorCode == BaseClientErrors.INVALID_STAGE_TYPE) {
-                    completion(true, nil)
-                    return
-                } else {
-                    completion(false, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
-                                                + "\(response.message ?? "")",
-                                                     errorCode: response.errorCode))
-                    return
-                }
-            } else {
-                checkIfUserInteractionCompleted(errorCode: response.errorCode)
-                completion(true, nil)
-                return
-            }
-            
-          }
+            //not allowed here:
+            //checkIfUserInteractionCompleted(errorCode: response.errorCode)
+            completion(true, nil)
+            return
+          })
     }
     
     func getPriorityCountries(completion: @escaping (PriorityCountries?, VCheckApiError?) -> ()) {
@@ -132,7 +121,7 @@ struct VCheckSDKRemoteDatasource {
                                               errorCode: response.response?.statusCode))
                return
               }
-              checkIfUserInteractionCompleted(errorCode: response.errorCode)
+              checkIfUserInteractionCompletedForResult(errorCode: response.errorCode)
               completion(response, nil)
               return
           }
@@ -151,7 +140,7 @@ struct VCheckSDKRemoteDatasource {
         let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
         
         AF.request(url, method: .put, headers: headers)
-          .validate()  //response returned an HTTP status code in the range 200–299
+          .validate()  //response returned an HTTP status code in the range 200–299 //!
           .responseDecodable(of: VerificationInitResponse.self) { (response) in
             guard let response = response.value else {
                 completion(nil, VCheckApiError(errorText: "initVerification: " + response.error!.localizedDescription,
@@ -164,7 +153,7 @@ struct VCheckSDKRemoteDatasource {
                                                  errorCode: response.errorCode))
                 return
             }
-            checkIfUserInteractionCompleted(errorCode: response.errorCode)
+            checkIfUserInteractionCompletedForResult(errorCode: response.errorCode)
             completion(response.data, nil)
             return
           }
@@ -182,14 +171,16 @@ struct VCheckSDKRemoteDatasource {
         let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
 
         AF.request(url, method: .get, headers: headers)
-          .responseDecodable(of: StageResponse.self) { (response) in
-              guard let response = response.value else {
-               completion(nil, VCheckApiError(errorText: "getCurrentStage: " +  response.error!.localizedDescription,
-                                              errorCode: response.response?.statusCode))
-               return
+          .responseDecodable(of: StageResponse.self) { (resp) in
+              guard let dataResponse = resp.value else {
+                  completion(nil, VCheckApiError(errorText: "getCurrentStage: " +  resp.error!.localizedDescription,
+                                              errorCode: resp.response?.statusCode))
+                  return
               }
-              checkIfUserInteractionCompleted(errorCode: response.errorCode)
-              completion(response, nil)
+              if (resp.response?.statusCode != 200) {
+                  checkStageErrorForResult(errorCode: dataResponse.errorCode)
+              }
+              completion(dataResponse, nil)
               return
           }
     }
@@ -220,7 +211,7 @@ struct VCheckSDKRemoteDatasource {
                                                  errorCode: response.errorCode))
                   return
               }
-              checkIfUserInteractionCompleted(errorCode: response.errorCode)
+              checkIfUserInteractionCompletedForResult(errorCode: response.errorCode)
               completion(response.data, nil)
               return
           }
@@ -269,7 +260,7 @@ struct VCheckSDKRemoteDatasource {
                                                        errorCode: response.response?.statusCode))
                         return
                     }
-                    checkIfUserInteractionCompleted(errorCode: response.errorCode)
+                    checkIfUserInteractionCompletedForResult(errorCode: response.errorCode)
                     completion(response, nil)
                     return
                   }
@@ -301,7 +292,8 @@ struct VCheckSDKRemoteDatasource {
                                               errorCode: response.errorCode))
                return
             }
-            checkIfUserInteractionCompleted(errorCode: response.errorCode)
+            //TODO: move checks up (for most cases)?
+            checkIfUserInteractionCompletedForResult(errorCode: response.errorCode)
             completion(response.data, nil)
             return
         }
@@ -330,16 +322,19 @@ struct VCheckSDKRemoteDatasource {
         let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
 
         AF.request(url, method: .put, parameters: jsonData, encoding: JSONEncoding.default, headers: headers)
-        .response(completionHandler: { (response) in
+            .responseDecodable(of: ConfirmDocumentResponse.self) { (response) in
+            //.response(completionHandler: { (response) in
             guard response.value != nil else {
              completion(false, VCheckApiError(errorText: "updateAndConfirmDocInfo" + response.error!.localizedDescription,
                                               errorCode: response.response?.statusCode))
              return
             }
-            //checkIfUserInteractionCompleted(errorCode: response.errorCode)
+            if (response.response?.statusCode != 200) {
+                checkIfUserInteractionCompletedForResult(errorCode: response.value?.errorCode)
+            }
             completion(true, nil)
             return
-        })
+        }
     }
     
     
@@ -367,13 +362,13 @@ struct VCheckSDKRemoteDatasource {
                                                     errorCode: response.response?.statusCode))
                      return
                     }
+                    checkIfUserInteractionCompletedForResult(errorCode: response.errorCode)
                     if (response.errorCode != nil && response.errorCode != 0) {
                        completion(nil, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
                                                 + "\(response.message ?? "")",
                                                       errorCode: response.errorCode))
                        return
                     }
-                    // here, we're not checking result with checkIfUserInteractionCompleted(errorCode: response.errorCode)
                     completion(response.data, nil)
                     return
                 }
@@ -467,9 +462,20 @@ struct VCheckSDKRemoteDatasource {
     
     //if global 400, then close SDK
     //otherwise, depends on specific case
-    func checkIfUserInteractionCompleted(errorCode: Int?) {
+    func checkIfUserInteractionCompletedForResult(errorCode: Int?) {
         if (errorCode == BaseClientErrors.USER_INTERACTED_COMPLETED) {
-            VCheckSDK.shared.finish(executePartnerCallback: true)
+            VCheckSDK.shared.setIsVerificationExpired(isExpired: true) //!
+            VCheckSDK.shared.finish(executePartnerCallback: false)
+        } else {
+            return
+        }
+    }
+    
+    func checkStageErrorForResult(errorCode: Int?) {
+        if (errorCode != nil
+            && errorCode! >= StageErrorType.VERIFICATION_NOT_INITIALIZED.toTypeIdx()) {
+            VCheckSDK.shared.setIsVerificationExpired(isExpired: true)
+            VCheckSDK.shared.finish(executePartnerCallback: false)
         } else {
             return
         }

@@ -59,7 +59,7 @@ class VCheckStartViewModel {
                 return
             }
             if let status = data?.status {
-                if (status >= VerificationStatuses.WAITING_USER_INTERACTION) {
+                if (status > VerificationStatuses.WAITING_USER_INTERACTION) {
                     self.isLoading = false
                     self.verificationIsAlreadyCompleted!()
                 } else {

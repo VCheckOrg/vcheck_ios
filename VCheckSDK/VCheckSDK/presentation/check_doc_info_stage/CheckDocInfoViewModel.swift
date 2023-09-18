@@ -80,7 +80,6 @@ class CheckDocInfoViewModel {
             }
             
             if (data!.data != nil || data!.errorCode != nil) {
-                self.currentStageResponse = data
                 self.didReceivedCurrentStage!()
             }
         })

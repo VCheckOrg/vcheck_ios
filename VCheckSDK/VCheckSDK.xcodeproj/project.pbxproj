@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7DE0A700E93FC81C3C4CBE8F /* libPods-VCheckSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC0D2AF8863BAE23ACD5425 /* libPods-VCheckSDK.a */; };
 		DA153774286F4FE60038A203 /* GeneralStageModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA153773286F4FE60038A203 /* GeneralStageModels.swift */; };
+		DA1851B72AB3C23B00541958 /* InitVerficationCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1851B62AB3C23B00541958 /* InitVerficationCodes.swift */; };
 		DA35CF88289D523E00E22914 /* SegmentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA35CF87289D523E00E22914 /* SegmentationViewController.swift */; };
 		DA35CF8A289D550D00E22914 /* SegmentationStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA35CF89289D550D00E22914 /* SegmentationStartViewController.swift */; };
 		DA3BED562869A69D00B15E5C /* VCheckSDK.docc in Sources */ = {isa = PBXBuildFile; fileRef = DA3BED552869A69D00B15E5C /* VCheckSDK.docc */; };
@@ -109,6 +110,7 @@
 		6077F041A7F14DABE678493F /* Pods-VCheckSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCheckSDK.release.xcconfig"; path = "Target Support Files/Pods-VCheckSDK/Pods-VCheckSDK.release.xcconfig"; sourceTree = "<group>"; };
 		77D92EBD67143AFF3F13555E /* Pods-VCheckSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCheckSDK.debug.xcconfig"; path = "Target Support Files/Pods-VCheckSDK/Pods-VCheckSDK.debug.xcconfig"; sourceTree = "<group>"; };
 		DA153773286F4FE60038A203 /* GeneralStageModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralStageModels.swift; sourceTree = "<group>"; };
+		DA1851B62AB3C23B00541958 /* InitVerficationCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitVerficationCodes.swift; sourceTree = "<group>"; };
 		DA35CF87289D523E00E22914 /* SegmentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationViewController.swift; sourceTree = "<group>"; };
 		DA35CF89289D550D00E22914 /* SegmentationStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationStartViewController.swift; sourceTree = "<group>"; };
 		DA3BED512869A69D00B15E5C /* VCheckSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCheckSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -301,6 +303,7 @@
 				DAB57AEE28CF3D7700115FA6 /* VerificationStatuses.swift */,
 				DAD302EA29E446CF0057C58E /* ProviderModels.swift */,
 				DAD302EC29E6E4770057C58E /* ProviderLogicCase.swift */,
+				DA1851B62AB3C23B00541958 /* InitVerficationCodes.swift */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -627,6 +630,7 @@
 				DA35CF8A289D550D00E22914 /* SegmentationStartViewController.swift in Sources */,
 				DA3BEDE02869A8D300B15E5C /* NoBrightnessViewController.swift in Sources */,
 				DA3BED562869A69D00B15E5C /* VCheckSDK.docc in Sources */,
+				DA1851B72AB3C23B00541958 /* InitVerficationCodes.swift in Sources */,
 				DA3BEDF12869A8D300B15E5C /* ChooseCountryViewController.swift in Sources */,
 				DA3BEDF02869A8D300B15E5C /* BlockedCountryViewCell.swift in Sources */,
 				DA3BEDE32869A8D300B15E5C /* VideoFailureViewController.swift in Sources */,

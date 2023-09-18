@@ -28,7 +28,7 @@ class VideoProcessingViewController: UIViewController {
         
         let token = VCheckSDK.shared.getVerificationToken()
         
-        viewModel.didUploadVideoResponse = {
+        self.viewModel.didUploadVideoResponse = {
             if (self.viewModel.uploadedVideoResponse != nil) {
                 if (self.viewModel.uploadedVideoResponse!.isFinal == true) {
                     self.livenessSuccessAction()
@@ -49,22 +49,24 @@ class VideoProcessingViewController: UIViewController {
             }
         }
         
-        viewModel.showAlertClosure = {
-            if (self.viewModel.error?.errorCode == 400) {
-                self.livenessSuccessAction()
+        self.viewModel.didReceivedCurrentStage = {
+            if (self.viewModel.currentStageResponse?.errorCode != nil
+                    && self.viewModel.currentStageResponse?.errorCode ==
+                        StageErrorType.USER_INTERACTED_COMPLETED.toTypeIdx()) {
+                VCheckSDK.shared.finish(executePartnerCallback: true)
             } else {
-                self.performSegue(withIdentifier: "VideoUploadToFailure", sender: nil)
+                self.showToast(message: "Unexpected Stage Error", seconds: 2.0)
             }
+        }
+        
+        self.viewModel.showAlertClosure = {
+            self.performSegue(withIdentifier: "VideoUploadToFailure", sender: nil)
         }
         
         if (!token.isEmpty && videoFileURL != nil) {
             uploadVideo()
         } else {
             print("VCheckSDK - Error: token or video file is nil")
-            //FOR TESTS:
-            //if (videoFileURL != nil) {
-                //playLivenessVideoPreview()
-            //}
         }
     }
     
@@ -129,17 +131,6 @@ class VideoProcessingViewController: UIViewController {
     }
     
     func livenessSuccessAction() {
-        self.viewModel.didReceivedCurrentStage = {
-            if (self.viewModel.currentStageResponse?.errorCode != nil && self.viewModel.currentStageResponse?.errorCode == StageObstacleErrorType.USER_INTERACTED_COMPLETED.toTypeIdx()) {
-                VCheckSDK.shared.finish(executePartnerCallback: true)
-            } else if (self.viewModel.currentStageResponse?.errorCode != nil
-                       && self.viewModel.currentStageResponse?.errorCode == StageObstacleErrorType.VERIFICATION_EXPIRED.toTypeIdx()) {
-                self.showToast(message: "verification_expired".localized, seconds: 4.0)
-                VCheckSDK.shared.finish(executePartnerCallback: false)
-            } else {
-                self.showToast(message: "Unexpected Stage Error", seconds: 3.0)
-            }
-        }
         self.viewModel.getCurrentStage()
     }
     
