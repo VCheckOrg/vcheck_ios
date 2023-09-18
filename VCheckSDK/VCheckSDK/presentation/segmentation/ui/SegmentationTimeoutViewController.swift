@@ -53,7 +53,7 @@ class SegmentationTimeoutViewController: UIViewController {
     }
     
     @objc func declineSessionAndCloseVC(_ sender: UITapGestureRecognizer) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(700) ) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(200) ) {
             self.navigationController?.popViewController(animated: true)
             self.onRepeatBlock!(true)
         }

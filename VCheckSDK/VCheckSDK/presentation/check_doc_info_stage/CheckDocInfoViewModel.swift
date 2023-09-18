@@ -72,14 +72,16 @@ class CheckDocInfoViewModel {
     
     func getCurrentStage() {
         
-        self.dataService.getCurrentStage(completion: { (data, error) in
+        self.dataService.getCurrentStage(checkStageError: true, completion: { (data, error) in
             if let error = error {
                 self.error = error
                 self.isLoading = false
                 return
             }
+            self.isLoading = false
             
             if (data!.data != nil || data!.errorCode != nil) {
+                self.currentStageResponse = data
                 self.didReceivedCurrentStage!()
             }
         })

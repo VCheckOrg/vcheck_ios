@@ -159,7 +159,7 @@ struct VCheckSDKRemoteDatasource {
           }
     }
     
-    func getCurrentStage(completion: @escaping (StageResponse?, VCheckApiError?) -> ()) {
+    func getCurrentStage(checkStageError: Bool, completion: @escaping (StageResponse?, VCheckApiError?) -> ()) {
         let url = "\(verifBaseUrl)stages/current"
 
         let token = VCheckSDK.shared.getVerificationToken()
@@ -173,16 +173,16 @@ struct VCheckSDKRemoteDatasource {
         AF.request(url, method: .get, headers: headers)
           .responseDecodable(of: StageResponse.self) { (resp) in
               guard let dataResponse = resp.value else {
-                  print("VCheckSDK: Stage::: VALUE us nil!")
                   completion(nil, VCheckApiError(errorText: "getCurrentStage: " +  resp.error!.localizedDescription,
                                               errorCode: resp.response?.statusCode))
                   return
               }
-              if (resp.response?.statusCode != 200) {
+              if (checkStageError == true && resp.response?.statusCode != 200) {
+                  print("VCheckSDK!: response.response?.statusCode : \(String(describing: resp.response?.statusCode))") //TODO: remove
                   checkStageErrorForResult(errorCode: dataResponse.errorCode)
+              } else {
+                  print("VCheckSDK!: normal completion (stage)") //TODO: remove
               }
-              print("VCheckSDK: Stage::: resp.response?.statusCode = \(String(describing: resp.response?.statusCode))")
-              print("VCheckSDK: Stage - going to normal completion. Value(data): \(dataResponse)")
               completion(dataResponse, nil)
               return
           }
@@ -328,17 +328,17 @@ struct VCheckSDKRemoteDatasource {
             .responseDecodable(of: ConfirmDocumentResponse.self) { (response) in
             //.response(completionHandler: { (response) in
             guard response.value != nil else {
-                print("VCheckSDK: COMPLETION with VALUE nil!")
              completion(false, VCheckApiError(errorText: "updateAndConfirmDocInfo" + response.error!.localizedDescription,
                                               errorCode: response.response?.statusCode))
              return
             }
             if (response.response?.statusCode != 200) {
-                print("VCheckSDK: response.response?.statusCode : \(String(describing: response.response?.statusCode))")
+                print("VCheckSDK!: response.response?.statusCode : \(String(describing: response.response?.statusCode))") //TODO: remove
                 checkIfUserInteractionCompletedForResult(errorCode: response.value?.errorCode)
+            } else {
+                print("VCheckSDK!: normal completion") //TODO: remove
             }
             completion(true, nil)
-                print("VCheckSDK: Normal completion")
             return
         }
     }

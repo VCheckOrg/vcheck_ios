@@ -56,7 +56,7 @@ class VideoProcessingViewModel {
     
     func getCurrentStage() {
         
-        self.dataService.getCurrentStage(completion: { (data, error) in
+        self.dataService.getCurrentStage(checkStageError: false, completion: { (data, error) in
             if let error = error {
                 self.error = error
                 self.isLoading = false

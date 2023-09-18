@@ -81,7 +81,7 @@ class CheckDocInfoViewController : UIViewController {
             if (self.viewModel.currentStageResponse?.data?.config != nil) {
                 VCheckSDKLocalDatasource.shared.setLivenessMilestonesList(list:
                     (self.viewModel.currentStageResponse?.data?.config?.gestures)!)
-                self.performSegue(withIdentifier: "CheckInfoToLivenessInstr", sender: nil)
+                self.performSegue(withIdentifier: "CheckDocInfoToLivenessInstr", sender: nil)
             } else if (VCheckSDK.shared.getVerificationType() == VerificationSchemeType.DOCUMENT_UPLOAD_ONLY) {
                 VCheckSDK.shared.finish(executePartnerCallback: true)
             }
@@ -176,9 +176,7 @@ class CheckDocInfoViewController : UIViewController {
         }
     
     func checkDocFieldsAndPerformConfirmation() {
-        
-        print("VCheckSDK: ------ ON CLICK: checkDocFieldsAndPerformConfirmation() ")
-        
+                
         let noInvalidFields: Bool = checkIfAnyFieldIsNotValid()
         
         if (noInvalidFields == false) {
