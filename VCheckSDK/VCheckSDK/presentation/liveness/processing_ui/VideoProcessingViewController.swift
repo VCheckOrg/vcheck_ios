@@ -50,9 +50,10 @@ class VideoProcessingViewController: UIViewController {
         }
         
         self.viewModel.didReceivedCurrentStage = {
-            if (self.viewModel.currentStageResponse?.errorCode != nil
-                    && self.viewModel.currentStageResponse?.errorCode ==
-                        StageErrorType.USER_INTERACTED_COMPLETED.toTypeIdx()) {
+            if (self.viewModel.currentStageResponse?.errorCode == nil ||
+                    (self.viewModel.currentStageResponse?.errorCode != nil &&
+                     self.viewModel.currentStageResponse!.errorCode! >
+                        StageErrorType.VERIFICATION_NOT_INITIALIZED.toTypeIdx())) {
                 VCheckSDK.shared.finish(executePartnerCallback: true)
             } else {
                 self.showToast(message: "Unexpected Stage Error", seconds: 2.0)
