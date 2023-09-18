@@ -177,6 +177,8 @@ class CheckDocInfoViewController : UIViewController {
     
     func checkDocFieldsAndPerformConfirmation() {
         
+        print("VCheckSDK: ------ ON CLICK: checkDocFieldsAndPerformConfirmation() ")
+        
         let noInvalidFields: Bool = checkIfAnyFieldIsNotValid()
         
         if (noInvalidFields == false) {

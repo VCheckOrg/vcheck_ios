@@ -173,6 +173,7 @@ struct VCheckSDKRemoteDatasource {
         AF.request(url, method: .get, headers: headers)
           .responseDecodable(of: StageResponse.self) { (resp) in
               guard let dataResponse = resp.value else {
+                  print("VCheckSDK: Stage::: VALUE us nil!")
                   completion(nil, VCheckApiError(errorText: "getCurrentStage: " +  resp.error!.localizedDescription,
                                               errorCode: resp.response?.statusCode))
                   return
@@ -180,6 +181,8 @@ struct VCheckSDKRemoteDatasource {
               if (resp.response?.statusCode != 200) {
                   checkStageErrorForResult(errorCode: dataResponse.errorCode)
               }
+              print("VCheckSDK: Stage::: resp.response?.statusCode = \(String(describing: resp.response?.statusCode))")
+              print("VCheckSDK: Stage - going to normal completion. Value(data): \(dataResponse)")
               completion(dataResponse, nil)
               return
           }
@@ -325,14 +328,17 @@ struct VCheckSDKRemoteDatasource {
             .responseDecodable(of: ConfirmDocumentResponse.self) { (response) in
             //.response(completionHandler: { (response) in
             guard response.value != nil else {
+                print("VCheckSDK: COMPLETION with VALUE nil!")
              completion(false, VCheckApiError(errorText: "updateAndConfirmDocInfo" + response.error!.localizedDescription,
                                               errorCode: response.response?.statusCode))
              return
             }
             if (response.response?.statusCode != 200) {
+                print("VCheckSDK: response.response?.statusCode : \(String(describing: response.response?.statusCode))")
                 checkIfUserInteractionCompletedForResult(errorCode: response.value?.errorCode)
             }
             completion(true, nil)
+                print("VCheckSDK: Normal completion")
             return
         }
     }
@@ -472,8 +478,9 @@ struct VCheckSDKRemoteDatasource {
     }
     
     func checkStageErrorForResult(errorCode: Int?) {
+        print("Stage check error code: \(String(describing: errorCode))")
         if (errorCode != nil
-            && errorCode! >= StageErrorType.VERIFICATION_NOT_INITIALIZED.toTypeIdx()) {
+            && errorCode! > StageErrorType.VERIFICATION_NOT_INITIALIZED.toTypeIdx()) {
             VCheckSDK.shared.setIsVerificationExpired(isExpired: true)
             VCheckSDK.shared.finish(executePartnerCallback: false)
         } else {
