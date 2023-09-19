@@ -71,7 +71,8 @@ class CheckDocPhotoViewController : UIViewController {
         }
                 
         viewModel.didReceiveDocUploadResponse = {
-            self.handleDocUploadResponse()
+            print("VCHECK:: response")
+            self.handleDocUploadResponse(isError: false)
         }
         
         viewModel.updateLoadingStatus = {
@@ -83,7 +84,8 @@ class CheckDocPhotoViewController : UIViewController {
         }
         
         viewModel.showAlertClosure = {
-            self.handleDocUploadResponse()
+            print("VCHECK:: alert")
+            self.handleDocUploadResponse(isError: true)
         }
         
         let replacePhotosTap = UITapGestureRecognizer(target: self, action: #selector(replacePhotoClicked(_:)))
@@ -93,10 +95,11 @@ class CheckDocPhotoViewController : UIViewController {
         confirmUploadPhotosBtn.addGestureRecognizer(uploadPhotosTap)
     }
     
-    func handleDocUploadResponse() {
+    func handleDocUploadResponse(isError: Bool) {
         self.activityIndicatorStop()
                         
-        if (self.viewModel.uploadResponse?.errorCode != nil) {
+        if (self.viewModel.uploadResponse?.errorCode != nil && isError == true) {
+            print("VCHECK:: eror -- code: \(String(describing: self.viewModel.uploadResponse?.errorCode))") //!
             self.navigateToStatusError()
         } else {
             self.handleDocDataResponse()
@@ -110,7 +113,7 @@ class CheckDocPhotoViewController : UIViewController {
             if (self.isFromSegmentation) {
                 self.performSegue(withIdentifier: "CheckPhotoToFatalSegErr", sender: nil)
             } else {
-                print("VCheck - error: document id is nil while doing manual photo upload!")
+                print("VCheck - error: document id is nil while doing photo upload.")
             }
         }
     }
