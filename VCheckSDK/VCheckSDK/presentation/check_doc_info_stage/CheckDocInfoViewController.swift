@@ -88,7 +88,13 @@ class CheckDocInfoViewController : UIViewController {
         }
         
         viewModel.showAlertClosure = {
-            self.showToast(message: "check_doc_fields_input_message".localized, seconds: 2.0)
+            //TODO: move to util method
+            if (self.viewModel.error?.errorCode != nil && self.viewModel.error?.errorText != nil) {
+                self.showToast(message: "Error: \(String(describing: self.viewModel.error?.errorText))"
+                               + " [\(String(describing: self.viewModel.error?.errorCode))]", seconds: 3.0)
+            } else {
+                self.showToast(message: "check_doc_fields_input_message".localized, seconds: 3.0)
+            }
         }
         
         if (self.docId == nil) {

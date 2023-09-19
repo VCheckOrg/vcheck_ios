@@ -13,7 +13,7 @@ class BaseClientErrors {
     static let USER_INTERACTED_COMPLETED = 1
     static let STAGE_NOT_FOUND = 2
     static let INVALID_STAGE_TYPE = 3
-    static let PRIMARY_DOCUMENT_EXISTS = 4
+    static let PRIMARY_DOCUMENT_EXISTS_OR_USER_INTERACTION_COMPLETED = 4
     static let UPLOAD_ATTEMPTS_EXCEEDED = 5
     static let INVALID_DOCUMENT_TYPE = 6
     static let INVALID_PAGES_COUNT = 7

@@ -60,8 +60,19 @@ class CheckDocInfoViewModel {
                                             completion: { (data, error) in
             if let error = error {
                 self.isLoading = false
-                self.error = error
-                return
+                if (error.errorCode != nil) {
+                    if (error.errorCode != BaseClientErrors.PRIMARY_DOCUMENT_EXISTS_OR_USER_INTERACTION_COMPLETED) {
+                        self.error = error
+                        return
+                    } else {
+                        self.confirmedDocResponse = true
+                        self.didReceiveConfirmedResponse!()
+                        return
+                    }
+                } else {
+                    self.error = error
+                    return
+                }
             }
             self.isLoading = false
             

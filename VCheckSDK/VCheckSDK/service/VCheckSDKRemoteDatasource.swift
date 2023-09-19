@@ -323,8 +323,11 @@ struct VCheckSDKRemoteDatasource {
                                               errorCode: response.response?.statusCode))
              return
             }
+            // obsolete:
             if (response.response?.statusCode != 200) {
-                checkIfUserInteractionCompletedForResult(errorCode: response.value?.errorCode)
+                //checkIfUserInteractionCompletedForResult(errorCode: response.value?.errorCode)
+                completion(false, VCheckApiError(errorText: response.value?.message ?? "Error",
+                                                 errorCode: response.response?.statusCode))
             }
             completion(true, nil)
             return
