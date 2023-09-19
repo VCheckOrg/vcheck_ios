@@ -96,8 +96,6 @@ struct VCheckSDKRemoteDatasource {
                                                errorCode: response.response?.statusCode))
                 return
             }
-            //not allowed here:
-            //checkIfUserInteractionCompleted(errorCode: response.errorCode)
             completion(true, nil)
             return
           })
@@ -178,10 +176,7 @@ struct VCheckSDKRemoteDatasource {
                   return
               }
               if (checkStageError == true && resp.response?.statusCode != 200) {
-                  print("VCheckSDK!: response.response?.statusCode : \(String(describing: resp.response?.statusCode))") //TODO: remove
                   checkStageErrorForResult(errorCode: dataResponse.errorCode)
-              } else {
-                  print("VCheckSDK!: normal completion (stage)") //TODO: remove
               }
               completion(dataResponse, nil)
               return
@@ -220,8 +215,6 @@ struct VCheckSDKRemoteDatasource {
           }
     }
     
-    
-    //https://stackoverflow.com/a/62407235/6405022  -- Alamofire + Multipart :
     
     func uploadVerificationDocuments(
         photo1: UIImage,
@@ -295,7 +288,6 @@ struct VCheckSDKRemoteDatasource {
                                               errorCode: response.errorCode))
                return
             }
-            //TODO: move checks up (for most cases)?
             checkIfUserInteractionCompletedForResult(errorCode: response.errorCode)
             completion(response.data, nil)
             return
@@ -326,17 +318,13 @@ struct VCheckSDKRemoteDatasource {
 
         AF.request(url, method: .put, parameters: jsonData, encoding: JSONEncoding.default, headers: headers)
             .responseDecodable(of: ConfirmDocumentResponse.self) { (response) in
-            //.response(completionHandler: { (response) in
             guard response.value != nil else {
              completion(false, VCheckApiError(errorText: "updateAndConfirmDocInfo" + response.error!.localizedDescription,
                                               errorCode: response.response?.statusCode))
              return
             }
             if (response.response?.statusCode != 200) {
-                print("VCheckSDK!: response.response?.statusCode : \(String(describing: response.response?.statusCode))") //TODO: remove
                 checkIfUserInteractionCompletedForResult(errorCode: response.value?.errorCode)
-            } else {
-                print("VCheckSDK!: normal completion") //TODO: remove
             }
             completion(true, nil)
             return
@@ -470,7 +458,7 @@ struct VCheckSDKRemoteDatasource {
     //otherwise, depends on specific case
     func checkIfUserInteractionCompletedForResult(errorCode: Int?) {
         if (errorCode == BaseClientErrors.USER_INTERACTED_COMPLETED) {
-            VCheckSDK.shared.setIsVerificationExpired(isExpired: true) //!
+            VCheckSDK.shared.setIsVerificationExpired(isExpired: true)
             VCheckSDK.shared.finish(executePartnerCallback: false)
         } else {
             return

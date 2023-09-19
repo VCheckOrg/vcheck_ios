@@ -98,8 +98,7 @@ class CheckDocPhotoViewController : UIViewController {
     func handleDocUploadResponse() {
         self.activityIndicatorStop()
                         
-        if (self.viewModel.uploadResponse?.errorCode == DocumentVerificationCode.PARSING_ERROR.toCodeIdx()
-                || self.viewModel.uploadResponse?.errorCode == DocumentVerificationCode.INVALID_PAGE.toCodeIdx()) {
+        if (self.viewModel.uploadResponse?.errorCode != nil) {
             self.navigateToStatusError()
         } else {
             self.handleDocDataResponse()
@@ -157,11 +156,7 @@ class CheckDocPhotoViewController : UIViewController {
         }
         if (segue.identifier == "DocPhotoCheckToError") {
             let vc = segue.destination as! DocPhotoVerifErrorViewController
-//            vc.firstPhoto = self.firstPhoto
-//            if (self.secondPhoto != nil) {
-//                vc.secondPhoto = self.secondPhoto
-//            }
-            //TODO: check
+            
             vc.errorCode = codeIdxToVerificationCode(codeIdx: (self.viewModel.uploadResponse?.errorCode ?? 0))
             vc.isDocCheckForced = true
             if (self.viewModel.uploadResponse?.data?.id == nil) {
