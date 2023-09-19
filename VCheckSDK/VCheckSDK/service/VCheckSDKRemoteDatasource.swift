@@ -89,7 +89,7 @@ struct VCheckSDKRemoteDatasource {
         
         AF.request(url, method: .put, parameters: jsonData, encoding: JSONEncoding.default, headers: headers)
         //.validate()  //response returned an HTTP status code in the range 200–299
-        //validation (check for 200 code) is removed for logical reasons
+        //validation is removed for logical reasons
             .response(completionHandler: { (response) in
             guard response.value != nil else {
                 completion(false, VCheckApiError(errorText: "initProvider: " + response.error!.localizedDescription,
@@ -250,14 +250,18 @@ struct VCheckSDKRemoteDatasource {
             AF.upload(multipartFormData: multipartFormData, to: url, method: .post, headers: headers,
                       requestModifier: { $0.timeoutInterval = .infinity })
                 .responseDecodable(of: DocumentUploadResponse.self) { (response) in
-                    guard let response = response.value else {
+                    guard let resp = response.value else {
                         completion(nil, VCheckApiError(errorText: "uploadVerificationDocuments: "
                                                        + response.error!.localizedDescription,
                                                        errorCode: response.response?.statusCode))
                         return
                     }
-                    checkIfUserInteractionCompletedForResult(errorCode: response.errorCode)
-                    completion(response, nil)
+                    if (response.response?.statusCode != 200) {
+                        completion(resp, VCheckApiError(errorText: response.value?.message ?? "Error",
+                                                         errorCode: response.response?.statusCode))
+                        return
+                    }
+                    completion(resp, nil)
                     return
                   }
     }
@@ -323,11 +327,10 @@ struct VCheckSDKRemoteDatasource {
                                               errorCode: response.response?.statusCode))
              return
             }
-            // obsolete:
             if (response.response?.statusCode != 200) {
-                //checkIfUserInteractionCompletedForResult(errorCode: response.value?.errorCode)
                 completion(false, VCheckApiError(errorText: response.value?.message ?? "Error",
                                                  errorCode: response.response?.statusCode))
+                return
             }
             completion(true, nil)
             return

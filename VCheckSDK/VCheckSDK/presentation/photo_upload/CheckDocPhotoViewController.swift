@@ -68,7 +68,6 @@ class CheckDocPhotoViewController : UIViewController {
             confirmBtnVerticalConstraint.constant = 160
                     
             uplSpinnerTopConstraint.constant = 130
-
         }
                 
         viewModel.didReceiveDocUploadResponse = {
@@ -84,8 +83,7 @@ class CheckDocPhotoViewController : UIViewController {
         }
         
         viewModel.showAlertClosure = {
-            let errText = self.viewModel.error?.errorText ?? "Error: No additional info"
-            self.showToast(message: errText, seconds: 2.0)
+            self.handleDocUploadResponse()
         }
         
         let replacePhotosTap = UITapGestureRecognizer(target: self, action: #selector(replacePhotoClicked(_:)))

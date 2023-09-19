@@ -28,6 +28,7 @@ class CheckDocPhotoViewModel {
     
     // MARK: - Closures for callback, since we are not using the ViewModel to the View.
     var showAlertClosure: (() -> ())?
+    
     var updateLoadingStatus: (() -> ())?
     
     var didReceiveDocUploadResponse: (() -> ())?
@@ -51,6 +52,9 @@ class CheckDocPhotoViewModel {
                                                     completion: { (data, error) in
                 if let error = error {
                     self.isLoading = false
+                    if (data != nil) {
+                        self.uploadResponse = data
+                    }
                     self.error = error
                     return
                 }
