@@ -85,8 +85,7 @@ class LivenessVideoRecorder {
 
 }
 
-
-// deprecated:
+// deprecated transform logic:
 //    func getVideoTransform() -> CGAffineTransform {
 //            switch UIDevice.current.orientation {
 //                case .portrait:

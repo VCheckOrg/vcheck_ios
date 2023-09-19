@@ -65,8 +65,7 @@ class CheckDocInfoViewModel {
                         self.error = error
                         return
                     } else {
-                        self.confirmedDocResponse = true
-                        self.didReceiveConfirmedResponse!()
+                        self.getCurrentStage()
                         return
                     }
                 } else {

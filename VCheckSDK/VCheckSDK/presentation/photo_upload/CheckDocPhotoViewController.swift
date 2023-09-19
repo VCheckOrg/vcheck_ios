@@ -71,7 +71,6 @@ class CheckDocPhotoViewController : UIViewController {
         }
                 
         viewModel.didReceiveDocUploadResponse = {
-            print("VCHECK:: response")
             self.handleDocUploadResponse(isError: false)
         }
         
@@ -84,7 +83,6 @@ class CheckDocPhotoViewController : UIViewController {
         }
         
         viewModel.showAlertClosure = {
-            print("VCHECK:: alert")
             self.handleDocUploadResponse(isError: true)
         }
         
@@ -99,7 +97,6 @@ class CheckDocPhotoViewController : UIViewController {
         self.activityIndicatorStop()
                         
         if (self.viewModel.uploadResponse?.errorCode != nil && isError == true) {
-            print("VCHECK:: eror -- code: \(String(describing: self.viewModel.uploadResponse?.errorCode))") //!
             self.navigateToStatusError()
         } else {
             self.handleDocDataResponse()
@@ -113,7 +110,7 @@ class CheckDocPhotoViewController : UIViewController {
             if (self.isFromSegmentation) {
                 self.performSegue(withIdentifier: "CheckPhotoToFatalSegErr", sender: nil)
             } else {
-                print("VCheck - error: document id is nil while doing photo upload.")
+                print("VCheckSDK - error: document id is nil while doing photo upload.")
             }
         }
     }

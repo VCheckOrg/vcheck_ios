@@ -41,7 +41,6 @@ class VideoProcessingViewModel {
         dataService.uploadLivenessVideo(videoFileURL: videoFileURL,
                                         completion: { (data, error) in
             if let error = error {
-                //print("---- LIVENESS UPLOAD ERROR: \(error)")
                 self.isLoading = false
                 self.error = error
                 return

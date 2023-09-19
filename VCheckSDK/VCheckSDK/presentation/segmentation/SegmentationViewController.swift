@@ -190,7 +190,9 @@ class SegmentationViewController: UIViewController {
                     && self.hasEnoughTimeForNextGesture == true
                     && self.blockRequestByProcessing == false) {
                     self.checkStage()
-                } else { print("VCheckSDK: VideoBuffer is nil") }
+                } else {
+                    print("VCheckSDK: VideoBuffer is nil")
+                }
             }
         }
     }

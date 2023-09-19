@@ -88,9 +88,9 @@ class CheckDocInfoViewController : UIViewController {
         }
         
         viewModel.showAlertClosure = {
-            //TODO: move to util method
-            if (self.viewModel.error?.errorCode != nil && self.viewModel.error?.errorText != nil) {
-                self.showToast(message: "Error: \(String(describing: self.viewModel.error?.errorText))"
+            //TODO: move to util method (?)
+            if (self.viewModel.error?.errorCode != BaseClientErrors.PRIMARY_DOCUMENT_EXISTS_OR_USER_INTERACTION_COMPLETED) {
+                self.showToast(message: "Error: \(String(describing: self.viewModel.error?.errorText ?? ""))"
                                + " [\(String(describing: self.viewModel.error?.errorCode))]", seconds: 3.0)
             } else {
                 self.showToast(message: "check_doc_fields_input_message".localized, seconds: 3.0)
@@ -143,7 +143,7 @@ class CheckDocInfoViewController : UIViewController {
                    self.secondPhotoImageView.image = UIImage(data: responseData!, scale: 1)
                }
             case .failure(let error):
-                print("VCheck SDK - Error: ",error)
+                print("VCheckSDK - Error: ", error)
             }
         }
     }

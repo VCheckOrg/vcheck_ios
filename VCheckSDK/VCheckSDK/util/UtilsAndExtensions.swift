@@ -245,7 +245,7 @@ extension UIImage {
                                    width: desiredWidth,
                                    height: desiredHeight))
         } else {
-            print("VCheck SDK - error: no Selected Doc Type With Data provided for cropping with mask")
+            print("VCheckSDK - error: no Selected Doc Type With Data provided for cropping with mask")
             return nil
         }
     }

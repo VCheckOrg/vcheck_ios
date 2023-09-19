@@ -329,7 +329,7 @@ struct VCheckSDKRemoteDatasource {
             }
             if (response.response?.statusCode != 200) {
                 completion(false, VCheckApiError(errorText: response.value?.message ?? "Error",
-                                                 errorCode: response.response?.statusCode))
+                                                 errorCode: response.value?.errorCode))
                 return
             }
             completion(true, nil)
