@@ -40,19 +40,8 @@ public class VCheckSDK {
     internal var showPartnerLogo: Bool = false
     internal var showCloseSDKButton: Bool = true
     
-    internal var iconsColorHex: String? = nil
-    internal var buttonsColorHex: String? = nil
-    internal var backgroundPrimaryColorHex: String? = nil
-    internal var backgroundSecondaryColorHex: String? = nil
-    internal var backgroundTertiaryColorHex: String? = nil
-    internal var primaryTextColorHex: String? = nil
-    internal var secondaryTextColorHex: String? = nil
-    internal var borderColorHex: String? = nil
-    //internal var colorButtonsText: String? = nil
-    
-    private let wrongColorFormatPickDescr: String = "VCheckSDK - error: if provided, " +
-            "custom color should be a valid HEX string (RGB or ARGB). Ex.: '#2A2A2A' or '#abdbe3'"
-     
+    //TODO: think of default colors; mb use the default json asset for each platform
+    private var designConfig: VCheckDesignConfig? = nil
 
     public func start(partnerAppRW: UIWindow,
                       partnerAppVC: UIViewController,
@@ -138,38 +127,13 @@ public class VCheckSDK {
                     "or check out for the recent version of the SDK library")
             return false
         }
-        if (self.buttonsColorHex != nil && !self.buttonsColorHex!.isValidHexColor()) {
-            print(wrongColorFormatPickDescr)
-            return false
-        }
-        if (self.backgroundPrimaryColorHex != nil && !self.backgroundPrimaryColorHex!.isValidHexColor()) {
-            print(wrongColorFormatPickDescr)
-            return false
-        }
-        if (self.backgroundSecondaryColorHex != nil && !self.backgroundSecondaryColorHex!.isValidHexColor()) {
-            print(wrongColorFormatPickDescr)
-            return false
-        }
-        if (self.backgroundTertiaryColorHex != nil && !self.backgroundTertiaryColorHex!.isValidHexColor()) {
-            print(wrongColorFormatPickDescr)
-            return false
-        }
-        if (self.primaryTextColorHex != nil && !self.primaryTextColorHex!.isValidHexColor()) {
-            print(wrongColorFormatPickDescr)
-            return false
-        }
-        if (self.secondaryTextColorHex != nil && !self.secondaryTextColorHex!.isValidHexColor()) {
-            print(wrongColorFormatPickDescr)
-            return false
-        }
-        if (self.borderColorHex != nil && !self.borderColorHex!.isValidHexColor()) {
-            print(wrongColorFormatPickDescr)
-            return false
-        }
-        if (self.iconsColorHex != nil && !self.iconsColorHex!.isValidHexColor()) {
-            print(wrongColorFormatPickDescr)
-            return false
-        }
+        
+        //TODO: make additional non-null checks
+        //TODO: figure our should json config be required property
+//        if (self.designConfig != nil) {
+//            return false
+//        }
+        
         return true
     }
     
@@ -270,63 +234,23 @@ public class VCheckSDK {
     
     ///Color public customization methods:
     
-    public func colorActionButtons(colorHex: String) -> VCheckSDK {
-        self.buttonsColorHex = colorHex
+    public func designConfig(config: VCheckDesignConfig) -> VCheckSDK {
+        self.designConfig = config
         return self
     }
 
-    public func colorBackgroundPrimary(colorHex: String) -> VCheckSDK {
-        self.backgroundPrimaryColorHex = colorHex
-        return self
-    }
-
-    public func colorBackgroundSecondary(colorHex: String) -> VCheckSDK {
-        self.backgroundSecondaryColorHex = colorHex
-        return self
-    }
-
-    public func colorBackgroundTertiary(colorHex: String) -> VCheckSDK {
-        self.backgroundTertiaryColorHex = colorHex
-        return self
-    }
-
-    public func colorTextPrimary(colorHex: String) -> VCheckSDK {
-        self.primaryTextColorHex = colorHex
-        return self
-    }
-
-    public func colorTextSecondary(colorHex: String) -> VCheckSDK {
-        self.secondaryTextColorHex = colorHex
-        return self
-    }
-
-    public func colorBorders(colorHex: String) -> VCheckSDK {
-        self.borderColorHex = colorHex
-        return self
-    }
-    
-    public func colorIcons(colorHex: String) -> VCheckSDK {
-        self.iconsColorHex = colorHex
-        return self
-    }
-    
-    //TODO: test
-//    public func colorButtonsText(colorHex: String) -> VCheckSDK {
-//        self.colorButtonsText = colorHex
-//        return self
+    //TODO: refactor to remove f-n usage
+//    func resetCustomColors() {
+//        self.iconsColorHex = nil
+//        //self.colorButtonsText = nil
+//        self.buttonsColorHex = nil
+//        self.backgroundPrimaryColorHex = nil
+//        self.backgroundSecondaryColorHex = nil
+//        self.backgroundTertiaryColorHex = nil
+//        self.primaryTextColorHex = nil
+//        self.secondaryTextColorHex = nil
+//        self.borderColorHex = nil
 //    }
-
-    func resetCustomColors() {
-        self.iconsColorHex = nil
-        //self.colorButtonsText = nil
-        self.buttonsColorHex = nil
-        self.backgroundPrimaryColorHex = nil
-        self.backgroundSecondaryColorHex = nil
-        self.backgroundTertiaryColorHex = nil
-        self.primaryTextColorHex = nil
-        self.secondaryTextColorHex = nil
-        self.borderColorHex = nil
-    }
     
     /// Other public methods for customization
     

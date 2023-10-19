@@ -74,6 +74,7 @@
 		DA3FD7FA28A133A100C125F0 /* SegmentationVCExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3FD7F928A133A100C125F0 /* SegmentationVCExtensions.swift */; };
 		DA48073228A3D1A700B27C72 /* SegmentationTimeoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48073128A3D1A700B27C72 /* SegmentationTimeoutViewController.swift */; };
 		DA4D269C289198CC00C6F43A /* DocumentRequestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D269B289198CC00C6F43A /* DocumentRequestModels.swift */; };
+		DA607DAD2AE18C6700A142C8 /* VCheckDesignConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA607DAC2AE18C6700A142C8 /* VCheckDesignConfig.swift */; };
 		DA6ACE39296720F7000D25C2 /* face_plus_phone.json in Resources */ = {isa = PBXBuildFile; fileRef = DA6ACE38296720F7000D25C2 /* face_plus_phone.json */; };
 		DA7AD2332A58BB0B007E7C63 /* ChooseCountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7AD2322A58BB0B007E7C63 /* ChooseCountryViewModel.swift */; };
 		DA7AD2352A61A549007E7C63 /* BaseClientErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7AD2342A61A549007E7C63 /* BaseClientErrors.swift */; };
@@ -181,6 +182,7 @@
 		DA3FD7F928A133A100C125F0 /* SegmentationVCExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationVCExtensions.swift; sourceTree = "<group>"; };
 		DA48073128A3D1A700B27C72 /* SegmentationTimeoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationTimeoutViewController.swift; sourceTree = "<group>"; };
 		DA4D269B289198CC00C6F43A /* DocumentRequestModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentRequestModels.swift; sourceTree = "<group>"; };
+		DA607DAC2AE18C6700A142C8 /* VCheckDesignConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCheckDesignConfig.swift; sourceTree = "<group>"; };
 		DA6ACE38296720F7000D25C2 /* face_plus_phone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = face_plus_phone.json; sourceTree = "<group>"; };
 		DA7AD2322A58BB0B007E7C63 /* ChooseCountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCountryViewModel.swift; sourceTree = "<group>"; };
 		DA7AD2342A61A549007E7C63 /* BaseClientErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseClientErrors.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 				DAD302EA29E446CF0057C58E /* ProviderModels.swift */,
 				DAD302EC29E6E4770057C58E /* ProviderLogicCase.swift */,
 				DA1851B62AB3C23B00541958 /* InitVerficationCodes.swift */,
+				DA607DAC2AE18C6700A142C8 /* VCheckDesignConfig.swift */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -693,6 +696,7 @@
 				DAC3C82C2877695700B32FFC /* VerificationSchemes.swift in Sources */,
 				DA3BEDD22869A8D300B15E5C /* VCheckSDK.swift in Sources */,
 				DA7AD2352A61A549007E7C63 /* BaseClientErrors.swift in Sources */,
+				DA607DAD2AE18C6700A142C8 /* VCheckDesignConfig.swift in Sources */,
 				DAD302EB29E446CF0057C58E /* ProviderModels.swift in Sources */,
 				DA3BEDCC2869A8D300B15E5C /* VerificationResponseModels.swift in Sources */,
 			);
