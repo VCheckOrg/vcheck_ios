@@ -65,7 +65,6 @@
 		DA3BEDF92869A8D300B15E5C /* TakeDocPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDB12869A8D300B15E5C /* TakeDocPhotoViewController.swift */; };
 		DA3BEDFD2869A8D300B15E5C /* TextFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDB92869A8D300B15E5C /* TextFieldError.swift */; };
 		DA3BEDFF2869A8D300B15E5C /* GlobalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDBB2869A8D300B15E5C /* GlobalUtils.swift */; };
-		DA3BEE002869A8D300B15E5C /* UtilsAndExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDBC2869A8D300B15E5C /* UtilsAndExtensions.swift */; };
 		DA3BEE012869A8D300B15E5C /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDBD2869A8D300B15E5C /* Debouncer.swift */; };
 		DA3BEE022869A8D300B15E5C /* VCheckSDKRemoteDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDBF2869A8D300B15E5C /* VCheckSDKRemoteDatasource.swift */; };
 		DA3BEE032869A8D300B15E5C /* VCheckSDKLocalDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BEDC02869A8D300B15E5C /* VCheckSDKLocalDatasource.swift */; };
@@ -75,6 +74,9 @@
 		DA48073228A3D1A700B27C72 /* SegmentationTimeoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48073128A3D1A700B27C72 /* SegmentationTimeoutViewController.swift */; };
 		DA4D269C289198CC00C6F43A /* DocumentRequestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D269B289198CC00C6F43A /* DocumentRequestModels.swift */; };
 		DA607DAD2AE18C6700A142C8 /* VCheckDesignConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA607DAC2AE18C6700A142C8 /* VCheckDesignConfig.swift */; };
+		DA607DAF2AE2CEDF00A142C8 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA607DAE2AE2CEDF00A142C8 /* UIExtensions.swift */; };
+		DA607DB32AE2CF9200A142C8 /* UtilExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA607DB22AE2CF9200A142C8 /* UtilExtensions.swift */; };
+		DA607DB52AE2D05E00A142C8 /* ImageCompressor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA607DB42AE2D05E00A142C8 /* ImageCompressor.swift */; };
 		DA6ACE39296720F7000D25C2 /* face_plus_phone.json in Resources */ = {isa = PBXBuildFile; fileRef = DA6ACE38296720F7000D25C2 /* face_plus_phone.json */; };
 		DA7AD2332A58BB0B007E7C63 /* ChooseCountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7AD2322A58BB0B007E7C63 /* ChooseCountryViewModel.swift */; };
 		DA7AD2352A61A549007E7C63 /* BaseClientErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7AD2342A61A549007E7C63 /* BaseClientErrors.swift */; };
@@ -168,7 +170,6 @@
 		DA3BEDB12869A8D300B15E5C /* TakeDocPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakeDocPhotoViewController.swift; sourceTree = "<group>"; };
 		DA3BEDB92869A8D300B15E5C /* TextFieldError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldError.swift; sourceTree = "<group>"; };
 		DA3BEDBB2869A8D300B15E5C /* GlobalUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalUtils.swift; sourceTree = "<group>"; };
-		DA3BEDBC2869A8D300B15E5C /* UtilsAndExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilsAndExtensions.swift; sourceTree = "<group>"; };
 		DA3BEDBD2869A8D300B15E5C /* Debouncer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		DA3BEDBF2869A8D300B15E5C /* VCheckSDKRemoteDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCheckSDKRemoteDatasource.swift; sourceTree = "<group>"; };
 		DA3BEDC02869A8D300B15E5C /* VCheckSDKLocalDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCheckSDKLocalDatasource.swift; sourceTree = "<group>"; };
@@ -183,6 +184,9 @@
 		DA48073128A3D1A700B27C72 /* SegmentationTimeoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationTimeoutViewController.swift; sourceTree = "<group>"; };
 		DA4D269B289198CC00C6F43A /* DocumentRequestModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentRequestModels.swift; sourceTree = "<group>"; };
 		DA607DAC2AE18C6700A142C8 /* VCheckDesignConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCheckDesignConfig.swift; sourceTree = "<group>"; };
+		DA607DAE2AE2CEDF00A142C8 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
+		DA607DB22AE2CF9200A142C8 /* UtilExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilExtensions.swift; sourceTree = "<group>"; };
+		DA607DB42AE2D05E00A142C8 /* ImageCompressor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCompressor.swift; sourceTree = "<group>"; };
 		DA6ACE38296720F7000D25C2 /* face_plus_phone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = face_plus_phone.json; sourceTree = "<group>"; };
 		DA7AD2322A58BB0B007E7C63 /* ChooseCountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCountryViewModel.swift; sourceTree = "<group>"; };
 		DA7AD2342A61A549007E7C63 /* BaseClientErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseClientErrors.swift; sourceTree = "<group>"; };
@@ -450,8 +454,10 @@
 			isa = PBXGroup;
 			children = (
 				DA3BEDBB2869A8D300B15E5C /* GlobalUtils.swift */,
-				DA3BEDBC2869A8D300B15E5C /* UtilsAndExtensions.swift */,
 				DA3BEDBD2869A8D300B15E5C /* Debouncer.swift */,
+				DA607DAE2AE2CEDF00A142C8 /* UIExtensions.swift */,
+				DA607DB22AE2CF9200A142C8 /* UtilExtensions.swift */,
+				DA607DB42AE2D05E00A142C8 /* ImageCompressor.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -642,6 +648,7 @@
 				DAD302F029E6E9440057C58E /* ChooseProviderViewController.swift in Sources */,
 				DA3BEDEC2869A8D300B15E5C /* DocInfoViewCell.swift in Sources */,
 				DA3BEDE42869A8D300B15E5C /* MultipleFacesDetectedViewContoller.swift in Sources */,
+				DA607DB32AE2CF9200A142C8 /* UtilExtensions.swift in Sources */,
 				DA3BEE022869A8D300B15E5C /* VCheckSDKRemoteDatasource.swift in Sources */,
 				DA3BEDCB2869A8D300B15E5C /* VCheckApiError.swift in Sources */,
 				DA153774286F4FE60038A203 /* GeneralStageModels.swift in Sources */,
@@ -683,15 +690,16 @@
 				DA3BEDCA2869A8D300B15E5C /* DocumentResponseModels.swift in Sources */,
 				DA3BEDE22869A8D300B15E5C /* SharpMovementsViewController.swift in Sources */,
 				DA3BEDED2869A8D300B15E5C /* DocPhotoVerifErrorViewController.swift in Sources */,
-				DA3BEE002869A8D300B15E5C /* UtilsAndExtensions.swift in Sources */,
 				DA3BEDFD2869A8D300B15E5C /* TextFieldError.swift in Sources */,
 				DA3BEDD32869A8D300B15E5C /* LivenessVCExtensions.swift in Sources */,
 				DA3BEDC92869A8D300B15E5C /* VCheckSDKConstants.swift in Sources */,
 				DA3BEDE82869A8D300B15E5C /* ChooseDocTypeViewController.swift in Sources */,
+				DA607DB52AE2D05E00A142C8 /* ImageCompressor.swift in Sources */,
 				DA3BEDD02869A8D300B15E5C /* DocumentTypes.swift in Sources */,
 				DA3BEDF92869A8D300B15E5C /* TakeDocPhotoViewController.swift in Sources */,
 				DA3BEDE92869A8D300B15E5C /* ChooseDocTypeViewModel.swift in Sources */,
 				DA3BEDF32869A8D300B15E5C /* CountryListViewController.swift in Sources */,
+				DA607DAF2AE2CEDF00A142C8 /* UIExtensions.swift in Sources */,
 				DA48073228A3D1A700B27C72 /* SegmentationTimeoutViewController.swift in Sources */,
 				DAC3C82C2877695700B32FFC /* VerificationSchemes.swift in Sources */,
 				DA3BEDD22869A8D300B15E5C /* VCheckSDK.swift in Sources */,

@@ -9,6 +9,16 @@ import Foundation
 
 public struct VCheckDesignConfig : Codable {
     
+    static func fromJsonStr(rawJsonStr: String) -> VCheckDesignConfig {
+        
+        if let value = try? JSONDecoder().decode(VCheckDesignConfig.self, from: rawJsonStr.data(using: .utf8)!) {
+            return value
+        } else {
+            print("VCheckSDK - warning: Non-valid JSON was passed while initializaing VCheckDesignConfig instance; trying to set VCheck default theme...")
+            return try! JSONDecoder().decode(VCheckDesignConfig.self, from: defaultThemeJsonStr.data(using: .utf8)!)
+        }
+    }
+    
     let primary : String?
     let primaryHover : String?
     let primaryActive : String?
@@ -134,5 +144,51 @@ public struct VCheckDesignConfig : Codable {
         disabled = try values.decodeIfPresent(String.self, forKey: .disabled)
         disabledContent = try values.decodeIfPresent(String.self, forKey: .disabledContent)
     }
+    
+    static let defaultThemeJsonStr: String =
+     """
+     {
+       "primary": "#2E75FF",
+       "primaryHover": "#2E96FF",
+       "primaryActive": "#3361EC",
+       "primaryContent": "#FFFFFF",
+       "primaryBg": "#5D6884",
+       "accent": "#6096FF",
+       "accentHover": "#6ABFFF",
+       "accentActive": "#4F79F7",
+       "accentContent": "#FFFFFF",
+       "accentBg": "#32404A",
+       "neutral": "#FFFFFF",
+       "neutralHover": "rgba(255, 255, 255, 0.4)",
+       "neutralActive": "rgba(255, 255, 255, 0.1)",
+       "neutralContent": "#000000",
 
+       "success": "#6CFB93",
+       "successHover": "#C8FDD2",
+       "successActive": "#00DF53",
+       "successBg": "#3A4B3F",
+       "successContent": "#3B3B3B",
+       "error": "#F47368",
+       "errorHover": "#FF877C",
+       "errorActive": "#DE473A",
+       "errorBg": "#4B2A24",
+       "errorContent": "#3B3B3B",
+       "warning": "#FFB482",
+       "warningHover": "#FFBF94",
+       "warningActive": "#D3834E",
+       "warningBg": "#3F3229",
+       "warningContent": "#3B3B3B",
+
+       "base": "#2A2A2A",
+       "base_100": "#3C3C3C",
+       "base_200": "#555555",
+       "base_300": "#6A6A6A",
+       "base_400": "#7F7F7F",
+       "base_500": "#949494",
+       "baseContent": "#FFFFFF",
+       "baseSecondaryContent": "#D8D8D8",
+       "disabled": "#AAAAAA",
+       "disabledContent": "#6A6A6A"
+     }
+     """
 }

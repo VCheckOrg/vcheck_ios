@@ -53,7 +53,8 @@ public class VCheckSDK {
         self.partnerAppViewController = partnerAppVC
         self.changeRootViewController = replaceRootVC
         
-        if (preStartChecksPassed()) {
+        do {
+            try makePreStartChecks()
             
             if (self.changeRootViewController == false) {
                 partnerAppViewController!.present(GlobalUtils.getVCheckHomeVC(), animated: true)
@@ -61,6 +62,8 @@ public class VCheckSDK {
                 partnerAppRootWindow!.rootViewController = GlobalUtils.getVCheckHomeVC()
                 partnerAppRootWindow!.makeKeyAndVisible()
             }
+        } catch {
+            
         }
     }
     
@@ -90,7 +93,7 @@ public class VCheckSDK {
         }
     }
     
-    private func preStartChecksPassed() -> Bool {
+    private func makePreStartChecks() throws {
         if (self.environment == nil) {
             print("VCheckSDK - warning: sdk environment is not set | see VCheckSDK.shared.environment(env: VCheckEnvironment)")
             self.environment = VCheckEnvironment.DEV
@@ -99,42 +102,37 @@ public class VCheckSDK {
             print("VCheckSDK - warning: using DEV environment | see VCheckSDK.shared.environment(env: VCheckEnvironment)")
         }
         if (self.verificationToken == nil) {
-            print("VCheckSDK - error: proper verification token must be provided | see VCheckSDK.shared.verificationToken(token: String)")
-            return false
+            throw VCheckError.initError("VCheckSDK - error: proper verification token must be provided | see VCheckSDK.shared.verificationToken(token: String)")
         }
         if (self.verificationType == nil) {
-            print("VCheckSDK - error: proper verification type must be provided | see VCheckSDK.shared.verificationType(type: VerificationSchemeType)")
-            return false
+            throw VCheckError.initError("VCheckSDK - error: proper verification type must be provided | see VCheckSDK.shared.verificationType(type: VerificationSchemeType)")
         }
         if (self.partnerEndCallback == nil) {
-           print("VCheckSDK - error: partner application's callback function (invoked on SDK flow finish) must be provided | see VCheckSDK.shared.partnerEndCallback(callback: (() -> Void))")
-           return false
+            throw VCheckError.initError("VCheckSDK - error: partner application's callback function (invoked on SDK flow finish) must be provided | see VCheckSDK.shared.partnerEndCallback(callback: (() -> Void))")
         }
         if (self.onVerificationExpired == nil) {
-           print("VCheckSDK - error: partner application's onVerificationExpired function " +
+            throw VCheckError.initError("VCheckSDK - error: partner application's onVerificationExpired function " +
                  "(invoked on SDK's current verification expiration case) must be provided by partner app | " +
                  "see VCheckSDK.shared.onVerificationExpired(callback: (() -> Void))")
-           return false
         }
         if (self.sdkLanguageCode == nil) {
-           print("VCheckSDK - warning: sdk language code is not set; using English (en) locale as default. " +
+            throw VCheckError.initError("VCheckSDK - warning: sdk language code is not set; using English (en) locale as default. " +
                             "| see VCheckSDK.shared.sdkLanguageCode(langCode: String)")
         }
         if (self.sdkLanguageCode != nil && !VCheckSDKConstants
                 .vcheckSDKAvailableLanguagesList.contains((self.sdkLanguageCode?.lowercased())!)) {
-            print("VCheckSDK - error: SDK is not localized with [$sdkLanguageCode] locale yet. " +
+            throw VCheckError.initError("VCheckSDK - error: SDK is not localized with [$sdkLanguageCode] locale yet. " +
                     "You may set one of the next locales: ${VCheckSDKConstantsProvider.vcheckSDKAvailableLanguagesList}, " +
                     "or check out for the recent version of the SDK library")
-            return false
         }
         
+        let v = VCheckDesignConfig.fromJsonStr(rawJsonStr: "")
+        
         //TODO: make additional non-null checks
-        //TODO: figure our should json config be required property
+        //TODO: figure out should json config be required property or not
 //        if (self.designConfig != nil) {
 //            return false
 //        }
-        
-        return true
     }
     
     public func partnerEndCallback(callback: (() -> Void)?) -> VCheckSDK {
