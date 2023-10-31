@@ -95,7 +95,7 @@ class CheckDocPhotoViewController : UIViewController {
     
     func handleDocUploadResponse(isError: Bool) {
         self.activityIndicatorStop()
-                        
+  
         if (self.viewModel.uploadResponse?.errorCode != nil && isError == true) {
             self.navigateToStatusError()
         } else {
@@ -141,8 +141,8 @@ class CheckDocPhotoViewController : UIViewController {
         if (segue.identifier == "DocPhotosPreviewToCheckDocInfo") {
             let vc = segue.destination as! CheckDocInfoViewController
             if (self.viewModel.uploadResponse?.data?.id == nil) {
-                let errText = "Error: Cannot find document id for navigation!"
-                self.showToast(message: errText, seconds: 2.0)
+//                let errText = "Error: Cannot find document id for navigation!"
+//                self.showToast(message: errText, seconds: 2.0)
             } else {
                 vc.docId = self.viewModel.uploadResponse?.data?.id
             }
@@ -158,8 +158,8 @@ class CheckDocPhotoViewController : UIViewController {
             vc.errorCode = codeIdxToVerificationCode(codeIdx: (self.viewModel.uploadResponse?.errorCode ?? 0))
             vc.isDocCheckForced = true
             if (self.viewModel.uploadResponse?.data?.id == nil) {
-                let errText = "Error: Cannot find document id for navigation!"
-                self.showToast(message: errText, seconds: 2.0)
+//                let errText = "Error: Cannot find document id for navigation!"
+//                self.showToast(message: errText, seconds: 2.0)
             } else {
                 vc.docId = self.viewModel.uploadResponse?.data?.id
             }

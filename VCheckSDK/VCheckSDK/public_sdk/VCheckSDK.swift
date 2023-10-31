@@ -48,7 +48,6 @@ public class VCheckSDK {
     internal var primaryTextColorHex: String? = nil
     internal var secondaryTextColorHex: String? = nil
     internal var borderColorHex: String? = nil
-    //internal var colorButtonsText: String? = nil
     
     private let wrongColorFormatPickDescr: String = "VCheckSDK - error: if provided, " +
             "custom color should be a valid HEX string (RGB or ARGB). Ex.: '#2A2A2A' or '#abdbe3'"
@@ -309,12 +308,6 @@ public class VCheckSDK {
         self.iconsColorHex = colorHex
         return self
     }
-    
-    //TODO: test
-//    public func colorButtonsText(colorHex: String) -> VCheckSDK {
-//        self.colorButtonsText = colorHex
-//        return self
-//    }
 
     func resetCustomColors() {
         self.iconsColorHex = nil
