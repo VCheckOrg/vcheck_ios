@@ -140,10 +140,7 @@ class CheckDocPhotoViewController : UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "DocPhotosPreviewToCheckDocInfo") {
             let vc = segue.destination as! CheckDocInfoViewController
-            if (self.viewModel.uploadResponse?.data?.id == nil) {
-//                let errText = "Error: Cannot find document id for navigation!"
-//                self.showToast(message: errText, seconds: 2.0)
-            } else {
+            if (self.viewModel.uploadResponse?.data?.id != nil) {
                 vc.docId = self.viewModel.uploadResponse?.data?.id
             }
             vc.isDocCheckForced = false
@@ -157,10 +154,7 @@ class CheckDocPhotoViewController : UIViewController {
             
             vc.errorCode = codeIdxToVerificationCode(codeIdx: (self.viewModel.uploadResponse?.errorCode ?? 0))
             vc.isDocCheckForced = true
-            if (self.viewModel.uploadResponse?.data?.id == nil) {
-//                let errText = "Error: Cannot find document id for navigation!"
-//                self.showToast(message: errText, seconds: 2.0)
-            } else {
+            if (self.viewModel.uploadResponse?.data?.id != nil) {
                 vc.docId = self.viewModel.uploadResponse?.data?.id
             }
         }
