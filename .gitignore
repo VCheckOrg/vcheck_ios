@@ -1,4 +1,5 @@
 /Pods/
 /VcheckSDKDemoIOS.xcodeproj/
 /VcheckSDKDemoIOS.xcworkspace/
-
+/VcheckSDKDemoIOS.xcworkspace/contents.xcworkspacedata
+/.DS_Store
