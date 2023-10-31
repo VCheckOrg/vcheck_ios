@@ -23,7 +23,7 @@ class CountryListViewController : UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
-            if let bc = VCheckSDK.shared.backgroundSecondaryColorHex {
+            if let bc = VCheckSDK.shared.designConfig!.backgroundSecondaryColorHex {
                 self.searchBar.barTintColor = bc.hexToUIColor()
             }
             if let searchTextfield = self.searchBar.value(forKey: "searchField") as? UITextField  {
@@ -32,15 +32,15 @@ class CountryListViewController : UIViewController {
                 searchTextfield.layer.cornerRadius = 10
                 searchTextfield.textColor = .white
                 searchTextfield.leftView?.tintColor = .white
-                if let tc1 = VCheckSDK.shared.secondaryTextColorHex {
+                if let tc1 = VCheckSDK.shared.designConfig!.secondaryTextColorHex {
                     searchTextfield.textColor = tc1.hexToUIColor()
                     searchTextfield.leftView?.tintColor = tc1.hexToUIColor()
                 }
-                if let tc2 = VCheckSDK.shared.primaryTextColorHex {
+                if let tc2 = VCheckSDK.shared.designConfig!.primaryTextColorHex {
                     searchTextfield.textColor = tc2.hexToUIColor()
                     searchTextfield.leftView?.tintColor = tc2.hexToUIColor()
                 }
-                if let bc = VCheckSDK.shared.backgroundSecondaryColorHex {
+                if let bc = VCheckSDK.shared.designConfig!.backgroundSecondaryColorHex {
                     searchTextfield.backgroundColor = bc.hexToUIColor()
                 }
             }
@@ -68,7 +68,7 @@ class CountryListViewController : UIViewController {
         self.countryListTable.delegate = self
         self.countryListTable.dataSource = self
         
-        if let bc = VCheckSDK.shared.backgroundSecondaryColorHex {
+        if let bc = VCheckSDK.shared.designConfig!.backgroundSecondaryColorHex {
             self.countryListTable.setValue(bc.hexToUIColor() , forKey: "tableHeaderBackgroundColor")
         }
         

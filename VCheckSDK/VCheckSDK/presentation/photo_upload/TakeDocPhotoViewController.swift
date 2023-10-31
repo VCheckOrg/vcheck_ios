@@ -397,7 +397,7 @@ class TakeDocPhotoViewController : UIViewController,
     }
     
     private func prepareForNavigation(resetSecondPhoto: Bool) {
-        if let buttonColor = VCheckSDK.shared.buttonsColorHex {
+        if let buttonColor = VCheckSDK.shared.designConfig?.sectionBorderColorHex {
             btnContinueToPreview.tintColor = buttonColor.hexToUIColor()
         } else {
             btnContinueToPreview.tintColor = UIColor(named: "Default", in: InternalConstants.bundle, compatibleWith: nil)

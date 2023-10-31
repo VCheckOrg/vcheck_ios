@@ -64,7 +64,7 @@ internal class LivenessScreenViewController: UIViewController {
         self.indicationFrame.backgroundColor = UIColor.clear
         self.indicationFrame.borderColor = UIColor.systemGreen
         
-        if let bc = VCheckSDK.shared.backgroundSecondaryColorHex {
+        if let bc = VCheckSDK.shared.designConfig!.backgroundSecondaryColorHex {
             self.imgMilestoneChecked.backgroundColor = bc.hexToUIColor()
         }
         
@@ -315,7 +315,7 @@ extension LivenessScreenViewController {
         fillLayer.path = pathBigRect.cgPath
         fillLayer.fillRule = CAShapeLayerFillRule.evenOdd
         
-        if let bgColor = VCheckSDK.shared.backgroundSecondaryColorHex {
+        if let bgColor = VCheckSDK.shared.designConfig!.backgroundSecondaryColorHex {
             fillLayer.fillColor = bgColor.hexToUIColor().cgColor
         } else {
             fillLayer.fillColor = UIColor(named: "CardColor", in: InternalConstants.bundle, compatibleWith: nil)?.cgColor
@@ -334,7 +334,7 @@ extension LivenessScreenViewController {
         shapeCircleLayer.path = circlePath.cgPath
         shapeCircleLayer.fillColor = UIColor.clear.cgColor
         
-        if let shapeColor = VCheckSDK.shared.borderColorHex {
+        if let shapeColor = VCheckSDK.shared.designConfig!.sectionBorderColorHex {
             shapeCircleLayer.strokeColor = shapeColor.hexToUIColor().cgColor
         } else {
             shapeCircleLayer.strokeColor = UIColor(named: "borderColor", in: InternalConstants.bundle, compatibleWith: nil)?.cgColor

@@ -36,7 +36,7 @@ class ChooseProviderViewController : UIViewController {
         self.tvTitle.text = "choose_provider_title".localized
         self.tvSubtitle.text = "choose_provider_description".localized
         
-        if let bc = VCheckSDK.shared.backgroundSecondaryColorHex {
+        if let bc = VCheckSDK.shared.designConfig!.backgroundSecondaryColorHex {
             self.providersTableView.setValue(bc.hexToUIColor() , forKey: "tableHeaderBackgroundColor")
         }
         

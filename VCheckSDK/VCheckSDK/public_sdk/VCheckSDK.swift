@@ -40,8 +40,7 @@ public class VCheckSDK {
     internal var showPartnerLogo: Bool = false
     internal var showCloseSDKButton: Bool = true
     
-    //TODO: think of default colors; mb use the default json asset for each platform
-    private var designConfig: VCheckDesignConfig? = nil
+    internal var designConfig: VCheckDesignConfig? = nil
 
     public func start(partnerAppRW: UIWindow,
                       partnerAppVC: UIViewController,
@@ -95,7 +94,7 @@ public class VCheckSDK {
     
     private func makePreStartChecks() throws {
         if (self.environment == nil) {
-            print("VCheckSDK - warning: sdk environment is not set | see VCheckSDK.shared.environment(env: VCheckEnvironment)")
+            print("VCheckSDK - warning: sdk environment is not set by partner developer | see VCheckSDK.shared.environment(env: VCheckEnvironment)")
             self.environment = VCheckEnvironment.DEV
         }
         if (self.environment == VCheckEnvironment.DEV) {
@@ -125,14 +124,11 @@ public class VCheckSDK {
                     "You may set one of the next locales: ${VCheckSDKConstantsProvider.vcheckSDKAvailableLanguagesList}, " +
                     "or check out for the recent version of the SDK library")
         }
-        
-        let v = VCheckDesignConfig.fromJsonStr(rawJsonStr: "")
-        
-        //TODO: make additional non-null checks
-        //TODO: figure out should json config be required property or not
-//        if (self.designConfig != nil) {
-//            return false
-//        }
+        if (self.designConfig == nil) {
+            print("VCheckSDK - warning: No instance of VCheckDesignConfig was passed while " +
+                  "initializing SDK | setting VCheck default theme...")
+            self.designConfig = VCheckDesignConfig.fromJsonStr(rawJsonStr: VCheckSDKConstants.vcheckDefaultThemeConfig)
+        }
     }
     
     public func partnerEndCallback(callback: (() -> Void)?) -> VCheckSDK {

@@ -294,7 +294,6 @@
 		DA3BED742869A8D200B15E5C /* domain */ = {
 			isa = PBXGroup;
 			children = (
-				DA3BED752869A8D200B15E5C /* VCheckSDKConstants.swift */,
 				DA3BED772869A8D200B15E5C /* VCheckApiError.swift */,
 				DA7AD2342A61A549007E7C63 /* BaseClientErrors.swift */,
 				DA3BED782869A8D200B15E5C /* VerificationResponseModels.swift */,
@@ -465,6 +464,7 @@
 		DA3BEDBE2869A8D300B15E5C /* service */ = {
 			isa = PBXGroup;
 			children = (
+				DA3BED752869A8D200B15E5C /* VCheckSDKConstants.swift */,
 				DA3BEDBF2869A8D300B15E5C /* VCheckSDKRemoteDatasource.swift */,
 				DA3BEDC02869A8D300B15E5C /* VCheckSDKLocalDatasource.swift */,
 			);
