@@ -62,7 +62,7 @@ public class VCheckSDK {
                 partnerAppRootWindow!.makeKeyAndVisible()
             }
         } catch {
-            
+            print("VCheckSDK - error: SDK was not initialized properly")
         }
     }
     
@@ -232,19 +232,6 @@ public class VCheckSDK {
         self.designConfig = config
         return self
     }
-
-    //TODO: refactor to remove f-n usage
-//    func resetCustomColors() {
-//        self.iconsColorHex = nil
-//        //self.colorButtonsText = nil
-//        self.buttonsColorHex = nil
-//        self.backgroundPrimaryColorHex = nil
-//        self.backgroundSecondaryColorHex = nil
-//        self.backgroundTertiaryColorHex = nil
-//        self.primaryTextColorHex = nil
-//        self.secondaryTextColorHex = nil
-//        self.borderColorHex = nil
-//    }
     
     /// Other public methods for customization
     

@@ -135,13 +135,13 @@ class SegmentationViewController: UIViewController {
         
         switch(DocType.docCategoryIdxToType(categoryIdx: (docData?.category!)!)) {
             case DocType.FOREIGN_PASSPORT:
-                self.animatingImage.image = UIImage.init(named: "img_hand_foreign_passport")
+                self.animatingImage.image = UIImage.init(named: "il_hand_int_neutral")
                 // segmentation_instr_foreign_passport_descr
             case DocType.ID_CARD:
-                self.animatingImage.image = UIImage.init(named: "img_hand_id_card")
+                self.animatingImage.image = UIImage.init(named: "il_hand_id_neutral")
                 //segmentation_instr_id_card_descr
             default:
-                self.animatingImage.image = UIImage.init(named: "img_hand_inner_passport")
+                self.animatingImage.image = UIImage.init(named: "il_hand_ukr_neutral")
                 // segmentation_instr_inner_passport_descr
         }
 
@@ -261,7 +261,6 @@ class SegmentationViewController: UIViewController {
         if (self.livenessSessionTimeoutTimer != nil) {
             self.livenessSessionTimeoutTimer!.cancel()
         }
-                
         self.performSegue(withIdentifier: "SegToCheckDocInfo", sender: nil)
     }
     

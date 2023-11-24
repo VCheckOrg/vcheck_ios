@@ -9,7 +9,7 @@ import Foundation
 
 public struct VCheckDesignConfig : Codable {
     
-    static func fromJsonStr(rawJsonStr: String) -> VCheckDesignConfig {
+    public static func fromJsonStr(rawJsonStr: String) -> VCheckDesignConfig {
         
         if let value = try? JSONDecoder().decode(VCheckDesignConfig.self, from: rawJsonStr.data(using: .utf8)!) {
             return value
@@ -18,6 +18,11 @@ public struct VCheckDesignConfig : Codable {
             return try! JSONDecoder().decode(VCheckDesignConfig.self,
                                              from: VCheckSDKConstants.vcheckDefaultThemeConfig.data(using: .utf8)!)
         }
+    }
+    
+    public static func getDefaultThemeConfig() -> VCheckDesignConfig {
+        return try! JSONDecoder().decode(VCheckDesignConfig.self,
+                                        from: VCheckSDKConstants.vcheckDefaultThemeConfig.data(using: .utf8)!)
     }
     
     let primary : String?
