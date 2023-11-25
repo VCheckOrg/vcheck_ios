@@ -22,8 +22,9 @@ class LivenessInstructionsViewController: UIViewController {
     
     private var currentCycleIdx = 1
     
-    private var isLeftTurnSubCycle: Bool = true
-    
+    private static let HALF_BALL_ANIM_TIME: Int = 1000
+    private static let PHONE_TO_FACE_CYCLE_INTERVAL: Int = 2000
+    private static let FACE_FADE_DURATION: Int = 550
     
     // MARK: - Anim properties
     private var faceAnimationView: LottieAnimationView = LottieAnimationView()
@@ -36,14 +37,18 @@ class LivenessInstructionsViewController: UIViewController {
         leftFadingCircle.backgroundColor = UIColor.systemGreen
                 
         self.timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { _ in
-            if (self.currentCycleIdx == 1) {
-                self.startPhoneAnimCycle()
-            } else if (self.currentCycleIdx == 2) {
-                self.isLeftTurnSubCycle = true
-                self.startFaceSidesAnimation()
-            } else {
-                self.isLeftTurnSubCycle = false
-                self.startFaceSidesAnimation()
+            
+            switch(self.currentCycleIdx) {
+                case 1:
+                    self.startPhoneAnimCycle()
+                case 2:
+                    self.setupOrUpdateFaceAnimation()
+                case 3:
+                    self.setupOrUpdateFaceAnimation()
+                case 4:
+                    self.startMouthOpeningCycle()
+                default:
+                    break;
             }
         })
         self.timer.fire()
@@ -67,8 +72,10 @@ class LivenessInstructionsViewController: UIViewController {
         faceAnimationView.centerXAnchor.constraint(equalTo: animsHolder.centerXAnchor, constant: 4).isActive = true
         faceAnimationView.centerYAnchor.constraint(equalTo: animsHolder.centerYAnchor).isActive = true
         
-        faceAnimationView.heightAnchor.constraint(equalToConstant: 164).isActive = true
-        faceAnimationView.widthAnchor.constraint(equalToConstant: 164).isActive = true
+        //TODO: remove completely
+        //removed all size constraints
+//        faceAnimationView.heightAnchor.constraint(equalToConstant: 164).isActive = true
+//        faceAnimationView.widthAnchor.constraint(equalToConstant: 164).isActive = true
         
         faceAnimationView.loopMode = .loop
         
@@ -77,28 +84,19 @@ class LivenessInstructionsViewController: UIViewController {
         self.currentCycleIdx += 1
     }
     
-    func startFaceSidesAnimation() {
+    func setupOrUpdateFaceAnimation() {
+                
         rightFadingCircle.isHidden = false
         leftFadingCircle.isHidden = false
         arrowAnimationView.isHidden = false
-        self.setupOrUpdateFaceAnimation(forLeftCycle: self.isLeftTurnSubCycle)
-        self.setupOrUpdateArrowAnimation(forLeftCycle: self.isLeftTurnSubCycle)
-        self.fadeInOutCircles(forLeftCycle: !self.isLeftTurnSubCycle)
-        self.isLeftTurnSubCycle = !self.isLeftTurnSubCycle
-        if (self.currentCycleIdx >= 3) {
-            self.currentCycleIdx = 1
-        } else {
-            self.currentCycleIdx += 1
-        }
-    }
-    
-    func setupOrUpdateFaceAnimation(forLeftCycle: Bool) {
         
         animsHolder.subviews.forEach { $0.removeFromSuperview() }
             
-        if (forLeftCycle == true) {
+        if (currentCycleIdx == 2) {
+            fadeViewInThenOut(view: leftFadingCircle, delay: 0.0)
             faceAnimationView = LottieAnimationView(name: "left", bundle: InternalConstants.bundle)
         } else {
+            fadeViewInThenOut(view: rightFadingCircle, delay: 0.0)
             faceAnimationView = LottieAnimationView(name: "right", bundle: InternalConstants.bundle)
         }
         
@@ -109,13 +107,46 @@ class LivenessInstructionsViewController: UIViewController {
         faceAnimationView.centerXAnchor.constraint(equalTo: animsHolder.centerXAnchor, constant: 4).isActive = true
         faceAnimationView.centerYAnchor.constraint(equalTo: animsHolder.centerYAnchor).isActive = true
         
-        faceAnimationView.heightAnchor.constraint(equalToConstant: 310).isActive = true
-        faceAnimationView.widthAnchor.constraint(equalToConstant: 310).isActive = true
+//        faceAnimationView.heightAnchor.constraint(equalToConstant: 310).isActive = true
+//        faceAnimationView.widthAnchor.constraint(equalToConstant: 310).isActive = true
         
         faceAnimationView.loopMode = .loop
         
         faceAnimationView.play()
+        
+        self.currentCycleIdx += 1
     }
+    
+    func startMouthOpeningCycle() {
+        
+        rightFadingCircle.isHidden = true
+        leftFadingCircle.isHidden = true
+        arrowAnimationView.isHidden = true
+        
+        animsHolder.subviews.forEach { $0.removeFromSuperview() }
+        
+        faceAnimationView = LottieAnimationView(name: "mouth", bundle: InternalConstants.bundle)
+        
+        faceAnimationView.contentMode = .scaleAspectFit
+        faceAnimationView.translatesAutoresizingMaskIntoConstraints = false
+        animsHolder.addSubview(faceAnimationView)
+        
+        faceAnimationView.loopMode = .loop
+        
+        faceAnimationView.play()
+        
+        self.currentCycleIdx = 1
+    }
+    
+//
+//         fadeFaceAnimInForTransition()
+//
+//         Handler(Looper.getMainLooper()).postDelayed({
+//             fadeFaceAnimOutForTransition()
+//         }, PHONE_TO_FACE_CYCLE_INTERVAL - FACE_FADE_DURATION)
+//
+//         currentCycleIdx = 1
+//     }
     
     func setupOrUpdateArrowAnimation(forLeftCycle: Bool) {
         
@@ -157,13 +188,15 @@ class LivenessInstructionsViewController: UIViewController {
         arrowAnimationView.play()
     }
     
-    func fadeInOutCircles(forLeftCycle: Bool) {
-        if (forLeftCycle) {
-            fadeViewInThenOut(view: leftFadingCircle, delay: 0.0)
-        } else {
-            fadeViewInThenOut(view: rightFadingCircle, delay: 0.0)
-        }
+    func fadeFaceAnimInForTransition() {
+        
     }
+    
+    func fadeFaceAnimOutForTransition() {
+        
+    }
+    
+    
     
     func fadeViewInThenOut(view : UIView, delay: TimeInterval) {
         let animationDuration = 2.0
