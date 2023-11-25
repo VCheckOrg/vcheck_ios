@@ -127,7 +127,7 @@ public class VCheckSDK {
         if (self.designConfig == nil) {
             print("VCheckSDK - warning: No instance of VCheckDesignConfig was passed while " +
                   "initializing SDK | setting VCheck default theme...")
-            self.designConfig = VCheckDesignConfig.fromJsonStr(rawJsonStr: VCheckSDKConstants.vcheckDefaultThemeConfig)
+            self.designConfig = VCheckDesignConfig.getDefaultThemeConfig()
         }
     }
     
@@ -231,6 +231,10 @@ public class VCheckSDK {
     public func designConfig(config: VCheckDesignConfig) -> VCheckSDK {
         self.designConfig = config
         return self
+    }
+    
+    public func getDesignConfig() -> VCheckDesignConfig {
+        return self.designConfig ?? VCheckDesignConfig.getDefaultThemeConfig()
     }
     
     /// Other public methods for customization

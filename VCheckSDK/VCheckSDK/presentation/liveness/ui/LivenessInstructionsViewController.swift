@@ -22,9 +22,9 @@ class LivenessInstructionsViewController: UIViewController {
     
     private var currentCycleIdx = 1
     
-    private static let HALF_BALL_ANIM_TIME: Int = 1000
-    private static let PHONE_TO_FACE_CYCLE_INTERVAL: Int = 2000
-    private static let FACE_FADE_DURATION: Int = 550
+    private static let HALF_BALL_ANIM_TIME_SEC: TimeInterval = 1
+    private static let PHONE_TO_FACE_CYCLE_INTERVAL_SEC: TimeInterval = 2
+    private static let FACE_FADE_DURATION_SEC: TimeInterval = 0.55
     
     // MARK: - Anim properties
     private var faceAnimationView: LottieAnimationView = LottieAnimationView()
@@ -69,7 +69,7 @@ class LivenessInstructionsViewController: UIViewController {
         faceAnimationView.translatesAutoresizingMaskIntoConstraints = false
         animsHolder.addSubview(faceAnimationView)
         
-        faceAnimationView.centerXAnchor.constraint(equalTo: animsHolder.centerXAnchor, constant: 4).isActive = true
+        faceAnimationView.centerXAnchor.constraint(equalTo: animsHolder.centerXAnchor, constant: 4).isActive = true //?
         faceAnimationView.centerYAnchor.constraint(equalTo: animsHolder.centerYAnchor).isActive = true
         
         //TODO: remove completely
@@ -104,7 +104,7 @@ class LivenessInstructionsViewController: UIViewController {
         faceAnimationView.translatesAutoresizingMaskIntoConstraints = false
         animsHolder.addSubview(faceAnimationView)
         
-        faceAnimationView.centerXAnchor.constraint(equalTo: animsHolder.centerXAnchor, constant: 4).isActive = true
+        faceAnimationView.centerXAnchor.constraint(equalTo: animsHolder.centerXAnchor, constant: 4).isActive = true //?
         faceAnimationView.centerYAnchor.constraint(equalTo: animsHolder.centerYAnchor).isActive = true
         
 //        faceAnimationView.heightAnchor.constraint(equalToConstant: 310).isActive = true
@@ -137,16 +137,6 @@ class LivenessInstructionsViewController: UIViewController {
         
         self.currentCycleIdx = 1
     }
-    
-//
-//         fadeFaceAnimInForTransition()
-//
-//         Handler(Looper.getMainLooper()).postDelayed({
-//             fadeFaceAnimOutForTransition()
-//         }, PHONE_TO_FACE_CYCLE_INTERVAL - FACE_FADE_DURATION)
-//
-//         currentCycleIdx = 1
-//     }
     
     func setupOrUpdateArrowAnimation(forLeftCycle: Bool) {
         
@@ -189,17 +179,16 @@ class LivenessInstructionsViewController: UIViewController {
     }
     
     func fadeFaceAnimInForTransition() {
-        
+        faceAnimationView.fadeIn(duration: LivenessInstructionsViewController.FACE_FADE_DURATION_SEC, delay: 0)
     }
     
     func fadeFaceAnimOutForTransition() {
-        
+        faceAnimationView.fadeOut(duration: LivenessInstructionsViewController.FACE_FADE_DURATION_SEC, delay: 
+                                    LivenessInstructionsViewController.PHONE_TO_FACE_CYCLE_INTERVAL_SEC - LivenessInstructionsViewController.FACE_FADE_DURATION_SEC)
     }
     
-    
-    
     func fadeViewInThenOut(view : UIView, delay: TimeInterval) {
-        let animationDuration = 2.0
+        let animationDuration = LivenessInstructionsViewController.PHONE_TO_FACE_CYCLE_INTERVAL_SEC
         UIView.animate(withDuration: animationDuration, delay: delay,
                        options: [UIView.AnimationOptions.autoreverse,
                                  UIView.AnimationOptions.repeat], animations: {

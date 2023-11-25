@@ -30,36 +30,48 @@ class SegmentationStartViewController: UIViewController {
         
         btnContinue.addGestureRecognizer(
             UITapGestureRecognizer(target: self, action: #selector (self.startSegSession(_:))))
-        
-        //TODO: re-color images same as icons
-        
+                
         if let category = VCheckSDKLocalDatasource.shared.getSelectedDocTypeWithData()?.category {
             switch (DocType.docCategoryIdxToType(categoryIdx: category)) {
                 case DocType.ID_CARD:
                     //skip 1st z-layer image setting for id card doc type
-                    imgDocBack1.isHidden = true
-                    imgDocBack2.image = UIImage.init(named: "il_doc_id_card_back_2")
-                    imgDocMid.image = UIImage.init(named: "il_doc_id_card_mid")
-                    imgDocFront.image = UIImage.init(named: "il_doc_id_card_avatar")
-                    tvInstrTtile.text = "segmentation_instr_id_card_title".localized
-                    tvInstDescription.text = "segmentation_instr_id_card_descr".localized
+                    self.imgDocBack1.isHidden = true
+                    self.imgDocBack2.image = UIImage.init(named: "il_doc_id_card_back_2")
+                    self.imgDocMid.image = UIImage.init(named: "il_doc_id_card_mid")
+                    self.imgDocFront.image = UIImage.init(named: "il_doc_id_card_avatar")
+                    self.tvInstrTtile.text = "segmentation_instr_id_card_title".localized
+                    self.tvInstDescription.text = "segmentation_instr_id_card_descr".localized
                 case DocType.FOREIGN_PASSPORT:
-                    imgDocBack1.isHidden = false
-                    imgDocBack1.image = UIImage.init(named: "il_doc_int_back_1")
-                    imgDocBack2.image = UIImage.init(named: "il_doc_int_back_2")
-                    imgDocMid.image = UIImage.init(named: "il_doc_int_mid")
-                    imgDocFront.image = UIImage.init(named: "il_doc_int_avatar")
-                    tvInstrTtile.text = "segmentation_instr_foreign_passport_title".localized
-                    tvInstDescription.text = "segmentation_instr_foreign_passport_descr".localized
+                    self.imgDocBack1.isHidden = false
+                    self.imgDocBack1.image = UIImage.init(named: "il_doc_int_back_1")
+                    self.imgDocBack2.image = UIImage.init(named: "il_doc_int_back_2")
+                    self.imgDocMid.image = UIImage.init(named: "il_doc_int_mid")
+                    self.imgDocFront.image = UIImage.init(named: "il_doc_int_avatar")
+                    self.tvInstrTtile.text = "segmentation_instr_foreign_passport_title".localized
+                    self.tvInstDescription.text = "segmentation_instr_foreign_passport_descr".localized
                 default:
-                    imgDocBack1.isHidden = false
-                    imgDocBack1.image = UIImage.init(named: "il_doc_ukr_back_1")
-                    imgDocBack2.image = UIImage.init(named: "il_doc_ukr_back_2")
-                    imgDocMid.image = UIImage.init(named: "il_doc_ukr_mid")
-                    imgDocFront.image = UIImage.init(named: "il_doc_ukr_avatar")
-                    tvInstrTtile.text = "segmentation_instr_inner_passport_title".localized
-                    tvInstDescription.text = "segmentation_instr_inner_passport_descr".localized
+                    self.imgDocBack1.isHidden = false
+                    self.imgDocBack1.image = UIImage.init(named: "il_doc_ukr_back_1")
+                    self.imgDocBack2.image = UIImage.init(named: "il_doc_ukr_back_2")
+                    self.imgDocMid.image = UIImage.init(named: "il_doc_ukr_mid")
+                    self.imgDocFront.image = UIImage.init(named: "il_doc_ukr_avatar")
+                    self.tvInstrTtile.text = "segmentation_instr_inner_passport_title".localized
+                    self.tvInstDescription.text = "segmentation_instr_inner_passport_descr".localized
             }
+            
+            if let primaryColor = VCheckSDK.shared.designConfig!.primary {
+                self.imgDocFront.tintColor = primaryColor.hexToUIColor()
+            }
+            if let primaryTextColor = VCheckSDK.shared.designConfig!.primaryTextColorHex {
+                self.imgDocMid.tintColor = primaryTextColor.hexToUIColor()
+            }
+            if let bgSecondaryColor = VCheckSDK.shared.designConfig!.backgroundSecondaryColorHex {
+                self.imgDocBack2.tintColor = bgSecondaryColor.hexToUIColor()
+            }
+            if let bgColor = VCheckSDK.shared.designConfig!.primaryBg {
+                self.imgDocBack1.tintColor = bgColor.hexToUIColor()
+            }
+            
         } else {
             print("VCheck SDK - error: no Selected Doc Type With Data provided for seg start view controller")
         }

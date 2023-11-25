@@ -24,12 +24,6 @@ extension UIViewController {
     }
 }
 
-extension UIImage {
-  convenience init?(named: String) {
-      self.init(named: named, in: InternalConstants.bundle, compatibleWith: nil)
-  }
-}
-
 extension Text {
 init(textKey: LocalizedStringKey) {
     self.init(textKey, bundle: InternalConstants.bundle)
@@ -63,6 +57,30 @@ extension UIView {
 
     @objc private func onClickAction() {
         onClickClosure()
+    }
+    
+    public var viewWidth: CGFloat {
+        return self.frame.size.width
+    }
+
+    public var viewHeight: CGFloat {
+        return self.frame.size.height
+    }
+    
+    func fadeIn(duration: TimeInterval = 0.5, delay: TimeInterval = 0.0,
+                _ completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
+        UIView.animate(withDuration: duration, delay: delay,
+                       options: UIView.AnimationOptions.curveEaseIn, animations: {
+            self.alpha = 1.0
+        }, completion: completion)
+    }
+
+    func fadeOut(duration: TimeInterval = 0.5, delay: TimeInterval = 1.0,
+                 _ completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in}) {
+        UIView.animate(withDuration: duration, delay: delay,
+                       options: UIView.AnimationOptions.curveEaseIn, animations: {
+            self.alpha = 0.3
+        }, completion: completion)
     }
 }
 
@@ -99,6 +117,11 @@ extension CIImage {
 }
 
 extension UIImage {
+    
+    convenience init?(named: String) {
+        self.init(named: named, in: InternalConstants.bundle, compatibleWith: nil)
+    }
+    
     func rotate(radians: Float) -> UIImage? {
         var newSize = CGRect(origin: CGPoint.zero, size: self.size).applying(CGAffineTransform(rotationAngle: CGFloat(radians))).size
         // Trim off the extremely small float value to prevent core graphics from rounding it up
@@ -120,9 +143,6 @@ extension UIImage {
 
         return newImage
     }
-}
-
-extension UIImage {
     
     func cropWithMask() -> UIImage? {
         
@@ -156,14 +176,3 @@ extension UIImage {
             return image
         }
 }
-
-extension UIView {
-    public var viewWidth: CGFloat {
-        return self.frame.size.width
-    }
-
-    public var viewHeight: CGFloat {
-        return self.frame.size.height
-    }
-}
-

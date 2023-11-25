@@ -99,11 +99,6 @@ class ChooseCountryViewController : UIViewController {
                     tvSelectedCountryFlag.text = selectedCountry.flag
                 }
             }
-            
-       } else {
-           // obsolete logic:
-           //tvSelectedCountryName.text = countries[0].name
-           //tvSelectedCountryFlag.text = countries[0].flag
        }
     }
     
