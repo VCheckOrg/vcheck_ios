@@ -1317,7 +1317,6 @@
                         <outlet property="imgDocBack2" destination="19K-IK-Z89" id="ihh-AU-mgD"/>
                         <outlet property="imgDocFront" destination="foa-UO-cUM" id="z6r-0a-HqL"/>
                         <outlet property="imgDocMid" destination="JAH-bs-ycW" id="LWN-kt-5hZ"/>
-                        <outlet property="imgDocumentType" destination="oNP-ag-RoD" id="qsY-11-fCG"/>
                         <outlet property="tvInstDescription" destination="w2I-Vr-HHn" id="7ir-gd-b3Z"/>
                         <outlet property="tvInstrTtile" destination="UJr-ZK-4ZA" id="Tzd-cq-Xbk"/>
                         <segue destination="O79-4Z-3ia" kind="show" identifier="SegStartToSession" id="1rZ-kp-9ka"/>
@@ -4251,17 +4250,17 @@
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="RFh-rd-SoL"/>
-        <segue reference="gQf-Uj-Uvk"/>
-        <segue reference="6Dz-L8-h7I"/>
-        <segue reference="hbx-PL-eMi"/>
+        <segue reference="kXI-2G-rjV"/>
+        <segue reference="GAO-QE-GuP"/>
+        <segue reference="ZOg-Lf-JSX"/>
         <segue reference="mdJ-XX-Wrm"/>
         <segue reference="jgI-ud-yDM"/>
         <segue reference="aNL-NU-f9y"/>
         <segue reference="MdT-K5-jp1"/>
         <segue reference="Sim-Fk-0cQ"/>
-        <segue reference="Cj4-0s-twM"/>
-        <segue reference="riI-uo-ZBO"/>
-        <segue reference="thq-za-677"/>
+        <segue reference="dMs-gB-ZC7"/>
+        <segue reference="zJe-KO-wvN"/>
+        <segue reference="HKh-3c-Vf4"/>
         <segue reference="1rZ-kp-9ka"/>
     </inferredMetricsTieBreakers>
     <resources>

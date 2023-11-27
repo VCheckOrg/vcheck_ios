@@ -101,28 +101,40 @@ public class VCheckSDK {
             print("VCheckSDK - warning: using DEV environment | see VCheckSDK.shared.environment(env: VCheckEnvironment)")
         }
         if (self.verificationToken == nil) {
-            throw VCheckError.initError("VCheckSDK - error: proper verification token must be provided | see VCheckSDK.shared.verificationToken(token: String)")
+            let errorStr = "VCheckSDK - error: proper verification token must be provided | see VCheckSDK.shared.verificationToken(token: String)";
+            print(errorStr)
+            throw VCheckError.initError(errorStr)
         }
         if (self.verificationType == nil) {
-            throw VCheckError.initError("VCheckSDK - error: proper verification type must be provided | see VCheckSDK.shared.verificationType(type: VerificationSchemeType)")
+            let errorStr = "VCheckSDK - error: proper verification type must be provided | see VCheckSDK.shared.verificationType(type: VerificationSchemeType)"
+            print(errorStr)
+            throw VCheckError.initError(errorStr)
         }
         if (self.partnerEndCallback == nil) {
-            throw VCheckError.initError("VCheckSDK - error: partner application's callback function (invoked on SDK flow finish) must be provided | see VCheckSDK.shared.partnerEndCallback(callback: (() -> Void))")
+            let errorStr = "VCheckSDK - error: partner application's callback function (invoked on SDK flow finish) must be provided | see VCheckSDK.shared.partnerEndCallback(callback: (() -> Void))"
+            print(errorStr)
+            throw VCheckError.initError(errorStr)
         }
         if (self.onVerificationExpired == nil) {
-            throw VCheckError.initError("VCheckSDK - error: partner application's onVerificationExpired function " +
-                 "(invoked on SDK's current verification expiration case) must be provided by partner app | " +
-                 "see VCheckSDK.shared.onVerificationExpired(callback: (() -> Void))")
+            let errorStr = "VCheckSDK - error: partner application's onVerificationExpired function " +
+                "(invoked on SDK's current verification expiration case) must be provided by partner app | " +
+                "see VCheckSDK.shared.onVerificationExpired(callback: (() -> Void))"
+            print(errorStr)
+            throw VCheckError.initError(errorStr)
         }
         if (self.sdkLanguageCode == nil) {
-            throw VCheckError.initError("VCheckSDK - warning: sdk language code is not set; using English (en) locale as default. " +
-                            "| see VCheckSDK.shared.sdkLanguageCode(langCode: String)")
+            let errorStr = "VCheckSDK - warning: sdk language code is not set; using English (en) locale as default. " +
+                "| see VCheckSDK.shared.sdkLanguageCode(langCode: String)"
+            print(errorStr)
+            throw VCheckError.initError(errorStr)
         }
         if (self.sdkLanguageCode != nil && !VCheckSDKConstants
                 .vcheckSDKAvailableLanguagesList.contains((self.sdkLanguageCode?.lowercased())!)) {
-            throw VCheckError.initError("VCheckSDK - error: SDK is not localized with [$sdkLanguageCode] locale yet. " +
-                    "You may set one of the next locales: ${VCheckSDKConstantsProvider.vcheckSDKAvailableLanguagesList}, " +
-                    "or check out for the recent version of the SDK library")
+            let errorStr = "VCheckSDK - error: SDK is not localized with [$sdkLanguageCode] locale yet. " +
+                "You may set one of the next locales: ${VCheckSDKConstantsProvider.vcheckSDKAvailableLanguagesList}, " +
+                "or check out for the recent version of the SDK library"
+            print(errorStr)
+            throw VCheckError.initError(errorStr)
         }
         if (self.designConfig == nil) {
             print("VCheckSDK - warning: No instance of VCheckDesignConfig was passed while " +

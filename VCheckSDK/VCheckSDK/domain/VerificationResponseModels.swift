@@ -8,9 +8,6 @@
 import Foundation
 
 
-import Foundation
-
-
 struct VerificationInitResponse: Codable {
 
   var data      : VerificationInitResponseData?   = VerificationInitResponseData()
@@ -45,7 +42,7 @@ struct VerificationInitResponseData: Codable {
   var status  : Int? = nil
   var locale    : String? = nil
   var returnUrl : String? = nil
-  var theme: String? = nil
+  //removed "theme" property reading : not using in SDK
 
   enum CodingKeys: String, CodingKey {
 
@@ -53,7 +50,6 @@ struct VerificationInitResponseData: Codable {
     case status  = "status"
     case locale    = "locale"
     case returnUrl = "return_url"
-    case theme     = "theme"
   }
 
   init(from decoder: Decoder) throws {
@@ -63,32 +59,8 @@ struct VerificationInitResponseData: Codable {
       status  = try values.decodeIfPresent(Int.self , forKey: .status  )!
       locale    = try values.decodeIfPresent(String.self , forKey: .locale    )
       returnUrl = try values.decodeIfPresent(String.self , forKey: .returnUrl )
-      theme     = try values.decodeIfPresent(String.self    , forKey: .theme     )
     }
 
     init() {}
 
   }
-
-
-struct Config: Codable {
-
-  var theme : String? = nil
-
-  enum CodingKeys: String, CodingKey {
-
-    case theme = "theme"
-  
-  }
-
-  init(from decoder: Decoder) throws {
-    let values = try decoder.container(keyedBy: CodingKeys.self)
-
-    theme = try values.decodeIfPresent(String.self , forKey: .theme )
- 
-  }
-
-  init() {}
-
-}
-

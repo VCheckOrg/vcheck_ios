@@ -79,7 +79,7 @@ extension UIView {
                  _ completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in}) {
         UIView.animate(withDuration: duration, delay: delay,
                        options: UIView.AnimationOptions.curveEaseIn, animations: {
-            self.alpha = 0.3
+            self.alpha = 0 // 0.3
         }, completion: completion)
     }
 }

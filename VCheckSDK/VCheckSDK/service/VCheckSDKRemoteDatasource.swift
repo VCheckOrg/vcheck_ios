@@ -138,7 +138,7 @@ struct VCheckSDKRemoteDatasource {
         let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
         
         AF.request(url, method: .put, headers: headers)
-          .validate()  //response returned an HTTP status code in the range 200–299 //!
+          //.validate()  //response returned an HTTP status code in the range 200–299 //!
           .responseDecodable(of: VerificationInitResponse.self) { (response) in
             guard let response = response.value else {
                 completion(nil, VCheckApiError(errorText: "initVerification: " + response.error!.localizedDescription,
