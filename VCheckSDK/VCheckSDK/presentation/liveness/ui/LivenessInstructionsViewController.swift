@@ -220,13 +220,4 @@ class LivenessInstructionsViewController: UIViewController {
         self.leftFadingCircle.fadeIn(duration: 1, delay: 0)
         self.leftFadingCircle.fadeOut(duration: 1, delay: 1)
     }
-    
-//    func fadeViewInThenOut(view : UIView, delay: TimeInterval) {
-//        let animationDuration = LivenessInstructionsViewController.PHONE_TO_FACE_CYCLE_INTERVAL_SEC
-//        UIView.animate(withDuration: animationDuration, delay: delay,
-//                       options: [UIView.AnimationOptions.autoreverse,
-//                                 UIView.AnimationOptions.repeat], animations: {
-//            view.alpha = 0
-//        }, completion: nil)
-//    }
 }

@@ -301,8 +301,8 @@ extension LivenessScreenViewController {
         let frameSize = CGSize(width: self.indicationFrame.viewWidth, height: self.indicationFrame.viewHeight)
         
         let pathBigRect = UIBezierPath(rect: self.view.bounds)
-        let circleCenter = CGPoint(x: self.view.viewWidth / 2, y: self.view.viewHeight / 2)
-        let circleRadius = (min(frameSize.width, frameSize.height) / 2) - 12
+        let circleCenter = CGPoint(x: self.view.viewWidth / 2, y: (self.view.viewHeight / 2) - 30) // was - 0
+        let circleRadius = (min(frameSize.width, frameSize.height) / 2) - 22 //was
         
         let pathSmallCircle = UIBezierPath(arcCenter: circleCenter,
                                            radius: circleRadius,

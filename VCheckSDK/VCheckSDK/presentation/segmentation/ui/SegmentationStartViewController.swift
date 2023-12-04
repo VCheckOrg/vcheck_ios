@@ -60,16 +60,18 @@ class SegmentationStartViewController: UIViewController {
             }
             
             if let primaryColor = VCheckSDK.shared.designConfig!.primary {
-                self.imgDocFront.tintColor = primaryColor.hexToUIColor()
+                self.imgDocFront.image = self.imgDocFront.image!.withTintColor(primaryColor.hexToUIColor())
             }
             if let primaryTextColor = VCheckSDK.shared.designConfig!.primaryTextColorHex {
-                self.imgDocMid.tintColor = primaryTextColor.hexToUIColor()
-            }
-            if let bgSecondaryColor = VCheckSDK.shared.designConfig!.backgroundSecondaryColorHex {
-                self.imgDocBack2.tintColor = bgSecondaryColor.hexToUIColor()
+                self.imgDocMid.image = self.imgDocMid.image!.withTintColor(primaryTextColor.hexToUIColor())
             }
             if let bgColor = VCheckSDK.shared.designConfig!.primaryBg {
-                self.imgDocBack1.tintColor = bgColor.hexToUIColor()
+                self.imgDocBack1.image = self.imgDocBack1.image!.withTintColor(bgColor.hexToUIColor())
+            }
+            if let bgSecondaryColor = VCheckSDK.shared.designConfig!.backgroundSecondaryColorHex {
+                if (DocType.docCategoryIdxToType(categoryIdx: category) != DocType.ID_CARD) {
+                    self.imgDocBack2.image = self.imgDocBack2.image!.withTintColor(bgSecondaryColor.hexToUIColor())
+                }
             }
             
         } else {

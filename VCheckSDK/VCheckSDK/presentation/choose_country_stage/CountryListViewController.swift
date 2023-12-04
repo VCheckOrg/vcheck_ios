@@ -129,6 +129,8 @@ extension CountryListViewController: UITableViewDataSource {
             (cell as! BlockedCountryViewCell).setNACountry()
         }
         
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
+        
         return cell
     }
     

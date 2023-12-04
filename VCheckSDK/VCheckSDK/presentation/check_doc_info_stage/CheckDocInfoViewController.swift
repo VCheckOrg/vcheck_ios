@@ -238,6 +238,7 @@ extension CheckDocInfoViewController: UITableViewDataSource {
         
         if let pct = (VCheckSDK.shared.designConfig!.primaryTextColorHex) {
             cell.docTextField.textColor = pct.hexToUIColor()
+            cell.docTextField.tintColor = pct.hexToUIColor()
         }
         
         var title = ""

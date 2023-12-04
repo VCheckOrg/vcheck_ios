@@ -18,11 +18,17 @@ class VideoProcessingViewController: UIViewController {
     var livenessVC: LivenessScreenViewController? = nil
     
     @IBOutlet weak var videoProcessingIndicator: UIActivityIndicatorView!
-        
+    
     var videoFileURL: URL?
-        
+    
+    @IBOutlet weak var tvTitle: PrimaryTextView!
+    @IBOutlet weak var tvDescription: SecondaryTextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tvTitle.text = "in_process_title".localized
+        self.tvDescription.text = "in_process_description".localized
         
         videoProcessingIndicator.isHidden = false
         
