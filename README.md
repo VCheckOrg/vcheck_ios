@@ -26,24 +26,17 @@ import VCheckSDK
 VCheckSDK.shared
             .verificationToken(token: token)
             .verificationType(type: verifType)
-            .languageCode(langCode: self.langCode)
+            .languageCode(langCode: langCode)
             .environment(env: VCheckEnvironment.DEV)
             .showPartnerLogo(show: false)
             .showCloseSDKButton(show: true)
+            .designConfig(config: yourDesignConfig)
             .partnerEndCallback(callback: {
                 self.onSDKFlowFinished()
             })
             .onVerificationExpired(callback: {
                 self.onVerificationExpired()
             })
-            .colorBackgroundSecondary(colorHex: self.backSecondaryColorHex)
-            .colorBackgroundPrimary(colorHex: self.backPrimaryColorHex)
-            .colorBackgroundTertiary(colorHex: self.backTertiaryColorHex)
-            .colorBorders(colorHex: self.bordersColorHex)
-            .colorTextPrimary(colorHex: self.primaryTextColorHex)
-            .colorTextSecondary(colorHex: self.secondaryTextColorHex)
-            .colorActionButtons(colorHex: self.primaryButtonColorHex)
-            .colorIcons(colorHex: self.iconsColorHex)
             .start(partnerAppRW: (getOwnSceneDelegate()?.window!)!,
                     partnerAppVC: self,
                     replaceRootVC: true)
