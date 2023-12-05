@@ -490,12 +490,3 @@ extension UIViewController: UITextFieldDelegate {
         return true
     }
 }
-
-//TODO: improve UX
-//        viewModel.updateLoadingStatus = {
-//            if (self.viewModel.isLoading == true) {
-//                //self.activityIndicatorStart()
-//            } else {
-//               // self.activityIndicatorStop()
-//            }
-//        }
