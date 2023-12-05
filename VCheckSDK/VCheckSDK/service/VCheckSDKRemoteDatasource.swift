@@ -88,6 +88,8 @@ struct VCheckSDKRemoteDatasource {
         let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
         
         AF.request(url, method: .put, parameters: jsonData, encoding: JSONEncoding.default, headers: headers)
+        //.validate()  //response returned an HTTP status code in the range 200–299
+        //validation is removed for logical reasons
             .response(completionHandler: { (response) in
             guard response.value != nil else {
                 completion(false, VCheckApiError(errorText: "initProvider: " + response.error!.localizedDescription,
@@ -136,7 +138,7 @@ struct VCheckSDKRemoteDatasource {
         let headers: HTTPHeaders = ["Authorization" : "Bearer \(String(describing: token))"]
         
         AF.request(url, method: .put, headers: headers)
-          .validate()  //response returned an HTTP status code in the range 200–299
+          //.validate()  //response returned an HTTP status code in the range 200–299 //!
           .responseDecodable(of: VerificationInitResponse.self) { (response) in
             guard let response = response.value else {
                 completion(nil, VCheckApiError(errorText: "initVerification: " + response.error!.localizedDescription,
@@ -149,7 +151,7 @@ struct VCheckSDKRemoteDatasource {
                                                  errorCode: response.errorCode))
                 return
             }
-            // here, we're not checking result with checkIfUserInteractionCompleted(errorCode: response.errorCode)
+            checkIfUserInteractionCompletedForResult(errorCode: response.errorCode)
             completion(response.data, nil)
             return
           }
@@ -203,10 +205,11 @@ struct VCheckSDKRemoteDatasource {
             }
               if (response.errorCode != nil && response.errorCode != 0) {
                   completion(nil, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
-                                           + "\(response.message ?? "")", errorCode: response.errorCode))
+                                           + "\(response.message ?? "")",
+                                                 errorCode: response.errorCode))
                   return
               }
-              // here, we're not checking result with checkIfUserInteractionCompleted(errorCode: response.errorCode)
+              checkIfUserInteractionCompletedForResult(errorCode: response.errorCode)
               completion(response.data, nil)
               return
           }
@@ -254,10 +257,8 @@ struct VCheckSDKRemoteDatasource {
                         return
                     }
                     if (response.response?.statusCode != 200) {
-                        checkIfUserInteractionCompletedForResult(errorCode: resp.errorCode)
-                        
-                        completion(resp, VCheckApiError(errorText: "\(String(describing: resp.errorCode)): "
-                                                 + "\(resp.message ?? "")", errorCode: resp.errorCode))
+                        completion(resp, VCheckApiError(errorText: response.value?.message ?? "Error",
+                                                         errorCode: response.response?.statusCode))
                         return
                     }
                     completion(resp, nil)
@@ -287,10 +288,11 @@ struct VCheckSDKRemoteDatasource {
             }
             if (response.errorCode != nil && response.errorCode != 0) {
                completion(nil, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
-                                        + "\(response.message ?? "")", errorCode: response.errorCode))
+                                        + "\(response.message ?? "")",
+                                              errorCode: response.errorCode))
                return
             }
-            // here, we're not checking result with checkIfUserInteractionCompleted(errorCode: response.errorCode)
+            checkIfUserInteractionCompletedForResult(errorCode: response.errorCode)
             completion(response.data, nil)
             return
         }
@@ -363,7 +365,8 @@ struct VCheckSDKRemoteDatasource {
                     checkIfUserInteractionCompletedForResult(errorCode: response.errorCode)
                     if (response.errorCode != nil && response.errorCode != 0) {
                        completion(nil, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
-                                                + "\(response.message ?? "")", errorCode: response.errorCode))
+                                                + "\(response.message ?? "")",
+                                                      errorCode: response.errorCode))
                        return
                     }
                     completion(response.data, nil)
@@ -447,7 +450,8 @@ struct VCheckSDKRemoteDatasource {
                 }
                 if (response.errorCode != nil && response.errorCode != 0) {
                    completion(nil, VCheckApiError(errorText: "\(String(describing: response.errorCode)): "
-                                            + "\(response.message ?? "")", errorCode: response.errorCode))
+                                            + "\(response.message ?? "")",
+                                                  errorCode: response.errorCode))
                    return
                 }
                 // here, we're not checking result with checkIfUserInteractionCompleted(errorCode: response.errorCode)

@@ -42,7 +42,7 @@ struct VerificationInitResponseData: Codable {
   var status  : Int? = nil
   var locale    : String? = nil
   var returnUrl : String? = nil
-  //removed "theme" property reading; not used in SDK ATM
+  //removed "theme" property reading : not using in SDK
 
   enum CodingKeys: String, CodingKey {
 

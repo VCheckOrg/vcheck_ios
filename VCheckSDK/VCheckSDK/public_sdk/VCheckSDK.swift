@@ -40,18 +40,7 @@ public class VCheckSDK {
     internal var showPartnerLogo: Bool = false
     internal var showCloseSDKButton: Bool = true
     
-    internal var iconsColorHex: String? = nil
-    internal var buttonsColorHex: String? = nil
-    internal var backgroundPrimaryColorHex: String? = nil
-    internal var backgroundSecondaryColorHex: String? = nil
-    internal var backgroundTertiaryColorHex: String? = nil
-    internal var primaryTextColorHex: String? = nil
-    internal var secondaryTextColorHex: String? = nil
-    internal var borderColorHex: String? = nil
-    
-    private let wrongColorFormatPickDescr: String = "VCheckSDK - error: if provided, " +
-            "custom color should be a valid HEX string (RGB or ARGB). Ex.: '#2A2A2A' or '#abdbe3'"
-     
+    internal var designConfig: VCheckDesignConfig? = nil
 
     public func start(partnerAppRW: UIWindow,
                       partnerAppVC: UIViewController,
@@ -63,7 +52,8 @@ public class VCheckSDK {
         self.partnerAppViewController = partnerAppVC
         self.changeRootViewController = replaceRootVC
         
-        if (preStartChecksPassed()) {
+        do {
+            try makePreStartChecks()
             
             if (self.changeRootViewController == false) {
                 partnerAppViewController!.present(GlobalUtils.getVCheckHomeVC(), animated: true)
@@ -71,6 +61,8 @@ public class VCheckSDK {
                 partnerAppRootWindow!.rootViewController = GlobalUtils.getVCheckHomeVC()
                 partnerAppRootWindow!.makeKeyAndVisible()
             }
+        } catch {
+            print("VCheckSDK - error: SDK was not initialized properly")
         }
     }
     
@@ -100,76 +92,55 @@ public class VCheckSDK {
         }
     }
     
-    private func preStartChecksPassed() -> Bool {
+    private func makePreStartChecks() throws {
         if (self.environment == nil) {
-            print("VCheckSDK - warning: sdk environment is not set | see VCheckSDK.shared.environment(env: VCheckEnvironment)")
+            print("VCheckSDK - warning: sdk environment is not set by partner developer | see VCheckSDK.shared.environment(env: VCheckEnvironment)")
             self.environment = VCheckEnvironment.DEV
         }
         if (self.environment == VCheckEnvironment.DEV) {
             print("VCheckSDK - warning: using DEV environment | see VCheckSDK.shared.environment(env: VCheckEnvironment)")
         }
         if (self.verificationToken == nil) {
-            print("VCheckSDK - error: proper verification token must be provided | see VCheckSDK.shared.verificationToken(token: String)")
-            return false
+            let errorStr = "VCheckSDK - error: proper verification token must be provided | see VCheckSDK.shared.verificationToken(token: String)";
+            print(errorStr)
+            throw VCheckError.initError(errorStr)
         }
         if (self.verificationType == nil) {
-            print("VCheckSDK - error: proper verification type must be provided | see VCheckSDK.shared.verificationType(type: VerificationSchemeType)")
-            return false
+            let errorStr = "VCheckSDK - error: proper verification type must be provided | see VCheckSDK.shared.verificationType(type: VerificationSchemeType)"
+            print(errorStr)
+            throw VCheckError.initError(errorStr)
         }
         if (self.partnerEndCallback == nil) {
-           print("VCheckSDK - error: partner application's callback function (invoked on SDK flow finish) must be provided | see VCheckSDK.shared.partnerEndCallback(callback: (() -> Void))")
-           return false
+            let errorStr = "VCheckSDK - error: partner application's callback function (invoked on SDK flow finish) must be provided | see VCheckSDK.shared.partnerEndCallback(callback: (() -> Void))"
+            print(errorStr)
+            throw VCheckError.initError(errorStr)
         }
         if (self.onVerificationExpired == nil) {
-           print("VCheckSDK - error: partner application's onVerificationExpired function " +
-                 "(invoked on SDK's current verification expiration case) must be provided by partner app | " +
-                 "see VCheckSDK.shared.onVerificationExpired(callback: (() -> Void))")
-           return false
+            let errorStr = "VCheckSDK - error: partner application's onVerificationExpired function " +
+                "(invoked on SDK's current verification expiration case) must be provided by partner app | " +
+                "see VCheckSDK.shared.onVerificationExpired(callback: (() -> Void))"
+            print(errorStr)
+            throw VCheckError.initError(errorStr)
         }
         if (self.sdkLanguageCode == nil) {
-           print("VCheckSDK - warning: sdk language code is not set; using English (en) locale as default. " +
-                            "| see VCheckSDK.shared.sdkLanguageCode(langCode: String)")
+            let errorStr = "VCheckSDK - warning: sdk language code is not set; using English (en) locale as default. " +
+                "| see VCheckSDK.shared.sdkLanguageCode(langCode: String)"
+            print(errorStr)
+            throw VCheckError.initError(errorStr)
         }
         if (self.sdkLanguageCode != nil && !VCheckSDKConstants
                 .vcheckSDKAvailableLanguagesList.contains((self.sdkLanguageCode?.lowercased())!)) {
-            print("VCheckSDK - error: SDK is not localized with [$sdkLanguageCode] locale yet. " +
-                    "You may set one of the next locales: ${VCheckSDKConstantsProvider.vcheckSDKAvailableLanguagesList}, " +
-                    "or check out for the recent version of the SDK library")
-            return false
+            let errorStr = "VCheckSDK - error: SDK is not localized with [$sdkLanguageCode] locale yet. " +
+                "You may set one of the next locales: ${VCheckSDKConstantsProvider.vcheckSDKAvailableLanguagesList}, " +
+                "or check out for the recent version of the SDK library"
+            print(errorStr)
+            throw VCheckError.initError(errorStr)
         }
-        if (self.buttonsColorHex != nil && !self.buttonsColorHex!.isValidHexColor()) {
-            print(wrongColorFormatPickDescr)
-            return false
+        if (self.designConfig == nil) {
+            print("VCheckSDK - warning: No instance of VCheckDesignConfig was passed while " +
+                  "initializing SDK | setting VCheck default theme...")
+            self.designConfig = VCheckDesignConfig.getDefaultThemeConfig()
         }
-        if (self.backgroundPrimaryColorHex != nil && !self.backgroundPrimaryColorHex!.isValidHexColor()) {
-            print(wrongColorFormatPickDescr)
-            return false
-        }
-        if (self.backgroundSecondaryColorHex != nil && !self.backgroundSecondaryColorHex!.isValidHexColor()) {
-            print(wrongColorFormatPickDescr)
-            return false
-        }
-        if (self.backgroundTertiaryColorHex != nil && !self.backgroundTertiaryColorHex!.isValidHexColor()) {
-            print(wrongColorFormatPickDescr)
-            return false
-        }
-        if (self.primaryTextColorHex != nil && !self.primaryTextColorHex!.isValidHexColor()) {
-            print(wrongColorFormatPickDescr)
-            return false
-        }
-        if (self.secondaryTextColorHex != nil && !self.secondaryTextColorHex!.isValidHexColor()) {
-            print(wrongColorFormatPickDescr)
-            return false
-        }
-        if (self.borderColorHex != nil && !self.borderColorHex!.isValidHexColor()) {
-            print(wrongColorFormatPickDescr)
-            return false
-        }
-        if (self.iconsColorHex != nil && !self.iconsColorHex!.isValidHexColor()) {
-            print(wrongColorFormatPickDescr)
-            return false
-        }
-        return true
     }
     
     public func partnerEndCallback(callback: (() -> Void)?) -> VCheckSDK {
@@ -269,56 +240,13 @@ public class VCheckSDK {
     
     ///Color public customization methods:
     
-    public func colorActionButtons(colorHex: String) -> VCheckSDK {
-        self.buttonsColorHex = colorHex
-        return self
-    }
-
-    public func colorBackgroundPrimary(colorHex: String) -> VCheckSDK {
-        self.backgroundPrimaryColorHex = colorHex
-        return self
-    }
-
-    public func colorBackgroundSecondary(colorHex: String) -> VCheckSDK {
-        self.backgroundSecondaryColorHex = colorHex
-        return self
-    }
-
-    public func colorBackgroundTertiary(colorHex: String) -> VCheckSDK {
-        self.backgroundTertiaryColorHex = colorHex
-        return self
-    }
-
-    public func colorTextPrimary(colorHex: String) -> VCheckSDK {
-        self.primaryTextColorHex = colorHex
-        return self
-    }
-
-    public func colorTextSecondary(colorHex: String) -> VCheckSDK {
-        self.secondaryTextColorHex = colorHex
-        return self
-    }
-
-    public func colorBorders(colorHex: String) -> VCheckSDK {
-        self.borderColorHex = colorHex
+    public func designConfig(config: VCheckDesignConfig) -> VCheckSDK {
+        self.designConfig = config
         return self
     }
     
-    public func colorIcons(colorHex: String) -> VCheckSDK {
-        self.iconsColorHex = colorHex
-        return self
-    }
-
-    func resetCustomColors() {
-        self.iconsColorHex = nil
-        //self.colorButtonsText = nil
-        self.buttonsColorHex = nil
-        self.backgroundPrimaryColorHex = nil
-        self.backgroundSecondaryColorHex = nil
-        self.backgroundTertiaryColorHex = nil
-        self.primaryTextColorHex = nil
-        self.secondaryTextColorHex = nil
-        self.borderColorHex = nil
+    public func getDesignConfig() -> VCheckDesignConfig {
+        return self.designConfig ?? VCheckDesignConfig.getDefaultThemeConfig()
     }
     
     /// Other public methods for customization

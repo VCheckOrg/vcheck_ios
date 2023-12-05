@@ -56,7 +56,7 @@ class CheckDocInfoViewController : UIViewController {
         
         self.docFieldsTableView.dataSource = self
         
-        if let bc = VCheckSDK.shared.backgroundSecondaryColorHex {
+        if let bc = VCheckSDK.shared.designConfig!.backgroundSecondaryColorHex {
             self.docFieldsTableView.setValue(bc.hexToUIColor() , forKey: "tableHeaderBackgroundColor")
             //self.tableFooterView.backgroundColor = bc.hexToUIColor()
         }
@@ -236,8 +236,9 @@ extension CheckDocInfoViewController: UITableViewDataSource {
                 
         let field: DocFieldWitOptPreFilledData = fieldsList[indexPath.row]
         
-        if let pct = (VCheckSDK.shared.primaryTextColorHex) {
+        if let pct = (VCheckSDK.shared.designConfig!.primaryTextColorHex) {
             cell.docTextField.textColor = pct.hexToUIColor()
+            cell.docTextField.tintColor = pct.hexToUIColor()
         }
         
         var title = ""
@@ -282,7 +283,7 @@ extension CheckDocInfoViewController: UITableViewDataSource {
         
         if (fieldName == "date_of_birth") {
             var hintColor: UIColor? = nil
-            if let pc = VCheckSDK.shared.secondaryTextColorHex {
+            if let pc = VCheckSDK.shared.designConfig!.secondaryTextColorHex {
                 hintColor = pc.hexToUIColor()
             } else {
                 hintColor = UIColor.white
@@ -296,7 +297,7 @@ extension CheckDocInfoViewController: UITableViewDataSource {
         
         if (fieldName == "expiration_date") {
             var hintColor: UIColor? = nil
-            if let pc = VCheckSDK.shared.secondaryTextColorHex {
+            if let pc = VCheckSDK.shared.designConfig!.secondaryTextColorHex {
                 hintColor = pc.hexToUIColor()
             } else {
                 hintColor = UIColor.white
@@ -489,12 +490,3 @@ extension UIViewController: UITextFieldDelegate {
         return true
     }
 }
-
-//TODO: improve UX
-//        viewModel.updateLoadingStatus = {
-//            if (self.viewModel.isLoading == true) {
-//                //self.activityIndicatorStart()
-//            } else {
-//               // self.activityIndicatorStop()
-//            }
-//        }

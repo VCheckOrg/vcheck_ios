@@ -23,6 +23,7 @@ class CheckDocPhotoViewController : UIViewController {
     @IBOutlet weak var imgViewPhotoSecond: UIImageView!
     
     @IBOutlet weak var remakeDocPhotosBtn: VCheckSDKRoundedView!
+    
     @IBOutlet weak var confirmUploadPhotosBtn: UIButton!
     
     @IBOutlet weak var zoomFirstPhotoBtn: UIImageView!

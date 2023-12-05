@@ -155,5 +155,8 @@
 "doc_verif_default_title" = "Weryfikacja dokumentu nie powiodła się";
 "doc_verif_default_text" = "Z jakiegoś powodu nie mogliśmy załadować zawartości tej strony. Spróbuj ponownie załadować stronę";
 
+"in_process_title" = "Proszę czekać";
+"in_process_description" = "To może zająć troche czasu.";
+
 /* Default action */
 "OK" = "";

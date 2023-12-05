@@ -136,6 +136,8 @@
 "doc_verif_default_title" = "Document verification is not successful";
 "doc_verif_default_text" = "For some reason, we were unable to download the content of this page. Try reloading the page.";
 
+"in_process_title" = "Please, wait";
+"in_process_description" = "This may take some time";
+
 /* Default action */
 "OK" = "";
-

@@ -126,34 +126,3 @@ struct PriorityCountries: Codable {
   }
 
 }
-
-//obsolete
-//struct ProviderInitResponse: Codable {
-//
-//  var data      : ProviderInitResponseData? = nil
-//  var errorCode : Int?    = nil
-//  var message   : String? = nil
-//
-//  enum CodingKeys: String, CodingKey {
-//
-//    case data      = "data"
-//    case errorCode = "error_code"
-//    case message   = "message"
-//
-//  }
-//
-//  init(from decoder: Decoder) throws {
-//    let values = try decoder.container(keyedBy: CodingKeys.self)
-//
-//    data      = try values.decodeIfPresent(ProviderInitResponseData.self , forKey: .data)
-//    errorCode = try values.decodeIfPresent(Int.self    , forKey: .errorCode )
-//    message   = try values.decodeIfPresent(String.self , forKey: .message   )
-//
-//  }
-//
-//  init() {
-//  }
-//
-//}
-//
-//struct ProviderInitResponseData: Codable {}

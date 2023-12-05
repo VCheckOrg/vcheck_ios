@@ -64,7 +64,7 @@ internal class LivenessScreenViewController: UIViewController {
         self.indicationFrame.backgroundColor = UIColor.clear
         self.indicationFrame.borderColor = UIColor.systemGreen
         
-        if let bc = VCheckSDK.shared.backgroundSecondaryColorHex {
+        if let bc = VCheckSDK.shared.designConfig!.backgroundSecondaryColorHex {
             self.imgMilestoneChecked.backgroundColor = bc.hexToUIColor()
         }
         
@@ -301,8 +301,8 @@ extension LivenessScreenViewController {
         let frameSize = CGSize(width: self.indicationFrame.viewWidth, height: self.indicationFrame.viewHeight)
         
         let pathBigRect = UIBezierPath(rect: self.view.bounds)
-        let circleCenter = CGPoint(x: self.view.viewWidth / 2, y: self.view.viewHeight / 2)
-        let circleRadius = (min(frameSize.width, frameSize.height) / 2) - 12
+        let circleCenter = CGPoint(x: self.view.viewWidth / 2, y: (self.view.viewHeight / 2) + 40) // was - 0
+        let circleRadius = (min(frameSize.width, frameSize.height) / 2) - 16
         
         let pathSmallCircle = UIBezierPath(arcCenter: circleCenter,
                                            radius: circleRadius,
@@ -315,7 +315,7 @@ extension LivenessScreenViewController {
         fillLayer.path = pathBigRect.cgPath
         fillLayer.fillRule = CAShapeLayerFillRule.evenOdd
         
-        if let bgColor = VCheckSDK.shared.backgroundSecondaryColorHex {
+        if let bgColor = VCheckSDK.shared.designConfig!.backgroundSecondaryColorHex {
             fillLayer.fillColor = bgColor.hexToUIColor().cgColor
         } else {
             fillLayer.fillColor = UIColor(named: "CardColor", in: InternalConstants.bundle, compatibleWith: nil)?.cgColor
@@ -325,7 +325,7 @@ extension LivenessScreenViewController {
         self.view.layer.insertSublayer(fillLayer, at: 1)
 
         let circlePath = UIBezierPath(arcCenter: circleCenter,
-                                      radius: circleRadius, // -4
+                                      radius: circleRadius,
                                       startAngle: 0,
                                       endAngle: CGFloat.pi * 2,
                                       clockwise: true)
@@ -334,7 +334,7 @@ extension LivenessScreenViewController {
         shapeCircleLayer.path = circlePath.cgPath
         shapeCircleLayer.fillColor = UIColor.clear.cgColor
         
-        if let shapeColor = VCheckSDK.shared.borderColorHex {
+        if let shapeColor = VCheckSDK.shared.designConfig!.sectionBorderColorHex {
             shapeCircleLayer.strokeColor = shapeColor.hexToUIColor().cgColor
         } else {
             shapeCircleLayer.strokeColor = UIColor(named: "borderColor", in: InternalConstants.bundle, compatibleWith: nil)?.cgColor
@@ -404,23 +404,12 @@ extension LivenessScreenViewController {
         faceAnimationView.contentMode = .scaleAspectFit
         faceAnimationView.translatesAutoresizingMaskIntoConstraints = false
         roundedView.addSubview(faceAnimationView)
-
-        faceAnimationView.centerXAnchor.constraint(equalTo: roundedView.centerXAnchor, constant: 4).isActive = true
-        if (forMilestoneType == GestureMilestoneType.DownHeadPitchMilestone) {
-            faceAnimationView.centerYAnchor.constraint(equalTo: roundedView.centerYAnchor, constant: 4).isActive = true
-        } else if (forMilestoneType == GestureMilestoneType.UpHeadPitchMilestone) {
-            faceAnimationView.centerYAnchor.constraint(equalTo: roundedView.centerYAnchor, constant: -4).isActive = true
-        } else {
-            faceAnimationView.centerYAnchor.constraint(equalTo: roundedView.centerYAnchor).isActive = true
-        }
-
-        if (forMilestoneType == GestureMilestoneType.StraightHeadCheckMilestone) {
-            faceAnimationView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-            faceAnimationView.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        } else {
-            faceAnimationView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-            faceAnimationView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        }
+        
+        faceAnimationView.centerXAnchor.constraint(equalTo: roundedView.centerXAnchor).isActive = true
+        faceAnimationView.centerYAnchor.constraint(equalTo: roundedView.centerYAnchor).isActive = true
+        
+        faceAnimationView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        faceAnimationView.widthAnchor.constraint(equalToConstant: 100).isActive = true
     }
 
     func setupOrUpdateArrowAnimation(forMilestoneType: GestureMilestoneType) {
@@ -521,13 +510,26 @@ extension LivenessScreenViewController {
 
     func updateFaceAnimation() {
         if (self.blockStageIndicationByUI == false) {
-            DispatchQueue.main.async {
-                let toProgress = self.faceAnimationView.realtimeAnimationProgress
-                if (toProgress >= 0.99) {
-                    self.faceAnimationView.play(toProgress: toProgress - 0.99)
+            if (self.milestoneFlow.getCurrentStage() != GestureMilestoneType.StraightHeadCheckMilestone) {
+                DispatchQueue.main.async {
+                    let toProgress = self.faceAnimationView.realtimeAnimationProgress
+                    if (toProgress >= 0.99) {
+                        self.faceAnimationView.play(toProgress: toProgress - 0.99)
+                    }
+                    if (toProgress <= 0.01) {
+                        self.faceAnimationView.play(toProgress: toProgress + 1)
+                    }
                 }
-                if (toProgress <= 0.01) {
-                    self.faceAnimationView.play(toProgress: toProgress + 1)
+            } else {
+                //workaround for broken lottie animation for sraight head check
+                DispatchQueue.main.async {
+                    let toProgress = self.faceAnimationView.realtimeAnimationProgress
+                    if (toProgress >= 0.8) {
+                        self.faceAnimationView.play(toProgress: toProgress - 0.8)
+                    }
+                    if (toProgress <= 0.01) {
+                        self.faceAnimationView.play(toProgress: toProgress + 1)
+                    }
                 }
             }
         }
