@@ -228,14 +228,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		DA35CF86289D520700E22914 /* segmentation */ = {
+		DA35CF86289D520700E22914 /* doc_photo_auto_parsing */ = {
 			isa = PBXGroup;
 			children = (
 				DA48073028A3D18B00B27C72 /* ui */,
 				DA3FD7F828A1338100C125F0 /* utils */,
 				DA35CF87289D523E00E22914 /* SegmentationViewController.swift */,
 			);
-			path = segmentation;
+			path = doc_photo_auto_parsing;
 			sourceTree = "<group>";
 		};
 		DA3BED472869A69D00B15E5C = {
@@ -325,15 +325,15 @@
 		DA3BED802869A8D300B15E5C /* presentation */ = {
 			isa = PBXGroup;
 			children = (
-				DAD302EE29E6E9150057C58E /* provider */,
 				DA3BEDAA2869A8D300B15E5C /* common */,
-				DA35CF86289D520700E22914 /* segmentation */,
-				DA3BED812869A8D300B15E5C /* liveness */,
 				DA3BED982869A8D300B15E5C /* start */,
-				DA3BED9B2869A8D300B15E5C /* doc_type_stage */,
-				DA3BED9E2869A8D300B15E5C /* check_doc_info_stage */,
-				DA3BEDA52869A8D300B15E5C /* choose_country_stage */,
-				DA3BEDAC2869A8D300B15E5C /* photo_upload */,
+				DAD302EE29E6E9150057C58E /* provider */,
+				DA3BEDA52869A8D300B15E5C /* country */,
+				DA3BED9B2869A8D300B15E5C /* doc_type */,
+				DA35CF86289D520700E22914 /* doc_photo_auto_parsing */,
+				DA3BEDAC2869A8D300B15E5C /* doc_photo_manual */,
+				DA3BED9E2869A8D300B15E5C /* doc_check */,
+				DA3BED812869A8D300B15E5C /* liveness */,
 			);
 			path = presentation;
 			sourceTree = "<group>";
@@ -393,16 +393,16 @@
 			path = start;
 			sourceTree = "<group>";
 		};
-		DA3BED9B2869A8D300B15E5C /* doc_type_stage */ = {
+		DA3BED9B2869A8D300B15E5C /* doc_type */ = {
 			isa = PBXGroup;
 			children = (
 				DA3BED9C2869A8D300B15E5C /* ChooseDocTypeViewController.swift */,
 				DA3BED9D2869A8D300B15E5C /* ChooseDocTypeViewModel.swift */,
 			);
-			path = doc_type_stage;
+			path = doc_type;
 			sourceTree = "<group>";
 		};
-		DA3BED9E2869A8D300B15E5C /* check_doc_info_stage */ = {
+		DA3BED9E2869A8D300B15E5C /* doc_check */ = {
 			isa = PBXGroup;
 			children = (
 				DA3BEDA32869A8D300B15E5C /* CheckDocInfoViewController.swift */,
@@ -411,10 +411,10 @@
 				DA3BEDA12869A8D300B15E5C /* DocInfoViewCell.swift */,
 				DA3BEDA22869A8D300B15E5C /* DocPhotoVerifErrorViewController.swift */,
 			);
-			path = check_doc_info_stage;
+			path = doc_check;
 			sourceTree = "<group>";
 		};
-		DA3BEDA52869A8D300B15E5C /* choose_country_stage */ = {
+		DA3BEDA52869A8D300B15E5C /* country */ = {
 			isa = PBXGroup;
 			children = (
 				DA3BEDA62869A8D300B15E5C /* BlockedCountryViewCell.swift */,
@@ -423,7 +423,7 @@
 				DA3BEDA92869A8D300B15E5C /* CountryListViewController.swift */,
 				DA7AD2322A58BB0B007E7C63 /* ChooseCountryViewModel.swift */,
 			);
-			path = choose_country_stage;
+			path = country;
 			sourceTree = "<group>";
 		};
 		DA3BEDAA2869A8D300B15E5C /* common */ = {
@@ -437,7 +437,7 @@
 			path = common;
 			sourceTree = "<group>";
 		};
-		DA3BEDAC2869A8D300B15E5C /* photo_upload */ = {
+		DA3BEDAC2869A8D300B15E5C /* doc_photo_manual */ = {
 			isa = PBXGroup;
 			children = (
 				DA3BEDAE2869A8D300B15E5C /* CheckDocPhotoViewController.swift */,
@@ -446,7 +446,7 @@
 				DA3BEDAF2869A8D300B15E5C /* ZoomedDocPhotoViewController.swift */,
 				DA3BEDB02869A8D300B15E5C /* PhotoInstructionsViewController.swift */,
 			);
-			path = photo_upload;
+			path = doc_photo_manual;
 			sourceTree = "<group>";
 		};
 		DA3BEDB82869A8D300B15E5C /* util */ = {
