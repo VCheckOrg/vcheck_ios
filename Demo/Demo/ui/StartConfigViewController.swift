@@ -10,7 +10,6 @@ import VCheckSDK
 
 class StartConfigViewController: UIViewController {
     
-    
     @IBOutlet weak var partnerIdTitle: UITextView!
     @IBOutlet weak var partnerSecretTitle: UITextView!
     @IBOutlet weak var designConfigTitle: UITextView!
@@ -59,6 +58,9 @@ class StartConfigViewController: UIViewController {
             getOwnSceneDelegate()?.window!.overrideUserInterfaceStyle = .light
         }
         
+        ///Hide keyboard on any outside tap
+        view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
+        
         refreshMenu()
         
         setLocalizedTexts()
@@ -83,7 +85,7 @@ class StartConfigViewController: UIViewController {
     
     @objc func onValidatePartnerData(_ sender: NavGestureRecognizer) {
         
-        if validatePartnerId() && validateDesignConfig() && validateSecret() {
+        if (validatePartnerId() && validateSecret() && validateDesignConfig()) {
             LocalDatasource.shared.setSecret(secret: tfPartnerSecret.text!)
             LocalDatasource.shared.setPartnerId(id: Int(tfPartnerID.text!)!)
             
@@ -95,10 +97,10 @@ class StartConfigViewController: UIViewController {
         let pasteboard = UIPasteboard.general
         
         if let data = pasteboard.string, !data.isEmpty {
-            showToast(message: "clipboard_pasted".localized, seconds: 3.0)
+            showToast(message: "clipboard_pasted".localized, seconds: 1.0)
             return data
         } else {
-            showToast(message: "err_clipboard_has_no_data".localized, seconds: 3.0)
+            showToast(message: "err_clipboard_has_no_data".localized, seconds: 2.0)
             return ""
         }
     }
@@ -178,7 +180,7 @@ class StartConfigViewController: UIViewController {
         if Int(tfPartnerID.text ?? "") != nil {
             return true
         } else {
-            showToast(message: "err_invalid_partner_id".localized, seconds: 3.0)
+            showToast(message: "err_invalid_partner_id".localized, seconds: 2.0)
             return false
         }
     }
@@ -187,7 +189,7 @@ class StartConfigViewController: UIViewController {
         if let data = tfPartnerSecret.text, !data.isEmpty {
             return true
         } else {
-            showToast(message: "err_invalid_partner_secret".localized, seconds: 3.0)
+            showToast(message: "err_invalid_partner_secret".localized, seconds: 2.0)
             return false
         }
     }
@@ -207,8 +209,8 @@ class StartConfigViewController: UIViewController {
                 return true
             }
         } else {
-            self.showToast(message: "Clipboard has no text!", seconds: 2)
-            return false
+            VCheckSDK.shared.designConfig(config: VCheckDesignConfig.getDefaultThemeConfig())
+            return true
         }
     }
 }

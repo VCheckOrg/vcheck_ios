@@ -290,7 +290,9 @@ struct CreateVerificationRequestBody: Codable {
         let callbackUrl: String = "\(RemoteDatasource.verifBaseUrl)ping"
         let sessionLifetime: Int = 3600
               
-        self.partnerId = LocalDatasource.shared.getPartnerId()!
+        self.partnerId = LocalDatasource.shared.getPartnerId() ?? 0
+        let partnerSecret = LocalDatasource.shared.getSecret()
+        
         self.timestamp = Int(ts)! //TODO: handle wrong format
         self.scheme = scheme
         self.locale = locale
@@ -299,7 +301,8 @@ struct CreateVerificationRequestBody: Codable {
         self.callbackUrl = callbackUrl
         self.sessionLifetime = sessionLifetime
       
-        let strToSign = "\(self.partnerId)\(self.partnerUserId)\(self.partnerVerificationId)\(self.scheme)\(self.timestamp)\(String(describing: LocalDatasource.shared.getSecret()))"
+        let strToSign = "\(self.partnerId)\(self.partnerUserId)\(self.partnerVerificationId)\(self.scheme)\(self.timestamp)\(partnerSecret!)"
+                
         self.sign = strToSign.sha256()
   }
 }
