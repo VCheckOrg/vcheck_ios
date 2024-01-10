@@ -23,9 +23,11 @@ enum DocumentVerificationCode {
     case INVALID_PAGE // = 11
     case FRAUD // = 12
     case BLUR // = 13
+    case PRINT // = 14
 }
 
 extension DocumentVerificationCode {
+    
     func toCodeIdx() -> Int {
         switch(self) {
             case DocumentVerificationCode.VERIFICATION_NOT_INITIALIZED: return 0
@@ -42,11 +44,12 @@ extension DocumentVerificationCode {
             case DocumentVerificationCode.INVALID_PAGE: return 11
             case DocumentVerificationCode.FRAUD: return 12
             case DocumentVerificationCode.BLUR: return 13
+            case DocumentVerificationCode.PRINT: return 14
         }
     }
 }
 
-func codeIdxToVerificationCode(codeIdx: Int) -> DocumentVerificationCode {
+func codeIdxToDocumentVerificationCode(codeIdx: Int) -> DocumentVerificationCode {
     switch(codeIdx) {
         case 0: return DocumentVerificationCode.VERIFICATION_NOT_INITIALIZED
         case 1: return DocumentVerificationCode.USER_INTERACTED_COMPLETED
@@ -62,6 +65,7 @@ func codeIdxToVerificationCode(codeIdx: Int) -> DocumentVerificationCode {
         case 11: return DocumentVerificationCode.INVALID_PAGE
         case 12: return DocumentVerificationCode.FRAUD
         case 13: return DocumentVerificationCode.BLUR
+        case 14: return DocumentVerificationCode.PRINT
         default: return DocumentVerificationCode.VERIFICATION_NOT_INITIALIZED
     }
 }

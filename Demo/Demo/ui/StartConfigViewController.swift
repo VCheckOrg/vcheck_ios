@@ -50,7 +50,8 @@ class StartConfigViewController: UIViewController {
             LocalDatasource.shared.setLang(code: LocalDatasource.shared.getCurrentSDKLangauge())
             Bundle.setLanguage(LocalDatasource.shared.getLang())
         } else {
-            LocalDatasource.shared.setLang(code: Locale.current.language.languageCode?.identifier ?? "uk")
+            //LocalDatasource.shared.setLang(code: Locale.current.language.languageCode?.identifier ?? "uk")
+            LocalDatasource.shared.setLang(code: Locale.current.languageCode ?? "uk")
         }
         
         ///Overriding entire app and SDK theme to light (essential ATM)

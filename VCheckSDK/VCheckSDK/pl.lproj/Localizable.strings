@@ -154,6 +154,8 @@
 "doc_verif_blur_text" = "Przepraszamy, nie możemy zweryfikować z powodu rozmazanego zdjęcia. Zrób proszę wyraźne zdjęcie dokumentu, aby kontynuować";
 "doc_verif_default_title" = "Weryfikacja dokumentu nie powiodła się";
 "doc_verif_default_text" = "Z jakiegoś powodu nie mogliśmy załadować zawartości tej strony. Spróbuj ponownie załadować stronę";
+"doc_verif_print_title" = "Znaleziono kopię";
+"doc_verif_print_text" = "Prześlij oryginał dokumentu";
 
 "in_process_title" = "Proszę czekać";
 "in_process_description" = "To może zająć troche czasu.";

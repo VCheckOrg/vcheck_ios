@@ -153,7 +153,7 @@ class CheckDocPhotoViewController : UIViewController {
         if (segue.identifier == "DocPhotoCheckToError") {
             let vc = segue.destination as! DocPhotoVerifErrorViewController
             
-            vc.errorCode = codeIdxToVerificationCode(codeIdx: (self.viewModel.uploadResponse?.errorCode ?? 0))
+            vc.errorCode = codeIdxToDocumentVerificationCode(codeIdx: (self.viewModel.uploadResponse?.errorCode ?? 0))
             vc.isDocCheckForced = true
             if (self.viewModel.uploadResponse?.data?.id != nil) {
                 vc.docId = self.viewModel.uploadResponse?.data?.id
