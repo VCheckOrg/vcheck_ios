@@ -151,7 +151,7 @@
 "doc_verif_fraud_title" = "Zdjęcie z ekranu wykryte";
 "doc_verif_fraud_text" = "Aby przejść weryfikację, musisz przesłać zdjęcie oryginalnego dokumentu";
 "doc_verif_blur_title" = "Rozmyte zdjęcie";
-"doc_verif_blur_text" = "Przepraszamy, nie możemy zweryfikować z powodu rozmazanego zdjęcia. Zrób proszę wyraźne zdjęcie dokumentu, aby kontynuować";
+"doc_verif_blur_text" = "Zrób proszę wyraźne zdjęcie dokumentu, aby kontynuować";
 "doc_verif_default_title" = "Weryfikacja dokumentu nie powiodła się";
 "doc_verif_default_text" = "Z jakiegoś powodu nie mogliśmy załadować zawartości tej strony. Spróbuj ponownie załadować stronę";
 "doc_verif_print_title" = "Znaleziono kopię";
