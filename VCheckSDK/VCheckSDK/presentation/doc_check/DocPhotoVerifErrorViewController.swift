@@ -91,6 +91,8 @@ class DocPhotoVerifErrorViewController : UIViewController {
             return "doc_verif_fraud_title".localized
         case .BLUR:
             return "doc_verif_blur_title".localized
+        case .PRINT:
+            return "doc_verif_print_title".localized
         default:
             return "Document Verification Error"
         }
@@ -126,6 +128,8 @@ class DocPhotoVerifErrorViewController : UIViewController {
             return "doc_verif_fraud_text".localized
         case .BLUR:
             return "doc_verif_blur_text".localized
+        case .PRINT:
+            return "doc_verif_print_text".localized
         default:
             return "Document Verification Error"
         }

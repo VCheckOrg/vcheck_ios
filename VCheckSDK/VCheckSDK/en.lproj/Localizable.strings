@@ -132,9 +132,11 @@
 "doc_verif_fraud_title" = "Photo from screen detected";
 "doc_verif_fraud_text" = "To pass verification, you must upload a photo of the original document";
 "doc_verif_blur_title" = "Blurred photo";
-"doc_verif_blur_text" = "Sorry, we can't verify due to blurry photo. Please take a clear picture of the document to continue.";
+"doc_verif_blur_text" = "Please take a clear picture of the document to continue";
 "doc_verif_default_title" = "Document verification is not successful";
 "doc_verif_default_text" = "For some reason, we were unable to download the content of this page. Try reloading the page.";
+"doc_verif_print_title" = "Copy detected";
+"doc_verif_print_text" = "Please upload the original of your document";
 
 "in_process_title" = "Please, wait";
 "in_process_description" = "This may take some time";
