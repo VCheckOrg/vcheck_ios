@@ -6,59 +6,59 @@
   
 */
 
-"confirm"="Confirm";
-"cancel"="Cancel";
-"demo_app_title"="Sample VCheck SDK Partner app";
-"become_a_partner"="Become a partner";
-"repeat_demo"="Try again";
+"confirm"="Підтвердити";
+"cancel"="Скасувати";
+"demo_app_title"="Зразок партнерської програми VCheck SDK";
+"become_a_partner"="Стати партнером";
+"repeat_demo"="Спробуйте знову";
 
-"verification_in_process_title"="You application is processing";
-"verification_in_process_subtitle"="This may take some time. Please, keep the app in foreground mode.";
+"verification_in_process_title"="Ваша заявка обробляється";
+"verification_in_process_subtitle"="Це може тривати деякий час. Будь ласка, не закривайте та не переводьте програму у фоновий режим.";
 
-"verification_success_title"="Verification successful";
-"verification_success_descr"="You have been verified. Thank you for using our demos. You can retry flow by pressing button below.";
+"verification_success_title"="Перевірка успішна";
+"verification_success_descr"="Ви пройшли верифікацію. Дякуємо вам за використання наших демо-версій. Ви можете повторити операцію, натиснувши кнопку нижче.";
 
-"verification_failed_title"="Verification failed";
-"verification_failed_descr"="Unfortunately, your verification was not successful. You can try again by pressing the button below.";
+"verification_failed_title"="Не вдалося перевірити";
+"verification_failed_descr"="На жаль, ваша перевірка не пройшла успішно. Ви можете спробувати ще раз, натиснувши кнопку нижче.";
 
-"full_verification"="Full Verification";
-"verification_of_documents"="Verification Of Documents";
-"verification_of_liveness"="Verification Of Liveness";
-"choose_custom_sdk_ui_colors_optional"="Choose custom SDK UI colors (optional):";
-"background_primary_color"="- Background primary color";
-"background_color_for_main_cards_n_and_sections"="- Background color for main cards\n and sections";
-"background_color_for_complex_n_buttons_and_smaller_cards"="- Background color for complex\n buttons and smaller cards";
-"primary_text_color"="- Primary text color";
-"secondary_text_color"="- Secondary text color";
-"common_action_buttons_color"="- Common action buttons color";
-"borders_color"="- Borders color";
-"icons_color"="- Icons color";
-"reset_colors"="Reset colors";
-"buttons_text_color"="Common buttons text color";
+"full_verification"="Повна перевірка";
+"verification_of_documents"="Перевірка документів";
+"verification_of_liveness"="Перевірка на живість";
+"choose_custom_sdk_ui_colors_optional"="Виберіть користувацькі кольори інтерфейсу SDK (необов’язково):";
+"background_primary_color"="- Основний колір фону";
+"background_color_for_main_cards_n_and_sections"="- Колір фону для основних карток\n і розділів";
+"background_color_for_complex_n_buttons_and_smaller_cards"="- Колір фону для складних\n кнопок і менших карток";
+"primary_text_color"="- Основний колір тексту";
+"secondary_text_color"="- Вторинний колір тексту";
+"common_action_buttons_color"="- Колір основних кнопок";
+"borders_color"="- Колір границь";
+"icons_color"="- Колір іконок";
+"reset_colors"="Скинути кольори";
+"buttons_text_color"="Колір тексту основних кнопок";
 
-"partner_inv_title"="Become a VCHECK partner";
-"partner_inv_form_descr"="Fill out the form and our specialist will contact you soon";
-"partner_inv_company"="Company";
+"partner_inv_title"="Станьте партнером VCHECK";
+"partner_inv_form_descr"="Заповніть форму і наш спеціаліст зв'яжеться з вами найближчим часом";
+"partner_inv_company"="Компанія";
 "partner_inv_email"="Email";
-"partner_inv_name"="Name";
-"partner_inv_phone"="Phone";
-"partner_inv_agree"="I agree to the processing of personal data";
-"send"="Become a partner";
+"partner_inv_name"="Ім'я";
+"partner_inv_phone"="Номер телефону";
+"partner_inv_agree"="Даю згоду на обробку персональних даних";
+"send"="Стати партнером";
 
-"partner_form_successfully_sent"="The form has been submitted successfully. We will contact you shortly. Thank you for your interest in our product!";
-"partner_form_request_error"="Error: form was not successfully submitted";
+"partner_form_successfully_sent"="Форму успішно надіслано. Ми зв'яжемося з вами найближчим часом. Дякуємо за інтерес до нашого продукту!";
+"partner_form_request_error"="Помилка: форму не було успішно надіслано";
 
-"et_enter_valid_email"="Please enter valid email";
-"et_enter_valid_name"="Please enter valid name";
-"et_enter_valid_company"="Please enter valid company name";
-"et_enter_valid_phone"="Please enter valid phone";
+"et_enter_valid_email"="Введіть дійсну адресу електронної пошти";
+"et_enter_valid_name"="Введіть дійсне ім'я";
+"et_enter_valid_company"="Введіть дійсну назву компанії";
+"et_enter_valid_phone"="Введіть дійсний номер телефону";
 
-"agreement_not_checked"="To continue you have to agree to data processing";
+"agreement_not_checked"="Щоб продовжити, ви повинні погодитися на обробку даних";
 
-"pop_sdk_title" = "To verification start";
+"pop_sdk_title" = "До старту верифікації";
 
-"upload_design_config_descr" = "You can paste json text data from clipboard with the theme config generated by our service to customize UI/UX looks";
-"upload_design_config_file" = "Paste";
+"upload_design_config_descr" = "Ви можете вставити текстові дані json із буфера обміну за допомогою конфігурації теми, створеної нашою службою, щоб налаштувати зовнішній вигляд UI/UX";
+"upload_design_config_file" = "Вставити";
 
 "partner_id"="ID партнера";
 "partner_secret"="Секрет партнера";
@@ -68,5 +68,7 @@
 "err_invalid_partner_id"="Некоректний ID партнера";
 "err_invalid_partner_secret"="Некоректний секрет партнера";
 "err_clipboard_has_no_data"="Буфер обміну не має даних!";
+"err_invalid_partner_data"="Неможливо створити верифікацію через невалідні дані партнера";
 "clipboard_pasted"="Дані буфера обміну вставлено";
 "err_verif_expired"="Термін дії верифікації минув. Повторіть спробу";
+

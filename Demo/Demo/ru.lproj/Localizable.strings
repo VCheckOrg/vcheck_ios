@@ -6,59 +6,59 @@
   
 */
 
-"confirm"="Confirm";
-"cancel"="Cancel";
-"demo_app_title"="Sample VCheck SDK Partner app";
-"become_a_partner"="Become a partner";
-"repeat_demo"="Try again";
+"confirm"="Подтвердить";
+"cancel"="Отмена";
+"demo_app_title"="Пример партнерского приложения VCheck SDK";
+"become_a_partner"="Стать партнером";
+"repeat_demo"="Попробуйте еще раз";
 
-"verification_in_process_title"="You application is processing";
-"verification_in_process_subtitle"="This may take some time. Please, keep the app in foreground mode.";
+"verification_in_process_title"="Ваша заявка обрабатывается";
+"verification_in_process_subtitle"="Это может занять некоторое время. Пожалуйста, не закрывайте и не переводите приложение в фоновый режим.";
 
-"verification_success_title"="Verification successful";
-"verification_success_descr"="You have been verified. Thank you for using our demos. You can retry flow by pressing button below.";
+"verification_success_title"="Проверка прошла успешно";
+"verification_success_descr"="Вы прошли верификацию. Благодарим вас за использование наших демо-версий. Вы можете повторить операцию, нажав кнопку ниже.";
 
-"verification_failed_title"="Verification failed";
-"verification_failed_descr"="Unfortunately, your verification was not successful. You can try again by pressing the button below.";
+"verification_failed_title"="Проверка не удалась";
+"verification_failed_descr"="К сожалению, ваша проверка не прошла успешно. Вы можете попробовать еще раз, нажав кнопку ниже.";
 
-"full_verification"="Full Verification";
-"verification_of_documents"="Verification Of Documents";
-"verification_of_liveness"="Verification Of Liveness";
-"choose_custom_sdk_ui_colors_optional"="Choose custom SDK UI colors (optional):";
-"background_primary_color"="- Background primary color";
-"background_color_for_main_cards_n_and_sections"="- Background color for main cards\n and sections";
-"background_color_for_complex_n_buttons_and_smaller_cards"="- Background color for complex\n buttons and smaller cards";
-"primary_text_color"="- Primary text color";
-"secondary_text_color"="- Secondary text color";
-"common_action_buttons_color"="- Common action buttons color";
-"borders_color"="- Borders color";
-"icons_color"="- Icons color";
-"reset_colors"="Reset colors";
-"buttons_text_color"="Common buttons text color";
+"full_verification"="Полная проверка";
+"verification_of_documents"="Проверка документов";
+"verification_of_liveness"="Проверка на живость";
+"choose_custom_sdk_ui_colors_optional"="Выберите пользовательские цвета пользовательского интерфейса SDK (необязательно):";
+"background_primary_color"="- Основной цвет фона";
+"background_color_for_main_cards_n_and_sections"="- Цвет фона для основных карточек\n и разделов";
+"background_color_for_complex_n_buttons_and_smaller_cards"="- Цвет фона для сложных\n кнопок и карточек меньшего размера";
+"primary_text_color"="- Основной цвет текста";
+"secondary_text_color"="- Дополнительный цвет текста";
+"common_action_buttons_color"="- Цвет основных кнопок";
+"borders_color"="- Цвет границ";
+"icons_color"="- Цвет иконок";
+"reset_colors"="Сбросить цвета";
+"buttons_text_color"="Цвет текста основных кнопок";
 
-"partner_inv_title"="Become a VCHECK partner";
-"partner_inv_form_descr"="Fill out the form and our specialist will contact you soon";
-"partner_inv_company"="Company";
+"partner_inv_title"="Стать партнером VCHECK";
+"partner_inv_form_descr"="Заполните форму и наш специалист свяжется с вами в ближайшее время";
+"partner_inv_company"="Компания";
 "partner_inv_email"="Email";
-"partner_inv_name"="Name";
-"partner_inv_phone"="Phone";
-"partner_inv_agree"="I agree to the processing of personal data";
-"send"="Become a partner";
+"partner_inv_name"="Имя";
+"partner_inv_phone"="Номер телефона";
+"partner_inv_agree"="Я согласен на обработку персональных данных";
+"send"="Стать партнером";
 
-"partner_form_successfully_sent"="The form has been submitted successfully. We will contact you shortly. Thank you for your interest in our product!";
-"partner_form_request_error"="Error: form was not successfully submitted";
+"partner_form_successfully_sent"="Форма успешно отправлена. Мы свяжемся с Вами в скором времени. Благодарим Вас за интерес к нашему продукту!";
+"partner_form_request_error"="Ошибка: форма не была успешно отправлена";
 
-"et_enter_valid_email"="Please enter valid email";
-"et_enter_valid_name"="Please enter valid name";
-"et_enter_valid_company"="Please enter valid company name";
-"et_enter_valid_phone"="Please enter valid phone";
+"et_enter_valid_email"="Пожалуйста, введите действительный адрес электронной почты";
+"et_enter_valid_name"="Пожалуйста, введите действительное имя";
+"et_enter_valid_company"="Пожалуйста, введите действительное название компании";
+"et_enter_valid_phone"="Пожалуйста, введите действительный номер телефона";
 
-"agreement_not_checked"="To continue you have to agree to data processing";
+"agreement_not_checked"="Для продолжения вам необходимо согласиться на обработку данных";
 
-"pop_sdk_title" = "To verification start";
+"pop_sdk_title" = "К началу верификации";
 
-"upload_design_config_descr" = "You can paste json text data from clipboard with the theme config generated by our service to customize UI/UX looks";
-"upload_design_config_file" = "Paste";
+"upload_design_config_descr" = "Вы можете вставить текстовые данные JSON из буфера обмена с конфигурацией темы, созданной нашим сервисом, чтобы настроить вид UI/UX";
+"upload_design_config_file" = "Вставить";
 
 "partner_id"="ID партнера";
 "partner_secret"="Секрет партнера";
@@ -68,5 +68,6 @@
 "err_invalid_partner_id"="Некорректный ID партнера";
 "err_invalid_partner_secret"="Некорректный секрет партнера";
 "err_clipboard_has_no_data"="В буфере обмена нет данных!";
+"err_invalid_partner_data"="Невозможно создать верификацию из-за невалидных данных партнера";
 "clipboard_pasted"="Данные из буфера обмена вставлены";
 "err_verif_expired"="Срок верификации истек. Попробуйте еще раз";

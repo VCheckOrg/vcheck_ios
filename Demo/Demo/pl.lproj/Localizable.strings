@@ -6,14 +6,14 @@
   
 */
 
-"confirm"="Confirm";
-"cancel"="Cancel";
-"demo_app_title"="Sample VCheck SDK Partner app";
-"become_a_partner"="Become a partner";
-"repeat_demo"="Try again";
+"confirm"="Potwierdzać";
+"cancel"="Anulować";
+"demo_app_title"="Przykładowa aplikacja partnerska VCheck SDK";
+"become_a_partner"="Stać się partnerem";
+"repeat_demo"="Spróbuj ponownie";
 
-"verification_in_process_title"="You application is processing";
-"verification_in_process_subtitle"="This may take some time. Please, keep the app in foreground mode.";
+"verification_in_process_title"="Twój wniosek jest przetwarzany";
+"verification_in_process_subtitle"="Może to zająć trochę czasu. Nie zamykaj ani nie umieszczaj aplikacji w tle.";
 
 "verification_success_title"="Verification successful";
 "verification_success_descr"="You have been verified. Thank you for using our demos. You can retry flow by pressing button below.";
@@ -68,5 +68,6 @@
 "err_invalid_partner_id"="Nieprawidłowy identyfikator partnera";
 "err_invalid_partner_secret"="Nieprawidłowy sekret partnera";
 "err_clipboard_has_no_data"="Schowek nie zawiera danych!";
+"err_invalid_partner_data"="Nie można utworzyć weryfikacji z powodu nieprawidłowych danych partnera";
 "clipboard_pasted"="Wklejono dane ze schowka";
 "err_verif_expired"="Weryfikacja wygasła. Spróbuj ponownie";

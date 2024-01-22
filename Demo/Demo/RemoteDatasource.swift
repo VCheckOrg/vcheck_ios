@@ -88,8 +88,12 @@ struct RemoteDatasource {
             }
               
               if (response.errorCode != nil && response.errorCode != 0) {
-                  completion(nil, "\(String(describing: response.errorCode)): "
-                                       + "\(response.message ?? "")")
+                  if(response.errorCode == 1001) {
+                      completion(nil,"err_invalid_partner_data".localized)
+                  } else {
+                      completion(nil, "\(String(describing: response.errorCode)): "
+                                           + "\(response.message ?? "")")
+                  }
                   return
               }
               completion(response.data, nil)

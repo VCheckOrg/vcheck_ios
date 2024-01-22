@@ -8,7 +8,7 @@
 import UIKit
 import VCheckSDK
 
-class StartConfigViewController: UIViewController {
+class StartConfigViewController: UIViewController , UITextViewDelegate {
     
     @IBOutlet weak var partnerIdTitle: UITextView!
     @IBOutlet weak var partnerSecretTitle: UITextView!
@@ -18,7 +18,7 @@ class StartConfigViewController: UIViewController {
     @IBOutlet weak var tfPartnerSecret: UITextField!
     @IBOutlet weak var tfTVDesignConfig: UITextView!
     
-    @IBOutlet weak var showButton: UIButton!
+    @IBOutlet weak var menuButton: UIButton!
     
     @IBAction func pastePartnerId(_ sender: Any) {
         tfPartnerID.text = getClipboardData()
@@ -42,10 +42,22 @@ class StartConfigViewController: UIViewController {
     
     @IBOutlet weak var btnChooseStage: UIButton!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+        
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        scrollView.scrollToBottom(animated: true)
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        scrollView.setContentOffset(.zero, animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tfTVDesignConfig.delegate = self
+
         if (LocalDatasource.shared.isLocaleUserDefined() == true) {
             LocalDatasource.shared.setLang(code: LocalDatasource.shared.getCurrentSDKLangauge())
             Bundle.setLanguage(LocalDatasource.shared.getLang())
@@ -133,14 +145,14 @@ class StartConfigViewController: UIViewController {
         let menu = UIMenu(title: "Choose Language", options: .displayInline, children: children)
         
         switch(LocalDatasource.shared.getLang()) {
-            case "uk": showButton.titleLabel?.text = "Українська"
-            case "ru": showButton.titleLabel?.text = "Русский"
-            case "pl": showButton.titleLabel?.text = "Polski"
-            default: showButton.titleLabel?.text = "English"
+            case "uk": menuButton.titleLabel?.text = "Українська"
+            case "ru": menuButton.titleLabel?.text = "Русский"
+            case "pl": menuButton.titleLabel?.text = "Polski"
+            default: menuButton.titleLabel?.text = "English"
         }
         
-        showButton.menu = menu
-        showButton.showsMenuAsPrimaryAction = true
+        menuButton.menu = menu
+        menuButton.showsMenuAsPrimaryAction = true
     }
     
     func onLocaleChangeAttempt(locale: String) {

@@ -46,7 +46,7 @@ class LivenessInstructionsViewController: UIViewController {
                 case 3:
                     self.setupOrUpdateFaceSidesAnimation()
                 case 4:
-                    self.startMouthOpeningCycle()
+                    self.startBlinkEyesCycle()
                 default:
                     break;
             }
@@ -127,7 +127,7 @@ class LivenessInstructionsViewController: UIViewController {
         }
     }
     
-    func startMouthOpeningCycle() {
+    func startBlinkEyesCycle() {
         
         rightFadingCircle.isHidden = true
         leftFadingCircle.isHidden = true
@@ -135,7 +135,7 @@ class LivenessInstructionsViewController: UIViewController {
         
         animsHolder.subviews.forEach { $0.removeFromSuperview() }
         
-        faceAnimationView = LottieAnimationView(name: "mouth", bundle: InternalConstants.bundle)
+        faceAnimationView = LottieAnimationView(name: "blink", bundle: InternalConstants.bundle)
         
         faceAnimationView.isHidden = true
         

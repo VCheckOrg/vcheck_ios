@@ -68,5 +68,6 @@
 "err_invalid_partner_id"="Invalid partner ID";
 "err_invalid_partner_secret"="Invalid partner secret";
 "err_clipboard_has_no_data"="Clipboard has no data!";
+"err_invalid_partner_data"="Unable to create verification due to invalid partner data";
 "clipboard_pasted"="Clipboard data pasted";
 "err_verif_expired"="Verification expired. Try again";
