@@ -68,6 +68,6 @@
 "err_invalid_partner_id"="Некорректный ID партнера";
 "err_invalid_partner_secret"="Некорректный секрет партнера";
 "err_clipboard_has_no_data"="В буфере обмена нет данных!";
-"err_invalid_partner_data"="Невозможно создать верификацию из-за невалидных данных партнера";
+"err_invalid_partner_data"="Невалидные данные партнера";
 "clipboard_pasted"="Данные из буфера обмена вставлены";
 "err_verif_expired"="Срок верификации истек. Попробуйте еще раз";

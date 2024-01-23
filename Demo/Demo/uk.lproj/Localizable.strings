@@ -68,7 +68,7 @@
 "err_invalid_partner_id"="Некоректний ID партнера";
 "err_invalid_partner_secret"="Некоректний секрет партнера";
 "err_clipboard_has_no_data"="Буфер обміну не має даних!";
-"err_invalid_partner_data"="Неможливо створити верифікацію через невалідні дані партнера";
+"err_invalid_partner_data"="Невалідні дані партнера";
 "clipboard_pasted"="Дані буфера обміну вставлено";
 "err_verif_expired"="Термін дії верифікації минув. Повторіть спробу";
 
