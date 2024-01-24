@@ -71,7 +71,6 @@
 		DA480C2C2B11161D00B3FA16 /* id_card_turn_side.json in Resources */ = {isa = PBXBuildFile; fileRef = DA480C232B11161C00B3FA16 /* id_card_turn_side.json */; };
 		DA480C2D2B11161D00B3FA16 /* arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = DA480C242B11161C00B3FA16 /* arrow.json */; };
 		DA480C2E2B11161D00B3FA16 /* down.json in Resources */ = {isa = PBXBuildFile; fileRef = DA480C252B11161C00B3FA16 /* down.json */; };
-		DA480C2F2B11161D00B3FA16 /* mouth.json in Resources */ = {isa = PBXBuildFile; fileRef = DA480C262B11161C00B3FA16 /* mouth.json */; };
 		DA480C302B11161D00B3FA16 /* passport_flip.json in Resources */ = {isa = PBXBuildFile; fileRef = DA480C272B11161C00B3FA16 /* passport_flip.json */; };
 		DA480C312B11161D00B3FA16 /* right.json in Resources */ = {isa = PBXBuildFile; fileRef = DA480C282B11161C00B3FA16 /* right.json */; };
 		DA480C322B11161D00B3FA16 /* left.json in Resources */ = {isa = PBXBuildFile; fileRef = DA480C292B11161D00B3FA16 /* left.json */; };
@@ -93,6 +92,7 @@
 		DAD302F029E6E9440057C58E /* ChooseProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD302EF29E6E9440057C58E /* ChooseProviderViewController.swift */; };
 		DAD302F229E6E9800057C58E /* InitProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD302F129E6E9800057C58E /* InitProviderViewController.swift */; };
 		DAD302F429E6E98F0057C58E /* InitProviderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD302F329E6E98F0057C58E /* InitProviderViewModel.swift */; };
+		DC3CAB1B2B5929F600DAA2E8 /* blink.json in Resources */ = {isa = PBXBuildFile; fileRef = DC3CAB1A2B5929F500DAA2E8 /* blink.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -181,7 +181,6 @@
 		DA480C232B11161C00B3FA16 /* id_card_turn_side.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = id_card_turn_side.json; sourceTree = "<group>"; };
 		DA480C242B11161C00B3FA16 /* arrow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = arrow.json; sourceTree = "<group>"; };
 		DA480C252B11161C00B3FA16 /* down.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = down.json; sourceTree = "<group>"; };
-		DA480C262B11161C00B3FA16 /* mouth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mouth.json; sourceTree = "<group>"; };
 		DA480C272B11161C00B3FA16 /* passport_flip.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = passport_flip.json; sourceTree = "<group>"; };
 		DA480C282B11161C00B3FA16 /* right.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = right.json; sourceTree = "<group>"; };
 		DA480C292B11161D00B3FA16 /* left.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = left.json; sourceTree = "<group>"; };
@@ -205,6 +204,7 @@
 		DAD302F329E6E98F0057C58E /* InitProviderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitProviderViewModel.swift; sourceTree = "<group>"; };
 		DAE5434C28A5822A00AEBC26 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/VCheckFlow.strings; sourceTree = "<group>"; };
 		DAE5434D28A5822C00AEBC26 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DC3CAB1A2B5929F500DAA2E8 /* blink.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = blink.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,7 +283,7 @@
 				DA480C222B11161C00B3FA16 /* face_plus_phone.json */,
 				DA480C232B11161C00B3FA16 /* id_card_turn_side.json */,
 				DA480C292B11161D00B3FA16 /* left.json */,
-				DA480C262B11161C00B3FA16 /* mouth.json */,
+				DC3CAB1A2B5929F500DAA2E8 /* blink.json */,
 				DA480C272B11161C00B3FA16 /* passport_flip.json */,
 				DA480C282B11161C00B3FA16 /* right.json */,
 				DA480C212B11161C00B3FA16 /* up.json */,
@@ -590,11 +590,11 @@
 			files = (
 				DA480C2C2B11161D00B3FA16 /* id_card_turn_side.json in Resources */,
 				DA480C2E2B11161D00B3FA16 /* down.json in Resources */,
+				DC3CAB1B2B5929F600DAA2E8 /* blink.json in Resources */,
 				DA480C2B2B11161D00B3FA16 /* face_plus_phone.json in Resources */,
 				DA480C2A2B11161D00B3FA16 /* up.json in Resources */,
 				DA480C302B11161D00B3FA16 /* passport_flip.json in Resources */,
 				DA3BED652869A76700B15E5C /* Assets.xcassets in Resources */,
-				DA480C2F2B11161D00B3FA16 /* mouth.json in Resources */,
 				DA480C312B11161D00B3FA16 /* right.json in Resources */,
 				DA480C322B11161D00B3FA16 /* left.json in Resources */,
 				DA3BEE0A2869B25D00B15E5C /* Localizable.strings in Resources */,
@@ -877,7 +877,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 56;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 8X5XV4T3QP;
+				DEVELOPMENT_TEAM = JA9Q77LK6Q;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -914,7 +914,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 56;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 8X5XV4T3QP;
+				DEVELOPMENT_TEAM = JA9Q77LK6Q;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

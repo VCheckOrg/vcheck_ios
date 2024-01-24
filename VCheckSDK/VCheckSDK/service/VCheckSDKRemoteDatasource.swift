@@ -473,7 +473,10 @@ struct VCheckSDKRemoteDatasource {
     
     func checkStageErrorForResult(errorCode: Int?) {
         print("Stage check error code: \(String(describing: errorCode))")
-        if (errorCode != nil
+        if (errorCode != nil && errorCode == BaseClientErrors.USER_INTERACTED_COMPLETED ) {
+            VCheckSDK.shared.setIsVerificationExpired(isExpired: false)
+            VCheckSDK.shared.finish(executePartnerCallback: true)
+        } else if (errorCode != nil
             && errorCode! > StageErrorType.VERIFICATION_NOT_INITIALIZED.toTypeIdx()) {
             VCheckSDK.shared.setIsVerificationExpired(isExpired: true)
             VCheckSDK.shared.finish(executePartnerCallback: false)
