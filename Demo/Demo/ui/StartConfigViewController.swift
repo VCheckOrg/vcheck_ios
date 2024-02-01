@@ -145,10 +145,10 @@ class StartConfigViewController: UIViewController , UITextViewDelegate {
         let menu = UIMenu(title: "Choose Language", options: .displayInline, children: children)
         
         switch(LocalDatasource.shared.getLang()) {
-            case "uk": menuButton.titleLabel?.text = "Українська"
-            case "ru": menuButton.titleLabel?.text = "Русский"
-            case "pl": menuButton.titleLabel?.text = "Polski"
-            default: menuButton.titleLabel?.text = "English"
+            case "uk": menuButton.setTitle(" Українська", for: .normal)
+            case "ru": menuButton.setTitle(" Русский", for: .normal)
+            case "pl": menuButton.setTitle(" Polski", for: .normal)
+            default: menuButton.setTitle(" English", for: .normal)
         }
         
         menuButton.menu = menu

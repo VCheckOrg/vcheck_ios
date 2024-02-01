@@ -245,10 +245,10 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GbO-lM-Ose" userLabel="menuButton">
-                                                <rect key="frame" x="309.66666666666669" y="30" width="54.333333333333314" height="16"/>
+                                                <rect key="frame" x="255" y="30" width="109" height="16"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="globe" catalog="system" title=" "/>
+                                                <buttonConfiguration key="configuration" style="plain" image="globe" catalog="system" title=" English"/>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YYK-oR-Fng">
                                                 <rect key="frame" x="364" y="32" width="16" height="11.333333333333329"/>
