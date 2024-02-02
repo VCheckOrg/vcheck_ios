@@ -27,6 +27,8 @@
 
 "liveness_stage_face_down" = "Opuść głowę";
 
+"liveness_stage_open_mouth" = "Otwórz usta";
+
 "liveness_stage_blink_eyes" = "Mrugnij oczami";
 
 "photo_loaing_wait_discl" = "Proszę czekać. Zdjęcie Twojego dokumentu jest przesyłane i przetwarzane. Może to trwać od kilku sekund do minuty.";

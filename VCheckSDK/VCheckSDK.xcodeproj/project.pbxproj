@@ -92,6 +92,7 @@
 		DAD302F029E6E9440057C58E /* ChooseProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD302EF29E6E9440057C58E /* ChooseProviderViewController.swift */; };
 		DAD302F229E6E9800057C58E /* InitProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD302F129E6E9800057C58E /* InitProviderViewController.swift */; };
 		DAD302F429E6E98F0057C58E /* InitProviderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD302F329E6E98F0057C58E /* InitProviderViewModel.swift */; };
+		DC322C592B6CF2B30096494D /* mouth.json in Resources */ = {isa = PBXBuildFile; fileRef = DC322C582B6CF2B30096494D /* mouth.json */; };
 		DC3CAB1B2B5929F600DAA2E8 /* blink.json in Resources */ = {isa = PBXBuildFile; fileRef = DC3CAB1A2B5929F500DAA2E8 /* blink.json */; };
 /* End PBXBuildFile section */
 
@@ -204,6 +205,7 @@
 		DAD302F329E6E98F0057C58E /* InitProviderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitProviderViewModel.swift; sourceTree = "<group>"; };
 		DAE5434C28A5822A00AEBC26 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/VCheckFlow.strings; sourceTree = "<group>"; };
 		DAE5434D28A5822C00AEBC26 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DC322C582B6CF2B30096494D /* mouth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = mouth.json; path = ../../../../../../Downloads/mouth.json; sourceTree = "<group>"; };
 		DC3CAB1A2B5929F500DAA2E8 /* blink.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = blink.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -284,6 +286,7 @@
 				DA480C232B11161C00B3FA16 /* id_card_turn_side.json */,
 				DA480C292B11161D00B3FA16 /* left.json */,
 				DC3CAB1A2B5929F500DAA2E8 /* blink.json */,
+				DC322C582B6CF2B30096494D /* mouth.json */,
 				DA480C272B11161C00B3FA16 /* passport_flip.json */,
 				DA480C282B11161C00B3FA16 /* right.json */,
 				DA480C212B11161C00B3FA16 /* up.json */,
@@ -600,6 +603,7 @@
 				DA3BEE0A2869B25D00B15E5C /* Localizable.strings in Resources */,
 				DA3BEE0F2869B49100B15E5C /* VCheckFlow.storyboard in Resources */,
 				DA480C2D2B11161D00B3FA16 /* arrow.json in Resources */,
+				DC322C592B6CF2B30096494D /* mouth.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

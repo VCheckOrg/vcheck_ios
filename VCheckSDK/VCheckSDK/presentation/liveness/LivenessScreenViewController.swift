@@ -372,6 +372,8 @@ extension LivenessScreenViewController {
             self.tvLivenessInfo.text = "liveness_stage_face_left".localized
         } else if (forMilestoneType == GestureMilestoneType.OuterRightHeadYawMilestone) {
             self.tvLivenessInfo.text = "liveness_stage_face_right".localized
+        } else if (forMilestoneType == GestureMilestoneType.MouthOpenMilestone) {
+            self.tvLivenessInfo.text = "liveness_stage_open_mouth".localized
         } else if (forMilestoneType == GestureMilestoneType.BlinkEyesMilestone) {
             self.tvLivenessInfo.text = "liveness_stage_blink_eyes".localized
         } else if (forMilestoneType == GestureMilestoneType.UpHeadPitchMilestone) {
@@ -395,6 +397,8 @@ extension LivenessScreenViewController {
             faceAnimationView = LottieAnimationView(name: "up", bundle: InternalConstants.bundle)
         } else if (forMilestoneType == GestureMilestoneType.DownHeadPitchMilestone) {
             faceAnimationView = LottieAnimationView(name: "down", bundle: InternalConstants.bundle)
+        } else if (forMilestoneType == GestureMilestoneType.MouthOpenMilestone) {
+            faceAnimationView = LottieAnimationView(name: "mouth", bundle: InternalConstants.bundle)
         } else if (forMilestoneType == GestureMilestoneType.BlinkEyesMilestone) {
             faceAnimationView = LottieAnimationView(name: "blink", bundle: InternalConstants.bundle)
         } else {

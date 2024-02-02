@@ -17,6 +17,7 @@ enum GestureMilestoneType {
     case UpHeadPitchMilestone
     case DownHeadPitchMilestone
     
+    case MouthOpenMilestone
     case BlinkEyesMilestone
 }
 
@@ -60,6 +61,7 @@ class StandardMilestoneFlow {
             case "right": return GestureMilestoneType.OuterRightHeadYawMilestone
             case "up": return GestureMilestoneType.UpHeadPitchMilestone
             case "down": return GestureMilestoneType.DownHeadPitchMilestone
+            case "mouth": return GestureMilestoneType.MouthOpenMilestone
             case "blink": return GestureMilestoneType.BlinkEyesMilestone
             default: return GestureMilestoneType.StraightHeadCheckMilestone
         }
@@ -74,6 +76,7 @@ class StandardMilestoneFlow {
                 case GestureMilestoneType.OuterRightHeadYawMilestone: return "right"
                 case GestureMilestoneType.UpHeadPitchMilestone: return "up"
                 case GestureMilestoneType.DownHeadPitchMilestone: return "down"
+                case GestureMilestoneType.MouthOpenMilestone: return "mouth"
                 case GestureMilestoneType.BlinkEyesMilestone: return "blink"
                 default: return "straight"
             }
