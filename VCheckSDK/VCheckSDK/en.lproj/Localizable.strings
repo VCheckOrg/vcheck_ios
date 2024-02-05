@@ -26,6 +26,8 @@
 
 "liveness_stage_face_down" = "Put your head down";
 
+"liveness_stage_open_mouth" = "Open your mouth";
+
 "liveness_stage_blink_eyes" = "Blink your eyes";
 
 "photo_loaing_wait_discl" = "Please, wait. The photo of your document is being loaded and processed. This may take from a few seconds to a minute.";
